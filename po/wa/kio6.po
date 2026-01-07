@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:39+0000\n"
+"POT-Creation-Date: 2026-01-07 00:40+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Dji n' sai fé li module vårlet d' intrêye/sôrteye: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:963
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:974
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -3977,7 +3977,7 @@ msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "Voloz vs po do bon taper c' cayet ci å batch?"
 
-#: filewidgets/kurlnavigatorbutton.cpp:731
+#: filewidgets/kurlnavigatorbutton.cpp:725
 #, fuzzy, kde-format
 #| msgid "Store"
 msgctxt "@action:inmenu"
@@ -4349,32 +4349,38 @@ msgid ""
 "%1"
 msgstr "Dji n' sai candjî l' prôpietaire po %1."
 
-#: kioworkers/file/file.cpp:762
+#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#, fuzzy, kde-format
+#| msgid "Could Not Rename Temporary File"
+msgid "Could not open temporary file"
+msgstr "Dji n' sai rlomer l' fitchî timporaire"
+
+#: kioworkers/file/file.cpp:765
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Dji n' a savou trover li programe «mount»"
 
-#: kioworkers/file/file.cpp:836
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Dji n' a savou trover li programe «umount»"
 
-#: kioworkers/file/file_unix.cpp:556
+#: kioworkers/file/file_unix.cpp:567
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Dji n' sai copyî l' fitchî di %1 a %2 (Lo. d' aroke: %3)"
 
-#: kioworkers/file/file_unix.cpp:770
+#: kioworkers/file/file_unix.cpp:781
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nou media e l' éndjin po %1"
 
-#: kioworkers/file/file_unix.cpp:1031
+#: kioworkers/file/file_unix.cpp:1042
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Dji n' a savou awè l' id di l' uzeu pol no d' uzeu %1 di dné"
 
-#: kioworkers/file/file_unix.cpp:1042
+#: kioworkers/file/file_unix.cpp:1053
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Dji n' a savou awè l' id do groupe pol no do groupe %1 di dné"

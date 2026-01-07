@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:39+0000\n"
+"POT-Creation-Date: 2026-01-07 00:40+0000\n"
 "PO-Revision-Date: 2025-09-02 17:59+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Incapace a crear KIO worker: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:963
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:974
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3838,7 +3838,7 @@ msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "Vade a ulle locvation sur percurso <filename>%1</filename>"
 
-#: filewidgets/kurlnavigatorbutton.cpp:731
+#: filewidgets/kurlnavigatorbutton.cpp:725
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
@@ -4210,32 +4210,38 @@ msgstr ""
 "On non pote cambiar proprietate e gruppo per\n"
 " %1"
 
-#: kioworkers/file/file.cpp:762
+#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#, fuzzy, kde-format
+#| msgid "Could Not Rename Temporary File"
+msgid "Could not open temporary file"
+msgstr "Il non pote renominar file temporari"
+
+#: kioworkers/file/file.cpp:765
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Il non pote trovar le programma \"mount\""
 
-#: kioworkers/file/file.cpp:836
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Il non pote trovar le programma \"umount\""
 
-#: kioworkers/file/file_unix.cpp:556
+#: kioworkers/file/file_unix.cpp:567
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Il non pote copiar file ex %1 a %2. (Errno: %3)"
 
-#: kioworkers/file/file_unix.cpp:770
+#: kioworkers/file/file_unix.cpp:781
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nulle media in dispositivo pro %1"
 
-#: kioworkers/file/file_unix.cpp:1031
+#: kioworkers/file/file_unix.cpp:1042
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Il non pote obtener id de usator per le date nomine de usator %1"
 
-#: kioworkers/file/file_unix.cpp:1042
+#: kioworkers/file/file_unix.cpp:1053
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Il non pote obtener id de gruppo per le date nomine de gruppo %1"

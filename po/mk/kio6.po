@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:39+0000\n"
+"POT-Creation-Date: 2026-01-07 00:40+0000\n"
 "PO-Revision-Date: 2009-06-22 11:48+0200\n"
 "Last-Translator: Bozidar Proevski <bobibobi@freemail.com.mk>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Не можe да се создаде io-slave: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:963
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:974
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -3967,7 +3967,7 @@ msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "Дали навистина сакате да го преместите овој %1 елемент во корпата?"
 
-#: filewidgets/kurlnavigatorbutton.cpp:731
+#: filewidgets/kurlnavigatorbutton.cpp:725
 #, fuzzy, kde-format
 #| msgid "Store"
 msgctxt "@action:inmenu"
@@ -4340,32 +4340,38 @@ msgid ""
 "%1"
 msgstr "Не може да се смени сопственикот на %1."
 
-#: kioworkers/file/file.cpp:762
+#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#, fuzzy, kde-format
+#| msgid "Could Not Rename Temporary File"
+msgid "Could not open temporary file"
+msgstr "Не можам да ја преименувам привремената датотека"
+
+#: kioworkers/file/file.cpp:765
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Не можам да ја најдам програмата „mount“"
 
-#: kioworkers/file/file.cpp:836
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Не можам да ја најдам програмата „umount“"
 
-#: kioworkers/file/file_unix.cpp:556
+#: kioworkers/file/file_unix.cpp:567
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Не можам да ја копирам датотеката од %1 во %2. (грешка бр. %3)"
 
-#: kioworkers/file/file_unix.cpp:770
+#: kioworkers/file/file_unix.cpp:781
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Нема носач во уредот за %1"
 
-#: kioworkers/file/file_unix.cpp:1031
+#: kioworkers/file/file_unix.cpp:1042
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Не можам да го пронајдам ид. на корисник за корисникот %1"
 
-#: kioworkers/file/file_unix.cpp:1042
+#: kioworkers/file/file_unix.cpp:1053
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Не можам да го пронајдам ид. на група за групата %1"

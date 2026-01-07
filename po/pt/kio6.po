@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:39+0000\n"
+"POT-Creation-Date: 2026-01-07 00:40+0000\n"
 "PO-Revision-Date: 2025-12-01 11:51+0000\n"
 "Last-Translator: César A. P. Cláudio <cesarapclaudio@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
@@ -120,7 +120,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Não foi possível criar o módulo do KIO: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:963
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:974
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3923,7 +3923,7 @@ msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "Ir para qualquer localização no caminho <filename>%1</filename>"
 
-#: filewidgets/kurlnavigatorbutton.cpp:731
+#: filewidgets/kurlnavigatorbutton.cpp:725
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
@@ -4297,32 +4297,38 @@ msgstr ""
 "Não foi possível alterar o proprietário e o grupo de\n"
 "%1"
 
-#: kioworkers/file/file.cpp:762
+#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#, fuzzy, kde-format
+#| msgid "Could Not Rename Temporary File"
+msgid "Could not open temporary file"
+msgstr "Não Foi Possível Mudar o Nome do Ficheiro Temporário"
+
+#: kioworkers/file/file.cpp:765
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Não foi possível encontrar o programa \"mount\""
 
-#: kioworkers/file/file.cpp:836
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Não foi possível encontrar o programa \"umount\""
 
-#: kioworkers/file/file_unix.cpp:556
+#: kioworkers/file/file_unix.cpp:567
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Não é possível copiar o ficheiro %1 para %2. (Errno: %3)"
 
-#: kioworkers/file/file_unix.cpp:770
+#: kioworkers/file/file_unix.cpp:781
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Disco não encontrado no dispositivo %1"
 
-#: kioworkers/file/file_unix.cpp:1031
+#: kioworkers/file/file_unix.cpp:1042
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Não foi possível obter o ID do utilizador %1"
 
-#: kioworkers/file/file_unix.cpp:1042
+#: kioworkers/file/file_unix.cpp:1053
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Não foi possível obter o ID do grupo %1"

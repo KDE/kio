@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:39+0000\n"
+"POT-Creation-Date: 2026-01-07 00:40+0000\n"
 "PO-Revision-Date: 2024-12-08 16:20+0100\n"
 "Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
 "Language-Team: Kabyle\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Ur yezmir ara ad d-yesnulfu axeddam KIO: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:963
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:974
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3478,7 +3478,7 @@ msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr ""
 
-#: filewidgets/kurlnavigatorbutton.cpp:731
+#: filewidgets/kurlnavigatorbutton.cpp:725
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
@@ -3812,32 +3812,38 @@ msgid ""
 "%1"
 msgstr ""
 
-#: kioworkers/file/file.cpp:762
+#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#, fuzzy, kde-format
+#| msgid "Could Not Rename Temporary File"
+msgid "Could not open temporary file"
+msgstr "Yegguma ad ibeddel isem n ufaylu ur yezgin ara"
+
+#: kioworkers/file/file.cpp:765
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Yegguma ad yaf ahil \"mout\""
 
-#: kioworkers/file/file.cpp:836
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Yegguma ad yaf ahil \"umount\""
 
-#: kioworkers/file/file_unix.cpp:556
+#: kioworkers/file/file_unix.cpp:567
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:770
+#: kioworkers/file/file_unix.cpp:781
 #, kde-format
 msgid "No media in device for %1"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:1031
+#: kioworkers/file/file_unix.cpp:1042
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:1042
+#: kioworkers/file/file_unix.cpp:1053
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""

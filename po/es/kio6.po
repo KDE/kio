@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-05 00:39+0000\n"
+"POT-Creation-Date: 2026-01-07 00:40+0000\n"
 "PO-Revision-Date: 2025-12-09 11:48+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "No se ha podido crear el módulo de trabajo KIO: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:963
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:974
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -208,91 +208,91 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:97
+#: core/job.cpp:104
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "Moviendo"
 
-#: core/job.cpp:98 core/job.cpp:106 core/job.cpp:114 core/job.cpp:143
+#: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
 #: widgets/fileundomanager.cpp:136
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Origen"
 
-#: core/job.cpp:99 core/job.cpp:107 core/job.cpp:115
+#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122
 #: widgets/fileundomanager.cpp:137
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Destino"
 
-#: core/job.cpp:105
+#: core/job.cpp:112
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "Cambio de nombre"
 
-#: core/job.cpp:113
+#: core/job.cpp:120
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "Copiando"
 
-#: core/job.cpp:121
+#: core/job.cpp:128
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Creando carpeta"
 
-#: core/job.cpp:122 widgets/fileundomanager.cpp:126
+#: core/job.cpp:129 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
 msgstr "Directorio"
 
-#: core/job.cpp:128
+#: core/job.cpp:135
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "Borrando"
 
-#: core/job.cpp:129 core/job.cpp:136 widgets/fileundomanager.cpp:152
+#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:152
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
 msgstr "Archivo"
 
-#: core/job.cpp:135
+#: core/job.cpp:142
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "Examinando"
 
-#: core/job.cpp:142
+#: core/job.cpp:149
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "Transfiriendo"
 
-#: core/job.cpp:149
+#: core/job.cpp:156
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "Montando"
 
-#: core/job.cpp:149
+#: core/job.cpp:156
 #, kde-format
 msgid "Device"
 msgstr "Dispositivo"
 
-#: core/job.cpp:149 core/job.cpp:154
+#: core/job.cpp:156 core/job.cpp:161
 #, kde-format
 msgid "Mountpoint"
 msgstr "Punto de montaje"
 
-#: core/job.cpp:154
+#: core/job.cpp:161
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
@@ -3857,7 +3857,7 @@ msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "Ir a cualquier lugar de la ruta <filename>%1</filename>"
 
-#: filewidgets/kurlnavigatorbutton.cpp:731
+#: filewidgets/kurlnavigatorbutton.cpp:725
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
@@ -4232,32 +4232,38 @@ msgstr ""
 "No ha sido posible cambiar el propietario ni el grupo de\n"
 "%1"
 
-#: kioworkers/file/file.cpp:762
+#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#, fuzzy, kde-format
+#| msgid "Could Not Rename Temporary File"
+msgid "Could not open temporary file"
+msgstr "No se ha podido cambiar el nombre del archivo temporal"
+
+#: kioworkers/file/file.cpp:765
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "No fue posible encontrar el programa «mount»"
 
-#: kioworkers/file/file.cpp:836
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "No fue posible encontrar el programa «umount»"
 
-#: kioworkers/file/file_unix.cpp:556
+#: kioworkers/file/file_unix.cpp:567
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "No se puede copiar el archivo de %1 a %2. (Errno: %3)"
 
-#: kioworkers/file/file_unix.cpp:770
+#: kioworkers/file/file_unix.cpp:781
 #, kde-format
 msgid "No media in device for %1"
 msgstr "No hay medios en el dispositivo para %1"
 
-#: kioworkers/file/file_unix.cpp:1031
+#: kioworkers/file/file_unix.cpp:1042
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Imposible obtener el id del usuario para el usuario %1"
 
-#: kioworkers/file/file_unix.cpp:1042
+#: kioworkers/file/file_unix.cpp:1053
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Imposible obtener el id del grupo para el grupo %1"

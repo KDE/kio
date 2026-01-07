@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-06 00:39+0000\n"
+"POT-Creation-Date: 2026-01-07 00:40+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "មិន​អាច​បង្កើត io-slave ៖ %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:963
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:974
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -3831,7 +3831,7 @@ msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "តើអ្នក​ពិត​ជា​ចង់​លុប​ធាតុ​ទាំង %1 នេះ​ឬ ?"
 
-#: filewidgets/kurlnavigatorbutton.cpp:731
+#: filewidgets/kurlnavigatorbutton.cpp:725
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
@@ -4198,32 +4198,38 @@ msgid ""
 "%1"
 msgstr "មិនអាច​ប្ដូរ​ភាព​ជា​ម្ចាស់​សម្រាប់ %1 បានឡើយ ។"
 
-#: kioworkers/file/file.cpp:762
+#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#, fuzzy, kde-format
+#| msgid "Could Not Rename Temporary File"
+msgid "Could not open temporary file"
+msgstr "មិន​អាច​ប្តូរ​ឈ្មោះ​ឯកសារ​បណ្តោះ​អាសន្ន​បានឡើយ"
+
+#: kioworkers/file/file.cpp:765
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "មិន​អាច​រក​ឃើញ​កម្មវិធី \"ម៉ោន\""
 
-#: kioworkers/file/file.cpp:836
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "មិន​អាច​រក​ឃើញ​កម្មវិធី \"អាន់ម៉ោន\""
 
-#: kioworkers/file/file_unix.cpp:556
+#: kioworkers/file/file_unix.cpp:567
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "មិន​អាច​ចម្លង​ឯកសារ​ពី %1 ទៅកាន់ %2 បានឡើយ ។ (លេខ​កំហុស ៖ %3)"
 
-#: kioworkers/file/file_unix.cpp:770
+#: kioworkers/file/file_unix.cpp:781
 #, kde-format
 msgid "No media in device for %1"
 msgstr "គ្មាន​ឧបករណ៍​ផ្ទុក​ក្នុង​ឧបករណ៍​សម្រាប់ %1 ឡើយ"
 
-#: kioworkers/file/file_unix.cpp:1031
+#: kioworkers/file/file_unix.cpp:1042
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "មិន​អាច​ទទួល​លេខសម្គាល់​អ្នក​ប្រើ​សម្រាប់​ឈ្មោះ​អ្នក​ប្រើ %1"
 
-#: kioworkers/file/file_unix.cpp:1042
+#: kioworkers/file/file_unix.cpp:1053
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "មិនអាច​យក​លេខសម្គាល់​ក្រុម​សម្រាប់​ឈ្មោះក្រុម %1 ដែលបាន​ផ្ដល់​ឲ្យទេ"
