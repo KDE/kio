@@ -44,7 +44,8 @@ public:
      */
     void start(Worker *worker) override;
 
-    void slotListEntries(const KIO::UDSEntryList &list);
+    void filterAndEmitEntries(const KIO::UDSEntryList &list);
+    void maybeRecurse(const KIO::UDSEntryList &list);
     void slotRedirection(const QUrl &url);
     void gotEntries(KIO::Job *subjob, const KIO::UDSEntryList &list);
     void slotSubError(ListJob *job, ListJob *subJob);
@@ -81,15 +82,11 @@ ListJob::~ListJob()
 {
 }
 
-void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
+void ListJobPrivate::maybeRecurse(const KIO::UDSEntryList &list)
 {
     Q_Q(ListJob);
 
     const bool includeHidden = listFlags.testFlag(ListJob::ListFlag::IncludeHidden);
-
-    // Emit progress info (takes care of emit processedSize and percent)
-    m_processedEntries += list.count();
-    slotProcessedSize(m_processedEntries);
 
     if (recursive) {
         UDSEntryList::ConstIterator it = list.begin();
@@ -136,6 +133,17 @@ void ListJobPrivate::slotListEntries(const KIO::UDSEntryList &list)
             }
         }
     }
+}
+
+void ListJobPrivate::filterAndEmitEntries(const KIO::UDSEntryList &list)
+{
+    Q_Q(ListJob);
+
+    const bool includeHidden = listFlags.testFlag(ListJob::ListFlag::IncludeHidden);
+
+    // Emit progress info (takes care of emit processedSize and percent)
+    m_processedEntries += list.count();
+    slotProcessedSize(m_processedEntries);
 
     // Not recursive, or top-level of recursive listing : return now (send . and .. as well)
     // exclusion of hidden files also requires the full sweep, but the case for full-listing
@@ -269,8 +277,9 @@ void ListJobPrivate::start(Worker *worker)
         QTimer::singleShot(0, q, &ListJob::slotFinished);
         return;
     }
-    QObject::connect(worker, &Worker::listEntries, q, [this](const KIO::UDSEntryList &list) {
-        slotListEntries(list);
+    QObject::connect(worker, &Worker::listEntries, q, [this](KIO::UDSEntryList list) {
+        maybeRecurse(list);
+        filterAndEmitEntries(list);
     });
 
     QObject::connect(worker, &Worker::totalSize, q, [this](KIO::filesize_t size) {
