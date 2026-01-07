@@ -88,49 +88,52 @@ void ListJobPrivate::maybeRecurse(const KIO::UDSEntryList &list)
 
     const bool includeHidden = listFlags.testFlag(ListJob::ListFlag::IncludeHidden);
 
-    if (recursive) {
-        UDSEntryList::ConstIterator it = list.begin();
-        const UDSEntryList::ConstIterator end = list.end();
+    if (!recursive) {
+        return;
+    }
 
-        for (; it != end; ++it) {
-            const UDSEntry &entry = *it;
+    UDSEntryList::ConstIterator it = list.begin();
+    const UDSEntryList::ConstIterator end = list.end();
+    for (; it != end; ++it) {
+        const UDSEntry &entry = *it;
 
-            QUrl itemURL;
-            const QString udsUrl = entry.stringValue(KIO::UDSEntry::UDS_URL);
-            QString filename;
-            if (!udsUrl.isEmpty()) {
-                itemURL = QUrl(udsUrl);
-                filename = itemURL.fileName();
-            } else { // no URL, use the name
-                itemURL = q->url();
-                filename = entry.stringValue(KIO::UDSEntry::UDS_NAME);
-                Q_ASSERT(!filename.isEmpty()); // we'll recurse forever otherwise :)
-                itemURL.setPath(Utils::concatPaths(itemURL.path(), filename));
-            }
+        QUrl itemURL;
+        const QString udsUrl = entry.stringValue(KIO::UDSEntry::UDS_URL);
+        QString filename;
+        if (!udsUrl.isEmpty()) {
+            itemURL = QUrl(udsUrl);
+            filename = itemURL.fileName();
+        } else { // no URL, use the name
+            itemURL = q->url();
+            filename = entry.stringValue(KIO::UDSEntry::UDS_NAME);
+            Q_ASSERT(!filename.isEmpty()); // we'll recurse forever otherwise :)
+            itemURL.setPath(Utils::concatPaths(itemURL.path(), filename));
+        }
 
-            if (entry.isDir() && !entry.isLink()) {
-                Q_ASSERT(!filename.isEmpty());
-                QString displayName = entry.stringValue(KIO::UDSEntry::UDS_DISPLAY_NAME);
-                if (displayName.isEmpty()) {
-                    displayName = filename;
-                }
-                // skip hidden dirs when listing if requested
-                if (filename != QLatin1String("..") && filename != QLatin1String(".") && (includeHidden || filename[0] != QLatin1Char('.'))) {
-                    ListJob *job = ListJobPrivate::newJobNoUi(itemURL,
-                                                              true /*recursive*/,
-                                                              m_prefix + filename + QLatin1Char('/'),
-                                                              m_displayPrefix + displayName + QLatin1Char('/'),
-                                                              listFlags);
-                    QObject::connect(job, &ListJob::entries, q, [this](KIO::Job *job, const KIO::UDSEntryList &list) {
-                        gotEntries(job, list);
-                    });
-                    QObject::connect(job, &ListJob::subError, q, [this](KIO::ListJob *job, KIO::ListJob *ljob) {
-                        slotSubError(job, ljob);
-                    });
+        if (!entry.isDir() || entry.isLink()) {
+            continue;
+        }
 
-                    q->addSubjob(job);
-                }
-            }
+        Q_ASSERT(!filename.isEmpty());
+        QString displayName = entry.stringValue(KIO::UDSEntry::UDS_DISPLAY_NAME);
+        if (displayName.isEmpty()) {
+            displayName = filename;
+        }
+        // skip hidden dirs when listing if requested
+        if (filename != QLatin1String("..") && filename != QLatin1String(".") && (includeHidden || filename[0] != QLatin1Char('.'))) {
+            ListJob *job = ListJobPrivate::newJobNoUi(itemURL,
+                                                      true /*recursive*/,
+                                                      m_prefix + filename + QLatin1Char('/'),
+                                                      m_displayPrefix + displayName + QLatin1Char('/'),
+                                                      listFlags);
+            QObject::connect(job, &ListJob::entries, q, [this](KIO::Job *job, const KIO::UDSEntryList &list) {
+                gotEntries(job, list);
+            });
+            QObject::connect(job, &ListJob::subError, q, [this](KIO::ListJob *job, KIO::ListJob *ljob) {
+                slotSubError(job, ljob);
+            });
+
+            q->addSubjob(job);
         }
     }
 }
