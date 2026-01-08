@@ -789,6 +789,13 @@ void KCoreDirListerCache::slotFilesRemoved(const QList<QUrl> &fileList)
                 dirItem->lstItems.erase(dirItemIt); // remove fileitem from list
             }
         }
+
+        // Add only parentDirs of dirs that have not been deleted to the pendingUpdates list
+        if (!deletedSubdirs.contains(url)) {
+            for (const auto &dir : parentDirUrls) {
+                pendingUpdates.insert(dir.toLocalFile());
+            }
+        }
     }
 
     for (auto rit = removedItemsByDir.constBegin(), cend = removedItemsByDir.constEnd(); rit != cend; ++rit) {
