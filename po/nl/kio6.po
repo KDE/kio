@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-07 00:40+0000\n"
-"PO-Revision-Date: 2025-12-09 10:41+0100\n"
+"POT-Creation-Date: 2026-01-08 00:39+0000\n"
+"PO-Revision-Date: 2026-01-07 13:07+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,12 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.08.3\n"
+"X-Generator: Lokalize 25.12.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Freek de Kruijf - t/m 2025"
+msgstr "Freek de Kruijf - t/m 2026"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -4238,10 +4238,9 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
-#, fuzzy, kde-format
-#| msgid "Could Not Rename Temporary File"
+#, kde-format
 msgid "Could not open temporary file"
-msgstr "Het tijdelijke bestand kon niet worden hernoemd"
+msgstr "Kon tijdelijke bestand niet openen"
 
 #: kioworkers/file/file.cpp:765
 #, kde-format
@@ -5344,43 +5343,43 @@ msgstr "Systeemconfiguratie wordt bijgewerkt"
 msgid "Updating system configuration…"
 msgstr "Systeemconfiguratie wordt bijgewerkt…"
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Naam"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Grootte"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Datum"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Toegangsrechten"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1272
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Eigenaar"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1274
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Groep"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1276
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

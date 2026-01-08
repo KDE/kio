@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-07 00:40+0000\n"
+"POT-Creation-Date: 2026-01-08 00:39+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -5109,43 +5109,43 @@ msgstr "സിസ്റ്റത്തിന്റെ ക്രമീകരണ�
 msgid "Updating system configuration…"
 msgstr "സിസ്റ്റത്തിന്റെ ക്രമീകരണം പരിഷ്കരിക്കുന്നു."
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "പേര്"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "വലുപ്പം"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "തീയതി"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "അനുമതികൾ"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1272
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "ഉടമ"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1274
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "കൂട്ടം"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1276
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

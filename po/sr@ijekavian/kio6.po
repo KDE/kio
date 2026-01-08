@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-07 00:40+0000\n"
+"POT-Creation-Date: 2026-01-08 00:39+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -5514,43 +5514,43 @@ msgstr "Ажурирање поставе система"
 msgid "Updating system configuration…"
 msgstr "Ажурирам поставу система..."
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "име"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "величина"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "датум"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "дозволе"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1272
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "власник"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1274
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "група"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1276
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-07 00:40+0000\n"
+"POT-Creation-Date: 2026-01-08 00:39+0000\n"
 "PO-Revision-Date: 2023-02-18 20:42+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -5316,43 +5316,43 @@ msgstr "Sistem konfiqurasiyalarının yenilənməsi"
 msgid "Updating system configuration…"
 msgstr "Sistem konfiqurasiyalarının yenilənməsi."
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Ad"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Ölçü"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Tarix"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "İcazələr"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1272
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Sahibi"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1274
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Qrup"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1276
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-07 00:40+0000\n"
+"POT-Creation-Date: 2026-01-08 00:39+0000\n"
 "PO-Revision-Date: 2024-12-15 19:32+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -5292,43 +5292,43 @@ msgstr "तंत्र कॉनफिगुरेशन अद्यतन क
 msgid "Updating system configuration…"
 msgstr "तंत्र कॉनफिगुरेशन अद्यतन किया जा रहा है."
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "नाम"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "आकार"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "तारीख़ से"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "अनुमतियाँ"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1272
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "मालिक"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1274
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "समूह"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1276
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

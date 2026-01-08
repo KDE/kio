@@ -6,7 +6,7 @@
 # Henrique Pinto <stampede@coltec.ufmg.br>, 2003.
 # Lisiane Sztoltz Teixeira <lisiane@conectiva.com.br>, 2004.
 # Lisiane Sztoltz Teixeira <lisiane@kdemail.net>, 2004, 2005.
-# SPDX-FileCopyrightText: 2006, 2011, 2012, 2025 Marcus Gama <marcus.gama@gmail.com>
+# SPDX-FileCopyrightText: 2006, 2011, 2012, 2025, 2026 Marcus Gama <marcus.gama@gmail.com>
 # doutor.zero <doutor.zero@gmail.com>, 2007.
 # Diniz Bortolotto <diniz.bortolotto@gmail.com>, 2007, 2008.
 # André Marcelo Alvarenga <alvarenga@kde.org>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2018, 2019, 2020.
@@ -19,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-07 00:40+0000\n"
-"PO-Revision-Date: 2026-01-05 19:33-0300\n"
-"Last-Translator: Guilherme Marçal Silva <guimarcalsilva@gmail.com>\n"
+"POT-Creation-Date: 2026-01-08 00:39+0000\n"
+"PO-Revision-Date: 2026-01-07 08:28-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -4204,10 +4204,9 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
-#, fuzzy, kde-format
-#| msgid "Could Not Rename Temporary File"
+#, kde-format
 msgid "Could not open temporary file"
-msgstr "Não foi possível renomear o arquivo temporário"
+msgstr "Não foi possível abrir o arquivo temporário"
 
 #: kioworkers/file/file.cpp:765
 #, kde-format
@@ -5308,43 +5307,43 @@ msgstr "Atualizando a configuração do sistema"
 msgid "Updating system configuration…"
 msgstr "Atualizando a configuração do sistema…"
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nome"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Tamanho"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Data"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Permissões"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1272
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Proprietário"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1274
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Grupo"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1276
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-07 00:40+0000\n"
+"POT-Creation-Date: 2026-01-08 00:39+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -5230,43 +5230,43 @@ msgstr "Mengemaskini Konfigurasi Sistem"
 msgid "Updating system configuration…"
 msgstr "Mengemaskini Konfigurasi Sistem."
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1264
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nama"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1266
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Saiz"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1268
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Tarikh"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1270
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Keizinan"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1272
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Pemilik"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1274
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Kumpulan"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1276
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Type"
