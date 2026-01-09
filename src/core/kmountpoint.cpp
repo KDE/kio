@@ -48,6 +48,7 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 // Linux
 #if HAVE_LIB_MOUNT
 #include <libmount/libmount.h>
+#include <sys/sysmacros.h>
 #if HAVE_STATX_MNT_ID
 #include <fcntl.h>
 #include <sys/stat.h>
@@ -371,13 +372,8 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
                 }
 #endif
 
-                // handle bind mounts
-                if (mp->d->m_mountedFrom != mp->d->m_mountPoint) {
-                    if (QT_STATBUF buff; QT_LSTAT(mnt_fs_get_target(fs), &buff) == 0) {
-                        mp->d->m_deviceId = buff.st_dev;
-                    }
-                } else {
-                    mp->d->m_deviceId = mnt_fs_get_devno(fs);
+                if (struct statx buff; statx(AT_FDCWD, mnt_fs_get_target(fs), AT_STATX_DONT_SYNC, STATX_INO, &buff) == 0) {
+                    mp->d->m_deviceId = makedev(buff.stx_dev_major, buff.stx_dev_minor);
                 }
 
                 if (infoNeeded & NeedMountOptions) {

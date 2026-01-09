@@ -80,6 +80,8 @@ void KMountPointTest::testCurrentMountPoints()
         } else {
             QCOMPARE(homeMountPoint->mountPoint(), QDir(QStringLiteral("/home")).canonicalPath());
         }
+
+        QCOMPARE(homeMountPoint->deviceId(), homeStatBuff.st_dev);
     } else {
         qDebug() << "/home doesn't seem to exist, skipping test";
     }
