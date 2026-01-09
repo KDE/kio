@@ -3985,10 +3985,9 @@ msgstr ""
 "所有者和组"
 
 #: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
-#, fuzzy, kde-format
-#| msgid "Could Not Rename Temporary File"
+#, kde-format
 msgid "Could not open temporary file"
-msgstr "无法重命名临时文件"
+msgstr ""
 
 #: kioworkers/file/file.cpp:765
 #, kde-format
