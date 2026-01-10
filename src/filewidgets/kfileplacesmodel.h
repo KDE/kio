@@ -380,6 +380,22 @@ public:
      */
     QModelIndex closestItem(const QUrl &url) const;
 
+    /*!
+     * Returns a string representing the URL relative to
+     * the closest item, similar to KUrlNavigator.
+     * This is more user-friendly than KShell::tildeCollapse.
+     *
+     * Example: the url is '/home/peter/Documents/Important/KDE',
+     * if the user has a 'Documents' place, this will return:
+     * 'Documents/Important/KDE'. If they only have a 'Home' pace,
+     * this will return 'Home/Documents/Important/KDE'.
+     *
+     * If no closestItem could be determined, returns empty string.
+     *
+     * \since 6.23
+     */
+    QString placeCollapsedUrl(const QUrl &url) const;
+
     Qt::DropActions supportedDropActions() const override;
     Qt::ItemFlags flags(const QModelIndex &index) const override;
     QStringList mimeTypes() const override;

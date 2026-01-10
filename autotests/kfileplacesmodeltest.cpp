@@ -28,6 +28,8 @@
 
 Q_DECLARE_METATYPE(KFilePlacesModel::GroupType)
 
+using namespace Qt::StringLiterals;
+
 // Avoid QHash randomization so that the order of the devices is stable
 static void seedInit()
 {
@@ -75,6 +77,8 @@ private Q_SLOTS:
     void testPlaceGroupHiddenSignal();
     void testPlaceGroupHiddenRole();
     void testSupportedSchemes();
+    void testPlaceCollapsedUrl_data();
+    void testPlaceCollapsedUrl();
 
 private:
     QStringList placesUrls(KFilePlacesModel *model = nullptr) const;
@@ -1330,6 +1334,43 @@ void KFilePlacesModelTest::testSupportedSchemes()
     m_places->setSupportedSchemes({});
     QCOMPARE(m_places->supportedSchemes(), QStringList());
     QCOMPARE(placesUrls(), initialListOfUrls());
+}
+
+void KFilePlacesModelTest::testPlaceCollapsedUrl_data()
+{
+    QTest::addColumn<QUrl>("url");
+    QTest::addColumn<QString>("result");
+
+    QTest::newRow("home") << QUrl::fromLocalFile(m_tmpHome.path()) << u"Home"_s;
+    QTest::newRow("home/foo") << QUrl::fromLocalFile(m_tmpHome.path() + "/foo"_L1) << u"Home/foo"_s;
+    // Leaves trailing slash intact.
+    QTest::newRow("home/foo/") << QUrl::fromLocalFile(m_tmpHome.path() + "/foo/"_L1) << u"Home/foo/"_s;
+
+    QTest::newRow("trash root 1") << QUrl(u"trash:/"_s) << u"Trash"_s; // one slash.
+    // Not considered a valid URL by closestItem.
+    QTest::newRow("trash root 2") << QUrl(u"trash://"_s) << QString(); // two slashes.
+    QTest::newRow("trash root 3") << QUrl(u"trash:///"_s) << u"Trash"_s; // three slashes.
+
+    QTest::newRow("trash/foo 1") << QUrl(u"trash:/foo"_s) << u"Trash/foo"_s;
+    // Not considered a valid URL by closestItem.
+    QTest::newRow("trash/foo 2") << QUrl(u"trash://foo"_s) << QString();
+    QTest::newRow("trash/foo 3") << QUrl(u"trash:///foo"_s) << u"Trash/foo"_s;
+
+    QTest::newRow("trash/foo/bar") << QUrl(u"trash:///foo/bar"_s) << u"Trash/foo/bar"_s;
+
+    QTest::newRow("foreign") << QUrl(u"file:///foreign"_s) << u"/foreign"_s;
+    QTest::newRow("foreign/foo") << QUrl(u"file:///foreign/foo"_s) << u"/foreign/foo"_s;
+
+    QTest::newRow("empty place name") << QUrl(u"file:///media/nfs/foo"_s) << QString();
+    QTest::newRow("non-existing place") << QUrl::fromLocalFile(u"file:///tmp"_s) << QString();
+}
+
+void KFilePlacesModelTest::testPlaceCollapsedUrl()
+{
+    QFETCH(QUrl, url);
+    QFETCH(QString, result);
+
+    QCOMPARE(m_places->placeCollapsedUrl(url), result);
 }
 
 QTEST_MAIN(KFilePlacesModelTest)
