@@ -712,6 +712,42 @@ QModelIndex KFilePlacesModel::closestItem(const QUrl &url) const
     }
 }
 
+QString KFilePlacesModel::placeCollapsedUrl(const QUrl &_url) const
+{
+    // Mimic KUrlNavigator and show a pretty place name,
+    // for example Documents/foo/bar rather than /home/user/Documents/foo/bar
+    const QModelIndex closestIdx = closestItem(_url);
+    if (!closestIdx.isValid()) {
+        return QString();
+    }
+
+    const QUrl placeUrl = url(closestIdx);
+
+    QString result = text(closestIdx);
+    // Guard again erroneous user-places.xbel file
+    if (result.isEmpty()) {
+        return QString();
+    }
+
+    QString pathInsidePlace = _url.path().mid(placeUrl.path().length());
+
+    if (!pathInsidePlace.startsWith(QLatin1Char('/'))) {
+        pathInsidePlace.prepend(QLatin1Char('/'));
+    }
+
+    if (pathInsidePlace != QLatin1Char('/')) {
+        // Avoid "500 GiB Internal Hard Drive/foo/bar" when path originates directly from root.
+        const bool isRoot = placeUrl.isLocalFile() && placeUrl.path() == QLatin1Char('/');
+        if (isRoot) {
+            result = pathInsidePlace;
+        } else {
+            result.append(pathInsidePlace);
+        }
+    }
+
+    return result;
+}
+
 void KFilePlacesModelPrivate::initDeviceList()
 {
     Solid::DeviceNotifier *notifier = Solid::DeviceNotifier::instance();
