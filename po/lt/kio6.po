@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-08 00:39+0000\n"
-"PO-Revision-Date: 2025-12-16 01:53+0200\n"
+"PO-Revision-Date: 2026-01-09 13:03+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -4206,10 +4206,9 @@ msgstr ""
 "ir grupės"
 
 #: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
-#, fuzzy, kde-format
-#| msgid "Could Not Rename Temporary File"
+#, kde-format
 msgid "Could not open temporary file"
-msgstr "Nepavyko pervadinti laikinojo failo"
+msgstr "Nepavyko atverti laikinojo failo"
 
 #: kioworkers/file/file.cpp:765
 #, kde-format

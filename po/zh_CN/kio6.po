@@ -3987,7 +3987,7 @@ msgstr ""
 #: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
 #, kde-format
 msgid "Could not open temporary file"
-msgstr ""
+msgstr "无法打开临时文件"
 
 #: kioworkers/file/file.cpp:765
 #, kde-format
