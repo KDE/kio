@@ -151,6 +151,7 @@ public:
 
     QWidget m_mainWidget;
     std::unique_ptr<Ui_KFilePropsPluginWidget> m_ui;
+    KSeparator *m_extrasSeparator = nullptr;
     KIO::DirectorySizeJob *dirSizeJob = nullptr;
     QTimer *dirSizeUpdateTimer = nullptr;
     bool bMultiple;
@@ -536,10 +537,6 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     // To determine extra fields, use the original URL, not the mostLocalUrl.
     // e.g. trash:/foo will point to file:/...local/share/Trash/files/foo and therefore not have any fields.
     if (const auto extraFields = KProtocolInfo::extraFields(firstItem.url()); !d->bMultiple && !extraFields.isEmpty()) {
-        int curRow = d->m_ui->gridLayout->rowCount();
-        KSeparator *sep = new KSeparator(Qt::Horizontal, &d->m_mainWidget);
-        d->m_ui->gridLayout->addWidget(sep, curRow++, 0, 1, 3);
-
         QLocale locale;
         for (int i = 0; i < extraFields.count(); ++i) {
             const auto &field = extraFields.at(i);
@@ -558,9 +555,6 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
                 text = locale.toString(date, QLocale::LongFormat);
             }
 
-            auto *label = new QLabel(i18n("%1:", field.name), &d->m_mainWidget);
-            d->m_ui->gridLayout->addWidget(label, curRow, 0, Qt::AlignRight);
-
             auto *squeezedLabel = new KSqueezedTextLabel(text, &d->m_mainWidget);
             if (properties->layoutDirection() == Qt::RightToLeft) {
                 squeezedLabel->setAlignment(Qt::AlignRight);
@@ -568,9 +562,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
                 squeezedLabel->setLayoutDirection(Qt::LeftToRight);
             }
 
-            d->m_ui->gridLayout->addWidget(squeezedLabel, curRow++, 1);
-            squeezedLabel->setTextInteractionFlags(Qt::TextBrowserInteraction | Qt::TextSelectableByKeyboard);
-            label->setBuddy(squeezedLabel);
+            addExtraField(i18n("%1:", field.name), squeezedLabel);
         }
     }
 }
@@ -610,6 +602,29 @@ void KFilePropsPlugin::setFileNameReadOnly(bool readOnly)
 
         d->m_ui->fileNameLabel->show();
         d->m_ui->fileNameLabel->setText(d->oldName); // will get overwritten if d->bMultiple
+    }
+}
+
+void KFilePropsPlugin::addExtraField(const QString &caption, QWidget *widget)
+{
+    QGridLayout *grid = d->m_ui->gridLayout;
+    int row = grid->rowCount();
+
+    if (!d->m_extrasSeparator) {
+        d->m_extrasSeparator = new KSeparator(Qt::Horizontal, &d->m_mainWidget);
+        grid->addWidget(d->m_extrasSeparator, row++, 0, 1, 3);
+    }
+
+    widget->setParent(&d->m_mainWidget);
+
+    if (!caption.isEmpty()) {
+        QLabel *label = new QLabel(caption, &d->m_mainWidget);
+        label->setTextFormat(Qt::PlainText);
+        grid->addWidget(label, row, 0, Qt::AlignRight);
+        grid->addWidget(widget, row, 1);
+        label->setBuddy(widget);
+    } else {
+        grid->addWidget(widget, row, 0, 1, 2);
     }
 }
 

@@ -61,6 +61,8 @@ public:
 
     void setFileNameReadOnly(bool ro);
 
+    void addExtraField(const QString &label, QWidget *widget);
+
 protected Q_SLOTS:
     void slotEditFileType();
     void slotCopyFinished(KJob *);

@@ -299,6 +299,20 @@ public:
      */
     void setFileNameReadOnly(bool ro);
 
+    /**
+     * Add extra field at the end of the dialog in the first default tab.
+     *
+     * \a caption The caption of the field
+     * \a widget The widget to add
+     *
+     * When caption is empty, the widget spans the width of the dialog.
+     *
+     * The dialog takes ownership of the widget.
+     *
+     * \since 6.23
+     */
+    void addExtraField(const QString &caption, QWidget *widget);
+
     using KPageDialog::buttonBox;
 
 public Q_SLOTS:

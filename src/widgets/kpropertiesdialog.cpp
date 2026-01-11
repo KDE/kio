@@ -361,6 +361,11 @@ void KPropertiesDialog::setFileNameReadOnly(bool ro)
     }
 }
 
+void KPropertiesDialog::addExtraField(const QString &caption, QWidget *widget)
+{
+    d->m_filePropsPlugin->addExtraField(caption, widget);
+}
+
 KPropertiesDialog::~KPropertiesDialog()
 {
 }
