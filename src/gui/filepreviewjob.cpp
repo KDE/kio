@@ -212,6 +212,8 @@ void FilePreviewJob::slotStatFile(KJob *job)
 {
     if (job->error()) {
         qCDebug(KIO_GUI) << "Job stat failed" << job->errorString();
+        setError(job->error());
+        setErrorText(job->errorText());
         emitResult();
         return;
     }
@@ -229,6 +231,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
     }
 
     if (!preparePluginForMimetype(m_fileItem.mimetype())) {
+        setError(KIO::ERR_INTERNAL);
         emitResult();
         return;
     }
@@ -239,6 +242,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
         m_origName = QUrl::fromLocalFile(canonicalPath).toEncoded(QUrl::RemovePassword | QUrl::FullyEncoded);
         if (m_origName.isEmpty()) {
             qCDebug(KIO_GUI) << "Failed to convert" << itemUrl << "to canonical path, possibly a broken symlink";
+            setError(KIO::ERR_INTERNAL);
             emitResult();
         }
     } else {
@@ -253,6 +257,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
     const KIO::filesize_t size = static_cast<KIO::filesize_t>(statResult.numberValue(KIO::UDSEntry::UDS_SIZE, 0));
     if (size == 0 && !statResult.isDir()) {
         qCDebug(KIO_GUI) << "FilePreviewJob: skipping an empty file, might be a broken symlink" << m_fileItem.url();
+        setError(KIO::ERR_NO_CONTENT);
         emitResult();
         return;
     }
