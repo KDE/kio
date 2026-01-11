@@ -168,6 +168,7 @@ KIO::PreviewJob *KImageFilePreview::createJob(const QUrl &url, int w, int h)
     QStringList plugins = KIO::PreviewJob::availablePlugins();
 
     KIO::PreviewJob *previewJob = KIO::filePreview(items, QSize(w, h), &plugins);
+    previewJob->setDevicePixelRatio(qApp->devicePixelRatio());
     previewJob->setScaleType(KIO::PreviewJob::Scaled);
     return previewJob;
 }
@@ -216,6 +217,7 @@ void KImageFilePreviewPrivate::slotStepAnimation()
     const int width = std::max(currSize.width(), transitionSize.width());
     const int height = std::max(currSize.height(), transitionSize.height());
     QPixmap pm(QSize(width, height));
+    pm.setDevicePixelRatio(qApp->devicePixelRatio());
     pm.fill(Qt::transparent);
 
     QPainter p(&pm);
@@ -230,7 +232,7 @@ void KImageFilePreviewPrivate::slotStepAnimation()
         p.setOpacity(m_pmTransitionOpacity);
         p.drawPixmap(
             QPoint(((float)pm.size().width() - m_pmTransition.size().width()) / 2.0, ((float)pm.size().height() - m_pmTransition.size().height()) / 2.0),
-            m_pmTransition);
+                     m_pmTransition);
     }
     p.end();
 

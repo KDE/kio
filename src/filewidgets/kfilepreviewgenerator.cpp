@@ -623,7 +623,7 @@ void KFilePreviewGeneratorPrivate::addToPreviewQueue(const KFileItem &item, cons
     const int slashIndex = mimeType.indexOf(QLatin1Char('/'));
     const auto mimeTypeGroup = QStringView(mimeType).left(slashIndex);
     if (mimeTypeGroup != QLatin1String("image") || !applyImageFrame(icon)) {
-        limitToSize(icon, m_viewAdapter->iconSize());
+        limitToSize(icon, m_viewAdapter->iconSize() * pixmap.devicePixelRatio());
     }
 
     if (m_hasCutSelection && isCutItem(item)) {
@@ -633,7 +633,7 @@ void KFilePreviewGeneratorPrivate::addToPreviewQueue(const KFileItem &item, cons
     }
 
     const QSize size = icon.size();
-    icon = KIconUtils::addOverlays(icon, item.overlays()).pixmap(size);
+    icon = KIconUtils::addOverlays(icon, item.overlays()).pixmap(size / pixmap.devicePixelRatio(), pixmap.devicePixelRatio());
 
     // remember the preview and URL, so that it can be applied to the model
     // in KFilePreviewGenerator::dispatchIconUpdateQueue()
@@ -921,7 +921,8 @@ bool KFilePreviewGeneratorPrivate::applyImageFrame(QPixmap &icon)
     }
 
     // resize the icon to the maximum size minus the space required for the frame
-    const QSize size(maxSize.width() - TileSet::LeftMargin - TileSet::RightMargin, maxSize.height() - TileSet::TopMargin - TileSet::BottomMargin);
+    const QSize size(qFloor(maxSize.width() * icon.devicePixelRatio()) - TileSet::LeftMargin - TileSet::RightMargin,
+                     qFloor(maxSize.height() * icon.devicePixelRatio()) - TileSet::TopMargin - TileSet::BottomMargin);
     limitToSize(icon, size);
 
     if (!m_tileSet) {
@@ -929,6 +930,7 @@ bool KFilePreviewGeneratorPrivate::applyImageFrame(QPixmap &icon)
     }
 
     QPixmap framedIcon(icon.size().width() + TileSet::LeftMargin + TileSet::RightMargin, icon.size().height() + TileSet::TopMargin + TileSet::BottomMargin);
+    framedIcon.setDevicePixelRatio(icon.devicePixelRatio());
     framedIcon.fill(Qt::transparent);
 
     QPainter painter;
@@ -1003,6 +1005,7 @@ void KFilePreviewGeneratorPrivate::startPreviewJob(const KFileItemList &items, i
     }
 
     KIO::PreviewJob *job = KIO::filePreview(items, QSize(width, height), &m_enabledPlugins);
+    job->setDevicePixelRatio(qApp->devicePixelRatio());
 
     // Set the sequence index to the target. We only need to check if items.count() == 1,
     // because requestSequenceIcon(..) creates exactly such a request.
