@@ -1003,6 +1003,7 @@ void KFilePreviewGeneratorPrivate::startPreviewJob(const KFileItemList &items, i
     }
 
     KIO::PreviewJob *job = KIO::filePreview(items, QSize(width, height), &m_enabledPlugins);
+    job->setDevicePixelRatio(qApp->devicePixelRatio());
 
     // Set the sequence index to the target. We only need to check if items.count() == 1,
     // because requestSequenceIcon(..) creates exactly such a request.
