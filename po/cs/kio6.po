@@ -4103,10 +4103,9 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
-#, fuzzy, kde-format
-#| msgid "Could Not Rename Temporary File"
+#, kde-format
 msgid "Could not open temporary file"
-msgstr "Nelze přejmenovat dočasný soubor"
+msgstr "Nelze otevřít dočasný soubor"
 
 #: kioworkers/file/file.cpp:765
 #, kde-format
