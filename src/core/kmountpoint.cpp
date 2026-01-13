@@ -72,8 +72,77 @@ static bool isNetfs(const QString &mountType)
         QLatin1String("9p"),
     };
 
-    return std::any_of(netfsList.cbegin(), netfsList.cend(), [mountType](const QLatin1String netfs) {
+    return std::ranges::any_of(netfsList, [mountType](const QLatin1String &netfs) {
         return mountType == netfs;
+    });
+}
+
+static bool isPseudoFs(const QString &mountType)
+{
+    // List copied from util-linux/libmount/src/utils.c mnt_fstype_is_pseudofs
+    static const std::vector<QLatin1String> pseudofsList{
+        QLatin1String("anon_inodefs"),
+        QLatin1String("apparmorfs"),
+        QLatin1String("autofs"),
+        QLatin1String("bdev"),
+        QLatin1String("binder"),
+        QLatin1String("binfmt_misc"),
+        QLatin1String("bpf"),
+        QLatin1String("cgroup"),
+        QLatin1String("cgroup2"),
+        QLatin1String("configfs"),
+        QLatin1String("cpuset"),
+        QLatin1String("debugfs"),
+        QLatin1String("devfs"),
+        QLatin1String("devpts"),
+        QLatin1String("devtmpfs"),
+        QLatin1String("dlmfs"),
+        QLatin1String("dmabuf"),
+        QLatin1String("drm"),
+        QLatin1String("efivarfs"),
+        QLatin1String("fuse"),
+        QLatin1String("fuse.archivemount"),
+        QLatin1String("fuse.avfsd"),
+        QLatin1String("fuse.dumpfs"),
+        QLatin1String("fuse.encfs"),
+        QLatin1String("fuse.gvfs-fuse-daemon"),
+        QLatin1String("fuse.gvfsd-fuse"),
+        QLatin1String("fuse.kio-fuse"),
+        QLatin1String("fuse.lxcfs"),
+        QLatin1String("fuse.portal"),
+        QLatin1String("fuse.rofiles-fuse"),
+        QLatin1String("fuse.vmware-vmblock"),
+        QLatin1String("fuse.xwmfs"),
+        QLatin1String("fusectl"),
+        QLatin1String("hugetlbfs"),
+        QLatin1String("ipathfs"),
+        QLatin1String("mqueue"),
+        QLatin1String("nfsd"),
+        QLatin1String("none"),
+        QLatin1String("nsfs"),
+        QLatin1String("overlay"),
+        QLatin1String("pidfs"),
+        QLatin1String("pipefs"),
+        QLatin1String("proc"),
+        QLatin1String("pstore"),
+        QLatin1String("ramfs"),
+        QLatin1String("resctrl"),
+        QLatin1String("rootfs"),
+        QLatin1String("rpc_pipefs"),
+        QLatin1String("securityfs"),
+        QLatin1String("selinuxfs"),
+        QLatin1String("smackfs"),
+        QLatin1String("sockfs"),
+        QLatin1String("spufs"),
+        QLatin1String("sysfs"),
+        QLatin1String("tmpfs"),
+        QLatin1String("tracefs"),
+        QLatin1String("vboxsf"),
+        QLatin1String("virtiofs"),
+    };
+
+    return std::ranges::any_of(pseudofsList, [mountType](const QLatin1String &pseudofs) {
+        return mountType == pseudofs;
     });
 }
 
@@ -90,11 +159,10 @@ public:
     QString m_mountType;
     QStringList m_mountOptions;
     dev_t m_deviceId = 0;
-#if HAVE_STATX_MNT_ID
     // the mount id seems to start at 1. 0 should be safe as a undefined default
-    __u64 m_mountId = 0;
-#endif
+    quint64 m_mountId = 0;
     bool m_isNetFs = false;
+    bool m_isPseudoFs = false;
 };
 
 KMountPoint::KMountPoint()
@@ -193,6 +261,8 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
 
                 Ptr mp(new KMountPoint);
                 mp->d->m_mountType = QFile::decodeName(fsType);
+                mp->d->m_isNetFs = isNetfs(mp->d->m_mountType);
+                mp->d->m_isPseudoFs = ::isPseudoFs(mp->d->m_mountType);
                 const char *target = mnt_fs_get_target(fs);
                 mp->d->m_mountPoint = QFile::decodeName(target);
 
@@ -250,6 +320,8 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
         if (mp->d->m_mountType == QLatin1String("swap")) {
             continue;
         }
+        mp->d->m_isNetFs = isNetfs(mp->d->m_mountType);
+        mp->d->m_isPseudoFs = ::isPseudoFs(mp->d->m_mountType);
         QString options = item[i++];
 
         if (infoNeeded & NeedMountOptions) {
@@ -282,6 +354,8 @@ void KMountPointPrivate::resolveGvfsMountPoints(KMountPoint::List &result)
             gvfsmp->d->m_mountedFrom = m_mountedFrom;
             gvfsmp->d->m_mountPoint = m_mountPoint + QLatin1Char('/') + mountDir;
             gvfsmp->d->m_mountType = type;
+            gvfsmp->d->m_isNetFs = true;
+            gvfsmp->d->m_isPseudoFs = true;
             result.append(gvfsmp);
         }
     }
@@ -308,6 +382,8 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
         mp->d->m_mountedFrom = QFile::decodeName(mounted[i].f_mntfromname);
         mp->d->m_mountPoint = QFile::decodeName(mounted[i].f_mntonname);
         mp->d->m_mountType = QFile::decodeName(mounted[i].f_fstypename);
+        mp->d->m_isNetFs = isNetfs(mp->d->m_mountType);
+        mp->d->m_isPseudoFs = ::isPseudoFs(mp->d->m_mountType);
 
         if (QT_STATBUF buff; QT_LSTAT(mounted[i].f_mntonname, &buff) == 0) {
             mp->d->m_deviceId = buff.st_dev;
@@ -360,20 +436,27 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
 
             while (mnt_table_next_fs(table, itr, &fs) == 0) {
                 Ptr mp(new KMountPoint);
+                const char *target = mnt_fs_get_target(fs);
+                mp->d->m_mountPoint = QFile::decodeName(target);
                 mp->d->m_mountedFrom = QFile::decodeName(mnt_fs_get_source(fs));
-                mp->d->m_mountPoint = QFile::decodeName(mnt_fs_get_target(fs));
                 mp->d->m_mountType = QFile::decodeName(mnt_fs_get_fstype(fs));
                 mp->d->m_isNetFs = mnt_fs_is_netfs(fs) == 1;
-#if HAVE_STATX_MNT_ID
-                // mnt_fs_get_id actually returns a int whereas the kernel uses __u64
-                int mnt_id = mnt_fs_get_id(fs);
-                if (mnt_id != -1) {
-                    mp->d->m_mountId = (__u64)mnt_id;
-                }
+                mp->d->m_isPseudoFs = mnt_fs_is_pseudofs(fs) == 1 || mp->d->m_mountType == QLatin1String("fuse.kio-fuse");
+
+                uint mask_mnt_id = 0;
+#if HAVE_STATX_MNT_ID_UNIQUE
+                mask_mnt_id = STATX_MNT_ID_UNIQUE | STATX_MNT_ID;
+#elif HAVE_STATX_MNT_ID
+                mask_mnt_id = STATX_MNT_ID;
 #endif
 
-                if (struct statx buff; statx(AT_FDCWD, mnt_fs_get_target(fs), AT_STATX_DONT_SYNC, STATX_INO, &buff) == 0) {
+                if (struct statx buff; statx(AT_FDCWD, target, AT_STATX_DONT_SYNC | AT_NO_AUTOMOUNT, STATX_INO | mask_mnt_id, &buff) == 0) {
                     mp->d->m_deviceId = makedev(buff.stx_dev_major, buff.stx_dev_minor);
+#if HAVE_STATX_MNT_ID
+                    if (buff.stx_mask & mask_mnt_id) {
+                        mp->d->m_mountId = (quint64)buff.stx_mask;
+                    }
+#endif
                 }
 
                 if (infoNeeded & NeedMountOptions) {
@@ -406,9 +489,25 @@ dev_t KMountPoint::deviceId() const
     return d->m_deviceId;
 }
 
+quint64 KMountPoint::mountId() const
+{
+    return d->m_mountId;
+}
+
 bool KMountPoint::isOnNetwork() const
 {
-    return d->m_isNetFs || isNetfs(d->m_mountType);
+    return d->m_isNetFs;
+}
+
+bool KMountPoint::isPseudoFs() const
+{
+    return d->m_isPseudoFs;
+}
+
+bool KMountPoint::isEncryptedFs() const
+{
+    return d->m_mountType == QLatin1String("fuse.gocryptfs")
+        || d->m_mountType == QLatin1String("fuse.encfs");
 }
 
 QString KMountPoint::realDeviceName() const
@@ -449,8 +548,12 @@ KMountPoint::Ptr KMountPoint::List::findByPath(const QString &path) const
 
     KMountPoint::Ptr result;
 #if HAVE_STATX_MNT_ID
+    uint mask = STATX_MNT_ID;
+#if HAVE_STATX_MNT_ID_UNIQUE
+    mask |= STATX_MNT_ID_UNIQUE;
+#endif
     // If we have statx, there is no need to guess. take the mount id from statx and get the mountpoint.
-    if (struct statx buff; statx(0, QFile::encodeName(realPath).constData(), AT_NO_AUTOMOUNT, STATX_MNT_ID, &buff) == 0) {
+    if (struct statx buff; statx(0, QFile::encodeName(path).constData(), AT_SYMLINK_NOFOLLOW | AT_NO_AUTOMOUNT, mask, &buff) == 0 && (buff.stx_mask & mask)) {
         auto it = std::find_if(this->cbegin(), this->cend(), [&buff](const KMountPoint::Ptr &mountPtr) {
             return mountPtr->d->m_mountId == buff.stx_mnt_id;
         });
@@ -549,6 +652,8 @@ KIOCORE_EXPORT QDebug operator<<(QDebug debug, const KMountPoint::Ptr &mp)
                     << ", device name: " << mp->d->m_device
                     << ", mount point: " << mp->d->m_mountPoint
                     << ", mount type: "  << mp->d->m_mountType
+                    << ", device id: "   << mp->d->m_deviceId
+                    << ", mount id: "    << mp->d->m_mountId
                     <<']';
 
     // clang-format on

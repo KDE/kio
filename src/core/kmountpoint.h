@@ -109,12 +109,43 @@ public:
     bool isOnNetwork() const;
 
     /*!
+     * Returns \c true if this mount points to a pseudo filesystem (e.g. devfs, proc,
+     * tmpfs, fuse, etc.), otherwise returns \c false.
+     *
+     * \since 6.24
+     */
+    bool isPseudoFs() const;
+
+    /*!
+     * Returns \c true if this mount points to a filesystem that is encrypting its
+     * content (e.g. gocryptfs), otherwise returns \c false.
+     *
+     * \since 6.24
+     */
+    bool isEncryptedFs() const;
+
+    /*!
      * Returns the device ID (dev_t, major, minor) of this mount point. This
      * ID is unique per device (including network mounts).
      *
      * \since 5.86
      */
     dev_t deviceId() const;
+
+    /*!
+     * Returns the mount ID of this mount point.
+     *
+     * If the system supports MNT_ID_UNIQUE, it will be returned. It is
+     * guaranteed to be unique until the next boot.
+     * If the system doesn't support that, the MNT_ID property will be returned.
+     * It is unique for a point in time, but is not guaranteed to be unique
+     * until next boot.
+     *
+     * On systems without statmount() (exists since Linux 6.8) this will return 0.
+     *
+     * \since 6.24
+     */
+    quint64 mountId() const;
 
     /*!
      * Canonical name of the device where the filesystem got mounted from.
