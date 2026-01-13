@@ -17,6 +17,8 @@
 #include <KFileUtils>
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/JobUiDelegate>
+#include <KIO/JobUiDelegateFactory>
+#include <KIO/OpenUrlJob>
 #include <KLocalizedString>
 #include <KPluginFactory>
 #include <KPluginMetaData>
@@ -754,6 +756,24 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
     }
 #endif
 
+    bool isExecutableFile = false;
+    if (items.length() == 1) {
+        auto mimeType = firstItem.currentMimeType();
+        isExecutableFile = firstItem.isFile() && firstItem.isLocalFile() && firstItem.isExecutable();
+        if (isExecutableFile) {
+            QAction *runAct = new QAction(q);
+            runAct->setText(i18n("&Run Executable"));
+            runAct->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
+            connect(runAct, &QAction::triggered, this, [this, firstItem]() {
+                KIO::OpenUrlJob *job = new KIO::OpenUrlJob(firstItem.targetUrl(), firstItem.mimetype(), q);
+                job->setUiDelegate(KIO::createDefaultJobUiDelegate(KJobUiDelegate::AutoWarningHandlingEnabled, m_parentWidget));
+                job->setRunExecutables(true);
+                job->setShowOpenOrExecuteDialog(false);
+                job->start();
+            });
+            topMenu->insertAction(before, runAct);
+        }
+    }
     QStringList serviceIdList = listPreferredServiceIds(m_mimeTypeList, excludedDesktopEntryNames);
 
     // When selecting files with multiple MIME types, offer either "open with <app for all>"
@@ -789,7 +809,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
 
     if (!offers.isEmpty()) {
         // Show the top app inline for files, but not folders
-        if (!isDir) {
+        if (!isDir && !isExecutableFile) {
             QAction *act = createAppAction(offers.takeFirst(), true);
             topMenu->insertAction(before, act);
         }
