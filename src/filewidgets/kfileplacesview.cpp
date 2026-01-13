@@ -843,6 +843,7 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
     setMouseTracking(true);
     setDropIndicatorShown(false);
     setFrameStyle(QFrame::NoFrame);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     setResizeMode(Adjust);
 
@@ -1855,9 +1856,8 @@ void KFilePlacesViewPrivate::adaptItemSize()
         maxWidth = q->viewport()->width() - (*widestTwentyPercentOfTextWidths.rbegin()) - 4 * margin - 1;
     }
 
-    const int totalItemsHeight = (fm.height() / 2) * rowCount;
-    const int totalSectionsHeight = (m_delegate->sectionHeaderHeight(QModelIndex()) - s_lateralMargin - q->spacing()) * sectionsCount();
-    const int maxHeight = ((q->height() - totalSectionsHeight - totalItemsHeight) / rowCount);
+    const int totalSectionsHeight = m_delegate->sectionHeaderHeight(QModelIndex()) * sectionsCount();
+    const int maxHeight = qCeil((q->height() - totalSectionsHeight) / rowCount) - s_lateralMargin;
 
     int size = qMin(maxHeight, maxWidth);
 
@@ -1882,6 +1882,11 @@ void KFilePlacesViewPrivate::relayoutIconSize(const int size)
     if (shouldAnimate() && m_smoothItemResizing) {
         m_oldSize = m_delegate->iconSize();
         m_endSize = size;
+
+        if (m_endSize < m_oldSize) {
+            // avoids flashing the scroll bar when the icons are getting smaller
+            q->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        }
         if (m_adaptItemsTimeline.state() != QTimeLine::Running) {
             m_adaptItemsTimeline.start();
         }
@@ -2153,6 +2158,8 @@ void KFilePlacesViewPrivate::adaptItemsUpdate(qreal value)
 
     m_delegate->setIconSize(size);
     q->scheduleDelayedItemsLayout();
+
+    q->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 }
 
 void KFilePlacesViewPrivate::itemAppearUpdate(qreal value)
