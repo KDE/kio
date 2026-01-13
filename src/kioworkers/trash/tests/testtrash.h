@@ -31,6 +31,7 @@ private Q_SLOTS:
     void urlTestFile();
     void urlTestDirectory();
     void urlTestSubDirectory();
+    void urlTestLargeId();
 
     void trashFileFromHome();
     void trashPercentFileFromHome();
@@ -115,8 +116,8 @@ private:
     QString m_otherPartitionTopDir;
     QString m_otherPartitionTrashDir;
     bool m_tmpIsWritablePartition;
-    int m_tmpTrashId;
-    int m_otherPartitionId;
+    quint64 m_tmpTrashId;
+    quint64 m_otherPartitionId;
 
     int m_entryCount;
     QStringList m_listResult;

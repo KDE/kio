@@ -146,7 +146,6 @@ void TestTrash::initTestCase()
     bool foundTrashDir = false;
     m_otherPartitionId = 0;
     m_tmpIsWritablePartition = false;
-    m_tmpTrashId = -1;
     QList<int> writableTopDirs;
     for (TrashImpl::TrashDirMap::ConstIterator it = trashDirs.constBegin(); it != trashDirs.constEnd(); ++it) {
         if (it.key() == 0) {
@@ -227,7 +226,7 @@ void TestTrash::urlTestFile()
     const QUrl url = TrashImpl::makeURL(1, QStringLiteral("fileId"), QString());
     QCOMPARE(url.url(), QStringLiteral("trash:/1-fileId"));
 
-    int trashId;
+    quint64 trashId;
     QString fileId;
     QString relativePath;
     bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
@@ -242,7 +241,7 @@ void TestTrash::urlTestDirectory()
     const QUrl url = TrashImpl::makeURL(1, QStringLiteral("fileId"), QStringLiteral("subfile"));
     QCOMPARE(url.url(), QStringLiteral("trash:/1-fileId/subfile"));
 
-    int trashId;
+    quint64 trashId;
     QString fileId;
     QString relativePath;
     bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
@@ -257,7 +256,7 @@ void TestTrash::urlTestSubDirectory()
     const QUrl url = TrashImpl::makeURL(1, QStringLiteral("fileId"), QStringLiteral("subfile/foobar"));
     QCOMPARE(url.url(), QStringLiteral("trash:/1-fileId/subfile/foobar"));
 
-    int trashId;
+    quint64 trashId;
     QString fileId;
     QString relativePath;
     bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
@@ -265,6 +264,22 @@ void TestTrash::urlTestSubDirectory()
     QCOMPARE(trashId, 1);
     QCOMPARE(fileId, QStringLiteral("fileId"));
     QCOMPARE(relativePath, QStringLiteral("subfile/foobar"));
+}
+
+void TestTrash::urlTestLargeId()
+{
+    const quint64 inputTrashId = 4294967296ULL; // make it larger than an int
+    const QUrl url = TrashImpl::makeURL(inputTrashId, QStringLiteral("fileId"), QString());
+    QCOMPARE(url.url(), QStringLiteral("trash:/4294967296-fileId"));
+
+    quint64 trashId;
+    QString fileId;
+    QString relativePath;
+    bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
+    QVERIFY(ok);
+    QCOMPARE(trashId, inputTrashId);
+    QCOMPARE(fileId, QStringLiteral("fileId"));
+    QCOMPARE(relativePath, QString());
 }
 
 static void checkInfoFile(const QString &infoPath, const QString &origFilePath)
@@ -340,7 +355,7 @@ void TestTrash::trashFile(const QString &origFilePath, const QString &fileId)
             qDebug() << trashURL;
             QVERIFY(!trashURL.isEmpty());
             QCOMPARE(trashURL.scheme(), QLatin1String("trash"));
-            int trashId = 0;
+            quint64 trashId = 0;
             if (origFilePath.startsWith(QLatin1String("/tmp")) && m_tmpIsWritablePartition) {
                 trashId = m_tmpTrashId;
             }

@@ -17,11 +17,6 @@
 #include <QDateTime>
 #include <QMap>
 
-namespace Solid
-{
-class Device;
-}
-
 /*!
  * Implementation of all low-level operations done by kio_trash.
  * The structure of the trash directory follows the freedesktop.org standard:
@@ -40,29 +35,29 @@ public:
     /// Create info for a file to be trashed
     /// Returns trashId and fileId
     /// The caller is then responsible for actually trashing the file
-    bool createInfo(const QString &origPath, int &trashId, QString &fileId);
+    bool createInfo(const QString &origPath, quint64 &trashId, QString &fileId);
 
     /// Delete info file for a file to be trashed
     /// Usually used for undoing what createInfo did if trashing failed
-    bool deleteInfo(int trashId, const QString &fileId);
+    bool deleteInfo(quint64 trashId, const QString &fileId);
 
     /// Moving a file or directory into the trash. The ids come from createInfo.
-    bool moveToTrash(const QString &origPath, int trashId, const QString &fileId);
+    bool moveToTrash(const QString &origPath, quint64 trashId, const QString &fileId);
 
     /// Moving a file or directory out of the trash. The ids come from createInfo.
-    bool moveFromTrash(const QString &origPath, int trashId, const QString &fileId, const QString &relativePath);
+    bool moveFromTrash(const QString &origPath, quint64 trashId, const QString &fileId, const QString &relativePath);
 
     /// Copying a file or directory into the trash. The ids come from createInfo.
-    bool copyToTrash(const QString &origPath, int trashId, const QString &fileId);
+    bool copyToTrash(const QString &origPath, quint64 trashId, const QString &fileId);
 
     /// Copying a file or directory out of the trash. The ids come from createInfo.
-    bool copyFromTrash(const QString &origPath, int trashId, const QString &fileId, const QString &relativePath);
+    bool copyFromTrash(const QString &origPath, quint64 trashId, const QString &fileId, const QString &relativePath);
 
     /// Renaming a file or directory in the trash.
-    bool moveInTrash(int trashId, const QString &oldFileId, const QString &newFileId);
+    bool moveInTrash(quint64 trashId, const QString &oldFileId, const QString &newFileId);
 
     /// Get rid of a trashed file
-    bool del(int trashId, const QString &fileId);
+    bool del(quint64 trashId, const QString &fileId);
 
     /// Empty trash, i.e. delete all trashed files
     bool emptyTrash();
@@ -71,7 +66,7 @@ public:
     bool isEmpty() const;
 
     struct TrashedFileInfo {
-        int trashId; // for the url
+        quint64 trashId; // for the url
         QString fileId; // for the url
         QString physicalPath; // for stat'ing etc.
         QString origPath; // from info file
@@ -85,7 +80,7 @@ public:
     TrashedFileInfoList list();
 
     /// Return the info for a given trashed file
-    bool infoForFile(int trashId, const QString &fileId, TrashedFileInfo &info);
+    bool infoForFile(quint64 trashId, const QString &fileId, TrashedFileInfo &info);
 
     struct TrashSpaceInfo {
         qint64 totalSize; // total trash size in bytes
@@ -100,7 +95,7 @@ public:
 
     /// Return the physicalPath for a given trashed file - helper method which
     /// encapsulates the call to infoForFile. Don't use if you need more info from TrashedFileInfo.
-    QString physicalPath(int trashId, const QString &fileId, const QString &relativePath);
+    QString physicalPath(quint64 trashId, const QString &fileId, const QString &relativePath);
 
     /// Move data from the old trash system to the new one
     void migrateOldTrash();
@@ -117,10 +112,10 @@ public:
 
     QStringList listDir(const QString &physicalPath);
 
-    static QUrl makeURL(int trashId, const QString &fileId, const QString &relativePath);
-    static bool parseURL(const QUrl &url, int &trashId, QString &fileId, QString &relativePath);
+    static QUrl makeURL(quint64 trashId, const QString &fileId, const QString &relativePath);
+    static bool parseURL(const QUrl &url, quint64 &trashId, QString &fileId, QString &relativePath);
 
-    using TrashDirMap = QMap<int, QString>;
+    using TrashDirMap = QMap<quint64, QString>;
     /// \internal This method is for TestTrash only. Home trash is included (id 0).
     TrashDirMap trashDirectories() const;
     /// \internal This method is for TestTrash only. No entry with id 0.
@@ -139,37 +134,32 @@ private:
     void fileAdded();
     void fileRemoved();
 
-    bool adaptTrashSize(const QString &origPath, int trashId);
+    bool adaptTrashSize(const QString &origPath, quint64 trashId);
 
     // Warning, returns error code, not a bool
     int testDir(const QString &name) const;
     void error(int e, const QString &s);
 
-    bool readInfoFile(const QString &infoPath, TrashedFileInfo &info, int trashId);
+    bool readInfoFile(const QString &infoPath, TrashedFileInfo &info, quint64 trashId);
 
-    QString infoPath(int trashId, const QString &fileId) const;
-    QString filesPath(int trashId, const QString &fileId) const;
+    QString infoPath(quint64 trashId, const QString &fileId) const;
+    QString filesPath(quint64 trashId, const QString &fileId) const;
 
 #ifdef Q_OS_OSX
-    int idForMountPoint(const QString &mountPoint) const;
-#else
-    int idForDevice(const Solid::Device &device) const;
+    std::optional<quint64> idForMountPoint(const QString &mountPoint) const;
 #endif
-    void refreshDevices() const;
 
     /// Find the trash dir to use for a given file to delete, based on original path.
-    /// Returns a value < 0 if no trash is available. The different values below zero
-    /// have no meaning and should only ease debugging.
-    int findTrashDirectory(const QString &origPath);
+    std::optional<quint64> findTrashDirectory(const QString &origPath);
 
-    QString trashDirectoryPath(int trashId) const;
-    QString topDirectoryPath(int trashId) const;
+    QString trashDirectoryPath(quint64 trashId) const;
+    QString topDirectoryPath(quint64 trashId) const;
 
     bool synchronousDel(const QString &path, bool setLastErrorCode, bool isDir);
 
     void scanTrashDirectories() const;
 
-    int idForTrashDirectory(const QString &trashDir) const;
+    std::optional<quint64> idForTrashDirectory(const QString &trashDir) const;
     bool initTrashDirectory(const QByteArray &trashDir_c) const;
     bool checkTrashSubdirs(const QByteArray &trashDir_c) const;
     QString trashForMountPoint(const QString &topdir, bool createIfNeeded) const;
@@ -187,10 +177,10 @@ private:
     void deleteEmptyTrashInfrastructure();
     // create the trash infrastructure; also called
     // to recreate it on OS X.
-    bool createTrashInfrastructure(int trashId, const QString &path = QString());
+    bool createTrashInfrastructure(quint64 trashId, const QString &path = QString());
 
     // Inserts a newly found @p trashDir, under @p topdir with @p id
-    void insertTrashDir(int id, const QString &trashDir, const QString &topdir) const;
+    void insertTrashDir(quint64 id, const QString &trashDir, const QString &topdir) const;
 
     /// Last error code stored in class to simplify API.
     /// Note that this means almost no method can be const.

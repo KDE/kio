@@ -25,7 +25,6 @@ ecm_add_test(${testtrash_SRCS}
         KF6::I18n
         ${DBUS_LIB}
         KF6::KIOCore
-        KF6::Solid
         Qt6::Test
         Qt6::Network
 )

@@ -23,10 +23,6 @@
 #include <KJobUiDelegate>
 #include <KLocalizedString>
 #include <KSharedConfig>
-#include <solid/block.h>
-#include <solid/device.h>
-#include <solid/networkshare.h>
-#include <solid/storageaccess.h>
 
 #include <QCoreApplication>
 #include <QDebug>
@@ -125,7 +121,7 @@ void TrashImpl::deleteEmptyTrashInfrastructure()
 #endif
 }
 
-bool TrashImpl::createTrashInfrastructure(int trashId, const QString &path)
+bool TrashImpl::createTrashInfrastructure(quint64 trashId, const QString &path)
 {
     const QString trashDir = path.isEmpty() ? trashDirectoryPath(trashId) : path;
     if (const int err = testDir(trashDir)) {
@@ -206,7 +202,7 @@ void TrashImpl::migrateOldTrash()
             continue;
         }
         srcPath.prepend(oldTrashDir); // make absolute
-        int trashId;
+        quint64 trashId;
         QString fileId;
         if (!createInfo(srcPath, trashId, fileId)) {
             qCWarning(KIO_TRASH) << "Trash migration: failed to create info for" << srcPath;
@@ -229,7 +225,7 @@ void TrashImpl::migrateOldTrash()
     }
 }
 
-bool TrashImpl::createInfo(const QString &origPath, int &trashId, QString &fileId)
+bool TrashImpl::createInfo(const QString &origPath, quint64 &trashId, QString &fileId)
 {
     // off_t should be 64bit on Unix systems to have large file support
     // FIXME: on windows this gets disabled until trash gets integrated
@@ -256,11 +252,13 @@ bool TrashImpl::createInfo(const QString &origPath, int &trashId, QString &fileI
     }
 
     // Choose destination trash
-    trashId = findTrashDirectory(origPath);
-    if (trashId < 0) {
+    auto id = findTrashDirectory(origPath);
+    if (!id) {
+        // TODO Add fallback to home trash if settings allow it
         error(KIO::ERR_TRASH_NOT_AVAILABLE, KIO::buildErrorString(m_lastErrorCode, {}));
         return false;
     }
+    trashId = *id;
     // qCDebug(KIO_TRASH) << "trashing to" << trashId;
 
     // Grab original filename
@@ -361,19 +359,19 @@ void TrashImpl::enterLoop()
     eventLoop.exec(QEventLoop::ExcludeUserInputEvents);
 }
 
-QString TrashImpl::infoPath(int trashId, const QString &fileId) const
+QString TrashImpl::infoPath(quint64 trashId, const QString &fileId) const
 {
     const QString trashPath = trashDirectoryPath(trashId) + QLatin1String("/info/") + fileId + QLatin1String(".trashinfo");
     return trashPath;
 }
 
-QString TrashImpl::filesPath(int trashId, const QString &fileId) const
+QString TrashImpl::filesPath(quint64 trashId, const QString &fileId) const
 {
     const QString trashPath = trashDirectoryPath(trashId) + QLatin1String("/files/") + fileId;
     return trashPath;
 }
 
-bool TrashImpl::deleteInfo(int trashId, const QString &fileId)
+bool TrashImpl::deleteInfo(quint64 trashId, const QString &fileId)
 {
 #ifdef Q_OS_OSX
     createTrashInfrastructure(trashId);
@@ -387,7 +385,7 @@ bool TrashImpl::deleteInfo(int trashId, const QString &fileId)
     return false;
 }
 
-bool TrashImpl::moveToTrash(const QString &origPath, int trashId, const QString &fileId)
+bool TrashImpl::moveToTrash(const QString &origPath, quint64 trashId, const QString &fileId)
 {
     // qCDebug(KIO_TRASH) << "Trashing" << origPath << trashId << fileId;
     if (!adaptTrashSize(origPath, trashId)) {
@@ -419,7 +417,7 @@ bool TrashImpl::moveToTrash(const QString &origPath, int trashId, const QString 
     return true;
 }
 
-bool TrashImpl::moveFromTrash(const QString &dest, int trashId, const QString &fileId, const QString &relativePath)
+bool TrashImpl::moveFromTrash(const QString &dest, quint64 trashId, const QString &fileId, const QString &relativePath)
 {
     QString src = filesPath(trashId, fileId);
     if (!relativePath.isEmpty()) {
@@ -469,7 +467,7 @@ void TrashImpl::jobFinished(KJob *job)
     Q_EMIT leaveModality();
 }
 
-bool TrashImpl::copyToTrash(const QString &origPath, int trashId, const QString &fileId)
+bool TrashImpl::copyToTrash(const QString &origPath, quint64 trashId, const QString &fileId)
 {
     // qCDebug(KIO_TRASH);
     if (!adaptTrashSize(origPath, trashId)) {
@@ -494,7 +492,7 @@ bool TrashImpl::copyToTrash(const QString &origPath, int trashId, const QString 
     return true;
 }
 
-bool TrashImpl::copyFromTrash(const QString &dest, int trashId, const QString &fileId, const QString &relativePath)
+bool TrashImpl::copyFromTrash(const QString &dest, quint64 trashId, const QString &fileId, const QString &relativePath)
 {
     const QString src = physicalPath(trashId, fileId, relativePath);
     return copy(src, dest);
@@ -542,7 +540,7 @@ bool TrashImpl::directRename(const QString &src, const QString &dest)
     return true;
 }
 
-bool TrashImpl::moveInTrash(int trashId, const QString &oldFileId, const QString &newFileId)
+bool TrashImpl::moveInTrash(quint64 trashId, const QString &oldFileId, const QString &newFileId)
 {
     m_lastErrorCode = 0;
 
@@ -568,7 +566,7 @@ bool TrashImpl::moveInTrash(int trashId, const QString &oldFileId, const QString
     return false;
 }
 
-bool TrashImpl::del(int trashId, const QString &fileId)
+bool TrashImpl::del(quint64 trashId, const QString &fileId)
 {
 #ifdef Q_OS_OSX
     createTrashInfrastructure(trashId);
@@ -698,7 +696,7 @@ TrashImpl::TrashedFileInfoList TrashImpl::list()
     TrashedFileInfoList lst;
     // For each known trash directory...
     for (auto it = m_trashDirectories.cbegin(); it != m_trashDirectories.cend(); ++it) {
-        const int trashId = it.key();
+        const quint64 trashId = it.key();
         QString infoPath = it.value();
         infoPath += QLatin1String("/info");
         // Code taken from kio_file
@@ -734,7 +732,7 @@ QStringList TrashImpl::listDir(const QString &physicalPath)
     return QDir(physicalPath).entryList(QDir::Dirs | QDir::Files | QDir::Hidden | QDir::System);
 }
 
-bool TrashImpl::infoForFile(int trashId, const QString &fileId, TrashedFileInfo &info)
+bool TrashImpl::infoForFile(quint64 trashId, const QString &fileId, TrashedFileInfo &info)
 {
     // qCDebug(KIO_TRASH) << trashId << fileId;
     info.trashId = trashId; // easy :)
@@ -745,11 +743,11 @@ bool TrashImpl::infoForFile(int trashId, const QString &fileId, TrashedFileInfo 
 
 bool TrashImpl::trashSpaceInfo(const QString &path, TrashSpaceInfo &info)
 {
-    const int trashId = findTrashDirectory(path);
-    if (trashId < 0) {
-        qCWarning(KIO_TRASH) << "No trash directory found for " << path << "! TrashImpl::findTrashDirectory returned" << trashId;
+    const auto id = findTrashDirectory(path);
+    if (!id) {
         return false;
     }
+    const quint64 trashId = *id;
 
     const KConfig config(QStringLiteral("ktrashrc"));
 
@@ -774,7 +772,7 @@ bool TrashImpl::trashSpaceInfo(const QString &path, TrashSpaceInfo &info)
     return true;
 }
 
-bool TrashImpl::readInfoFile(const QString &infoPath, TrashedFileInfo &info, int trashId)
+bool TrashImpl::readInfoFile(const QString &infoPath, TrashedFileInfo &info, quint64 trashId)
 {
     KConfig cfg(infoPath, KConfig::SimpleConfig);
     if (!cfg.hasGroup(QStringLiteral("Trash Info"))) {
@@ -801,7 +799,7 @@ bool TrashImpl::readInfoFile(const QString &infoPath, TrashedFileInfo &info, int
     return true;
 }
 
-QString TrashImpl::physicalPath(int trashId, const QString &fileId, const QString &relativePath)
+QString TrashImpl::physicalPath(quint64 trashId, const QString &fileId, const QString &relativePath)
 {
     QString filePath = filesPath(trashId, fileId);
     if (!relativePath.isEmpty()) {
@@ -882,7 +880,7 @@ void TrashImpl::fileRemoved()
 #include <DiskArbitration/DiskArbitration.h>
 #include <sys/mount.h>
 
-int TrashImpl::idForMountPoint(const QString &mountPoint) const
+std::optional<quint64> TrashImpl::idForMountPoint(const QString &mountPoint) const
 {
     DADiskRef disk;
     CFDictionaryRef descDict;
@@ -916,118 +914,75 @@ int TrashImpl::idForMountPoint(const QString &mountPoint) const
     } else {
         qCWarning(KIO_TRASH) << "couldn't create DASession";
     }
-    return devId;
-}
 
-#else
-
-int TrashImpl::idForDevice(const Solid::Device &device) const
-{
-    const Solid::Block *block = device.as<Solid::Block>();
-    if (block) {
-        // qCDebug(KIO_TRASH) << "major=" << block->deviceMajor() << "minor=" << block->deviceMinor();
-        return block->deviceMajor() * 1000 + block->deviceMinor();
-    } else {
-        const Solid::NetworkShare *netshare = device.as<Solid::NetworkShare>();
-
-        if (netshare) {
-            QString url = netshare->url().url();
-
-            QLockFile configLock(QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) + QStringLiteral("/trashrc.nextid.lock"));
-
-            if (!configLock.lock()) {
-                return -1;
-            }
-
-            m_config.reparseConfiguration();
-            KConfigGroup group = m_config.group(QStringLiteral("NetworkShares"));
-            int id = group.readEntry(url, -1);
-
-            if (id == -1) {
-                id = group.readEntry("NextID", 0);
-                // qCDebug(KIO_TRASH) << "new share=" << url << " id=" << id;
-
-                group.writeEntry(url, id);
-                group.writeEntry("NextID", id + 1);
-                group.sync();
-            }
-
-            return 6000000 + id;
-        }
-
-        // Not a block device nor a network share
-        return -1;
+    if (devId > -1) {
+        return {(quint64)devId};
     }
-}
-
-void TrashImpl::refreshDevices() const
-{
-    // this is needed because Solid's fstab backend uses QSocketNotifier
-    // to get notifications about changes to mtab
-    // otherwise we risk getting old device list
-    qApp->processEvents(QEventLoop::ExcludeUserInputEvents);
+    return {};
 }
 #endif
 
-void TrashImpl::insertTrashDir(int id, const QString &trashDir, const QString &topdir) const
+void TrashImpl::insertTrashDir(quint64 id, const QString &trashDir, const QString &topdir) const
 {
     m_trashDirectories.insert(id, trashDir);
     qCDebug(KIO_TRASH) << "found" << trashDir << "gave it id" << id;
     m_topDirectories.insert(id, Utils::slashAppended(topdir));
 }
 
-int TrashImpl::findTrashDirectory(const QString &origPath)
+std::optional<quint64> TrashImpl::findTrashDirectory(const QString &origPath)
 {
-    // qCDebug(KIO_TRASH) << origPath;
-    // Check if it's on the same device as $HOME
-    QT_STATBUF buff;
-    if (QT_LSTAT(QFile::encodeName(origPath).constData(), &buff) == 0 && buff.st_dev == m_homeDevice) {
-        return 0;
-    }
-
-    KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(origPath);
+    const KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(origPath);
     if (!mp) {
-        // qCDebug(KIO_TRASH) << "KMountPoint found no mount point for" << origPath;
-        return -4;
+        qCWarning(KIO_TRASH) << "KMountPoint found no mountpoint for" << origPath;
+        return {};
     }
 
-    QString mountPoint = mp->mountPoint();
+    // Check if it's on the same device as $HOME
+    if (mp->deviceId() == m_homeDevice) {
+        return {0};
+    }
+
+    if (mp->isPseudoFs() && !mp->isEncryptedFs()) {
+        qCDebug(KIO_TRASH) << origPath << "is on a pseudofs:" << mp->mountType();
+        return {};
+    }
+
+    const QString mountPoint = mp->mountPoint();
     const QString trashDir = trashForMountPoint(mountPoint, true);
     // qCDebug(KIO_TRASH) << "mountPoint=" << mountPoint << "trashDir=" << trashDir;
 
 #ifndef Q_OS_OSX
     if (trashDir.isEmpty()) {
-        return -3; // no trash available on partition
+        qCWarning(KIO_TRASH) << "Creating trash for" << origPath << "failed - no permission?";
+        return {};
     }
 #endif
 
-    int id = idForTrashDirectory(trashDir);
-    if (id > -1) {
-        qCDebug(KIO_TRASH) << "Found Trash dir" << trashDir << "with id" << id;
+    auto id = idForTrashDirectory(trashDir);
+    if (id) {
+        qCDebug(KIO_TRASH) << "Found Trash dir" << trashDir << "with id" << id.value();
         return id;
     }
 
+    quint64 trashId = 0;
 #ifdef Q_OS_OSX
     id = idForMountPoint(mountPoint);
+    if (id) {
+        trashId = *id;
+    }
 #else
-    refreshDevices();
-    const QString query = QLatin1String("[StorageAccess.accessible == true AND StorageAccess.filePath == '%1']").arg(mountPoint);
-    const QList<Solid::Device> lst = Solid::Device::listFromQuery(query);
-    qCDebug(KIO_TRASH) << "Queried Solid with" << query << "got" << lst.count() << "devices";
-    if (lst.isEmpty()) { // not a device. Maybe some tmpfs mount for instance.
-        return -2;
+    trashId = mp->mountId();
+    if (trashId == 0) {
+        trashId = mp->deviceId();
     }
-
-    // Pretend we got exactly one...
-    const Solid::Device device = lst.at(0);
-    id = idForDevice(device); // will return -1 if device is neither a block device nor a network share
 #endif
-    if (id > -1) {
-        // New trash dir found, register it
-        insertTrashDir(id, trashDir, mountPoint);
+    if (trashId == 0) {
+        qCWarning(KIO_TRASH) << "No id found to create trash for" << origPath;
+        return {};
     }
 
-    return id;
+    insertTrashDir(trashId, trashDir, mountPoint);
+    return {trashId};
 }
 
 KIO::UDSEntry TrashImpl::trashUDSEntry(KIO::StatDetails details)
@@ -1060,29 +1015,35 @@ KIO::UDSEntry TrashImpl::trashUDSEntry(KIO::StatDetails details)
 
 void TrashImpl::scanTrashDirectories() const
 {
-#ifndef Q_OS_OSX
-    refreshDevices();
-#endif
-
-    const QList<Solid::Device> lst = Solid::Device::listFromQuery(QStringLiteral("StorageAccess.accessible == true"));
-    for (const Solid::Device &device : lst) {
-        QString topdir = device.as<Solid::StorageAccess>()->filePath();
-        QString trashDir = trashForMountPoint(topdir, false);
+    const KMountPoint::List lst = KMountPoint::currentMountPoints();
+    for (const KMountPoint::Ptr &mp : lst) {
+        if (mp->isPseudoFs() && !mp->isEncryptedFs()) {
+            continue;
+        }
+        const QString topDir = mp->mountPoint();
+        const QString trashDir = trashForMountPoint(topDir, false);
         if (!trashDir.isEmpty()) {
             // OK, trashDir is a valid trash directory. Ensure it's registered.
-            int trashId = idForTrashDirectory(trashDir);
-            if (trashId == -1) {
+            auto id = idForTrashDirectory(trashDir);
+            if (!id) {
                 // new trash dir found, register it
+                quint64 trashId = 0;
 #ifdef Q_OS_OSX
-                trashId = idForMountPoint(topdir);
+                id = idForMountPoint(topDir);
+                if (id) {
+                    trashId = *id;
+                }
 #else
-                trashId = idForDevice(device);
+                trashId = mp->mountId();
+                if (trashId == 0) {
+                    trashId = mp->deviceId();
+                }
 #endif
-                if (trashId == -1) {
+                if (trashId == 0) {
                     continue;
                 }
 
-                insertTrashDir(trashId, trashDir, topdir);
+                insertTrashDir(trashId, trashDir, topDir);
             }
         }
     }
@@ -1178,15 +1139,15 @@ QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded
     return QString();
 }
 
-int TrashImpl::idForTrashDirectory(const QString &trashDir) const
+std::optional<quint64> TrashImpl::idForTrashDirectory(const QString &trashDir) const
 {
     // If this is too slow we can always use a reverse map...
     for (auto it = m_trashDirectories.cbegin(); it != m_trashDirectories.cend(); ++it) {
         if (it.value() == trashDir) {
-            return it.key();
+            return {it.key()};
         }
     }
-    return -1;
+    return {};
 }
 
 bool TrashImpl::initTrashDirectory(const QByteArray &trashDir_c) const
@@ -1205,7 +1166,7 @@ bool TrashImpl::checkTrashSubdirs(const QByteArray &trashDir_c) const
     return testDir(info) == 0 && testDir(files) == 0;
 }
 
-QString TrashImpl::trashDirectoryPath(int trashId) const
+QString TrashImpl::trashDirectoryPath(quint64 trashId) const
 {
     // Never scanned for trash dirs? (This can happen after killing kio_trash
     // and reusing a directory listing from the earlier instance.)
@@ -1216,7 +1177,7 @@ QString TrashImpl::trashDirectoryPath(int trashId) const
     return m_trashDirectories[trashId];
 }
 
-QString TrashImpl::topDirectoryPath(int trashId) const
+QString TrashImpl::topDirectoryPath(quint64 trashId) const
 {
     if (!m_trashDirectoriesScanned) {
         scanTrashDirectories();
@@ -1228,7 +1189,7 @@ QString TrashImpl::topDirectoryPath(int trashId) const
 
 // Helper method. Creates a URL with the format trash:/trashid-fileid or
 // trash:/trashid-fileid/relativePath/To/File for a file inside a trashed directory.
-QUrl TrashImpl::makeURL(int trashId, const QString &fileId, const QString &relativePath)
+QUrl TrashImpl::makeURL(quint64 trashId, const QString &fileId, const QString &relativePath)
 {
     QUrl url;
     url.setScheme(QStringLiteral("trash"));
@@ -1242,7 +1203,7 @@ QUrl TrashImpl::makeURL(int trashId, const QString &fileId, const QString &relat
 
 // Helper method. Parses a trash URL with the URL scheme defined in makeURL.
 // The trash:/ URL itself isn't parsed here, must be caught by the caller before hand.
-bool TrashImpl::parseURL(const QUrl &url, int &trashId, QString &fileId, QString &relativePath)
+bool TrashImpl::parseURL(const QUrl &url, quint64 &trashId, QString &fileId, QString &relativePath)
 {
     if (url.scheme() != QLatin1String("trash")) {
         return false;
@@ -1261,7 +1222,7 @@ bool TrashImpl::parseURL(const QUrl &url, int &trashId, QString &fileId, QString
     }
     bool ok = false;
 
-    trashId = QStringView(path).mid(start, slashPos - start).toInt(&ok);
+    trashId = QStringView(path).mid(start, slashPos - start).toULongLong(&ok);
 
     Q_ASSERT_X(ok, Q_FUNC_INFO, qUtf8Printable(url.toString()));
     if (!ok) {
@@ -1279,7 +1240,7 @@ bool TrashImpl::parseURL(const QUrl &url, int &trashId, QString &fileId, QString
     return true;
 }
 
-bool TrashImpl::adaptTrashSize(const QString &origPath, int trashId)
+bool TrashImpl::adaptTrashSize(const QString &origPath, quint64 trashId)
 {
     KConfig config(QStringLiteral("ktrashrc"));
 

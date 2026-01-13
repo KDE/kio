@@ -108,7 +108,7 @@ KIO::WorkerResult TrashProtocol::enterLoop()
 
 KIO::WorkerResult TrashProtocol::restore(const QUrl &trashURL)
 {
-    int trashId;
+    quint64 trashId;
     QString fileId;
     QString relativePath;
     bool ok = TrashImpl::parseURL(trashURL, trashId, fileId, relativePath);
@@ -152,7 +152,7 @@ KIO::WorkerResult TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, 
         if (!isTopLevelEntry(oldURL) || !isTopLevelEntry(newURL)) {
             return KIO::WorkerResult::fail(KIO::ERR_CANNOT_RENAME, oldURL.toString());
         }
-        int oldTrashId;
+        quint64 oldTrashId;
         QString oldFileId;
         QString oldRelativePath;
         bool oldOk = TrashImpl::parseURL(oldURL, oldTrashId, oldFileId, oldRelativePath);
@@ -212,7 +212,7 @@ KIO::WorkerResult TrashProtocol::copy(const QUrl &src, const QUrl &dest, int /*p
 KIO::WorkerResult TrashProtocol::copyOrMoveFromTrash(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action)
 {
     // Extracting (e.g. via dnd). Ignore original location stored in info file.
-    int trashId;
+    quint64 trashId;
     QString fileId;
     QString relativePath;
     bool ok = TrashImpl::parseURL(src, trashId, fileId, relativePath);
@@ -259,7 +259,7 @@ KIO::WorkerResult TrashProtocol::copyOrMoveToTrash(const QUrl &src, const QUrl &
         // in case the trash URL didn't contain the same filename as srcPath.
         // But this can only happen with copyAs/moveAs, not available in the GUI
         // for the trash (New/... or Rename from iconview/listview).
-        int trashId;
+        quint64 trashId;
         QString fileId;
         if (!impl.createInfo(srcPath, trashId, fileId)) {
             return KIO::WorkerResult::fail(impl.lastErrorCode(), impl.lastErrorMessage());
@@ -321,7 +321,7 @@ KIO::WorkerResult TrashProtocol::stat(const QUrl &url)
         createTopLevelDirEntry(entry);
         statEntry(entry);
     } else {
-        int trashId;
+        quint64 trashId;
         QString fileId;
         QString relativePath;
 
@@ -374,7 +374,7 @@ KIO::WorkerResult TrashProtocol::del(const QUrl &url, bool /*isfile*/)
         return initResult;
     }
 
-    int trashId;
+    quint64 trashId;
     QString fileId;
     QString relativePath;
 
@@ -407,7 +407,7 @@ KIO::WorkerResult TrashProtocol::listDir(const QUrl &url)
     if (path.isEmpty() || path == QLatin1String("/")) {
         return listRoot();
     }
-    int trashId;
+    quint64 trashId;
     QString fileId;
     QString relativePath;
     bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);
@@ -593,7 +593,7 @@ KIO::WorkerResult TrashProtocol::get(const QUrl &url)
     if (url.path().length() <= 1) {
         return KIO::WorkerResult::fail(KIO::ERR_IS_DIRECTORY, url.toString());
     }
-    int trashId;
+    quint64 trashId;
     QString fileId;
     QString relativePath;
     bool ok = TrashImpl::parseURL(url, trashId, fileId, relativePath);

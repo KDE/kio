@@ -51,7 +51,6 @@ endif()
 
 target_link_libraries(kio_trash
   KF6::ConfigCore
-  KF6::Solid
   KF6::KIOCore
   ${DBUS_LIB}
   Qt6::Network
