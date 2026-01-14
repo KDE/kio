@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-12 00:40+0000\n"
+"POT-Creation-Date: 2026-01-14 00:40+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -2938,18 +2938,18 @@ msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "แก้ไขเมื่อวานนี้"
 
-#: filewidgets/kfileplacesmodel.cpp:1091
+#: filewidgets/kfileplacesmodel.cpp:1127
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "ไม่สามารถเพิ่มแผงสถานที่ได้: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1098
+#: filewidgets/kfileplacesmodel.cpp:1134
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "สามารถเพิ่มเฉพาะโฟลเดอร์ลงในแผงสถานที่ได้เท่านั้น"
 
-#: filewidgets/kfileplacesmodel.cpp:1341
+#: filewidgets/kfileplacesmodel.cpp:1377
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Configure Web Shortcuts…"
@@ -2957,69 +2957,69 @@ msgctxt "@action:inmenu"
 msgid "Configure…"
 msgstr "กำหนดทางลัดเว็บ…"
 
-#: filewidgets/kfileplacesmodel.cpp:1377
+#: filewidgets/kfileplacesmodel.cpp:1413
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "กําลังปล่อย"
 
-#: filewidgets/kfileplacesmodel.cpp:1379
+#: filewidgets/kfileplacesmodel.cpp:1415
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "ปลดปล่อย"
 
-#: filewidgets/kfileplacesmodel.cpp:1383
+#: filewidgets/kfileplacesmodel.cpp:1419
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "กําลังถอดออกอย่างปลอดภัย"
 
-#: filewidgets/kfileplacesmodel.cpp:1385
+#: filewidgets/kfileplacesmodel.cpp:1421
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&ถอดออกอย่างปลอดภัย"
 
-#: filewidgets/kfileplacesmodel.cpp:1390
+#: filewidgets/kfileplacesmodel.cpp:1426
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "กําลังหยุดเมานท์"
 
-#: filewidgets/kfileplacesmodel.cpp:1392
+#: filewidgets/kfileplacesmodel.cpp:1428
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "หยุดเมานท์"
 
-#: filewidgets/kfileplacesmodel.cpp:1416
+#: filewidgets/kfileplacesmodel.cpp:1452
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&เอาสื่อออก"
 
-#: filewidgets/kfileplacesmodel.cpp:1463
+#: filewidgets/kfileplacesmodel.cpp:1499
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "อุปกรณ์ '%1' ไม่ใช่อุปกรณ์ประเภทดิสก์ จึงไม่สามารถเด้งสื่อออกได้"
 
-#: filewidgets/kfileplacesmodel.cpp:1498
+#: filewidgets/kfileplacesmodel.cpp:1534
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "เกิดข้อผิดพลาดขึ้น ขณะกำลังเข้าใช้งาน %1 ระบบแจ้งกลับมาว่า: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1500
+#: filewidgets/kfileplacesmodel.cpp:1536
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "เกิดข้อผิดพลาดขณะกำลังเข้าใช้งาน '%1'"
 
-#: filewidgets/kfileplacesmodel.cpp:1526
+#: filewidgets/kfileplacesmodel.cpp:1562
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr "ไฟล์หนึ่งไฟล์ขึ้นไปบนอุปกรณ์นี้เปิดอยู่ในแอปพลิเคชัน"
 
-#: filewidgets/kfileplacesmodel.cpp:1529
+#: filewidgets/kfileplacesmodel.cpp:1565
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3030,13 +3030,13 @@ msgid_plural ""
 msgstr[0] ""
 "ไฟล์หนึ่งไฟล์ขึ้นไปบนอุปกรณ์นี้ถูกเปิดในแอปพลิเคชัน:<application>%2</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1532
+#: filewidgets/kfileplacesmodel.cpp:1568
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ","
 
-#: filewidgets/kfileplacesmodel.cpp:1579
+#: filewidgets/kfileplacesmodel.cpp:1615
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
