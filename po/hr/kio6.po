@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-14 00:40+0000\n"
+"POT-Creation-Date: 2026-01-15 00:39+0000\n"
 "PO-Revision-Date: 2025-11-18 11:44+0100\n"
 "Last-Translator: Igor Dobrača <igor.dobraca@skole.hr>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -56,7 +56,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nije moguće stvoriti KIO worker: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:974
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:985
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3477,7 +3477,7 @@ msgstr "Udaljene datoteke nisu prihvatljive"
 msgid "All Folders"
 msgstr "Sve mape"
 
-#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:778
+#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:798
 #, kde-format
 msgid "&Open"
 msgstr "&Otvori"
@@ -4183,22 +4183,22 @@ msgstr "Nije moguće pronaći program \"mount\""
 msgid "Could not find program \"umount\""
 msgstr "Nije moguće pronaći program \"umount\""
 
-#: kioworkers/file/file_unix.cpp:567
+#: kioworkers/file/file_unix.cpp:578
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nije moguće kopirati datoteku sa %1 u %2. (Broj greške: %3)"
 
-#: kioworkers/file/file_unix.cpp:781
+#: kioworkers/file/file_unix.cpp:792
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nema medija u uređaju za %1"
 
-#: kioworkers/file/file_unix.cpp:1042
+#: kioworkers/file/file_unix.cpp:1053
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nije moguće dobiti ID korisnika za korisničko ime %1"
 
-#: kioworkers/file/file_unix.cpp:1053
+#: kioworkers/file/file_unix.cpp:1064
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nije moguće dobiti ID grupe za dan naziv grupe %1"
@@ -5312,58 +5312,64 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Vrsta"
 
-#: widgets/kfileitemactions.cpp:401
+#: widgets/kfileitemactions.cpp:403
 #, kde-format
 msgid "Open &with %1"
 msgstr "Ot&vori pomoću %1"
 
-#: widgets/kfileitemactions.cpp:403
+#: widgets/kfileitemactions.cpp:405
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1|/|$[gen %1]"
 
-#: widgets/kfileitemactions.cpp:539
+#: widgets/kfileitemactions.cpp:541
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Akcije"
 
-#: widgets/kfileitemactions.cpp:704
+#: widgets/kfileitemactions.cpp:706
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&Otvori mapu pomoću…"
 
-#: widgets/kfileitemactions.cpp:704
+#: widgets/kfileitemactions.cpp:706
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Otvori pomoću…"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:765
+#, fuzzy, kde-format
+#| msgid "E&xecute"
+msgid "&Run Executable"
+msgstr "I&zvrši"
+
+#: widgets/kfileitemactions.cpp:787
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Otvori mapu s %1"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:787
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Otvori s %1|/|&Otvori s $[ins %1]"
 
-#: widgets/kfileitemactions.cpp:799
+#: widgets/kfileitemactions.cpp:819
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Otvori mapu s"
 
-#: widgets/kfileitemactions.cpp:799
+#: widgets/kfileitemactions.cpp:819
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Otvori pomoću"
 
-#: widgets/kfileitemactions.cpp:810
+#: widgets/kfileitemactions.cpp:830
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
@@ -7593,11 +7599,6 @@ msgstr "Ako ne vjerujete ovom programu, kliknite Prekinuti"
 
 #~ msgid "Do not ask again"
 #~ msgstr "Ne pitaj ponovno"
-
-#, fuzzy
-#~| msgid "E&xecute"
-#~ msgid "&Execute"
-#~ msgstr "I&zvrši"
 
 #~ msgid "&Filter:"
 #~ msgstr "&Filtar:"

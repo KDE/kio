@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-14 00:40+0000\n"
+"POT-Creation-Date: 2026-01-15 00:39+0000\n"
 "PO-Revision-Date: 2010-01-29 13:15+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -56,7 +56,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "आइओ-स्लेव तैआर करब मे अक्षम: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:974
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:985
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -3424,7 +3424,7 @@ msgstr "रिमोट फाइलसभ स्वीकार्य नहि
 msgid "All Folders"
 msgstr "*|सभटा फोल्डर"
 
-#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:778
+#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:798
 #, kde-format
 msgid "&Open"
 msgstr "खोलू (&O)"
@@ -4133,22 +4133,22 @@ msgstr "प्रोग्राम \"mount\" नहि भेटल"
 msgid "Could not find program \"umount\""
 msgstr "प्रोग्राम \"umount\" नहि भेटल"
 
-#: kioworkers/file/file_unix.cpp:567
+#: kioworkers/file/file_unix.cpp:578
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "फाइल केँ %1 सँ %2 पर नकल नहि कए सकल. (त्रुटि क्र.: %3)"
 
-#: kioworkers/file/file_unix.cpp:781
+#: kioworkers/file/file_unix.cpp:792
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 क' लेल अओजार मे कोनो मीडिया नहि "
 
-#: kioworkers/file/file_unix.cpp:1042
+#: kioworkers/file/file_unix.cpp:1053
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "देल गेल प्रयोक्ता नाम %1 क' लेल प्रयोक्ता आईडी प्राप्त नहि कए सकल"
 
-#: kioworkers/file/file_unix.cpp:1053
+#: kioworkers/file/file_unix.cpp:1064
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "देल गेल समूह नाम %1 क' लेल समूह आईडी प्राप्त नहि कए सकल"
@@ -5281,66 +5281,72 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "प्रकार"
 
-#: widgets/kfileitemactions.cpp:401
+#: widgets/kfileitemactions.cpp:403
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "Open &with %1"
 msgstr "के सँग खोलू:"
 
-#: widgets/kfileitemactions.cpp:403
+#: widgets/kfileitemactions.cpp:405
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:539
+#: widgets/kfileitemactions.cpp:541
 #, fuzzy, kde-format
 #| msgid "Actions"
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "क्रियासभ"
 
-#: widgets/kfileitemactions.cpp:704
+#: widgets/kfileitemactions.cpp:706
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "एकरासँ खोलू"
 
-#: widgets/kfileitemactions.cpp:704
+#: widgets/kfileitemactions.cpp:706
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "एकरासँ खोलू"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:765
+#, fuzzy, kde-format
+#| msgid "Exec"
+msgid "&Run Executable"
+msgstr "चलैनाइ"
+
+#: widgets/kfileitemactions.cpp:787
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open folder with %1"
 msgstr "के सँग खोलू:"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:787
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open with %1"
 msgstr "के सँग खोलू:"
 
-#: widgets/kfileitemactions.cpp:799
+#: widgets/kfileitemactions.cpp:819
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "एकरासँ खोलू"
 
-#: widgets/kfileitemactions.cpp:799
+#: widgets/kfileitemactions.cpp:819
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "एकरासँ खोलू"
 
-#: widgets/kfileitemactions.cpp:810
+#: widgets/kfileitemactions.cpp:830
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
@@ -7517,11 +7523,6 @@ msgstr ""
 
 #~ msgid "Type any comment you think is useful here."
 #~ msgstr "कोनो टिप्पणी जे अहाँ समझैत छी,  उपयोगी अछि. एतय टाइप करू."
-
-#, fuzzy
-#~| msgid "Exec"
-#~ msgid "&Execute"
-#~ msgstr "चलैनाइ"
 
 #~ msgid "&Filter:"
 #~ msgstr "फिल्टर: (&F)"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-14 00:40+0000\n"
+"POT-Creation-Date: 2026-01-15 00:39+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Tidak dapat mencipta io-slave: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:974
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:985
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -3491,7 +3491,7 @@ msgstr "Fail Jauh Tidak Diterima"
 msgid "All Folders"
 msgstr "*|Semua Folder"
 
-#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:778
+#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:798
 #, fuzzy, kde-format
 msgid "&Open"
 msgstr "&Buka"
@@ -4166,22 +4166,22 @@ msgstr "Tidak dapat jumpa program \"mount\""
 msgid "Could not find program \"umount\""
 msgstr "Tidak dapat jumpa program \"umount\""
 
-#: kioworkers/file/file_unix.cpp:567
+#: kioworkers/file/file_unix.cpp:578
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:781
+#: kioworkers/file/file_unix.cpp:792
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Tiada media di dalam peranti untuk %1"
 
-#: kioworkers/file/file_unix.cpp:1042
+#: kioworkers/file/file_unix.cpp:1053
 #, fuzzy, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Tidak dapat memasuki folder %1."
 
-#: kioworkers/file/file_unix.cpp:1053
+#: kioworkers/file/file_unix.cpp:1064
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
@@ -5272,58 +5272,63 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Jenis"
 
-#: widgets/kfileitemactions.cpp:401
+#: widgets/kfileitemactions.cpp:403
 #, fuzzy, kde-format
 msgid "Open &with %1"
 msgstr "Buka dengan:"
 
-#: widgets/kfileitemactions.cpp:403
+#: widgets/kfileitemactions.cpp:405
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:539
+#: widgets/kfileitemactions.cpp:541
 #, fuzzy, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "Aksi"
 
-#: widgets/kfileitemactions.cpp:704
+#: widgets/kfileitemactions.cpp:706
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Buka Dengan"
 
-#: widgets/kfileitemactions.cpp:704
+#: widgets/kfileitemactions.cpp:706
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Buka Dengan"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:765
+#, fuzzy, kde-format
+msgid "&Run Executable"
+msgstr "Jalankan"
+
+#: widgets/kfileitemactions.cpp:787
 #, fuzzy, kde-format
 msgid "&Open folder with %1"
 msgstr "Buka dengan:"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:787
 #, fuzzy, kde-format
 msgid "&Open with %1"
 msgstr "Buka dengan:"
 
-#: widgets/kfileitemactions.cpp:799
+#: widgets/kfileitemactions.cpp:819
 #, fuzzy, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Buka Dengan"
 
-#: widgets/kfileitemactions.cpp:799
+#: widgets/kfileitemactions.cpp:819
 #, fuzzy, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Buka Dengan"
 
-#: widgets/kfileitemactions.cpp:810
+#: widgets/kfileitemactions.cpp:830
 #, fuzzy, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
@@ -7532,10 +7537,6 @@ msgstr ""
 
 #~ msgid "Type any comment you think is useful here."
 #~ msgstr "Taip sebarang komen yang anda fikir berguna di sini."
-
-#, fuzzy
-#~ msgid "&Execute"
-#~ msgstr "Jalankan"
 
 #~ msgid "&Filter:"
 #~ msgstr "Tapi&s:"

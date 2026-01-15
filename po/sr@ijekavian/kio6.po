@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-14 00:40+0000\n"
+"POT-Creation-Date: 2026-01-15 00:39+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -56,7 +56,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Не могу да направим У/И захват: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:974
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:985
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -3591,7 +3591,7 @@ msgstr "Удаљени фајлови се не прихватају"
 msgid "All Folders"
 msgstr "*|Све фасцикле"
 
-#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:778
+#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:798
 #, kde-format
 msgid "&Open"
 msgstr "&Отвори"
@@ -4318,22 +4318,22 @@ msgstr "Не могу да пронађем наредбу mount"
 msgid "Could not find program \"umount\""
 msgstr "Не могу да пронађем наредбу umount"
 
-#: kioworkers/file/file_unix.cpp:567
+#: kioworkers/file/file_unix.cpp:578
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Не могу да копирам фајл из %1 у %2. (бр.грешке: %3)"
 
-#: kioworkers/file/file_unix.cpp:781
+#: kioworkers/file/file_unix.cpp:792
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Нема медијума у уређају за %1"
 
-#: kioworkers/file/file_unix.cpp:1042
+#: kioworkers/file/file_unix.cpp:1053
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Не могу да добавим кориснички ИД за дато име корисника %1."
 
-#: kioworkers/file/file_unix.cpp:1053
+#: kioworkers/file/file_unix.cpp:1064
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Не могу да добавим групни ИД за дато име групе %1"
@@ -5556,24 +5556,24 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "тип"
 
-#: widgets/kfileitemactions.cpp:401
+#: widgets/kfileitemactions.cpp:403
 #, kde-format
 msgid "Open &with %1"
 msgstr "Отвори &помоћу %1|/|Отвори $[инс-п %1]"
 
-#: widgets/kfileitemactions.cpp:403
+#: widgets/kfileitemactions.cpp:405
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1|/|$[ген %1]"
 
-#: widgets/kfileitemactions.cpp:539
+#: widgets/kfileitemactions.cpp:541
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Радње"
 
-#: widgets/kfileitemactions.cpp:704
+#: widgets/kfileitemactions.cpp:706
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -5581,7 +5581,7 @@ msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&Отвори помоћу"
 
-#: widgets/kfileitemactions.cpp:704
+#: widgets/kfileitemactions.cpp:706
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -5589,18 +5589,24 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Отвори помоћу"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:765
+#, fuzzy, kde-format
+#| msgid "&Execute"
+msgid "&Run Executable"
+msgstr "&Изврши"
+
+#: widgets/kfileitemactions.cpp:787
 #, fuzzy, kde-format
 #| msgid "&Open with %1"
 msgid "&Open folder with %1"
 msgstr "&Отвори помоћу %1|/|&Отвори $[инс-п %1]"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:787
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Отвори помоћу %1|/|&Отвори $[инс-п %1]"
 
-#: widgets/kfileitemactions.cpp:799
+#: widgets/kfileitemactions.cpp:819
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -5608,13 +5614,13 @@ msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Отвори помоћу"
 
-#: widgets/kfileitemactions.cpp:799
+#: widgets/kfileitemactions.cpp:819
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Отвори помоћу"
 
-#: widgets/kfileitemactions.cpp:810
+#: widgets/kfileitemactions.cpp:830
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
@@ -7985,9 +7991,6 @@ msgstr "Ако не вјерујете програму, кликните на �
 
 #~ msgid "Do not ask again"
 #~ msgstr "Не питај више"
-
-#~ msgid "&Execute"
-#~ msgstr "&Изврши"
 
 #~ msgid "&Filter:"
 #~ msgstr "&Филтер:"

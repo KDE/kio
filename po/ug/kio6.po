@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-14 00:40+0000\n"
+"POT-Creation-Date: 2026-01-15 00:39+0000\n"
 "PO-Revision-Date: 2013-09-08 07:04+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "io-slave نى تۇرغۇزالمىدى: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:974
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:985
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -3562,7 +3562,7 @@ msgstr "يىراقتىكى ھۆججەتنى قوبۇل قىلمايدۇ"
 msgid "All Folders"
 msgstr "*|بارلىق قىسقۇچلار"
 
-#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:778
+#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:798
 #, kde-format
 msgid "&Open"
 msgstr "ئاچ(&O)"
@@ -4279,22 +4279,22 @@ msgstr "\"mount\" پروگراممىنى تاپالمىدى"
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" پروگراممىنى تاپالمىدى"
 
-#: kioworkers/file/file_unix.cpp:567
+#: kioworkers/file/file_unix.cpp:578
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "ھۆججەتنى %1 دىن %2 غا كۆچۈرەلمىدى. (خاتالىق نومۇرى: %3)"
 
-#: kioworkers/file/file_unix.cpp:781
+#: kioworkers/file/file_unix.cpp:792
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 نىڭ ئۈسكۈنىسىدە ۋاسىتە يوق"
 
-#: kioworkers/file/file_unix.cpp:1042
+#: kioworkers/file/file_unix.cpp:1053
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "بېرىلگەن ئىشلەتكۈچى ئاتى %1 نىڭ ئىشلەتكۈچى كىملىكىگە ئېرىشەلمىدى"
 
-#: kioworkers/file/file_unix.cpp:1053
+#: kioworkers/file/file_unix.cpp:1064
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "بېرىلگەن گۇرۇپپا ئاتى %1 نىڭ گۇرۇپپا كىملىكىگە ئېرىشەلمىدى"
@@ -5459,24 +5459,24 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "تىپى"
 
-#: widgets/kfileitemactions.cpp:401
+#: widgets/kfileitemactions.cpp:403
 #, kde-format
 msgid "Open &with %1"
 msgstr "%1 دا ئاچ(&O)"
 
-#: widgets/kfileitemactions.cpp:403
+#: widgets/kfileitemactions.cpp:405
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:539
+#: widgets/kfileitemactions.cpp:541
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "مەشغۇلاتلار(&A)"
 
-#: widgets/kfileitemactions.cpp:704
+#: widgets/kfileitemactions.cpp:706
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -5484,7 +5484,7 @@ msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "بۇنىڭدا ئاچ(&O)"
 
-#: widgets/kfileitemactions.cpp:704
+#: widgets/kfileitemactions.cpp:706
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -5492,18 +5492,24 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "بۇنىڭدا ئاچ(&O)"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:765
+#, fuzzy, kde-format
+#| msgid "Exec"
+msgid "&Run Executable"
+msgstr "ئىجرا قىل"
+
+#: widgets/kfileitemactions.cpp:787
 #, fuzzy, kde-format
 #| msgid "&Open with %1"
 msgid "&Open folder with %1"
 msgstr "%1 دا ئاچ(&O)"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:787
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1 دا ئاچ(&O)"
 
-#: widgets/kfileitemactions.cpp:799
+#: widgets/kfileitemactions.cpp:819
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -5511,13 +5517,13 @@ msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "بۇنىڭدا ئاچ(&O)"
 
-#: widgets/kfileitemactions.cpp:799
+#: widgets/kfileitemactions.cpp:819
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "بۇنىڭدا ئاچ(&O)"
 
-#: widgets/kfileitemactions.cpp:810
+#: widgets/kfileitemactions.cpp:830
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"
@@ -7816,11 +7822,6 @@ msgstr "ئەگەر بۇ پروگراممىغا ئىشەنمىسىڭىز ۋاز �
 
 #~ msgid "Do not ask again"
 #~ msgstr "قايتا سورىما"
-
-#, fuzzy
-#~| msgid "Exec"
-#~ msgid "&Execute"
-#~ msgstr "ئىجرا قىل"
 
 #~ msgid "&Filter:"
 #~ msgstr "سۈزگۈچ(&F):"
