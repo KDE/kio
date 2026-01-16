@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-15 00:39+0000\n"
-"PO-Revision-Date: 2026-01-07 18:19+0200\n"
+"PO-Revision-Date: 2026-01-15 23:21+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -5380,10 +5380,9 @@ msgid "&Open With…"
 msgstr "В&ідкрити за допомогою…"
 
 #: widgets/kfileitemactions.cpp:765
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "&Run Executable"
-msgstr "Ви&конати"
+msgstr "&Запустити виконуваний файл"
 
 #: widgets/kfileitemactions.cpp:787
 #, kde-format

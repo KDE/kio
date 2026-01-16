@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-15 00:39+0000\n"
-"PO-Revision-Date: 2026-01-07 06:42+0100\n"
+"PO-Revision-Date: 2026-01-15 05:35+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -5315,10 +5315,9 @@ msgid "&Open With…"
 msgstr "&გამხსნელი პროგრამა…"
 
 #: widgets/kfileitemactions.cpp:765
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "&Run Executable"
-msgstr "&შესრულება"
+msgstr "შეს&რულებადის გაშვება"
 
 #: widgets/kfileitemactions.cpp:787
 #, kde-format

@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-15 00:39+0000\n"
-"PO-Revision-Date: 2026-01-07 08:47+0100\n"
+"PO-Revision-Date: 2026-01-15 07:25+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -5349,10 +5349,9 @@ msgid "&Open With…"
 msgstr "&Odpri z…"
 
 #: widgets/kfileitemactions.cpp:765
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "&Run Executable"
-msgstr "Izv&edi"
+msgstr "Poženi izvajalno datoteko"
 
 #: widgets/kfileitemactions.cpp:787
 #, kde-format

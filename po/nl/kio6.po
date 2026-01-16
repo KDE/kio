@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-15 00:39+0000\n"
-"PO-Revision-Date: 2026-01-07 13:07+0100\n"
+"PO-Revision-Date: 2026-01-15 12:27+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.0\n"
+"X-Generator: Lokalize 25.12.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -5415,10 +5415,9 @@ msgid "&Open With…"
 msgstr "&Openen met…"
 
 #: widgets/kfileitemactions.cpp:765
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "&Run Executable"
-msgstr "&Uitvoeren"
+msgstr "Uitvoerbaar bestand &uitvoeren"
 
 #: widgets/kfileitemactions.cpp:787
 #, kde-format

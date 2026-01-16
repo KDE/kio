@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-15 00:39+0000\n"
-"PO-Revision-Date: 2026-01-07 20:40+0300\n"
+"PO-Revision-Date: 2026-01-15 16:46+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -5310,10 +5310,9 @@ msgid "&Open With…"
 msgstr "Bir&likte Aç…"
 
 #: widgets/kfileitemactions.cpp:765
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "&Run Executable"
-msgstr "&Yürüt"
+msgstr "&Yürütülebiliri Çalıştır"
 
 #: widgets/kfileitemactions.cpp:787
 #, kde-format
