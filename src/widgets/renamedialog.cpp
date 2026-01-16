@@ -64,20 +64,34 @@ static QLabel *createLabel(QWidget *parent, const QString &text, bool containerT
     return label;
 }
 
+static QString dateLabelText(const KFileItem &item)
+{
+    const QString timeString = item.timeString(KFileItem::ModificationTime);
+    if (timeString.isEmpty()) {
+        return timeString;
+    }
+    return i18n("Date: %1", timeString);
+}
+
 static QLabel *createDateLabel(QWidget *parent, const KFileItem &item)
 {
-    const bool hasDate = item.entry().contains(KIO::UDSEntry::UDS_MODIFICATION_TIME);
-    const QString text = hasDate ? i18n("Date: %1", item.timeString(KFileItem::ModificationTime)) : QString();
-    QLabel *dateLabel = createLabel(parent, text);
+    QLabel *dateLabel = createLabel(parent, dateLabelText(item));
     dateLabel->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     return dateLabel;
 }
 
+static QString sizeLabelText(const KFileItem &item)
+{
+    if (item.entry().contains(KIO::UDSEntry::UDS_SIZE)) {
+        return i18n("Size: %1", KIO::convertSize(item.size()));
+    } else {
+        return {};
+    }
+}
+
 static QLabel *createSizeLabel(QWidget *parent, const KFileItem &item)
 {
-    const bool hasSize = item.entry().contains(KIO::UDSEntry::UDS_SIZE);
-    const QString text = hasSize ? i18n("Size: %1", KIO::convertSize(item.size())) : QString();
-    QLabel *sizeLabel = createLabel(parent, text);
+    QLabel *sizeLabel = createLabel(parent, sizeLabelText(item));
     sizeLabel->setAlignment(Qt::AlignLeft | Qt::AlignBottom);
     return sizeLabel;
 }
@@ -208,6 +222,8 @@ public:
     bool m_destPendingPreview = false;
     QLabel *m_srcPreview = nullptr;
     QLabel *m_destPreview = nullptr;
+    QLabel *m_srcSizeLabel = nullptr;
+    QLabel *m_destSizeLabel = nullptr;
     QLabel *m_srcDateLabel = nullptr;
     QLabel *m_destDateLabel = nullptr;
     KFileItem srcItem;
@@ -400,15 +416,15 @@ RenameDialog::RenameDialog(QWidget *parent,
         gridRow++;
 
         // src container (preview, size, date)
-        QLabel *srcSizeLabel = createSizeLabel(this, d->srcItem);
+        d->m_srcSizeLabel = createSizeLabel(this, d->srcItem);
         d->m_srcDateLabel = createDateLabel(this, d->srcItem);
-        QWidget *srcContainer = createContainerWidget(d->m_srcPreview, srcSizeLabel, d->m_srcDateLabel);
+        QWidget *srcContainer = createContainerWidget(d->m_srcPreview, d->m_srcSizeLabel, d->m_srcDateLabel);
         gridLayout->addWidget(srcContainer, gridRow, 0, 1, 2);
 
         // dest container (preview, size, date)
-        QLabel *destSizeLabel = createSizeLabel(this, d->destItem);
+        d->m_destSizeLabel = createSizeLabel(this, d->destItem);
         d->m_destDateLabel = createDateLabel(this, d->destItem);
-        QWidget *destContainer = createContainerWidget(d->m_destPreview, destSizeLabel, d->m_destDateLabel);
+        QWidget *destContainer = createContainerWidget(d->m_destPreview, d->m_destSizeLabel, d->m_destDateLabel);
         gridLayout->addWidget(destContainer, gridRow, 2, 1, 2);
 
         // Verdicts
@@ -764,6 +780,13 @@ void RenameDialog::showSrcPreview(const KFileItem &fileitem, const QPixmap &pixm
         d->m_srcPendingPreview = false;
         d->maybeShowCompareButton(fileitem);
     }
+
+    if (const QString sizeText = sizeLabelText(fileitem); !sizeText.isEmpty()) {
+        d->m_srcSizeLabel->setText(sizeText);
+    }
+    if (const QString dateText = dateLabelText(fileitem); !dateText.isEmpty()) {
+        d->m_srcDateLabel->setText(dateText);
+    }
 }
 
 void RenameDialog::showDestPreview(const KFileItem &fileitem, const QPixmap &pixmap)
@@ -774,6 +797,13 @@ void RenameDialog::showDestPreview(const KFileItem &fileitem, const QPixmap &pix
         d->m_destPreview->setPixmap(pixmap);
         d->m_destPendingPreview = false;
         d->maybeShowCompareButton(fileitem);
+    }
+
+    if (const QString sizeText = sizeLabelText(fileitem); !sizeText.isEmpty()) {
+        d->m_destSizeLabel->setText(sizeText);
+    }
+    if (const QString dateText = dateLabelText(fileitem); !dateText.isEmpty()) {
+        d->m_destDateLabel->setText(dateText);
     }
 }
 
