@@ -6,6 +6,7 @@
 */
 
 #include <KFileWidget>
+
 #include <QApplication>
 #include <QCommandLineOption>
 #include <QCommandLineParser>
@@ -30,9 +31,9 @@ int main(int argc, char **argv)
     if (!posargs.isEmpty()) {
         folder = QUrl::fromUserInput(posargs.at(0));
     }
-    qDebug() << "Starting at" << folder;
     KFileWidget *fileWidget = new KFileWidget(folder);
     fileWidget->setOperationMode(KFileWidget::Saving);
+    fileWidget->setAttribute(Qt::WA_DeleteOnClose);
 
     KFile::Modes mode = static_cast<KFile::Mode>(0);
     if (parser.isSet(QStringLiteral("existing-only"))) {
@@ -47,17 +48,6 @@ int main(int argc, char **argv)
     }
     fileWidget->setMode(mode);
 
-    fileWidget->setAttribute(Qt::WA_DeleteOnClose);
-
-    fileWidget->okButton()->show();
-    fileWidget->cancelButton()->show();
-    app.connect(fileWidget->okButton(), &QPushButton::clicked, fileWidget, &KFileWidget::slotOk);
-    app.connect(fileWidget->cancelButton(), &QPushButton::clicked, fileWidget, [&app, fileWidget]() {
-        qDebug() << "canceled";
-        fileWidget->slotCancel();
-        app.exit();
-    });
-
     app.connect(fileWidget, &KFileWidget::accepted, fileWidget, [&app, fileWidget]() {
         qDebug() << "accepted";
         fileWidget->accept();
@@ -68,7 +58,14 @@ int main(int argc, char **argv)
         app.exit();
     });
 
-    fileWidget->show();
+    QObject::connect(fileWidget, &KFileWidget::destroyed, &app, &QApplication::quit);
 
+    fileWidget->okButton()->show();
+    QObject::connect(fileWidget->okButton(), &QPushButton::clicked, fileWidget, &KFileWidget::slotOk);
+
+    fileWidget->cancelButton()->show();
+    QObject::connect(fileWidget->cancelButton(), &QPushButton::clicked, &app, &QApplication::quit);
+
+    fileWidget->show();
     return app.exec();
 }
