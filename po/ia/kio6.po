@@ -1,14 +1,14 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2010, 2011, 2012, 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024, 2025 g.sora <g.sora@tiscali.it>
+# SPDX-FileCopyrightText: 2010, 2011, 2012, 2016, 2017, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 g.sora <g.sora@tiscali.it>
 # giovanni <g.sora@tiscali.it>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-15 00:39+0000\n"
-"PO-Revision-Date: 2025-09-02 17:59+0200\n"
+"PO-Revision-Date: 2026-01-16 11:51+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -3072,7 +3072,7 @@ msgstr "Solmente dossieres pote esser addite al Pannello de Placias."
 #| msgid "Configure Web Shortcuts…"
 msgctxt "@action:inmenu"
 msgid "Configure…"
-msgstr "Configura vias breve de Web..."
+msgstr "Configura..."
 
 #: filewidgets/kfileplacesmodel.cpp:1413
 #, kde-format
@@ -3287,7 +3287,7 @@ msgstr "Ponderose (%1x%1)"
 #, fuzzy, kde-format
 #| msgid "Create Directory"
 msgid "Current Directory: %1"
-msgstr "Crea  directorio"
+msgstr "Directorio currente"
 
 #: filewidgets/kfilewidget.cpp:640
 #, kde-format
@@ -3749,7 +3749,7 @@ msgstr "Crea nove dossier in %1:"
 #| msgid "Enter %1 filename:"
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "Entra nomine de file %1:"
+msgstr "Entra un nomine de dossier:"
 
 #: filewidgets/knewfilemenu.cpp:1639
 #, kde-format
@@ -4948,9 +4948,7 @@ msgid "Destination"
 msgstr "Destination"
 
 #: widgets/fileundomanager.cpp:131
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
 msgstr "Copiar"
 
@@ -6155,7 +6153,7 @@ msgstr ""
 #| msgid "Cannot transfer <filename>%1</filename>"
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "Monstra %1"
+msgstr "Monstra "
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:561
 #, kde-format
@@ -7059,11 +7057,10 @@ msgstr ""
 "contentos es le mesme al initio, in le medie e al fin."
 
 #: widgets/renamedialog.cpp:478
-#, fuzzy, kde-format
-#| msgid "Copy Files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "Copia files"
+msgstr "Compara files"
 
 #: widgets/renamedialog.cpp:491
 #, kde-format
@@ -7166,7 +7163,7 @@ msgstr "Patrono"
 #| msgid "Open With:"
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "Aperi con:"
+msgstr "con"
 
 #: widgets/renamefiledialog.cpp:322
 #, kde-format
@@ -7271,8 +7268,7 @@ msgid "Add text"
 msgstr "Adde texto"
 
 #: widgets/renamefiledialog.cpp:567
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
 msgstr "Vista preliminar:"

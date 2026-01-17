@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-15 00:39+0000\n"
-"PO-Revision-Date: 2026-01-07 09:27+0100\n"
+"PO-Revision-Date: 2026-01-15 09:18+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -5396,10 +5396,9 @@ msgid "&Open With…"
 msgstr "O&bri amb…"
 
 #: widgets/kfileitemactions.cpp:765
-#, fuzzy, kde-format
-#| msgid "Execute:"
+#, kde-format
 msgid "&Run Executable"
-msgstr "Executa:"
+msgstr "&Executa l'ordre"
 
 #: widgets/kfileitemactions.cpp:787
 #, kde-format
