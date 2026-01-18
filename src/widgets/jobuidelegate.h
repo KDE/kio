@@ -86,7 +86,7 @@ public:
      */
     static void unregisterWindow(QWidget *window);
 
-#if KIOWIDGETS_ENABLE_DEPRECATED_SINCE(6, 15)
+#if KIOWIDGETS_BUILD_DEPRECATED_SINCE(6, 15)
     /*!
      * Ask for confirmation before deleting/trashing \a urls.
      *

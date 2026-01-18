@@ -573,7 +573,7 @@ public:
      */
     bool followSelectedDirectories() const;
 
-#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(6, 15)
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(6, 15)
     /*!
      * Starts and returns a KIO::DeleteJob to delete the given \a items.
      *
@@ -650,7 +650,7 @@ public:
      */
     virtual void setDropOptions(int options);
 
-#if KIOFILEWIDGETS_ENABLE_DEPRECATED_SINCE(6, 15)
+#if KIOFILEWIDGETS_BUILD_DEPRECATED_SINCE(6, 15)
     /*!
      * Starts and returns a KIO::CopyJob to trash the given \a items.
      *
