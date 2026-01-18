@@ -181,7 +181,7 @@ void KImageFilePreview::gotPreview(const KFileItem &item, const QPixmap &pm)
 
     if (d->m_timeLine) {
         if (d->m_timeLine->state() == QTimeLine::Running) {
-            d->m_timeLine->setCurrentTime(0);
+            d->m_timeLine->stop();
         }
 
         d->m_pmTransition = pm;
