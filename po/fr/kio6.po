@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-15 00:39+0000\n"
-"PO-Revision-Date: 2026-01-10 20:04+0100\n"
+"PO-Revision-Date: 2026-01-16 10:53+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -5457,10 +5457,9 @@ msgid "&Open With…"
 msgstr "&Ouvrir avec..."
 
 #: widgets/kfileitemactions.cpp:765
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "&Run Executable"
-msgstr "&Exécuter"
+msgstr "Lancer un prog&ramme"
 
 #: widgets/kfileitemactions.cpp:787
 #, kde-format
