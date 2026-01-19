@@ -241,11 +241,11 @@ RenameDialog::RenameDialog(QWidget *parent,
 
     if (_options & RenameDialog_MultipleItems) {
         d->bApplyAll = new QCheckBox(i18n("Appl&y to All"), this);
-        d->bApplyAll->setToolTip((_options & RenameDialog_DestIsDirectory) ? i18n("When this is checked the button pressed will be applied to all "
+        d->bApplyAll->setToolTip((_options & RenameDialog_DestIsDirectory) ? i18n("When this is checked, the button pressed will be applied to all "
                                                                                   "subsequent folder conflicts for the remainder of the current job.\n"
                                                                                   "Unless you press Skip you will still be prompted in case of a "
                                                                                   "conflict with an existing file in the directory.")
-                                                                           : i18n("When this is checked the button pressed will be applied to "
+                                                                           : i18n("When this is checked, the button pressed will be applied to "
                                                                                   "all subsequent conflicts for the remainder of the current job."));
         connect(d->bApplyAll, &QAbstractButton::clicked, this, &RenameDialog::applyAllPressed);
     }
