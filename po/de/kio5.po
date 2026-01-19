@@ -11,15 +11,15 @@
 # SPDX-FileCopyrightText: 2024, 2025 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Alexander Becker <alex-at-kde-l10n-de@freenet.de>
 # SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
-# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n.daphipz@fastmail.de>
+# SPDX-FileCopyrightText: 2025, 2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 # SPDX-FileCopyrightText: 2025 Oliver Schramm <oliver.schramm97@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2025-10-21 20:48+0200\n"
-"Last-Translator: Alexander Becker <alex-at-kde-l10n-de@freenet.de>\n"
+"PO-Revision-Date: 2026-01-15 18:46+0100\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -3486,10 +3486,10 @@ msgid_plural ""
 "schemes: %2"
 msgstr[0] ""
 "Die ausgewählte URL (Adresse) verwendet ein nicht unterstütztes Schema. "
-"Bitte benutzen Sie folgendes Schema: %2"
+"Bitte verwenden Sie folgendes Schema: %2"
 msgstr[1] ""
 "Die ausgewählten URLs (Adressen) verwenden ein nicht unterstütztes Schema. "
-"Bitte benutzen Sie folgendes Schema: %2"
+"Bitte verwenden Sie folgendes Schema: %2"
 
 #: filewidgets/kfilewidget.cpp:865
 #, kde-format
@@ -3654,7 +3654,7 @@ msgid ""
 "listing several files, separated by spaces."
 msgstr ""
 "Dies ist eine Liste der Dateien, die geöffnet werden sollen. Wenn Sie mehr "
-"als eine Datei angeben möchten, dann trennen Sie sie durch Leerzeichen."
+"als eine Datei angeben möchten, trennen Sie sie durch Leerzeichen."
 
 #: filewidgets/kfilewidget.cpp:1510
 #, kde-format
@@ -6638,7 +6638,7 @@ msgstr "„FindProxyForURL“ oder „FindProxyForURLEx“ sind nicht gefunden w
 #: kpac/script.cpp:692
 #, kde-format
 msgid "Got an invalid reply when calling %1 -> %2"
-msgstr "Der Aufruf von %1 -> %2 ergab eine ungültige Antwort"
+msgstr "Der Aufruf von %1 → %2 ergab eine ungültige Antwort"
 
 #: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
@@ -7004,7 +7004,7 @@ msgstr "&Adresse des Web-Kürzel:"
 #, kde-format
 msgid "Select the character set that will be used to encode your search query."
 msgstr ""
-"Wählen Sie den Zeichensatz, der zur Kodierung Ihrer Suchanfrage benutzt "
+"Wählen Sie den Zeichensatz, der zur Kodierung Ihrer Suchanfrage verwendet "
 "werden soll."
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
@@ -7050,8 +7050,8 @@ msgstr "&Kurzbefehle:"
 #, kde-format
 msgid "Select the character set that will be used to encode your search query"
 msgstr ""
-"Wählen Sie den Zeichensatz, der für die Kodierung Ihrer Suchanfrage benutzt "
-"werden soll."
+"Wählen Sie den Zeichensatz, der für die Kodierung Ihrer Suchanfrage "
+"verwendet werden soll."
 
 #. i18n: ectx: property (text), widget (QLabel, lbCharset)
 #: urifilters/ikws/searchproviderdlg_ui.ui:135
@@ -7866,7 +7866,7 @@ msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
 "is not listed, enter the name or click the browse button.</qt>"
 msgstr ""
-"<qt>Wählen Sie das Programm, das zum Öffnen von <b>%1</b> benutzt werden "
+"<qt>Wählen Sie das Programm, das zum Öffnen von <b>%1</b> verwendet werden "
 "soll. Wenn das Programm nicht aufgeführt ist, geben Sie den Namen ein oder "
 "klicken Sie auf den Knopf „Durchsuchen“.</qt>"
 
@@ -7910,7 +7910,7 @@ msgid ""
 "listed, enter the name or click the browse button.</qt>"
 msgstr ""
 "<qt>Wählen Sie das Programm, das zum Öffnen von Dateien des Typs <b>%1</b> "
-"benutzt werden soll. Wenn das Programm nicht aufgeführt ist, geben Sie den "
+"verwendet werden soll. Wenn das Programm nicht aufgeführt ist, geben Sie den "
 "Namen ein oder klicken Sie auf den Knopf „Durchsuchen“.</qt>"
 
 #: widgets/kopenwithdialog.cpp:629
@@ -8042,7 +8042,7 @@ msgid ""
 "emulator window."
 msgstr ""
 "Aktivieren Sie diese Einstellung, falls es sich bei dem zu startenden "
-"Programm um eines im Textmodus handelt oder falls Sie Informationen "
+"Programm um eines im Textmodus handelt, oder falls Sie Informationen "
 "wünschen, die über das Fenster für die Terminal-Emulation laufen."
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
@@ -8360,8 +8360,8 @@ msgid ""
 "handle, select the mimetype in the list above and click on this button."
 msgstr ""
 "Falls Sie einen Dateityp (MIME-Typ) entfernen möchten, mit dem Ihr Programm "
-"nicht umgehen kann, dann wählen Sie den Typ aus der obigen Liste und klicken "
-"Sie auf diesen Knopf."
+"nicht umgehen kann, wählen Sie den Typ aus der obigen Liste und klicken Sie "
+"auf diesen Knopf."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:248
@@ -8790,7 +8790,7 @@ msgid ""
 "the permissions of the owner."
 msgstr ""
 "Falls es sich um eine ausführbare Datei handelt und diese Markierung gesetzt "
-"ist, dann wird die Datei mit den Berechtigungen ihres Eigentümers ausgeführt."
+"ist, wird die Datei mit den Berechtigungen ihres Eigentümers ausgeführt."
 
 #: widgets/kpropertiesdialog.cpp:2158
 #, kde-format
@@ -8807,7 +8807,7 @@ msgid ""
 "the permissions of the group."
 msgstr ""
 "Falls es sich um eine ausführbare Datei handelt und diese Markierung gesetzt "
-"ist, dann wird die Datei mit den Berechtigungen dieser Gruppe ausgeführt."
+"ist, wird die Datei mit den Berechtigungen dieser Gruppe ausgeführt."
 
 #: widgets/kpropertiesdialog.cpp:2169
 #, kde-format
