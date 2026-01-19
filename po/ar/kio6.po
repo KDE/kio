@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-15 00:39+0000\n"
-"PO-Revision-Date: 2026-01-07 18:46+0400\n"
+"PO-Revision-Date: 2026-01-18 18:32+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -5299,10 +5299,9 @@ msgid "&Open With…"
 msgstr "اف&تح ب‍…"
 
 #: widgets/kfileitemactions.cpp:765
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "&Run Executable"
-msgstr "ن&فّذه"
+msgstr "&شغّل الملف التنفيذي"
 
 #: widgets/kfileitemactions.cpp:787
 #, kde-format
