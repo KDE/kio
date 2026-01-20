@@ -211,9 +211,15 @@ Q_SIGNALS:
      */
     void urlActivated(const QUrl &url);
 
+    /*!
+     * Emitted when combobox loses focus.
+     */
+    void onFocusOut();
+
 protected:
     void mousePressEvent(QMouseEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
+    void focusOutEvent(QFocusEvent *event) override;
 
 private:
     friend class KUrlComboBoxPrivate;

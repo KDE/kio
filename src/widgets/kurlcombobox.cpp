@@ -408,6 +408,12 @@ void KUrlComboBox::mouseMoveEvent(QMouseEvent *event)
     KComboBox::mouseMoveEvent(event);
 }
 
+void KUrlComboBox::focusOutEvent(QFocusEvent *event)
+{
+    Q_EMIT onFocusOut();
+    KComboBox::focusOutEvent(event);
+}
+
 QIcon KUrlComboBoxPrivate::getIcon(const QUrl &url) const
 {
     if (myMode == KUrlComboBox::Directories) {

@@ -1356,6 +1356,10 @@ void KFileWidgetPrivate::initLocationWidget()
     q->connect(m_locationEdit, &KUrlComboBox::returnPressed, q, [this](const QString &text) {
         locationAccepted(text);
     });
+
+    q->connect(m_urlNavigator->editor(), &KUrlComboBox::onFocusOut, q, [this]() {
+        m_urlNavigator->setLocationUrl(m_urlNavigator->uncommittedUrl());
+    });
 }
 
 void KFileWidgetPrivate::initFilterWidget()
