@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 00:39+0000\n"
+"POT-Creation-Date: 2026-01-20 00:39+0000\n"
 "PO-Revision-Date: 2014-02-25 01:34+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -7123,9 +7123,14 @@ msgid "Appl&y to All"
 msgstr "För all &bruken"
 
 #: widgets/renamedialog.cpp:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When this is checked the button pressed will be applied to all subsequent "
+#| "folder conflicts for the remainder of the current job.\n"
+#| "Unless you press Skip you will still be prompted in case of a conflict "
+#| "with an existing file in the directory."
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
@@ -7136,9 +7141,12 @@ msgstr ""
 "Datei binnen den Orner aver nochmaal fraagt."
 
 #: widgets/renamedialog.cpp:248
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When this is checked the button pressed will be applied to all subsequent "
+#| "conflicts for the remainder of the current job."
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
 "Is dit anmaakt, warrt de klickt Knoop för all nakamen Konflikten för de "

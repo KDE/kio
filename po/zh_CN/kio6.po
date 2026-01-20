@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 00:39+0000\n"
+"POT-Creation-Date: 2026-01-20 00:39+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -6559,9 +6559,14 @@ msgid "Appl&y to All"
 msgstr "应用到所有(&Y)"
 
 #: widgets/renamedialog.cpp:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When this is checked the button pressed will be applied to all subsequent "
+#| "folder conflicts for the remainder of the current job.\n"
+#| "Unless you press Skip you will still be prompted in case of a conflict "
+#| "with an existing file in the directory."
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
@@ -6570,9 +6575,12 @@ msgstr ""
 "除非您点击“跳过”，否则当文件与目录中的已有文件发生冲突时仍然会提示您处理。"
 
 #: widgets/renamedialog.cpp:248
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When this is checked the button pressed will be applied to all subsequent "
+#| "conflicts for the remainder of the current job."
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr "如果选中此项，您点击的按钮将被应用到当前任务在这之后发生的所有冲突。"
 

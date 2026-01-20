@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 00:39+0000\n"
+"POT-Creation-Date: 2026-01-20 00:39+0000\n"
 "PO-Revision-Date: 2024-12-15 19:32+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -6865,7 +6865,7 @@ msgstr ""
 #: widgets/renamedialog.cpp:244
 #, kde-format
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
@@ -6874,7 +6874,7 @@ msgstr ""
 #: widgets/renamedialog.cpp:248
 #, kde-format
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
 

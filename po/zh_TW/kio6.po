@@ -16,15 +16,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 00:39+0000\n"
-"PO-Revision-Date: 2026-01-09 00:03+0900\n"
+"POT-Creation-Date: 2026-01-20 00:39+0000\n"
+"PO-Revision-Date: 2026-01-19 19:17+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 26.03.70\n"
+"X-Generator: Lokalize 25.11.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -5151,10 +5151,9 @@ msgid "&Open With…"
 msgstr "開啟方式(&O)…"
 
 #: widgets/kfileitemactions.cpp:765
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "&Run Executable"
-msgstr "執行(&E)"
+msgstr "執行可執行檔(&E)"
 
 #: widgets/kfileitemactions.cpp:787
 #, kde-format
@@ -6584,9 +6583,14 @@ msgid "Appl&y to All"
 msgstr "全部套用(&Y)"
 
 #: widgets/renamedialog.cpp:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When this is checked the button pressed will be applied to all subsequent "
+#| "folder conflicts for the remainder of the current job.\n"
+#| "Unless you press Skip you will still be prompted in case of a conflict "
+#| "with an existing file in the directory."
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
@@ -6595,9 +6599,12 @@ msgstr ""
 "除非您按下「跳過」，否則您還是會接到目錄中現有檔案的衝突。"
 
 #: widgets/renamedialog.cpp:248
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When this is checked the button pressed will be applied to all subsequent "
+#| "conflicts for the remainder of the current job."
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr "勾選此選項的話，按下按鍵會套用到目前工作剩餘的所有衝突。"
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 00:39+0000\n"
+"POT-Creation-Date: 2026-01-20 00:39+0000\n"
 "PO-Revision-Date: 2022-10-23 00:30+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -6649,18 +6649,27 @@ msgid "Appl&y to All"
 msgstr "Appl&icar a omni"
 
 #: widgets/renamedialog.cpp:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Files and folders will be copied into the existing directory, alongside "
+#| "its existing contents.\n"
+#| "You will be prompted again in case of a conflict with an existing file in "
+#| "the directory."
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
+"Files e fólders va esser copiat al existent fólder in addition a su existent "
+"contenete.\n"
+"On va questionar vos denov si un conflicte con un existent file in ti fólder "
+"va evenir."
 
 #: widgets/renamedialog.cpp:248
 #, kde-format
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 00:39+0000\n"
+"POT-Creation-Date: 2026-01-20 00:39+0000\n"
 "PO-Revision-Date: 2026-01-15 05:35+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -6808,9 +6808,14 @@ msgid "Appl&y to All"
 msgstr "ყველაზე &გადატარება"
 
 #: widgets/renamedialog.cpp:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When this is checked the button pressed will be applied to all subsequent "
+#| "folder conflicts for the remainder of the current job.\n"
+#| "Unless you press Skip you will still be prompted in case of a conflict "
+#| "with an existing file in the directory."
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
@@ -6821,9 +6826,12 @@ msgstr ""
 "თუ დააწვებით გამოტოვებას, საქაღალდეში ფაილების კონფლიქტისას მაინც გკითხავთ."
 
 #: widgets/renamedialog.cpp:248
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When this is checked the button pressed will be applied to all subsequent "
+#| "conflicts for the remainder of the current job."
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
 "თუ ეს ჩართულია, ღილაკის მნიშვნელობა, რომელსაც დააწვებით, მიმდინარე "

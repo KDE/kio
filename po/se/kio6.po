@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 00:39+0000\n"
+"POT-Creation-Date: 2026-01-20 00:39+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@lister.huftis.org>\n"
@@ -6654,18 +6654,25 @@ msgid "Appl&y to All"
 msgstr "&Geavat buohkaide"
 
 #: widgets/renamedialog.cpp:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Files and folders will be copied into the existing directory, alongside "
+#| "its existing contents.\n"
+#| "You will be prompted again in case of a conflict with an existing file in "
+#| "the directory."
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
+"Fiillat ja máhpat máŋgejuvvo dálá máhppii, dálá sisdoalu báldii.\n"
+"Boahtá jearaldat ođđasit jus gávdno seamma nammasaš fiila máhpas."
 
 #: widgets/renamedialog.cpp:248
 #, kde-format
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
 

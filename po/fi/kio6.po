@@ -3,7 +3,7 @@
 # Author: Artnay
 # Author: Lliehu
 # Author: Niklas Laxström
-# SPDX-FileCopyrightText: 2009, 2010, 2011, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Tommi Nieminen <translator@legisign.org>
+# SPDX-FileCopyrightText: 2009, 2010, 2011, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Tommi Nieminen <translator@legisign.org>
 # Kim Enkovaara <kim.enkovaara@iki.fi>, 2002, 2003, 2004, 2005, 2006.
 # Mikko Ikola <ikola@iki.fi>, 2003, 2005.
 # Teemu Rytilahti <teemu.rytilahti@kde-fi.org>, 2003, 2004, 2008.
@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 00:39+0000\n"
-"PO-Revision-Date: 2025-10-31 20:24+0200\n"
+"POT-Creation-Date: 2026-01-20 00:39+0000\n"
+"PO-Revision-Date: 2026-01-12 14:38+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -741,7 +741,7 @@ msgstr "Tiedosto on liian suuri roskakoriin."
 #: core/job_error.cpp:264
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
-msgstr ""
+msgstr "Roskakorikansiota ei löytynyt tai voitu luoda tälle sijainnille."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -6827,9 +6827,14 @@ msgid "Appl&y to All"
 msgstr "K&äytä kaikkiin"
 
 #: widgets/renamedialog.cpp:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When this is checked the button pressed will be applied to all subsequent "
+#| "folder conflicts for the remainder of the current job.\n"
+#| "Unless you press Skip you will still be prompted in case of a conflict "
+#| "with an existing file in the directory."
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
@@ -6840,9 +6845,12 @@ msgstr ""
 "on jo tiedosto olemassa."
 
 #: widgets/renamedialog.cpp:248
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When this is checked the button pressed will be applied to all subsequent "
+#| "conflicts for the remainder of the current job."
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
 "Kun tämä asetus on valittu, painettua painikkeen toimintoa sovelletaan "
@@ -6979,11 +6987,10 @@ msgstr ""
 "sama alussa, keskellä ja lopussa."
 
 #: widgets/renamedialog.cpp:478
-#, fuzzy, kde-format
-#| msgid "Copy Files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "Kopioi tiedostot"
+msgstr "Vertaa tiedostoja"
 
 #: widgets/renamedialog.cpp:491
 #, kde-format
@@ -7368,33 +7375,19 @@ msgstr[1] ""
 "<nl/><emphasis strong='true'>Toimintoa ei voi kumota.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this file. Permanently delete it instead?"
-#| "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This "
-#| "action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Roskakori on liian täynnä tälle tiedostolle. Poistetaanko se pysyvästi?<nl/"
-"><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>Toimintoa ei "
-"voi kumota.</emphasis>"
+"Roskakori ei ole käytettävissä kohteen sijainnille. Poistetaanko se "
+"pysyvästi?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Toimintoa ei voi kumota.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this %1 file. Permanently delete it "
-#| "instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
-#| msgid_plural ""
-#| "The trash is too full to accept these %1 files. Permanently delete them "
-#| "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7405,11 +7398,11 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Roskakori on liian täynnä tälle tiedostolle. Poistetaanko se pysyvästi?<nl/"
-"><emphasis strong='true'>Toimintoa ei voi kumota.</emphasis>"
+"Roskakori ei ole käytettävissä kohteen %1 sijainnille. Poistetaanko se "
+"pysyvästi?<nl/><emphasis strong='true'>Toimintoa ei voi kumota.</emphasis>"
 msgstr[1] ""
-"Roskakori on liian täynnä näille %1 tiedostolle. Poistetaanko se pysyvästi?"
-"<nl/><emphasis strong='true'>Toimintoa ei voi kumota.</emphasis>"
+"Roskakori ei ole käytettävissä näiden %1 kohteen sijainnille. Poistetaanko "
+"ne pysyvästi?<nl/><emphasis strong='true'>Toimintoa ei voi kumota.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format

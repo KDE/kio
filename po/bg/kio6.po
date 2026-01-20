@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-15 00:39+0000\n"
-"PO-Revision-Date: 2026-01-10 22:21+0100\n"
+"POT-Creation-Date: 2026-01-20 00:39+0000\n"
+"PO-Revision-Date: 2026-01-19 22:29+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -5348,10 +5348,9 @@ msgid "&Open With…"
 msgstr "&Отваряне с…"
 
 #: widgets/kfileitemactions.cpp:765
-#, fuzzy, kde-format
-#| msgid "Execute:"
+#, kde-format
 msgid "&Run Executable"
-msgstr "Изпълняване:"
+msgstr "Стартиране на &изпълним файл:"
 
 #: widgets/kfileitemactions.cpp:787
 #, kde-format
@@ -6837,9 +6836,14 @@ msgid "Appl&y to All"
 msgstr "Прилагане към всички"
 
 #: widgets/renamedialog.cpp:244
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When this is checked the button pressed will be applied to all subsequent "
+#| "folder conflicts for the remainder of the current job.\n"
+#| "Unless you press Skip you will still be prompted in case of a conflict "
+#| "with an existing file in the directory."
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
@@ -6850,9 +6854,12 @@ msgstr ""
 "конфликт със съществуващ файл в директорията."
 
 #: widgets/renamedialog.cpp:248
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "When this is checked the button pressed will be applied to all subsequent "
+#| "conflicts for the remainder of the current job."
 msgid ""
-"When this is checked the button pressed will be applied to all subsequent "
+"When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
 "Когато това е отметнато, натиснатият бутон ще бъде приложен към всички "
