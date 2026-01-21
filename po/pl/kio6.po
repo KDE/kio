@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:39+0000\n"
+"POT-Creation-Date: 2026-01-21 00:41+0000\n"
 "PO-Revision-Date: 2026-01-18 15:49+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -2269,7 +2269,7 @@ msgid " (Points to %1)"
 msgstr " (Wskazuje na: %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:637
+#: widgets/renamedialog.cpp:653
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4878,12 +4878,12 @@ msgstr "Możesz wycofać się z tego w \"Potwierdzenia\" w ustawieniach Dolphina
 msgid "Creating directory"
 msgstr "Tworzenie katalogu"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:387
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:403
 #, kde-format
 msgid "Source"
 msgstr "Element źródłowy"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:389
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:405
 #, kde-format
 msgid "Destination"
 msgstr "Element docelowy"
@@ -6812,22 +6812,22 @@ msgstr "%1 (%2)"
 msgid "Filename for dropped contents:"
 msgstr "Nazwa pliku dla upuszczonej zawartości:"
 
-#: widgets/renamedialog.cpp:70
+#: widgets/renamedialog.cpp:73
 #, kde-format
 msgid "Date: %1"
 msgstr "Data: %1"
 
-#: widgets/renamedialog.cpp:79
+#: widgets/renamedialog.cpp:86
 #, kde-format
 msgid "Size: %1"
 msgstr "Rozmiar: %1"
 
-#: widgets/renamedialog.cpp:243
+#: widgets/renamedialog.cpp:259
 #, kde-format
 msgid "Appl&y to All"
 msgstr "Zapamiętaj w&ybór"
 
-#: widgets/renamedialog.cpp:244
+#: widgets/renamedialog.cpp:260
 #, fuzzy, kde-format
 #| msgid ""
 #| "When this is checked the button pressed will be applied to all subsequent "
@@ -6846,7 +6846,7 @@ msgstr ""
 "Jeśli nie naciśniesz na przycisk Pomiń, to nadal zostaniesz zapytany o to, "
 "co zrobić z plikami, które już istnieją w katalogu docelowym."
 
-#: widgets/renamedialog.cpp:248
+#: widgets/renamedialog.cpp:264
 #, fuzzy, kde-format
 #| msgid ""
 #| "When this is checked the button pressed will be applied to all subsequent "
@@ -6859,40 +6859,40 @@ msgstr ""
 "zastosowanie go w przypadku wystąpienia dalszych niejasności w bieżącym "
 "zadaniu."
 
-#: widgets/renamedialog.cpp:254
+#: widgets/renamedialog.cpp:270
 #, kde-format
 msgid "&Rename"
 msgstr "&Zmień nazwę"
 
-#: widgets/renamedialog.cpp:256
+#: widgets/renamedialog.cpp:272
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "Doradź nową &nazwę"
 
-#: widgets/renamedialog.cpp:262
+#: widgets/renamedialog.cpp:278
 #, kde-format
 msgid "&Skip"
 msgstr "&Pomiń"
 
-#: widgets/renamedialog.cpp:263
+#: widgets/renamedialog.cpp:279
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr ""
 "Nie kopiuj ani nie przenoś tego katalogu, zamiast tego przejdź do kolejnego"
 
-#: widgets/renamedialog.cpp:264
+#: widgets/renamedialog.cpp:280
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr ""
 "Nie kopiuj ani nie przenoś tego pliku, zamiast tego przejdź do kolejnego"
 
-#: widgets/renamedialog.cpp:275
+#: widgets/renamedialog.cpp:291
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "&Scal"
 
-#: widgets/renamedialog.cpp:278
+#: widgets/renamedialog.cpp:294
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6904,13 +6904,13 @@ msgstr ""
 "W przypadku katalogu, nadal zostaniesz zapytany o to, co zrobić z plikami, "
 "które istnieją już w katalogu docelowym."
 
-#: widgets/renamedialog.cpp:283
+#: widgets/renamedialog.cpp:299
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "&Zastąp starsze pliki"
 
-#: widgets/renamedialog.cpp:287
+#: widgets/renamedialog.cpp:303
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
@@ -6919,12 +6919,12 @@ msgstr ""
 "Pliki docelowe, które mają wcześniejsze czasy zmiany zostaną zastąpione "
 "plikami źródłowymi, a w pozostałych przypadkach zostaną pominięte."
 
-#: widgets/renamedialog.cpp:299
+#: widgets/renamedialog.cpp:315
 #, kde-format
 msgid "&Resume"
 msgstr "&Wznów"
 
-#: widgets/renamedialog.cpp:308
+#: widgets/renamedialog.cpp:324
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -6933,57 +6933,57 @@ msgstr ""
 "To działanie spowodowałoby zastąpienie '%1' samym sobą.\n"
 "Podaj proszę nową nazwę:"
 
-#: widgets/renamedialog.cpp:314
+#: widgets/renamedialog.cpp:330
 #, kde-format
 msgid "C&ontinue"
 msgstr "K&ontynuuj"
 
-#: widgets/renamedialog.cpp:376
+#: widgets/renamedialog.cpp:392
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "Czy zastąpić rzecz docelową?"
 
-#: widgets/renamedialog.cpp:378
+#: widgets/renamedialog.cpp:394
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Czy scalić treść '%1' do '%2'?"
 
-#: widgets/renamedialog.cpp:421
+#: widgets/renamedialog.cpp:437
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "Rzecz źródłowa jest <b>nowsza<b>."
 
-#: widgets/renamedialog.cpp:423
+#: widgets/renamedialog.cpp:439
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "Rzecz źródłowa jest <b>starsza<b>."
 
-#: widgets/renamedialog.cpp:432
+#: widgets/renamedialog.cpp:448
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "Rzecz źródłowa jest <b>mniejsza o %1<b>."
 
-#: widgets/renamedialog.cpp:435
+#: widgets/renamedialog.cpp:451
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "Rzecz źródłowa jest <b>większa o %1<b>."
 
-#: widgets/renamedialog.cpp:449
+#: widgets/renamedialog.cpp:465
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "Pliki są <b>takie same</b>."
 
-#: widgets/renamedialog.cpp:452
+#: widgets/renamedialog.cpp:468
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "Pliki <b>wydają się być jednakowe</b>."
 
-#: widgets/renamedialog.cpp:456
+#: widgets/renamedialog.cpp:472
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "Pliki są <b>różne</b>."
 
-#: widgets/renamedialog.cpp:464
+#: widgets/renamedialog.cpp:480
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -6992,28 +6992,28 @@ msgstr ""
 "Pliki są prawdopodobnie takie same: mają ten sam rozmiar i treść na "
 "początku, w środku i na końcu."
 
-#: widgets/renamedialog.cpp:478
+#: widgets/renamedialog.cpp:494
 #, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "Porównaj pliki"
 
-#: widgets/renamedialog.cpp:491
+#: widgets/renamedialog.cpp:507
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Starszy plik o nazwie '%1' już istnieje."
 
-#: widgets/renamedialog.cpp:493
+#: widgets/renamedialog.cpp:509
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Plik o nazwie '%1' już istnieje."
 
-#: widgets/renamedialog.cpp:495
+#: widgets/renamedialog.cpp:511
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Nowszy element o nazwie '%1' już istnieje."
 
-#: widgets/renamedialog.cpp:508
+#: widgets/renamedialog.cpp:524
 #, kde-format
 msgid "Rename:"
 msgstr "Zmień nazwę na:"

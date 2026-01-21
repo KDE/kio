@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:39+0000\n"
+"POT-Creation-Date: 2026-01-21 00:41+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -2367,7 +2367,7 @@ msgid " (Points to %1)"
 msgstr "Boute après:"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:637
+#: widgets/renamedialog.cpp:653
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -5097,13 +5097,13 @@ msgstr ""
 msgid "Creating directory"
 msgstr "Ahivant ridant"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:387
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:403
 #, fuzzy, kde-format
 #| msgid "Source"
 msgid "Source"
 msgstr "Sourdant"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:389
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:405
 #, fuzzy, kde-format
 #| msgid "Destination"
 msgid "Destination"
@@ -7027,24 +7027,24 @@ msgstr "%1 (%2)"
 msgid "Filename for dropped contents:"
 msgstr "No d' fitchî pol contnou do presse-papî"
 
-#: widgets/renamedialog.cpp:70
+#: widgets/renamedialog.cpp:73
 #, fuzzy, kde-format
 #| msgid "Drive: %1"
 msgid "Date: %1"
 msgstr "Lijheu: %1"
 
-#: widgets/renamedialog.cpp:79
+#: widgets/renamedialog.cpp:86
 #, fuzzy, kde-format
 #| msgid "Size:"
 msgid "Size: %1"
 msgstr "Grandeu:"
 
-#: widgets/renamedialog.cpp:243
+#: widgets/renamedialog.cpp:259
 #, kde-format
 msgid "Appl&y to All"
 msgstr ""
 
-#: widgets/renamedialog.cpp:244
+#: widgets/renamedialog.cpp:260
 #, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
@@ -7053,46 +7053,46 @@ msgid ""
 "an existing file in the directory."
 msgstr ""
 
-#: widgets/renamedialog.cpp:248
+#: widgets/renamedialog.cpp:264
 #, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
 
-#: widgets/renamedialog.cpp:254
+#: widgets/renamedialog.cpp:270
 #, kde-format
 msgid "&Rename"
 msgstr "&Rilomer"
 
-#: widgets/renamedialog.cpp:256
+#: widgets/renamedialog.cpp:272
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "Sudjestion d' on &novea no"
 
-#: widgets/renamedialog.cpp:262
+#: widgets/renamedialog.cpp:278
 #, kde-format
 msgid "&Skip"
 msgstr "&Passer"
 
-#: widgets/renamedialog.cpp:263
+#: widgets/renamedialog.cpp:279
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr ""
 
-#: widgets/renamedialog.cpp:264
+#: widgets/renamedialog.cpp:280
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr ""
 
-#: widgets/renamedialog.cpp:275
+#: widgets/renamedialog.cpp:291
 #, fuzzy, kde-format
 #| msgid "Write"
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "Sicrire"
 
-#: widgets/renamedialog.cpp:278
+#: widgets/renamedialog.cpp:294
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -7101,26 +7101,26 @@ msgid ""
 "the directory."
 msgstr ""
 
-#: widgets/renamedialog.cpp:283
+#: widgets/renamedialog.cpp:299
 #, fuzzy, kde-format
 #| msgid "Overwrite File?"
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "Sipotchî l' fitchî?"
 
-#: widgets/renamedialog.cpp:287
+#: widgets/renamedialog.cpp:303
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr ""
 
-#: widgets/renamedialog.cpp:299
+#: widgets/renamedialog.cpp:315
 #, kde-format
 msgid "&Resume"
 msgstr "&Rataker"
 
-#: widgets/renamedialog.cpp:308
+#: widgets/renamedialog.cpp:324
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -7129,12 +7129,12 @@ msgstr ""
 "Ciste accion la spotchreut «%1» avou lu minme.\n"
 "Dinez on novea no s' i vs plait:"
 
-#: widgets/renamedialog.cpp:314
+#: widgets/renamedialog.cpp:330
 #, kde-format
 msgid "C&ontinue"
 msgstr "&Continouwer"
 
-#: widgets/renamedialog.cpp:376
+#: widgets/renamedialog.cpp:392
 #, fuzzy, kde-format
 #| msgid ""
 #| "This action would overwrite '%1' with itself.\n"
@@ -7144,7 +7144,7 @@ msgstr ""
 "Ciste accion la spotchreut «%1» avou lu minme.\n"
 "Dinez on novea no s' i vs plait:"
 
-#: widgets/renamedialog.cpp:378
+#: widgets/renamedialog.cpp:394
 #, fuzzy, kde-format
 #| msgid ""
 #| "This action would overwrite '%1' with itself.\n"
@@ -7154,79 +7154,79 @@ msgstr ""
 "Ciste accion la spotchreut «%1» avou lu minme.\n"
 "Dinez on novea no s' i vs plait:"
 
-#: widgets/renamedialog.cpp:421
+#: widgets/renamedialog.cpp:437
 #, fuzzy, kde-format
 #| msgid "the extension <b>%1</b>"
 msgid "The source is <b>more recent</b>."
 msgstr "li cawete <b>%1</b>"
 
-#: widgets/renamedialog.cpp:423
+#: widgets/renamedialog.cpp:439
 #, fuzzy, kde-format
 #| msgid "the extension <b>%1</b>"
 msgid "The source is <b>older</b>."
 msgstr "li cawete <b>%1</b>"
 
-#: widgets/renamedialog.cpp:432
+#: widgets/renamedialog.cpp:448
 #, fuzzy, kde-format
 #| msgid "the extension <b>%1</b>"
 msgid "The source is <b>smaller by %1</b>."
 msgstr "li cawete <b>%1</b>"
 
-#: widgets/renamedialog.cpp:435
+#: widgets/renamedialog.cpp:451
 #, fuzzy, kde-format
 #| msgid "the extension <b>%1</b>"
 msgid "The source is <b>bigger by %1</b>."
 msgstr "li cawete <b>%1</b>"
 
-#: widgets/renamedialog.cpp:449
+#: widgets/renamedialog.cpp:465
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
 msgid "The files are <b>identical</b>."
 msgstr "Li novea no d' fitchî est vude."
 
-#: widgets/renamedialog.cpp:452
+#: widgets/renamedialog.cpp:468
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
 msgid "The files <b>seem identical</b>."
 msgstr "Li novea no d' fitchî est vude."
 
-#: widgets/renamedialog.cpp:456
+#: widgets/renamedialog.cpp:472
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
 msgid "The files are <b>different</b>."
 msgstr "Li novea no d' fitchî est vude."
 
-#: widgets/renamedialog.cpp:464
+#: widgets/renamedialog.cpp:480
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
 "contents are the same at the beginning, middle and end."
 msgstr ""
 
-#: widgets/renamedialog.cpp:478
+#: widgets/renamedialog.cpp:494
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "*|Tos les fitchîs"
 
-#: widgets/renamedialog.cpp:491
+#: widgets/renamedialog.cpp:507
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "I gn a ddja åk di pus vî lomé «%1»"
 
-#: widgets/renamedialog.cpp:493
+#: widgets/renamedialog.cpp:509
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Gn a ddja fitchî lomé « %1 » k' egzistêye dedja et k' est l' minme."
 
-#: widgets/renamedialog.cpp:495
+#: widgets/renamedialog.cpp:511
 #, fuzzy, kde-format
 #| msgid "An older item named '%1' already exists."
 msgid "A more recent item named '%1' already exists."
 msgstr "I gn a ddja åk di pus vî lomé «%1»"
 
-#: widgets/renamedialog.cpp:508
+#: widgets/renamedialog.cpp:524
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Rename:"

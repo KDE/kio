@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:39+0000\n"
+"POT-Creation-Date: 2026-01-21 00:41+0000\n"
 "PO-Revision-Date: 2023-10-24 10:35+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -2268,7 +2268,7 @@ msgid " (Points to %1)"
 msgstr " (Trỏ đến %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:637
+#: widgets/renamedialog.cpp:653
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4897,12 +4897,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "Tạo thư mục"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:387
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:403
 #, kde-format
 msgid "Source"
 msgstr "Nguồn"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:389
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:405
 #, kde-format
 msgid "Destination"
 msgstr "Đích"
@@ -6850,22 +6850,22 @@ msgstr "%1 (%2)"
 msgid "Filename for dropped contents:"
 msgstr "Tên tệp cho nội dung được thả:"
 
-#: widgets/renamedialog.cpp:70
+#: widgets/renamedialog.cpp:73
 #, kde-format
 msgid "Date: %1"
 msgstr "Ngày: %1"
 
-#: widgets/renamedialog.cpp:79
+#: widgets/renamedialog.cpp:86
 #, kde-format
 msgid "Size: %1"
 msgstr "Kích thước: %1"
 
-#: widgets/renamedialog.cpp:243
+#: widgets/renamedialog.cpp:259
 #, kde-format
 msgid "Appl&y to All"
 msgstr "Á&p dụng cho tất cả"
 
-#: widgets/renamedialog.cpp:244
+#: widgets/renamedialog.cpp:260
 #, fuzzy, kde-format
 #| msgid ""
 #| "When this is checked the button pressed will be applied to all subsequent "
@@ -6883,7 +6883,7 @@ msgstr ""
 "Trừ khi bạn ấn \"Bỏ qua\", bạn sẽ vẫn được hỏi trong trường hợp một xung đột "
 "với một tệp đã có bên trong thư mục."
 
-#: widgets/renamedialog.cpp:248
+#: widgets/renamedialog.cpp:264
 #, fuzzy, kde-format
 #| msgid ""
 #| "When this is checked the button pressed will be applied to all subsequent "
@@ -6895,38 +6895,38 @@ msgstr ""
 "Khi lựa chọn này được chọn, nút được ấn sẽ được áp dụng cho tất cả các xung "
 "đột tiếp theo cho phần còn lại của công việc hiện thời."
 
-#: widgets/renamedialog.cpp:254
+#: widgets/renamedialog.cpp:270
 #, kde-format
 msgid "&Rename"
 msgstr "Đổ&i tên"
 
-#: widgets/renamedialog.cpp:256
+#: widgets/renamedialog.cpp:272
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "Gợi ý tên &mới"
 
-#: widgets/renamedialog.cpp:262
+#: widgets/renamedialog.cpp:278
 #, kde-format
 msgid "&Skip"
 msgstr "Bỏ &qua"
 
-#: widgets/renamedialog.cpp:263
+#: widgets/renamedialog.cpp:279
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr "Đừng chép hay chuyển thư mục này, mà bỏ qua đến thứ tiếp sau"
 
-#: widgets/renamedialog.cpp:264
+#: widgets/renamedialog.cpp:280
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr "Đừng chép hay chuyển tệp này, mà bỏ qua đến thứ tiếp sau"
 
-#: widgets/renamedialog.cpp:275
+#: widgets/renamedialog.cpp:291
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "&Ghi vào"
 
-#: widgets/renamedialog.cpp:278
+#: widgets/renamedialog.cpp:294
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6939,13 +6939,13 @@ msgstr ""
 "Bạn sẽ được hỏi lại trong trường hợp một xung đột với một tệp đã có bên "
 "trong thư mục."
 
-#: widgets/renamedialog.cpp:283
+#: widgets/renamedialog.cpp:299
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "Ghi đè các tệ&p cũ"
 
-#: widgets/renamedialog.cpp:287
+#: widgets/renamedialog.cpp:303
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
@@ -6954,12 +6954,12 @@ msgstr ""
 "Các tệp đích mà thời gian chỉnh sửa sớm hơn thì sẽ bị ghi đè bởi nguồn, còn "
 "ngược lại thì sẽ bỏ qua."
 
-#: widgets/renamedialog.cpp:299
+#: widgets/renamedialog.cpp:315
 #, kde-format
 msgid "&Resume"
 msgstr "Tiếp tục t&rở lại"
 
-#: widgets/renamedialog.cpp:308
+#: widgets/renamedialog.cpp:324
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -6968,66 +6968,66 @@ msgstr ""
 "Hành động này sẽ ghi đè '%1' bằng chính nó.\n"
 "Vui lòng nhập một tên tệp mới:"
 
-#: widgets/renamedialog.cpp:314
+#: widgets/renamedialog.cpp:330
 #, kde-format
 msgid "C&ontinue"
 msgstr "&Tiếp tục"
 
-#: widgets/renamedialog.cpp:376
+#: widgets/renamedialog.cpp:392
 #, fuzzy, kde-format
 #| msgid "This action will overwrite the destination."
 msgid "Would you like to overwrite the destination?"
 msgstr "Hành động này sẽ ghi đè lên đích."
 
-#: widgets/renamedialog.cpp:378
+#: widgets/renamedialog.cpp:394
 #, fuzzy, kde-format
 #| msgid "This action will merge the contents of '%1' into '%2'."
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Hành động này sẽ trộn nội dung của '%1' vào '%2'."
 
-#: widgets/renamedialog.cpp:421
+#: widgets/renamedialog.cpp:437
 #, fuzzy, kde-format
 #| msgid "The destination is <b>smaller by %1</b>"
 msgid "The source is <b>more recent</b>."
 msgstr "Đích <b>nhỏ hơn %1</b> so với nguồn"
 
-#: widgets/renamedialog.cpp:423
+#: widgets/renamedialog.cpp:439
 #, fuzzy, kde-format
 #| msgid "The destination is <b>smaller by %1</b>"
 msgid "The source is <b>older</b>."
 msgstr "Đích <b>nhỏ hơn %1</b> so với nguồn"
 
-#: widgets/renamedialog.cpp:432
+#: widgets/renamedialog.cpp:448
 #, fuzzy, kde-format
 #| msgid "The destination is <b>smaller by %1</b>"
 msgid "The source is <b>smaller by %1</b>."
 msgstr "Đích <b>nhỏ hơn %1</b> so với nguồn"
 
-#: widgets/renamedialog.cpp:435
+#: widgets/renamedialog.cpp:451
 #, fuzzy, kde-format
 #| msgid "The destination is <b>bigger by %1</b>"
 msgid "The source is <b>bigger by %1</b>."
 msgstr "Đích <b>lớn hơn %1</b> so với nguồn"
 
-#: widgets/renamedialog.cpp:449
+#: widgets/renamedialog.cpp:465
 #, fuzzy, kde-format
 #| msgid "The files are identical."
 msgid "The files are <b>identical</b>."
 msgstr "Các tệp giống nhau."
 
-#: widgets/renamedialog.cpp:452
+#: widgets/renamedialog.cpp:468
 #, fuzzy, kde-format
 #| msgid "The files seem identical."
 msgid "The files <b>seem identical</b>."
 msgstr "Các tệp có vẻ giống nhau."
 
-#: widgets/renamedialog.cpp:456
+#: widgets/renamedialog.cpp:472
 #, fuzzy, kde-format
 #| msgid "The files are different."
 msgid "The files are <b>different</b>."
 msgstr "Các tệp khác nhau."
 
-#: widgets/renamedialog.cpp:464
+#: widgets/renamedialog.cpp:480
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -7036,29 +7036,29 @@ msgstr ""
 "Các tệp này nhiều khả năng là giống nhau: chúng có cùng kích thước và nội "
 "dung giống nhau ở phần đầu, giữa và cuối."
 
-#: widgets/renamedialog.cpp:478
+#: widgets/renamedialog.cpp:494
 #, fuzzy, kde-format
 #| msgid "Copy Files"
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "Chép tệp"
 
-#: widgets/renamedialog.cpp:491
+#: widgets/renamedialog.cpp:507
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Một thứ cũ hơn tên là '%1' đã tồn tại rồi."
 
-#: widgets/renamedialog.cpp:493
+#: widgets/renamedialog.cpp:509
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Một tệp tương tự tên là '%1' đã tồn tại rồi."
 
-#: widgets/renamedialog.cpp:495
+#: widgets/renamedialog.cpp:511
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Một thứ được chỉnh sửa gần đây hơn tên là '%1' đã tồn tại rồi."
 
-#: widgets/renamedialog.cpp:508
+#: widgets/renamedialog.cpp:524
 #, kde-format
 msgid "Rename:"
 msgstr "Đổi tên:"

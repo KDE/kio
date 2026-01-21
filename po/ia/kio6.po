@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:39+0000\n"
-"PO-Revision-Date: 2026-01-16 11:51+0100\n"
+"POT-Creation-Date: 2026-01-21 00:41+0000\n"
+"PO-Revision-Date: 2026-01-20 12:22+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -720,7 +720,7 @@ msgstr "Le file es troppo grande pro esser ponite in le corbe."
 #: core/job_error.cpp:264
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
-msgstr ""
+msgstr "Un dossier de corbe nonpote esser trovate o create per iste location."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -2319,7 +2319,7 @@ msgid " (Points to %1)"
 msgstr " (Il puncta a %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:637
+#: widgets/renamedialog.cpp:653
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -3067,9 +3067,7 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Solmente dossieres pote esser addite al Pannello de Placias."
 
 #: filewidgets/kfileplacesmodel.cpp:1377
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
 msgstr "Configura..."
@@ -3284,10 +3282,9 @@ msgid "Huge (%1x%1)"
 msgstr "Ponderose (%1x%1)"
 
 #: filewidgets/kfilewidget.cpp:404
-#, fuzzy, kde-format
-#| msgid "Create Directory"
+#, kde-format
 msgid "Current Directory: %1"
-msgstr "Directorio currente"
+msgstr "Directorio currente: %1"
 
 #: filewidgets/kfilewidget.cpp:640
 #, kde-format
@@ -3744,12 +3741,10 @@ msgid "Create new folder in %1:"
 msgstr "Crea nove dossier in %1:"
 
 #: filewidgets/knewfilemenu.cpp:1582 widgets/kpropertiesdialogbuiltin_p.cpp:363
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "Entra un nomine de dossier:"
+msgstr "Inserta nomine de dossier"
 
 #: filewidgets/knewfilemenu.cpp:1639
 #, kde-format
@@ -4211,10 +4206,9 @@ msgstr ""
 " %1"
 
 #: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
-#, fuzzy, kde-format
-#| msgid "Could Not Rename Temporary File"
+#, kde-format
 msgid "Could not open temporary file"
-msgstr "Il non pote renominar file temporari"
+msgstr "Il non pote aperir file temporari"
 
 #: kioworkers/file/file.cpp:765
 #, kde-format
@@ -4937,12 +4931,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "Crear directorio"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:387
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:403
 #, kde-format
 msgid "Source"
 msgstr "Fonte"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:389
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:405
 #, kde-format
 msgid "Destination"
 msgstr "Destination"
@@ -4963,10 +4957,9 @@ msgid "Renaming"
 msgstr "Renominar"
 
 #: widgets/fileundomanager.cpp:147
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
-msgstr "Move a corbe"
+msgstr "Movente a corbe"
 
 #: widgets/fileundomanager.cpp:152
 #, kde-format
@@ -5029,56 +5022,47 @@ msgid "&Redo"
 msgstr "&Reface"
 
 #: widgets/fileundomanager.cpp:363
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
 msgstr "A&nnulla: Copia"
 
 #: widgets/fileundomanager.cpp:365
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
 msgstr "A&nnulla: Ligamine"
 
 #: widgets/fileundomanager.cpp:367
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
 msgstr "A&nnulla: Move"
 
 #: widgets/fileundomanager.cpp:369
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
 msgstr "A&nnulla : Renomina"
 
 #: widgets/fileundomanager.cpp:371
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
 msgstr "A&nnulla: Corbe"
 
 #: widgets/fileundomanager.cpp:373
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
 msgstr "A&nnulla: Crea dossier"
 
 #: widgets/fileundomanager.cpp:375
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "A&nnulla: Crea dossier(es)"
 
 #: widgets/fileundomanager.cpp:377
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
 msgstr "A&nnulla: crea file"
 
 #: widgets/fileundomanager.cpp:379
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
 msgstr "A&nnulla : Renomina Batch"
 
@@ -5398,10 +5382,9 @@ msgid "&Open With…"
 msgstr "&Aperi con…"
 
 #: widgets/kfileitemactions.cpp:765
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "&Run Executable"
-msgstr "&Executa"
+msgstr "&Executa executabile"
 
 #: widgets/kfileitemactions.cpp:787
 #, kde-format
@@ -5485,7 +5468,7 @@ msgstr "Dimension:"
 #: widgets/kfilepropspluginwidget.ui:282
 #, kde-format
 msgid "Determine the folder size"
-msgstr ""
+msgstr "Determina le grandor de dossier"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:289
@@ -5497,7 +5480,7 @@ msgstr "Stoppa"
 #: widgets/kfilepropspluginwidget.ui:295
 #, kde-format
 msgid "Stop determining the folder size"
-msgstr ""
+msgstr "Stoppa determinar le grandor de dossier"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
 #: widgets/kfilepropspluginwidget.ui:302
@@ -5513,8 +5496,7 @@ msgstr "Puncta a:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:361
-#, fuzzy, kde-format
-#| msgid "Show a Warning"
+#, kde-format
 msgid "Show target"
 msgstr "Monstra Objectivo"
 
@@ -5862,17 +5844,13 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"Typa ci le description de iste application, basate sur su usage. Exemplos: "
-"un application de facer communication telephonic  (KPPP)  essera "
-"\"Instrumento de communication telephonic\"."
+"Typa ci un nomine generic per le application. Exemplos: un application de "
+"vider images esserea \"Image Viewer\" (Visor de images)."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
@@ -5883,17 +5861,14 @@ msgstr "Nomine de &Generic:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
 "Typa ci le description de iste application, basate sur su usage. Exemplos: "
-"un application de facer communication telephonic  (KPPP)  essera "
-"\"Instrumento de communication telephonic\"."
+"un application per vider imagines esserea \"Vide e Edita Imagines\" (\"View "
+"and edit images\") . "
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -6144,16 +6119,14 @@ msgstr "Refresca"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr ""
+msgstr "Inserta location de objectivo"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:452
 #: widgets/kpropertiesdialogbuiltin_p.cpp:455
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
-msgstr "Monstra "
+msgstr "Monstra  <filename>%1</filename>"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:561
 #, kde-format
@@ -6232,7 +6205,7 @@ msgstr "Cambia …"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
-msgstr ""
+msgstr "Cambia le application predefinite per aperir files de typo “%1”."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1076
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1077
@@ -6654,16 +6627,14 @@ msgid "Verifying checksum…"
 msgstr "Verificante checksum..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2440
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "Le files es <b>identic</b>."
+msgstr "Le checksums de omne files es identic."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2445
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "Le files es <b>differente</b>."
+msgstr "Le files seligite ha checksums differente."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2451
 #, kde-format
@@ -6887,28 +6858,23 @@ msgstr "%1 (%2)"
 msgid "Filename for dropped contents:"
 msgstr "Nomine de file pro contentos cadite:"
 
-#: widgets/renamedialog.cpp:70
+#: widgets/renamedialog.cpp:73
 #, kde-format
 msgid "Date: %1"
 msgstr "Data: %1"
 
-#: widgets/renamedialog.cpp:79
+#: widgets/renamedialog.cpp:86
 #, kde-format
 msgid "Size: %1"
 msgstr "Grandor: %1"
 
-#: widgets/renamedialog.cpp:243
+#: widgets/renamedialog.cpp:259
 #, kde-format
 msgid "Appl&y to All"
 msgstr "Appl&ica a omne"
 
-#: widgets/renamedialog.cpp:244
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "folder conflicts for the remainder of the current job.\n"
-#| "Unless you press Skip you will still be prompted in case of a conflict "
-#| "with an existing file in the directory."
+#: widgets/renamedialog.cpp:260
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
@@ -6920,11 +6886,8 @@ msgstr ""
 "A minus que tu pressa Salta tu ancora essera demandate in caso de un "
 "conflicto con un file existente in le directorio."
 
-#: widgets/renamedialog.cpp:248
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "conflicts for the remainder of the current job."
+#: widgets/renamedialog.cpp:264
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
@@ -6932,38 +6895,38 @@ msgstr ""
 "Quando isto es marcate, le button premite essera applicate a omne "
 "subsequente conflictos de dossier pro le residuo del labor currente."
 
-#: widgets/renamedialog.cpp:254
+#: widgets/renamedialog.cpp:270
 #, kde-format
 msgid "&Rename"
 msgstr "&Renomina"
 
-#: widgets/renamedialog.cpp:256
+#: widgets/renamedialog.cpp:272
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "Suggere nove &nomine"
 
-#: widgets/renamedialog.cpp:262
+#: widgets/renamedialog.cpp:278
 #, kde-format
 msgid "&Skip"
 msgstr "&Salta"
 
-#: widgets/renamedialog.cpp:263
+#: widgets/renamedialog.cpp:279
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr "Non copiar o mover iste dossier, in vice salta a proxime elemento"
 
-#: widgets/renamedialog.cpp:264
+#: widgets/renamedialog.cpp:280
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr "Non copiar o mover iste file, in vice salta a proxime elemento"
 
-#: widgets/renamedialog.cpp:275
+#: widgets/renamedialog.cpp:291
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "&Scrive in"
 
-#: widgets/renamedialog.cpp:278
+#: widgets/renamedialog.cpp:294
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6976,13 +6939,13 @@ msgstr ""
 "Tu essera requirite de nove in caso de conflicto con un file existente in le "
 "directorio."
 
-#: widgets/renamedialog.cpp:283
+#: widgets/renamedialog.cpp:299
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "S&uperscribe vetere files?"
 
-#: widgets/renamedialog.cpp:287
+#: widgets/renamedialog.cpp:303
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
@@ -6991,12 +6954,12 @@ msgstr ""
 "Files de destination que ha tempore de modificatin plus vetere essera "
 "superscribite per le fonte, saltate alteremente."
 
-#: widgets/renamedialog.cpp:299
+#: widgets/renamedialog.cpp:315
 #, kde-format
 msgid "&Resume"
 msgstr "&Resume"
 
-#: widgets/renamedialog.cpp:308
+#: widgets/renamedialog.cpp:324
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -7005,57 +6968,57 @@ msgstr ""
 "Iste action superscribera '%1' con se mesme.\n"
 "Per favor tu  un nove nomine de file:"
 
-#: widgets/renamedialog.cpp:314
+#: widgets/renamedialog.cpp:330
 #, kde-format
 msgid "C&ontinue"
 msgstr "C&ontinua"
 
-#: widgets/renamedialog.cpp:376
+#: widgets/renamedialog.cpp:392
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "Tu volerea  superscriber le destination?"
 
-#: widgets/renamedialog.cpp:378
+#: widgets/renamedialog.cpp:394
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Tu volerea fusionar le contentos de '%1' in '%2'?"
 
-#: widgets/renamedialog.cpp:421
+#: widgets/renamedialog.cpp:437
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "Le fonte es <b>plus recente</b>."
 
-#: widgets/renamedialog.cpp:423
+#: widgets/renamedialog.cpp:439
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "Le fonte es <b>plus vetere</b>."
 
-#: widgets/renamedialog.cpp:432
+#: widgets/renamedialog.cpp:448
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "Le fonte es <b>plus parve per %1</b>."
 
-#: widgets/renamedialog.cpp:435
+#: widgets/renamedialog.cpp:451
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "Le fonte es <b>plus grande per %1</b>."
 
-#: widgets/renamedialog.cpp:449
+#: widgets/renamedialog.cpp:465
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "Le files es <b>identic</b>."
 
-#: widgets/renamedialog.cpp:452
+#: widgets/renamedialog.cpp:468
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "Le files  <b>sembla identic</b>."
 
-#: widgets/renamedialog.cpp:456
+#: widgets/renamedialog.cpp:472
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "Le files es <b>differente</b>."
 
-#: widgets/renamedialog.cpp:464
+#: widgets/renamedialog.cpp:480
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -7064,28 +7027,28 @@ msgstr ""
 "Le files probabilemente es identic: illos ha le mesme grandor e lor "
 "contentos es le mesme al initio, in le medie e al fin."
 
-#: widgets/renamedialog.cpp:478
+#: widgets/renamedialog.cpp:494
 #, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "Compara files"
 
-#: widgets/renamedialog.cpp:491
+#: widgets/renamedialog.cpp:507
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Un elemento plus vetere appellate '%1' ja existe."
 
-#: widgets/renamedialog.cpp:493
+#: widgets/renamedialog.cpp:509
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Un file similar appellate '%1' ja existe."
 
-#: widgets/renamedialog.cpp:495
+#: widgets/renamedialog.cpp:511
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Un elemento plus recente appellate '%1' ja existe."
 
-#: widgets/renamedialog.cpp:508
+#: widgets/renamedialog.cpp:524
 #, kde-format
 msgid "Rename:"
 msgstr "Renomina:"
@@ -7097,20 +7060,16 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Renomina le elemento <filename>%1</filename>in:"
 
 #: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
-msgstr "Un file appellate %1 ja existe."
+msgstr "Un file appellate <filename>%1</filename>  ja existe."
 
 #: widgets/renamefiledialog.cpp:144
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "<filename>%1</filename> non appare esser un programma executabile."
+msgstr "<filename>%1</filename> non  es un nomine de file valide."
 
 #: widgets/renamefiledialog.cpp:164
 #, kde-format
@@ -7141,24 +7100,22 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"NJomine de file invalide: Le nove nomine deberea continer un sequentia de #, "
+"a minus que tote le files ha differente extensiones de file."
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "Renomina le %1 elemento selectionate in:"
-msgstr[1] "Renomina le %1 elementos selectionate in:"
+msgstr[0] "Renomina le %1 elemento selectionate per:"
+msgstr[1] "Renomina le %1 elementos selectionate per:"
 
 #: widgets/renamefiledialog.cpp:314
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "Reimplacia"
+msgstr "Reimplaciante:"
 
 #: widgets/renamefiledialog.cpp:316
 #, kde-format
@@ -7167,11 +7124,10 @@ msgid "Pattern"
 msgstr "Patrono"
 
 #: widgets/renamefiledialog.cpp:320
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "con"
+msgstr "Con:"
 
 #: widgets/renamefiledialog.cpp:322
 #, kde-format
@@ -7183,7 +7139,7 @@ msgstr "Reimplaciamento"
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "Nulle nomine de file contine le patrono."
 
 #: widgets/renamefiledialog.cpp:378
 #, kde-kuit-format
@@ -7192,45 +7148,40 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"Reimplaciar “%1” con un reimplaciamento vacue causerea que <filename>%2</"
+"filename> ha un nomine de file vacue."
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "Renomina le %1 elemento selectionate in:"
-msgstr[1] "Renomina le %1 elementos selectionate in:"
+msgstr[0] "Renomina le %1 elemento selectionate:"
+msgstr[1] "Renomina le %1 elementos selectionate:"
 
 #: widgets/renamefiledialog.cpp:407
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr "Adde texto"
+msgstr "Adde texto:"
 
 #: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "Texto a adder"
 
 #: widgets/renamefiledialog.cpp:414
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Entra nomine de file %1:"
+msgstr "Ante nomine de file"
 
 #: widgets/renamefiledialog.cpp:415
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "Entra nomine de file %1:"
+msgstr "Post pomine de file"
 
 #: widgets/renamefiledialog.cpp:532
 #, kde-format
@@ -7251,11 +7202,10 @@ msgid "&Rename"
 msgstr "&Renomina"
 
 #: widgets/renamefiledialog.cpp:552
-#, fuzzy, kde-format
-#| msgid "Delete or rename:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "Dele o renomina:"
+msgstr "Como renominar:"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
@@ -7282,12 +7232,12 @@ msgid "Preview:"
 msgstr "Vista preliminar:"
 
 #: widgets/renamefiledialog.cpp:691
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "<filename>%1</filename> non appare esser un programma executabile."
+msgstr ""
+"<filename>%1</filename> non pote esser renominate con  un nomine de file "
+"vacue."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
@@ -7440,33 +7390,19 @@ msgstr[1] ""
 "strong='true'>Iste action non pote esser annullate.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"Il falleva a mover iste elemento al Corbe proque es il es troppo grande. In "
-"loco tu vole deler lo permanentemente? <nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'> Iste action non pote esser annullate.</emphasis>"
+"Le corbe es troppo plen per acceptar iste file . In loco tu vole deler lo "
+"permanentemente? <nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'> Iste action non pote esser annullate.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7476,42 +7412,28 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"Il falleva a mover iste %1 elemento al Corbe proque es il es troppo grande. "
-"In loco tu vole deler lo permanentemente? <filename></filename><nl/"
-"><emphasis strong='true'> Iste action non pote esser annullate.</emphasis>"
+"Le corbe es troppo plen per acceptar iste %1 file . In loco tu vole deler lo "
+"permanentemente? <nl/><filename></filename><nl/><emphasis strong='true'> "
+"Iste action non pote esser annullate.</emphasis>"
 msgstr[1] ""
-"Il falleva a mover iste %1 elementos al Corbe proque illos es troppo grande. "
-"In loco tu vole deler illos permanentemente? <nl/><nl/><emphasis "
-"strong='true'>Iste action non pote esser annullate.</emphasis>"
+"Le corbe es troppo plen per acceptar iste %1 files  In loco tu vole deler "
+"los permanentemente? <nl/><filename></filename><nl/><emphasis strong='true'> "
+"Iste action non pote esser annullate.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Il falleva a mover iste elemento al Corbe proque es il es troppo grande. In "
-"loco tu vole deler lo permanentemente? <nl/><filename>%1</filename><nl/><nl/"
-"><emphasis strong='true'> Iste action non pote esser annullate.</emphasis>"
+"Le corbe non es disponbile per le location de iste elemento  In loco tu vole "
+"deler lo permanentemente? <nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'> Iste action non pote esser annullate.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7522,13 +7444,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Il falleva a mover iste %1 elemento al Corbe proque es il es troppo grande. "
-"In loco tu vole deler lo permanentemente? <filename></filename><nl/"
-"><emphasis strong='true'> Iste action non pote esser annullate.</emphasis>"
+"Le corbe non es disponbile per le location de iste %1 elemento  In loco tu "
+"vole deler lo permanentemente? <filename>%1</filename><emphasis "
+"strong='true'> Iste action non pote esser annullate</emphasis>"
 msgstr[1] ""
-"Il falleva a mover iste %1 elementos al Corbe proque illos es troppo grande. "
-"In loco tu vole deler illos permanentemente? <nl/><nl/><emphasis "
-"strong='true'>Iste action non pote esser annullate.</emphasis>"
+"Le corbe non es disponbile per le location de iste %1 elementos  In loco tu "
+"vole deler los permanentemente? <filename>%1</filename><nl/><emphasis "
+"strong='true'> Iste action non pote esser annullate</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format

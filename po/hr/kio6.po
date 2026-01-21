@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-20 00:39+0000\n"
+"POT-Creation-Date: 2026-01-21 00:41+0000\n"
 "PO-Revision-Date: 2025-11-18 11:44+0100\n"
 "Last-Translator: Igor Dobrača <igor.dobraca@skole.hr>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -2281,7 +2281,7 @@ msgid " (Points to %1)"
 msgstr " (Pokazuje na %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:637
+#: widgets/renamedialog.cpp:653
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4888,12 +4888,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "Stvaranje direktorija"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:387
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:403
 #, kde-format
 msgid "Source"
 msgstr "Izvor"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:389
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:405
 #, kde-format
 msgid "Destination"
 msgstr "Odredište"
@@ -6823,22 +6823,22 @@ msgstr "%1 (%2)"
 msgid "Filename for dropped contents:"
 msgstr "Naziv datoteke za ispušteni sadržaj:"
 
-#: widgets/renamedialog.cpp:70
+#: widgets/renamedialog.cpp:73
 #, kde-format
 msgid "Date: %1"
 msgstr "Datum: %1"
 
-#: widgets/renamedialog.cpp:79
+#: widgets/renamedialog.cpp:86
 #, kde-format
 msgid "Size: %1"
 msgstr "Veličina: %1"
 
-#: widgets/renamedialog.cpp:243
+#: widgets/renamedialog.cpp:259
 #, kde-format
 msgid "Appl&y to All"
 msgstr "Primijeni na &sve"
 
-#: widgets/renamedialog.cpp:244
+#: widgets/renamedialog.cpp:260
 #, fuzzy, kde-format
 #| msgid ""
 #| "When this is checked the button pressed will be applied to all subsequent "
@@ -6856,7 +6856,7 @@ msgstr ""
 "Osim ako ne pritisnete Preskoči, i dalje ćete biti upitani u slučaju sukoba "
 "s postojećom datotekom u direktoriju."
 
-#: widgets/renamedialog.cpp:248
+#: widgets/renamedialog.cpp:264
 #, fuzzy, kde-format
 #| msgid ""
 #| "When this is checked the button pressed will be applied to all subsequent "
@@ -6868,41 +6868,41 @@ msgstr ""
 "Kada se to provjeri, pritisnuta tipka primjenjuje se na sve sljedeće sukobe "
 "do kraja trenutnog posla."
 
-#: widgets/renamedialog.cpp:254
+#: widgets/renamedialog.cpp:270
 #, kde-format
 msgid "&Rename"
 msgstr "P&romijeni ime"
 
-#: widgets/renamedialog.cpp:256
+#: widgets/renamedialog.cpp:272
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "Predloži novi &naziv"
 
-#: widgets/renamedialog.cpp:262
+#: widgets/renamedialog.cpp:278
 #, kde-format
 msgid "&Skip"
 msgstr "Pre&skoči"
 
-#: widgets/renamedialog.cpp:263
+#: widgets/renamedialog.cpp:279
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr ""
 "Nemojte kopirati niti premještati ovu mapu, već preskočite na sljedeću stavku"
 
-#: widgets/renamedialog.cpp:264
+#: widgets/renamedialog.cpp:280
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr ""
 "Nemojte kopirati niti premještati ovu datoteku, već preskočite na sljedeću "
 "stavku"
 
-#: widgets/renamedialog.cpp:275
+#: widgets/renamedialog.cpp:291
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "&Upiši u"
 
-#: widgets/renamedialog.cpp:278
+#: widgets/renamedialog.cpp:294
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6915,13 +6915,13 @@ msgstr ""
 "Sustav će vas opet tražiti potvrdu ukoliko dođe do sukoba s postojećom "
 "datotekom u direktoriju."
 
-#: widgets/renamedialog.cpp:283
+#: widgets/renamedialog.cpp:299
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "&Prebriši starije datoteke"
 
-#: widgets/renamedialog.cpp:287
+#: widgets/renamedialog.cpp:303
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
@@ -6930,12 +6930,12 @@ msgstr ""
 "Odredišne datoteke koje imaju starija vremena izmjena bit će prepisane od "
 "strane izvora, inače preskočene."
 
-#: widgets/renamedialog.cpp:299
+#: widgets/renamedialog.cpp:315
 #, kde-format
 msgid "&Resume"
 msgstr "&Nastavi"
 
-#: widgets/renamedialog.cpp:308
+#: widgets/renamedialog.cpp:324
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -6944,57 +6944,57 @@ msgstr ""
 "Ovaj postupak će prepisati '%1' samim sobom.\n"
 "Molim Vas, unesite novi naziv datoteke:"
 
-#: widgets/renamedialog.cpp:314
+#: widgets/renamedialog.cpp:330
 #, kde-format
 msgid "C&ontinue"
 msgstr "&Nastavi"
 
-#: widgets/renamedialog.cpp:376
+#: widgets/renamedialog.cpp:392
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "Želite li prebrisati odredište?"
 
-#: widgets/renamedialog.cpp:378
+#: widgets/renamedialog.cpp:394
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Želite li spojiti sadržaj '%1' u '%2'?"
 
-#: widgets/renamedialog.cpp:421
+#: widgets/renamedialog.cpp:437
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "Izvor je <b>noviji</b>."
 
-#: widgets/renamedialog.cpp:423
+#: widgets/renamedialog.cpp:439
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "Izvor je <b>stariji</b>."
 
-#: widgets/renamedialog.cpp:432
+#: widgets/renamedialog.cpp:448
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "Izvor je <b>manji za %1.</b>."
 
-#: widgets/renamedialog.cpp:435
+#: widgets/renamedialog.cpp:451
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "Izvor je <b>veći za %1.</b>."
 
-#: widgets/renamedialog.cpp:449
+#: widgets/renamedialog.cpp:465
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "Datoteke su <b>identične</b>."
 
-#: widgets/renamedialog.cpp:452
+#: widgets/renamedialog.cpp:468
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "Datoteke <b>izgledaju identično</b>."
 
-#: widgets/renamedialog.cpp:456
+#: widgets/renamedialog.cpp:472
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "Datoteke su <b>različite</b>."
 
-#: widgets/renamedialog.cpp:464
+#: widgets/renamedialog.cpp:480
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -7003,29 +7003,29 @@ msgstr ""
 "Datoteke su vjerojatno identične: iste su veličine, a sadržaj im je isti na "
 "početku, sredini i kraju."
 
-#: widgets/renamedialog.cpp:478
+#: widgets/renamedialog.cpp:494
 #, fuzzy, kde-format
 #| msgid "All Files"
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "Sve datoteke"
 
-#: widgets/renamedialog.cpp:491
+#: widgets/renamedialog.cpp:507
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Već postoji starija stavka nazvana '%1'."
 
-#: widgets/renamedialog.cpp:493
+#: widgets/renamedialog.cpp:509
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Slična datoteka naziva %1 već postoji."
 
-#: widgets/renamedialog.cpp:495
+#: widgets/renamedialog.cpp:511
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Već postoji novija stavka naziva '%1'."
 
-#: widgets/renamedialog.cpp:508
+#: widgets/renamedialog.cpp:524
 #, kde-format
 msgid "Rename:"
 msgstr "Preimenuj:"
