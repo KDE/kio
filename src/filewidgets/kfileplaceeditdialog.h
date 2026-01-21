@@ -11,7 +11,6 @@
 
 #include "kiofilewidgets_export.h"
 
-#include <KIconLoader>
 #include <QDialog>
 #include <QUrl>
 
@@ -94,7 +93,7 @@ public:
                          const QString &icon,
                          bool isAddingNewPlace,
                          bool appLocal = true,
-                         int iconSize = KIconLoader::SizeMedium,
+                         int iconSize = 32,
                          QWidget *parent = nullptr);
 
     ~KFilePlaceEditDialog() override;
