@@ -183,15 +183,23 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_widgets_HEADERS
 )
-install(FILES ${KIOWidgets_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets/KIO COMPONENT Devel)
-
-install(TARGETS KF6KIOWidgets EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
   ${KIO_namespaced_widgets_HEADERS}
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets/kio COMPONENT Devel)
 
-install(FILES
-  ${KIOWidgets_HEADERS}
-  ${CMAKE_CURRENT_BINARY_DIR}/kiowidgets_export.h
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets COMPONENT Devel)
+target_sources(KF6KIOWidgets
+    PUBLIC
+    FILE_SET public_headers
+    TYPE HEADERS
+    BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR};${CMAKE_CURRENT_BINARY_DIR}
+    FILES ${KIOWidgets_HEADERS} ${KIOWidgets_CamelCase_HEADERS} ${CMAKE_CURRENT_BINARY_DIR}/kiowidgets_export.h)
+
+install(TARGETS KF6KIOWidgets
+    EXPORT KF6KIOTargets
+    ${KF_INSTALL_TARGETS_DEFAULT_ARGS}
+    FILE_SET public_headers
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets
+    COMPONENT Devel)
+
+add_test(NAME kiowidgets_interface_test COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --parallel --target KF6KIOWidgets_verify_interface_header_sets)

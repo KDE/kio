@@ -279,9 +279,6 @@ if (NOT EXISTS ${REGULAR_HEADER_NAME})
    file(WRITE ${REGULAR_HEADER_NAME} "#include \"${CMAKE_CURRENT_SOURCE_DIR}/job_base.h\"\n")
 endif()
 
-
-install(TARGETS KF6KIOCore EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
-
 list(APPEND KIO_namespaced_HEADERS
   ioworker_defaults.h
   job_base.h
@@ -317,11 +314,21 @@ ecm_generate_headers(KIOCore_HEADERS
   REQUIRED_HEADERS KIOCore_HEADERS
 )
 
+target_sources(KF6KIOCore
+    PUBLIC
+    FILE_SET public_headers
+    TYPE HEADERS
+    BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR};${CMAKE_CURRENT_BINARY_DIR}
+    FILES ${KIOCore_HEADERS} ${KIOCore_CamelCase_HEADERS} ${CMAKE_CURRENT_BINARY_DIR}/kiocore_export.h
+)
+
+install(TARGETS KF6KIOCore
+    EXPORT KF6KIOTargets
+    ${KF_INSTALL_TARGETS_DEFAULT_ARGS}
+    FILE_SET public_headers
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore
+    COMPONENT Devel)
+
 ecm_generate_qdoc(KF6KIOCore kiocore.qdocconf)
 
-install(FILES ${KIOCore_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore/KIO COMPONENT Devel)
-
-install(FILES
-  ${KIOCore_HEADERS}
-  ${CMAKE_CURRENT_BINARY_DIR}/kiocore_export.h
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore COMPONENT Devel)
+add_test(NAME kiocore_interface_test COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --parallel --target KF6KIOCore_verify_interface_header_sets)

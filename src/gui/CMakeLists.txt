@@ -133,15 +133,22 @@ ecm_generate_headers(KIOGui_HEADERS
 
 ecm_generate_qdoc(KF6KIOGui kiogui.qdocconf)
 
-install(FILES ${KIOGui_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui/KIO COMPONENT Devel)
-
-install(TARGETS KF6KIOGui EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
-
 install(FILES
   ${KIO_namespaced_gui_HEADERS}
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui/kio COMPONENT Devel)
 
-install(FILES
-  ${KIOGui_HEADERS}
-  ${CMAKE_CURRENT_BINARY_DIR}/kiogui_export.h
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui COMPONENT Devel)
+target_sources(KF6KIOGui
+    PUBLIC
+    FILE_SET public_headers
+    TYPE HEADERS
+    BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR};${CMAKE_CURRENT_BINARY_DIR}
+    FILES ${KIOGui_HEADERS} ${KIOGui_CamelCase_HEADERS} ${CMAKE_CURRENT_BINARY_DIR}/kiogui_export.h)
+
+install(TARGETS KF6KIOGui
+    EXPORT KF6KIOTargets
+    ${KF_INSTALL_TARGETS_DEFAULT_ARGS}
+    FILE_SET public_headers
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui
+    COMPONENT Devel)
+
+  add_test(NAME kiogui_interface_test COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --parallel --target KF6KIOGui_verify_interface_header_sets)

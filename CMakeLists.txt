@@ -28,6 +28,8 @@ include(ECMSourceVersionControl)
 include(ECMDeprecationSettings)
 include(ECMGenerateQDoc)
 
+set(CMAKE_VERIFY_INTERFACE_HEADER_SETS ON)
+
 ecm_setup_version(
   PROJECT
   VARIABLE_PREFIX KIO

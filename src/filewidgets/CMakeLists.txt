@@ -144,11 +144,20 @@ ecm_generate_headers(KIOFileWidgets_HEADERS
 
 ecm_generate_qdoc(KF6KIOFileWidgets kiofilewidgets.qdocconf)
 
-install(TARGETS KF6KIOFileWidgets EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
+target_sources(KF6KIOFileWidgets
+    PUBLIC
+    FILE_SET public_headers
+    TYPE HEADERS
+    BASE_DIRS ${CMAKE_CURRENT_SOURCE_DIR};${CMAKE_CURRENT_BINARY_DIR}
+    FILES ${KIOFileWidgets_HEADERS} ${CMAKE_CURRENT_BINARY_DIR}/kiofilewidgets_export.h)
 
-install(FILES
-  ${KIOFileWidgets_HEADERS}
-  ${CMAKE_CURRENT_BINARY_DIR}/kiofilewidgets_export.h
-  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOFileWidgets COMPONENT Devel)
+install(TARGETS KF6KIOFileWidgets
+    EXPORT KF6KIOTargets
+    ${KF_INSTALL_TARGETS_DEFAULT_ARGS}
+    FILE_SET public_headers
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOFileWidgets
+    COMPONENT Devel)
 
 add_subdirectory(dropIntoNewFolder)
+
+add_test(NAME kiofilewidgets_interface_test COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --parallel --target KF6KIOFileWidgets_verify_interface_header_sets)
