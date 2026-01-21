@@ -5,6 +5,7 @@
 include(CMakeFindDependencyMacro)
 find_dependency(KF6CoreAddons "@KF_DEP_VERSION@")
 find_dependency(KF6Config "@KF_DEP_VERSION@")
+find_dependency(KF6Service "@KF_DEP_VERSION@")
 
 if (NOT @BUILD_SHARED_LIBS@)
     find_dependency(KF6I18n "@KF_DEP_VERSION@")
@@ -31,7 +32,6 @@ if (NOT @KIOCORE_ONLY@)
         find_dependency(KF6JobWidgets "@KF_DEP_VERSION@")
         find_dependency(KF6Solid "@KF_DEP_VERSION@")
         find_dependency(KF6WidgetsAddons "@KF_DEP_VERSION@")
-        find_dependency(KF6Service "@KF_DEP_VERSION@")
 
         if (NOT @BUILD_SHARED_LIBS@)
             find_dependency(KF6GuiAddons "@KF_DEP_VERSION@")

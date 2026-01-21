@@ -194,12 +194,12 @@ target_link_libraries(KF6KIOCore
 PUBLIC
  KF6::CoreAddons   # KJob
  Qt6::Network
+ KF6::Service
 PRIVATE
  Qt6::Xml # davjob.cpp uses QDom
  Qt6::Concurrent
  KF6::ConfigCore
  KF6::I18n
- KF6::Service
 )
 
 if (NOT ANDROID)
