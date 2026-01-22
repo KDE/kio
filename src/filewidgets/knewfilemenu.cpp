@@ -425,7 +425,8 @@ public:
     QList<QUrl> m_popupFiles;
 
     QStringList m_supportedMimeTypes;
-    QString m_tempFileToDelete; // set when a tempfile was created for a Type=URL desktop file
+    // QString m_tempFileToDelete; // set when a tempfile was created for a Type=URL desktop file
+    std::unique_ptr<QTemporaryFile> m_tempFile;
     QString m_text;
     QString m_windowTitle;
 
@@ -563,8 +564,8 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
         QUrl templateUrl;
         bool usingTemplate = false;
         if (entry.templatePath.startsWith(QLatin1String(":/"))) {
-            QTemporaryFile *tmpFile = QTemporaryFile::createNativeFile(entry.templatePath);
-            tmpFile->setAutoRemove(false);
+            std::unique_ptr<QTemporaryFile> tmpFile(QTemporaryFile::createNativeFile(entry.templatePath));
+            // tmpFile->setAutoRemove(false);
             QString tempFileName = tmpFile->fileName();
             tmpFile->close();
 
@@ -572,7 +573,8 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
             KConfigGroup group = df.desktopGroup();
             group.writeEntry("Name", name);
             templateUrl = QUrl::fromLocalFile(tempFileName);
-            m_tempFileToDelete = tempFileName;
+            // m_tempFileToDelete = tempFileName;
+            m_tempFile = std::move(tmpFile);
             usingTemplate = true;
         } else {
             templateUrl = QUrl::fromLocalFile(entry.templatePath);
@@ -691,7 +693,7 @@ void KNewFileMenuPrivate::executeSymLink(const KNewFileMenuSingleton::Entry &ent
 
 void KNewFileMenuPrivate::executeStrategy()
 {
-    m_tempFileToDelete = m_copyData.tempFileToDelete();
+    // m_tempFileToDelete = m_copyData.tempFileToDelete();
     const QString src = m_copyData.sourceFileToCopy();
     QString chosenFileName = expandTilde(m_copyData.chosenFileName(), true);
 
@@ -1174,7 +1176,8 @@ void KNewFileMenuPrivate::_k_slotOtherDesktopFile(KPropertiesDialog *sender)
 
 void KNewFileMenuPrivate::slotOtherDesktopFileClosed()
 {
-    QFile::remove(m_tempFileToDelete);
+    // QFile::remove(m_tempFileToDelete);
+    m_tempFile.reset();
 }
 
 void KNewFileMenuPrivate::slotRealFileOrDir()
@@ -1816,9 +1819,10 @@ void KNewFileMenu::slotResult(KJob *job)
             }
         }
     }
-    if (!d->m_tempFileToDelete.isEmpty()) {
-        QFile::remove(d->m_tempFileToDelete);
-    }
+    // if (!d->m_tempFileToDelete.isEmpty()) {
+    //     QFile::remove(d->m_tempFileToDelete);
+    // }
+    d->m_tempFile.reset();
 }
 
 QStringList KNewFileMenu::supportedMimeTypes() const
