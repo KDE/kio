@@ -109,7 +109,7 @@ public:
 
     private:
         class UiInterfacePrivate;
-        UiInterfacePrivate *d;
+        std::unique_ptr<UiInterfacePrivate> d;
     };
 
     /*!
