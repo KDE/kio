@@ -2,7 +2,8 @@
 # SPDX-License-Identifier: CC0-1.0
 
 include:
-  - project: sysadmin/ci-utilities
+  - project: nicolasfella/ci-utilities
+    ref: work/nico/lsan
     file:
       - /gitlab-templates/linux-qt6.yml
       - /gitlab-templates/linux-qt6-next.yml
