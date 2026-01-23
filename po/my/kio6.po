@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-21 00:41+0000\n"
+"POT-Creation-Date: 2026-01-23 00:40+0000\n"
 "PO-Revision-Date: 2025-09-10 15:28+0630\n"
 "Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2717,7 +2717,7 @@ msgid "All Supported Files"
 msgstr "အသုံးပြုနိုင်သော ဖိုင်များအားလုံး"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2056
+#: filewidgets/kfilewidget.cpp:2060
 #, kde-format
 msgid "All Files"
 msgstr "ဖိုင်အားလုံး"
@@ -3285,24 +3285,24 @@ msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "အမည်ပြောင်းမှု ချေမည်"
 
-#: filewidgets/kfilewidget.cpp:1392
+#: filewidgets/kfilewidget.cpp:1396
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr "ဖိုင်တွဲပြောင်းလဲသောအခါ စစ်ထုတ်တန်းကို ထားထားမည်"
 
-#: filewidgets/kfilewidget.cpp:1396
+#: filewidgets/kfilewidget.cpp:1400
 #, kde-format
 msgid "Filter by name…"
 msgstr "အမည်ဖြင့်စစ်ထုတ်…"
 
-#: filewidgets/kfilewidget.cpp:1404
+#: filewidgets/kfilewidget.cpp:1408
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "စစ်ထုတ်တမ်းမပြတော့ပါ"
 
-#: filewidgets/kfilewidget.cpp:1453
+#: filewidgets/kfilewidget.cpp:1457
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3314,85 +3314,85 @@ msgstr ""
 "မောက့်စ်ညာဘက်ခလုတ်နှိပ်၍ <b>စာသားပြီးမြောက်စေမှု</b> မီနူးမှ နှစ်သက်သော ထုံးနည်းရွေး၍ ထိန်းချုပ်နိုင်သည်။</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1460
+#: filewidgets/kfilewidget.cpp:1464
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "သိမ်းဆည်းမည့်ဖိုင်၏ အမည်ဖြစ်သည်။"
 
-#: filewidgets/kfilewidget.cpp:1463
+#: filewidgets/kfilewidget.cpp:1467
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
 "listing several files, separated by spaces."
 msgstr "၎င်းသည် ဖွင့်ရမည့် ဖိုင်စာရင်းဖြစ်သည်။ ဖိုင်တစ်ခုမက 'နေရာလွတ်'အက္ခရာ ခြား၍ ဖော်ပြနိုင်သည်။"
 
-#: filewidgets/kfilewidget.cpp:1468
+#: filewidgets/kfilewidget.cpp:1472
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "ဖွင့်မည့်ဖိုင်၏ အမည်ဖြစ်သည်။"
 
-#: filewidgets/kfilewidget.cpp:1481
+#: filewidgets/kfilewidget.cpp:1485
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "နေရာများ"
 
-#: filewidgets/kfilewidget.cpp:1762
+#: filewidgets/kfilewidget.cpp:1766
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "ဖိုင် \"%1\" ရှိနှင့်ပြီးဖြစ်သည်။ ထပ်ရေးချင်ပါသလား။"
 
-#: filewidgets/kfilewidget.cpp:1763
+#: filewidgets/kfilewidget.cpp:1767
 #, kde-format
 msgid "Overwrite File?"
 msgstr "ဖိုင်ကို ထပ်ရေးမှာလား။"
 
-#: filewidgets/kfilewidget.cpp:1960
+#: filewidgets/kfilewidget.cpp:1964
 #, kde-format
 msgid "You can only select local files."
 msgstr "စက်တွင်းဖိုင်များသာရွေးနိုင်သည်။"
 
-#: filewidgets/kfilewidget.cpp:1960
+#: filewidgets/kfilewidget.cpp:1964
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "အဝေးဖိုင်များလက်မခံပါ"
 
-#: filewidgets/kfilewidget.cpp:2054
+#: filewidgets/kfilewidget.cpp:2058
 #, kde-format
 msgid "All Folders"
 msgstr "ဖိုင်တွဲအားလုံး"
 
-#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:798
+#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:798
 #, kde-format
 msgid "&Open"
 msgstr "&Oဖွင့်"
 
-#: filewidgets/kfilewidget.cpp:2295
+#: filewidgets/kfilewidget.cpp:2299
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "အိုင်ကွန် အရွယ်အစား - %1 ပစ်ခ်ဆယ်"
 
-#: filewidgets/kfilewidget.cpp:2462
+#: filewidgets/kfilewidget.cpp:2466
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "&xဖိုင်အမည်တိုးချဲ့မှု အလိုအလျောက်ရွေးချယ်မည်် (%1)"
 
-#: filewidgets/kfilewidget.cpp:2463
+#: filewidgets/kfilewidget.cpp:2467
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "တိုးချဲ့မှု <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2469
+#: filewidgets/kfilewidget.cpp:2473
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "&xဖိုင်အမည်တိုးချဲ့မှု အလိုအလျောက်ရွေးချယ်မည််"
 
-#: filewidgets/kfilewidget.cpp:2470
+#: filewidgets/kfilewidget.cpp:2474
 #, kde-format
 msgid "a suitable extension"
 msgstr "သင့်တော်သော တိုးချဲ့စနစ်"
 
-#: filewidgets/kfilewidget.cpp:2478
+#: filewidgets/kfilewidget.cpp:2482
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3417,12 +3417,12 @@ msgstr ""
 "(period ကို အလိုအလျောက်ဖယ်ရှားသွားမည်).</li></ol>မသေချာလျှင်တော့ သင်၏ဖိုင်များကို ပိုမိုလွယ်ကူစွာ "
 "စီမံနိုင်ရန် ဤရွေးချယ်ချက်ကို ဖွင့်ထားပေးပါ။"
 
-#: filewidgets/kfilewidget.cpp:2944
+#: filewidgets/kfilewidget.cpp:2948
 #, kde-format
 msgid "&File type:"
 msgstr "&Fဖိုင်အမျိုးအစား -"
 
-#: filewidgets/kfilewidget.cpp:2948
+#: filewidgets/kfilewidget.cpp:2952
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3431,7 +3431,7 @@ msgstr ""
 "<qt>၎င်းသည် ဖိုင်အမျိုးအစားရွေးချယ်ကိရိယာဖြစ်သည်။ ၎င်းကို ဖိုင်သိမ်းဆည်းရမည့်ပုံစံ ရွေးချယ်ရာတွင် အသုံးပြုသည်။</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:2950
+#: filewidgets/kfilewidget.cpp:2954
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "

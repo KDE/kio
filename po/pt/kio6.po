@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-21 00:41+0000\n"
+"POT-Creation-Date: 2026-01-23 00:40+0000\n"
 "PO-Revision-Date: 2025-12-01 11:51+0000\n"
 "Last-Translator: César A. P. Cláudio <cesarapclaudio@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
@@ -2914,7 +2914,7 @@ msgid "All Supported Files"
 msgstr "Todos os Ficheiros Suportados"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2056
+#: filewidgets/kfilewidget.cpp:2060
 #, kde-format
 msgid "All Files"
 msgstr "Todos os Ficheiros"
@@ -3509,25 +3509,25 @@ msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "Reverter mudança de nome de ficheiro"
 
-#: filewidgets/kfilewidget.cpp:1392
+#: filewidgets/kfilewidget.cpp:1396
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr "Manter Filtro Quando Mudar de Pasta"
 
-#: filewidgets/kfilewidget.cpp:1396
+#: filewidgets/kfilewidget.cpp:1400
 #, fuzzy, kde-format
 #| msgid "Filter by nameâ€¦"
 msgid "Filter by name…"
 msgstr "Filtrar por nome..."
 
-#: filewidgets/kfilewidget.cpp:1404
+#: filewidgets/kfilewidget.cpp:1408
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "Ocultar Barra de Filtros"
 
-#: filewidgets/kfilewidget.cpp:1453
+#: filewidgets/kfilewidget.cpp:1457
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3540,12 +3540,12 @@ msgstr ""
 "carregar com o botão direito do rato e selecionando um modo preferencial no "
 "menu <b>Preenchimento Automático de Texto</b>.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1460
+#: filewidgets/kfilewidget.cpp:1464
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Este é o nome com que o ficheiro será gravado."
 
-#: filewidgets/kfilewidget.cpp:1463
+#: filewidgets/kfilewidget.cpp:1467
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3554,73 +3554,73 @@ msgstr ""
 "Esta é a lista de ficheiros a abrir. Poderá especificar mais que um "
 "ficheiro, separando os seus nomes com espaços."
 
-#: filewidgets/kfilewidget.cpp:1468
+#: filewidgets/kfilewidget.cpp:1472
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Este é o nome do ficheiro a abrir."
 
-#: filewidgets/kfilewidget.cpp:1481
+#: filewidgets/kfilewidget.cpp:1485
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Locais"
 
-#: filewidgets/kfilewidget.cpp:1762
+#: filewidgets/kfilewidget.cpp:1766
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "O ficheiro \"%1\" já existe. Deseja substituí-lo?"
 
-#: filewidgets/kfilewidget.cpp:1763
+#: filewidgets/kfilewidget.cpp:1767
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Substituir Ficheiro?"
 
-#: filewidgets/kfilewidget.cpp:1960
+#: filewidgets/kfilewidget.cpp:1964
 #, kde-format
 msgid "You can only select local files."
 msgstr "Apenas pode seleccionar ficheiros locais."
 
-#: filewidgets/kfilewidget.cpp:1960
+#: filewidgets/kfilewidget.cpp:1964
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Ficheiros Remotos Não Aceites"
 
-#: filewidgets/kfilewidget.cpp:2054
+#: filewidgets/kfilewidget.cpp:2058
 #, kde-format
 msgid "All Folders"
 msgstr "Todas as Pastas"
 
-#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:798
+#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:798
 #, kde-format
 msgid "&Open"
 msgstr "&Abrir"
 
-#: filewidgets/kfilewidget.cpp:2295
+#: filewidgets/kfilewidget.cpp:2299
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Tamanho dos ícones: %1 pixels"
 
-#: filewidgets/kfilewidget.cpp:2462
+#: filewidgets/kfilewidget.cpp:2466
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Seleccionar automaticamente a extensão do ficheiro (%1)"
 
-#: filewidgets/kfilewidget.cpp:2463
+#: filewidgets/kfilewidget.cpp:2467
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "a extensão <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2469
+#: filewidgets/kfilewidget.cpp:2473
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Selecionar automaticamente a extensão do ficheiro"
 
-#: filewidgets/kfilewidget.cpp:2470
+#: filewidgets/kfilewidget.cpp:2474
 #, kde-format
 msgid "a suitable extension"
 msgstr "uma extensão adequada"
 
-#: filewidgets/kfilewidget.cpp:2478
+#: filewidgets/kfilewidget.cpp:2482
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3648,12 +3648,12 @@ msgstr ""
 "deixe esta opção ativa, dado que torna mais fácil a gestão dos seus "
 "ficheiros."
 
-#: filewidgets/kfilewidget.cpp:2944
+#: filewidgets/kfilewidget.cpp:2948
 #, kde-format
 msgid "&File type:"
 msgstr "Tipo de &ficheiro:"
 
-#: filewidgets/kfilewidget.cpp:2948
+#: filewidgets/kfilewidget.cpp:2952
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3662,7 +3662,7 @@ msgstr ""
 "<qt>Este é o seletor do tipo de ficheiro. É utilizado para selecionar o "
 "formato com que o ficheiro será gravado.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2950
+#: filewidgets/kfilewidget.cpp:2954
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "

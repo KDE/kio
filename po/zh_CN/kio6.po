@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-21 00:41+0000\n"
+"POT-Creation-Date: 2026-01-23 00:40+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2678,7 +2678,7 @@ msgid "All Supported Files"
 msgstr "所有支持的文件"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2056
+#: filewidgets/kfilewidget.cpp:2060
 #, kde-format
 msgid "All Files"
 msgstr "所有文件"
@@ -3239,24 +3239,24 @@ msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "撤销文件名更改"
 
-#: filewidgets/kfilewidget.cpp:1392
+#: filewidgets/kfilewidget.cpp:1396
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr "切换文件夹时保持过滤"
 
-#: filewidgets/kfilewidget.cpp:1396
+#: filewidgets/kfilewidget.cpp:1400
 #, kde-format
 msgid "Filter by name…"
 msgstr "按名称过滤…"
 
-#: filewidgets/kfilewidget.cpp:1404
+#: filewidgets/kfilewidget.cpp:1408
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "隐藏过滤栏"
 
-#: filewidgets/kfilewidget.cpp:1453
+#: filewidgets/kfilewidget.cpp:1457
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3267,85 +3267,85 @@ msgstr ""
 "<qt>在文本框中输入时，程序将显示可能的匹配项。如果需要控制此功能，请单击鼠标"
 "右键，然后从<b>文本补全</b>菜单中选择想要的模式。</qt>"
 
-#: filewidgets/kfilewidget.cpp:1460
+#: filewidgets/kfilewidget.cpp:1464
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "这是文件要保存为的名称。"
 
-#: filewidgets/kfilewidget.cpp:1463
+#: filewidgets/kfilewidget.cpp:1467
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
 "listing several files, separated by spaces."
 msgstr "这是要打开的文件列表。如果想要指定多个文件，可以用空格分隔。"
 
-#: filewidgets/kfilewidget.cpp:1468
+#: filewidgets/kfilewidget.cpp:1472
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "这是要打开的文件名。"
 
-#: filewidgets/kfilewidget.cpp:1481
+#: filewidgets/kfilewidget.cpp:1485
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "常用位置"
 
-#: filewidgets/kfilewidget.cpp:1762
+#: filewidgets/kfilewidget.cpp:1766
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "文件“%1”已存在。您想要覆盖它吗？"
 
-#: filewidgets/kfilewidget.cpp:1763
+#: filewidgets/kfilewidget.cpp:1767
 #, kde-format
 msgid "Overwrite File?"
 msgstr "您想要覆盖文件吗？"
 
-#: filewidgets/kfilewidget.cpp:1960
+#: filewidgets/kfilewidget.cpp:1964
 #, kde-format
 msgid "You can only select local files."
 msgstr "您只能选择本机文件。"
 
-#: filewidgets/kfilewidget.cpp:1960
+#: filewidgets/kfilewidget.cpp:1964
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "无法处理远程文件"
 
-#: filewidgets/kfilewidget.cpp:2054
+#: filewidgets/kfilewidget.cpp:2058
 #, kde-format
 msgid "All Folders"
 msgstr "所有文件夹"
 
-#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:798
+#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:798
 #, kde-format
 msgid "&Open"
 msgstr "打开(&O)"
 
-#: filewidgets/kfilewidget.cpp:2295
+#: filewidgets/kfilewidget.cpp:2299
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "图标大小：%1 像素"
 
-#: filewidgets/kfilewidget.cpp:2462
+#: filewidgets/kfilewidget.cpp:2466
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "自动选择文件扩展名 (%1) (&X)"
 
-#: filewidgets/kfilewidget.cpp:2463
+#: filewidgets/kfilewidget.cpp:2467
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "扩展名 <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2469
+#: filewidgets/kfilewidget.cpp:2473
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "自动选择文件扩展名(&X)"
 
-#: filewidgets/kfilewidget.cpp:2470
+#: filewidgets/kfilewidget.cpp:2474
 #, kde-format
 msgid "a suitable extension"
 msgstr "适合的扩展名"
 
-#: filewidgets/kfilewidget.cpp:2478
+#: filewidgets/kfilewidget.cpp:2482
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3368,19 +3368,19 @@ msgstr ""
 "(.) 来阻止此功能 (该句点会在保存后自动去除)。</li></ol>如果您不确定，请保持此"
 "选项为启用，这样将使得文件管理更加方便。"
 
-#: filewidgets/kfilewidget.cpp:2944
+#: filewidgets/kfilewidget.cpp:2948
 #, kde-format
 msgid "&File type:"
 msgstr "文件类型(&F)："
 
-#: filewidgets/kfilewidget.cpp:2948
+#: filewidgets/kfilewidget.cpp:2952
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr "<qt>这是文件类型选择器。它用于选择文件要保存为的格式。</qt>"
 
-#: filewidgets/kfilewidget.cpp:2950
+#: filewidgets/kfilewidget.cpp:2954
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
@@ -6559,30 +6559,20 @@ msgid "Appl&y to All"
 msgstr "应用到所有(&Y)"
 
 #: widgets/renamedialog.cpp:260
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "folder conflicts for the remainder of the current job.\n"
-#| "Unless you press Skip you will still be prompted in case of a conflict "
-#| "with an existing file in the directory."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
-"如果选中此项，您点击的按钮将被应用到当前任务在这之后发生冲突的所有文件夹。\n"
-"除非您点击“跳过”，否则当文件与目录中的已有文件发生冲突时仍然会提示您处理。"
 
 #: widgets/renamedialog.cpp:264
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "conflicts for the remainder of the current job."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
-msgstr "如果选中此项，您点击的按钮将被应用到当前任务在这之后发生的所有冲突。"
+msgstr ""
 
 #: widgets/renamedialog.cpp:270
 #, kde-format

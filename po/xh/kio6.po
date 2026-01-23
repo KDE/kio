@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-21 00:41+0000\n"
+"POT-Creation-Date: 2026-01-23 00:40+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -2875,7 +2875,7 @@ msgid "All Supported Files"
 msgstr "Zonke iifayile ezixhasiweyo"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2056
+#: filewidgets/kfilewidget.cpp:2060
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgid "All Files"
@@ -3515,25 +3515,25 @@ msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "&Yinike igama kwakhona"
 
-#: filewidgets/kfilewidget.cpp:1392
+#: filewidgets/kfilewidget.cpp:1396
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1396
+#: filewidgets/kfilewidget.cpp:1400
 #, fuzzy, kde-format
 msgid "Filter by name…"
 msgstr "Icebo:"
 
-#: filewidgets/kfilewidget.cpp:1404
+#: filewidgets/kfilewidget.cpp:1408
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "Bonisa Iifayile Ezifihlakeleyo"
 
-#: filewidgets/kfilewidget.cpp:1453
+#: filewidgets/kfilewidget.cpp:1457
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>While typing in the text area, you may be presented with possible "
@@ -3551,12 +3551,12 @@ msgstr ""
 "lasekunene nokukhetha indlela ekhethekileyo evela kwi <b>Ugqibezelo "
 "Lombhalo</b> menu."
 
-#: filewidgets/kfilewidget.cpp:1460
+#: filewidgets/kfilewidget.cpp:1464
 #, fuzzy, kde-format
 msgid "This is the name to save the file as."
 msgstr "<p>Eli ligama ozakugcina ifayile ngalo."
 
-#: filewidgets/kfilewidget.cpp:1463
+#: filewidgets/kfilewidget.cpp:1467
 #, fuzzy, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3565,74 +3565,74 @@ msgstr ""
 "<qt>Olu luluhlu lweefayile ezizakuvulwa. Kungakhankanywa iifayile "
 "esingaphezulu kwenye ngokudwelisa iifayile eziliqela, ezahlulwe ngezithuba."
 
-#: filewidgets/kfilewidget.cpp:1468
+#: filewidgets/kfilewidget.cpp:1472
 #, fuzzy, kde-format
 msgid "This is the name of the file to open."
 msgstr "<qt>Eli ligama lefayile ekufuneka ivulwe."
 
-#: filewidgets/kfilewidget.cpp:1481
+#: filewidgets/kfilewidget.cpp:1485
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Iphepha"
 
-#: filewidgets/kfilewidget.cpp:1762
+#: filewidgets/kfilewidget.cpp:1766
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1763
+#: filewidgets/kfilewidget.cpp:1767
 #, fuzzy, kde-format
 #| msgid "O&verwrite All"
 msgid "Overwrite File?"
 msgstr "B&hala ngaphezulu Kwento yonke"
 
-#: filewidgets/kfilewidget.cpp:1960
+#: filewidgets/kfilewidget.cpp:1964
 #, kde-format
 msgid "You can only select local files."
 msgstr "Ungakhetha kuphela ifayile zobulali."
 
-#: filewidgets/kfilewidget.cpp:1960
+#: filewidgets/kfilewidget.cpp:1964
 #, fuzzy, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "Iifayile Ezibekwe kude Azamkelwanga"
 
-#: filewidgets/kfilewidget.cpp:2054
+#: filewidgets/kfilewidget.cpp:2058
 #, fuzzy, kde-format
 msgid "All Folders"
 msgstr "*|Zonke Iifayile"
 
-#: filewidgets/kfilewidget.cpp:2194 widgets/kfileitemactions.cpp:798
+#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:798
 #, fuzzy, kde-format
 msgid "&Open"
 msgstr "&Vula"
 
-#: filewidgets/kfilewidget.cpp:2295
+#: filewidgets/kfilewidget.cpp:2299
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2462
+#: filewidgets/kfilewidget.cpp:2466
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2463
+#: filewidgets/kfilewidget.cpp:2467
 #, fuzzy, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "Inxutyelelaniswe kumamkeli <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2469
+#: filewidgets/kfilewidget.cpp:2473
 #, fuzzy, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Sebenzisa usebenziso &lolwandiso-lwefayile:"
 
-#: filewidgets/kfilewidget.cpp:2470
+#: filewidgets/kfilewidget.cpp:2474
 #, fuzzy, kde-format
 msgid "a suitable extension"
 msgstr "Sebenzisa usebenziso &lolwandiso-lwefayile:"
 
-#: filewidgets/kfilewidget.cpp:2478
+#: filewidgets/kfilewidget.cpp:2482
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3648,20 +3648,20 @@ msgid ""
 "enabled as it makes your files more manageable."
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2944
+#: filewidgets/kfilewidget.cpp:2948
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Isihluzo:"
 
-#: filewidgets/kfilewidget.cpp:2948
+#: filewidgets/kfilewidget.cpp:2952
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2950
+#: filewidgets/kfilewidget.cpp:2954
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
