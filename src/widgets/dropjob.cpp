@@ -153,6 +153,7 @@ public:
     QList<QAction *> m_pluginActions;
     bool m_triggered; // Tracks whether an action has been triggered in the popup menu.
     QSet<KIO::DropMenu *> m_menus;
+    QList<KIO::DndPopupMenuPlugin *> m_plugins;
 
     Q_DECLARE_PUBLIC(DropJob)
 
@@ -168,6 +169,11 @@ public:
         // We don't want a progress dialog during the copy/move/link popup, it would in fact close
         // the popup
         return job;
+    }
+
+    ~DropJobPrivate()
+    {
+        qDeleteAll(m_plugins);
     }
 };
 
@@ -335,6 +341,7 @@ void DropJobPrivate::addPluginActions(KIO::DropMenu *popup, const KFileItemListP
                 action->setParent(popup);
             }
             m_pluginActions += actions;
+            m_plugins += plugin;
         }
     }
 
