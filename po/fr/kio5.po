@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2025-10-15 09:09+0200\n"
+"PO-Revision-Date: 2026-01-22 18:07+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -4309,7 +4309,7 @@ msgstr ""
 #: ioslaves/file/file_unix.cpp:853
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "Impossible de copier le fichier %1 vers %2. (Num. d'erreur : %3)"
+msgstr "Impossible de copier le fichier %1 vers %2. (Numéro d'erreur : %3)"
 
 #: ioslaves/file/file_unix.cpp:1080
 #, kde-format
@@ -5648,8 +5648,8 @@ msgstr ""
 "<qt>Saisissez le nom de la variable d'environnement, par exemple "
 "<b>SOCKS_PROXY</b>, utilisée pour enregistrer l'adresse du serveur "
 "mandataire « SOCKS ».<p>Alternativement, vous pouvez cliquer sur le bouton "
-"<b>&quot;Auto Détecter&quot;</b> pour tenter une découverte automatique de "
-"cette variable.</p></qt>"
+"<b>« Auto Détecter »</b> pour tenter une découverte automatique de cette "
+"variable.</p></qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
 #. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
@@ -5690,9 +5690,8 @@ msgstr ""
 "<qt>Saisissez la variable d'environnement, par exemple <b>NO_PROXY</b>, "
 "utilisée pour enregistrer les adresses des sites pour lesquels les "
 "paramètres de serveur mandataire ci-dessus ne doivent pas être utilisés."
-"<p>Alternativement, vous pouvez cliquer sur le bouton <b>&quot;Auto "
-"Détecter&quot;</b> pour tenter une découverte automatique de cette variable."
-"</p></qt>"
+"<p>Alternativement, vous pouvez cliquer sur le bouton <b>« Auto Détecter »</"
+"b> pour tenter une découverte automatique de cette variable.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
 #: kcms/proxy/kproxydlg.ui:324
@@ -7032,8 +7031,8 @@ msgstr ""
 "utiliser \\{1}..., \\{n} pour spécifier certains mots de la requête et "
 "\\{nom} pour spécifier une valeur donnée par « nom = valeur » dans la "
 "requête de recherche. <br/>De plus, Il est possible de spécifier des "
-"références multiples (noms, chiffres et chaines) en une seule fois par "
-"\\{nom1, nom2..., « chaine » }.<br/>La première valeur de cette chaine, en "
+"références multiples (noms, chiffres et chaînes) en une seule fois par "
+"\\{nom-1, nom-2..., « chaîne » }.<br/>La première valeur de cette chaine, en "
 "partant de la gauche, qui coïncide avec la requête de recherche sera "
 "utilisée pour la substitution dans l'« URI » résultante.<br/>Une chaine "
 "entre guillemets peut être utilisée comme valeur par défaut si rien ne "
