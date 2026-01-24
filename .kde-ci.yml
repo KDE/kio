@@ -31,6 +31,7 @@ Dependencies:
 
 Options:
  test-before-installing: True
+ enable-lsan: True
  require-passing-tests-on: ['@all']
  cmake-options: -DUSE_FTPD_WSGIDAV_UNITTEST=ON
  cppcheck-arguments: '--enable=warning,style,performance --suppress-xml=cppcheck-suppressions.xml'
