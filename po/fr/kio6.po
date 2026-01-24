@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-23 00:40+0000\n"
-"PO-Revision-Date: 2026-01-16 10:53+0100\n"
+"PO-Revision-Date: 2026-01-22 18:07+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -4289,7 +4289,7 @@ msgstr "Impossible de trouver le programme « umount »."
 #: kioworkers/file/file_unix.cpp:578
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "Impossible de copier le fichier %1 vers %2. (Num. d'erreur : %3)"
+msgstr "Impossible de copier le fichier %1 vers %2. (Numéro d'erreur : %3)"
 
 #: kioworkers/file/file_unix.cpp:792
 #, kde-format
@@ -6971,34 +6971,26 @@ msgid "Appl&y to All"
 msgstr "Appliquer à &tous"
 
 #: widgets/renamedialog.cpp:260
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "folder conflicts for the remainder of the current job.\n"
-#| "Unless you press Skip you will still be prompted in case of a conflict "
-#| "with an existing file in the directory."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
-"Quand ceci est coché, le bouton utilisé sera appliqué à tous les conflits de "
-"dossiers suivants pour le travail en cours. À moins que vous ne choisissiez "
-"l'option ignorer, cette question vous sera posée en cas de conflit avec un "
-"fichier existant dans ce dossier."
+"Quand cette option est sélectionnée, le bouton utilisé sera appliqué à tous "
+"les conflits correspondants de dossiers pour le travail en cours. \n"
+"À moins que vous ne choisissiez l'option « Ignoré », cette question vous "
+"sera posée en cas de conflit avec un fichier existant dans ce dossier."
 
 #: widgets/renamedialog.cpp:264
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "conflicts for the remainder of the current job."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
-"Quand ceci est coché, le bouton utilisé sera appliqué à tous les conflits "
-"suivants pour le travail en cours."
+"Quand cette option est sélectionnée, le bouton utilisé sera appliqué à tous "
+"les conflits correspondants pour le travail en cours."
 
 #: widgets/renamedialog.cpp:270
 #, kde-format

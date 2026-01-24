@@ -6566,13 +6566,15 @@ msgid ""
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
+"如果选中此项，您点击的按钮将被应用到当前任务在这之后发生冲突的所有文件夹。\n"
+"除非您点击“跳过”，否则当文件与目录中的已有文件发生冲突时仍然会提示您处理。"
 
 #: widgets/renamedialog.cpp:264
 #, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
-msgstr ""
+msgstr "如果选中此项，您点击的按钮将被应用到当前任务在这之后发生的所有冲突。"
 
 #: widgets/renamedialog.cpp:270
 #, kde-format
