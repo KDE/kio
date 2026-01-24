@@ -330,6 +330,7 @@ void DropJobPrivate::addPluginActions(KIO::DropMenu *popup, const KFileItemListP
     const QList<KPluginMetaData> plugin_offers = KPluginMetaData::findPlugins(QStringLiteral("kf6/kio_dnd"));
     for (const KPluginMetaData &data : plugin_offers) {
         if (auto plugin = KPluginFactory::instantiatePlugin<KIO::DndPopupMenuPlugin>(data).plugin) {
+            plugin->setParent(q_ptr);
             const auto actions = plugin->setup(itemProps, m_destUrl);
             for (auto action : actions) {
                 action->setParent(popup);
