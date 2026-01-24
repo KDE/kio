@@ -130,25 +130,28 @@ void KRecentDocumentTest::testXbelBookmarkMaxEntries()
     config.writeEntry(QStringLiteral("UseRecent"), true);
     config.writeEntry(QStringLiteral("MaxEntries"), 3);
 
-    auto tempFiles = QList<QFile *>();
+    auto currentPath = QDir::currentPath();
+    QStringList tempFiles;
     for (int i = 0; i < 15; ++i) {
-        QFile *tempFile = new QFile(QDir::currentPath() + "/temp File" + QString::number(i));
-        QVERIFY(tempFile->open(QIODevice::WriteOnly));
-        tempFile->close();
-        tempFiles << tempFile;
+        QString fileName(QStringLiteral("%1/temp File %2").arg(currentPath, QString::number(i)));
+        QFile tempFile(fileName);
+        QVERIFY(tempFile.open(QIODevice::WriteOnly));
+        tempFile.close();
 
-        KRecentDocument::add(QUrl::fromLocalFile(tempFile->fileName()), QStringLiteral("my-application"));
+        KRecentDocument::add(QUrl::fromLocalFile(fileName), QStringLiteral("my-application"));
+
+        tempFiles.push_back(fileName);
     }
 
     const auto recentUrls = KRecentDocument::recentUrls();
     QCOMPARE(recentUrls.length(), 3);
 
     for (int i = 0; i < 3; ++i) {
-        QCOMPARE(recentUrls.at(i).fileName(), "temp File" + QString::number(i + 12));
+        QCOMPARE(recentUrls.at(i).fileName(), QStringLiteral("temp File %1").arg(QString::number(i + 12)));
     }
 
-    for (auto &f : tempFiles) {
-        f->remove();
+    for (const auto &fileName : tempFiles) {
+        QFile::remove(fileName);
     }
 }
 
