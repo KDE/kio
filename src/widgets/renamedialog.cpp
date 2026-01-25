@@ -206,6 +206,26 @@ public:
         }
     }
 
+    void updateSrcMetadata(const KFileItem &fileItem)
+    {
+        updateFileMetadata(fileItem, m_srcSizeLabel, m_srcDateLabel);
+    }
+
+    void updateDestMetadata(const KFileItem &fileItem)
+    {
+        updateFileMetadata(fileItem, m_destSizeLabel, m_destDateLabel);
+    }
+
+    void updateFileMetadata(const KFileItem &fileItem, QLabel *sizeLabel, QLabel *dateLabel)
+    {
+        if (const QString sizeText = sizeLabelText(fileItem); !sizeText.isEmpty()) {
+            sizeLabel->setText(sizeText);
+        }
+        if (const QString dateText = dateLabelText(fileItem); !dateText.isEmpty()) {
+            dateLabel->setText(dateText);
+        }
+    }
+
     QPushButton *bCancel = nullptr;
     QPushButton *bRename = nullptr;
     QPushButton *bSkip = nullptr;
@@ -758,6 +778,7 @@ void RenameDialog::showSrcIcon(const KFileItem &fileitem)
     const QPixmap pix = QIcon::fromTheme(fileitem.iconName(), QIcon::fromTheme(QStringLiteral("application-octet-stream"))).pixmap(size);
     d->m_srcPreview->setPixmap(pix);
     d->maybeShowCompareButton(fileitem);
+    d->updateSrcMetadata(fileitem);
 }
 
 void RenameDialog::showDestIcon(const KFileItem &fileitem)
@@ -769,42 +790,27 @@ void RenameDialog::showDestIcon(const KFileItem &fileitem)
     const QPixmap pix = QIcon::fromTheme(fileitem.iconName(), QIcon::fromTheme(QStringLiteral("application-octet-stream"))).pixmap(size);
     d->m_destPreview->setPixmap(pix);
     d->maybeShowCompareButton(fileitem);
+    d->updateDestMetadata(fileitem);
 }
 
 void RenameDialog::showSrcPreview(const KFileItem &fileitem, const QPixmap &pixmap)
 {
-    Q_UNUSED(fileitem);
-
     if (d->m_srcPendingPreview) {
         d->m_srcPreview->setPixmap(pixmap);
         d->m_srcPendingPreview = false;
         d->maybeShowCompareButton(fileitem);
     }
-
-    if (const QString sizeText = sizeLabelText(fileitem); !sizeText.isEmpty()) {
-        d->m_srcSizeLabel->setText(sizeText);
-    }
-    if (const QString dateText = dateLabelText(fileitem); !dateText.isEmpty()) {
-        d->m_srcDateLabel->setText(dateText);
-    }
+    d->updateSrcMetadata(fileitem);
 }
 
 void RenameDialog::showDestPreview(const KFileItem &fileitem, const QPixmap &pixmap)
 {
-    Q_UNUSED(fileitem);
-
     if (d->m_destPendingPreview) {
         d->m_destPreview->setPixmap(pixmap);
         d->m_destPendingPreview = false;
         d->maybeShowCompareButton(fileitem);
     }
-
-    if (const QString sizeText = sizeLabelText(fileitem); !sizeText.isEmpty()) {
-        d->m_destSizeLabel->setText(sizeText);
-    }
-    if (const QString dateText = dateLabelText(fileitem); !dateText.isEmpty()) {
-        d->m_destDateLabel->setText(dateText);
-    }
+    d->updateDestMetadata(fileitem);
 }
 
 void RenameDialog::resizePanels()
