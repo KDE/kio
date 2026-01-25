@@ -326,7 +326,7 @@ void PreviewJob::slotResult(KJob *job)
         }
     }
     removeSubjob(job);
-    if (job->error() > 0) {
+    if (job->error() && job->error() != KIO::ERR_INTERNAL) {
         qCWarning(KIO_GUI) << "PreviewJob subjob had an error:" << job->errorString();
     }
     // slot might have been called synchronously from startNextFilePreviewJobBatch(), as KIO::stat currently can do
