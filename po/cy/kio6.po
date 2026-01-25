@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-23 00:40+0000\n"
+"POT-Creation-Date: 2026-01-25 00:41+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -2719,7 +2719,7 @@ msgstr "Dangos Rhagolwg"
 msgid "Open Containing Folder"
 msgstr "Agor Plygell Argynhwysiedig"
 
-#: filewidgets/kdiroperator.cpp:2274 filewidgets/kfileplacesview.cpp:1260
+#: filewidgets/kdiroperator.cpp:2274 filewidgets/kfileplacesview.cpp:1261
 #, kde-format
 msgid "Properties"
 msgstr "Priodweddau"
@@ -3183,79 +3183,79 @@ msgstr "%1rhydd o %2 (defnyddir %3%)"
 msgid "%1 (hidden)"
 msgstr "%1 (cuddiwyd)"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1219
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Gwacáu Sbwriel"
 
-#: filewidgets/kfileplacesview.cpp:1243
+#: filewidgets/kfileplacesview.cpp:1244
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Amdringo"
 
-#: filewidgets/kfileplacesview.cpp:1253
+#: filewidgets/kfileplacesview.cpp:1254
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Agor yn Tab Newydd"
 
-#: filewidgets/kfileplacesview.cpp:1256
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Agor yn Ffenestr Newydd"
 
-#: filewidgets/kfileplacesview.cpp:1265
+#: filewidgets/kfileplacesview.cpp:1266
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Ychwanegu Cofnod…"
 
-#: filewidgets/kfileplacesview.cpp:1271
+#: filewidgets/kfileplacesview.cpp:1272
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Golygu…"
 
-#: filewidgets/kfileplacesview.cpp:1276
+#: filewidgets/kfileplacesview.cpp:1277
 #, fuzzy, kde-format
 #| msgid "Remove File"
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Dileu Ffeil"
 
-#: filewidgets/kfileplacesview.cpp:1280
+#: filewidgets/kfileplacesview.cpp:1281
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "%Cuddio"
 
-#: filewidgets/kfileplacesview.cpp:1288
+#: filewidgets/kfileplacesview.cpp:1289
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Cuddio Rhanbarth '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1288
+#: filewidgets/kfileplacesview.cpp:1289
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Cuddio Rhanbarth"
 
-#: filewidgets/kfileplacesview.cpp:1296
+#: filewidgets/kfileplacesview.cpp:1297
 #, kde-format
 msgid "&Show All Entries"
 msgstr "Dango&s Cofnodion I Gyd"
 
-#: filewidgets/kfileplacesview.cpp:1301
+#: filewidgets/kfileplacesview.cpp:1302
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Maint Eicon"
 
-#: filewidgets/kfileplacesview.cpp:1422
+#: filewidgets/kfileplacesview.cpp:1423
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3263,25 +3263,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Ailfeintio Ymysgogol"
 
-#: filewidgets/kfileplacesview.cpp:1442
+#: filewidgets/kfileplacesview.cpp:1443
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Bach (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1445
+#: filewidgets/kfileplacesview.cpp:1446
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Canol (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1448
+#: filewidgets/kfileplacesview.cpp:1449
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Mawr (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1451
+#: filewidgets/kfileplacesview.cpp:1452
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

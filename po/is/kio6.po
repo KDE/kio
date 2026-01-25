@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-23 00:40+0000\n"
+"POT-Creation-Date: 2026-01-25 00:41+0000\n"
 "PO-Revision-Date: 2025-12-02 13:27+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -2685,7 +2685,7 @@ msgstr "Sýna forskoðun"
 msgid "Open Containing Folder"
 msgstr "Opna umlykjandi möppu"
 
-#: filewidgets/kdiroperator.cpp:2274 filewidgets/kfileplacesview.cpp:1260
+#: filewidgets/kdiroperator.cpp:2274 filewidgets/kfileplacesview.cpp:1261
 #, kde-format
 msgid "Properties"
 msgstr "Eiginleikar"
@@ -3140,78 +3140,78 @@ msgstr "%1 laust af %2 (%3% í notkun)"
 msgid "%1 (hidden)"
 msgstr "%1 (falið)"
 
-#: filewidgets/kfileplacesview.cpp:1218
+#: filewidgets/kfileplacesview.cpp:1219
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Tæma rusl"
 
-#: filewidgets/kfileplacesview.cpp:1243
+#: filewidgets/kfileplacesview.cpp:1244
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Tengja í skráakerfið"
 
-#: filewidgets/kfileplacesview.cpp:1253
+#: filewidgets/kfileplacesview.cpp:1254
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Opna í nýjum flipa"
 
-#: filewidgets/kfileplacesview.cpp:1256
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Opna í nýjum glugga"
 
-#: filewidgets/kfileplacesview.cpp:1265
+#: filewidgets/kfileplacesview.cpp:1266
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Bæta við færslu…"
 
-#: filewidgets/kfileplacesview.cpp:1271
+#: filewidgets/kfileplacesview.cpp:1272
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "Br&eyta…"
 
-#: filewidgets/kfileplacesview.cpp:1276
+#: filewidgets/kfileplacesview.cpp:1277
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Fjarlægja úr Staðir"
 
-#: filewidgets/kfileplacesview.cpp:1280
+#: filewidgets/kfileplacesview.cpp:1281
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Fela"
 
-#: filewidgets/kfileplacesview.cpp:1288
+#: filewidgets/kfileplacesview.cpp:1289
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Fela hlutann '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1288
+#: filewidgets/kfileplacesview.cpp:1289
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Fela hlutann"
 
-#: filewidgets/kfileplacesview.cpp:1296
+#: filewidgets/kfileplacesview.cpp:1297
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Sýna allar færslur"
 
-#: filewidgets/kfileplacesview.cpp:1301
+#: filewidgets/kfileplacesview.cpp:1302
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Stærð tákna"
 
-#: filewidgets/kfileplacesview.cpp:1422
+#: filewidgets/kfileplacesview.cpp:1423
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3219,25 +3219,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Breyta stærð sjálfvirkt"
 
-#: filewidgets/kfileplacesview.cpp:1442
+#: filewidgets/kfileplacesview.cpp:1443
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Lítil (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1445
+#: filewidgets/kfileplacesview.cpp:1446
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Miðlungs (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1448
+#: filewidgets/kfileplacesview.cpp:1449
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Stór (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1451
+#: filewidgets/kfileplacesview.cpp:1452
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
