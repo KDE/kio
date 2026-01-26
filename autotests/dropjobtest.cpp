@@ -483,9 +483,7 @@ private Q_SLOTS:
         const QUrl destUrl = QUrl::fromLocalFile(tempDestDir.path());
 
         // When dropping the source file onto the directory
-        // here we must use Qt::MoveAction because otherwise
-        // application (plugins) actions are not add to drop popup menu
-        QDropEvent dropEvent(QPoint(10, 10), Qt::MoveAction /*unused*/, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
+        QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction /*unused*/, &m_mimeData, Qt::LeftButton, Qt::NoModifier);
         KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
         QAction appAction1(QStringLiteral("action1"), this);
         QAction appAction2(QStringLiteral("action2"), this);

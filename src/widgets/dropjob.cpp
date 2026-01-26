@@ -98,6 +98,7 @@ public:
         , m_flags(flags)
         , m_dropjobFlags(dropjobFlags)
         , m_triggered(false)
+        , m_dropEvent(const_cast<QDropEvent *>(dropEvent))
     {
         // Check for the drop of a bookmark -> we want a Link action
         if (m_mimeData->hasFormat(QStringLiteral("application/x-xbel"))) {
@@ -153,6 +154,7 @@ public:
     QList<QAction *> m_pluginActions;
     bool m_triggered; // Tracks whether an action has been triggered in the popup menu.
     QSet<KIO::DropMenu *> m_menus;
+    QDropEvent *m_dropEvent;
 
     Q_DECLARE_PUBLIC(DropJob)
 
@@ -314,17 +316,18 @@ void DropJobPrivate::fillPopupMenu(KIO::DropMenu *popup)
 
     popup->addAction(popupLinkAction);
 
-    if (m_possibleActions & Qt::MoveAction) {
-        // add plugins custom actions to drop popup menu
-        addPluginActions(popup, m_itemProps);
-    } else {
-        // MoveAction has been removed from m_possibleActions which means we should not display
+    if (m_dropEvent->dropAction() == Qt::IgnoreAction) {
+        // dropAction has been set to IgnoreAction which means
+        // we should not display (KFilePlacesView case)
         // plugins custom actions in drop popup menu because they can contain other
         // (possibly destructive) Move-like actions (ex. "Move Into New Folder" found in a standard KDE installation)
         // so in that case we just call addExtraActions with both parameters as empty lists
         // to add some final common menu items prepared in that method (usually: last separator and "Cancel" action)
         QList<QAction *> emptyActionList;
         popup->addExtraActions(emptyActionList, emptyActionList);
+    } else {
+        // add plugins custom actions to drop popup menu
+        addPluginActions(popup, m_itemProps);
     }
 }
 
