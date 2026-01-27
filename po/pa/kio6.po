@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-25 00:41+0000\n"
+"POT-Creation-Date: 2026-01-27 00:40+0000\n"
 "PO-Revision-Date: 2024-01-30 09:25-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -2162,7 +2162,7 @@ msgid " (Points to %1)"
 msgstr " (%1 ਲਈ ਪੁਆਇੰਟ)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:653
+#: widgets/renamedialog.cpp:673
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4624,17 +4624,17 @@ msgstr "ਗਿਣੋ"
 msgid "Click to copy the checksum to the clipboard."
 msgstr ""
 
-#: widgets/dropjob.cpp:178
+#: widgets/dropjob.cpp:180
 #, kde-format
 msgid "C&ancel"
 msgstr "ਰੱਦ ਕਰੋ(&a)"
 
-#: widgets/dropjob.cpp:290
+#: widgets/dropjob.cpp:292
 #, kde-format
 msgid "&Move Here"
 msgstr "ਇੱਥੇ ਭੇਜੋ(&M)"
 
-#: widgets/dropjob.cpp:296
+#: widgets/dropjob.cpp:298
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -4642,12 +4642,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "ਡਾਊਨਲੋਡ"
 
-#: widgets/dropjob.cpp:296
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgid "&Copy Here"
 msgstr "ਇੱਥੇ ਕਾਪੀ ਕਰੋ(&C)"
 
-#: widgets/dropjob.cpp:303
+#: widgets/dropjob.cpp:305
 #, kde-format
 msgid "&Link Here"
 msgstr "ਇੱਥੇ ਲਿੰਕ ਬਣਾਓ(&L)"
@@ -4717,12 +4717,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "ਡਾਇਰੈਕਟਰੀ ਬਣਾਈ ਜਾ ਰਹੀ ਹੈ"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:403
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:423
 #, kde-format
 msgid "Source"
 msgstr "ਸਰੋਤ"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:405
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:425
 #, kde-format
 msgid "Destination"
 msgstr "ਟਿਕਾਣਾ"
@@ -6637,12 +6637,12 @@ msgstr "ਤਾਰੀਖ: %1"
 msgid "Size: %1"
 msgstr "ਆਕਾਰ: %1"
 
-#: widgets/renamedialog.cpp:259
+#: widgets/renamedialog.cpp:279
 #, kde-format
 msgid "Appl&y to All"
 msgstr "ਸਭ ਉੱਤੇ ਲਾਗੂ ਕਰੋ(&y)"
 
-#: widgets/renamedialog.cpp:260
+#: widgets/renamedialog.cpp:280
 #, fuzzy, kde-format
 #| msgid ""
 #| "Files and folders will be copied into the existing directory, alongside "
@@ -6658,45 +6658,45 @@ msgstr ""
 "ਫਾਇਲਾਂ ਅਤੇ ਫੋਲਡਰਾਂ ਨੂੰ ਮੌਜੂਦਾ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਕਾਪੀ ਕੀਤਾ ਜਾਵੇਗਾ, ਉਹਨਾਂ ਦੀ ਮੌਜੂਦਾ ਸਮੱਗਰੀ ਸਮੇਤ।\n"
 "ਜੇ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਮੌਜੂਦਾ ਫਾਇਲ ਨਾਲ ਕੋਈ ਟਕਰਾ ਹੋਵੇਗਾ ਤਾਂ ਤੁਹਾਨੂੰ ਪੁੱਛਿਆ ਜਾਵੇਗਾ।"
 
-#: widgets/renamedialog.cpp:264
+#: widgets/renamedialog.cpp:284
 #, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
 
-#: widgets/renamedialog.cpp:270
+#: widgets/renamedialog.cpp:290
 #, kde-format
 msgid "&Rename"
 msgstr "ਨਾਂ-ਬਦਲੋ(&R)"
 
-#: widgets/renamedialog.cpp:272
+#: widgets/renamedialog.cpp:292
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "ਨਵਾਂ ਨਾਂ ਸੁਝਾਓ(&N)"
 
-#: widgets/renamedialog.cpp:278
+#: widgets/renamedialog.cpp:298
 #, kde-format
 msgid "&Skip"
 msgstr "ਛੱਡੋ(&S)"
 
-#: widgets/renamedialog.cpp:279
+#: widgets/renamedialog.cpp:299
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr "ਇਹ ਫੋਲਡਰ ਕਾਪੀ ਨਾ ਕਰੋ ਜਾਂ ਭੇਜੋ ਨਾ, ਇਸ ਦੀ ਬਜਾਏ ਅਗਲੀ ਆਈਟਮ ਉੱਤੇ ਜਾਓ"
 
-#: widgets/renamedialog.cpp:280
+#: widgets/renamedialog.cpp:300
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr "ਇਹ ਫਾਇਲ ਕਾਪੀ ਨਾ ਕਰੋ ਜਾਂ ਭੇਜੋ ਨਾ, ਇਸ ਦੀ ਬਜਾਏ ਅਗਲੀ ਆਈਟਮ ਉੱਤੇ ਜਾਓ"
 
-#: widgets/renamedialog.cpp:291
+#: widgets/renamedialog.cpp:311
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "ਇਸ 'ਚ ਲਿਖੋ(&W)"
 
-#: widgets/renamedialog.cpp:294
+#: widgets/renamedialog.cpp:314
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6707,25 +6707,25 @@ msgstr ""
 "ਫਾਇਲਾਂ ਅਤੇ ਫੋਲਡਰਾਂ ਨੂੰ ਮੌਜੂਦਾ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਕਾਪੀ ਕੀਤਾ ਜਾਵੇਗਾ, ਉਹਨਾਂ ਦੀ ਮੌਜੂਦਾ ਸਮੱਗਰੀ ਸਮੇਤ।\n"
 "ਜੇ ਡਾਇਰੈਕਟਰੀ ਵਿੱਚ ਮੌਜੂਦਾ ਫਾਇਲ ਨਾਲ ਕੋਈ ਟਕਰਾ ਹੋਵੇਗਾ ਤਾਂ ਤੁਹਾਨੂੰ ਪੁੱਛਿਆ ਜਾਵੇਗਾ।"
 
-#: widgets/renamedialog.cpp:299
+#: widgets/renamedialog.cpp:319
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "ਪੁਰਾਣੀਆਂ ਫਾਇਲ ਉੱਤੇ ਲਿਖੋ(&O)"
 
-#: widgets/renamedialog.cpp:303
+#: widgets/renamedialog.cpp:323
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr ""
 
-#: widgets/renamedialog.cpp:315
+#: widgets/renamedialog.cpp:335
 #, kde-format
 msgid "&Resume"
 msgstr "ਮੁੜ-ਚਾਲੂ(&R)"
 
-#: widgets/renamedialog.cpp:324
+#: widgets/renamedialog.cpp:344
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -6734,86 +6734,86 @@ msgstr ""
 "ਇਹ ਐਕਸ਼ਨ '%1' ਖੁਦ ਦੇ ਮੁੜ-ਲਿਖ ਦੇਵੇਗਾ।\n"
 "ਨਵੀਂ ਫਾਇਲ ਦਾ ਨਾਂ ਦਿਓ ਜੀ:"
 
-#: widgets/renamedialog.cpp:330
+#: widgets/renamedialog.cpp:350
 #, kde-format
 msgid "C&ontinue"
 msgstr "ਜਾਰੀ ਰੱਖੋ(&o)"
 
-#: widgets/renamedialog.cpp:392
+#: widgets/renamedialog.cpp:412
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "ਇਹ ਤੁਸੀਂ  ਟਿਕਾਣੇ ਉੱਤੇ ਲਿਖਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: widgets/renamedialog.cpp:394
+#: widgets/renamedialog.cpp:414
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "ਕੀ ਤੁਸੀਂ '%1' ਦੀ ਸਮੱਗਰੀ ਨੂੰ '%2' ਵਿੱਚ ਮਿਲਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
 
-#: widgets/renamedialog.cpp:437
+#: widgets/renamedialog.cpp:457
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "ਸਰੋਤ <b>ਜ਼ਿਆਦਾ ਨਵਾਂ ਹੈ</b>।"
 
-#: widgets/renamedialog.cpp:439
+#: widgets/renamedialog.cpp:459
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "ਸਰੋਤ <b>ਪੁਰਾਣਾ ਹੈ</b>।"
 
-#: widgets/renamedialog.cpp:448
+#: widgets/renamedialog.cpp:468
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "ਸਰੋਤ <b>%1 ਤੱਕ ਘੱਟ ਹੈ</b>।"
 
-#: widgets/renamedialog.cpp:451
+#: widgets/renamedialog.cpp:471
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "ਸਰੋਤ <b>%1 ਤੱਕ ਵੱਡਾ ਹੈ</b>।"
 
-#: widgets/renamedialog.cpp:465
+#: widgets/renamedialog.cpp:485
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "ਫਾਇਲਾਂ <b>ਇੱਕੋ</b> ਜਿਹੀਆਂ ਹਨ।"
 
-#: widgets/renamedialog.cpp:468
+#: widgets/renamedialog.cpp:488
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "ਫਾਇਲਾਂ <b>ਇੱਕੋ ਜਿਹੀਆਂ ਜਾਪਦੀਆਂ</b> ਹਨ।"
 
-#: widgets/renamedialog.cpp:472
+#: widgets/renamedialog.cpp:492
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "ਫਾਇਲ <b>ਵੱਖਰੀਆਂ</b> ਹਨ।"
 
-#: widgets/renamedialog.cpp:480
+#: widgets/renamedialog.cpp:500
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
 "contents are the same at the beginning, middle and end."
 msgstr ""
 
-#: widgets/renamedialog.cpp:494
+#: widgets/renamedialog.cpp:514
 #, fuzzy, kde-format
 #| msgid "Copy Files"
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "ਫਾਇਲ ਕਾਪੀ ਕਰੋ"
 
-#: widgets/renamedialog.cpp:507
+#: widgets/renamedialog.cpp:527
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "ਇੱਕ ਪੁਰਾਣਾ ਆਈਟਮ ਨਾਂ '%1' ਨਾਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
 
-#: widgets/renamedialog.cpp:509
+#: widgets/renamedialog.cpp:529
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "'%1' ਨਾਂ ਦੀ ਰਲਦੀ ਫਾਇਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
 
-#: widgets/renamedialog.cpp:511
+#: widgets/renamedialog.cpp:531
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "ਇੱਕ ਹੋਰ ਵੀ ਨਵੀਂ ਆਈਟਮ ਨਾਂ '%1' ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।"
 
-#: widgets/renamedialog.cpp:524
+#: widgets/renamedialog.cpp:544
 #, kde-format
 msgid "Rename:"
 msgstr "ਨਾਂ-ਬਦਲੋ:"

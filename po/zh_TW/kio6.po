@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-25 00:41+0000\n"
+"POT-Creation-Date: 2026-01-27 00:40+0000\n"
 "PO-Revision-Date: 2026-01-23 05:03+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2172,7 +2172,7 @@ msgid " (Points to %1)"
 msgstr "（指向 %1）"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:653
+#: widgets/renamedialog.cpp:673
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4620,28 +4620,28 @@ msgstr "計算"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "點選以複製檢查碼到剪貼簿中。"
 
-#: widgets/dropjob.cpp:178
+#: widgets/dropjob.cpp:180
 #, kde-format
 msgid "C&ancel"
 msgstr "取消(&A)"
 
-#: widgets/dropjob.cpp:290
+#: widgets/dropjob.cpp:292
 #, kde-format
 msgid "&Move Here"
 msgstr "移動到這裡(&M)"
 
-#: widgets/dropjob.cpp:296
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "下載到此處(&D)"
 
-#: widgets/dropjob.cpp:296
+#: widgets/dropjob.cpp:298
 #, kde-format
 msgid "&Copy Here"
 msgstr "複製到這裡(&C)"
 
-#: widgets/dropjob.cpp:303
+#: widgets/dropjob.cpp:305
 #, kde-format
 msgid "&Link Here"
 msgstr "連結到這裡(&L)"
@@ -4707,12 +4707,12 @@ msgstr "您可以在 Dolphin 檔案管理員的「確認」設定裡復原這個
 msgid "Creating directory"
 msgstr "建立目錄"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:403
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:423
 #, kde-format
 msgid "Source"
 msgstr "來源"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:405
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:425
 #, kde-format
 msgid "Destination"
 msgstr "目的地"
@@ -6577,12 +6577,12 @@ msgstr "日期：%1"
 msgid "Size: %1"
 msgstr "大小：%1"
 
-#: widgets/renamedialog.cpp:259
+#: widgets/renamedialog.cpp:279
 #, kde-format
 msgid "Appl&y to All"
 msgstr "全部套用(&Y)"
 
-#: widgets/renamedialog.cpp:260
+#: widgets/renamedialog.cpp:280
 #, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
@@ -6593,45 +6593,45 @@ msgstr ""
 "勾選此選項的話，此按鍵按下後會套用到目前工作剩餘的，所有的衝突資料夾。\n"
 "除非您按下「跳過」，否則您還是會接到目錄中現有檔案的衝突。"
 
-#: widgets/renamedialog.cpp:264
+#: widgets/renamedialog.cpp:284
 #, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr "勾選此選項的話，按下按鍵會套用到目前工作剩餘的所有衝突。"
 
-#: widgets/renamedialog.cpp:270
+#: widgets/renamedialog.cpp:290
 #, kde-format
 msgid "&Rename"
 msgstr "重新命名(&R)"
 
-#: widgets/renamedialog.cpp:272
+#: widgets/renamedialog.cpp:292
 #, kde-format
 msgid "Suggest New &Name"
 msgstr "建議的新名稱(&N)"
 
-#: widgets/renamedialog.cpp:278
+#: widgets/renamedialog.cpp:298
 #, kde-format
 msgid "&Skip"
 msgstr "略過(&S)"
 
-#: widgets/renamedialog.cpp:279
+#: widgets/renamedialog.cpp:299
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr "不要複製或移動此資料夾，而跳到下一個項目"
 
-#: widgets/renamedialog.cpp:280
+#: widgets/renamedialog.cpp:300
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr "不要複製或移動此檔案，而跳到下一個項目"
 
-#: widgets/renamedialog.cpp:291
+#: widgets/renamedialog.cpp:311
 #, kde-format
 msgctxt "Write files into an existing folder"
 msgid "&Write Into"
 msgstr "寫入(&W)"
 
-#: widgets/renamedialog.cpp:294
+#: widgets/renamedialog.cpp:314
 #, kde-format
 msgid ""
 "Files and folders will be copied into the existing directory, alongside its "
@@ -6642,25 +6642,25 @@ msgstr ""
 "檔案與資料夾會複製到現有的目錄，與現有的內容並存。\n"
 " 若是與現有的檔案衝突，您會收到一個提示。"
 
-#: widgets/renamedialog.cpp:299
+#: widgets/renamedialog.cpp:319
 #, kde-format
 msgctxt "Overwrite files into an existing folder when files are older"
 msgid "&Overwrite older files"
 msgstr "覆寫舊檔案(&O)"
 
-#: widgets/renamedialog.cpp:303
+#: widgets/renamedialog.cpp:323
 #, kde-format
 msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr "修改時間比較舊的目的檔案會被來源覆蓋，沒有比較舊的則會略過。"
 
-#: widgets/renamedialog.cpp:315
+#: widgets/renamedialog.cpp:335
 #, kde-format
 msgid "&Resume"
 msgstr "恢復(&R)"
 
-#: widgets/renamedialog.cpp:324
+#: widgets/renamedialog.cpp:344
 #, kde-format
 msgid ""
 "This action would overwrite '%1' with itself.\n"
@@ -6669,57 +6669,57 @@ msgstr ""
 "此動作將覆寫「%1」它自己。\n"
 "請輸入新的檔案名稱："
 
-#: widgets/renamedialog.cpp:330
+#: widgets/renamedialog.cpp:350
 #, kde-format
 msgid "C&ontinue"
 msgstr "繼續(&O)"
 
-#: widgets/renamedialog.cpp:392
+#: widgets/renamedialog.cpp:412
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "您確定要覆寫目的地嗎？"
 
-#: widgets/renamedialog.cpp:394
+#: widgets/renamedialog.cpp:414
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "您確定要將「%1」的內容合併到「%2」中嗎？"
 
-#: widgets/renamedialog.cpp:437
+#: widgets/renamedialog.cpp:457
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "來源<b>較新</b>。"
 
-#: widgets/renamedialog.cpp:439
+#: widgets/renamedialog.cpp:459
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "來源<b>較舊</b>。"
 
-#: widgets/renamedialog.cpp:448
+#: widgets/renamedialog.cpp:468
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "來源<b>小了 %1</b>"
 
-#: widgets/renamedialog.cpp:451
+#: widgets/renamedialog.cpp:471
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "來源<b>大了 %1</b>"
 
-#: widgets/renamedialog.cpp:465
+#: widgets/renamedialog.cpp:485
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "檔案<b>相同</b>。"
 
-#: widgets/renamedialog.cpp:468
+#: widgets/renamedialog.cpp:488
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "檔案<b>看起來相同</b>。"
 
-#: widgets/renamedialog.cpp:472
+#: widgets/renamedialog.cpp:492
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "檔案<b>不同</b>。"
 
-#: widgets/renamedialog.cpp:480
+#: widgets/renamedialog.cpp:500
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -6728,28 +6728,28 @@ msgstr ""
 "檔案很可能相同：它們有一樣的大小，而且它們的內容開頭、中間一部分和結尾也相"
 "同。"
 
-#: widgets/renamedialog.cpp:494
+#: widgets/renamedialog.cpp:514
 #, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "比較檔案"
 
-#: widgets/renamedialog.cpp:507
+#: widgets/renamedialog.cpp:527
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "舊項目中已經有一個叫做「%1」存在了。"
 
-#: widgets/renamedialog.cpp:509
+#: widgets/renamedialog.cpp:529
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "另一個名為 %1 的同類檔案已經存在。"
 
-#: widgets/renamedialog.cpp:511
+#: widgets/renamedialog.cpp:531
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "已經有一個更新的，叫做「%1」的項目存在了。"
 
-#: widgets/renamedialog.cpp:524
+#: widgets/renamedialog.cpp:544
 #, kde-format
 msgid "Rename:"
 msgstr "重新命名："
