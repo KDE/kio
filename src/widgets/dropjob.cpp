@@ -20,6 +20,7 @@
 #include <KFileItem>
 #include <KFileItemListProperties>
 #include <KIO/ApplicationLauncherJob>
+#include <KIO/CommandLauncherJob>
 #include <KIO/CopyJob>
 #include <KIO/DndPopupMenuPlugin>
 #include <KIO/FileUndoManager>
@@ -44,7 +45,6 @@
 #include <QMenu>
 #include <QMetaEnum>
 #include <QMimeData>
-#include <QProcess>
 #include <QTimer>
 #include <QWindow>
 
@@ -750,14 +750,22 @@ void DropJobPrivate::handleDropToDesktopFile()
 void DropJobPrivate::handleDropToExecutable()
 {
     Q_Q(DropJob);
+    const QString destFile = m_destUrl.toLocalFile();
     // Launch executable for each of the files
     QStringList args;
     args.reserve(m_urls.size());
     for (const QUrl &url : std::as_const(m_urls)) {
         args << url.toLocalFile(); // assume local files
     }
-    QProcess::startDetached(m_destUrl.toLocalFile(), args);
-    q->emitResult();
+    auto *job = new KIO::CommandLauncherJob(destFile, args, q);
+    QObject::connect(job, &KJob::result, q, [q, job, destFile] {
+        if (job->error()) {
+            q->setError(KIO::ERR_CANNOT_LAUNCH_PROCESS);
+            q->setErrorText(destFile);
+        }
+        q->emitResult();
+    });
+    job->start();
 }
 
 void DropJob::slotResult(KJob *job)
