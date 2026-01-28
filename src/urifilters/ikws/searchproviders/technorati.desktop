@@ -153,6 +153,7 @@ Query[tg]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[th]=https://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}
 Query[tok]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[tr]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[ug]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[uk]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[vi]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[zh_CN]=https://technorati.com/search?return=sites&authority=high&q=\\{@}

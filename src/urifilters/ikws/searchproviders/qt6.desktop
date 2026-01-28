@@ -56,6 +56,7 @@ Name[sq]=Dokumentimi Në Internet për Qt6
 Name[sv]=Qt6-dokumentation på nätet
 Name[th]=เอกสารอธิบาย Qt6
 Name[tr]=Qt6 Çevrimiçi Belgelendirme
+Name[ug]=Qt6 توردىكى قوللانما
 Name[uk]=Документація з Qt6 у мережі
 Name[vi]=Tài liệu trực tuyến Qt6
 Name[zh_CN]=Qt6 在线文档
@@ -114,6 +115,7 @@ Query[sq]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[sv]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[th]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[tr]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[ug]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[uk]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[vi]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[zh_CN]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}

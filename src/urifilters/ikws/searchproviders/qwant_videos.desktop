@@ -64,6 +64,7 @@ Name[tg]=Видеоҳои Qwant
 Name[th]=Qwant Videos
 Name[tok]=ilo pi sitelen tawa Qwant
 Name[tr]=Qwant Videoları
+Name[ug]=Qwant سىن
 Name[uk]=Відео Qwant
 Name[vi]=Qwant Phim
 Name[zh_CN]=Qwant 视频
@@ -124,6 +125,7 @@ Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[th]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[tr]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[ug]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos

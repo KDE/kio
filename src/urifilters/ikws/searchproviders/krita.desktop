@@ -54,6 +54,7 @@ Name[sq]=Doracak për Krita-n
 Name[sv]=Handbok Krita
 Name[th]=คู่มือของ Krita
 Name[tr]=Krita El Kitabı
+Name[ug]=Krita قوللانمىسى
 Name[uk]=Підручник з Krita
 Name[vi]=Sổ tay Krita
 Name[zh_CN]=Krita 使用手册
@@ -115,6 +116,7 @@ Query[sq]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[sv]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[th]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[tr]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[ug]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[uk]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[vi]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[zh_CN]=https://docs.krita.org/en/search.html?q=\\{@}

@@ -56,6 +56,7 @@ Name[sq]=Dokumentimi Në Internet për Qt5
 Name[sv]=Qt5-dokumentation på nätet
 Name[th]=เอกสารอธิบาย Qt5
 Name[tr]=Qt5 Çevrimiçi Belgelendirme
+Name[ug]=Qt5 توردىكى قوللانما
 Name[uk]=Документація з Qt5 у мережі
 Name[vi]=Tài liệu trực tuyến Qt5
 Name[zh_CN]=Qt5 在线文档
@@ -120,6 +121,7 @@ Query[tg]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[th]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[tok]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[tr]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[ug]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[uk]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[vi]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[zh_CN]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}

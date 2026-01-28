@@ -35,6 +35,7 @@ Name[sl]=Paketi Nix
 Name[sv]=Nix-paket
 Name[th]=แพ็คเกจ Nix
 Name[tr]=Nix Paketleri
+Name[ug]=Nix بوغچىسى
 Name[uk]=Пакунки Nix
 Name[zh_CN]=Nix 软件包
 Name[zh_TW]=Nix 軟體包
@@ -74,6 +75,7 @@ Query[sl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\
 Query[sv]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[th]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[tr]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[ug]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[uk]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[zh_CN]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[zh_TW]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}

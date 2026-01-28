@@ -53,6 +53,7 @@ Name[sq]=Referencë CPP
 Name[sv]=C++ referens
 Name[th]=คู่มืออ้างอิง C++
 Name[tr]=CPP Başvuru
+Name[ug]=CPP نەقىل
 Name[uk]=Довідник з C++
 Name[vi]=CPP Reference
 Name[zh_CN]=CPP 参考
@@ -89,6 +90,7 @@ Query[ru]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[sl]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[sv]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[tr]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
+Query[ug]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[uk]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[zh_CN]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[zh_TW]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}

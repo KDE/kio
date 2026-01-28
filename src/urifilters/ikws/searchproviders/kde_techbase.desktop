@@ -74,7 +74,7 @@ Name[tg]=Пойгоҳи техникии KDE
 Name[th]=KDE TechBase
 Name[tok]=alasa sona pi ilo tan kulupu KDE (TechBase)
 Name[tr]=KDE TechBase
-Name[ug]=KDE TechBase
+Name[ug]=KDE تېخنىكا ئۇچۇر ساندانى
 Name[uk]=TechBase KDE
 Name[vi]=Cơ sở Kĩ thuật KDE
 Name[wa]=KDE TechBase (Tecnike)
@@ -136,6 +136,7 @@ Query[tg]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[th]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[tok]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[tr]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[ug]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[uk]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[vi]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[zh_CN]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

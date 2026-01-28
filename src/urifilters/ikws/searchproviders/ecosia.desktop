@@ -72,7 +72,7 @@ Name[tg]=Низоми ҷустуҷӯии Ecosia
 Name[th]=บริการค้นหา Ecosia
 Name[tok]=ilo alasa Ecosia
 Name[tr]=Ecosia arama motoru
-Name[ug]=Ecosia ئىزدەش ماتورى
+Name[ug]=Ecosia ئىزدەش موتورى
 Name[uk]=Рушій пошуку Ecosia
 Name[vi]=Dụng cụ tìm kiếm Ecosia
 Name[wa]=Ricwerrece Ecosia
@@ -136,6 +136,7 @@ Query[tg]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[th]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[tok]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[tr]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[ug]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[uk]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[vi]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[zh_CN]=https://ecosia.org/search.php?q=\\{@}&meta=normal

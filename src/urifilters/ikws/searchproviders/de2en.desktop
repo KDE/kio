@@ -87,7 +87,7 @@ Name[tg]=Тарҷумаҳои dict.cc: Немисӣ ба англисӣ
 Name[th]=dict.cc แปลภาษาเยอรมันเป็นอังกฤษ
 Name[tok]=ilo pi ante toki dict.cc: toki Tosi tawa toki Inli
 Name[tr]=dict.cc Çevirisi: Almancadan İngilizceye
-Name[ug]=dict.cc تەرجىمە: گېرمانچىدىن ئىنگلىزچىغا
+Name[ug]=dict.cc تەرجىمە: گېرمانچىدىن ئىنگلىزچىگە
 Name[uk]=dict.cc — переклад з німецької англійською
 Name[uz]=dict.cc tarjima: Olmonchadan Inglizchaga
 Name[uz@cyrillic]=dict.cc таржима: Олмончадан Инглизчага
@@ -152,6 +152,7 @@ Query[tg]=https://www.dict.cc/?s=\\{@}
 Query[th]=https://www.dict.cc/?s=\\{@}
 Query[tok]=https://www.dict.cc/?s=\\{@}
 Query[tr]=https://www.dict.cc/?s=\\{@}
+Query[ug]=https://www.dict.cc/?s=\\{@}
 Query[uk]=https://www.dict.cc/?s=\\{@}
 Query[vi]=https://www.dict.cc/?s=\\{@}
 Query[zh_CN]=https://www.dict.cc/?s=\\{@}

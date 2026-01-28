@@ -53,6 +53,7 @@ Name[sq]=Dokumentim për Microsoft C++
 Name[sv]=Microsoft C++ dokumentation
 Name[th]=เอกสารอธิบาย C++ Microsoft
 Name[tr]=Microsoft C++ Belgelendirmesi
+Name[ug]=Microsoft C++ قوللانمىسى
 Name[uk]=Документація з C++ Microsoft
 Name[vi]=Tài liệu C++ Microsoft
 Name[zh_CN]=微软 C++ 文档
@@ -113,6 +114,7 @@ Query[sq]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[sv]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[th]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[tr]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[ug]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[uk]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[vi]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[zh_CN]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B

@@ -35,6 +35,7 @@ Name[sl]=Docker Hub
 Name[sv]=Docker Hub
 Name[th]=Docker Hub
 Name[tr]=Docker Hub
+Name[ug]=Docker Hub
 Name[uk]=Docker Hub
 Name[zh_CN]=Docker Hub
 Name[zh_TW]=Docker Hub
@@ -74,6 +75,7 @@ Query[sl]=https://hub.docker.com/search?q=\\{@}
 Query[sv]=https://hub.docker.com/search?q=\\{@}
 Query[th]=https://hub.docker.com/search?q=\\{@}
 Query[tr]=https://hub.docker.com/search?q=\\{@}
+Query[ug]=https://hub.docker.com/search?q=\\{@}
 Query[uk]=https://hub.docker.com/search?q=\\{@}
 Query[zh_CN]=https://hub.docker.com/search?q=\\{@}
 Query[zh_TW]=https://hub.docker.com/search?q=\\{@}

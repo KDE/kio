@@ -47,6 +47,7 @@ Name[sq]=PyPI
 Name[sv]=PyPI
 Name[th]=PyPi
 Name[tr]=PyPI
+Name[ug]=PyPI
 Name[uk]=PyPI
 Name[zh_CN]=PyPI
 Name[zh_TW]=PyPI
@@ -97,6 +98,7 @@ Query[sq]=https://pypi.org/search/?q=\\{@}
 Query[sv]=https://pypi.org/search/?q=\\{@}
 Query[th]=https://pypi.org/search/?q=\\{@}
 Query[tr]=https://pypi.org/search/?q=\\{@}
+Query[ug]=https://pypi.org/search/?q=\\{@}
 Query[uk]=https://pypi.org/search/?q=\\{@}
 Query[zh_CN]=https://pypi.org/search/?q=\\{@}
 Query[zh_TW]=https://pypi.org/search/?q=\\{@}

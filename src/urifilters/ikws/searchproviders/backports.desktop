@@ -86,7 +86,7 @@ Name[tg]=Ҷустуҷӯи низоми пуштибонии Debian
 Name[th]=ค้นหา Debian Backports
 Name[tok]=ilo pi alasa ilo pi ma ilo Debian Backports
 Name[tr]=Debian Backport Arama
-Name[ug]=Debian ئامبار ئىزدە
+Name[ug]=Debian Backports ئىزدە
 Name[uk]=Пошук серед додаткових пакетів Debian
 Name[vi]=Tìm kiếm Debian Backports
 Name[wa]=Cweraedje di backports Debian
@@ -150,6 +150,7 @@ Query[tg]=https://packages.debian.org/search?suite=squeeze-backports&section=all
 Query[th]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[tok]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[tr]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
+Query[ug]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[uk]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[vi]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[zh_CN]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}

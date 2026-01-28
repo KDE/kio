@@ -86,7 +86,7 @@ Name[tg]=Аз Jeeves пурсед
 Name[th]=บริการ Ask Jeeves
 Name[tok]=ilo alasa Ask Jeeves
 Name[tr]=Ask Jeeves
-Name[ug]=Ask Jeeves
+Name[ug]=Jeeves دىن سورا
 Name[uk]=Ask Jeeves
 Name[uz]=Ask Jeeves
 Name[uz@cyrillic]=Ask Jeeves
@@ -143,6 +143,7 @@ Query[sq]=https://www.ask.com/web?q=\\{@}
 Query[sv]=https://www.ask.com/web?q=\\{@}
 Query[th]=https://www.ask.com/web?q=\\{@}
 Query[tr]=https://www.ask.com/web?q=\\{@}
+Query[ug]=https://www.ask.com/web?q=\\{@}
 Query[uk]=https://www.ask.com/web?q=\\{@}
 Query[vi]=https://www.ask.com/web?q=\\{@}
 Query[zh_CN]=https://www.ask.com/web?q=\\{@}

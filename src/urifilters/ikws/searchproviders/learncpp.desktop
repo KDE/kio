@@ -54,6 +54,7 @@ Name[sq]=Mësoni CPP
 Name[sv]=Lär dig C++
 Name[th]=เรียน C++
 Name[tr]=CPP Öğren
+Name[ug]=CPP بىلىمى
 Name[uk]=Learn CPP
 Name[vi]=Learn CPP
 Name[zh_CN]=Learn CPP
@@ -115,6 +116,7 @@ Query[sq]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[sv]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[th]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[tr]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[ug]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[uk]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[vi]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[zh_CN]=https://www.learncpp.com/gsearch/?q=\\{@}

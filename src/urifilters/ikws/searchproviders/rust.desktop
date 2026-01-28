@@ -52,6 +52,7 @@ Name[sq]=Dokumentim për Rust STD
 Name[sv]=Rust standarddokumentation
 Name[th]=เอกสารอธิบาย Rust STD
 Name[tr]=Rust STD Belgelendirmesi
+Name[ug]=Rust STD قوللانمىسى
 Name[uk]=Документація із STD Rust
 Name[vi]=Tài liệu std Rust
 Name[zh_CN]=Rust STD 文档
@@ -112,6 +113,7 @@ Query[sq]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[sv]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[th]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[tr]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[ug]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[uk]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[vi]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[zh_CN]=https://doc.rust-lang.org/std/index.html?search=\\{@}

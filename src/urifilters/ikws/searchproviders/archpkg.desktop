@@ -61,6 +61,7 @@ Name[tg]=Ҷустуҷӯи бастаҳои Arch Linux
 Name[th]=ค้นหาแพ็กเกจของ Arch Linux
 Name[tok]=ilo pi alasa ilo pi ma ilo Arch Linux
 Name[tr]=Arch Linux Paket Araması
+Name[ug]=Arch Linux بوغچا ئىزدەش
 Name[uk]=Пошук пакунків для Arch Linux
 Name[vi]=Tìm kiếm gói Arch Linux
 Name[zh_CN]=Arch Linux 软件包搜索
@@ -122,6 +123,7 @@ Query[tg]=https://www.archlinux.org/packages/?q=\\{@}
 Query[th]=https://www.archlinux.org/packages/?q=\\{@}
 Query[tok]=https://www.archlinux.org/packages/?q=\\{@}
 Query[tr]=https://www.archlinux.org/packages/?q=\\{@}
+Query[ug]=https://www.archlinux.org/packages/?q=\\{@}
 Query[uk]=https://www.archlinux.org/packages/?q=\\{@}
 Query[vi]=https://www.archlinux.org/packages/?q=\\{@}
 Query[zh_CN]=https://www.archlinux.org/packages/?q=\\{@}

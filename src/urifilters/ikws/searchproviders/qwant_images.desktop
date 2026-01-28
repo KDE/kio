@@ -64,6 +64,7 @@ Name[tg]=Тасвирҳои Qwant
 Name[th]=Qwant Images
 Name[tok]=ilo pi alasa sitelen Qwant
 Name[tr]=Qwant Görseller
+Name[ug]=Qwant سۈرەتلىرى
 Name[uk]=Зображення Qwant
 Name[vi]=Qwant Ảnh
 Name[zh_CN]=Qwant 图像
@@ -124,6 +125,7 @@ Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[th]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[tok]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[tr]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[ug]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[uk]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[vi]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[zh_CN]=https://www.qwant.com/?q=\\{@}&client=kde&t=images

@@ -54,6 +54,7 @@ Name[sq]=Dokumentim për Flatpak
 Name[sv]=Flatpak-dokumentation
 Name[th]=เอกสารอธิบาย Flatpak
 Name[tr]=Flatpak Belgelendirmesi
+Name[ug]=Flatpak قوللانمىسى
 Name[uk]=Документація з Flatpak
 Name[vi]=Tài liệu Flatpak
 Name[zh_CN]=Flatpak 文档
@@ -115,6 +116,7 @@ Query[sq]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[sv]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[th]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[tr]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[ug]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[uk]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[vi]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[zh_CN]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

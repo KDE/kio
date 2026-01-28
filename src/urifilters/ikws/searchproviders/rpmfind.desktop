@@ -87,7 +87,7 @@ Name[tg]=Ёфтани RPM
 Name[th]=บริการค้นหา RPM
 Name[tok]=ilo alasa pi poki RPM
 Name[tr]=RPM–Find
-Name[ug]=RPM-Find
+Name[ug]=RPM ئىزدە
 Name[uk]=RPM-Find
 Name[uz]=RPM qidirish
 Name[uz@cyrillic]=RPM қидириш
@@ -153,6 +153,7 @@ Query[tg]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[th]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[tok]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[tr]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[ug]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[uk]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[vi]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[zh_CN]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

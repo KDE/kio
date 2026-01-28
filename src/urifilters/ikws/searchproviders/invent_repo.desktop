@@ -56,6 +56,7 @@ Name[sv]=KDE-Invent arkiv
 Name[th]=ที่เก็บข้อมูล KDE Invent
 Name[tok]=tomo lon ma tomo pali KDE Invent
 Name[tr]=KDE Invent Depoları
+Name[ug]=KDE Invent خەزىنە
 Name[uk]=Сховища KDE Invent
 Name[vi]=Các kho ở Invent KDE
 Name[zh_CN]=KDE Invent 仓库
@@ -115,6 +116,7 @@ Query[sv]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[th]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[tok]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[tr]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[ug]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[uk]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[vi]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[zh_CN]=https://invent.kde.org/explore/projects/starred?name=\\{@}

@@ -54,6 +54,7 @@ Name[sq]=KDE Reddit
 Name[sv]=KDE Reddit
 Name[th]=KDE Reddit
 Name[tr]=KDE Reddit
+Name[ug]=KDE Reddit
 Name[uk]=KDE Reddit
 Name[vi]=Reddit KDE
 Name[zh_CN]=KDE Reddit 版块
@@ -114,6 +115,7 @@ Query[sq]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[sv]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[th]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[tr]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[ug]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[uk]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[vi]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[zh_CN]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1

@@ -87,7 +87,7 @@ Name[tg]=Бойгонии барномаи Ruby
 Name[th]=คลังโปรแกรมภาษารูบี้
 Name[tok]=ilo alasa pi ilo lon toki ilo Ruby
 Name[tr]=Ruby Uygulama Arşivi
-Name[ug]=Ruby پروگرامما ئارخىپى
+Name[ug]=Ruby پىروگرامما ئارخىپى
 Name[uk]=Архів програм мовою Ruby
 Name[uz]=Ruby dastur arxivi
 Name[uz@cyrillic]=Ruby дастур архиви
@@ -153,6 +153,7 @@ Query[tg]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[th]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[tok]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[tr]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[ug]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[uk]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[vi]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[zh_CN]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

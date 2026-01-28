@@ -54,6 +54,7 @@ Name[sq]=Bazë të dhënash WineHQ
 Name[sv]=WineHQ-databas
 Name[th]=ฐานข้อมูล WineHQ
 Name[tr]=WineHQ Veri Tabanı
+Name[ug]=WineHQ ساندان
 Name[uk]=База даних WineHQ
 Name[vi]=Cơ sở dữ liệu WineHQ
 Name[zh_CN]=WineHQ 数据库
@@ -115,6 +116,7 @@ Query[sq]=https://www.winehq.org/search?q=\\{@}
 Query[sv]=https://www.winehq.org/search?q=\\{@}
 Query[th]=https://www.winehq.org/search?q=\\{@}
 Query[tr]=https://www.winehq.org/search?q=\\{@}
+Query[ug]=https://www.winehq.org/search?q=\\{@}
 Query[uk]=https://www.winehq.org/search?q=\\{@}
 Query[vi]=https://www.winehq.org/search?q=\\{@}
 Query[zh_CN]=https://www.winehq.org/search?q=\\{@}

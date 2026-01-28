@@ -74,7 +74,7 @@ Name[tg]=Пойгоҳи корбарии KDE
 Name[th]=KDE UserBase
 Name[tok]=alasa sona pi ilo tan kulupu KDE (UserBase)
 Name[tr]=KDE UserBase
-Name[ug]=KDE UserBase
+Name[ug]=KDE ئىشلەتكۈچى قامۇسى ساندانى
 Name[uk]=UserBase KDE
 Name[vi]=Cơ sở Người dùng KDE
 Name[wa]=KDE UserBase (Uzeus)
@@ -136,6 +136,7 @@ Query[tg]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[th]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[tok]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[tr]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[ug]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[uk]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[vi]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[zh_CN]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

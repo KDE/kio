@@ -53,6 +53,7 @@ Name[sq]=Reddit
 Name[sv]=Reddit
 Name[th]=Reddit
 Name[tr]=Reddit
+Name[ug]=Reddit
 Name[uk]=Reddit
 Name[vi]=Reddit
 Name[zh_CN]=Reddit
@@ -113,6 +114,7 @@ Query[sq]=https://www.reddit.com/search/?q=\\{@}
 Query[sv]=https://www.reddit.com/search/?q=\\{@}
 Query[th]=https://www.reddit.com/search/?q=\\{@}
 Query[tr]=https://www.reddit.com/search/?q=\\{@}
+Query[ug]=https://www.reddit.com/search/?q=\\{@}
 Query[uk]=https://www.reddit.com/search/?q=\\{@}
 Query[vi]=https://www.reddit.com/search/?q=\\{@}
 Query[zh_CN]=https://www.reddit.com/search/?q=\\{@}

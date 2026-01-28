@@ -151,6 +151,7 @@ Query[tg]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[th]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[tok]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[tr]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[ug]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[uk]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[vi]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[zh_CN]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

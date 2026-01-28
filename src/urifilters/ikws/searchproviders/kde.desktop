@@ -90,7 +90,7 @@ Name[tg]=Санадҳои KDE API
 Name[th]=เอกสารอธิบาย API ของระบบ KDE
 Name[tok]=alasa sona pi leko ilo tan kulupu KDE
 Name[tr]=KDE API Belgeleri
-Name[ug]=KDE API پۈتۈكلىرى
+Name[ug]=KDE API قوللانمىسى
 Name[uk]=Документація по API KDE
 Name[uz]=KDE API boʻyicha qoʻllanmalar
 Name[uz@cyrillic]=KDE API бўйича қўлланмалар
@@ -152,6 +152,7 @@ Query[sq]=https://api.kde.org/search.html?query=\\{@}
 Query[sv]=https://api.kde.org/search.html?query=\\{@}
 Query[th]=https://api.kde.org/search.html?query=\\{@}
 Query[tr]=https://api.kde.org/search.html?query=\\{@}
+Query[ug]=https://api.kde.org/search.html?query=\\{@}
 Query[uk]=https://api.kde.org/search.html?query=\\{@}
 Query[vi]=https://api.kde.org/search.html?query=\\{@}
 Query[zh_CN]=https://api.kde.org/search.html?query=\\{@}
