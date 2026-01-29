@@ -348,7 +348,7 @@ QVariant KFilePlacesItem::deviceData(int role) const
             } else if (m_block) {
                 return m_block->device();
             }
-            return QString();
+            return {};
         }
         case KFilePlacesModel::UrlRole:
             if (m_access) {
@@ -534,7 +534,9 @@ bool KFilePlacesItem::updateDeviceInfo(const QString &udi)
         m_deviceIconName = m_device.icon();
         m_emblems = m_device.emblems();
 
-        if (auto *genericIface = m_device.as<Solid::GenericInterface>()) {
+        if (m_networkShare) {
+            m_backingFile = m_networkShare->url().toDisplayString();
+        } else if (auto *genericIface = m_device.as<Solid::GenericInterface>()) {
             m_backingFile = genericIface->property(QStringLiteral("BackingFile")).toString();
         }
 
