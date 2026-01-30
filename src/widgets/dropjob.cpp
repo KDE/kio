@@ -367,6 +367,7 @@ void DropJob::showMenu(const QPoint &p, QAction *atAction)
     }
 
     for (KIO::DropMenu *menu : std::as_const(d->m_menus)) {
+        menu->ensurePolished();
         if (QWindow *transientParent = d->transientParent()) {
             if (menu->winId()) {
                 menu->windowHandle()->setTransientParent(transientParent);
@@ -651,6 +652,7 @@ void DropJobPrivate::slotDropActionDetermined(int error)
         });
 
         if (!(m_dropjobFlags & KIO::ShowMenuManually)) {
+            menu->ensurePolished();
             if (QWindow *parent = transientParent()) {
                 if (menu->winId()) {
                     menu->windowHandle()->setTransientParent(parent);
