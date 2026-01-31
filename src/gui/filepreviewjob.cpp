@@ -96,7 +96,7 @@ void FilePreviewJob::start()
         return;
     }
     // We need to first check the device id's so we can find out if the images can be cached
-    QFlags<KIO::StatDetail> details = KIO::StatDefaultDetails | KIO::StatInode;
+    QFlags<KIO::StatDetail> details = KIO::StatDefaultDetails | KIO::StatInode | KIO::StatResolveSymlink;
 
     if (!m_fileItem.isMimeTypeKnown()) {
         details.setFlag(KIO::StatMimeType);
@@ -237,13 +237,10 @@ void FilePreviewJob::slotStatFile(KJob *job)
     }
 
     if (isLocal) {
-        const QFileInfo localFile(itemUrl.toLocalFile());
-        const QString canonicalPath = localFile.canonicalFilePath();
-        m_origName = QUrl::fromLocalFile(canonicalPath).toEncoded(QUrl::RemovePassword | QUrl::FullyEncoded);
-        if (m_origName.isEmpty()) {
-            qCDebug(KIO_GUI) << "Failed to convert" << itemUrl << "to canonical path, possibly a broken symlink";
-            setError(KIO::ERR_INTERNAL);
-            emitResult();
+        if (const QString linkDest = statResult.stringValue(KIO::UDSEntry::UDS_LINK_DEST); !linkDest.isEmpty()) {
+            m_origName = QUrl::fromLocalFile(linkDest).toEncoded(QUrl::FullyEncoded);
+        } else {
+            m_origName = itemUrl.toEncoded(QUrl::RemovePassword | QUrl::FullyEncoded);
         }
     } else {
         // Don't include the password if any
