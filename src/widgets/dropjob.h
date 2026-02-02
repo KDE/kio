@@ -24,12 +24,14 @@ namespace KIO
  *
  * \value DropJobDefaultFlags
  * \value ShowMenuManually Show the menu manually with DropJob::showMenu
+ * \value[since 6.23] ExcludePluginsActions Exclude plugins actions from drop popup menu
  *
  * \since 5.67
  */
 enum DropJobFlag {
     DropJobDefaultFlags = 0,
     ShowMenuManually = 1,
+    ExcludePluginsActions = 2,
 };
 Q_DECLARE_FLAGS(DropJobFlags, DropJobFlag)
 
