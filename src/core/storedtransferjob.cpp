@@ -249,22 +249,6 @@ static int isUrlPortBad(const QUrl &url)
         }
     }
 
-    if (_error) {
-        static bool override_loaded = false;
-        static QList<int> *overriden_ports = nullptr;
-        if (!override_loaded) {
-            KConfig cfg(QStringLiteral("kio_httprc"));
-            overriden_ports = new QList<int>;
-            *overriden_ports = cfg.group(QString()).readEntry("OverriddenPorts", QList<int>());
-            override_loaded = true;
-        }
-        for (QList<int>::ConstIterator it = overriden_ports->constBegin(); it != overriden_ports->constEnd(); ++it) {
-            if (overriden_ports->contains(url.port())) {
-                _error = 0;
-            }
-        }
-    }
-
     // filter out non https? protocols
     if ((url.scheme() != QLatin1String("http")) && (url.scheme() != QLatin1String("https"))) {
         _error = KIO::ERR_POST_DENIED;
