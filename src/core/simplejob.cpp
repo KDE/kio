@@ -291,11 +291,8 @@ void SimpleJobPrivate::restartAfterRedirection(QUrl *redirectionUrl)
 void SimpleJob::slotMetaData(const KIO::MetaData &_metaData)
 {
     Q_D(SimpleJob);
-    QMapIterator<QString, QString> it(_metaData);
-    while (it.hasNext()) {
-        it.next();
-        d->m_incomingMetaData.insert(it.key(), it.value());
-    }
+
+    d->m_incomingMetaData.insert(_metaData);
 }
 
 //////////
