@@ -159,33 +159,6 @@ WorkerConfig::~WorkerConfig()
     qDeleteAll(d->protocol);
 }
 
-void WorkerConfig::setConfigData(const QString &protocol, const QString &host, const QString &key, const QString &value)
-{
-    MetaData config;
-    config.insert(key, value);
-    setConfigData(protocol, host, config);
-}
-
-void WorkerConfig::setConfigData(const QString &protocol, const QString &host, const MetaData &config)
-{
-    if (protocol.isEmpty()) {
-        d->global += config;
-    } else {
-        WorkerConfigProtocol *scp = d->findProtocolConfig(protocol);
-        if (host.isEmpty()) {
-            scp->global += config;
-        } else {
-            if (!scp->host.contains(host)) {
-                d->readConfigProtocolHost(protocol, scp, host);
-            }
-
-            MetaData hostConfig = scp->host.value(host);
-            hostConfig += config;
-            scp->host.insert(host, hostConfig);
-        }
-    }
-}
-
 MetaData WorkerConfig::configData(const QString &protocol, const QString &host)
 {
     MetaData config = d->global;

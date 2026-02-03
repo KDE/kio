@@ -45,25 +45,6 @@ class WorkerConfig : public QObject
 public:
     static WorkerConfig *self();
     ~WorkerConfig() override;
-    /*!
-     * Configure workers of type \a protocol by setting \a key to \a value.
-     * If \a host is specified the configuration only applies when dealing
-     * with \a host.
-     *
-     * Changes made to the worker configuration only apply to workers
-     * used by the current process.
-     */
-    void setConfigData(const QString &protocol, const QString &host, const QString &key, const QString &value);
-
-    /*!
-     * Configure workers of type \a protocol with \a config.
-     * If \a host is specified the configuration only applies when dealing
-     * with \a host.
-     *
-     * Changes made to the worker configuration only apply to workers
-     * used by the current process.
-     */
-    void setConfigData(const QString &protocol, const QString &host, const MetaData &config);
 
     /*!
      * Query worker configuration for workers of type \a protocol when
