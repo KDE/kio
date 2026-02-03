@@ -589,7 +589,7 @@ void KFileWidgetTest::testDropFile()
     fileWidget.setMode(KFile::File);
     fileWidget.show();
 
-    QMimeData *mimeData = new QMimeData();
+    std::unique_ptr<QMimeData> mimeData(new QMimeData());
     mimeData->setUrls(QList<QUrl>() << fileUrl);
 
     KDirLister *dirLister = fileWidget.dirOperator()->dirLister();
@@ -598,11 +598,11 @@ void KFileWidgetTest::testDropFile()
     QAbstractItemView *view = fileWidget.dirOperator()->view();
     QVERIFY(view);
 
-    QDragEnterEvent event1(QPoint(), Qt::DropAction::MoveAction, mimeData, Qt::MouseButton::LeftButton, Qt::KeyboardModifier::NoModifier);
+    QDragEnterEvent event1(QPoint(), Qt::DropAction::MoveAction, mimeData.get(), Qt::MouseButton::LeftButton, Qt::KeyboardModifier::NoModifier);
     QVERIFY(qApp->sendEvent(view->viewport(), &event1));
 
     // Fake drop
-    QDropEvent event(QPoint(), Qt::DropAction::MoveAction, mimeData, Qt::MouseButton::LeftButton, Qt::KeyboardModifier::NoModifier);
+    QDropEvent event(QPoint(), Qt::DropAction::MoveAction, mimeData.get(), Qt::MouseButton::LeftButton, Qt::KeyboardModifier::NoModifier);
     QVERIFY(qApp->sendEvent(view->viewport(), &event));
 
     if (!dir.isEmpty()) {
