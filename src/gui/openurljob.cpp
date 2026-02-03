@@ -541,7 +541,6 @@ void KIO::OpenUrlJobPrivate::handleDesktopFiles()
         q->setError(KJob::UserDefinedError);
         q->setErrorText(i18n("The desktop entry file %1 has no Type=... entry.", filePath));
         q->emitResult();
-        openInPreferredApp();
         return;
     }
 
