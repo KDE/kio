@@ -72,7 +72,6 @@ public:
     void removeWorkerOnHold();
     Worker *heldWorkerForJob(KIO::SimpleJob *job);
     bool isWorkerOnHoldFor(const QUrl &url);
-    void updateInternalMetaData(SimpleJob *job);
 
     MetaData metaDataFor(const QString &protocol, const QUrl &url);
     void setupWorker(KIO::Worker *worker, const QUrl &url, const QString &protocol, bool newWorker, const KIO::MetaData *config = nullptr);
@@ -584,11 +583,6 @@ bool Scheduler::isWorkerOnHoldFor(const QUrl &url)
     return schedulerPrivate()->isWorkerOnHoldFor(url);
 }
 
-void Scheduler::updateInternalMetaData(SimpleJob *job)
-{
-    schedulerPrivate()->updateInternalMetaData(job);
-}
-
 void Scheduler::emitReparseSlaveConfiguration()
 {
 #ifdef WITH_QTDBUS
@@ -682,30 +676,11 @@ void SchedulerPrivate::jobFinished(SimpleJob *job, Worker *worker)
     }
 
     if (worker) {
-        // If we have internal meta-data, tell existing KIO workers to reload
-        // their configuration.
-        if (jobPriv->m_internalMetaData.count()) {
-            // qDebug() << "Updating KIO workers with new internal metadata information";
-            ProtoQueue *queue = m_protocols.value(worker->protocol());
-            if (queue) {
-                const QList<Worker *> workers = queue->allWorkers();
-                for (auto *runningWorker : workers) {
-                    if (worker->host() == runningWorker->host()) {
-                        worker->setConfig(metaDataFor(worker->protocol(), job->url()));
-                        /*qDebug() << "Updated configuration of" << worker->protocol()
-                                     << "KIO worker, pid=" << worker->worker_pid();*/
-                    }
-                }
-            }
-        }
         worker->setJob(nullptr);
         worker->disconnect(job);
     }
     jobPriv->m_schedSerial = 0; // this marks the job as unscheduled again
     jobPriv->m_worker = nullptr;
-    // Clear the values in the internal metadata container since they have
-    // already been taken care of above...
-    jobPriv->m_internalMetaData.clear();
 }
 
 MetaData SchedulerPrivate::metaDataFor(const QString &protocol, const QUrl &url)
@@ -857,27 +832,6 @@ ProtoQueue *SchedulerPrivate::protoQ(const QString &protocol, const QString &hos
         m_protocols.insert(protocol, pq);
     }
     return pq;
-}
-
-void SchedulerPrivate::updateInternalMetaData(SimpleJob *job)
-{
-    KIO::SimpleJobPrivate *const jobPriv = SimpleJobPrivate::get(job);
-    // Preserve all internal meta-data so they can be sent back to the
-    // KIO workers as needed...
-    const QUrl jobUrl = job->url();
-
-    const QLatin1String currHostToken("{internal~currenthost}");
-    const QLatin1String allHostsToken("{internal~allhosts}");
-    // qDebug() << job << jobPriv->m_internalMetaData;
-    QMapIterator<QString, QString> it(jobPriv->m_internalMetaData);
-    while (it.hasNext()) {
-        it.next();
-        if (it.key().startsWith(currHostToken, Qt::CaseInsensitive)) {
-            WorkerConfig::self()->setConfigData(jobUrl.scheme(), jobUrl.host(), it.key().mid(currHostToken.size()), it.value());
-        } else if (it.key().startsWith(allHostsToken, Qt::CaseInsensitive)) {
-            WorkerConfig::self()->setConfigData(jobUrl.scheme(), QString(), it.key().mid(allHostsToken.size()), it.value());
-        }
-    }
 }
 
 #include "moc_scheduler.cpp"

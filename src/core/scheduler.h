@@ -105,13 +105,6 @@ public:
      */
     static bool isWorkerOnHoldFor(const QUrl &url);
 
-    /*!
-     * Updates the internal metadata from job.
-     *
-     * \since 4.6.5
-     */
-    static void updateInternalMetaData(SimpleJob *job);
-
 Q_SIGNALS:
 
     // DBUS

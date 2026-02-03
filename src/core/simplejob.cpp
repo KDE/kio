@@ -294,18 +294,7 @@ void SimpleJob::slotMetaData(const KIO::MetaData &_metaData)
     QMapIterator<QString, QString> it(_metaData);
     while (it.hasNext()) {
         it.next();
-        if (it.key().startsWith(QLatin1String("{internal~"), Qt::CaseInsensitive)) {
-            d->m_internalMetaData.insert(it.key(), it.value());
-        } else {
-            d->m_incomingMetaData.insert(it.key(), it.value());
-        }
-    }
-
-    // Update the internal meta-data values as soon as possible. Waiting until
-    // the KIO worker is finished has unintended consequences if the client starts
-    // a new connection without waiting for the KIO worker to finish.
-    if (!d->m_internalMetaData.isEmpty()) {
-        Scheduler::updateInternalMetaData(this);
+        d->m_incomingMetaData.insert(it.key(), it.value());
     }
 }
 
