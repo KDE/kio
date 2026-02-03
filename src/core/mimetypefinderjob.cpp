@@ -215,6 +215,7 @@ void KIO::MimeTypeFinderJobPrivate::scanFileWithGet()
                 q->setErrorText(job->errorString());
             }
             q->emitResult();
+            return;
         }
         // if the job succeeded, we certainly hope it emitted mimeTypeFound()...
         if (m_mimeTypeName.isEmpty()) {
