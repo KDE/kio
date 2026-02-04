@@ -317,6 +317,8 @@ protected:
         if (mouseEvent->button() == Qt::LeftButton || mouseEvent->button() == Qt::MiddleButton) {
             QAbstractItemView *view = qobject_cast<QAbstractItemView *>(q);
             const QModelIndex index = view->indexAt(mouseEvent->pos());
+            auto *delegate = qobject_cast<KFilePlacesViewDelegate *>(view->itemDelegate());
+            view->setDragEnabled(index.isValid() && !delegate->pointIsHeaderArea(mouseEvent->pos()));
             if (index.isValid()) {
                 if (mouseEvent->button() == Qt::LeftButton) {
                     if (auto *delegate = qobject_cast<KFilePlacesViewDelegate *>(view->itemDelegate())) {
