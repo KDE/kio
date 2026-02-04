@@ -1,7 +1,7 @@
 # Translation of kio4 to Korean.
 # Copyright (c) 2003, 2004, 2007-2008 Free Software Foundation, Inc.
 # KIM KyungHeon <tody@teoal.net>, 2003, 2004.
-# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025 Shinjo Park <kde@peremen.name>
+# SPDX-FileCopyrightText: 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026 Shinjo Park <kde@peremen.name>
 # JungHee Lee <daemul72@gmail.com>, 2019, 2020.
 #
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-01-27 00:40+0000\n"
-"PO-Revision-Date: 2025-10-09 00:55+0200\n"
+"PO-Revision-Date: 2026-02-04 00:17+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -712,7 +712,7 @@ msgstr "파일이 휴지통에 버리기에 너무 큽니다."
 #: core/job_error.cpp:264
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
-msgstr ""
+msgstr "이 위치에서 휴지통 폴더를 찾거나 생성할 수 없습니다."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -2967,12 +2967,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "폴더만 위치 패널에 추가할 수 있습니다."
 
 #: filewidgets/kfileplacesmodel.cpp:1377
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
-msgstr "웹 바로 가기 설정…"
+msgstr "설정…"
 
 #: filewidgets/kfileplacesmodel.cpp:1413
 #, kde-format
@@ -3182,10 +3180,9 @@ msgid "Huge (%1x%1)"
 msgstr "매우 크게(%1x%1)"
 
 #: filewidgets/kfilewidget.cpp:404
-#, fuzzy, kde-format
-#| msgid "Create Directory"
+#, kde-format
 msgid "Current Directory: %1"
-msgstr "디렉터리 만들기"
+msgstr "현재 디렉터리: %1"
 
 #: filewidgets/kfilewidget.cpp:640
 #, kde-format
@@ -4081,10 +4078,9 @@ msgstr ""
 "의 소유자와 그룹을 변경할 수 없습니다"
 
 #: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
-#, fuzzy, kde-format
-#| msgid "Could Not Rename Temporary File"
+#, kde-format
 msgid "Could not open temporary file"
-msgstr "임시 파일 이름을 바꿀 수 없음"
+msgstr "임시 파일을 열 수 없음"
 
 #: kioworkers/file/file.cpp:765
 #, kde-format
@@ -5239,10 +5235,9 @@ msgid "&Open With…"
 msgstr "다음으로 열기(&O)…"
 
 #: widgets/kfileitemactions.cpp:765
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgid "&Run Executable"
-msgstr "실행(&E)"
+msgstr "파일 실행(&R)"
 
 #: widgets/kfileitemactions.cpp:787
 #, kde-format
@@ -6696,12 +6691,7 @@ msgid "Appl&y to All"
 msgstr "모두 적용(&Y)"
 
 #: widgets/renamedialog.cpp:280
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "folder conflicts for the remainder of the current job.\n"
-#| "Unless you press Skip you will still be prompted in case of a conflict "
-#| "with an existing file in the directory."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
@@ -6714,10 +6704,7 @@ msgstr ""
 "봅니다."
 
 #: widgets/renamedialog.cpp:284
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "conflicts for the remainder of the current job."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
@@ -6857,11 +6844,10 @@ msgstr ""
 "다."
 
 #: widgets/renamedialog.cpp:514
-#, fuzzy, kde-format
-#| msgid "Copy Files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "파일 복사"
+msgstr "파일 비교"
 
 #: widgets/renamedialog.cpp:527
 #, kde-format
@@ -7237,33 +7223,19 @@ msgstr[0] ""
 "니다.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this file. Permanently delete it instead?"
-#| "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This "
-#| "action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"이 항목을 휴지통에 버리기에는 휴지통의 공간이 부족합니다. 대신 이 항목을 완전"
-"히 삭제하시겠습니까?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"이 항목의 위치에서는 휴지통을 사용할 수 없습니다. 대신 이 항목을 완전히 삭제"
+"하시겠습니까?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>이 작업은 실행 취소할 수 없습니다.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this %1 file. Permanently delete it "
-#| "instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
-#| msgid_plural ""
-#| "The trash is too full to accept these %1 files. Permanently delete them "
-#| "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7274,9 +7246,9 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"항목 %1개를 휴지통에 버리기에는 휴지통의 공간이 부족합니다. 대신 완전히 삭제"
-"하시겠습니까?<nl/><nl/><emphasis strong='true'>이 작업은 실행 취소할 수 없습"
-"니다.</emphasis>"
+"항목 %1개의 위치에서는 휴지통을 사용할 수 없습니다. 대신 완전히 삭제하시겠습"
+"니까?<nl/><nl/><emphasis strong='true'>이 작업은 실행 취소할 수 없습니다.</"
+"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
