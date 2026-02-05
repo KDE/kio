@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-27 00:40+0000\n"
+"POT-Creation-Date: 2026-02-05 00:40+0000\n"
 "PO-Revision-Date: 2026-01-21 17:13+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -4870,28 +4870,28 @@ msgstr "Calcola"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Fai clic per copiare il codice di controllo negli appunti."
 
-#: widgets/dropjob.cpp:180
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "&Annulla"
 
-#: widgets/dropjob.cpp:292
+#: widgets/dropjob.cpp:290
 #, kde-format
 msgid "&Move Here"
 msgstr "&Sposta qui"
 
-#: widgets/dropjob.cpp:298
+#: widgets/dropjob.cpp:296
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Scarica qui"
 
-#: widgets/dropjob.cpp:298
+#: widgets/dropjob.cpp:296
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Copia qui"
 
-#: widgets/dropjob.cpp:305
+#: widgets/dropjob.cpp:303
 #, kde-format
 msgid "&Link Here"
 msgstr "Co&llega qui"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-27 00:40+0000\n"
+"POT-Creation-Date: 2026-02-05 00:40+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -4943,17 +4943,17 @@ msgstr "Padličyć"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Nacisnicie, kab skapijavać kantroĺnuju sumu ŭ bufier abmienu."
 
-#: widgets/dropjob.cpp:180
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "&Skasavać"
 
-#: widgets/dropjob.cpp:292
+#: widgets/dropjob.cpp:290
 #, kde-format
 msgid "&Move Here"
 msgstr "&Pieramiascić siudy"
 
-#: widgets/dropjob.cpp:298
+#: widgets/dropjob.cpp:296
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -4961,12 +4961,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "Spampoŭvanni"
 
-#: widgets/dropjob.cpp:298
+#: widgets/dropjob.cpp:296
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Skapijavać siudy"
 
-#: widgets/dropjob.cpp:305
+#: widgets/dropjob.cpp:303
 #, kde-format
 msgid "&Link Here"
 msgstr "&Spasylka"

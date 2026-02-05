@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-27 00:40+0000\n"
+"POT-Creation-Date: 2026-02-05 00:40+0000\n"
 "PO-Revision-Date: 2023-10-24 10:35+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -4803,17 +4803,17 @@ msgstr "Tính"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Bấm để chép giá trị tổng kiểm vào bảng nháp."
 
-#: widgets/dropjob.cpp:180
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "H&uỷ"
 
-#: widgets/dropjob.cpp:292
+#: widgets/dropjob.cpp:290
 #, kde-format
 msgid "&Move Here"
 msgstr "&Chuyển vào đây"
 
-#: widgets/dropjob.cpp:298
+#: widgets/dropjob.cpp:296
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -4821,12 +4821,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "Tải về"
 
-#: widgets/dropjob.cpp:298
+#: widgets/dropjob.cpp:296
 #, kde-format
 msgid "&Copy Here"
 msgstr "Ché&p vào đây"
 
-#: widgets/dropjob.cpp:305
+#: widgets/dropjob.cpp:303
 #, kde-format
 msgid "&Link Here"
 msgstr "&Liên kết đến đây"

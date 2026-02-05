@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-27 00:40+0000\n"
+"POT-Creation-Date: 2026-02-05 00:40+0000\n"
 "PO-Revision-Date: 2026-01-24 11:07+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -4791,28 +4791,28 @@ msgstr "Oblicz"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Kliknij, aby skopiować sumę sprawdzającą do schowka."
 
-#: widgets/dropjob.cpp:180
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "&Anuluj"
 
-#: widgets/dropjob.cpp:292
+#: widgets/dropjob.cpp:290
 #, kde-format
 msgid "&Move Here"
 msgstr "&Przenieś tutaj"
 
-#: widgets/dropjob.cpp:298
+#: widgets/dropjob.cpp:296
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Pobierz tutaj"
 
-#: widgets/dropjob.cpp:298
+#: widgets/dropjob.cpp:296
 #, kde-format
 msgid "&Copy Here"
 msgstr "S&kopiuj tutaj"
 
-#: widgets/dropjob.cpp:305
+#: widgets/dropjob.cpp:303
 #, kde-format
 msgid "&Link Here"
 msgstr "&Dowiąż tutaj"

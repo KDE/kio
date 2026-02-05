@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-01-27 00:40+0000\n"
+"POT-Creation-Date: 2026-02-05 00:40+0000\n"
 "PO-Revision-Date: 2023-06-08 11:57+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -4821,17 +4821,17 @@ msgstr "محاسبه"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "برای رونوشت جمع‌آزما به تخته‌گیره کلیک کنید."
 
-#: widgets/dropjob.cpp:180
+#: widgets/dropjob.cpp:178
 #, kde-format
 msgid "C&ancel"
 msgstr "&لغو"
 
-#: widgets/dropjob.cpp:292
+#: widgets/dropjob.cpp:290
 #, kde-format
 msgid "&Move Here"
 msgstr "&انتقال به این‌جا"
 
-#: widgets/dropjob.cpp:298
+#: widgets/dropjob.cpp:296
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -4839,12 +4839,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "بارگیری‌ها"
 
-#: widgets/dropjob.cpp:298
+#: widgets/dropjob.cpp:296
 #, kde-format
 msgid "&Copy Here"
 msgstr "&رونوشت به این‌جا"
 
-#: widgets/dropjob.cpp:305
+#: widgets/dropjob.cpp:303
 #, kde-format
 msgid "&Link Here"
 msgstr "&پیوند به این‌جا"
