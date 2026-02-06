@@ -10,6 +10,9 @@
 
 #include <QImage>
 
+#include <KConfigGroup>
+#include <KSharedConfig>
+
 namespace KIO
 {
 
@@ -70,6 +73,12 @@ qreal ThumbnailRequest::devicePixelRatio() const
 float ThumbnailRequest::sequenceIndex() const
 {
     return d->sequenceIndex;
+}
+
+filesize_t ThumbnailRequest::maximumFileSize()
+{
+    const KConfigGroup globalConfig(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
+    return globalConfig.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
 }
 
 class ThumbnailResultPrivate

@@ -11,6 +11,8 @@
 
 #include "kiogui_export.h"
 
+#include <kio/global.h>
+
 #include <QObject>
 #include <QUrl>
 
@@ -103,6 +105,14 @@ public:
      * from the beginning.
      */
     float sequenceIndex() const;
+
+    /*!
+     * Returns the maximum file size that should be considered when taking into
+     * account thumbnail requests.
+     *
+     * \since 6.23
+     */
+    static filesize_t maximumFileSize();
 
 private:
     std::unique_ptr<ThumbnailRequestPrivate> d;
