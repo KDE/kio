@@ -213,6 +213,8 @@ Q_SIGNALS:
 
     /*!
      * Emitted when combobox loses focus.
+     *
+     * \since 6.23
      */
     void onFocusOut();
 
