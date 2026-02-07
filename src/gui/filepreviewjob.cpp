@@ -28,6 +28,7 @@
 
 #include <KConfigGroup>
 #include <KFileUtils>
+#include <KMountPoint>
 #include <KProtocolInfo>
 #include <KSharedConfig>
 #include <Solid/Device>
@@ -98,7 +99,7 @@ void FilePreviewJob::start()
         return;
     }
     // We need to first check the device id's so we can find out if the images can be cached
-    QFlags<KIO::StatDetail> details = KIO::StatDefaultDetails | KIO::StatInode | KIO::StatResolveSymlink;
+    QFlags<KIO::StatDetail> details = KIO::StatDefaultDetails | KIO::StatInode | KIO::StatResolveSymlink | KIO::StatMountId;
 
     if (!m_fileItem.isMimeTypeKnown()) {
         details.setFlag(KIO::StatMimeType);
@@ -212,6 +213,22 @@ bool FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
     }
 }
 
+static bool isSlow(const KFileItem &fileItem, const KIO::UDSEntry &entry)
+{
+    const auto mountId = entry.numberValue(KIO::UDSEntry::UDS_MOUNT_ID, 0);
+    // No Mount ID, fall back to blocking KFileItem::isSlow.
+    if (!mountId) {
+        return fileItem.isSlow();
+    }
+
+    const auto mountPoint = KMountPoint::currentMountPoints().findByMountId(mountId);
+    if (!mountPoint) {
+        return fileItem.isSlow();
+    }
+
+    return mountPoint->probablySlow();
+}
+
 void FilePreviewJob::slotStatFile(KJob *job)
 {
     if (job->error()) {
@@ -265,7 +282,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
 
     bool skipCurrentItem = false;
     const KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
-    if ((itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !m_fileItem.isSlow()) {
+    if ((itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !isSlow(m_fileItem, statResult)) {
         const KIO::filesize_t maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
         skipCurrentItem = !m_options.ignoreMaximumSize && size > maximumLocalSize && !m_plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
     } else {
