@@ -59,6 +59,20 @@ public:
          * Returns the mountpoint, or \c nullptr if this device doesn't exist or isn't mounted
          */
         Ptr findByDevice(const QString &device) const;
+
+        /*!
+         * Returns the mount point associated with \a mountId
+         *
+         * Returns the mountpoint, or \c nullptr if there is no mount point associated with this ID.
+         *
+         * This is prefered over looking up a path because it does not have to deal with symlinks.
+         *
+         * \note This is only supported on Linux and returns \c nullptr for all other platforms
+         * \warning mountId must not be zero
+         *
+         * \since 6.24
+         */
+        Ptr findByMountId(quint64 mountId) const;
     };
 
 public:

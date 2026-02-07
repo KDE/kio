@@ -595,6 +595,21 @@ KMountPoint::Ptr KMountPoint::List::findByDevice(const QString &device) const
     return Ptr();
 }
 
+KMountPoint::Ptr KMountPoint::List::findByMountId(quint64 mountId) const
+{
+#if HAVE_STATX_MNT_ID
+    Q_ASSERT(mountId);
+    for (const KMountPoint::Ptr &mountPoint : *this) {
+        if (mountPoint->d->m_mountId == mountId) {
+            return mountPoint;
+        }
+    }
+#else
+    Q_UNUSED(mountId)
+#endif
+    return Ptr();
+}
+
 bool KMountPoint::probablySlow() const
 {
     /* clang-format off */
