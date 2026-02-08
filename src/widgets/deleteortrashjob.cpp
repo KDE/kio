@@ -51,6 +51,7 @@ public:
     AskIface::ConfirmationType m_confirm;
     QWidget *m_parentWindow = nullptr;
     QMetaObject::Connection m_handlerConnection;
+    bool m_autoErrorHandling = true;
 };
 
 void DeleteOrTrashJobPrivate::slotAskUser(bool allowDelete, const QList<QUrl> &urls, AskIface::DeletionType delType, QWidget *parentWindow)
@@ -86,6 +87,7 @@ void DeleteOrTrashJobPrivate::slotAskUser(bool allowDelete, const QList<QUrl> &u
         // because if Trashing fails (e.g. due to size constraints), we'll re-ask the
         // user about deleting instead of Trashing, in which case we don't want to
         // show the "File is too large to Trash" error message
+        m_autoErrorHandling = job->uiDelegate()->isAutoErrorHandlingEnabled();
         job->uiDelegate()->setAutoErrorHandlingEnabled(false);
         q->addSubjob(job);
 
@@ -152,7 +154,9 @@ void DeleteOrTrashJob::slotResult(KJob *job)
         setError(errCode);
         // We're a KJob, not a KIO::Job, so build the error string here
         setErrorText(KIO::buildErrorString(errCode, job->errorText()));
-        job->uiDelegate()->showErrorMessage();
+        if (d->m_autoErrorHandling) {
+            job->uiDelegate()->showErrorMessage();
+        }
     }
     emitResult();
 }
