@@ -189,7 +189,7 @@ TrashSizeCache::SizeAndModTime TrashSizeCache::scanFilesInTrash(ScanFilesInTrash
         } else {
             // directories
             bool usableCache = false;
-            auto dirIt = dirCache.constFind(QFile::encodeName(fileName));
+            auto dirIt = dirCache.constFind(QFile::encodeName(fileName).toPercentEncoding());
             if (dirIt != dirCache.constEnd()) {
                 const SizeAndModTime &data = *dirIt;
                 const auto trashFileInfo = getTrashFileInfo(fileName);
