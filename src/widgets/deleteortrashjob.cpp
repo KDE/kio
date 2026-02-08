@@ -108,10 +108,14 @@ void DeleteOrTrashJob::start()
 {
     auto *askHandler = KIO::delegateExtension<AskIface *>(this);
     if (!askHandler) {
-        auto *uiDelegate = new KJobUiDelegate(KJobUiDelegate::AutoErrorHandlingEnabled);
-        auto *widgetAskHandler = new WidgetsAskUserActionHandler(uiDelegate);
+        auto *delegate = uiDelegate();
+        if (!delegate) {
+            delegate = new KJobUiDelegate(KJobUiDelegate::AutoErrorHandlingEnabled);
+            setUiDelegate(delegate);
+        }
+        d->m_autoErrorHandling = delegate->isAutoErrorHandlingEnabled();
+        auto *widgetAskHandler = new WidgetsAskUserActionHandler(delegate);
         widgetAskHandler->setWindow(d->m_parentWindow);
-        setUiDelegate(uiDelegate);
         askHandler = widgetAskHandler;
     }
 
