@@ -947,7 +947,7 @@ void KFilePropsPlugin::applyIconChanges()
 
         // Get the default image
         QMimeDatabase db;
-        const QString str = db.mimeTypeForFile(url.toLocalFile(), QMimeDatabase::MatchExtension).iconName();
+        const QString str = db.mimeTypeForName(d->mimeType).iconName();
         // Is it another one than the default ?
         QString sIcon;
         if (const QString currIcon = d->m_ui->iconButton->icon(); str != currIcon) {
