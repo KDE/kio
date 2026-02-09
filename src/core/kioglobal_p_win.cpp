@@ -12,20 +12,6 @@
 
 #include <qt_windows.h>
 
-KIOCORE_EXPORT bool KIOPrivate::isProcessAlive(qint64 pid)
-{
-    HANDLE procHandle = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, FALSE, pid);
-    bool alive = false;
-    if (procHandle != INVALID_HANDLE_VALUE) {
-        DWORD exitCode;
-        if (GetExitCodeProcess(procHandle, &exitCode)) {
-            alive = exitCode == STILL_ACTIVE;
-        }
-        CloseHandle(procHandle);
-    }
-    return alive;
-}
-
 // A callback to shutdown cleanly (no forced kill)
 BOOL CALLBACK closeProcessCallback(HWND hwnd, LPARAM lParam)
 {

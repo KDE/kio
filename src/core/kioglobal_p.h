@@ -91,11 +91,6 @@ KIOCORE_EXPORT int kio_windows_lstat(const char *path, QT_STATBUF *buffer);
 namespace KIOPrivate
 {
 /*!
- * Returns \c true if the process with given PID is currently running
- * \internal
- */
-KIOCORE_EXPORT bool isProcessAlive(qint64 pid);
-/*!
  * Send a terminate signal (SIGTERM on UNIX) to the process with given PID.
  * \internal
  */

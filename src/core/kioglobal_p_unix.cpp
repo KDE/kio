@@ -10,11 +10,6 @@
 #include <signal.h>
 #include <unistd.h>
 
-KIOCORE_EXPORT bool KIOPrivate::isProcessAlive(qint64 pid)
-{
-    return ::kill(pid, 0) == 0;
-}
-
 KIOCORE_EXPORT void KIOPrivate::sendTerminateSignal(qint64 pid)
 {
     ::kill(pid, SIGTERM);

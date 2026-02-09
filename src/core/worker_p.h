@@ -200,7 +200,6 @@ private:
 public Q_SLOTS: // TODO KF6: make all three slots private
     void accept();
     void gotInput();
-    void timeout();
 
 Q_SIGNALS:
     void workerDied(KIO::Worker *worker);
@@ -217,7 +216,6 @@ private:
     qint64 m_pid = 0; // only set for out-of-process workers
     quint16 m_port = 0;
     bool m_dead = false;
-    QElapsedTimer m_contact_started;
     QElapsedTimer m_idleSince;
     int m_refCount = 1;
 #ifdef BUILD_TESTING

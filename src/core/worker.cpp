@@ -41,18 +41,6 @@
 using namespace Qt::StringLiterals;
 using namespace KIO;
 
-static constexpr int s_workerConnectionTimeoutMin = 2;
-
-// Without debug info we consider it an error if the worker doesn't connect
-// within 10 seconds.
-// With debug info we give the worker an hour so that developers have a chance
-// to debug their worker.
-#ifdef NDEBUG
-static constexpr int s_workerConnectionTimeoutMax = 10;
-#else
-static constexpr int s_workerConnectionTimeoutMax = 3600;
-#endif
-
 void Worker::accept()
 {
     m_workerConnServer->setNextPendingConnection(m_connection);
@@ -62,50 +50,12 @@ void Worker::accept()
     connect(m_connection, &Connection::readyRead, this, &Worker::gotInput);
 }
 
-void Worker::timeout()
-{
-    if (m_dead) { // already dead? then workerDied was emitted and we are done
-        return;
-    }
-    if (m_connection->isConnected()) {
-        return;
-    }
-
-    /*qDebug() << "worker failed to connect to application pid=" << m_pid
-                 << " protocol=" << m_protocol;*/
-    if (m_pid && KIOPrivate::isProcessAlive(m_pid)) {
-        int delta_t = m_contact_started.elapsed() / 1000;
-        // qDebug() << "worker is slow... pid=" << m_pid << " t=" << delta_t;
-        if (delta_t < s_workerConnectionTimeoutMax) {
-            QTimer::singleShot(1000 * s_workerConnectionTimeoutMin, this, &Worker::timeout);
-            return;
-        }
-    }
-    // qDebug() << "Houston, we lost our worker, pid=" << m_pid;
-    m_connection->close();
-    m_dead = true;
-    QString arg = m_protocol;
-    if (!m_host.isEmpty()) {
-        arg += QLatin1String("://") + m_host;
-    }
-    // qDebug() << "worker failed to connect pid =" << m_pid << arg;
-
-    ref();
-    // Tell the job about the problem.
-    Q_EMIT error(ERR_WORKER_DIED, arg);
-    // Tell the scheduler about the problem.
-    Q_EMIT workerDied(this);
-    // After the above signal we're dead!!
-    deref();
-}
-
 Worker::Worker(const QString &protocol, QObject *parent)
     : WorkerInterface(parent)
     , m_protocol(protocol)
     , m_workerProtocol(protocol)
     , m_workerConnServer(new KIO::ConnectionServer)
 {
-    m_contact_started.start();
     m_workerConnServer->setParent(this);
     m_workerConnServer->listenForRemote();
     if (!m_workerConnServer->isListening()) {
