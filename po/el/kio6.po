@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:40+0000\n"
+"POT-Creation-Date: 2026-02-09 00:39+0000\n"
 "PO-Revision-Date: 2024-09-19 21:59+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2339,7 +2339,7 @@ msgstr ""
 "Κακοδιατυπωμένο URL\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:223
+#: core/mimetypefinderjob.cpp:224
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "Αδύνατος ο προσδιορισμός του τύπου του αρχείου για το %1"
@@ -3941,7 +3941,7 @@ msgstr ""
 "Αδυναμία ορισμού της υπηρεσίας %1 ως εκτελέσιμη, εγκατάλειψη εκτέλεσης.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -4065,7 +4065,7 @@ msgid "The desktop entry file %1 has no Type=... entry."
 msgstr ""
 "Το αρχείο καταχώρησης επιφάνειας εργασίας %1 δεν έχει καταχώρηση Type=... ."
 
-#: gui/openurljob.cpp:635
+#: gui/openurljob.cpp:634
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4076,12 +4076,12 @@ msgstr ""
 "Ελέγξτε τις ανοιχτές εφαρμογές σας και την περιοχή ειδοποιήσεων για τυχόν "
 "εκκρεμείς εργασίες ή λήψεις."
 
-#: gui/openurljob.cpp:661
+#: gui/openurljob.cpp:660
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Αποτυχία ανοίγματος του αρχείου."
 
-#: gui/openurljob.cpp:695
+#: gui/openurljob.cpp:694
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Το πρόγραμμα «%1» δεν μπόρεσε να εκκινηθεί."

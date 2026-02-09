@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:40+0000\n"
+"POT-Creation-Date: 2026-02-09 00:39+0000\n"
 "PO-Revision-Date: 2023-02-18 20:42+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -2286,7 +2286,7 @@ msgstr ""
 "Səhv URL\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:223
+#: core/mimetypefinderjob.cpp:224
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "%1 faylının növünü müəyyən etmək mümkün olmadı"
@@ -3892,7 +3892,7 @@ msgstr ""
 "%1 xidmətini icra etmək mümkün deyil, icra dayandırılır.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Bu faylı açmaq üçün bir tətbiq seçmək səlahiyyətiniz yoxdur."
@@ -4011,7 +4011,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Masaüstünün %1 qeyd faylında Type=... girişi yoxdur."
 
-#: gui/openurljob.cpp:635
+#: gui/openurljob.cpp:634
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4022,12 +4022,12 @@ msgstr ""
 "Gözləyən tapşırıqları və ya yükləmələri görmək üçün açıq tətbiqlərinizi və "
 "bildiriş sahəsini yoxlayın."
 
-#: gui/openurljob.cpp:661
+#: gui/openurljob.cpp:660
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Fayl açılmır."
 
-#: gui/openurljob.cpp:695
+#: gui/openurljob.cpp:694
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "\"%1\" proqramı başladılmadı."

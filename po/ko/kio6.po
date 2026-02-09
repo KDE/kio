@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:40+0000\n"
+"POT-Creation-Date: 2026-02-09 00:39+0000\n"
 "PO-Revision-Date: 2026-02-04 00:17+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2232,7 +2232,7 @@ msgstr ""
 "잘못된 형식의 URL\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:223
+#: core/mimetypefinderjob.cpp:224
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "%1의 파일 형식을 결정할 수 없음"
@@ -3778,7 +3778,7 @@ msgstr ""
 "%1 서비스를 실행할 수 없습니다. 실행을 중단합니다.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "이 파일을 열 앱을 선택할 권한이 없습니다."
@@ -3894,7 +3894,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "데스크톱 항목 파일 %1에 Type=... 항목이 없습니다."
 
-#: gui/openurljob.cpp:635
+#: gui/openurljob.cpp:634
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3904,12 +3904,12 @@ msgstr ""
 "이 파일은 완전하지 않으며 열어서는 안 됩니다.\n"
 "열린 앱과 알림 영역에서 대기 중인 작업이나 다운로드를 확인하십시오."
 
-#: gui/openurljob.cpp:661
+#: gui/openurljob.cpp:660
 #, kde-format
 msgid "Failed to open the file."
 msgstr "파일을 열 수 없습니다."
 
-#: gui/openurljob.cpp:695
+#: gui/openurljob.cpp:694
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "\"%1\" 프로그램을 실행할 수 없습니다."

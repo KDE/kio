@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:40+0000\n"
+"POT-Creation-Date: 2026-02-09 00:39+0000\n"
 "PO-Revision-Date: 2026-01-24 23:15+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -2321,7 +2321,7 @@ msgstr ""
 "Blogai suformuotas URL\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:223
+#: core/mimetypefinderjob.cpp:224
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "Nepavyko nustatyti %1 failo tipo"
@@ -3904,7 +3904,7 @@ msgstr ""
 "Nepavyko paversti %1 tarnybos vykdomąja, vykdymas nutraukiamas.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Jūs neturite teisės pasirinkti programos, kuri atvers šį failą."
@@ -4021,7 +4021,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Darbalaukio įrašo failas %1 neturi Type=... įrašo."
 
-#: gui/openurljob.cpp:635
+#: gui/openurljob.cpp:634
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4032,12 +4032,12 @@ msgstr ""
 "Patikrinkite atvertas programas ir pranešimų sritį, ar jose nėra neužbaigtų "
 "užduočių arba atsiuntimų."
 
-#: gui/openurljob.cpp:661
+#: gui/openurljob.cpp:660
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Nepavyko atverti failo."
 
-#: gui/openurljob.cpp:695
+#: gui/openurljob.cpp:694
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Nepavyko paleisti programos „%1“."

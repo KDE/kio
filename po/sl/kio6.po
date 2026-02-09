@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:40+0000\n"
+"POT-Creation-Date: 2026-02-09 00:39+0000\n"
 "PO-Revision-Date: 2026-01-20 07:14+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -2300,7 +2300,7 @@ msgstr ""
 "Napačno oblikovan URL\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:223
+#: core/mimetypefinderjob.cpp:224
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "Ni mogoče določiti vrste datoteke za %1"
@@ -3868,7 +3868,7 @@ msgstr ""
 "Storitve %1 ni mogoče napraviti izvedljive, prekinjam izvajanje.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Nimate dovoljenja, da bi izbrali program za odpiranje te datoteke."
@@ -3988,7 +3988,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Datoteka z vnosi za namizje »%1« nima vnosa  za vrsto: Type=…."
 
-#: gui/openurljob.cpp:635
+#: gui/openurljob.cpp:634
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3999,12 +3999,12 @@ msgstr ""
 "Preverite vaše odprte aplikacije in področje obvestil za nedokončanimi "
 "opravili ali prenosi."
 
-#: gui/openurljob.cpp:661
+#: gui/openurljob.cpp:660
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Ni bilo mogoče odpreti datoteke."
 
-#: gui/openurljob.cpp:695
+#: gui/openurljob.cpp:694
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Programa »%1« ni bilo mogoče zagnati."

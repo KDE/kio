@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:40+0000\n"
+"POT-Creation-Date: 2026-02-09 00:39+0000\n"
 "PO-Revision-Date: 2025-12-02 13:27+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -2288,7 +2288,7 @@ msgstr ""
 "Gölluð slóð\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:223
+#: core/mimetypefinderjob.cpp:224
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "Ekki tókst að ákvarða skráagerðina fyrir %1"
@@ -3859,7 +3859,7 @@ msgstr ""
 "Tókst ekki að gera þjónustuna %1 keyranlega, hætt við keyrslu.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Þú hefur ekki heimild til að velja forrit til að opna þessa skrá."
@@ -3978,7 +3978,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Skjáborðsfærsluskráin %1 er ekki með neina Type=...-færslu."
 
-#: gui/openurljob.cpp:635
+#: gui/openurljob.cpp:634
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3989,12 +3989,12 @@ msgstr ""
 "Athugaðu hvort verk í bið eða niðurhal sé að finna í forritum sem eru opin "
 "og á tilkynningasvæðinu."
 
-#: gui/openurljob.cpp:661
+#: gui/openurljob.cpp:660
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Mistókst að opna skrána."
 
-#: gui/openurljob.cpp:695
+#: gui/openurljob.cpp:694
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Ekki var hægt að ræsa forritið \"%1\"."

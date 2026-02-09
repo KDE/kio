@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:40+0000\n"
+"POT-Creation-Date: 2026-02-09 00:39+0000\n"
 "PO-Revision-Date: 2026-01-20 05:53+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2282,7 +2282,7 @@ msgstr ""
 "არასწორი URL\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:223
+#: core/mimetypefinderjob.cpp:224
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "%1-ის ფაილის ტიპის გამოცნობა შეუძლებელია"
@@ -3846,7 +3846,7 @@ msgstr ""
 "სერვისის %1 გაშვებადად გადაკეთება შეუძლებებელია. შესრულება შეწყდება.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "ამ ფაილის გასახსნელი აპლიკაციის არჩევის ავტორიზაცია არ გაგაჩნიათ."
@@ -3965,7 +3965,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "სამუშაო მაგიდის ფაილს %1 Type= ჩანაწერი არ გააჩნია."
 
-#: gui/openurljob.cpp:635
+#: gui/openurljob.cpp:634
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3976,12 +3976,12 @@ msgstr ""
 "შეამოწმეთ ღია აპლიკაციები და საათთან რამე ამოცანა ან გადმოწერა ხომ არ "
 "მიმდინარეობს."
 
-#: gui/openurljob.cpp:661
+#: gui/openurljob.cpp:660
 #, kde-format
 msgid "Failed to open the file."
 msgstr "ფაილის გახსნის შეცდომა."
 
-#: gui/openurljob.cpp:695
+#: gui/openurljob.cpp:694
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "პროგრამა %1-ის გაშების შეცდომა."

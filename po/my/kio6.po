@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-05 00:40+0000\n"
+"POT-Creation-Date: 2026-02-09 00:39+0000\n"
 "PO-Revision-Date: 2025-09-10 15:28+0630\n"
 "Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2201,7 +2201,7 @@ msgstr ""
 "ပုံပျက်နေသော ယူအာအယ်လ်\n"
 "%1"
 
-#: core/mimetypefinderjob.cpp:223
+#: core/mimetypefinderjob.cpp:224
 #, kde-format
 msgid "Unable to determine the type of file for %1"
 msgstr "%1၏ ဖိုင်အမျိုးအစားကို မဆုံးဖြတ်နိုင်ပါ"
@@ -3741,7 +3741,7 @@ msgstr ""
 "ဝန်ဆောင်မှု %1 ကို လုပ်ဆောင်-ဖိုင် မလုပ်နိုင်ခဲ့ပါ၊ ဆောင်ရွက်မှုကို စွန့်လွှတ်နေသည်။\n"
 "%2။"
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:649
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "ဤဖိုင်ကိုဖွင့်ရန် အပ္ပလီကေးရှင်းရွေးချက်မှုဆောင်ရွက်ဖို့ သင့်အား ခွင့်ပြုထားခြင်းမရှိ။"
@@ -3855,7 +3855,7 @@ msgstr ""
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "ဒက်စတော့ပ်စာရင်းမှတ်ချက်ဖိုင် %1 တွင် 'Type=…' မပါဝင်ပါ။"
 
-#: gui/openurljob.cpp:635
+#: gui/openurljob.cpp:634
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3866,12 +3866,12 @@ msgstr ""
 "သင်ဖွင့်ထားသောအပ္ပလီကေးရှင်းများနှင့် အသိပေးချက်ဧရိယာတွင် လုပ်ဆဲဖြစ်နေသော အလုပ်သို့မဟုတ်ဒေါင်းလုတ်များကို "
 "စစ်ကြည့်ပါ။"
 
-#: gui/openurljob.cpp:661
+#: gui/openurljob.cpp:660
 #, kde-format
 msgid "Failed to open the file."
 msgstr "ဖိုင်ကိုမဖွင့်နိုင်ခဲ့ပါ။"
 
-#: gui/openurljob.cpp:695
+#: gui/openurljob.cpp:694
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "ပရိုဂရမ် \"%1\"ကို လွှင်တင်၍မရပါ။"
