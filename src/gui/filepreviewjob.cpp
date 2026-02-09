@@ -49,6 +49,8 @@
 #endif
 
 using namespace KIO;
+using namespace Qt::Literals;
+using namespace std::chrono_literals;
 
 FilePreviewJob::FilePreviewJob(const KFileItem &fileItem,
                                int parentDirDeviceId,
@@ -107,6 +109,8 @@ void FilePreviewJob::start()
     statJob->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     connect(statJob, &KIO::Job::result, this, &FilePreviewJob::slotStatFile);
     statJob->start();
+
+    m_timeoutTimer = startTimer(2s);
 }
 
 bool FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
@@ -532,13 +536,13 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
             return;
         }
 
-        KIO::StandardThumbnailJob *job =
+        m_standardThumbnailJob =
             new KIO::StandardThumbnailJob(m_plugin.value(u"Exec"), m_options.size.width() * m_options.devicePixelRatio, pixPath, m_tempDirPath);
-        connect(job, &KIO::StandardThumbnailJob::data, this, [=, this](KIO::Job *job, const QImage &thumb) {
+        connect(m_standardThumbnailJob, &KIO::StandardThumbnailJob::data, this, [=, this](KIO::Job *job, const QImage &thumb) {
             slotStandardThumbData(job, thumb);
         });
-        connect(job, &KIO::StandardThumbnailJob::result, this, &FilePreviewJob::emitResult);
-        job->start();
+        connect(m_standardThumbnailJob, &KIO::StandardThumbnailJob::result, this, &FilePreviewJob::emitResult);
+        m_standardThumbnailJob->start();
         return;
     }
 
@@ -546,36 +550,36 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
     QUrl thumbURL;
     thumbURL.setScheme(QStringLiteral("thumbnail"));
     thumbURL.setPath(pixPath);
-    KIO::TransferJob *job = KIO::get(thumbURL, NoReload, HideProgressInfo);
-    connect(job, &KIO::TransferJob::data, this, [this](KIO::Job *job, const QByteArray &data) {
+    m_transferjob = KIO::get(thumbURL, NoReload, HideProgressInfo);
+    connect(m_transferjob, &KIO::TransferJob::data, this, [this](KIO::Job *job, const QByteArray &data) {
         slotThumbData(job, data);
     });
-    connect(job, &KIO::TransferJob::result, this, &FilePreviewJob::emitResult);
+    connect(m_transferjob, &KIO::TransferJob::result, this, &FilePreviewJob::emitResult);
     int thumb_width = m_options.size.width();
     int thumb_height = m_options.size.height();
     if (save) {
         thumb_width = thumb_height = m_cacheSize;
     }
 
-    job->addMetaData(QStringLiteral("mimeType"), m_fileItem.mimetype());
-    job->addMetaData(QStringLiteral("width"), QString::number(thumb_width));
-    job->addMetaData(QStringLiteral("height"), QString::number(thumb_height));
-    job->addMetaData(QStringLiteral("plugin"), m_plugin.fileName());
-    job->addMetaData(QStringLiteral("enabledPlugins"), m_setupData.enabledPluginIds.join(QLatin1Char(',')));
-    job->addMetaData(QStringLiteral("devicePixelRatio"), QString::number(m_options.devicePixelRatio));
-    job->addMetaData(QStringLiteral("cache"), QString::number(m_currentDeviceCachePolicy == CachePolicy::Allow));
+    m_transferjob->addMetaData(QStringLiteral("mimeType"), m_fileItem.mimetype());
+    m_transferjob->addMetaData(QStringLiteral("width"), QString::number(thumb_width));
+    m_transferjob->addMetaData(QStringLiteral("height"), QString::number(thumb_height));
+    m_transferjob->addMetaData(QStringLiteral("plugin"), m_plugin.fileName());
+    m_transferjob->addMetaData(QStringLiteral("enabledPlugins"), m_setupData.enabledPluginIds.join(QLatin1Char(',')));
+    m_transferjob->addMetaData(QStringLiteral("devicePixelRatio"), QString::number(m_options.devicePixelRatio));
+    m_transferjob->addMetaData(QStringLiteral("cache"), QString::number(m_currentDeviceCachePolicy == CachePolicy::Allow));
     if (m_options.sequenceIndex) {
-        job->addMetaData(QStringLiteral("sequence-index"), QString::number(m_options.sequenceIndex));
+        m_transferjob->addMetaData(QStringLiteral("sequence-index"), QString::number(m_options.sequenceIndex));
     }
 
     size_t requiredSize = thumb_width * m_options.devicePixelRatio * thumb_height * m_options.devicePixelRatio * 4;
     m_shm = SHM::create(requiredSize);
 
     if (m_shm) {
-        job->addMetaData(QStringLiteral("shmid"), QString::number(m_shm->id()));
+        m_transferjob->addMetaData(QStringLiteral("shmid"), QString::number(m_shm->id()));
     }
 
-    job->start();
+    m_transferjob->start();
 }
 
 void FilePreviewJob::slotStandardThumbData(KIO::Job *job, const QImage &thumbData)
@@ -732,6 +736,22 @@ QMap<QString, QString> FilePreviewJob::thumbnailWorkerMetaData() const
 QImage FilePreviewJob::previewImage() const
 {
     return m_preview;
+}
+
+void FilePreviewJob::timerEvent(QTimerEvent *event)
+{
+    if (event->timerId() == m_timeoutTimer) {
+        if (m_transferjob) {
+            m_transferjob->kill();
+        }
+        if (m_standardThumbnailJob) {
+            m_standardThumbnailJob->kill();
+        }
+
+        setError(KIO::ERR_INTERNAL);
+        setErrorText(u"Timeout"_s);
+        emitResult();
+    }
 }
 
 std::unique_ptr<SHM> SHM::create(int size)

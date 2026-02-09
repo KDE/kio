@@ -19,6 +19,9 @@
 namespace KIO
 {
 
+class TransferJob;
+class StandardThumbnailJob;
+
 struct PreviewOptions {
     // Size of thumbnail
     QSize size;
@@ -104,6 +107,9 @@ public:
     static QList<KPluginMetaData> loadAvailablePlugins();
     static QList<KPluginMetaData> standardThumbnailers();
 
+protected:
+    void timerEvent(QTimerEvent *event) override;
+
 private Q_SLOTS:
     void slotStatFile(KJob *job);
     void slotGetOrCreateThumbnail(KJob *job);
@@ -151,6 +157,11 @@ private:
 
     bool m_standardThumbnailer = false;
     KPluginMetaData m_plugin;
+
+    int m_timeoutTimer = -1;
+
+    KIO::TransferJob *m_transferjob = nullptr;
+    KIO::StandardThumbnailJob *m_standardThumbnailJob = nullptr;
 
     void getOrCreateThumbnail();
     static QImage loadThumbnailFromCache(const QString &url, qreal dpr);
