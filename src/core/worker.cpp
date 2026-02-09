@@ -53,7 +53,6 @@ void Worker::accept()
 Worker::Worker(const QString &protocol, QObject *parent)
     : WorkerInterface(parent)
     , m_protocol(protocol)
-    , m_workerProtocol(protocol)
     , m_workerConnServer(new KIO::ConnectionServer)
 {
     m_workerConnServer->setParent(this);
@@ -79,11 +78,6 @@ QString Worker::protocol() const
 void Worker::setProtocol(const QString &protocol)
 {
     m_protocol = protocol;
-}
-
-QString Worker::workerProtocol() const
-{
-    return m_workerProtocol;
 }
 
 QString Worker::host() const

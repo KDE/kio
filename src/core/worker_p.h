@@ -49,20 +49,6 @@ public:
     virtual void send(int cmd, const QByteArray &arr = QByteArray());
 
     /*!
-     * The actual protocol used to handle the request.
-     *
-     * This method will return a different protocol than
-     * the one obtained by using protocol() if a
-     * proxy-server is used for the given protocol.  This
-     * usually means that this method will return "http"
-     * when the actual request was to retrieve a resource
-     * from an "ftp" server by going through a proxy server.
-     *
-     * Returns the actual protocol (KIO worker) that handled the request
-     */
-    QString workerProtocol() const;
-
-    /*!
      * Returns Host this worker is (was?) connected to
      */
     QString host() const;
@@ -207,7 +193,6 @@ Q_SIGNALS:
 private:
     WorkerThread *m_workerThread = nullptr; // only set for in-process workers
     QString m_protocol;
-    QString m_workerProtocol;
     QString m_host;
     QString m_user;
     QString m_passwd;
