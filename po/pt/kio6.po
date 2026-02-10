@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-09 00:39+0000\n"
+"POT-Creation-Date: 2026-02-10 00:40+0000\n"
 "PO-Revision-Date: 2026-01-27 20:13+0000\n"
 "Last-Translator: César A. P. Cláudio <cesarapclaudio@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
@@ -2493,7 +2493,7 @@ msgstr "Abrir ficheiros não é suportado pelo protocolo %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "O protocolo %1 não suporta a ação %2."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:303
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2505,17 +2505,17 @@ msgstr ""
 "permissões de administrador, não pode ser assegurada porque existem "
 "utilizadores além do 'root' com permissões para o modificar em %2."
 
-#: core/worker.cpp:391
+#: core/worker.cpp:341
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protocolo desconhecido '%1'."
 
-#: core/worker.cpp:402
+#: core/worker.cpp:352
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Não foi possível encontrar um módulo do KIO para o protocolo '%1'."
 
-#: core/worker.cpp:409
+#: core/worker.cpp:359
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2527,14 +2527,14 @@ msgstr ""
 "módulos KIO que se encontram fora de %3 e que solicitam permissões de "
 "administrador são considerados inseguros."
 
-#: core/worker.cpp:421
+#: core/worker.cpp:371
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Não é possível criar um ponto de ligação ('socket') para lançar um módulo "
 "KIO para o protocolo '%1'."
 
-#: core/worker.cpp:461
+#: core/worker.cpp:411
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Não foi possível encontrar o executável 'kioworker' em '%1'"

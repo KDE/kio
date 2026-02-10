@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-09 00:39+0000\n"
+"POT-Creation-Date: 2026-02-10 00:40+0000\n"
 "PO-Revision-Date: 2025-09-10 15:28+0630\n"
 "Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2314,7 +2314,7 @@ msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖ�
 msgid "Protocol %1 does not support action %2."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် လုပ်ဆောင်ချက် %2 ပြုလုပ်၍မရပါ။"
 
-#: core/worker.cpp:353
+#: core/worker.cpp:303
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2325,17 +2325,17 @@ msgstr ""
 "ခွင့်ပြုချက်လိုသည်များအတွက် တောင်းခံပေးသည့် '%1' KIO worker၏လုံခြုံရေးလုပ်ထုံးကိုတရားသေယုံကြည့်ထား၍မရပါ။ "
 "rootအပြင်အခြားသုံးစွဲသူများကလည်း %2တွင် လုပ်ထုံးကိုပြင်ဆင်ထားနိုင်သောကြောင့်ဖြစ်သည်။"
 
-#: core/worker.cpp:391
+#: core/worker.cpp:341
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "မသိသောလုပ်ရိုးလုပ်ထုံး '%1'။"
 
-#: core/worker.cpp:402
+#: core/worker.cpp:352
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' စနစ်အတွက် KIO workerရှာမတွေ့ပါ။"
 
-#: core/worker.cpp:409
+#: core/worker.cpp:359
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2346,12 +2346,12 @@ msgstr ""
 "%2ရှိ \"%1\" KIO workerကို မတွန်းတင်ထားပါ။ %3အပြင်ရောက်နေပြီး "
 "အဆင့်တိုးမြင့်သတ်မှတ်ချက်တောင်းခံမှုလုပ်ဆောင်ခြင်းသည် မယုံကြည့်ရ၍ဖြစ်သည်"
 
-#: core/worker.cpp:421
+#: core/worker.cpp:371
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "'%1' စနစ်အတွက် KIO worker လွှင့်တင်ရန် socketမဖန်တီးနိုင်ခဲ့ပါ"
 
-#: core/worker.cpp:461
+#: core/worker.cpp:411
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'တွင်'kioworker'ကိုရှာမတွေ့ပါ"

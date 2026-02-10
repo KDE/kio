@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-09 00:39+0000\n"
+"POT-Creation-Date: 2026-02-10 00:40+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda\n"
@@ -2454,7 +2454,7 @@ msgstr "Empulizagana ey'ekika kya %1 tesobozesa okubikkula fayiro."
 msgid "Protocol %1 does not support action %2."
 msgstr "Empulizagana ey'ekika kya %1 tesobozesa ekikolwa %2."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:303
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2467,18 +2467,18 @@ msgstr ""
 "kubanga abaatlina buyinza bwa muteesiteesi (root) bakkirizibwa okuyita mu "
 "kkubo %2 okukyusa ebiragiro ebigirimu."
 
-#: core/worker.cpp:391
+#: core/worker.cpp:341
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Ekika kya mpulizagana '%1' tekitegeerese."
 
-#: core/worker.cpp:402
+#: core/worker.cpp:352
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr ""
 "Puloguramu eyeyazikiba eya KIO ekola ku mpulizagana ey'ekika kya '%1' ebuze."
 
-#: core/worker.cpp:409
+#: core/worker.cpp:359
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2491,14 +2491,14 @@ msgstr ""
 "ezitali munda mu %3 nga ate z'etaaga okweyongeza bunyinza zibalibwa nga "
 "eziteesigika."
 
-#: core/worker.cpp:421
+#: core/worker.cpp:371
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Nnemedwa okukolawo soketi enaakozesebwa okutandikayo puloguramu eyeyazikibwa "
 "eya KIO ekola ku mpulizagana ey'ekika kya '%1'."
 
-#: core/worker.cpp:461
+#: core/worker.cpp:411
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Puloguramu 'kioslave5' sisobodde okugiraba ku '%1'"

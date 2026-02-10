@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-09 00:39+0000\n"
+"POT-Creation-Date: 2026-02-10 00:40+0000\n"
 "PO-Revision-Date: 2024-09-19 21:59+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2455,7 +2455,7 @@ msgstr "Το άνοιγμα αρχείων δεν υποστηρίζεται μ�
 msgid "Protocol %1 does not support action %2."
 msgstr "Το πρωτόκολλο %1 δεν υποστηρίζει την ενέργεια %2."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:303
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2464,17 +2464,17 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:391
+#: core/worker.cpp:341
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Άγνωστο πρωτόκολλο '%1'."
 
-#: core/worker.cpp:402
+#: core/worker.cpp:352
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Δεν ήταν δυνατό να βρεθεί ένας εργάτης KIO για το πρωτόκολλο '%1'."
 
-#: core/worker.cpp:409
+#: core/worker.cpp:359
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2483,14 +2483,14 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:421
+#: core/worker.cpp:371
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Δεν ήταν δυνατό να δημιουργηθεί υποδοχή για την εκκίνηση ενός εργάτη KIO για "
 "το πρωτόκολλο '%1'."
 
-#: core/worker.cpp:461
+#: core/worker.cpp:411
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Αδυναμία εύρεσης του εκτελέσιμου 'kioworker' στο '%1'"
