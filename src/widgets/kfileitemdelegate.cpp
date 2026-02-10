@@ -96,7 +96,6 @@ public:
     QPixmap applyHoverEffect(const QPixmap &icon) const;
     QPixmap transition(const QPixmap &from, const QPixmap &to, qreal amount) const;
     void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const;
-    void drawFocusRect(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const;
 
     void gotNewIcon(const QModelIndex &index);
 
@@ -469,6 +468,7 @@ QSize KFileItemDelegate::Private::decorationSizeHint(const QStyleOptionViewItem 
     return addMargin(iconSize, IconMargin);
 }
 
+// True for icons view, false for compact and details view
 bool KFileItemDelegate::Private::verticalLayout(const QStyleOptionViewItem &option) const
 {
     return (option.decorationPosition == QStyleOptionViewItem::Top || option.decorationPosition == QStyleOptionViewItem::Bottom);
@@ -499,11 +499,6 @@ QBrush KFileItemDelegate::Private::foregroundBrush(const QStyleOptionViewItem &o
         cg = QPalette::Disabled;
     } else if (!(option.state & QStyle::State_Active)) {
         cg = QPalette::Inactive;
-    }
-
-    // Always use the highlight color for selected items
-    if (option.state & QStyle::State_Selected) {
-        return option.palette.brush(cg, QPalette::HighlightedText);
     }
 
     // If the model provides its own foreground color/brush for this item
@@ -1090,29 +1085,6 @@ QPoint KFileItemDelegate::Private::iconPosition(const QStyleOptionViewItem &opti
     return iconRect.topLeft();
 }
 
-void KFileItemDelegate::Private::drawFocusRect(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
-{
-    if (!(option.state & QStyle::State_HasFocus)) {
-        return;
-    }
-
-    QStyleOptionFocusRect opt;
-    opt.direction = option.direction;
-    opt.fontMetrics = option.fontMetrics;
-    opt.palette = option.palette;
-    opt.rect = rect;
-    opt.state = option.state | QStyle::State_KeyboardFocusChange | QStyle::State_Item;
-    opt.backgroundColor = option.palette.color(option.state & QStyle::State_Selected ? QPalette::Highlight : QPalette::Base);
-
-    // Apparently some widget styles expect this hint to not be set
-    painter->setRenderHint(QPainter::Antialiasing, false);
-
-    QStyle *style = option.widget ? option.widget->style() : QApplication::style();
-    style->drawPrimitive(QStyle::PE_FrameFocusRect, &opt, painter, option.widget);
-
-    painter->setRenderHint(QPainter::Antialiasing);
-}
-
 void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     if (!index.isValid()) {
@@ -1147,8 +1119,6 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
     if (!(option.state & QStyle::State_Enabled)) {
         iconMode = QIcon::Disabled;
-    } else if ((option.state & QStyle::State_Selected) && (option.state & QStyle::State_Active)) {
-        iconMode = QIcon::Selected;
     } else {
         iconMode = QIcon::Normal;
     }
@@ -1235,22 +1205,38 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
     d->layoutTextItems(opt, index, &labelLayout, &infoLayout, &textBoundingRect);
 
-    QStyle *style = opt.widget ? opt.widget->style() : QApplication::style();
+    auto drawBackground = [index](QPainter &painter, QStyleOptionViewItem &opt) {
+        if (index.column() > 0) {
+            return;
+        }
+        constexpr int roundness = 5; // From Breeze style.
+        constexpr qreal penWidth = 1.25;
+        QPainterPath path;
+        const qreal adjustment = 0.5 * penWidth; // Use same adjustments as Breeze strokedRect uses, to snap to pixelGrid.
+        path.addRoundedRect(opt.rect.toRectF().adjusted(adjustment, adjustment, -adjustment, -adjustment), roundness, roundness);
+        QColor backgroundColor{opt.palette.color(QPalette::Accent)};
 
-    int focusHMargin = style->pixelMetric(QStyle::PM_FocusFrameHMargin);
-    int focusVMargin = style->pixelMetric(QStyle::PM_FocusFrameVMargin);
-    QRect focusRect = textBoundingRect.adjusted(-focusHMargin, -focusVMargin, +focusHMargin, +focusVMargin);
+        // Background item, alpha values are from
+        // https://invent.kde.org/plasma/libplasma/-/blob/master/src/desktoptheme/breeze/widgets/viewitem.svg
+        backgroundColor.setAlphaF(0.0);
+        if (opt.state.testFlags({QStyle::State_Selected, QStyle::State_MouseOver})) {
+            backgroundColor.setAlphaF(0.40);
+        } else if (opt.state.testFlag(QStyle::State_Selected)) {
+            backgroundColor.setAlphaF(0.32);
+        } else if (opt.state.testFlags({QStyle::State_MouseOver})) {
+            backgroundColor = opt.palette.color(QPalette::Text);
+            backgroundColor.setAlphaF(0.06);
+        }
+        painter.fillPath(path, backgroundColor);
 
-    auto drawBackground = [textBoundingRect, iconPos, style](QPainter &painter, QStyleOptionViewItem &opt) {
-        if (opt.decorationPosition != QStyleOptionViewItem::Position::Top) {
-            style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &painter, opt.widget);
-        } else {
-            auto oldrect = opt.rect;
-            opt.rect = textBoundingRect;
-            style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &painter, opt.widget);
-            opt.rect = QRect(iconPos, opt.decorationSize);
-            style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &painter, opt.widget);
-            opt.rect = oldrect;
+        // Focus decoration
+        if (opt.state & QStyle::State_HasFocus) {
+            QColor focusColor{opt.palette.color(QPalette::Accent)};
+            focusColor = opt.palette.color(QPalette::Base).lightnessF() > 0.5 ? focusColor.darker(110) : focusColor.lighter(110);
+            focusColor.setAlphaF(0.8);
+            // Set the pen color lighter or darker depending on background color
+            QPen pen{focusColor, penWidth};
+            painter.strokePath(path, pen);
         }
     };
 
@@ -1269,7 +1255,6 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         p.drawPixmap(iconPos, icon);
         drawSelectionEmblem(option, painter, index);
         d->drawTextItems(&p, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
-        d->drawFocusRect(&p, opt, focusRect);
         p.end();
 
         opt.state |= QStyle::State_MouseOver;
@@ -1282,7 +1267,6 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         p.drawPixmap(iconPos, icon);
         drawSelectionEmblem(option, painter, index);
         d->drawTextItems(&p, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
-        d->drawFocusRect(&p, opt, focusRect);
         p.end();
 
         state->setCachedRendering(cache);
@@ -1324,7 +1308,6 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     painter->drawPixmap(iconPos, icon);
 
     d->drawTextItems(painter, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
-    d->drawFocusRect(painter, opt, focusRect);
     drawSelectionEmblem(option, painter, index);
 
     if (d->jobTransfersVisible && index.column() == 0 && state) {
