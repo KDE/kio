@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:40+0000\n"
+"POT-Creation-Date: 2026-02-11 00:41+0000\n"
 "PO-Revision-Date: 2026-01-20 14:06+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -2468,7 +2468,7 @@ msgstr "Het openen van bestanden wordt niet ondersteund door protocol %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protocol %1 biedt geen ondersteuning voor actie %2."
 
-#: core/worker.cpp:303
+#: core/worker.cpp:297
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2480,17 +2480,17 @@ msgstr ""
 "verhoogde rechten, kan niet gegarandeerd worden omdat gebruikers anders dan "
 "root rechten hebben om het bij %2 te wijzigen."
 
-#: core/worker.cpp:341
+#: core/worker.cpp:335
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Onbekend protocol: '%1'."
 
-#: core/worker.cpp:352
+#: core/worker.cpp:346
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Er is geen KIO-worker gevonden voor protocol '%1'."
 
-#: core/worker.cpp:359
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2502,13 +2502,13 @@ msgstr ""
 "werkers die gelokaliseerd zijn buiten %3 en vragen om verhoogde rechten als "
 "onveilig worden beschouwd."
 
-#: core/worker.cpp:371
+#: core/worker.cpp:365
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Kan geen socket aanmaken voor het starten van KIO-worker voor protocol '%1'."
 
-#: core/worker.cpp:411
+#: core/worker.cpp:405
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Kon het programma 'kioworker' niet vinden in '%1'"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:40+0000\n"
+"POT-Creation-Date: 2026-02-11 00:41+0000\n"
 "PO-Revision-Date: 2026-01-20 06:16+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -2421,7 +2421,7 @@ msgstr "Відкривання файлів не підтримується пр
 msgid "Protocol %1 does not support action %2."
 msgstr "Протокол %1 не підтримує дію %2."
 
-#: core/worker.cpp:303
+#: core/worker.cpp:297
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2433,17 +2433,17 @@ msgstr ""
 "вимагає розширених прав доступу, оскільки право на внесення до нього змін у "
 "%2 мають користувачі, відмінні від root."
 
-#: core/worker.cpp:341
+#: core/worker.cpp:335
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Невідомий протокол «%1»."
 
-#: core/worker.cpp:352
+#: core/worker.cpp:346
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Неможливо знайти обробник KIO для протоколу «%1»."
 
-#: core/worker.cpp:359
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2455,14 +2455,14 @@ msgstr ""
 "обробники KIO, які розташовано поза %3, і яким потрібні розширені права "
 "доступу, вважаються небезпечними."
 
-#: core/worker.cpp:371
+#: core/worker.cpp:365
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Не вдалося створити сокет для обробника KIO, що запускається, для протоколу "
 "«%1»."
 
-#: core/worker.cpp:411
+#: core/worker.cpp:405
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Не вдалося знайти виконуваний файл «kioworker» у «%1»"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:40+0000\n"
+"POT-Creation-Date: 2026-02-11 00:41+0000\n"
 "PO-Revision-Date: 2026-01-25 13:59+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -2421,7 +2421,7 @@ msgstr "%1 protokoloak ez du fitxategiak irekitzea onartzen. "
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 protokoloak ez du %2 ekintza onartzen."
 
-#: core/worker.cpp:303
+#: core/worker.cpp:297
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2433,17 +2433,17 @@ msgstr ""
 "dituena, ezin da bermatu «root» ez beste erabiltzaileek hura %2(e)an "
 "aldatzeko baimena dutelako."
 
-#: core/worker.cpp:341
+#: core/worker.cpp:335
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protokolo ezezaguna '%1'."
 
-#: core/worker.cpp:352
+#: core/worker.cpp:346
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Ezin du aurkitu '%1' protokoloaren KIO behargin bat."
 
-#: core/worker.cpp:359
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2455,13 +2455,13 @@ msgstr ""
 "kokatuta egonda pribilegio altuak eskatzen dituzten behargin guztiak ez "
 "segurutzat jotzen dira."
 
-#: core/worker.cpp:371
+#: core/worker.cpp:365
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Ezin du '%1' protokoloaren KIO behargin bat abiarazteko «socket» bat sortu."
 
-#: core/worker.cpp:411
+#: core/worker.cpp:405
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ezin da 'kioworker' exekutagarria aurkitu '%1'(e)n"

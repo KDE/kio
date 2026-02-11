@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:40+0000\n"
+"POT-Creation-Date: 2026-02-11 00:41+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2275,7 +2275,7 @@ msgstr "协议 %1 不支持打开文件。"
 msgid "Protocol %1 does not support action %2."
 msgstr "协议 %1 不支持操作 %2。"
 
-#: core/worker.cpp:303
+#: core/worker.cpp:297
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2286,17 +2286,17 @@ msgstr ""
 "“%1”协议的 KIO 工作程序的安全性无法得到保证，因为除 root 用户外，其他用户在 "
 "%2 处有权对其进行修改，而该协议通常会要求用户进行提权操作。"
 
-#: core/worker.cpp:341
+#: core/worker.cpp:335
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "未知的协议“%1”。"
 
-#: core/worker.cpp:352
+#: core/worker.cpp:346
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "无法找到协议“%1”的 KIO 工作程序。"
 
-#: core/worker.cpp:359
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2307,12 +2307,12 @@ msgstr ""
 "%2 中的协议“%1”的 KIO 工作程序没有加载，因为位于 %3 之外并请求提权的所有 KIO "
 "工作程序均被视为不安全。"
 
-#: core/worker.cpp:371
+#: core/worker.cpp:365
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "无法创建用于为协议“%1”启动 KIO 工作程序的套接字。"
 
-#: core/worker.cpp:411
+#: core/worker.cpp:405
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "无法在“%1”中找到“kioworker”可执行程序"

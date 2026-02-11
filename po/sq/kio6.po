@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:40+0000\n"
+"POT-Creation-Date: 2026-02-11 00:41+0000\n"
 "PO-Revision-Date: 2025-12-07 00:08-0500\n"
 "Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
 "Language-Team: sq\n"
@@ -2429,7 +2429,7 @@ msgstr "Me protokollin %1 s’mbulohet hapje kartelash."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokolli %1 s’mbulon veprimin %2."
 
-#: core/worker.cpp:303
+#: core/worker.cpp:297
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2441,17 +2441,17 @@ msgstr ""
 "të shkallës së lartë, s’mund të garantohet, ngaqë përdorues tjetër nga kanë "
 "leje ta ndryshojnë te %2."
 
-#: core/worker.cpp:341
+#: core/worker.cpp:335
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protokoll i panjohur “%1”."
 
-#: core/worker.cpp:352
+#: core/worker.cpp:346
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "S’gjendet dot një “KIO worker” për protokollin “%1”."
 
-#: core/worker.cpp:359
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2460,14 +2460,14 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:371
+#: core/worker.cpp:365
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "S’krijohet dot një “socket” për nisje të një “KIO worker” për protokollin "
 "“%1”."
 
-#: core/worker.cpp:411
+#: core/worker.cpp:405
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "S’gjendet dot i ekzekutueshëm 'kioworker' te '%1'"

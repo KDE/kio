@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:40+0000\n"
+"POT-Creation-Date: 2026-02-11 00:41+0000\n"
 "PO-Revision-Date: 2025-12-17 00:31+0000\n"
 "Last-Translator: Charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
@@ -2441,7 +2441,7 @@ msgstr "Ní féidir comhaid a oscailt le prótacal %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Ní thacaíonn prótacal %1 le gníomh %2."
 
-#: core/worker.cpp:303
+#: core/worker.cpp:297
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2453,17 +2453,17 @@ msgstr ""
 "ardaithe de ghnáth, a ráthú mar go bhfuil cead ag úsáideoirí seachas an root "
 "é a mhodhnú ag %2."
 
-#: core/worker.cpp:341
+#: core/worker.cpp:335
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Prótacal anaithnid '%1'."
 
-#: core/worker.cpp:352
+#: core/worker.cpp:346
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Ní féidir oibrí KIO a aimsiú don phrótacal '%1'."
 
-#: core/worker.cpp:359
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2475,13 +2475,13 @@ msgstr ""
 "bhfuil slán aon oibrí KIO atá suite lasmuigh de %3 agus a iarrann pribhléidí "
 "ardaithe."
 
-#: core/worker.cpp:371
+#: core/worker.cpp:365
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Ní féidir soicéad a chruthú chun oibrí KIO a sheoladh don phrótacal '%1'."
 
-#: core/worker.cpp:411
+#: core/worker.cpp:405
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ní féidir an comhad inrite 'kioworker' a aimsiú ag '%1'"

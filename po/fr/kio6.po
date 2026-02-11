@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:40+0000\n"
+"POT-Creation-Date: 2026-02-11 00:41+0000\n"
 "PO-Revision-Date: 2026-01-22 18:07+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -2480,7 +2480,7 @@ msgstr "Le protocole %1 ne gère pas l'ouverture de fichiers."
 msgid "Protocol %1 does not support action %2."
 msgstr "Le protocole %1 ne prend pas en charge l'action %2."
 
-#: core/worker.cpp:303
+#: core/worker.cpp:297
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2493,18 +2493,18 @@ msgstr ""
 "élevés. En effet, les utilisateurs autres que l'administrateur ont la "
 "permission de le modifier à %2."
 
-#: core/worker.cpp:341
+#: core/worker.cpp:335
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protocole « %1 » inconnu."
 
-#: core/worker.cpp:352
+#: core/worker.cpp:346
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr ""
 "Impossible de trouver un module d'entrée / sortie pour le protocole « %1 »."
 
-#: core/worker.cpp:359
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2517,14 +2517,14 @@ msgstr ""
 "dehors de %3 et demandant des privilèges de niveau supérieur sont considérés "
 "comme non sécurisés."
 
-#: core/worker.cpp:371
+#: core/worker.cpp:365
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Impossible de créer un socket pour lancer un module d'entrée / sortie pour "
 "le protocole « %1 »."
 
-#: core/worker.cpp:411
+#: core/worker.cpp:405
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Impossible de trouver le programme « kioworker »à « %1 »"

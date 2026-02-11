@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:40+0000\n"
+"POT-Creation-Date: 2026-02-11 00:41+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2349,7 +2349,7 @@ msgstr "सञ्चिकानां उद्घाटनं संविद�
 msgid "Protocol %1 does not support action %2."
 msgstr "संविद् %1 %2 क्रियायाः समर्थनं न करोति ।."
 
-#: core/worker.cpp:303
+#: core/worker.cpp:297
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2361,17 +2361,17 @@ msgstr ""
 "गारण्टीं दातुं न शक्यते यतोहि root इत्येतस्मात् परेभ्यः उपयोक्तृभ्यः %2 इत्यत्र परिवर्तनस्य "
 "अनुमतिः अस्ति."
 
-#: core/worker.cpp:341
+#: core/worker.cpp:335
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "अज्ञात संविद् '%1'।."
 
-#: core/worker.cpp:352
+#: core/worker.cpp:346
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' संविदस्य कृते KIO कार्यकर्ता (worker) न प्राप्यते ।."
 
-#: core/worker.cpp:359
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2380,12 +2380,12 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:371
+#: core/worker.cpp:365
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "'%1' संविदस्य कृते KIO कार्यकर्तारं (worker) प्रारम्भं कर्तुं सॉकेट् निर्मातुं न शक्यते ।."
 
-#: core/worker.cpp:411
+#: core/worker.cpp:405
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1' इत्यत्र 'kioworker' कार्यान्वयनीयं न लभ्यते ।"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-10 00:40+0000\n"
+"POT-Creation-Date: 2026-02-11 00:41+0000\n"
 "PO-Revision-Date: 2026-01-20 05:53+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -2396,7 +2396,7 @@ msgstr "ფაილების გახსნა მხარდაუჭე�
 msgid "Protocol %1 does not support action %2."
 msgstr "პროტოკოლს %1 ქმედების (%2) მხარდაჭერა არ გააჩნია."
 
-#: core/worker.cpp:303
+#: core/worker.cpp:297
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2408,17 +2408,17 @@ msgstr ""
 "მომატებულ წვდომებს მოითხოვს, გარანტირებული ვერ იქნება, რადგან მისი ჩასწორება "
 "%2-ზე root-ის გარდა სხვა მომხმარებლებსაც შეუძლიათ."
 
-#: core/worker.cpp:341
+#: core/worker.cpp:335
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "უცნობი პროტოკოლი %1."
 
-#: core/worker.cpp:352
+#: core/worker.cpp:346
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "პროტოკოლისთვის '%1' KIO -ის დამხმარე პროგრამა ვერ ვიპოვე."
 
-#: core/worker.cpp:359
+#: core/worker.cpp:353
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2430,14 +2430,14 @@ msgstr ""
 "რადგან ყველა KIO-ის დამხმარე პროგრამა, რომელიც მოთავსებულია %3-ის გარეთ და "
 "ითხოვს ამაღლებულ წვდომებს, საფრთხის შემცველად ითვლება."
 
-#: core/worker.cpp:371
+#: core/worker.cpp:365
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "სოკეტის შექმნის შეცდომა KIO-ის დამხმარე პროცესის გასაშვებად პროტოკოლისთვის "
 "'%1'."
 
-#: core/worker.cpp:411
+#: core/worker.cpp:405
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'-ზე 'kioworker' გამშვები ფაილი ვერ ვიპოვე."
