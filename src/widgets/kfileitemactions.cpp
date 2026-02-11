@@ -844,6 +844,9 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
         const QString path = firstItem.localPath();
         const ServiceList services = KDesktopFile(path).actions();
         for (const KDesktopFileAction &serviceAction : services) {
+            if (!serviceAction.isSeparator() && serviceAction.name().isEmpty()) {
+                continue;
+            }
             QAction *action = new QAction(this);
             action->setText(serviceAction.name());
             action->setIcon(QIcon::fromTheme(serviceAction.icon()));
