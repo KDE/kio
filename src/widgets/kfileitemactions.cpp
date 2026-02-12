@@ -139,6 +139,7 @@ KFileItemActionsPrivate::KFileItemActionsPrivate(KFileItemActions *qq)
 
 KFileItemActionsPrivate::~KFileItemActionsPrivate()
 {
+    qDeleteAll(m_serviceMenuShortcutActions);
 }
 
 int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceList> &submenus, QMenu *menu)
@@ -213,17 +214,7 @@ int KFileItemActionsPrivate::insertServices(const ServiceList &list, QMenu *menu
 
         // Insert sorted actions for current group
         for (const KDesktopFileAction &serviceAction : group) {
-            QAction *act = new QAction(q);
-            act->setObjectName(QStringLiteral("menuaction")); // for the unittest
-            QString text = serviceAction.name();
-            text.replace(QLatin1Char('&'), QLatin1String("&&"));
-            act->setText(text);
-            if (!serviceAction.icon().isEmpty()) {
-                act->setIcon(QIcon::fromTheme(serviceAction.icon()));
-            }
-            act->setData(QVariant::fromValue(serviceAction));
-            m_executeServiceActionGroup.addAction(act);
-
+            QAction *act = createActionForService(serviceAction, QStringLiteral("menuaction"));
             menu->addAction(act); // Add to toplevel menu
             ++count;
         }
@@ -232,9 +223,63 @@ int KFileItemActionsPrivate::insertServices(const ServiceList &list, QMenu *menu
     return count;
 }
 
+QAction *KFileItemActionsPrivate::createActionForService(const KDesktopFileAction &serviceAction, const QString &objectName)
+{
+    QAction *act = new QAction(q);
+    act->setObjectName(objectName);
+    QString text = serviceAction.name();
+    text.replace(QLatin1Char('&'), QLatin1String("&&"));
+    act->setText(text);
+    if (!serviceAction.icon().isEmpty()) {
+        act->setIcon(QIcon::fromTheme(serviceAction.icon()));
+    }
+    act->setData(QVariant::fromValue(serviceAction));
+    m_executeServiceActionGroup.addAction(act);
+    return act;
+}
+
+QList<QAction *> KFileItemActions::createServiceMenuActions()
+{
+    qDeleteAll(d->m_serviceMenuShortcutActions);
+    d->m_serviceMenuShortcutActions.clear();
+
+    QList<QAction *> actions;
+    const KConfigGroup showGroup = d->m_config.group(QStringLiteral("Show"));
+
+    for (const QString &file : d->serviceMenuFilePaths()) {
+        const KDesktopFile desktopfile(file);
+        for (const KDesktopFileAction &action : desktopfile.actions()) {
+            if (action.isSeparator() || !showGroup.readEntry(action.actionsKey(), true)) {
+                continue;
+            }
+            QAction *qaction = d->createActionForService(action, action.actionsKey());
+            d->m_serviceMenuShortcutActions.append(qaction);
+            actions.append(qaction);
+        }
+    }
+
+    return actions;
+}
+
 void KFileItemActionsPrivate::slotExecuteService(QAction *act)
 {
     const KDesktopFileAction serviceAction = act->data().value<KDesktopFileAction>();
+
+    // For shortcut-triggered actions, verify they apply to current selection.
+    // Context menu actions are already filtered during menu construction.
+    if (m_serviceMenuShortcutActions.contains(act)) {
+        const KFileItemList items = m_props.items();
+        if (items.isEmpty()) {
+            return;
+        }
+        const KDesktopFile desktopFile(serviceAction.desktopFilePath());
+        const KConfigGroup cfg = desktopFile.desktopGroup();
+        const QString protocol = items.first().url().scheme();
+        if (!shouldDisplayServiceMenu(cfg, protocol) || !checkTypesMatch(cfg)) {
+            return;
+        }
+    }
+
     if (KAuthorized::authorizeAction(serviceAction.actionsKey())) {
         auto *job = new KIO::ApplicationLauncherJob(serviceAction);
         job->setUrls(m_props.urlList());

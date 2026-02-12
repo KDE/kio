@@ -74,6 +74,8 @@ private:
     bool shouldDisplayServiceMenu(const KConfigGroup &cfg, const QString &protocol) const;
     // Utility functions which returns true if the types for the service are set and the exclude types are not contained
     bool checkTypesMatch(const KConfigGroup &cfg) const;
+    // Creates a QAction service from KDesktopFileAction connected to the internal executor slot
+    QAction *createActionForService(const KDesktopFileAction &serviceAction, const QString &objectName);
 
 private Q_SLOTS:
     // For servicemenus
@@ -92,6 +94,8 @@ public:
     QWidget *m_parentWidget;
     KConfig m_config;
     QHash<QString, KAbstractFileItemActionPlugin *> m_loadedPlugins;
+    // Actions created by createServiceMenuActions()
+    QList<QAction *> m_serviceMenuShortcutActions;
 };
 
 Q_DECLARE_METATYPE(KService::Ptr)

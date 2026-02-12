@@ -125,6 +125,25 @@ public:
     static KService::List associatedApplications(const QStringList &mimeTypeList);
 
     /*!
+     * Creates QAction objects for enabled service menu actions.
+     *
+     * The returned actions are connected to the internal execution handler and
+     * will execute the service menu command on the current file selection when
+     * triggered. The file selection is determined by setItemListProperties().
+     *
+     * Use this method to register service menu actions in a
+     * KActionCollection to enable keyboard shortcuts.
+     *
+     * Actions are parented to this KFileItemActions instance. Calling this
+     * method multiple times will return new action instances each time.
+     *
+     * \return List of QActions ready for use with KActionCollection
+     *
+     * \since 6.24
+     */
+    QList<QAction *> createServiceMenuActions();
+
+    /*!
      * \value Services Add user defined actions and servicemenu actions (this used to include builtin actions, which have been deprecated since 5.82 see class
      * API documentation)
      * \value Plugins Add actions implemented by plugins. See KAbstractFileItemActionPlugin base class

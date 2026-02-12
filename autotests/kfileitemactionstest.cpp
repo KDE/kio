@@ -7,10 +7,12 @@
 
 #include "kfileitemactionstest.h"
 
+#include <KDesktopFileAction>
 #include <kfileitemactions.h>
 #include <kfileitemlistproperties.h>
 
 #include <QMenu>
+#include <QPointer>
 #include <QStandardPaths>
 #include <QTest>
 
@@ -84,6 +86,35 @@ void KFileItemActionsTest::testTopLevelServiceMenuActions()
         QCOMPARE(resultingActions.count(), 1);
         QCOMPARE(resultingActions.at(0)->text(), "no_file");
     }
+}
+
+void KFileItemActionsTest::testCreateServiceMenuActions()
+{
+#ifdef Q_OS_WIN
+    QSKIP("Service menu discovery does not work on Windows");
+#endif
+    QStandardPaths::setTestModeEnabled(true);
+    qputenv("XDG_DATA_DIRS", QFINDTESTDATA("servicemenu_protocol_mime_test_data").toUtf8());
+
+    KFileItemActions fileItemActions;
+    const QList<QAction *> actions = fileItemActions.createServiceMenuActions();
+
+    // All enabled service menu actions are returned regardless of MIME type or protocol
+    QCOMPARE(actions.count(), 4);
+
+    // Each action carries its actionsKey as objectName and a KDesktopFileAction in data
+    for (const QAction *action : actions) {
+        QVERIFY(!action->objectName().isEmpty());
+        QVERIFY(!action->text().isEmpty());
+        const auto desktopAction = action->data().value<KDesktopFileAction>();
+        QCOMPARE(desktopAction.actionsKey(), action->objectName());
+    }
+
+    // Calling again should delete old actions and return new instances
+    QPointer<QAction> firstAction = actions.first();
+    const QList<QAction *> freshActions = fileItemActions.createServiceMenuActions();
+    QVERIFY(firstAction.isNull());
+    QCOMPARE(freshActions.count(), actions.count());
 }
 
 QTEST_MAIN(KFileItemActionsTest)
