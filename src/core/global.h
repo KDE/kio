@@ -347,6 +347,7 @@ enum PrivilegeOperationStatus {
  * StatResolveSymlink}
  * \value [since 6.23] StatSubVolId in case the filesystem supports it, return its subvol Identifier
  * \value [since 6.23] StatMountId the unique mount identifier, see man statx
+ * \value [since 6.24] StatTimeNsOffset Stat will provide nanosecond precision offsets when available
  */
 enum StatDetail {
     StatNoDetails = 0x0,
@@ -361,6 +362,7 @@ enum StatDetail {
     StatMimeType = 0x80,
     StatSubVolId = 0x100,
     StatMountId = 0x200,
+    StatTimeNsOffset = 0x400 | StatTime,
 };
 Q_DECLARE_FLAGS(StatDetails, StatDetail)
 

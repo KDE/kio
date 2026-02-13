@@ -825,11 +825,19 @@ void CopyJobPrivate::addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &
 {
     struct CopyInfo info;
     info.permissions = entry.numberValue(KIO::UDSEntry::UDS_ACCESS, -1);
-    const auto timeVal = entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1);
-    if (timeVal != -1) {
-        info.mtime = QDateTime::fromSecsSinceEpoch(timeVal, QTimeZone::UTC);
+    const auto modificationTime = entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1);
+    if (modificationTime != -1) {
+        info.mtime = QDateTime::fromSecsSinceEpoch(modificationTime, QTimeZone::UTC);
+    }
+    const auto modificationTimeNsOffset = entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, -1);
+    if (modificationTimeNsOffset != -1) {
+        info.mtime = info.mtime.addMSecs(modificationTimeNsOffset / 1000000);
     }
     info.ctime = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), QTimeZone::UTC);
+    const auto creationTimeNsOffset = entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME_NS_OFFSET, -1);
+    if (creationTimeNsOffset != -1) {
+        info.ctime = info.ctime.addMSecs(creationTimeNsOffset / 1000000);
+    }
     info.size = static_cast<KIO::filesize_t>(entry.numberValue(KIO::UDSEntry::UDS_SIZE, -1));
     const bool isDir = entry.isDir();
 
@@ -1317,7 +1325,15 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
         } else {
             options |= RenameDialog_Overwrite;
             destmtime = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1), QTimeZone::UTC);
+            const long long mTimeNsOffset = entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, -1);
+            if (mTimeNsOffset != -1) {
+                destmtime = destmtime.addMSecs(mTimeNsOffset / 1000000);
+            }
             destctime = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), QTimeZone::UTC);
+            const long long cTimeNsOffset = entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME_NS_OFFSET, -1);
+            if (cTimeNsOffset != -1) {
+                destctime = destctime.addMSecs(cTimeNsOffset / 1000000);
+            }
         }
     }
 
@@ -1682,9 +1698,18 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
                 || ((*it).uSource.scheme() == (*it).uDest.scheme() && (*it).uSource.adjusted(QUrl::StripTrailingSlash).path() == linkDest)) {
                 options = RenameDialog_OverwriteItself;
             } else {
-                const qint64 destMTimeStamp = entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1);
-                if (m_bOverwriteWhenOlder && (*it).mtime.isValid() && destMTimeStamp != -1) {
-                    if ((*it).mtime.currentSecsSinceEpoch() > destMTimeStamp) {
+                const long long mTime = entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1);
+
+                QDateTime destMTimeStamp;
+                if (mTime != -1) {
+                    destMTimeStamp = QDateTime::fromSecsSinceEpoch(mTime, QTimeZone::UTC);
+                }
+                const long long mTimeNsOffset = entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, -1);
+                if (mTimeNsOffset != -1) {
+                    destMTimeStamp = destMTimeStamp.addMSecs(mTimeNsOffset / 1000000);
+                }
+                if (m_bOverwriteWhenOlder && (*it).mtime.isValid() && destMTimeStamp.isValid()) {
+                    if ((*it).mtime > destMTimeStamp) {
                         qCDebug(KIO_COPYJOB_DEBUG) << "dest is older, overwriting" << (*it).uDest;
                         res = Result_Overwrite;
                     } else {
@@ -1693,7 +1718,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
                     }
                 } else {
                     // These timestamps are used only when RenameDialog_Overwrite is set.
-                    destmtime = QDateTime::fromSecsSinceEpoch(destMTimeStamp, QTimeZone::UTC);
+                    destmtime = destMTimeStamp;
                     destctime = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), QTimeZone::UTC);
 
                     options = RenameDialog_Overwrite;

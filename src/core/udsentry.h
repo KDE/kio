@@ -66,11 +66,19 @@ KIOCORE_EXPORT bool operator!=(const UDSEntry &entry, const UDSEntry &other);
  * QString displayName = entry.stringValue( KIO::UDSEntry::UDS_NAME );
  * \endcode
  *
- * To know the modification time of the file/url:
+ * To know the modification time of the file/url in seconds since UNIX epoch, use:
  * \code
  *  QDateTime mtime = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, 0));
  *  if (mtime.isValid())
  *      ...
+ * \endcode
+ * If you need higher precision for the modification time, you can also check if UDS_MODIFICATION_TIME_NS_OFFSET is supported:
+ * \code
+ *  if (entry.contains(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET)) {
+ *      long long totalMSecs = (entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, 0) * 1000LL)
+ *                            + entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, 0) / 1000000LL);
+ *
+ *      QDateTime mtime = QDateTime::fromMSecsSinceEpoch(totalMSecs);
  * \endcode
  */
 class KIOCORE_EXPORT UDSEntry
@@ -247,6 +255,12 @@ public:
      * \value[since 6.0] UDS_LOCAL_GROUP_ID Group ID of the file owner
      * \value[since 6.23] UDS_SUBVOL_ID subvolume identifier for the filesystem
      * \value[since 6.23] UDS_MOUNT_ID unique mount identifier of the filesystem
+     * \value[since 6.24] UDS_MODIFICATION_TIME_NS_OFFSET The offset in nanoseconds to the seconds since the last time the file was modified. This is used to
+     * provide higher precision for filesystems that support it.
+     * \value[since 6.24] UDS_ACCESS_TIME_NS_OFFSET The offset in nanoseconds to the seconds since the last time the file was accessed. This is used to provide
+     * higher precision for filesystems that support it.
+     * \value[since 6.24] UDS_CREATION_TIME_NS_OFFSET The offset in nanoseconds to the seconds since the file was created. This is used to provide higher
+     * precision for filesystems that support it.
      * \value UDS_EXTRA Extra data (used only if you specified Columns/ColumnsTypes). NB: you cannot repeat this entry; use UDS_EXTRA + i until UDS_EXTRA_END
      * \value UDS_EXTRA_END
      */
@@ -285,14 +299,17 @@ public:
         UDS_LOCAL_GROUP_ID = 31 | UDS_NUMBER,
         UDS_SUBVOL_ID = 32 | UDS_NUMBER,
         UDS_MOUNT_ID = 33 | UDS_NUMBER,
+        UDS_MODIFICATION_TIME_NS_OFFSET = 34 | UDS_NUMBER,
+        UDS_ACCESS_TIME_NS_OFFSET = 35 | UDS_NUMBER,
+        UDS_CREATION_TIME_NS_OFFSET = 36 | UDS_NUMBER,
         UDS_EXTRA = 100 | UDS_STRING,
         UDS_EXTRA_END = 140 | UDS_STRING,
     };
 
 private:
     QSharedDataPointer<UDSEntryPrivate> d;
-    friend KIOCORE_EXPORT QDataStream & ::operator<<(QDataStream & s, const KIO::UDSEntry & a);
-    friend KIOCORE_EXPORT QDataStream & ::operator>>(QDataStream & s, KIO::UDSEntry & a);
+    friend KIOCORE_EXPORT QDataStream & ::operator<<(QDataStream &s, const KIO::UDSEntry &a);
+    friend KIOCORE_EXPORT QDataStream & ::operator>>(QDataStream &s, KIO::UDSEntry &a);
     friend KIOCORE_EXPORT QDebug(::operator<<)(QDebug stream, const KIO::UDSEntry &entry);
 
 public:

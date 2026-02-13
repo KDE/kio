@@ -303,6 +303,16 @@ QString UDSEntryPrivate::nameOfUdsField(uint field)
         return QStringLiteral("UDS_DEVICE_ID");
     case UDSEntry::UDS_INODE:
         return QStringLiteral("UDS_INODE");
+    case UDSEntry::UDS_SUBVOL_ID:
+        return QStringLiteral("UDS_SUBVOL_ID");
+    case UDSEntry::UDS_MOUNT_ID:
+        return QStringLiteral("UDS_MOUNT_ID");
+    case UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET:
+        return QStringLiteral("UDS_MODIFICATION_TIME_NS_OFFSET");
+    case UDSEntry::UDS_ACCESS_TIME_NS_OFFSET:
+        return QStringLiteral("UDS_ACCESS_TIME_NS_OFFSET");
+    case UDSEntry::UDS_CREATION_TIME_NS_OFFSET:
+        return QStringLiteral("UDS_CREATION_TIME_NS_OFFSET");
     case UDSEntry::UDS_EXTRA:
         return QStringLiteral("UDS_EXTRA");
     case UDSEntry::UDS_EXTRA_END:
@@ -343,7 +353,7 @@ UDSEntry::UDSEntry(const QT_STATBUF &buff, const QString &name)
     : d(new UDSEntryPrivate())
 {
 #ifndef Q_OS_WIN
-    d->reserve(10);
+    d->reserve(12);
 #else
     d->reserve(8);
 #endif
@@ -356,6 +366,8 @@ UDSEntry::UDSEntry(const QT_STATBUF &buff, const QString &name)
     d->insert(UDS_MODIFICATION_TIME, buff.st_mtime);
     d->insert(UDS_ACCESS_TIME, buff.st_atime);
 #ifndef Q_OS_WIN
+    d->insert(UDS_MODIFICATION_TIME_NS_OFFSET, buff.st_mtim.tv_nsec / 1000000);
+    d->insert(UDS_ACCESS_TIME_NS_OFFSET, buff.st_atim.tv_nsec / 1000000);
     d->insert(UDS_LOCAL_USER_ID, buff.st_uid);
     d->insert(UDS_LOCAL_GROUP_ID, buff.st_gid);
 #endif

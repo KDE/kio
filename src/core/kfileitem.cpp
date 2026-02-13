@@ -268,7 +268,7 @@ void KFileItemPrivate::init() const
             m_entry.replace(KIO::UDSEntry::UDS_SIZE, stat_size(buff));
             m_entry.replace(KIO::UDSEntry::UDS_FILE_TYPE, type); // extract file type
             m_entry.replace(KIO::UDSEntry::UDS_ACCESS, mode & 07777); // extract permissions
-            m_entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME, stat_mtime(buff)); // TODO: we could use msecs too...
+            m_entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME, stat_mtime(buff));
             m_entry.replace(KIO::UDSEntry::UDS_ACCESS_TIME, stat_atime(buff));
 #if HAVE_STATX
             m_entry.replace(KIO::UDSEntry::UDS_CREATION_TIME, buff.stx_btime.tv_sec);
@@ -402,6 +402,19 @@ static uint udsFieldForTime(KFileItem::FileTimes mappedWhich)
     return 0;
 }
 
+static uint udsFieldForNsTimeOffset(KFileItem::FileTimes mappedWhich)
+{
+    switch (mappedWhich) {
+    case KFileItem::ModificationTime:
+        return KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET;
+    case KFileItem::AccessTime:
+        return KIO::UDSEntry::UDS_ACCESS_TIME_NS_OFFSET;
+    case KFileItem::CreationTime:
+        return KIO::UDSEntry::UDS_CREATION_TIME_NS_OFFSET;
+    }
+    return 0;
+}
+
 void KFileItemPrivate::setTime(KFileItem::FileTimes mappedWhich, uint time_t_val) const
 {
     m_entry.replace(udsFieldForTime(mappedWhich), time_t_val);
@@ -418,11 +431,21 @@ QDateTime KFileItemPrivate::time(KFileItem::FileTimes mappedWhich) const
     ensureInitialized();
 
     // Extract it from the KIO::UDSEntry
-    const uint uds = udsFieldForTime(mappedWhich);
-    if (uds > 0) {
-        const long long fieldVal = m_entry.numberValue(uds, -1);
+    const uint udsTime = udsFieldForTime(mappedWhich);
+    const uint udsNsOffset = udsFieldForNsTimeOffset(mappedWhich);
+    if (udsTime > 0) {
+        const long long fieldVal = m_entry.numberValue(udsTime, -1);
         if (fieldVal != -1) {
-            return QDateTime::fromSecsSinceEpoch(fieldVal);
+            auto result = QDateTime::fromSecsSinceEpoch(fieldVal);
+
+            if (udsNsOffset > 0) {
+                const long long nsOffset = m_entry.numberValue(udsNsOffset, -1);
+                if (nsOffset != -1) {
+                    result = result.addMSecs(nsOffset / 1000000);
+                }
+            }
+
+            return result;
         }
     }
 
@@ -491,6 +514,7 @@ inline bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
             && m_hidden == item.m_hidden
             && size() == item.size()
             && m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME) == item.m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME)
+            && m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET) == item.m_entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET)
             && m_entry.stringValue(KIO::UDSEntry::UDS_ICON_NAME) == item.m_entry.stringValue(KIO::UDSEntry::UDS_ICON_NAME)
             && m_entry.stringValue(KIO::UDSEntry::UDS_TARGET_URL) == item.m_entry.stringValue(KIO::UDSEntry::UDS_TARGET_URL)
             && m_entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH) == item.m_entry.stringValue(KIO::UDSEntry::UDS_LOCAL_PATH));
