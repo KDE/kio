@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-11 00:41+0000\n"
+"POT-Creation-Date: 2026-02-13 00:39+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -3652,7 +3652,7 @@ msgstr "Fitchîs å lon nén acceptés"
 msgid "All Folders"
 msgstr "*|Tos les ridants"
 
-#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:798
+#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:843
 #, kde-format
 msgid "&Open"
 msgstr "Dr&ovi"
@@ -5546,72 +5546,72 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Sôre"
 
-#: widgets/kfileitemactions.cpp:403
+#: widgets/kfileitemactions.cpp:448
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "Open &with %1"
 msgstr "Drovi avou:"
 
-#: widgets/kfileitemactions.cpp:405
+#: widgets/kfileitemactions.cpp:450
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:541
+#: widgets/kfileitemactions.cpp:586
 #, fuzzy, kde-format
 #| msgid "Actions"
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "Accions"
 
-#: widgets/kfileitemactions.cpp:706
+#: widgets/kfileitemactions.cpp:751
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Drovi avou"
 
-#: widgets/kfileitemactions.cpp:706
+#: widgets/kfileitemactions.cpp:751
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Drovi avou"
 
-#: widgets/kfileitemactions.cpp:765
+#: widgets/kfileitemactions.cpp:810
 #, fuzzy, kde-format
 #| msgid "Exec"
 msgid "&Run Executable"
 msgstr "Enonder"
 
-#: widgets/kfileitemactions.cpp:787
+#: widgets/kfileitemactions.cpp:832
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open folder with %1"
 msgstr "Drovi avou:"
 
-#: widgets/kfileitemactions.cpp:787
+#: widgets/kfileitemactions.cpp:832
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open with %1"
 msgstr "Drovi avou:"
 
-#: widgets/kfileitemactions.cpp:819
+#: widgets/kfileitemactions.cpp:864
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Drovi avou"
 
-#: widgets/kfileitemactions.cpp:819
+#: widgets/kfileitemactions.cpp:864
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Drovi avou"
 
-#: widgets/kfileitemactions.cpp:830
+#: widgets/kfileitemactions.cpp:875
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"

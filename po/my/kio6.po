@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-11 00:41+0000\n"
+"POT-Creation-Date: 2026-02-13 00:39+0000\n"
 "PO-Revision-Date: 2025-09-10 15:28+0630\n"
 "Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -3362,7 +3362,7 @@ msgstr "အဝေးဖိုင်များလက်မခံပါ"
 msgid "All Folders"
 msgstr "ဖိုင်တွဲအားလုံး"
 
-#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:798
+#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:843
 #, kde-format
 msgid "&Open"
 msgstr "&Oဖွင့်"
@@ -5160,64 +5160,64 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "အမျိုးအစား"
 
-#: widgets/kfileitemactions.cpp:403
+#: widgets/kfileitemactions.cpp:448
 #, kde-format
 msgid "Open &with %1"
 msgstr "&w %1 ဖြင့်ဖွင့်ရန်"
 
-#: widgets/kfileitemactions.cpp:405
+#: widgets/kfileitemactions.cpp:450
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:541
+#: widgets/kfileitemactions.cpp:586
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Aလုပ်ဆောင်ချက်များ"
 
-#: widgets/kfileitemactions.cpp:706
+#: widgets/kfileitemactions.cpp:751
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "ဖြင့် ဖိုင်တွဲ &ဖွင့်ရန်…"
 
-#: widgets/kfileitemactions.cpp:706
+#: widgets/kfileitemactions.cpp:751
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "ဖြင့်&ဖွင့်ရန်"
 
-#: widgets/kfileitemactions.cpp:765
+#: widgets/kfileitemactions.cpp:810
 #, fuzzy, kde-format
 #| msgid "&Execute"
 msgid "&Run Executable"
 msgstr "&Eဆောင်ရွက်ရန်"
 
-#: widgets/kfileitemactions.cpp:787
+#: widgets/kfileitemactions.cpp:832
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "%1ဖြင့် ဖိုင်တွဲ &Oဖွင့်ရန်"
 
-#: widgets/kfileitemactions.cpp:787
+#: widgets/kfileitemactions.cpp:832
 #, kde-format
 msgid "&Open with %1"
 msgstr "&O %1 ဖြင့်ဖွင့်ရန်"
 
-#: widgets/kfileitemactions.cpp:819
+#: widgets/kfileitemactions.cpp:864
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "ဖြင့် ဖိုင်တွဲ &Oဖွင့်ရန်"
 
-#: widgets/kfileitemactions.cpp:819
+#: widgets/kfileitemactions.cpp:864
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Oဖြင့်ဖွင့်ရန်"
 
-#: widgets/kfileitemactions.cpp:830
+#: widgets/kfileitemactions.cpp:875
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

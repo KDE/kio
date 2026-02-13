@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-11 00:41+0000\n"
+"POT-Creation-Date: 2026-02-13 00:39+0000\n"
 "PO-Revision-Date: 2026-01-20 05:53+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -3461,7 +3461,7 @@ msgstr "დაშორებული ფაილები მიუღებ�
 msgid "All Folders"
 msgstr "ყველა საქაღალდე"
 
-#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:798
+#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:843
 #, kde-format
 msgid "&Open"
 msgstr "&გახსნა"
@@ -5285,63 +5285,63 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "ტიპი"
 
-#: widgets/kfileitemactions.cpp:403
+#: widgets/kfileitemactions.cpp:448
 #, kde-format
 msgid "Open &with %1"
 msgstr "%1-ით &გახსნა"
 
-#: widgets/kfileitemactions.cpp:405
+#: widgets/kfileitemactions.cpp:450
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:541
+#: widgets/kfileitemactions.cpp:586
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&ქმედებები"
 
-#: widgets/kfileitemactions.cpp:706
+#: widgets/kfileitemactions.cpp:751
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&საქაღალდის პროგრამით გახსნა…"
 
-#: widgets/kfileitemactions.cpp:706
+#: widgets/kfileitemactions.cpp:751
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&გამხსნელი პროგრამა…"
 
-#: widgets/kfileitemactions.cpp:765
+#: widgets/kfileitemactions.cpp:810
 #, kde-format
 msgid "&Run Executable"
 msgstr "შეს&რულებადის გაშვება"
 
-#: widgets/kfileitemactions.cpp:787
+#: widgets/kfileitemactions.cpp:832
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&საქაღალდის %1-ით გახსნა"
 
-#: widgets/kfileitemactions.cpp:787
+#: widgets/kfileitemactions.cpp:832
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1-ით &გახსნა"
 
-#: widgets/kfileitemactions.cpp:819
+#: widgets/kfileitemactions.cpp:864
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&საქაღალდის პროგრამით გახსნა"
 
-#: widgets/kfileitemactions.cpp:819
+#: widgets/kfileitemactions.cpp:864
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&გამხსნელი პროგრამა"
 
-#: widgets/kfileitemactions.cpp:830
+#: widgets/kfileitemactions.cpp:875
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
