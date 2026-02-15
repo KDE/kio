@@ -803,8 +803,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
 
     bool isExecutableFile = false;
     if (items.length() == 1) {
-        auto mimeType = firstItem.currentMimeType();
-        isExecutableFile = firstItem.isFile() && firstItem.isLocalFile() && firstItem.isExecutable();
+        isExecutableFile = KIO::OpenUrlJob::isExecutableFile(firstItem.url(), firstItem.currentMimeType().name());
         if (isExecutableFile) {
             QAction *runAct = new QAction(q);
             runAct->setText(i18nc("@action:inmenu", "&Run Executable"));
