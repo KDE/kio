@@ -807,7 +807,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
         isExecutableFile = firstItem.isFile() && firstItem.isLocalFile() && firstItem.isExecutable();
         if (isExecutableFile) {
             QAction *runAct = new QAction(q);
-            runAct->setText(i18n("&Run Executable"));
+            runAct->setText(i18nc("@action:inmenu", "&Run Executable"));
             runAct->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
             connect(runAct, &QAction::triggered, this, [this, firstItem]() {
                 KIO::OpenUrlJob *job = new KIO::OpenUrlJob(firstItem.targetUrl(), firstItem.mimetype(), q);
