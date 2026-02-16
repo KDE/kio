@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-13 00:39+0000\n"
+"POT-Creation-Date: 2026-02-16 00:41+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -4402,7 +4402,7 @@ msgstr "清空回收站内容"
 msgid "Restore a trashed file to its original location"
 msgstr "将回收站中的文件恢复到原始位置"
 
-#: kioworkers/trash/trashimpl.cpp:1342
+#: kioworkers/trash/trashimpl.cpp:1303
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "回收站已满。请手动移除其中项目或清空回收站。"

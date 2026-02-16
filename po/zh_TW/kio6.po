@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-13 00:39+0000\n"
+"POT-Creation-Date: 2026-02-16 00:41+0000\n"
 "PO-Revision-Date: 2026-01-23 05:03+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -4419,7 +4419,7 @@ msgstr "清空垃圾桶"
 msgid "Restore a trashed file to its original location"
 msgstr "將垃圾桶內的檔案回復到原來的位置"
 
-#: kioworkers/trash/trashimpl.cpp:1342
+#: kioworkers/trash/trashimpl.cpp:1303
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "垃圾桶已滿。請將其清空或手動移除項目。"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-13 00:39+0000\n"
+"POT-Creation-Date: 2026-02-16 00:41+0000\n"
 "PO-Revision-Date: 2026-01-20 14:06+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -4672,7 +4672,7 @@ msgstr "Prullenbak legen"
 msgid "Restore a trashed file to its original location"
 msgstr "Zet een weggegooid bestand terug op zijn oorspronkelijke locatie"
 
-#: kioworkers/trash/trashimpl.cpp:1342
+#: kioworkers/trash/trashimpl.cpp:1303
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "De prullenbak is vol. Leeg het of verwijder handmatig items."

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-13 00:39+0000\n"
+"POT-Creation-Date: 2026-02-16 00:41+0000\n"
 "PO-Revision-Date: 2026-01-20 19:56+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -4640,7 +4640,7 @@ msgstr "Buida el contingut de la paperera"
 msgid "Restore a trashed file to its original location"
 msgstr "Restaura un fitxer de la paperera a la seva ubicació original"
 
-#: kioworkers/trash/trashimpl.cpp:1342
+#: kioworkers/trash/trashimpl.cpp:1303
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "La paperera està plena. Buideu-la o traieu els elements manualment."

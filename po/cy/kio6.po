@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-13 00:39+0000\n"
+"POT-Creation-Date: 2026-02-16 00:41+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -4658,7 +4658,7 @@ msgstr "Gwacewch y cynhwysiad o'r sbwriel"
 msgid "Restore a trashed file to its original location"
 msgstr "Adfer ffeil taflwyd i'w leoliad gwreiddiol"
 
-#: kioworkers/trash/trashimpl.cpp:1342
+#: kioworkers/trash/trashimpl.cpp:1303
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Mae'r sbwriel yn llawn. Gwacewch fe neu ddileuwch eitemau yn waithlaw."
