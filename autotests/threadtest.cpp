@@ -57,7 +57,7 @@ bool KIOThreadTest::copyLocalFile(FileData *fileData)
     const QUrl d = QUrl::fromLocalFile(fileData->dest);
 
     // copy the file with file_copy
-    KIO::Job *job = KIO::file_copy(u, d, -1, KIO::HideProgressInfo);
+    std::unique_ptr<KIO::Job> job(KIO::file_copy(u, d, -1, KIO::HideProgressInfo));
     // qDebug() << job << u << d;
     job->setUiDelegate(nullptr);
     bool ret = job->exec();
