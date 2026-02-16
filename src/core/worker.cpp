@@ -382,6 +382,9 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
             auto *thread = new WorkerThread(worker, factory, workerAddress.toString().toLocal8Bit());
             thread->start();
             worker->setWorkerThread(thread);
+            connect(thread, &QThread::started, &loader, [&loader] {
+                loader.unload();
+            });
             return worker;
         } else {
             qCWarning(KIO_CORE) << lib_path << "doesn't implement WorkerFactory?";
