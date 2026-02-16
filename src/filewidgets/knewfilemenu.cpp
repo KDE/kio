@@ -563,7 +563,7 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
         QUrl templateUrl;
         bool usingTemplate = false;
         if (entry.templatePath.startsWith(QLatin1String(":/"))) {
-            QTemporaryFile *tmpFile = QTemporaryFile::createNativeFile(entry.templatePath);
+            std::unique_ptr<QTemporaryFile> tmpFile(QTemporaryFile::createNativeFile(entry.templatePath));
             tmpFile->setAutoRemove(false);
             QString tempFileName = tmpFile->fileName();
             tmpFile->close();
