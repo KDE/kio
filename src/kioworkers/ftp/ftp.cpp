@@ -1234,10 +1234,11 @@ void FtpInternal::ftpCreateUDSEntry(const QString &filename, const FtpEntry &ftp
 {
     Q_ASSERT(entry.count() == 0); // by contract :-)
 
-    entry.reserve(9);
+    entry.reserve(10);
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
     entry.fastInsert(KIO::UDSEntry::UDS_SIZE, ftpEnt.size);
     entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, ftpEnt.date.toSecsSinceEpoch());
+    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, ftpEnt.date.time().msec() * 1000000);
     entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, ftpEnt.access);
     entry.fastInsert(KIO::UDSEntry::UDS_USER, ftpEnt.owner);
     if (!ftpEnt.group.isEmpty()) {

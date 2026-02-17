@@ -999,6 +999,7 @@ void HTTPProtocol::davParsePropstats(const QDomNodeList &propstats, KIO::UDSEntr
                 auto datetime = parseDateTime(property.text(), property.attribute(QStringLiteral("dt")));
                 if (datetime.isValid()) {
                     entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME, datetime.toSecsSinceEpoch());
+                    entry.replace(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, datetime.time().msec() * 1000000);
                 } else {
                     qWarning() << "Failed to parse getlastmodified" << property.text() << property.attribute(QStringLiteral("dt"));
                 }

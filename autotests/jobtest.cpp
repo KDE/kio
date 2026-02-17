@@ -29,6 +29,7 @@
 #include <KLocalizedString>
 
 #include <QBuffer>
+#include <QDateTime>
 #include <QDebug>
 #include <QDir>
 #include <QElapsedTimer>
@@ -3101,6 +3102,33 @@ void JobTest::renameFileWithNoUDSACCESS() // #510567
     KIO::CopyJob *copyJob = KIO::copy(testUrl, testUrl2, KIO::HideProgressInfo);
     QVERIFY(copyJob);
     QVERIFY2(copyJob->exec(), qPrintable(copyJob->errorString()));
+}
+
+void JobTest::statWithNanosecondTimeOffset()
+{
+    QUrl testFilePath = QUrl::fromLocalFile(homeTmpDir() + "testfile");
+    createTestFile(testFilePath.toLocalFile());
+    KIO::StatJob *statJob = KIO::stat(testFilePath, KIO::StatJob::StatSide::SourceSide, KIO::StatBasic | KIO::StatTimeNsOffset, KIO::HideProgressInfo);
+    QVERIFY(statJob);
+    QVERIFY2(statJob->exec(), qPrintable(statJob->errorString()));
+    const KIO::UDSEntry &entry = statJob->statResult();
+
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_MODIFICATION_TIME));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS_TIME));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS_TIME_NS_OFFSET));
+
+    const auto modificationTimeInSec = entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME);
+    auto modificationDateTime = QDateTime::fromSecsSinceEpoch(modificationTimeInSec);
+    modificationDateTime = modificationDateTime.addMSecs(entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET) / 1000000);
+
+    const auto accessTimeInSec = entry.numberValue(KIO::UDSEntry::UDS_ACCESS_TIME);
+    auto accessDateTime = QDateTime::fromSecsSinceEpoch(accessTimeInSec);
+    accessDateTime = accessDateTime.addMSecs(entry.numberValue(KIO::UDSEntry::UDS_ACCESS_TIME_NS_OFFSET) / 1000000);
+
+    const auto fileInfo = QFileInfo(testFilePath.toLocalFile());
+    QCOMPARE(modificationDateTime, fileInfo.lastModified());
+    QCOMPARE(accessDateTime, fileInfo.lastRead());
 }
 
 #include "moc_jobtest.cpp"

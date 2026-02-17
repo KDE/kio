@@ -111,9 +111,17 @@ inline static int64_t stat_atime(const struct statx &buf)
 {
     return buf.stx_atime.tv_sec;
 }
+inline static int64_t stat_atime_ns(const struct statx &buf)
+{
+    return buf.stx_atime.tv_nsec;
+}
 inline static int64_t stat_mtime(const struct statx &buf)
 {
     return buf.stx_mtime.tv_sec;
+}
+inline static int64_t stat_mtime_ns(const struct statx &buf)
+{
+    return buf.stx_mtime.tv_nsec;
 }
 #if HAVE_STATX_SUBVOL
 inline static uint64_t stat_subvol(const struct statx &buf)
@@ -167,9 +175,25 @@ inline static time_t stat_atime(const QT_STATBUF &buf)
 {
     return buf.st_atime;
 }
+inline static int64_t stat_atime_ns(const QT_STATBUF &buf)
+{
+#ifdef Q_OS_WIN
+    return 0;
+#else
+    return buf.st_atim.tv_nsec;
+#endif
+}
 inline static time_t stat_mtime(const QT_STATBUF &buf)
 {
     return buf.st_mtime;
+}
+inline static int64_t stat_mtime_ns(const QT_STATBUF &buf)
+{
+#ifdef Q_OS_WIN
+    return 0;
+#else
+    return buf.st_mtim.tv_nsec;
+#endif
 }
 #endif
 

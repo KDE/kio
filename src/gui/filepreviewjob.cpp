@@ -53,10 +53,7 @@ using namespace KIO;
 using namespace Qt::Literals;
 using namespace std::chrono_literals;
 
-FilePreviewJob::FilePreviewJob(const KFileItem &fileItem,
-                               int parentDirDeviceId,
-                               const PreviewOptions &options,
-                               const PreviewSetupData &setupData)
+FilePreviewJob::FilePreviewJob(const KFileItem &fileItem, int parentDirDeviceId, const PreviewOptions &options, const PreviewSetupData &setupData)
     : m_fileItem(fileItem)
     , m_parentDirDeviceId(parentDirDeviceId)
     , m_options(options)
@@ -244,7 +241,8 @@ void FilePreviewJob::slotStatFile(KJob *job)
     const KIO::StatJob *statJob = static_cast<KIO::StatJob *>(job);
     const KIO::UDSEntry statResult = statJob->statResult();
     m_currentDeviceId = statResult.numberValue(KIO::UDSEntry::UDS_DEVICE_ID, 0);
-    m_tOrig = QDateTime::fromSecsSinceEpoch(statResult.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, 0));
+    m_tOrig = QDateTime::fromMSecsSinceEpoch(statResult.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, 0) * 1000
+                                             + statResult.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, 0) / 1000000);
 
     // If we stat'd the file already, might as well report it back.
     if (!statResult.stringValue(KIO::UDSEntry::UDS_MIME_TYPE).isEmpty()) {
@@ -315,7 +313,6 @@ void FilePreviewJob::slotStatFile(KJob *job)
         } else {
             getOrCreateThumbnail();
         }
-
     });
     QFuture<QImage> future = QtConcurrent::run(loadThumbnailFromCache, QString(m_thumbPath + m_thumbName), m_options.devicePixelRatio);
 

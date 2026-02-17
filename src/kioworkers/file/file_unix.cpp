@@ -147,6 +147,10 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
     if (details & KIO::StatTime) {
         // atime, mtime, btime
         entries += 3;
+        if ((details & KIO::StatTimeNsOffset) == KIO::StatTimeNsOffset) {
+            // atime, mtime, btime ns offsets
+            entries += 3;
+        }
     }
     if (details & KIO::StatAcl) {
         // acl data
@@ -256,6 +260,11 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
         entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, stat_mtime(buff));
         entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, stat_atime(buff));
 
+        if ((details & KIO::StatTimeNsOffset) == KIO::StatTimeNsOffset) {
+            entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, stat_mtime_ns(buff));
+            entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME_NS_OFFSET, stat_atime_ns(buff));
+        }
+
 #ifdef st_birthtime
         /* For example FreeBSD's and NetBSD's stat contains a field for
          * the inode birth time: st_birthtime
@@ -274,6 +283,10 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
         /* And linux version using statx syscall */
         if (buff.stx_mask & STATX_BTIME) {
             entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, buff.stx_btime.tv_sec);
+
+            if ((details & KIO::StatTimeNsOffset) == KIO::StatTimeNsOffset) {
+                entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME_NS_OFFSET, buff.stx_btime.tv_nsec / 1000000);
+            }
         }
 #endif
     }

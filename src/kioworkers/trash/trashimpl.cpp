@@ -1003,12 +1003,15 @@ KIO::UDSEntry TrashImpl::trashUDSEntry(KIO::StatDetails details)
             }
         }
 
-        entry.reserve(3);
+        entry.reserve(5);
         entry.fastInsert(KIO::UDSEntry::UDS_RECURSIVE_SIZE, static_cast<long long>(size));
 
+        const auto modifiedDateNsOffset = (latestModifiedDate % 1000) * 1000000;
         entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, latestModifiedDate / 1000);
+        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, modifiedDateNsOffset);
         // access date is unreliable for the trash folder, use the modified date instead
         entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, latestModifiedDate / 1000);
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME_NS_OFFSET, modifiedDateNsOffset);
     }
     return entry;
 }

@@ -86,10 +86,13 @@ static UDSEntry createUDSEntryWin(const QFileInfo &fileInfo)
     }
 
     entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, fileInfo.lastModified().toSecsSinceEpoch());
+    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, fileInfo.lastModified().time().msec() * 1000000);
     entry.fastInsert(KIO::UDSEntry::UDS_USER, fileInfo.owner());
     entry.fastInsert(KIO::UDSEntry::UDS_GROUP, fileInfo.group());
     entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, fileInfo.lastRead().toSecsSinceEpoch());
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME_NS_OFFSET, fileInfo.lastRead().time().msec() * 1000000);
     entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, fileInfo.birthTime().toSecsSinceEpoch());
+    entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME_NS_OFFSET, fileInfo.birthTime().time().msec() * 1000000);
 
     QT_STATBUF buf;
     QUrl url(fileInfo.absoluteFilePath());

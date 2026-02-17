@@ -133,6 +133,7 @@ private Q_SLOTS:
     void cancelCopyAndCleanDest_data();
 
     void renameFileWithNoUDSACCESS();
+    void statWithNanosecondTimeOffset();
 
     // Remote tests
     // void copyFileToSystem();

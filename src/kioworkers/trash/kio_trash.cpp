@@ -456,7 +456,7 @@ bool TrashProtocol::createUDSEntry(const QString &physicalPath,
                                    KIO::UDSEntry &entry,
                                    const TrashedFileInfo &info)
 {
-    entry.reserve(14);
+    entry.reserve(16);
     QByteArray physicalPath_c = QFile::encodeName(physicalPath);
     QT_STATBUF buff;
     if (QT_LSTAT(physicalPath_c.constData(), &buff) == -1) {
@@ -495,8 +495,10 @@ bool TrashProtocol::createUDSEntry(const QString &physicalPath,
     entry.fastInsert(KIO::UDSEntry::UDS_SIZE, buff.st_size);
     entry.fastInsert(KIO::UDSEntry::UDS_USER, m_userName); // assumption
     entry.fastInsert(KIO::UDSEntry::UDS_GROUP, m_groupName); // assumption
-    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, buff.st_mtime);
-    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, buff.st_atime); // ## or use it for deletion time?
+    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, buff.st_mtim.tv_sec);
+    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, buff.st_mtim.tv_nsec);
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, buff.st_atim.tv_sec); // ## or use it for deletion time?
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME_NS_OFFSET, buff.st_atim.tv_nsec);
     entry.fastInsert(KIO::UDSEntry::UDS_EXTRA, info.origPath);
     entry.fastInsert(KIO::UDSEntry::UDS_EXTRA + 1, info.deletionDate.toString(Qt::ISODate));
     return true;
