@@ -462,9 +462,11 @@ KFileItemList KDirOperator::selectedItems() const
 
     const QModelIndexList indexList = selection.indexes();
     for (const QModelIndex &index : indexList) {
-        KFileItem item = d->m_dirModel->itemForIndex(index);
-        if (!item.isNull()) {
-            itemList.append(item);
+        if (index.column() == KDirModel::Name) {
+            KFileItem item = d->m_dirModel->itemForIndex(index);
+            if (!item.isNull()) {
+                itemList.append(item);
+            }
         }
     }
 
