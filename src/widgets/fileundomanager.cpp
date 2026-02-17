@@ -534,7 +534,11 @@ void FileUndoManagerPrivate::slotUndoResult(KJob *job)
         const BasicOperation op = m_currentCmd.m_opQueue.head();
         // qDebug() << "stat result for " << op.m_dst;
         KIO::StatJob *statJob = static_cast<KIO::StatJob *>(job);
-        const QDateTime mtime = QDateTime::fromSecsSinceEpoch(statJob->statResult().numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1), QTimeZone::UTC);
+        QDateTime mtime = QDateTime::fromSecsSinceEpoch(statJob->statResult().numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1), QTimeZone::UTC);
+        const long long mtimeNs = statJob->statResult().numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, -1);
+        if (mtime.isValid() && mtimeNs >= 0) {
+            mtime = mtime.addMSecs(mtimeNs / 1000000);
+        }
         if (mtime != op.m_mtime) {
             qCDebug(KIO_WIDGETS) << op.m_dst << "was modified after being copied. Initial timestamp" << mtime << "now" << op.m_mtime;
             QDateTime srcTime = op.m_mtime.toLocalTime();

@@ -355,13 +355,15 @@ RenameDialog::RenameDialog(QWidget *parent,
         } else {
             UDSEntry srcUds;
 
-            srcUds.reserve(4);
+            srcUds.reserve(6);
             srcUds.fastInsert(UDSEntry::UDS_NAME, d->src.fileName());
             if (mtimeSrc.isValid()) {
                 srcUds.fastInsert(UDSEntry::UDS_MODIFICATION_TIME, mtimeSrc.toMSecsSinceEpoch() / 1000);
+                srcUds.fastInsert(UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, (mtimeSrc.toMSecsSinceEpoch() % 1000) * 1000000);
             }
             if (ctimeSrc.isValid()) {
                 srcUds.fastInsert(UDSEntry::UDS_CREATION_TIME, ctimeSrc.toMSecsSinceEpoch() / 1000);
+                srcUds.fastInsert(UDSEntry::UDS_CREATION_TIME_NS_OFFSET, (ctimeSrc.toMSecsSinceEpoch() % 1000) * 1000000);
             }
             if (sizeSrc != KIO::filesize_t(-1)) {
                 srcUds.fastInsert(UDSEntry::UDS_SIZE, sizeSrc);
@@ -379,9 +381,11 @@ RenameDialog::RenameDialog(QWidget *parent,
             destUds.fastInsert(UDSEntry::UDS_NAME, d->dest.fileName());
             if (mtimeDest.isValid()) {
                 destUds.fastInsert(UDSEntry::UDS_MODIFICATION_TIME, mtimeDest.toMSecsSinceEpoch() / 1000);
+                destUds.fastInsert(UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, (mtimeDest.toMSecsSinceEpoch() % 1000) * 1000000);
             }
             if (ctimeDest.isValid()) {
                 destUds.fastInsert(UDSEntry::UDS_CREATION_TIME, ctimeDest.toMSecsSinceEpoch() / 1000);
+                destUds.fastInsert(UDSEntry::UDS_CREATION_TIME_NS_OFFSET, (ctimeDest.toMSecsSinceEpoch() % 1000) * 1000000);
             }
             if (sizeDest != KIO::filesize_t(-1)) {
                 destUds.fastInsert(UDSEntry::UDS_SIZE, sizeDest);
