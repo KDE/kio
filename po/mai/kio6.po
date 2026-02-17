@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-16 00:41+0000\n"
+"POT-Creation-Date: 2026-02-17 00:39+0000\n"
 "PO-Revision-Date: 2010-01-29 13:15+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -3424,7 +3424,7 @@ msgstr "रिमोट फाइलसभ स्वीकार्य नहि
 msgid "All Folders"
 msgstr "*|सभटा फोल्डर"
 
-#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:843
+#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:842
 #, kde-format
 msgid "&Open"
 msgstr "खोलू (&O)"
@@ -5314,39 +5314,40 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "एकरासँ खोलू"
 
-#: widgets/kfileitemactions.cpp:810
+#: widgets/kfileitemactions.cpp:809
 #, fuzzy, kde-format
 #| msgid "Exec"
+msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "चलैनाइ"
 
-#: widgets/kfileitemactions.cpp:832
+#: widgets/kfileitemactions.cpp:831
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open folder with %1"
 msgstr "के सँग खोलू:"
 
-#: widgets/kfileitemactions.cpp:832
+#: widgets/kfileitemactions.cpp:831
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open with %1"
 msgstr "के सँग खोलू:"
 
-#: widgets/kfileitemactions.cpp:864
+#: widgets/kfileitemactions.cpp:863
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "एकरासँ खोलू"
 
-#: widgets/kfileitemactions.cpp:864
+#: widgets/kfileitemactions.cpp:863
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "एकरासँ खोलू"
 
-#: widgets/kfileitemactions.cpp:875
+#: widgets/kfileitemactions.cpp:874
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"

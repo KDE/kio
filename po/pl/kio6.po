@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-16 00:41+0000\n"
+"POT-Creation-Date: 2026-02-17 00:39+0000\n"
 "PO-Revision-Date: 2026-01-24 11:07+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -3466,7 +3466,7 @@ msgstr "Zdalne pliki odrzucone"
 msgid "All Folders"
 msgstr "Wszystkie katalogi"
 
-#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:843
+#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:842
 #, kde-format
 msgid "&Open"
 msgstr "&Otwórz"
@@ -5331,34 +5331,36 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Otwórz w…"
 
-#: widgets/kfileitemactions.cpp:810
-#, kde-format
+#: widgets/kfileitemactions.cpp:809
+#, fuzzy, kde-format
+#| msgid "&Run Executable"
+msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "U&ruchom plik wykonywalny"
 
-#: widgets/kfileitemactions.cpp:832
+#: widgets/kfileitemactions.cpp:831
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Otwórz katalog w %1"
 
-#: widgets/kfileitemactions.cpp:832
+#: widgets/kfileitemactions.cpp:831
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Otwórz w %1"
 
-#: widgets/kfileitemactions.cpp:864
+#: widgets/kfileitemactions.cpp:863
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Otwórz katalog w"
 
-#: widgets/kfileitemactions.cpp:864
+#: widgets/kfileitemactions.cpp:863
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Otwórz w"
 
-#: widgets/kfileitemactions.cpp:875
+#: widgets/kfileitemactions.cpp:874
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

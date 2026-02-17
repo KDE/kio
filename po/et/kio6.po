@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-16 00:41+0000\n"
+"POT-Creation-Date: 2026-02-17 00:39+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -3483,7 +3483,7 @@ msgstr "Võrgus asuvaid faile ei aktsepteerita"
 msgid "All Folders"
 msgstr "*|Kõik kataloogid"
 
-#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:843
+#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:842
 #, kde-format
 msgid "&Open"
 msgstr "&Ava"
@@ -5388,35 +5388,36 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Ava &rakendusega"
 
-#: widgets/kfileitemactions.cpp:810
+#: widgets/kfileitemactions.cpp:809
 #, fuzzy, kde-format
 #| msgid "&Execute"
+msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Käivita"
 
-#: widgets/kfileitemactions.cpp:832
+#: widgets/kfileitemactions.cpp:831
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Ava kataloog rakendusega %1"
 
-#: widgets/kfileitemactions.cpp:832
+#: widgets/kfileitemactions.cpp:831
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Ava rakendusega %1"
 
-#: widgets/kfileitemactions.cpp:864
+#: widgets/kfileitemactions.cpp:863
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Ava kataloog &rakendusega"
 
-#: widgets/kfileitemactions.cpp:864
+#: widgets/kfileitemactions.cpp:863
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Ava &rakendusega"
 
-#: widgets/kfileitemactions.cpp:875
+#: widgets/kfileitemactions.cpp:874
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Open With"
 #| msgid "&Other Application..."

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-16 00:41+0000\n"
+"POT-Creation-Date: 2026-02-17 00:39+0000\n"
 "PO-Revision-Date: 2026-01-21 17:13+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -3532,7 +3532,7 @@ msgstr "File remoti non accettati"
 msgid "All Folders"
 msgstr "Tutte le cartelle"
 
-#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:843
+#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:842
 #, kde-format
 msgid "&Open"
 msgstr "&Apri"
@@ -5409,34 +5409,36 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Apri con…"
 
-#: widgets/kfileitemactions.cpp:810
-#, kde-format
+#: widgets/kfileitemactions.cpp:809
+#, fuzzy, kde-format
+#| msgid "&Run Executable"
+msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Lancia eseguibile"
 
-#: widgets/kfileitemactions.cpp:832
+#: widgets/kfileitemactions.cpp:831
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Apri cartella con %1"
 
-#: widgets/kfileitemactions.cpp:832
+#: widgets/kfileitemactions.cpp:831
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Apri con %1"
 
-#: widgets/kfileitemactions.cpp:864
+#: widgets/kfileitemactions.cpp:863
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Apri cartella con"
 
-#: widgets/kfileitemactions.cpp:864
+#: widgets/kfileitemactions.cpp:863
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Apri con"
 
-#: widgets/kfileitemactions.cpp:875
+#: widgets/kfileitemactions.cpp:874
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

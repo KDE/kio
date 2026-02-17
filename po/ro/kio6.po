@@ -2,15 +2,15 @@
 # translation of kcmkio.po to Romanian
 # Copyright (C) 2003, 2004, 2005, 2008 Free Software Foundation, Inc.
 # Claudiu Costin <claudiuc@kde.org>, 2003, 2004, 2005.
-# SPDX-FileCopyrightText: 2008, 2009, 2012, 2014, 2020, 2021, 2022, 2024, 2025 Sergiu Bivol <sergiu@cip.md>
+# SPDX-FileCopyrightText: 2008, 2009, 2012, 2014, 2020, 2021, 2022, 2024, 2025, 2026 Sergiu Bivol <sergiu@cip.md>
 # Cristian Oneț <onet.cristian@gmail.com>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-16 00:41+0000\n"
-"PO-Revision-Date: 2025-10-04 22:12+0100\n"
+"POT-Creation-Date: 2026-02-17 00:39+0000\n"
+"PO-Revision-Date: 2026-02-16 23:38+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -543,7 +543,7 @@ msgstr ""
 #: core/job_error.cpp:170
 #, kde-format
 msgid "Authorization failed, %1 authentication not supported"
-msgstr "Autorizare eșuată. Autentificarea %1 nu este suportată."
+msgstr "Autorizare eșuată. Autentificarea %1 nu este susținută."
 
 #: core/job_error.cpp:176
 #, kde-format
@@ -596,8 +596,8 @@ msgid ""
 "Could not delete original file %1.\n"
 "Please check permissions."
 msgstr ""
-"Nu pot șterge fișierul original %1.\n"
-"Vă rog să verificați permisiunile."
+"Nu se poate șterge fișierul original %1.\n"
+"Verificați permisiunile."
 
 #: core/job_error.cpp:202
 #, kde-format
@@ -605,8 +605,8 @@ msgid ""
 "Could not delete partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"Nu pot șterge fișierul parțial %1.\n"
-"Vă rog să verificați permisiunile."
+"Nu se poate șterge fișierul parțial %1.\n"
+"Verificați permisiunile."
 
 #: core/job_error.cpp:205
 #, kde-format
@@ -614,8 +614,8 @@ msgid ""
 "Could not rename original file %1.\n"
 "Please check permissions."
 msgstr ""
-"Nu pot redenumi fișierul original %1.\n"
-"Vă rog să verificați permisiunile."
+"Nu se poate redenumi fișierul original %1.\n"
+"Verificați permisiunile."
 
 #: core/job_error.cpp:208
 #, kde-format
@@ -623,8 +623,8 @@ msgid ""
 "Could not rename partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"Nu pot redenumi fișierul parțial %1.\n"
-"Vă rog să verificați permisiunile."
+"Nu se poate redenumi fișierul parțial %1.\n"
+"Verificați permisiunile."
 
 #: core/job_error.cpp:211
 #, kde-format
@@ -632,8 +632,8 @@ msgid ""
 "Could not create symlink %1.\n"
 "Please check permissions."
 msgstr ""
-"Nu pot crea legătura simbolică %1.\n"
-"Vă rog să verificați permisiunile."
+"Nu se poate crea legătura simbolică %1.\n"
+"Verificați permisiunile."
 
 #: core/job_error.cpp:214
 #, kde-format
@@ -673,7 +673,8 @@ msgstr "Acces interzis la port restricționat în cererea POST."
 msgid ""
 "The required content size information was not provided for a POST operation."
 msgstr ""
-"Mărimea conținului este necesară la o operație POST și nu a fost furnizată"
+"Informația necesară cu mărimea conținutului nu a fost furnizată pentru o "
+"operație POST."
 
 #: core/job_error.cpp:240
 #, kde-format
@@ -693,7 +694,7 @@ msgstr "Comunicarea cu severul local de parole a eșuat"
 #: core/job_error.cpp:249
 #, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Nu se poate crea lucrătorul KIO: %1"
+msgstr "Nu se poate crea lucrătorul KIO. %1"
 
 #: core/job_error.cpp:253
 #, kde-kuit-format
@@ -702,8 +703,8 @@ msgid ""
 "Cannot transfer <filename>%1</filename> because it is too large. The "
 "destination filesystem only supports files up to 4GiB"
 msgstr ""
-"Nu se poate transfera <filename>%1</filename> pentru că e prea mare.Sistemul "
-"de fișiere destinație susține fișiere de până la 4GiO"
+"Nu se poate transfera <filename>%1</filename> pentru că e prea mare. "
+"Sistemul de fișiere destinație susține fișiere de până la 4GiO"
 
 #: core/job_error.cpp:258
 #, kde-format
@@ -712,8 +713,8 @@ msgid ""
 "'%1' is owned by the current user.\n"
 "Please retry after changing permissions."
 msgstr ""
-"Escalarea privilegiilor nu e necesară deoarece \n"
-"„%1” e deținut de utilizatorul curent.\n"
+"Escaladarea privilegiilor nu e necesară deoarece \n"
+"„%1” e deținut de utilizatorul actual.\n"
 "Reîncercați după modificarea permisiunilor."
 
 #: core/job_error.cpp:261
@@ -724,7 +725,7 @@ msgstr "Fișierul e prea mare pentru a încăpea la gunoi."
 #: core/job_error.cpp:264
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
-msgstr ""
+msgstr "Dosarul cu gunoi nu a putut fi găsit sau creat la această amplasare."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -1126,7 +1127,7 @@ msgstr ""
 #: core/job_error.cpp:532
 #, kde-format
 msgid "Unsupported Action: %1"
-msgstr "Acțiune nesuportată: %1"
+msgstr "Acțiune nesusținută: %1"
 
 #: core/job_error.cpp:534
 #, kde-format
@@ -1134,7 +1135,7 @@ msgid ""
 "The requested action is not supported by the KDE program which is "
 "implementing the <strong>%1</strong> protocol."
 msgstr ""
-"Acțiunea cerută nu este suportată de programul KDE caer implementează "
+"Acțiunea cerută nu este susținută de programul KDE care implementează "
 "protocolul <strong>%1</strong>."
 
 #: core/job_error.cpp:538
@@ -1941,7 +1942,7 @@ msgstr "Verificați din nou configurările proxy și încercați din nou."
 #: core/job_error.cpp:1057
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
-msgstr "Autentificare eșuată. Metoda %1 nu este suportată."
+msgstr "Autentificare eșuată. Metoda %1 nu este susținută."
 
 #: core/job_error.cpp:1059
 #, kde-format
@@ -1951,7 +1952,7 @@ msgid ""
 "supported by the KDE program implementing the protocol %1."
 msgstr ""
 "Deși poate că ați furnizat corect detaliile de autentificare, autentificarea "
-"a eșuat deoarece metoda utilizată de server nu este suportată de programul "
+"a eșuat deoarece metoda utilizată de server nu este susținută de programul "
 "KDE care implementează protocolul %1."
 
 #: core/job_error.cpp:1065
@@ -2372,7 +2373,7 @@ msgstr "Protocolul „%1” nu suportă accesarea fișierelor."
 #: core/slavebase.cpp:812
 #, kde-format
 msgid "Writing to %1 is not supported."
-msgstr "Nu este suportată scrierea în %1."
+msgstr "Nu este susținută scrierea în %1."
 
 #: core/slavebase.cpp:814
 #, kde-format
@@ -2387,54 +2388,54 @@ msgstr "Protocolul „%1” nu suportă listarea de dosare."
 #: core/slavebase.cpp:818
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
-msgstr "Nu este suportată citirea de date din %1."
+msgstr "Nu este susținută citirea de date din %1."
 
 #: core/slavebase.cpp:820
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
-msgstr "Nu este suportată citirea de informații MIME din %1."
+msgstr "Nu este susținută citirea de informații MIME din %1."
 
 #: core/slavebase.cpp:822
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
-msgstr "Nu este suportată redenumirea sau mutarea fișierelor în %1."
+msgstr "Nu este susținută redenumirea sau mutarea fișierelor în %1."
 
 #: core/slavebase.cpp:824
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
-msgstr "Nu este suportată crearea de legături simbolice cu protocolul „%1”."
+msgstr "Nu este susținută crearea de legături simbolice cu protocolul „%1”."
 
 #: core/slavebase.cpp:826
 #, kde-format
 msgid "Copying files within %1 is not supported."
-msgstr "Nu este suportată copierea de fișiere în %1."
+msgstr "Nu este susținută copierea de fișiere în %1."
 
 #: core/slavebase.cpp:828
 #, kde-format
 msgid "Deleting files from %1 is not supported."
-msgstr "Nu este suportată ștergerea de fișiere în %1."
+msgstr "Nu este susținută ștergerea de fișiere în %1."
 
 #: core/slavebase.cpp:830
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
-msgstr "Nu este suportată crearea de dosare cu protocolul „%1”."
+msgstr "Nu este susținută crearea de dosare cu protocolul „%1”."
 
 #: core/slavebase.cpp:832
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr ""
-"Nu este suportată modificarea atributelor fișierelor cu protocolul „%1”."
+"Nu este susținută modificarea atributelor fișierelor cu protocolul „%1”."
 
 #: core/slavebase.cpp:834
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr ""
-"Nu este suportată modificarea proprietarului fișierelor cu protocolul %1."
+"Nu este susținută modificarea proprietarului fișierelor cu protocolul %1."
 
 #: core/slavebase.cpp:836
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
-msgstr "Nu este suportată deschiderea fișierelor cu protocolul %1."
+msgstr "Nu este susținută deschiderea fișierelor cu protocolul %1."
 
 #: core/slavebase.cpp:838
 #, kde-format
@@ -3062,12 +3063,10 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Doar dosarele pot fi adăugate la panoul Locuri."
 
 #: filewidgets/kfileplacesmodel.cpp:1377
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
-msgstr "Configurează scurtături web…"
+msgstr "Configurează…"
 
 #: filewidgets/kfileplacesmodel.cpp:1413
 #, kde-format
@@ -3285,10 +3284,9 @@ msgid "Huge (%1x%1)"
 msgstr "Foarte mare (%1x%1)"
 
 #: filewidgets/kfilewidget.cpp:404
-#, fuzzy, kde-format
-#| msgid "Creating directory"
+#, kde-format
 msgid "Current Directory: %1"
-msgstr "Creez dosarul"
+msgstr "Dosar actual: %1"
 
 #: filewidgets/kfilewidget.cpp:640
 #, kde-format
@@ -3514,7 +3512,7 @@ msgstr "Fișierele distante nu sunt acceptate."
 msgid "All Folders"
 msgstr "Toate dosarele"
 
-#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:843
+#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:842
 #, kde-format
 msgid "&Open"
 msgstr "&Deschide"
@@ -4216,10 +4214,9 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
-#, fuzzy, kde-format
-#| msgid "Could Not Rename Temporary File"
+#, kde-format
 msgid "Could not open temporary file"
-msgstr "Nu pot redenumi fișierul temporar"
+msgstr "Nu s-a putut deschide fișierul temporar"
 
 #: kioworkers/file/file.cpp:765
 #, kde-format
@@ -5393,35 +5390,36 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Deschide cu…"
 
-#: widgets/kfileitemactions.cpp:810
+#: widgets/kfileitemactions.cpp:809
 #, fuzzy, kde-format
-#| msgid "Execute:"
+#| msgid "&Run Executable"
+msgctxt "@action:inmenu"
 msgid "&Run Executable"
-msgstr "Execută:"
+msgstr "&Rulează executabilul"
 
-#: widgets/kfileitemactions.cpp:832
+#: widgets/kfileitemactions.cpp:831
 #, kde-format
 msgid "&Open folder with %1"
-msgstr "&Deschide dosarul cu %1"
+msgstr "Deschide d&osarul cu %1"
 
-#: widgets/kfileitemactions.cpp:832
+#: widgets/kfileitemactions.cpp:831
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Deschide cu %1"
 
-#: widgets/kfileitemactions.cpp:864
+#: widgets/kfileitemactions.cpp:863
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Deschide d&osarul cu"
 
-#: widgets/kfileitemactions.cpp:864
+#: widgets/kfileitemactions.cpp:863
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Deschide cu"
 
-#: widgets/kfileitemactions.cpp:875
+#: widgets/kfileitemactions.cpp:874
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
@@ -6943,16 +6941,13 @@ msgstr ""
 "cu un fișier existent în dosar."
 
 #: widgets/renamedialog.cpp:284
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "conflicts for the remainder of the current job."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
-"Când acesta este bifat butonul apăsat va fi aplicat tuturor conflictelor "
-"ulterioare găsite pe parcursul sarcinii curente."
+"Când acesta este bifat, butonul apăsat va fi aplicat tuturor conflictelor "
+"ulterioare găsite pe parcursul lucrării actuale."
 
 #: widgets/renamedialog.cpp:290
 #, kde-format
@@ -7087,11 +7082,10 @@ msgstr ""
 "sunt la fel la început, mijloc și sfârșit."
 
 #: widgets/renamedialog.cpp:514
-#, fuzzy, kde-format
-#| msgid "Compact View"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "Vizualizare compactă"
+msgstr "Compară fișiere"
 
 #: widgets/renamedialog.cpp:527
 #, kde-format
@@ -7488,33 +7482,19 @@ msgstr[2] ""
 "desfăcută.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this file. Permanently delete it instead?"
-#| "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This "
-#| "action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Gunoiul este prea plin pentru a accepta acest fișier. Doriți să-l ștergeți "
-"definitiv?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"Gunoiul nu este disponibil pentru a accepta acest fișier. Doriți să-l "
+"ștergeți definitiv?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>Această acțiune nu poate fi desfăcută.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this %1 file. Permanently delete it "
-#| "instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
-#| msgid_plural ""
-#| "The trash is too full to accept these %1 files. Permanently delete them "
-#| "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7525,16 +7505,16 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Gunoiul este prea plin pentru a accepta acest %1 fișier. Îl ștergeți "
+"Gunoiul nu este disponibil pentru amplasarea acestui %1 element. Îl ștergeți "
 "definitiv?<nl/><emphasis strong='true'>Această acțiune nu poate fi desfăcută."
 "</emphasis>"
 msgstr[1] ""
-"Gunoiul este prea plin pentru a accepta aceste %1 fișiere. Le ștergeți "
-"definitiv?<nl/><nl/><emphasis strong='true'>Această acțiune nu poate fi "
+"Gunoiul nu este disponibil pentru amplasarea acestor %1 elemente. Le "
+"ștergeți definitiv?<nl/><emphasis strong='true'>Această acțiune nu poate fi "
 "desfăcută.</emphasis>"
 msgstr[2] ""
-"Gunoiul este prea plin pentru a accepta aceste %1 de fișiere. Le ștergeți "
-"definitiv?<nl/><nl/><emphasis strong='true'>Această acțiune nu poate fi "
+"Gunoiul nu este disponibil pentru amplasarea acestor %1 de elemente. Le "
+"ștergeți definitiv?<nl/><emphasis strong='true'>Această acțiune nu poate fi "
 "desfăcută.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
