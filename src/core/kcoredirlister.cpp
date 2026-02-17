@@ -1350,6 +1350,7 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
     const QList<KCoreDirLister *> allListers = listers + holders;
 
     DirItem *newDir = itemsInUse.value(newUrl);
+    DirItem *cachedDir = nullptr;
 
     // get the job if one's running for newUrl already (can be a list-job or an update-job), but
     // do not return this 'job', which would happen because of the use of redirectionURL()
@@ -1420,11 +1421,11 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
             lister->d->addNewItems(newUrl, newDir->lstItems);
             lister->d->emitItems();
         }
-    } else if ((newDir = itemsCached.take(newUrl))) {
+    } else if ((cachedDir = itemsCached.take(newUrl))) {
         qCDebug(KIO_CORE_DIRLISTER) << newUrl << "is unused, but already in the cache.";
 
         delete dir;
-        itemsInUse.insert(newUrl, newDir);
+        itemsInUse.insert(newUrl, cachedDir);
         KCoreDirListerCacheDirectoryData &newDirData = directoryData[newUrl];
         newDirData.insertOrModifyListers(listers, ListerStatus::Listing);
         newDirData.insertOrModifyListers(holders, ListerStatus::Holding);
@@ -1432,14 +1433,18 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
         // emit old items: listers, holders
         for (KCoreDirLister *lister : allListers) {
             if (lister->d->rootFileItem.isNull() && lister->d->url == newUrl) {
-                lister->d->rootFileItem = newDir->rootItem;
+                lister->d->rootFileItem = cachedDir->rootItem;
             }
 
-            lister->d->addNewItems(newUrl, newDir->lstItems);
+            lister->d->addNewItems(newUrl, cachedDir->lstItems);
             lister->d->emitItems();
         }
     } else {
         qCDebug(KIO_CORE_DIRLISTER) << newUrl << "has not been listed yet.";
+
+        if (newDir) {
+            delete newDir;
+        }
 
         dir->rootItem = KFileItem();
         dir->lstItems.clear();
