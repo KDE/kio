@@ -56,7 +56,6 @@ target_sources(KF6KIOWidgets PRIVATE
   kbuildsycocaprogressdialog.cpp
   renamefiledialog.cpp
   kfileitemdelegate.cpp
-  delegateanimationhandler.cpp
   kpropertiesdialog.cpp
   kpropertiesdialogplugin.cpp
   kpropertiesdialogbuiltin_p.cpp
