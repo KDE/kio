@@ -171,7 +171,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 
     bool isLTR = opt.direction == Qt::LeftToRight;
     const int iconAreaWidth = s_lateralMargin + m_iconSize;
-    const int actionAreaWidth = !actionIcon.isNull() ? s_lateralMargin + actionIconSize() : 0;
+    const int actionAreaWidth = !actionIcon.isNull() ? s_lateralMargin + actionIconSize() : s_lateralMargin;
     QRect rectText((isLTR ? iconAreaWidth : actionAreaWidth) + s_lateralMargin,
                    opt.rect.top(),
                    opt.rect.width() - iconAreaWidth - actionAreaWidth - 2 * s_lateralMargin,
