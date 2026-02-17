@@ -53,11 +53,11 @@ TrashImpl::TrashImpl()
     // so better have a separate one, for faster parsing by e.g. kmimetype.cpp
     m_config(QStringLiteral("trashrc"), KConfig::SimpleConfig)
 {
-    QT_STATBUF buff;
-    if (QT_LSTAT(QFile::encodeName(QDir::homePath()).constData(), &buff) == 0) {
-        m_homeDevice = buff.st_dev;
+    KMountPoint::Ptr home_mp = KMountPoint::currentMountPoints().findByPath(QDir::homePath());
+    if (home_mp) {
+        m_homeDevice = home_mp->deviceId();
     } else {
-        qCWarning(KIO_TRASH) << "Should never happen: couldn't stat $HOME" << strerror(errno);
+        qCWarning(KIO_TRASH) << "Should never happen: couldn't get mountpoint for $HOME";
     }
 }
 

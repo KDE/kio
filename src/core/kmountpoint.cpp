@@ -454,7 +454,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
                     mp->d->m_deviceId = makedev(buff.stx_dev_major, buff.stx_dev_minor);
 #if HAVE_STATX_MNT_ID
                     if (buff.stx_mask & mask_mnt_id) {
-                        mp->d->m_mountId = (quint64)buff.stx_mask;
+                        mp->d->m_mountId = (quint64)buff.stx_mnt_id;
                     }
 #endif
                 }
