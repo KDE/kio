@@ -169,12 +169,23 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         actionIcon = QIcon::fromTheme(QStringLiteral("media-eject"));
     }
 
+    QStyleOptionViewItem hintOption(option);
+    hintOption.features |= QStyleOptionViewItem::HasDecoration;
+    hintOption.decorationSize = {m_iconSize, m_iconSize};
+    QRect iconRect = QApplication::style()->subElementRect(QStyle::SE_ItemViewItemDecoration, &hintOption, option.widget);
+    int lateralMargin = 0;
+    if (m_view->layoutDirection() == Qt::RightToLeft) {
+        lateralMargin = option.rect.right() - iconRect.right();
+    } else {
+        lateralMargin = iconRect.left();
+    }
+
     bool isLTR = opt.direction == Qt::LeftToRight;
-    const int iconAreaWidth = s_lateralMargin + m_iconSize;
-    const int actionAreaWidth = !actionIcon.isNull() ? s_lateralMargin + actionIconSize() : s_lateralMargin;
-    QRect rectText((isLTR ? iconAreaWidth : actionAreaWidth) + s_lateralMargin,
+    const int iconAreaWidth = lateralMargin + m_iconSize;
+    const int actionAreaWidth = !actionIcon.isNull() ? lateralMargin + actionIconSize() : lateralMargin;
+    QRect rectText((isLTR ? iconAreaWidth : actionAreaWidth) + lateralMargin,
                    opt.rect.top(),
-                   opt.rect.width() - iconAreaWidth - actionAreaWidth - 2 * s_lateralMargin,
+                   opt.rect.width() - iconAreaWidth - actionAreaWidth - 2 * lateralMargin,
                    opt.rect.height());
 
     const QPalette activePalette = KIconLoader::global()->customPalette();
@@ -187,7 +198,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     QIcon::Mode mode = selectedAndActive ? QIcon::Selected : QIcon::Normal;
     QIcon icon = index.model()->data(index, Qt::DecorationRole).value<QIcon>();
     QPixmap pm = icon.pixmap(m_iconSize, m_iconSize, mode);
-    QPoint point(isLTR ? opt.rect.left() + s_lateralMargin : opt.rect.right() - s_lateralMargin - m_iconSize,
+    QPoint point(isLTR ? opt.rect.left() + lateralMargin : opt.rect.right() - lateralMargin - m_iconSize,
                  opt.rect.top() + (opt.rect.height() - m_iconSize) / 2);
     painter->drawPixmap(point, pm);
 
@@ -202,7 +213,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 
         const QPixmap pixmap = actionIcon.pixmap(iconSize, iconSize, mode);
 
-        const QRectF rect(isLTR ? opt.rect.right() - actionAreaWidth : opt.rect.left() + s_lateralMargin,
+        const QRectF rect(isLTR ? opt.rect.right() - actionAreaWidth : opt.rect.left() + lateralMargin,
                           opt.rect.top() + (opt.rect.height() - iconSize) / 2,
                           iconSize,
                           iconSize);
