@@ -1,10 +1,8 @@
 # Traducerea kcmkio.po în Română
 # translation of kcmkio.po to Romanian
-# translation of @PACKAGE.po to @LANGUAGE
 # Copyright (C) 2003, 2004, 2005, 2008 Free Software Foundation, Inc.
 # Claudiu Costin <claudiuc@kde.org>, 2003, 2004, 2005.
-# Sergiu Bivol <sergiu@cip.md>, 2008.
-# Sergiu Bivol <sergiu@cip.md>, 2008, 2009, 2012, 2014, 2020, 2021, 2022, 2024.
+# SPDX-FileCopyrightText: 2008, 2009, 2012, 2014, 2020, 2021, 2022, 2024, 2025, 2026 Sergiu Bivol <sergiu@cip.md>
 # Cristian Oneț <onet.cristian@gmail.com>, 2011.
 #
 msgid ""
@@ -12,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2024-02-24 15:31+0000\n"
+"PO-Revision-Date: 2026-02-16 23:38+0000\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -21,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 25.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -655,7 +653,7 @@ msgstr ""
 #: core/job_error.cpp:166
 #, kde-format
 msgid "Authorization failed, %1 authentication not supported"
-msgstr "Autorizare eșuată. Autentificarea %1 nu este suportată."
+msgstr "Autorizare eșuată. Autentificarea %1 nu este susținută."
 
 #: core/job_error.cpp:172
 #, kde-format
@@ -708,8 +706,8 @@ msgid ""
 "Could not delete original file %1.\n"
 "Please check permissions."
 msgstr ""
-"Nu pot șterge fișierul original %1.\n"
-"Vă rog să verificați permisiunile."
+"Nu se poate șterge fișierul original %1.\n"
+"Verificați permisiunile."
 
 #: core/job_error.cpp:198
 #, kde-format
@@ -717,8 +715,8 @@ msgid ""
 "Could not delete partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"Nu pot șterge fișierul parțial %1.\n"
-"Vă rog să verificați permisiunile."
+"Nu se poate șterge fișierul parțial %1.\n"
+"Verificați permisiunile."
 
 #: core/job_error.cpp:201
 #, kde-format
@@ -726,8 +724,8 @@ msgid ""
 "Could not rename original file %1.\n"
 "Please check permissions."
 msgstr ""
-"Nu pot redenumi fișierul original %1.\n"
-"Vă rog să verificați permisiunile."
+"Nu se poate redenumi fișierul original %1.\n"
+"Verificați permisiunile."
 
 #: core/job_error.cpp:204
 #, kde-format
@@ -735,8 +733,8 @@ msgid ""
 "Could not rename partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"Nu pot redenumi fișierul parțial %1.\n"
-"Vă rog să verificați permisiunile."
+"Nu se poate redenumi fișierul parțial %1.\n"
+"Verificați permisiunile."
 
 #: core/job_error.cpp:207
 #, kde-format
@@ -744,8 +742,8 @@ msgid ""
 "Could not create symlink %1.\n"
 "Please check permissions."
 msgstr ""
-"Nu pot crea legătura simbolică %1.\n"
-"Vă rog să verificați permisiunile."
+"Nu se poate crea legătura simbolică %1.\n"
+"Verificați permisiunile."
 
 #: core/job_error.cpp:210
 #, kde-format
@@ -785,7 +783,8 @@ msgstr "Acces interzis la port restricționat în cererea POST."
 msgid ""
 "The required content size information was not provided for a POST operation."
 msgstr ""
-"Mărimea conținului este necesară la o operație POST și nu a fost furnizată"
+"Informația necesară cu mărimea conținutului nu a fost furnizată pentru o "
+"operație POST."
 
 #: core/job_error.cpp:236
 #, kde-format
@@ -805,7 +804,7 @@ msgstr "Comunicarea cu severul local de parole a eșuat"
 #: core/job_error.cpp:245
 #, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr "Nu se poate crea lucrătorul KIO: %1"
+msgstr "Nu se poate crea lucrătorul KIO. %1"
 
 #: core/job_error.cpp:249
 #, kde-kuit-format
@@ -814,8 +813,8 @@ msgid ""
 "Cannot transfer <filename>%1</filename> because it is too large. The "
 "destination filesystem only supports files up to 4GiB"
 msgstr ""
-"Nu se poate transfera <filename>%1</filename> pentru că e prea mare.Sistemul "
-"de fișiere destinație susține fișiere de până la 4GiO"
+"Nu se poate transfera <filename>%1</filename> pentru că e prea mare. "
+"Sistemul de fișiere destinație susține fișiere de până la 4GiO"
 
 #: core/job_error.cpp:254
 #, kde-format
@@ -824,8 +823,8 @@ msgid ""
 "'%1' is owned by the current user.\n"
 "Please retry after changing permissions."
 msgstr ""
-"Escalarea privilegiilor nu e necesară deoarece \n"
-"„%1” e deținut de utilizatorul curent.\n"
+"Escaladarea privilegiilor nu e necesară deoarece \n"
+"„%1” e deținut de utilizatorul actual.\n"
 "Reîncercați după modificarea permisiunilor."
 
 #: core/job_error.cpp:257
@@ -1233,7 +1232,7 @@ msgstr ""
 #: core/job_error.cpp:525
 #, kde-format
 msgid "Unsupported Action: %1"
-msgstr "Acțiune nesuportată: %1"
+msgstr "Acțiune nesusținută: %1"
 
 #: core/job_error.cpp:527
 #, kde-format
@@ -1241,7 +1240,7 @@ msgid ""
 "The requested action is not supported by the KDE program which is "
 "implementing the <strong>%1</strong> protocol."
 msgstr ""
-"Acțiunea cerută nu este suportată de programul KDE caer implementează "
+"Acțiunea cerută nu este susținută de programul KDE care implementează "
 "protocolul <strong>%1</strong>."
 
 #: core/job_error.cpp:531
@@ -2048,7 +2047,7 @@ msgstr "Verificați din nou configurările proxy și încercați din nou."
 #: core/job_error.cpp:1050
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
-msgstr "Autentificare eșuată. Metoda %1 nu este suportată."
+msgstr "Autentificare eșuată. Metoda %1 nu este susținută."
 
 #: core/job_error.cpp:1052
 #, kde-format
@@ -2058,7 +2057,7 @@ msgid ""
 "supported by the KDE program implementing the protocol %1."
 msgstr ""
 "Deși poate că ați furnizat corect detaliile de autentificare, autentificarea "
-"a eșuat deoarece metoda utilizată de server nu este suportată de programul "
+"a eșuat deoarece metoda utilizată de server nu este susținută de programul "
 "KDE care implementează protocolul %1."
 
 #: core/job_error.cpp:1058
@@ -2486,7 +2485,7 @@ msgstr "Protocolul „%1” nu suportă accesarea fișierelor."
 #: core/slavebase.cpp:888
 #, kde-format
 msgid "Writing to %1 is not supported."
-msgstr "Nu este suportată scrierea în %1."
+msgstr "Nu este susținută scrierea în %1."
 
 #: core/slavebase.cpp:890
 #, kde-format
@@ -2501,54 +2500,54 @@ msgstr "Protocolul „%1” nu suportă listarea de dosare."
 #: core/slavebase.cpp:894
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
-msgstr "Nu este suportată citirea de date din %1."
+msgstr "Nu este susținută citirea de date din %1."
 
 #: core/slavebase.cpp:896
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
-msgstr "Nu este suportată citirea de informații MIME din %1."
+msgstr "Nu este susținută citirea de informații MIME din %1."
 
 #: core/slavebase.cpp:898
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
-msgstr "Nu este suportată redenumirea sau mutarea fișierelor în %1."
+msgstr "Nu este susținută redenumirea sau mutarea fișierelor în %1."
 
 #: core/slavebase.cpp:900
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
-msgstr "Nu este suportată crearea de legături simbolice cu protocolul „%1”."
+msgstr "Nu este susținută crearea de legături simbolice cu protocolul „%1”."
 
 #: core/slavebase.cpp:902
 #, kde-format
 msgid "Copying files within %1 is not supported."
-msgstr "Nu este suportată copierea de fișiere în %1."
+msgstr "Nu este susținută copierea de fișiere în %1."
 
 #: core/slavebase.cpp:904
 #, kde-format
 msgid "Deleting files from %1 is not supported."
-msgstr "Nu este suportată ștergerea de fișiere în %1."
+msgstr "Nu este susținută ștergerea de fișiere în %1."
 
 #: core/slavebase.cpp:906
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
-msgstr "Nu este suportată crearea de dosare cu protocolul „%1”."
+msgstr "Nu este susținută crearea de dosare cu protocolul „%1”."
 
 #: core/slavebase.cpp:908
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr ""
-"Nu este suportată modificarea atributelor fișierelor cu protocolul „%1”."
+"Nu este susținută modificarea atributelor fișierelor cu protocolul „%1”."
 
 #: core/slavebase.cpp:910
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr ""
-"Nu este suportată modificarea proprietarului fișierelor cu protocolul %1."
+"Nu este susținută modificarea proprietarului fișierelor cu protocolul %1."
 
 #: core/slavebase.cpp:912
 #, kde-format
 msgid "Using sub-URLs with %1 is not supported."
-msgstr "Nu este suportată utilizarea sub-URL-urilor în %1."
+msgstr "Nu este susținută utilizarea sub-URL-urilor în %1."
 
 #: core/slavebase.cpp:914
 #, kde-format
@@ -2558,7 +2557,7 @@ msgstr "Nu sunt suportate transferuri multiple cu protocolul „%1”."
 #: core/slavebase.cpp:916
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
-msgstr "Nu este suportată deschiderea fișierelor cu protocolul %1."
+msgstr "Nu este susținută deschiderea fișierelor cu protocolul %1."
 
 #: core/slavebase.cpp:918
 #, kde-format
@@ -4723,28 +4722,7 @@ msgstr ""
 "este repornit."
 
 #: kcms/cookies/kcookiespolicies.cpp:430
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><h1>Cookies</h1> Cookies contain information that Konqueror (or any "
-#| "other KDE application using the HTTP protocol) stores on your computer "
-#| "from a remote Internet server. This means that a web server can store "
-#| "information about you and your browsing activities on your machine for "
-#| "later use. You might consider this an invasion of privacy.</p><p>However, "
-#| "cookies are useful in certain situations. For example, they are often "
-#| "used by Internet shops, so you can 'put things into a shopping basket'. "
-#| "Some sites require you have a browser that supports cookies.</"
-#| "p><p>Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, KDE offers you the ability to customize the way "
-#| "it handles cookies. You might, for example want to set KDE's default "
-#| "policy to ask you whenever a server wants to set a cookie or simply "
-#| "reject or accept everything. For example, you might choose to accept all "
-#| "cookies from your favorite shopping web site. For this all you have to do "
-#| "is either browse to that particular site and when you are presented with "
-#| "the cookie dialog box, click on <i> This domain </i> under the 'apply to' "
-#| "tab and choose accept or simply specify the name of the site in the <i> "
-#| "Domain Specific Policy </i> tab and set it to accept. This enables you to "
-#| "receive cookies from trusted web sites without being asked every time KDE "
-#| "receives a cookie.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE application using "
 "the HTTP protocol (like Konqueror) stores on your computer from a remote "
@@ -4766,29 +4744,29 @@ msgid ""
 "receive cookies from trusted web sites without being asked every time KDE "
 "receives a cookie.</p>"
 msgstr ""
-"<p><h1>Cookie-uri</h1> Cookie-urile conțin informații pe care Konqueror (sau "
-"alte aplicații KDE care utilizează protocolul HTTP) le stochează în "
-"calculatorul dumneavoastră de la un server de Internet distant. Aceasta "
-"înseamnă, că un server de web poate stoca informații despre dumneavoastră și "
-"activitățiile dumneavoastră de navigare pe sistemul dumneavoastră, pentru o "
-"utilizare ulterioară. Ați putea considera acest lucru ca un atac la adresa "
-"intimității dumneavoastră. </p><p>Oricum, cookie-urile sunt utile în anumite "
-"situații. De exemplu, ele sunt adeseori folosite de magazinele virtuale de "
-"pe Internet astfel încât să „puneți obiecte în coșul de cumpărături”.  Unele "
-"saituri cer să aveți un navigator care suportă cookie-uri. </p><p>Deoarece "
-"mulți oameni doresc să facă un compromis între intimitate și beneficiile "
-"oferite de cookie-uri, KDE vă permite să personalizați modul în care sunt "
-"manipulate cookie-urile. Astfel, ați putea configura modul implicit KDE de a "
-"vă întreba atunci când un server vrea să seteze un cookie, sau pur și simplu "
-"să accepte sau să respingă cookie-ul. De exemplu, pentru saitul de "
-"cumpărături favorit în care aveți încredere ați putea alege să acceptați "
-"toate cookie-urile. Pentru aceasta tot ceea ce aveți de făcut este să "
-"navigați pe acest site particular și atunci când vă este afișat dialogul "
-"pentru cookie-uri dați clic pe <i>Acest domeniu</i> sub „Aplică” și alegeți "
-"acceptare sau pur și simplu specificați numele saitului în fila <i>Politică "
-"specifică domeniului</i> și configurați la acceptare. Aceasta vă permite să "
-"primiți cookie-uri de la saiturile web în care aveți încredere fără să fiți "
-"întrebat de fiecare dată când KDE primește un cookie.</p>"
+"<h1>Cookie-uri</h1><p>Cookie-urile conțin informații pe care aplicații KDE "
+"ce utilizează protocolul HTTP (ca Konqueror) le stochează în calculatorul "
+"dumneavoastră de la un server de Internet distant. Aceasta înseamnă, că un "
+"server de web poate stoca informații despre dumneavoastră și activitățile "
+"dumneavoastră de navigare pe sistemul dumneavoastră, pentru o utilizare "
+"ulterioară. Ați putea considera acest lucru ca un atac la adresa intimității "
+"dumneavoastră.</p><p>Oricum, cookie-urile sunt utile în anumite situații. De "
+"exemplu, ele sunt adeseori folosite de magazinele virtuale de pe Internet "
+"astfel încât să „puneți obiecte în coșul de cumpărături”.  Unele saituri cer "
+"să aveți un navigator care suportă cookie-uri.</p><p>Deoarece mulți oameni "
+"doresc să facă un compromis între intimitate și beneficiile oferite de "
+"cookie-uri, KDE vă permite să personalizați modul în care sunt manipulate "
+"cookie-urile. Astfel, ați putea configura modul implicit KDE de a vă întreba "
+"atunci când un server vrea să seteze un cookie, sau pur și simplu să accepte "
+"sau să respingă cookie-ul. De exemplu, pentru saitul de cumpărături favorit "
+"în care aveți încredere ați putea alege să acceptați toate cookie-urile. "
+"Pentru aceasta tot ceea ce aveți de făcut este să navigați pe acest site "
+"particular și atunci când vă este afișat dialogul pentru cookie-uri dați "
+"clic pe <i>Acest domeniu</i> sub „Aplică” și alegeți acceptare sau pur și "
+"simplu specificați numele saitului în fila <i>Politică specifică domeniului</"
+"i> și configurați la acceptare. Aceasta vă permite să primiți cookie-uri de "
+"la saiturile web în care aveți încredere fără să fiți întrebat de fiecare "
+"dată când KDE primește un cookie.</p>"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
 #: kcms/cookies/kcookiespolicies.ui:20
@@ -4869,21 +4847,7 @@ msgstr "Acceptă a&utomat cookie-uri de sesiune"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
 #: kcms/cookies/kcookiespolicies.ui:68
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Determines how cookies received from a remote machine will be handled: \n"
-#| "<ul>\n"
-#| "<li><b>Ask</b> will cause KDE to ask for your confirmation whenever a "
-#| "server wants to set a cookie.</li>\n"
-#| "<li><b>Accept</b> will cause cookies to be accepted without prompting you."
-#| "</li>\n"
-#| "<li><b>Reject</b> will cause the cookiejar to refuse all cookies it "
-#| "receives.</li>\n"
-#| "</ul><p>\n"
-#| "<u>NOTE:</u> Domain specific policies, which can be set below, always "
-#| "take precedence over the default policy.</p>\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Determines how cookies received from a remote machine will be handled: \n"
@@ -4909,6 +4873,8 @@ msgstr ""
 "când un server dorește să vă trimită un cookie.</li>\n"
 "<li><b>Acceptă</b> va determina acceptarea cookie-urilor fără confirmare.</"
 "li>\n"
+"<li><b>Acceptă până la sfârșitul sesiunii</b> va determina acceptarea cookie-"
+"urilor, dar acestea vor expira la sfârșitul sesiunii.</li>\n"
 "<li><b>Respinge</b> va determina respingerea tuturor cookie-urilor primite.</"
 "li>\n"
 "</ul><p>\n"
@@ -5077,7 +5043,8 @@ msgstr "Denumire sait:"
 #, kde-format
 msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
 msgstr ""
-"Introduceți numele gazdei sau domeniului căruia i se aplică această politică."
+"Introduceți numele gazdei sau domeniului căruia i se aplică această "
+"politică, cum ar fi .kde.org."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
@@ -5395,16 +5362,7 @@ msgstr "Fără proxy"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at https://konqueror.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5417,12 +5375,10 @@ msgstr ""
 "<qt>\n"
 "Detectează automat și configurează parametrii de proxy.<p>\n"
 "Această detecție este făcută utilizând protocolul <b>Web Proxy Auto-"
-"Discovery Protocol (WPAD)</b>.</p><p>\n"
+"Discovery Protocol (WPAD)</b>.<p>\n"
 "<b>Observație:</b> Această opțiune s-ar putea să nu meargă corespunzător sau "
-"chiar să nu meargă deloc pe unele distribuții de Linux/Unix. Dacă "
-"întâmpinați probleme la utilizarea acestei opțiuni, citiți secțiunea "
-"„Răspunsuri la întrebări frecvente” (F.A.Q.) de la https://konqueror.org.\n"
-"</p></qt>"
+"chiar să nu meargă deloc pe unele distribuții de Linux/Unix.\n"
+"</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:49
@@ -5598,26 +5554,17 @@ msgstr "Proxy SOCKS:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
 #: kcms/proxy/kproxydlg.ui:285
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
-#| "to store the address of the HTTPS proxy server.<p>\n"
-#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#| "attempt an automatic discovery of this variable.</p>\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
 "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
 "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
 "automatic discovery of this variable.</p></qt>"
 msgstr ""
-"<qt>\n"
-"Introduceți numele variabilei de mediu, de exemplu <b>HTTPS_PROXY</b>, "
-"utilizată la memorarea adresei serverului proxy HTTPS.<p>\n"
-"Alternativ, puteți da clic pe butonul <b>\"Detectează automat\"</b> pentru a "
-"încerca descoperirea automată a acestei variabile.</p>\n"
-"</qt>"
+"<qt>Introduceți denumirea variabilei de mediu, de exemplu <b>SOCKS_PROXY</"
+"b>, utilizată la memorarea adresei serverului de proximitate SOCKS."
+"<p>Alternativ, puteți apăsa butonul <b>„Detectează automat”</b> pentru a "
+"încerca descoperirea automată a acestei variabile.</p></qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
 #. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
@@ -5631,11 +5578,13 @@ msgid ""
 "an automatic discovery of this variable.\n"
 "</qt>"
 msgstr ""
-"<qt>Introduceți numele variabilei de mediu, de exemplu <tt>NO_PROXY</tt>, "
-"utilizată la memorarea adreselor sait-urilor pentru care nu este utilizat "
-"serverul de proxy.<p>Alternativ, puteți da clic pe butonul <b>\"Detectează "
-"automat\"</b> pentru a încerca descoperirea automată a acestei variabile.</"
-"p></qt>"
+"<qt>\n"
+"Introduceți denumirea variabilei de mediu, de exemplu <b>NO_PROXY</b>, "
+"utilizată la memorarea adreselor saiturilor pentru care nu este utilizat "
+"serverul de proximitate.<p>\n"
+"Alternativ, puteți apăsa butonul <b>„Detectează automat”</b> pentru a "
+"încerca descoperirea automată a acestei variabile.\n"
+"</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
 #. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
@@ -5670,22 +5619,20 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:324
 #, kde-format
 msgid "Show the &value of the environment variables"
-msgstr "Afișează &valorile variabilelor de mediu"
+msgstr "Arată &valorile variabilelor de mediu"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, manualProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:343
 #, kde-format
 msgid "Manually enter proxy server configuration information."
 msgstr ""
-"<qt>\n"
-"Introduceți manual informațiile de configurare a serverului proxy.\n"
-"</qt>"
+"Introduceți manual informațiile de configurare a serverului de proximitate."
 
 #. i18n: ectx: property (text), widget (QRadioButton, manualProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:346
 #, kde-format
 msgid "Use manually specified proxy configuration:"
-msgstr "Folosește configurație proxy specficată manual:"
+msgstr "Folosește configurație de proximitate specificată manual:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
 #: kcms/proxy/kproxydlg.ui:398
@@ -5851,7 +5798,7 @@ msgstr "Fișier modificat"
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:248
 #, kde-format
 msgid "Upload"
-msgstr "încarcă"
+msgstr "Încarcă"
 
 #: kioexec/kioexecd.cpp:88 kioexec/main.cpp:249
 #, kde-format
@@ -7211,12 +7158,12 @@ msgstr "Creez dosarul"
 #: widgets/fileundomanager.cpp:141
 #, kde-format
 msgid "Moving"
-msgstr "Mut"
+msgstr "Se mută"
 
 #: widgets/fileundomanager.cpp:141
 #, kde-format
 msgid "Renaming"
-msgstr "Redenumire"
+msgstr "Se redenumește"
 
 #: widgets/fileundomanager.cpp:148
 #, kde-format
@@ -7634,12 +7581,12 @@ msgstr "Deschide d&osarul cu…"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With..."
-msgstr "&Deschide cu..."
+msgstr "&Deschide cu…"
 
 #: widgets/kfileitemactions.cpp:896
 #, kde-format
 msgid "&Open folder with %1"
-msgstr "&Deschide dosarul cu %1"
+msgstr "Deschide d&osarul cu %1"
 
 #: widgets/kfileitemactions.cpp:896
 #, kde-format
@@ -7662,7 +7609,7 @@ msgstr "&Deschide cu"
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
-msgstr "&Altă aplicație..."
+msgstr "&Altă aplicație…"
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
@@ -9156,8 +9103,8 @@ msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
-"Când acesta este bifat butonul apăsat va fi aplicat tuturor conflictelor "
-"ulterioare găsite pe parcursul sarcinii curente."
+"Când acesta este bifat, butonul apăsat va fi aplicat tuturor conflictelor "
+"ulterioare găsite pe parcursul lucrării actuale."
 
 #: widgets/renamedialog.cpp:237
 #, kde-format
@@ -9497,31 +9444,19 @@ msgstr[2] ""
 "strong='true'>Această acțiune nu poate fi desfăcută.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:254
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><filename>%1</"
-#| "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Sigur doriți să ștergeți definitiv acest element?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Această acțiune nu poate fi "
-"desfăcută.</emphasis>"
+"Mutarea acestui element la gunoi a eșuat deoarece e prea mare. Îl ștergeți "
+"definitiv?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Această acțiune nu poate fi desfăcută.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:261
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9532,14 +9467,17 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Sigur doriți să ștergeți definitiv acest element?<nl/><nl/><emphasis "
-"strong='true'>Această acțiune nu poate fi desfăcută.</emphasis>"
+"Mutarea acestui %1 element la gunoi a eșuat deoarece e prea mare. Îl "
+"ștergeți definitiv?<nl/><emphasis strong='true'>Această acțiune nu poate fi "
+"desfăcută.</emphasis>"
 msgstr[1] ""
-"Sigur doriți să ștergeți definitiv aceste %1 elemente?<nl/><nl/><emphasis "
-"strong='true'>Această acțiune nu poate fi desfăcută.</emphasis>"
+"Mutarea acestor %1 elemente la gunoi a eșuat deoarece sunt prea mari. Le "
+"ștergeți definitiv?<nl/><nl/><emphasis strong='true'>Această acțiune nu "
+"poate fi desfăcută.</emphasis>"
 msgstr[2] ""
-"Sigur doriți să ștergeți definitiv aceste %1 de elemente?<nl/><nl/><emphasis "
-"strong='true'>Această acțiune nu poate fi desfăcută.</emphasis>"
+"Mutarea acestor %1 de elemente la gunoi a eșuat deoarece sunt prea mari. Le "
+"ștergeți definitiv?<nl/><nl/><emphasis strong='true'>Această acțiune nu "
+"poate fi desfăcută.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:289
 #, kde-kuit-format
