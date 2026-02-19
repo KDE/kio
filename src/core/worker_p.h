@@ -112,6 +112,7 @@ public:
 
     // == end communication with connected kioworker ==
 private:
+    friend class Scheduler;
     friend class SchedulerPrivate;
     friend class DataProtocol;
     friend class WorkerManager;
