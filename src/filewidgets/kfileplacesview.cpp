@@ -80,6 +80,7 @@ KFilePlacesViewDelegate::KFilePlacesViewDelegate(KFilePlacesView *parent)
 
 KFilePlacesViewDelegate::~KFilePlacesViewDelegate()
 {
+    clearFreeSpaceInfo();
 }
 
 QSize KFilePlacesViewDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
