@@ -539,6 +539,7 @@ void KPasswdServer::processRequest()
 
             connect(dlg, &QDialog::finished, this, [this, dlg](int result) {
                 retryDialogDone(result, dlg);
+                dlg->deleteLater();
             });
 
             dlg->setAttribute(Qt::WA_NativeWindow, true);
