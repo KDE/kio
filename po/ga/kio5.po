@@ -2,14 +2,14 @@
 # Copyright (C) 2002, 2004 Free Software Foundation, Inc.
 # Séamus Ó Ciardhuáin <seoc@cnds.ucd.ie>, 2002.
 # Kevin Scannell <kscanne@gmail.com>, 2004.
-# SPDX-FileCopyrightText: 2025 Charlotte <altronic25@protonmail.com>
+# SPDX-FileCopyrightText: 2025, 2026 Charlotte <altronic25@protonmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2025-12-25 04:20+0000\n"
-"Last-Translator: Charlotte <altronic25@protonmail.com>\n"
+"PO-Revision-Date: 2026-02-18 10:12+0000\n"
+"Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
 "Language: ga\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3205,7 +3206,7 @@ msgstr "Ag scaoileadh…"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
-msgstr "&Scaoil"
+msgstr "&Dífheistigh"
 
 #: filewidgets/kfileplacesmodel.cpp:1421
 #, kde-format
