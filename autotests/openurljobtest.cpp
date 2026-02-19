@@ -190,7 +190,7 @@ void OpenUrlJobTest::noServiceNoHandler()
 
 void OpenUrlJobTest::invalidUrl()
 {
-    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl(":/"), QStringLiteral("text/plain"), this);
+    std::unique_ptr<KIO::OpenUrlJob> job(new KIO::OpenUrlJob(QUrl(":/"), QStringLiteral("text/plain"), this));
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KIO::ERR_MALFORMED_URL);
     QCOMPARE(job->errorString(), QStringLiteral("Malformed URL\nRelative URL's path component contains ':' before any '/'; source was \":/\"; path = \":/\""));
@@ -221,7 +221,7 @@ void OpenUrlJobTest::refuseRunningLocalBinaries()
 
     QFETCH(QString, mimeType);
 
-    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(QCoreApplication::applicationFilePath()), mimeType, this);
+    std::unique_ptr<KIO::OpenUrlJob> job(new KIO::OpenUrlJob(QUrl::fromLocalFile(QCoreApplication::applicationFilePath()), mimeType, this));
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KJob::UserDefinedError);
     QVERIFY2(job->errorString().contains("For security reasons, launching executables is not allowed in this context."), qPrintable(job->errorString()));
@@ -240,7 +240,7 @@ void OpenUrlJobTest::refuseRunningRemoteNativeExecutables()
 
     QFETCH(QString, mimeType);
 
-    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl("protocol://host/path/exe"), mimeType, this);
+    std::unique_ptr<KIO::OpenUrlJob> job(new KIO::OpenUrlJob(QUrl("protocol://host/path/exe"), mimeType, this));
     job->setRunExecutables(true); // even with this enabled, an error will occur
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KJob::UserDefinedError);
@@ -257,7 +257,7 @@ void OpenUrlJobTest::notAuthorized()
     cg.sync();
     loadUrlActionRestrictions(cg);
 
-    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl("file:///"), QStringLiteral("text/plain"), this);
+    std::unique_ptr<KIO::OpenUrlJob> job(new KIO::OpenUrlJob(QUrl("file:///"), QStringLiteral("text/plain"), this));
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KIO::ERR_ACCESS_DENIED);
     QCOMPARE(job->errorString(), QStringLiteral("Access denied to file:///."));
@@ -341,7 +341,7 @@ void OpenUrlJobTest::runNativeExecutable()
     // Note that it's missing executable permissions
 
     // When using OpenUrlJob to run the executable
-    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(scriptFile), mimeType, this);
+    std::unique_ptr<KIO::OpenUrlJob> job(new KIO::OpenUrlJob(QUrl::fromLocalFile(scriptFile), mimeType, this));
     job->setRunExecutables(true); // startProcess tests the case where this isn't set
     job->setUiDelegate(new KJobUiDelegate);
 
@@ -529,7 +529,7 @@ void OpenUrlJobTest::launchExternalBrowser()
 
 void OpenUrlJobTest::nonExistingFile()
 {
-    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(QStringLiteral("/does/not/exist")), this);
+    std::unique_ptr<KIO::OpenUrlJob> job(new KIO::OpenUrlJob(QUrl::fromLocalFile(QStringLiteral("/does/not/exist")), this));
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), KIO::ERR_DOES_NOT_EXIST);
     QCOMPARE(job->errorString(), "The file or folder /does/not/exist does not exist.");
@@ -559,7 +559,7 @@ void OpenUrlJobTest::ftpUrlWithKIO()
 {
     // This is just to test the statFile() code at least a bit
     const QUrl url(QStringLiteral("ftp://localhost:2")); // unlikely that anything is running on that port
-    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(url, this);
+    std::unique_ptr<KIO::OpenUrlJob> job(new KIO::OpenUrlJob(url, this));
     QVERIFY(!job->exec());
     QVERIFY(job->errorString() == QLatin1String("Could not connect to host localhost: Connection refused.")
             || job->errorString() == QLatin1String("Could not connect to host localhost: Network unreachable."));
@@ -573,9 +573,9 @@ void OpenUrlJobTest::takeOverAfterMimeTypeFound()
     const QString srcFile = srcDir + QLatin1String("/image.jpg");
     createSrcFile(srcFile);
 
-    KIO::OpenUrlJob *job = new KIO::OpenUrlJob(QUrl::fromLocalFile(srcFile), this);
+    std::unique_ptr<KIO::OpenUrlJob> job(new KIO::OpenUrlJob(QUrl::fromLocalFile(srcFile), this));
     QString foundMime = QStringLiteral("NONE");
-    connect(job, &KIO::OpenUrlJob::mimeTypeFound, this, [&](const QString &mimeType) {
+    connect(job.get(), &KIO::OpenUrlJob::mimeTypeFound, this, [&](const QString &mimeType) {
         foundMime = mimeType;
         job->kill();
     });
