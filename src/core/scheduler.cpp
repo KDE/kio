@@ -17,6 +17,7 @@
 #include <kprotocolinfo.h>
 #include <kprotocolmanager.h>
 
+#include <QCoreApplication>
 #ifdef WITH_QTDBUS
 #include <QDBusConnection>
 #include <QDBusMessage>
@@ -560,7 +561,21 @@ void Scheduler::doJob(SimpleJob *job)
 // static
 void Scheduler::cancelJob(SimpleJob *job)
 {
-    schedulerPrivate()->cancelJob(job);
+    if (!qApp->closingDown()) {
+        schedulerPrivate()->cancelJob(job);
+    } else {
+        KIO::SimpleJobPrivate *const jobPriv = SimpleJobPrivate::get(job);
+        // this method is called all over the place in job.cpp, so just do this check here to avoid
+        // much boilerplate in job code.
+        if (jobPriv->m_schedSerial == 0) {
+            // qDebug() << "Doing nothing because I don't know job" << job;
+            return;
+        }
+        Worker *worker = jobSWorker(job);
+        if (worker) {
+            worker->kill(); // don't use worker after this!
+        }
+    }
 }
 
 void Scheduler::jobFinished(KIO::SimpleJob *job, KIO::Worker *worker)
