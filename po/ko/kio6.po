@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-17 00:39+0000\n"
+"POT-Creation-Date: 2026-02-19 00:40+0000\n"
 "PO-Revision-Date: 2026-02-04 00:17+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO 워커를 만들 수 없음: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:985
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:998
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -88,23 +88,23 @@ msgstr ""
 "바꾸기를 선택하면 (대상 파일 이름에) 사용할 수 없는 글자를 밑줄(\"_\")로 대체"
 "합니다."
 
-#: core/copyjob.cpp:1387 core/job_error.cpp:588
+#: core/copyjob.cpp:1403 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "폴더가 이미 존재함"
 
-#: core/copyjob.cpp:1711 core/copyjob.cpp:2416 core/filecopyjob.cpp:368
+#: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:368
 #: core/job_error.cpp:577 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "파일이 이미 존재함"
 
-#: core/copyjob.cpp:1711 core/copyjob.cpp:2416
+#: core/copyjob.cpp:1736 core/copyjob.cpp:2441
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "이미 폴더로 존재함"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "휴지통"
@@ -2207,23 +2207,23 @@ msgstr "대상 드라이브를 큰 파일을 지원하는 파일 시스템으로
 msgid "Undocumented Error"
 msgstr "문서화되지 않은 오류"
 
-#: core/kfileitem.cpp:1499
+#: core/kfileitem.cpp:1523
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1(으)로 향한 심볼릭 링크)"
 
-#: core/kfileitem.cpp:1501
+#: core/kfileitem.cpp:1525
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2(으)로 향한 링크)"
 
-#: core/kfileitem.cpp:1504
+#: core/kfileitem.cpp:1528
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (%1을(를) 가리킴)|/| (%1$[을를 %1] 가리킴)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:673
+#: widgets/renamedialog.cpp:677
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4092,22 +4092,22 @@ msgstr "\"mount\" 프로그램을 찾을 수 없음"
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" 프로그램을 찾을 수 없음"
 
-#: kioworkers/file/file_unix.cpp:578
+#: kioworkers/file/file_unix.cpp:591
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1에서 %2(으)로 파일을 복사할 수 없습니다. (오류 번호: %3)"
 
-#: kioworkers/file/file_unix.cpp:792
+#: kioworkers/file/file_unix.cpp:805
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 장치에 미디어가 없습니다"
 
-#: kioworkers/file/file_unix.cpp:1053
+#: kioworkers/file/file_unix.cpp:1066
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "주어진 사용자 이름 %1의 사용자 ID를 가져올 수 없습니다"
 
-#: kioworkers/file/file_unix.cpp:1064
+#: kioworkers/file/file_unix.cpp:1077
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "주어진 그룹 이름 %1의 그룹 ID를 가져올 수 없습니다"
@@ -4159,7 +4159,7 @@ msgstr "이 사이트에 연결하려면 사용자 이름과 암호가 필요합
 msgid "Site:"
 msgstr "사이트:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2490
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2491
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4183,7 +4183,7 @@ msgstr ""
 "\n"
 "서버 응답: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2486 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4192,12 +4192,12 @@ msgstr ""
 "모든 사이트에 접근하려면 아래에 나열된 프록시 서버에 대한 사용자 이름과 암호"
 "를 입력해야 합니다."
 
-#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2490 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "프록시:"
 
-#: kioworkers/ftp/ftp.cpp:2492
+#: kioworkers/ftp/ftp.cpp:2493
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "프록시 인증이 실패했습니다."
@@ -4260,90 +4260,90 @@ msgstr "서버 인증"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%2</b>의 <b>%1</b>"
 
-#: kioworkers/http/http.cpp:1395
+#: kioworkers/http/http.cpp:1396
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "그렇지 않다면 요청이 성공했을 수도 있습니다."
 
-#: kioworkers/http/http.cpp:1398
+#: kioworkers/http/http.cpp:1399
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "속성 값 가져오기"
 
-#: kioworkers/http/http.cpp:1400
+#: kioworkers/http/http.cpp:1401
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "속성 값 설정"
 
-#: kioworkers/http/http.cpp:1402
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "요청한 폴더 만들기"
 
-#: kioworkers/http/http.cpp:1404
+#: kioworkers/http/http.cpp:1405
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "지정한 파일이나 디렉터리 복사"
 
-#: kioworkers/http/http.cpp:1406
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "지정한 파일이나 디렉터리 이동"
 
-#: kioworkers/http/http.cpp:1408
+#: kioworkers/http/http.cpp:1409
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "지정한 폴더에서 검색"
 
-#: kioworkers/http/http.cpp:1410
+#: kioworkers/http/http.cpp:1411
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "지정한 파일이나 폴더 잠그기"
 
-#: kioworkers/http/http.cpp:1412
+#: kioworkers/http/http.cpp:1413
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "지정한 파일이나 폴더 잠금 풀기"
 
-#: kioworkers/http/http.cpp:1414
+#: kioworkers/http/http.cpp:1415
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "지정한 파일이나 폴더 지우기"
 
-#: kioworkers/http/http.cpp:1416
+#: kioworkers/http/http.cpp:1417
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "서버의 기능 조회"
 
-#: kioworkers/http/http.cpp:1418
+#: kioworkers/http/http.cpp:1419
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "지정한 파일이나 폴더의 내용 가져오기"
 
-#: kioworkers/http/http.cpp:1420
+#: kioworkers/http/http.cpp:1421
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "지정한 폴더에서 보고서 실행"
 
-#: kioworkers/http/http.cpp:1428
+#: kioworkers/http/http.cpp:1429
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2을(를) 시도하는 동안 예기치 않은 오류(%1)가 발생했습니다."
 
-#: kioworkers/http/http.cpp:1468
+#: kioworkers/http/http.cpp:1469
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4353,13 +4353,13 @@ msgstr ""
 "%1, %2을(를) 시도하는 동안 오류가 발생했습니다. 이유에 대한 요약은 다음과 같"
 "습니다."
 
-#: kioworkers/http/http.cpp:1486 kioworkers/http/http.cpp:1630
+#: kioworkers/http/http.cpp:1487 kioworkers/http/http.cpp:1631
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1에 접근하려는 시도가 거부되었습니다."
 
-#: kioworkers/http/http.cpp:1500 kioworkers/http/http.cpp:1637
+#: kioworkers/http/http.cpp:1501 kioworkers/http/http.cpp:1638
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4368,7 +4368,7 @@ msgstr ""
 "하나 이상의 중간 모음집(폴더)이 생성될 때까지 대상에 리소스를 생성할 수 없습"
 "니다."
 
-#: kioworkers/http/http.cpp:1509
+#: kioworkers/http/http.cpp:1510
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4383,28 +4383,28 @@ msgstr ""
 "겹쳐 쓰려고 했습니다.\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1518
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "요청한 잠금이 허가되지 않았습니다. %1"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1524
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "서버가 본문의 요청 형식을 지원하지 않습니다."
 
-#: kioworkers/http/http.cpp:1528 kioworkers/http/http.cpp:1645
+#: kioworkers/http/http.cpp:1529 kioworkers/http/http.cpp:1646
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "리소스가 잠겨 %1을(를) 사용할 수 없습니다."
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1533
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "이 작업은 다른 오류로 인해 차단되었습니다."
 
-#: kioworkers/http/http.cpp:1539 kioworkers/http/http.cpp:1652
+#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1653
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4412,7 +4412,7 @@ msgid ""
 "folder."
 msgstr "대상 서버가 파일이나 폴더를 받아들일 수 없기 때문에 %1할 수 없습니다."
 
-#: kioworkers/http/http.cpp:1548 kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1549 kioworkers/http/http.cpp:1662
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4420,18 +4420,18 @@ msgid ""
 msgstr ""
 "대상 리소스에 이 방법을 실행한 후, 리소스 상태를 기록할 공간이 부족합니다."
 
-#: kioworkers/http/http.cpp:1601
+#: kioworkers/http/http.cpp:1602
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "리소스를 삭제할 수 없습니다."
 
-#: kioworkers/http/http.cpp:1621
+#: kioworkers/http/http.cpp:1622
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 업로드"
 
-#: kioworkers/http/http.cpp:1672
+#: kioworkers/http/http.cpp:1673
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4444,8 +4444,8 @@ msgstr "네트워크"
 
 #: kioworkers/trash/kio_trash.cpp:116 kioworkers/trash/kio_trash.cpp:160
 #: kioworkers/trash/kio_trash.cpp:220 kioworkers/trash/kio_trash.cpp:383
-#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:591
-#: kioworkers/trash/kio_trash.cpp:601
+#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:593
+#: kioworkers/trash/kio_trash.cpp:603
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "잘못된 URL %1"
@@ -4503,7 +4503,7 @@ msgstr "휴지통에 있는 내용 비우기"
 msgid "Restore a trashed file to its original location"
 msgstr "휴지통에 버린 파일을 원래 위치로 복원"
 
-#: kioworkers/trash/trashimpl.cpp:1303
+#: kioworkers/trash/trashimpl.cpp:1306
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "휴지통이 꽉 찼습니다. 비우거나 수동으로 항목을 삭제하십시오."
@@ -4791,12 +4791,12 @@ msgstr "Dolphin 파일 관리자 설정의 \"확인\"에서 이 설정을 취소
 msgid "Creating directory"
 msgstr "디렉터리 생성 중"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:423
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:427
 #, kde-format
 msgid "Source"
 msgstr "원본"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:425
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:429
 #, kde-format
 msgid "Destination"
 msgstr "대상"
@@ -4926,7 +4926,7 @@ msgstr "다시 실행: 파일 만들기(&R)"
 msgid "&Redo: Batch Rename"
 msgstr "다시 실행: 일괄 이름 바꾸기(&R)"
 
-#: widgets/fileundomanager.cpp:902
+#: widgets/fileundomanager.cpp:906
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -4938,7 +4938,7 @@ msgstr ""
 "파일 복사를 실행 취소하면 파일을 지우며 모든 변경 사항이 삭제됩니다.\n"
 "%4을(를) 삭제하시겠습니까?"
 
-#: widgets/fileundomanager.cpp:912
+#: widgets/fileundomanager.cpp:916
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "파일 복사 실행 취소 확인"
@@ -6791,52 +6791,52 @@ msgstr ""
 msgid "C&ontinue"
 msgstr "계속(&O)"
 
-#: widgets/renamedialog.cpp:412
+#: widgets/renamedialog.cpp:416
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "대상을 덮어쓰시겠습니까?"
 
-#: widgets/renamedialog.cpp:414
+#: widgets/renamedialog.cpp:418
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "'%1'의 내용을 '%2'에 합치시겠습니까?"
 
-#: widgets/renamedialog.cpp:457
+#: widgets/renamedialog.cpp:461
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "원본 파일이 <b>더 최신입니다</b>."
 
-#: widgets/renamedialog.cpp:459
+#: widgets/renamedialog.cpp:463
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "원본 파일이 <b>더 오래되었습니다</b>."
 
-#: widgets/renamedialog.cpp:468
+#: widgets/renamedialog.cpp:472
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "원본 파일이 <b>%1 더 작습니다</b>."
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:475
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "원본 파일이 <b>%1 더 큽니다</b>."
 
-#: widgets/renamedialog.cpp:485
+#: widgets/renamedialog.cpp:489
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "파일이 <b>같습니다</b>."
 
-#: widgets/renamedialog.cpp:488
+#: widgets/renamedialog.cpp:492
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "파일이 <b>같은 것 같습니다</b>."
 
-#: widgets/renamedialog.cpp:492
+#: widgets/renamedialog.cpp:496
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "파일이 <b>서로 다릅니다</b>."
 
-#: widgets/renamedialog.cpp:500
+#: widgets/renamedialog.cpp:504
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -6845,28 +6845,28 @@ msgstr ""
 "파일이 같은 것 같습니다. 크기가 같으며 내용의 시작, 가운데, 끝 부분이 같습니"
 "다."
 
-#: widgets/renamedialog.cpp:514
+#: widgets/renamedialog.cpp:518
 #, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "파일 비교"
 
-#: widgets/renamedialog.cpp:527
+#: widgets/renamedialog.cpp:531
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "이름이 '%1'인 이전 항목이 이미 존재합니다."
 
-#: widgets/renamedialog.cpp:529
+#: widgets/renamedialog.cpp:533
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "이름이 '%1'인 비슷한 파일이 이미 존재합니다."
 
-#: widgets/renamedialog.cpp:531
+#: widgets/renamedialog.cpp:535
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "이름이 '%1'인 새로운 항목이 이미 존재합니다."
 
-#: widgets/renamedialog.cpp:544
+#: widgets/renamedialog.cpp:548
 #, kde-format
 msgid "Rename:"
 msgstr "이름 바꾸기:"

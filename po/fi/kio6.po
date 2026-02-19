@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-17 00:39+0000\n"
+"POT-Creation-Date: 2026-02-19 00:40+0000\n"
 "PO-Revision-Date: 2026-01-12 14:38+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -60,7 +60,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO-työskentelijää ei voitu luoda: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:985
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:998
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -102,23 +102,23 @@ msgstr ""
 "Valitsemalla ”Korvaa” virheelliset merkit kohdetiedostonimessä korvataan "
 "alaviivoilla (”_”)."
 
-#: core/copyjob.cpp:1387 core/job_error.cpp:588
+#: core/copyjob.cpp:1403 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Kansio on jo olemassa"
 
-#: core/copyjob.cpp:1711 core/copyjob.cpp:2416 core/filecopyjob.cpp:368
+#: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:368
 #: core/job_error.cpp:577 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Tiedosto on jo olemassa"
 
-#: core/copyjob.cpp:1711 core/copyjob.cpp:2416
+#: core/copyjob.cpp:1736 core/copyjob.cpp:2441
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "On jo olemassa kansiona"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Roskakori"
@@ -2268,23 +2268,23 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Dokumentoimaton virhe"
 
-#: core/kfileitem.cpp:1499
+#: core/kfileitem.cpp:1523
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symlinkki kohteeseen %1)"
 
-#: core/kfileitem.cpp:1501
+#: core/kfileitem.cpp:1525
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, linkki kohteeseen %2)"
 
-#: core/kfileitem.cpp:1504
+#: core/kfileitem.cpp:1528
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Osoittaa kohteeseen %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:673
+#: widgets/renamedialog.cpp:677
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4191,23 +4191,23 @@ msgstr "Ohjelmaa ”mount” ei löytynyt"
 msgid "Could not find program \"umount\""
 msgstr "Ohjelmaa ”umount” ei löytynyt"
 
-#: kioworkers/file/file_unix.cpp:578
+#: kioworkers/file/file_unix.cpp:591
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 "Ei voida kopioida tiedostoa kohteesta %1 kohteeseen %2. (Virheilmoitus: %3)"
 
-#: kioworkers/file/file_unix.cpp:792
+#: kioworkers/file/file_unix.cpp:805
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Ei mediaa laitteessa %1"
 
-#: kioworkers/file/file_unix.cpp:1053
+#: kioworkers/file/file_unix.cpp:1066
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Käyttäjä-ID annetulle nimelle %1 ei saatavilla."
 
-#: kioworkers/file/file_unix.cpp:1064
+#: kioworkers/file/file_unix.cpp:1077
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Ryhmän %1 ryhmätunuksen selvittäminen epäonnistui."
@@ -4260,7 +4260,7 @@ msgstr ""
 msgid "Site:"
 msgstr "Palvelin:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2490
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2491
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4284,7 +4284,7 @@ msgstr ""
 "\n"
 "Palvelin vastasi: ”%1”"
 
-#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2486 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4293,12 +4293,12 @@ msgstr ""
 "Alla olevalle välityspalvelimelle pitää antaa käyttäjätunnus ja salasana, "
 "ennen kuin mitään sivuja voidaan selata."
 
-#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2490 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Välityspalvelin:"
 
-#: kioworkers/ftp/ftp.cpp:2492
+#: kioworkers/ftp/ftp.cpp:2493
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Välityspalvelimeen tunnistautuminen epäonnistui."
@@ -4361,90 +4361,90 @@ msgstr "Palvelimen varmennus"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> kohteessa <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1395
+#: kioworkers/http/http.cpp:1396
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Muuten pyyntö olisi onnistunut."
 
-#: kioworkers/http/http.cpp:1398
+#: kioworkers/http/http.cpp:1399
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "hae ominaisuusarvot"
 
-#: kioworkers/http/http.cpp:1400
+#: kioworkers/http/http.cpp:1401
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "aseta ominaisuusarvot"
 
-#: kioworkers/http/http.cpp:1402
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "luo pyydetty kansio"
 
-#: kioworkers/http/http.cpp:1404
+#: kioworkers/http/http.cpp:1405
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopioi tietty tiedosto tai kansio"
 
-#: kioworkers/http/http.cpp:1406
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "siirrä tietty tiedosto tai kansio"
 
-#: kioworkers/http/http.cpp:1408
+#: kioworkers/http/http.cpp:1409
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "hae tietyssä kansiossa"
 
-#: kioworkers/http/http.cpp:1410
+#: kioworkers/http/http.cpp:1411
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "lukitse tietty tiedosto tai kansio"
 
-#: kioworkers/http/http.cpp:1412
+#: kioworkers/http/http.cpp:1413
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "poista lukitus tietystä tiedostosta tai kansiosta"
 
-#: kioworkers/http/http.cpp:1414
+#: kioworkers/http/http.cpp:1415
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "poista tietty tiedosto tai kansio"
 
-#: kioworkers/http/http.cpp:1416
+#: kioworkers/http/http.cpp:1417
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "kysele palvelimen kykyjä"
 
-#: kioworkers/http/http.cpp:1418
+#: kioworkers/http/http.cpp:1419
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "hae tietyn tiedoston tai kansion sisältö"
 
-#: kioworkers/http/http.cpp:1420
+#: kioworkers/http/http.cpp:1421
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "aja raportti määritetyssä kansiossa"
 
-#: kioworkers/http/http.cpp:1428
+#: kioworkers/http/http.cpp:1429
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Odottamaton virhe (%1) tapahtui yritettäessä pyyntöä %2."
 
-#: kioworkers/http/http.cpp:1468
+#: kioworkers/http/http.cpp:1469
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4452,13 +4452,13 @@ msgid ""
 "below."
 msgstr "Tapahtui virhe yritettäessä %1, %2. Lyhyt yhteenveto syistä on alla."
 
-#: kioworkers/http/http.cpp:1486 kioworkers/http/http.cpp:1630
+#: kioworkers/http/http.cpp:1487 kioworkers/http/http.cpp:1631
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Käsittely kielletty yritettäessä %1."
 
-#: kioworkers/http/http.cpp:1500 kioworkers/http/http.cpp:1637
+#: kioworkers/http/http.cpp:1501 kioworkers/http/http.cpp:1638
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4468,7 +4468,7 @@ msgstr ""
 "(kansio) on luotu."
 
 # Koska kehittäjä muutti ”propertybehavior” → ”property behavior”, niin oletin ettei ole kääntämättömissä oleva XML-elementin nimi (niissä ei voi olla välilyöntiä). ”Ominaisuuksien käyttäytyminen” heitetty, mutta sen voi ongelmatilanteessa kääntää helposti englanniksi.
-#: kioworkers/http/http.cpp:1509
+#: kioworkers/http/http.cpp:1510
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4483,28 +4483,28 @@ msgstr ""
 "korvata.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1518
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Pyydettyä lukkoa %1 ei voitu myöntää."
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1524
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Palvelin ei tue rungon pyyntötyyppiä."
 
-#: kioworkers/http/http.cpp:1528 kioworkers/http/http.cpp:1645
+#: kioworkers/http/http.cpp:1529 kioworkers/http/http.cpp:1646
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Toimintoa %1 ei voida suorittaa, koska resurssi on lukittu."
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1533
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Toiminto estyi jonkin muun virheen vuoksi."
 
-#: kioworkers/http/http.cpp:1539 kioworkers/http/http.cpp:1652
+#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1653
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4514,7 +4514,7 @@ msgstr ""
 "%1 ei onnistu, koska kohdepalvelin kieltäytyy hyväksymästä tiedostoa tai "
 "kansiota."
 
-#: kioworkers/http/http.cpp:1548 kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1549 kioworkers/http/http.cpp:1662
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4523,18 +4523,18 @@ msgstr ""
 "Kohderesurssissa ei ole riittävästi tilaa tallentaa resurssin tilaa metodin "
 "suorituksen jälkeen."
 
-#: kioworkers/http/http.cpp:1601
+#: kioworkers/http/http.cpp:1602
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Resurssia ei voida poistaa."
 
-#: kioworkers/http/http.cpp:1621
+#: kioworkers/http/http.cpp:1622
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "lähetetään tiedostoa %1"
 
-#: kioworkers/http/http.cpp:1672
+#: kioworkers/http/http.cpp:1673
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4547,8 +4547,8 @@ msgstr "Verkko"
 
 #: kioworkers/trash/kio_trash.cpp:116 kioworkers/trash/kio_trash.cpp:160
 #: kioworkers/trash/kio_trash.cpp:220 kioworkers/trash/kio_trash.cpp:383
-#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:591
-#: kioworkers/trash/kio_trash.cpp:601
+#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:593
+#: kioworkers/trash/kio_trash.cpp:603
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "Virheellinen verkko-osoite %1"
@@ -4606,7 +4606,7 @@ msgstr "Tyhjennä roskakori"
 msgid "Restore a trashed file to its original location"
 msgstr "Palauta roskakoriin viedyt tiedostot niiden alkuperäisille paikoilleen"
 
-#: kioworkers/trash/trashimpl.cpp:1303
+#: kioworkers/trash/trashimpl.cpp:1306
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Roskakori on täynnä. Tyhjennä se tai poista kohteita itse."
@@ -4895,12 +4895,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "Luodaan kansiota"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:423
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:427
 #, kde-format
 msgid "Source"
 msgstr "Lähde"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:425
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:429
 #, kde-format
 msgid "Destination"
 msgstr "Kohde"
@@ -5031,7 +5031,7 @@ msgstr "Tee &uudelleen: Luo tiedosto"
 msgid "&Redo: Batch Rename"
 msgstr "Tee &uudelleen: Muuta nimiä eräajona"
 
-#: widgets/fileundomanager.cpp:902
+#: widgets/fileundomanager.cpp:906
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5044,7 +5044,7 @@ msgstr ""
 "Kopioinnin kumoaminen poistaa tiedoston, ja kaikki muutokset menetetään.\n"
 "Haluatko varmasti poistaa kohteen %4?"
 
-#: widgets/fileundomanager.cpp:912
+#: widgets/fileundomanager.cpp:916
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Tiedostokopioinnin kumoamisen vahvistus"
@@ -6933,52 +6933,52 @@ msgstr ""
 msgid "C&ontinue"
 msgstr "&Jatka"
 
-#: widgets/renamedialog.cpp:412
+#: widgets/renamedialog.cpp:416
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "Haluatko korvata kohteen?"
 
-#: widgets/renamedialog.cpp:414
+#: widgets/renamedialog.cpp:418
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Haluatko yhdistää kohteen ”%1” sisällön kohteeseen ”%2”?"
 
-#: widgets/renamedialog.cpp:457
+#: widgets/renamedialog.cpp:461
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "Lähde on <b>uudempi</b>."
 
-#: widgets/renamedialog.cpp:459
+#: widgets/renamedialog.cpp:463
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "Lähde on <b>vanhempi</b>."
 
-#: widgets/renamedialog.cpp:468
+#: widgets/renamedialog.cpp:472
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "Lähde on <b>%1 pienempi</b>."
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:475
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "Lähde on <b>%1 suurempi</b>."
 
-#: widgets/renamedialog.cpp:485
+#: widgets/renamedialog.cpp:489
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "Tiedostot ovat <b>identtiset</b>."
 
-#: widgets/renamedialog.cpp:488
+#: widgets/renamedialog.cpp:492
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "Tiedostot <b>vaikuttavat identtisiltä</b>."
 
-#: widgets/renamedialog.cpp:492
+#: widgets/renamedialog.cpp:496
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "Tiedostot <b>eroavat</b>."
 
-#: widgets/renamedialog.cpp:500
+#: widgets/renamedialog.cpp:504
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -6987,28 +6987,28 @@ msgstr ""
 "Tiedostot ovat todennäköisesti yhtenevät: niiden koko on sama ja sisältö "
 "sama alussa, keskellä ja lopussa."
 
-#: widgets/renamedialog.cpp:514
+#: widgets/renamedialog.cpp:518
 #, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "Vertaa tiedostoja"
 
-#: widgets/renamedialog.cpp:527
+#: widgets/renamedialog.cpp:531
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Vanhempi kohde nimeltä ”%1” on jo olemassa."
 
-#: widgets/renamedialog.cpp:529
+#: widgets/renamedialog.cpp:533
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Samankaltainen tiedosto ”%1” on jo olemassa."
 
-#: widgets/renamedialog.cpp:531
+#: widgets/renamedialog.cpp:535
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Uudempi kohde nimeltä ”%1” on jo olemassa."
 
-#: widgets/renamedialog.cpp:544
+#: widgets/renamedialog.cpp:548
 #, kde-format
 msgid "Rename:"
 msgstr "Muuta nimeksi:"

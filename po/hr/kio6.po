@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-17 00:39+0000\n"
+"POT-Creation-Date: 2026-02-19 00:40+0000\n"
 "PO-Revision-Date: 2025-11-18 11:44+0100\n"
 "Last-Translator: Igor Dobrača <igor.dobraca@skole.hr>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -56,7 +56,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nije moguće stvoriti KIO worker: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:985
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:998
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -98,23 +98,23 @@ msgstr ""
 "Odabirom Zamijeni zamijenit ćete sve nevažeće znakove (u nazivu odredišne "
 "datoteke) s crtom \"_\"."
 
-#: core/copyjob.cpp:1387 core/job_error.cpp:588
+#: core/copyjob.cpp:1403 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Direktorij već postoji"
 
-#: core/copyjob.cpp:1711 core/copyjob.cpp:2416 core/filecopyjob.cpp:368
+#: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:368
 #: core/job_error.cpp:577 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "Datoteka već postoji"
 
-#: core/copyjob.cpp:1711 core/copyjob.cpp:2416
+#: core/copyjob.cpp:1736 core/copyjob.cpp:2441
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Već postoji kao mapa"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Smeće"
@@ -2265,23 +2265,23 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nedokumentirana greška"
 
-#: core/kfileitem.cpp:1499
+#: core/kfileitem.cpp:1523
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Simbolički link na %1)"
 
-#: core/kfileitem.cpp:1501
+#: core/kfileitem.cpp:1525
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, link na %2)"
 
-#: core/kfileitem.cpp:1504
+#: core/kfileitem.cpp:1528
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Pokazuje na %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:673
+#: widgets/renamedialog.cpp:677
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4183,22 +4183,22 @@ msgstr "Nije moguće pronaći program \"mount\""
 msgid "Could not find program \"umount\""
 msgstr "Nije moguće pronaći program \"umount\""
 
-#: kioworkers/file/file_unix.cpp:578
+#: kioworkers/file/file_unix.cpp:591
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nije moguće kopirati datoteku sa %1 u %2. (Broj greške: %3)"
 
-#: kioworkers/file/file_unix.cpp:792
+#: kioworkers/file/file_unix.cpp:805
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nema medija u uređaju za %1"
 
-#: kioworkers/file/file_unix.cpp:1053
+#: kioworkers/file/file_unix.cpp:1066
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nije moguće dobiti ID korisnika za korisničko ime %1"
 
-#: kioworkers/file/file_unix.cpp:1064
+#: kioworkers/file/file_unix.cpp:1077
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nije moguće dobiti ID grupe za dan naziv grupe %1"
@@ -4250,7 +4250,7 @@ msgstr "Trebate upisati korisničko ime i zaporku za pristup ovim stranicama."
 msgid "Site:"
 msgstr "Stranica:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2490
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2491
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4274,7 +4274,7 @@ msgstr ""
 "\n"
 "Poruka poslužitelja: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2486 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4283,12 +4283,12 @@ msgstr ""
 "Trebate upisati korisničko ime i zaporku za proxy poslužitelj izlistan niže "
 "dolje prije nego što vam on dozvoli pristup bilo kojim stranicama."
 
-#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2490 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy:"
 
-#: kioworkers/ftp/ftp.cpp:2492
+#: kioworkers/ftp/ftp.cpp:2493
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Neuspjela autentikacija posrednika (proxy)"
@@ -4351,90 +4351,90 @@ msgstr "Provjera vjerodostojnosti poslužitelja"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> na <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1395
+#: kioworkers/http/http.cpp:1396
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Osim toga, zahtjev bi bio uspješan."
 
-#: kioworkers/http/http.cpp:1398
+#: kioworkers/http/http.cpp:1399
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "dohvaćanje svojstvenih vrijednosti"
 
-#: kioworkers/http/http.cpp:1400
+#: kioworkers/http/http.cpp:1401
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "postavljanje svojstvenih vrijednosti"
 
-#: kioworkers/http/http.cpp:1402
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "stvori traženu mapu"
 
-#: kioworkers/http/http.cpp:1404
+#: kioworkers/http/http.cpp:1405
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopiranje navedene datoteke ili mape"
 
-#: kioworkers/http/http.cpp:1406
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "premještanje navedene datoteke ili mape"
 
-#: kioworkers/http/http.cpp:1408
+#: kioworkers/http/http.cpp:1409
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "pretraga u navedenoj mapi"
 
-#: kioworkers/http/http.cpp:1410
+#: kioworkers/http/http.cpp:1411
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "zaključavanje navedene datoteke ili mape"
 
-#: kioworkers/http/http.cpp:1412
+#: kioworkers/http/http.cpp:1413
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "otključavanje navedene datoteke ili mape"
 
-#: kioworkers/http/http.cpp:1414
+#: kioworkers/http/http.cpp:1415
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "brisanje navedene datoteke ili mape"
 
-#: kioworkers/http/http.cpp:1416
+#: kioworkers/http/http.cpp:1417
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "upit za mogućnosti poslužitelja"
 
-#: kioworkers/http/http.cpp:1418
+#: kioworkers/http/http.cpp:1419
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "dohvaćanje sadržaja navedene datoteke ili mape"
 
-#: kioworkers/http/http.cpp:1420
+#: kioworkers/http/http.cpp:1421
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "pokrenite izvještaj u navedenoj mapi"
 
-#: kioworkers/http/http.cpp:1428
+#: kioworkers/http/http.cpp:1429
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Dogodila se neočekivana greška (%1) prilikom pokušaja %2."
 
-#: kioworkers/http/http.cpp:1468
+#: kioworkers/http/http.cpp:1469
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4444,13 +4444,13 @@ msgstr ""
 "Dogodila se greška prilikom pokušavanja %1, %2. Sažetak razloga nalazi se "
 "ispod."
 
-#: kioworkers/http/http.cpp:1486 kioworkers/http/http.cpp:1630
+#: kioworkers/http/http.cpp:1487 kioworkers/http/http.cpp:1631
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Pristup je odbijen prilikom %1."
 
-#: kioworkers/http/http.cpp:1500 kioworkers/http/http.cpp:1637
+#: kioworkers/http/http.cpp:1501 kioworkers/http/http.cpp:1638
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4459,7 +4459,7 @@ msgstr ""
 "Resurs nije moguće stvoriti na odredištu sve dok jedna ili više privremenih "
 "kolekcija (direktorija) nije stvorena."
 
-#: kioworkers/http/http.cpp:1509
+#: kioworkers/http/http.cpp:1510
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4474,28 +4474,28 @@ msgstr ""
 "da datoteke nisu prepisane.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1518
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Zahtjevano zaključavanje nije moguće odobriti. %1"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1524
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Poslužutelj ne podržava ovakvu vrstu zahtjeva tijela (dokumenta)."
 
-#: kioworkers/http/http.cpp:1528 kioworkers/http/http.cpp:1645
+#: kioworkers/http/http.cpp:1529 kioworkers/http/http.cpp:1646
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Nije moguće %1, jer je resurs zaključan."
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1533
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Postupak je spreiječen od strane druge greške."
 
-#: kioworkers/http/http.cpp:1539 kioworkers/http/http.cpp:1652
+#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1653
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4505,7 +4505,7 @@ msgstr ""
 "Nije moguće %1, jer odredišni poslužitelj odbija prihvatiti datoteku ili "
 "mapu."
 
-#: kioworkers/http/http.cpp:1548 kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1549 kioworkers/http/http.cpp:1662
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4514,18 +4514,18 @@ msgstr ""
 "Odredišni resurs nema dovoljno prostora za zapis stanja resursa nakon "
 "izvršenja ove metode."
 
-#: kioworkers/http/http.cpp:1601
+#: kioworkers/http/http.cpp:1602
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Resurs ne može biti izbrisan."
 
-#: kioworkers/http/http.cpp:1621
+#: kioworkers/http/http.cpp:1622
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "slanje %1"
 
-#: kioworkers/http/http.cpp:1672
+#: kioworkers/http/http.cpp:1673
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4538,8 +4538,8 @@ msgstr "Mreža"
 
 #: kioworkers/trash/kio_trash.cpp:116 kioworkers/trash/kio_trash.cpp:160
 #: kioworkers/trash/kio_trash.cpp:220 kioworkers/trash/kio_trash.cpp:383
-#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:591
-#: kioworkers/trash/kio_trash.cpp:601
+#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:593
+#: kioworkers/trash/kio_trash.cpp:603
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "Neispravan URL %1"
@@ -4597,7 +4597,7 @@ msgstr "Ispraznite sadržaj smeća"
 msgid "Restore a trashed file to its original location"
 msgstr "Vratite izbrisanu datoteku na izvornu lokaciju"
 
-#: kioworkers/trash/trashimpl.cpp:1303
+#: kioworkers/trash/trashimpl.cpp:1306
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Smeće je puno. Ispraznite ga ili ručno uklonite stavke."
@@ -4888,12 +4888,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "Stvaranje direktorija"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:423
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:427
 #, kde-format
 msgid "Source"
 msgstr "Izvor"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:425
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:429
 #, kde-format
 msgid "Destination"
 msgstr "Odredište"
@@ -5023,7 +5023,7 @@ msgstr "&Redo: Kreiraj datoteku"
 msgid "&Redo: Batch Rename"
 msgstr "&Redo: Preimenovanje serije"
 
-#: widgets/fileundomanager.cpp:902
+#: widgets/fileundomanager.cpp:906
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5036,7 +5036,7 @@ msgstr ""
 "Odbijanje kopiranja će izbrisati datoteku i sve izmjene bit će izgubljene.\n"
 "Jeste li sigurni da želite izbrisati %4?"
 
-#: widgets/fileundomanager.cpp:912
+#: widgets/fileundomanager.cpp:916
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Poništi potvrdu o kopiranju datoteka"
@@ -6950,52 +6950,52 @@ msgstr ""
 msgid "C&ontinue"
 msgstr "&Nastavi"
 
-#: widgets/renamedialog.cpp:412
+#: widgets/renamedialog.cpp:416
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "Želite li prebrisati odredište?"
 
-#: widgets/renamedialog.cpp:414
+#: widgets/renamedialog.cpp:418
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Želite li spojiti sadržaj '%1' u '%2'?"
 
-#: widgets/renamedialog.cpp:457
+#: widgets/renamedialog.cpp:461
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "Izvor je <b>noviji</b>."
 
-#: widgets/renamedialog.cpp:459
+#: widgets/renamedialog.cpp:463
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "Izvor je <b>stariji</b>."
 
-#: widgets/renamedialog.cpp:468
+#: widgets/renamedialog.cpp:472
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "Izvor je <b>manji za %1.</b>."
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:475
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "Izvor je <b>veći za %1.</b>."
 
-#: widgets/renamedialog.cpp:485
+#: widgets/renamedialog.cpp:489
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "Datoteke su <b>identične</b>."
 
-#: widgets/renamedialog.cpp:488
+#: widgets/renamedialog.cpp:492
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "Datoteke <b>izgledaju identično</b>."
 
-#: widgets/renamedialog.cpp:492
+#: widgets/renamedialog.cpp:496
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "Datoteke su <b>različite</b>."
 
-#: widgets/renamedialog.cpp:500
+#: widgets/renamedialog.cpp:504
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -7004,29 +7004,29 @@ msgstr ""
 "Datoteke su vjerojatno identične: iste su veličine, a sadržaj im je isti na "
 "početku, sredini i kraju."
 
-#: widgets/renamedialog.cpp:514
+#: widgets/renamedialog.cpp:518
 #, fuzzy, kde-format
 #| msgid "All Files"
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "Sve datoteke"
 
-#: widgets/renamedialog.cpp:527
+#: widgets/renamedialog.cpp:531
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Već postoji starija stavka nazvana '%1'."
 
-#: widgets/renamedialog.cpp:529
+#: widgets/renamedialog.cpp:533
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Slična datoteka naziva %1 već postoji."
 
-#: widgets/renamedialog.cpp:531
+#: widgets/renamedialog.cpp:535
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Već postoji novija stavka naziva '%1'."
 
-#: widgets/renamedialog.cpp:544
+#: widgets/renamedialog.cpp:548
 #, kde-format
 msgid "Rename:"
 msgstr "Preimenuj:"

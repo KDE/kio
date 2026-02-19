@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-17 00:39+0000\n"
-"PO-Revision-Date: 2026-01-20 19:56+0100\n"
+"POT-Creation-Date: 2026-02-19 00:40+0000\n"
+"PO-Revision-Date: 2026-02-17 09:43+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -53,7 +53,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "No s'ha pogut crear el procés de treball KIO: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:985
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:998
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -95,23 +95,23 @@ msgstr ""
 "Triar substitució, substituirà qualsevol caràcter no vàlid (en el nom del "
 "fitxer de destinació) amb un subratllat «_»."
 
-#: core/copyjob.cpp:1387 core/job_error.cpp:588
+#: core/copyjob.cpp:1403 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "La carpeta ja existix"
 
-#: core/copyjob.cpp:1711 core/copyjob.cpp:2416 core/filecopyjob.cpp:368
+#: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:368
 #: core/job_error.cpp:577 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "El fitxer ja existix"
 
-#: core/copyjob.cpp:1711 core/copyjob.cpp:2416
+#: core/copyjob.cpp:1736 core/copyjob.cpp:2441
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Ja existix com a carpeta"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Paperera"
@@ -2306,23 +2306,23 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Error sense documentar"
 
-#: core/kfileitem.cpp:1499
+#: core/kfileitem.cpp:1523
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Enllaç simbòlic cap a %1)"
 
-#: core/kfileitem.cpp:1501
+#: core/kfileitem.cpp:1525
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, enllaç cap a %2)"
 
-#: core/kfileitem.cpp:1504
+#: core/kfileitem.cpp:1528
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Apunta cap a %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:673
+#: widgets/renamedialog.cpp:677
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4233,22 +4233,22 @@ msgstr "No s'ha pogut trobar el programa «mount»"
 msgid "Could not find program \"umount\""
 msgstr "No s'ha pogut trobar el programa «umount»"
 
-#: kioworkers/file/file_unix.cpp:578
+#: kioworkers/file/file_unix.cpp:591
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "No s'ha pogut copiar el fitxer des de %1 a %2 (Número d'error: %3)"
 
-#: kioworkers/file/file_unix.cpp:792
+#: kioworkers/file/file_unix.cpp:805
 #, kde-format
 msgid "No media in device for %1"
 msgstr "No hi ha cap suport en el dispositiu per a %1"
 
-#: kioworkers/file/file_unix.cpp:1053
+#: kioworkers/file/file_unix.cpp:1066
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "No s'ha pogut obtindre l'ID de l'usuari per al nom d'usuari donat %1"
 
-#: kioworkers/file/file_unix.cpp:1064
+#: kioworkers/file/file_unix.cpp:1077
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "No s'ha pogut obtindre l'ID del grup per al nom de grup donat %1"
@@ -4301,7 +4301,7 @@ msgstr ""
 msgid "Site:"
 msgstr "Lloc:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2490
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2491
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4325,7 +4325,7 @@ msgstr ""
 "\n"
 "El servidor ha indicat: «%1»"
 
-#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2486 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4334,12 +4334,12 @@ msgstr ""
 "Heu de donar un nom d'usuari i una contrasenya per al servidor intermediari "
 "llistat davall abans que se vos permeta accedir a altres llocs."
 
-#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2490 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Servidor intermediari:"
 
-#: kioworkers/ftp/ftp.cpp:2492
+#: kioworkers/ftp/ftp.cpp:2493
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "No s'ha pogut fer l'autenticació de l'intermediari."
@@ -4402,90 +4402,90 @@ msgstr "Autenticació del servidor"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> a <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1395
+#: kioworkers/http/http.cpp:1396
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Altrament, la petició hauria tingut èxit."
 
-#: kioworkers/http/http.cpp:1398
+#: kioworkers/http/http.cpp:1399
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "recuperar els valors de les propietats"
 
-#: kioworkers/http/http.cpp:1400
+#: kioworkers/http/http.cpp:1401
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "establir els valors de les propietats"
 
-#: kioworkers/http/http.cpp:1402
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "crea la carpeta demanada"
 
-#: kioworkers/http/http.cpp:1404
+#: kioworkers/http/http.cpp:1405
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "copia la carpeta o el fitxer especificat"
 
-#: kioworkers/http/http.cpp:1406
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "mou la carpeta o el fitxer especificat"
 
-#: kioworkers/http/http.cpp:1408
+#: kioworkers/http/http.cpp:1409
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "busca dins la carpeta especificada"
 
-#: kioworkers/http/http.cpp:1410
+#: kioworkers/http/http.cpp:1411
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "bloqueja la carpeta o el fitxer especificat"
 
-#: kioworkers/http/http.cpp:1412
+#: kioworkers/http/http.cpp:1413
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "desbloqueja la carpeta o el fitxer especificat"
 
-#: kioworkers/http/http.cpp:1414
+#: kioworkers/http/http.cpp:1415
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "suprimix la carpeta o el fitxer especificat"
 
-#: kioworkers/http/http.cpp:1416
+#: kioworkers/http/http.cpp:1417
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "consultar les capacitats del servidor"
 
-#: kioworkers/http/http.cpp:1418
+#: kioworkers/http/http.cpp:1419
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "recupera el contingut de la carpeta o fitxer especificat"
 
-#: kioworkers/http/http.cpp:1420
+#: kioworkers/http/http.cpp:1421
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "executa un informe en la carpeta especificada"
 
-#: kioworkers/http/http.cpp:1428
+#: kioworkers/http/http.cpp:1429
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "S'ha produït un error inesperat (%1) en intentar %2."
 
-#: kioworkers/http/http.cpp:1468
+#: kioworkers/http/http.cpp:1469
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4495,13 +4495,13 @@ msgstr ""
 "S'ha produït un error mentre s'intentava %1, %2. A davall hi ha un resum "
 "dels motius."
 
-#: kioworkers/http/http.cpp:1486 kioworkers/http/http.cpp:1630
+#: kioworkers/http/http.cpp:1487 kioworkers/http/http.cpp:1631
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "S'ha denegat l'accés en intentar %1."
 
-#: kioworkers/http/http.cpp:1500 kioworkers/http/http.cpp:1637
+#: kioworkers/http/http.cpp:1501 kioworkers/http/http.cpp:1638
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4510,7 +4510,7 @@ msgstr ""
 "No es pot crear un recurs a la destinació fins que s'hagen creat una o més "
 "col·leccions intermèdies (carpetes)."
 
-#: kioworkers/http/http.cpp:1509
+#: kioworkers/http/http.cpp:1510
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4525,28 +4525,28 @@ msgstr ""
 "no se sobreescrigueren.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1518
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "No s'ha pogut atorgar el bloqueig sol·licitat. %1"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1524
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "El servidor no accepta el tipus de petició del cos."
 
-#: kioworkers/http/http.cpp:1528 kioworkers/http/http.cpp:1645
+#: kioworkers/http/http.cpp:1529 kioworkers/http/http.cpp:1646
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "No s'ha pogut %1 perquè el recurs està bloquejat."
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1533
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Esta acció ha sigut evitada per un altre error."
 
-#: kioworkers/http/http.cpp:1539 kioworkers/http/http.cpp:1652
+#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1653
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4556,7 +4556,7 @@ msgstr ""
 "No s'ha pogut %1 perquè el servidor de destinació refusa acceptar el fitxer "
 "o la carpeta."
 
-#: kioworkers/http/http.cpp:1548 kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1549 kioworkers/http/http.cpp:1662
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4565,18 +4565,18 @@ msgstr ""
 "El recurs de destinació no té espai suficient per a gravar l'estat del "
 "recurs després de l'execució d'este mètode."
 
-#: kioworkers/http/http.cpp:1601
+#: kioworkers/http/http.cpp:1602
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "El recurs no s'ha pogut suprimir."
 
-#: kioworkers/http/http.cpp:1621
+#: kioworkers/http/http.cpp:1622
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "puja %1"
 
-#: kioworkers/http/http.cpp:1672
+#: kioworkers/http/http.cpp:1673
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4589,8 +4589,8 @@ msgstr "Xarxa"
 
 #: kioworkers/trash/kio_trash.cpp:116 kioworkers/trash/kio_trash.cpp:160
 #: kioworkers/trash/kio_trash.cpp:220 kioworkers/trash/kio_trash.cpp:383
-#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:591
-#: kioworkers/trash/kio_trash.cpp:601
+#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:593
+#: kioworkers/trash/kio_trash.cpp:603
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "URL %1 amb format incorrecte"
@@ -4649,7 +4649,7 @@ msgstr "Buida el contingut de la paperera"
 msgid "Restore a trashed file to its original location"
 msgstr "Restaura un fitxer de la paperera a la seua ubicació original"
 
-#: kioworkers/trash/trashimpl.cpp:1303
+#: kioworkers/trash/trashimpl.cpp:1306
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "La paperera està plena. Buideu-la o traeu els elements manualment."
@@ -4943,12 +4943,12 @@ msgstr ""
 msgid "Creating directory"
 msgstr "S'està creant el directori"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:423
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:427
 #, kde-format
 msgid "Source"
 msgstr "Origen"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:425
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:429
 #, kde-format
 msgid "Destination"
 msgstr "Destinació"
@@ -5078,7 +5078,7 @@ msgstr "&Refés: Crea un fitxer"
 msgid "&Redo: Batch Rename"
 msgstr "&Refés: Canvia el nom per lots"
 
-#: widgets/fileundomanager.cpp:902
+#: widgets/fileundomanager.cpp:906
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5092,7 +5092,7 @@ msgstr ""
 "perdran.\n"
 "Segur que voleu suprimir %4?"
 
-#: widgets/fileundomanager.cpp:912
+#: widgets/fileundomanager.cpp:916
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Confirmeu el desfer la còpia del fitxer"
@@ -5396,8 +5396,7 @@ msgid "&Open With…"
 msgstr "O&bri amb…"
 
 #: widgets/kfileitemactions.cpp:809
-#, fuzzy, kde-format
-#| msgid "&Run Executable"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Executa l'ordre"
@@ -6999,52 +6998,52 @@ msgstr ""
 msgid "C&ontinue"
 msgstr "C&ontinua"
 
-#: widgets/renamedialog.cpp:412
+#: widgets/renamedialog.cpp:416
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "Voleu sobreescriure la destinació?"
 
-#: widgets/renamedialog.cpp:414
+#: widgets/renamedialog.cpp:418
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Voleu fusionar el contingut de «%1» en «%2»?"
 
-#: widgets/renamedialog.cpp:457
+#: widgets/renamedialog.cpp:461
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "L'origen és <b>més recent</b>."
 
-#: widgets/renamedialog.cpp:459
+#: widgets/renamedialog.cpp:463
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "L'origen és <b>més antic</b>."
 
-#: widgets/renamedialog.cpp:468
+#: widgets/renamedialog.cpp:472
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "L'origen és <b>més xicotet per %1</b>."
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:475
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "La destinació és <b>més gran per %1</b>."
 
-#: widgets/renamedialog.cpp:485
+#: widgets/renamedialog.cpp:489
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "Els fitxers són <b>idèntics</b>."
 
-#: widgets/renamedialog.cpp:488
+#: widgets/renamedialog.cpp:492
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "Els fitxers <b>pareixen idèntics</b>."
 
-#: widgets/renamedialog.cpp:492
+#: widgets/renamedialog.cpp:496
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "Els fitxers són <b>diferents</b>."
 
-#: widgets/renamedialog.cpp:500
+#: widgets/renamedialog.cpp:504
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -7053,28 +7052,28 @@ msgstr ""
 "Segurament els fitxers són idèntics: tenen la mateixa mida i el seu "
 "contingut és el mateix al començament, la meitat i el final."
 
-#: widgets/renamedialog.cpp:514
+#: widgets/renamedialog.cpp:518
 #, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "Compara els fitxers"
 
-#: widgets/renamedialog.cpp:527
+#: widgets/renamedialog.cpp:531
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Ja existix un element més antic anomenat «%1»."
 
-#: widgets/renamedialog.cpp:529
+#: widgets/renamedialog.cpp:533
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Ja existix un fitxer similar anomenat «%1»."
 
-#: widgets/renamedialog.cpp:531
+#: widgets/renamedialog.cpp:535
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Ja existix un element més recent anomenat «%1»."
 
-#: widgets/renamedialog.cpp:544
+#: widgets/renamedialog.cpp:548
 #, kde-format
 msgid "Rename:"
 msgstr "Canvia el nom:"

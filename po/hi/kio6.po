@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-17 00:39+0000\n"
+"POT-Creation-Date: 2026-02-19 00:40+0000\n"
 "PO-Revision-Date: 2024-12-15 19:32+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "आइओ-स्लेव तैयार करने में अक्षम: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:985
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:998
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -89,23 +89,23 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1387 core/job_error.cpp:588
+#: core/copyjob.cpp:1403 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "फ़ोल्डर पहले से ही अस्तित्व में है"
 
-#: core/copyjob.cpp:1711 core/copyjob.cpp:2416 core/filecopyjob.cpp:368
+#: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:368
 #: core/job_error.cpp:577 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
 msgstr "फ़ाइल पहले से ही अस्तित्व में है. "
 
-#: core/copyjob.cpp:1711 core/copyjob.cpp:2416
+#: core/copyjob.cpp:1736 core/copyjob.cpp:2441
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "पहले से ही फ़ोल्डर के रूप में है"
 
-#: core/copyjob.cpp:1865 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:294
 #, fuzzy, kde-format
 #| msgid "Trash"
 msgid "Trash"
@@ -2190,24 +2190,24 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "अदस्तावेज़ीकृत त्रुटि"
 
-#: core/kfileitem.cpp:1499
+#: core/kfileitem.cpp:1523
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "( %1 पर एक सिंबालिक लिंक)"
 
-#: core/kfileitem.cpp:1501
+#: core/kfileitem.cpp:1525
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, इस पर कड़ी: %2)"
 
-#: core/kfileitem.cpp:1504
+#: core/kfileitem.cpp:1528
 #, fuzzy, kde-format
 #| msgid "Points to:"
 msgid " (Points to %1)"
 msgstr "की ओर इशाराः"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:150
-#: widgets/renamedialog.cpp:673
+#: widgets/renamedialog.cpp:677
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4161,22 +4161,22 @@ msgstr "प्रोग्राम \"mount\" नहीं मिला"
 msgid "Could not find program \"umount\""
 msgstr "प्रोग्राम \"umount\" नहीं मिला"
 
-#: kioworkers/file/file_unix.cpp:578
+#: kioworkers/file/file_unix.cpp:591
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "फ़ाइल को %1 से %2 पर नक़ल नहीं कर सका. (त्रुटि क्र.: %3)"
 
-#: kioworkers/file/file_unix.cpp:792
+#: kioworkers/file/file_unix.cpp:805
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 के लिए उपकरण में कोई मीडिया नहीं "
 
-#: kioworkers/file/file_unix.cpp:1053
+#: kioworkers/file/file_unix.cpp:1066
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "दिए गए उपयोक्ता नाम %1 के लिए उपयोक्ता आईडी प्राप्त नहीं कर सका"
 
-#: kioworkers/file/file_unix.cpp:1064
+#: kioworkers/file/file_unix.cpp:1077
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "दिए गए समूह नाम %1 के लिए समूह आईडी प्राप्त नहीं कर सका"
@@ -4229,7 +4229,7 @@ msgstr "इस साइट पर पहुँचने के लिए आप
 msgid "Site:"
 msgstr "साइटः"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2490
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2491
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4252,7 +4252,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr "चालू किया जा रहा है %1"
 
-#: kioworkers/ftp/ftp.cpp:2485 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2486 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4261,12 +4261,12 @@ msgstr ""
 "इससे पहले कि आपको किसी साइट पर पहुँच की अनुमति दी जाए, नीचे सूची-बद्ध किए प्रॉक्सी "
 "सर्वर के लिए आपको उपयोक्ता नाम तथा पासवर्ड देना होगा."
 
-#: kioworkers/ftp/ftp.cpp:2489 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2490 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "प्रॉक्सीः"
 
-#: kioworkers/ftp/ftp.cpp:2492
+#: kioworkers/ftp/ftp.cpp:2493
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "प्रॉक्सी प्रमाणीकरण असफल."
@@ -4332,78 +4332,78 @@ msgstr "सर्वर प्रमाणीकरण"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> पर <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1395
+#: kioworkers/http/http.cpp:1396
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "अन्यथा, निवेदन पूरा हो गया होता."
 
-#: kioworkers/http/http.cpp:1398
+#: kioworkers/http/http.cpp:1399
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "गुण मान निकालें"
 
-#: kioworkers/http/http.cpp:1400
+#: kioworkers/http/http.cpp:1401
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "गुण मान नियत करें. "
 
-#: kioworkers/http/http.cpp:1402
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "निवेदित फ़ोल्डर बनाएँ"
 
-#: kioworkers/http/http.cpp:1404
+#: kioworkers/http/http.cpp:1405
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "उल्लेखित फ़ाइल या फ़ोल्डर की नक़ल करें"
 
-#: kioworkers/http/http.cpp:1406
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "उल्लेखित फ़ाइल या फ़ोल्डर खिसकाएँ"
 
-#: kioworkers/http/http.cpp:1408
+#: kioworkers/http/http.cpp:1409
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "उल्लेखित फ़ोल्डर में ढूंढें"
 
-#: kioworkers/http/http.cpp:1410
+#: kioworkers/http/http.cpp:1411
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "उल्लेखित फ़ाइल या फ़ोल्डर को तालाबंद करें"
 
-#: kioworkers/http/http.cpp:1412
+#: kioworkers/http/http.cpp:1413
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "उल्लेखित फ़ाइल या फ़ोल्डर का ताला खोलें"
 
-#: kioworkers/http/http.cpp:1414
+#: kioworkers/http/http.cpp:1415
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "उल्लेखित फ़ाइल या फ़ोल्डर को मिटाएँ"
 
-#: kioworkers/http/http.cpp:1416
+#: kioworkers/http/http.cpp:1417
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "सर्वर केपेबिलिटी क्वेरी करें"
 
-#: kioworkers/http/http.cpp:1418
+#: kioworkers/http/http.cpp:1419
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "उल्लेखित फ़ाइल या फ़ोल्डर के विषयवस्तुओं को निकालें"
 
-#: kioworkers/http/http.cpp:1420
+#: kioworkers/http/http.cpp:1421
 #, fuzzy, kde-format
 #| msgctxt "request type"
 #| msgid "search in the specified folder"
@@ -4411,7 +4411,7 @@ msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "उल्लेखित फ़ोल्डर में ढूंढें"
 
-#: kioworkers/http/http.cpp:1428
+#: kioworkers/http/http.cpp:1429
 #, fuzzy, kde-format
 #| msgctxt "%1: response code, %2: request type"
 #| msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4419,7 +4419,7 @@ msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr " एक त्रुटि %1  हुई, %2 की कोशिश में"
 
-#: kioworkers/http/http.cpp:1468
+#: kioworkers/http/http.cpp:1469
 #, fuzzy, kde-format
 #| msgctxt "%1: request type, %2: url"
 #| msgid ""
@@ -4431,20 +4431,20 @@ msgid ""
 "below."
 msgstr " %1 की कोशिश में एक त्रुटि हुई, %2. कारणों का संक्षिप्त निम्न है.<ul>"
 
-#: kioworkers/http/http.cpp:1486 kioworkers/http/http.cpp:1630
+#: kioworkers/http/http.cpp:1487 kioworkers/http/http.cpp:1631
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 की कोशिश में पहुँच नकार दिया गया."
 
-#: kioworkers/http/http.cpp:1500 kioworkers/http/http.cpp:1637
+#: kioworkers/http/http.cpp:1501 kioworkers/http/http.cpp:1638
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1509
+#: kioworkers/http/http.cpp:1510
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4454,28 +4454,28 @@ msgid ""
 " %1"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1517
+#: kioworkers/http/http.cpp:1518
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "निवेदित तालाबंद दिया नहीं जा सकता. %1"
 
-#: kioworkers/http/http.cpp:1523
+#: kioworkers/http/http.cpp:1524
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "सर्वर निवेदित क़िस्म के बॉडी समर्थित नहीं करते."
 
-#: kioworkers/http/http.cpp:1528 kioworkers/http/http.cpp:1645
+#: kioworkers/http/http.cpp:1529 kioworkers/http/http.cpp:1646
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr " %1 पर अक्षम चूंकि रिसोर्स ताला बंद है."
 
-#: kioworkers/http/http.cpp:1532
+#: kioworkers/http/http.cpp:1533
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "अन्य त्रुटि के द्वारा यह क्रिया रोकी गई."
 
-#: kioworkers/http/http.cpp:1539 kioworkers/http/http.cpp:1652
+#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1653
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4483,26 +4483,26 @@ msgid ""
 "folder."
 msgstr " %1 को असमर्थ चूंकि गंतव्य सर्वर ने फ़ाइल या फ़ोल्डर को स्वीकार करने से मना किया."
 
-#: kioworkers/http/http.cpp:1548 kioworkers/http/http.cpp:1661
+#: kioworkers/http/http.cpp:1549 kioworkers/http/http.cpp:1662
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1601
+#: kioworkers/http/http.cpp:1602
 #, fuzzy, kde-format
 #| msgid "The specified resource may not exist."
 msgid "The resource cannot be deleted."
 msgstr "उल्लेखित रिसोर्स अस्तित्व में नहीं है."
 
-#: kioworkers/http/http.cpp:1621
+#: kioworkers/http/http.cpp:1622
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "अपलोड %1"
 
-#: kioworkers/http/http.cpp:1672
+#: kioworkers/http/http.cpp:1673
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4516,8 +4516,8 @@ msgstr "नेटवर्क"
 
 #: kioworkers/trash/kio_trash.cpp:116 kioworkers/trash/kio_trash.cpp:160
 #: kioworkers/trash/kio_trash.cpp:220 kioworkers/trash/kio_trash.cpp:383
-#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:591
-#: kioworkers/trash/kio_trash.cpp:601
+#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:593
+#: kioworkers/trash/kio_trash.cpp:603
 #, fuzzy, kde-format
 #| msgid "Malformed URL %1."
 msgid "Malformed URL %1"
@@ -4578,7 +4578,7 @@ msgstr ""
 msgid "Restore a trashed file to its original location"
 msgstr ""
 
-#: kioworkers/trash/trashimpl.cpp:1303
+#: kioworkers/trash/trashimpl.cpp:1306
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
@@ -4884,13 +4884,13 @@ msgstr ""
 msgid "Creating directory"
 msgstr "डिरेक्ट्री बनाया जा रहा है"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:423
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:427
 #, fuzzy, kde-format
 #| msgid "Source"
 msgid "Source"
 msgstr "स्रोत"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:425
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:429
 #, fuzzy, kde-format
 #| msgid "Destination"
 msgid "Destination"
@@ -5043,7 +5043,7 @@ msgstr "फ़ोल्डर बना नहीं सका"
 msgid "&Redo: Batch Rename"
 msgstr "नाम बदलें (&R)"
 
-#: widgets/fileundomanager.cpp:902
+#: widgets/fileundomanager.cpp:906
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5052,7 +5052,7 @@ msgid ""
 "Are you sure you want to delete %4?"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:912
+#: widgets/fileundomanager.cpp:916
 #, fuzzy, kde-format
 #| msgid "Updating System Configuration"
 msgid "Undo File Copy Confirmation"
@@ -6953,7 +6953,7 @@ msgstr ""
 msgid "C&ontinue"
 msgstr "जारी रखें (&o)"
 
-#: widgets/renamedialog.cpp:412
+#: widgets/renamedialog.cpp:416
 #, fuzzy, kde-format
 #| msgid ""
 #| "This action would overwrite '%1' with itself.\n"
@@ -6963,7 +6963,7 @@ msgstr ""
 "यह क्रिया, '%1' को अपने आपसे मिटाकर लिखेगा.\n"
 "कृपया एक नया फ़ाइल नाम भरें:"
 
-#: widgets/renamedialog.cpp:414
+#: widgets/renamedialog.cpp:418
 #, fuzzy, kde-format
 #| msgid ""
 #| "This action would overwrite '%1' with itself.\n"
@@ -6973,79 +6973,79 @@ msgstr ""
 "यह क्रिया, '%1' को अपने आपसे मिटाकर लिखेगा.\n"
 "कृपया एक नया फ़ाइल नाम भरें:"
 
-#: widgets/renamedialog.cpp:457
+#: widgets/renamedialog.cpp:461
 #, fuzzy, kde-format
 #| msgid "the extension <b>%1</b>"
 msgid "The source is <b>more recent</b>."
 msgstr "एक्सटेंशन <b>%1</b>"
 
-#: widgets/renamedialog.cpp:459
+#: widgets/renamedialog.cpp:463
 #, fuzzy, kde-format
 #| msgid "the extension <b>%1</b>"
 msgid "The source is <b>older</b>."
 msgstr "एक्सटेंशन <b>%1</b>"
 
-#: widgets/renamedialog.cpp:468
+#: widgets/renamedialog.cpp:472
 #, fuzzy, kde-format
 #| msgid "the extension <b>%1</b>"
 msgid "The source is <b>smaller by %1</b>."
 msgstr "एक्सटेंशन <b>%1</b>"
 
-#: widgets/renamedialog.cpp:471
+#: widgets/renamedialog.cpp:475
 #, fuzzy, kde-format
 #| msgid "the extension <b>%1</b>"
 msgid "The source is <b>bigger by %1</b>."
 msgstr "एक्सटेंशन <b>%1</b>"
 
-#: widgets/renamedialog.cpp:485
+#: widgets/renamedialog.cpp:489
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
 msgid "The files are <b>identical</b>."
 msgstr "नया फ़ाइल नाम खाली है."
 
-#: widgets/renamedialog.cpp:488
+#: widgets/renamedialog.cpp:492
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
 msgid "The files <b>seem identical</b>."
 msgstr "नया फ़ाइल नाम खाली है."
 
-#: widgets/renamedialog.cpp:492
+#: widgets/renamedialog.cpp:496
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
 msgid "The files are <b>different</b>."
 msgstr "नया फ़ाइल नाम खाली है."
 
-#: widgets/renamedialog.cpp:500
+#: widgets/renamedialog.cpp:504
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
 "contents are the same at the beginning, middle and end."
 msgstr ""
 
-#: widgets/renamedialog.cpp:514
+#: widgets/renamedialog.cpp:518
 #, fuzzy, kde-format
 #| msgid "*|All Files"
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "*|सभी फ़ाइलें"
 
-#: widgets/renamedialog.cpp:527
+#: widgets/renamedialog.cpp:531
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "एक पुरानी इकाई '%1' नाम से पहले ही मौज़ूद है. "
 
-#: widgets/renamedialog.cpp:529
+#: widgets/renamedialog.cpp:533
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "एक ऐसी ही फ़ाइल '%1' नाम से पहले ही मौज़ूद है. "
 
-#: widgets/renamedialog.cpp:531
+#: widgets/renamedialog.cpp:535
 #, fuzzy, kde-format
 #| msgid "An older item named '%1' already exists."
 msgid "A more recent item named '%1' already exists."
 msgstr "एक पुरानी इकाई '%1' नाम से पहले ही मौज़ूद है. "
 
-#: widgets/renamedialog.cpp:544
+#: widgets/renamedialog.cpp:548
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgid "Rename:"
