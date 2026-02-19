@@ -172,6 +172,8 @@ void OpenUrlJobTest::startProcess()
     const QString dest = m_tempDir.path() + "/dest";
     QTRY_VERIFY2(QFile::exists(dest), qPrintable(dest));
     QCOMPARE(readFile(dest), srcFile);
+
+    QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete);
 }
 
 void OpenUrlJobTest::noServiceNoHandler()
