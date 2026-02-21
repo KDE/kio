@@ -1026,7 +1026,7 @@ msgstr ""
 #: core/job_error.cpp:487
 #, kde-format
 msgid "Improperly Formatted URL"
-msgstr "URL Formattate de modo Improprie"
+msgstr "URL Fnormatate de modo Improprie"
 
 #: core/job_error.cpp:489
 #, kde-format
@@ -2295,7 +2295,7 @@ msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
-"Re-formatta le drive de destination pro usar un systema de file que supporta "
+"Re-fnormata le drive de destination pro usar un systema de file que supporta "
 "files assi grande."
 
 #: core/job_error.cpp:1270
@@ -3158,7 +3158,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr "Re-Formatta o modifica con Partition Manager (Gerente de partition)"
+msgstr "Re-Fnormata o modifica con Partition Manager (Gerente de partition)"
 
 #: filewidgets/kfileplacesview.cpp:338
 #, kde-format
