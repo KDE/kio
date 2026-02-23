@@ -442,6 +442,10 @@ void FilePreviewJob::slotGetOrCreateThumbnail(KJob *job)
             return;
         }
     }
+    if (job->error()) {
+        setError(job->error());
+        setErrorText(u"FilePreview copy job failed: "_s + job->errorString());
+    }
     emitResult();
 }
 
