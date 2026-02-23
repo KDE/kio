@@ -66,14 +66,18 @@ FilePreviewJob::FilePreviewJob(const KFileItem &fileItem, int parentDirDeviceId,
 FilePreviewJob::~FilePreviewJob()
 {
     if (!m_tempName.isEmpty()) {
-        Q_ASSERT((!QFileInfo(m_tempName).isDir() && QFileInfo(m_tempName).isFile()) || QFileInfo(m_tempName).isSymLink());
-        QFile::remove(m_tempName);
-        m_tempName.clear();
+        QFileInfo tempFile(m_tempName);
+        if (tempFile.exists()) {
+            Q_ASSERT((!tempFile.isDir() && tempFile.isFile()) || tempFile.isSymLink());
+            QFile::remove(m_tempName);
+        }
     }
     if (!m_tempDirPath.isEmpty()) {
-        Q_ASSERT(m_tempDirPath.startsWith(QStandardPaths::writableLocation(QStandardPaths::TempLocation)));
         QDir tempDir(m_tempDirPath);
-        tempDir.removeRecursively();
+        if (tempDir.exists()) {
+            Q_ASSERT(m_tempDirPath.startsWith(QStandardPaths::writableLocation(QStandardPaths::TempLocation)));
+            tempDir.removeRecursively();
+        }
     }
 }
 
