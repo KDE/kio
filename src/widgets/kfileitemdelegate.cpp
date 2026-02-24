@@ -32,8 +32,6 @@
 #include <kdirmodel.h>
 #include <kfileitem.h>
 
-#include "delegateanimationhandler_p.h"
-
 struct Margin {
     int left, right, top, bottom;
 };
@@ -91,8 +89,6 @@ public:
                        const QTextLayout &infoLayout,
                        const QColor &infoColor,
                        const QRect &textBoundingRect) const;
-    KIO::AnimationState *animationState(const QStyleOptionViewItem &option, const QModelIndex &index, const QAbstractItemView *view) const;
-    void restartAnimation(KIO::AnimationState *state);
     QPixmap applyHoverEffect(const QPixmap &icon) const;
     QPixmap transition(const QPixmap &from, const QPixmap &to, qreal amount) const;
     void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const;
@@ -116,7 +112,6 @@ public:
     QRect emblemRect;
 
 private:
-    KIO::DelegateAnimationHandler *animationHandler;
     Margin verticalMargin[NMargins];
     Margin horizontalMargin[NMargins];
     Margin *activeMargins;
@@ -131,7 +126,6 @@ KFileItemDelegate::Private::Private(KFileItemDelegate *parent)
     , wrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere)
     , jobTransfersVisible(false)
     , emblemRect(QRect())
-    , animationHandler(new KIO::DelegateAnimationHandler(parent))
     , activeMargins(nullptr)
 {
 }
@@ -452,10 +446,6 @@ QSize KFileItemDelegate::Private::displaySizeHint(const QStyleOptionViewItem &op
 
 QSize KFileItemDelegate::Private::decorationSizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    if (index.column() > 0) {
-        return QSize(0, 0);
-    }
-
     QSize iconSize = option.icon.actualSize(option.decorationSize);
     if (!verticalLayout(option)) {
         iconSize.rwidth() = option.decorationSize.width();
@@ -529,30 +519,6 @@ QPixmap KFileItemDelegate::Private::applyHoverEffect(const QPixmap &icon) const
     QPixmap result = icon;
     KIconEffect::toActive(result);
     return result;
-}
-
-void KFileItemDelegate::Private::gotNewIcon(const QModelIndex &index)
-{
-    animationHandler->gotNewIcon(index);
-}
-
-void KFileItemDelegate::Private::restartAnimation(KIO::AnimationState *state)
-{
-    animationHandler->restartAnimation(state);
-}
-
-KIO::AnimationState *
-KFileItemDelegate::Private::animationState(const QStyleOptionViewItem &option, const QModelIndex &index, const QAbstractItemView *view) const
-{
-    if (!option.widget->style()->styleHint(QStyle::SH_Widget_Animate, nullptr, option.widget)) {
-        return nullptr;
-    }
-
-    if (index.column() == KDirModel::Name) {
-        return animationHandler->animationState(option, index, view);
-    }
-
-    return nullptr;
 }
 
 QPixmap KFileItemDelegate::Private::transition(const QPixmap &from, const QPixmap &to, qreal amount) const
@@ -766,6 +732,10 @@ void KFileItemDelegate::Private::initStyleOption(QStyleOptionViewItem *option, c
         option->features |= QStyleOptionViewItem::HasDecoration;
     }
 
+    if (!option->index.isValid()) {
+        option->index = index;
+    }
+
     // ### Make sure this value is always true for now
     option->showDecorationSelected = true;
 }
@@ -824,7 +794,7 @@ KFileItemDelegate::KFileItemDelegate(QObject *parent)
     }
 
     d->setHorizontalMargin(Private::IconMargin, focusHMargin, focusVMargin);
-    d->setHorizontalMargin(Private::ItemMargin, 0, 0);
+    d->setHorizontalMargin(Private::ItemMargin, 2, 0);
 
     // Margins for vertical mode (icon views)
     d->setVerticalMargin(Private::TextMargin, 6, 0);
@@ -852,10 +822,13 @@ QSize KFileItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QMod
     const QSize decorationSize = d->decorationSizeHint(opt, index);
 
     QSize size;
+    QStyle *style = opt.widget ? opt.widget->style() : QApplication::style();
+    int hSpacing = style->pixelMetric(QStyle::PM_LayoutHorizontalSpacing);
+    int vSpacing = style->pixelMetric(QStyle::PM_LayoutVerticalSpacing);
 
     if (d->verticalLayout(opt)) {
-        size.rwidth() = qMax(displaySize.width(), decorationSize.width());
-        size.rheight() = decorationSize.height() + displaySize.height() + 1;
+        size.rwidth() = qMax(displaySize.width(), decorationSize.width()) + hSpacing;
+        size.rheight() = decorationSize.height() + displaySize.height() + 1 + vSpacing;
     } else {
         size.rwidth() = decorationSize.width() + displaySize.width() + 1;
         size.rheight() = qMax(decorationSize.height(), displaySize.height());
@@ -1127,21 +1100,9 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         opt.palette.setCurrentColorGroup(QPalette::Disabled);
     }
 
-    // Unset the mouse over bit if we're not drawing the first column
-    if (index.column() > 0) {
-        opt.state &= ~QStyle::State_MouseOver;
-    } else {
-        opt.viewItemPosition = QStyleOptionViewItem::OnlyOne;
-    }
-
-    const QAbstractItemView *view = qobject_cast<const QAbstractItemView *>(opt.widget);
     const qreal dpr = painter->device()->devicePixelRatioF();
 
-    // Check if the item is being animated
-    // ========================================================================
-    KIO::AnimationState *state = d->animationState(opt, index, view);
-    KIO::CachedRendering *cache = nullptr;
-    qreal progress = ((opt.state & QStyle::State_MouseOver) && index.column() == KDirModel::Name) ? 1.0 : 0.0;
+    qreal progress = (opt.state & QStyle::State_MouseOver) ? 1.0 : 0.0;
     const QPoint iconPos = d->iconPosition(opt);
     QIcon::Mode iconMode;
 
@@ -1159,53 +1120,6 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     const KFileItem fileItem = d->fileItem(index);
     if (fileItem.isHidden()) {
         KIconEffect::semiTransparent(icon);
-    }
-
-    if (state && !state->hasJobAnimation()) {
-        cache = state->cachedRendering();
-        progress = state->hoverProgress();
-        // Clear the mouse over bit temporarily
-        opt.state &= ~QStyle::State_MouseOver;
-
-        // If we have a cached rendering, draw the item from the cache
-        if (cache) {
-            if (cache->checkValidity(opt.state) && cache->regular.size() == opt.rect.size()) {
-                QPixmap pixmap = d->transition(cache->regular, cache->hover, progress);
-
-                if (state->cachedRenderingFadeFrom() && state->fadeProgress() != 1.0) {
-                    // Apply icon fading animation
-                    KIO::CachedRendering *fadeFromCache = state->cachedRenderingFadeFrom();
-                    const QPixmap fadeFromPixmap = d->transition(fadeFromCache->regular, fadeFromCache->hover, progress);
-
-                    pixmap = d->transition(fadeFromPixmap, pixmap, state->fadeProgress());
-                }
-                painter->drawPixmap(option.rect.topLeft(), pixmap);
-                drawSelectionEmblem(option, painter, index);
-                if (d->jobTransfersVisible && index.column() == 0) {
-                    if (index.data(KDirModel::HasJobRole).toBool()) {
-                        d->paintJobTransfers(painter, state->jobAnimationAngle(), iconPos, opt);
-                    }
-                }
-                return;
-            }
-
-            if (!cache->checkValidity(opt.state)) {
-                if (opt.widget->style()->styleHint(QStyle::SH_Widget_Animate, nullptr, opt.widget)) {
-                    // Fade over from the old icon to the new one
-                    // Only start a new fade if the previous one is ready
-                    // Else we may start racing when checkValidity() always returns false
-                    if (state->fadeProgress() == 1) {
-                        state->setCachedRenderingFadeFrom(state->takeCachedRendering());
-                    }
-                }
-                d->gotNewIcon(index);
-            }
-            // If it wasn't valid, delete it
-            state->setCachedRendering(nullptr);
-        } else {
-            // The cache may have been discarded, but the animation handler still needs to know about new icons
-            d->gotNewIcon(index);
-        }
     }
 
     // Compute the metrics, and lay out the text items
@@ -1241,77 +1155,6 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     int focusVMargin = style->pixelMetric(QStyle::PM_FocusFrameVMargin);
     QRect focusRect = textBoundingRect.adjusted(-focusHMargin, -focusVMargin, +focusHMargin, +focusVMargin);
 
-    auto drawBackground = [textBoundingRect, iconPos, style](QPainter &painter, QStyleOptionViewItem &opt) {
-        if (opt.decorationPosition != QStyleOptionViewItem::Position::Top) {
-            style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &painter, opt.widget);
-        } else {
-            auto oldrect = opt.rect;
-            opt.rect = textBoundingRect;
-            style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &painter, opt.widget);
-            opt.rect = QRect(iconPos, opt.decorationSize);
-            style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, &painter, opt.widget);
-            opt.rect = oldrect;
-        }
-    };
-
-    // Create a new cached rendering of a hovered and an unhovered item.
-    // We don't create a new cache for a fully hovered item, since we don't
-    // know yet if a hover out animation will be run.
-    // ========================================================================
-    if (state && (state->hoverProgress() < 1 || state->fadeProgress() < 1)) {
-        cache = new KIO::CachedRendering(opt.state, option.rect.size(), index, dpr);
-
-        QPainter p;
-        p.begin(&cache->regular);
-        p.translate(-option.rect.topLeft());
-        p.setRenderHint(QPainter::Antialiasing);
-        drawBackground(p, opt);
-        p.drawPixmap(iconPos, icon);
-        drawSelectionEmblem(option, painter, index);
-        d->drawTextItems(&p, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
-        d->drawFocusRect(&p, opt, focusRect);
-        p.end();
-
-        opt.state |= QStyle::State_MouseOver;
-        icon = d->applyHoverEffect(icon);
-
-        p.begin(&cache->hover);
-        p.translate(-option.rect.topLeft());
-        p.setRenderHint(QPainter::Antialiasing);
-        drawBackground(p, opt);
-        p.drawPixmap(iconPos, icon);
-        drawSelectionEmblem(option, painter, index);
-        d->drawTextItems(&p, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
-        d->drawFocusRect(&p, opt, focusRect);
-        p.end();
-
-        state->setCachedRendering(cache);
-
-        QPixmap pixmap = d->transition(cache->regular, cache->hover, progress);
-
-        if (state->cachedRenderingFadeFrom() && state->fadeProgress() == 0) {
-            // Apply icon fading animation
-            KIO::CachedRendering *fadeFromCache = state->cachedRenderingFadeFrom();
-            const QPixmap fadeFromPixmap = d->transition(fadeFromCache->regular, fadeFromCache->hover, progress);
-
-            pixmap = d->transition(fadeFromPixmap, pixmap, state->fadeProgress());
-
-            d->restartAnimation(state);
-        }
-
-        painter->drawPixmap(option.rect.topLeft(), pixmap);
-        drawSelectionEmblem(option, painter, index);
-        painter->setRenderHint(QPainter::Antialiasing);
-        if (d->jobTransfersVisible && index.column() == 0) {
-            if (index.data(KDirModel::HasJobRole).toBool()) {
-                d->paintJobTransfers(painter, state->jobAnimationAngle(), iconPos, opt);
-            }
-        }
-        return;
-    }
-
-    // Render the item directly if we're not using a cached rendering
-    // ========================================================================
     painter->save();
     painter->setRenderHint(QPainter::Antialiasing);
 
@@ -1320,18 +1163,14 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
         icon = d->applyHoverEffect(icon);
     }
 
-    drawBackground(*painter, opt);
+    style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, opt.widget);
+
     painter->drawPixmap(iconPos, icon);
 
     d->drawTextItems(painter, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
     d->drawFocusRect(painter, opt, focusRect);
     drawSelectionEmblem(option, painter, index);
 
-    if (d->jobTransfersVisible && index.column() == 0 && state) {
-        if (index.data(KDirModel::HasJobRole).toBool()) {
-            d->paintJobTransfers(painter, state->jobAnimationAngle(), iconPos, opt);
-        }
-    }
     painter->restore();
 }
 

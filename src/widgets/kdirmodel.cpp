@@ -1319,9 +1319,9 @@ Qt::ItemFlags KDirModel::flags(const QModelIndex &index) const
 {
     Qt::ItemFlags f;
     if (index.isValid()) {
-        f |= Qt::ItemIsEnabled;
+        f |= Qt::ItemIsEnabled | Qt::ItemIsSelectable;
         if (index.column() == Name) {
-            f |= Qt::ItemIsSelectable | Qt::ItemIsEditable | Qt::ItemIsDragEnabled;
+            f |= Qt::ItemIsEditable | Qt::ItemIsDragEnabled;
         }
     }
 

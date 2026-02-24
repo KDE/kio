@@ -84,7 +84,11 @@ KFilePlacesViewDelegate::~KFilePlacesViewDelegate()
 
 QSize KFilePlacesViewDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    int height = std::max(m_iconSize, option.fontMetrics.height()) + s_lateralMargin;
+    QStyleOptionViewItem hintOption(option);
+    hintOption.features |= QStyleOptionViewItem::HasDecoration;
+    hintOption.decorationSize = {m_iconSize, m_iconSize};
+
+    int height = QApplication::style()->sizeFromContents(QStyle::CT_ItemViewItem, &hintOption, {}, option.widget).height();
 
     if (m_appearingItems.contains(index)) {
         height *= m_appearingHeightScale;
@@ -167,7 +171,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 
     bool isLTR = opt.direction == Qt::LeftToRight;
     const int iconAreaWidth = s_lateralMargin + m_iconSize;
-    const int actionAreaWidth = !actionIcon.isNull() ? s_lateralMargin + actionIconSize() : 0;
+    const int actionAreaWidth = !actionIcon.isNull() ? s_lateralMargin + actionIconSize() : s_lateralMargin;
     QRect rectText((isLTR ? iconAreaWidth : actionAreaWidth) + s_lateralMargin,
                    opt.rect.top(),
                    opt.rect.width() - iconAreaWidth - actionAreaWidth - 2 * s_lateralMargin,

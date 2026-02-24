@@ -64,7 +64,7 @@ void KDirOperatorIconView::initViewItemOption(QStyleOptionViewItem *option) cons
     if (option->decorationPosition == QStyleOptionViewItem::Left) {
         option->displayAlignment = Qt::AlignLeft | Qt::AlignVCenter;
     } else {
-        option->displayAlignment = Qt::AlignCenter;
+        option->displayAlignment = Qt::AlignHCenter | Qt::AlignTop;
     }
 }
 

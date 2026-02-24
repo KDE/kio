@@ -462,9 +462,11 @@ KFileItemList KDirOperator::selectedItems() const
 
     const QModelIndexList indexList = selection.indexes();
     for (const QModelIndex &index : indexList) {
-        KFileItem item = d->m_dirModel->itemForIndex(index);
-        if (!item.isNull()) {
-            itemList.append(item);
+        if (index.column() == KDirModel::Name) {
+            KFileItem item = d->m_dirModel->itemForIndex(index);
+            if (!item.isNull()) {
+                itemList.append(item);
+            }
         }
     }
 
@@ -1710,7 +1712,7 @@ void KDirOperator::setViewInternal(QAbstractItemView *view)
         // to the new view later
         const QItemSelection selection = d->m_itemView->selectionModel()->selection();
         selectionModel = new QItemSelectionModel(d->m_proxyModel, this);
-        selectionModel->select(selection, QItemSelectionModel::Select);
+        selectionModel->select(selection, QItemSelectionModel::Select | QItemSelectionModel::Rows);
     }
 
     setFocusProxy(nullptr);

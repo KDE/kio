@@ -127,7 +127,7 @@ void KDirOperatorDetailView::mousePressEvent(QMouseEvent *event)
 
     QTreeView::mousePressEvent(event);
 
-    if (!index.isValid() || (index.column() != KDirModel::Name)) {
+    if (!index.isValid()) {
         const Qt::KeyboardModifiers modifiers = QApplication::keyboardModifiers();
         if (!(modifiers & Qt::ShiftModifier) && !(modifiers & Qt::ControlModifier)) {
             clearSelection();
