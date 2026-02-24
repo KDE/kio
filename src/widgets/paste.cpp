@@ -67,7 +67,7 @@ static QUrl getNewFileName(const QUrl &u, const QString &text, const QString &su
     if (dialogText.isEmpty()) {
         dialogText = i18n("Filename for clipboard content:");
     }
-    QString file = QInputDialog::getText(widget, QString(), dialogText, QLineEdit::Normal, suggestedFileName, &ok);
+    QString file = QInputDialog::getText(widget, i18nc("@title:dialog", "Paste Clipboard Content"), dialogText, QLineEdit::Normal, suggestedFileName, &ok);
     if (!ok) {
         return QUrl();
     }
@@ -111,7 +111,7 @@ static QByteArray chooseFormatAndUrl(const QUrl &u,
         defaultFilename = i18nc("A default file name excluding extension for some pasted content", "pasted file");
     }
 
-    KIO::PasteDialog dlg(QString(), dialogText, defaultFilename, formats, widget);
+    KIO::PasteDialog dlg(i18nc("@title:dialog", "Paste Clipboard Content"), dialogText, defaultFilename, formats, widget);
 
     if (dlg.exec() != QDialog::Accepted) {
         return QByteArray();
