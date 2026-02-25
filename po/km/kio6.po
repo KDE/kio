@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:40+0000\n"
+"POT-Creation-Date: 2026-02-25 00:42+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -2456,64 +2456,64 @@ msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:726 filewidgets/kdiroperator.cpp:759
+#: filewidgets/kdiroperator.cpp:728 filewidgets/kdiroperator.cpp:761
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "អ្នក​មិន​បាន​ជ្រើស​ឯកសារ​ដែល​ត្រូវ​លុប​ទេ ។"
 
-#: filewidgets/kdiroperator.cpp:726 filewidgets/kdiroperator.cpp:759
+#: filewidgets/kdiroperator.cpp:728 filewidgets/kdiroperator.cpp:761
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "គ្មាន​អ្វី​ដែល​ត្រូវ​លុប"
 
-#: filewidgets/kdiroperator.cpp:772 filewidgets/kdiroperator.cpp:860
+#: filewidgets/kdiroperator.cpp:774 filewidgets/kdiroperator.cpp:862
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "អ្នកមិនបាន​ជ្រើស​ឯកសារ​ដែលត្រូវ​ចោល​ទេ ។"
 
-#: filewidgets/kdiroperator.cpp:772 filewidgets/kdiroperator.cpp:860
+#: filewidgets/kdiroperator.cpp:774 filewidgets/kdiroperator.cpp:862
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "គ្មានអ្វី​ដែល​ត្រូវ​ចោល"
 
-#: filewidgets/kdiroperator.cpp:932 filewidgets/kdiroperator.cpp:1055
+#: filewidgets/kdiroperator.cpp:934 filewidgets/kdiroperator.cpp:1057
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "មិនមាន​ថត​ដែលបាន​បញ្ជាក់​ទេ ឬ​មិនអាច​អានបាន ។"
 
-#: filewidgets/kdiroperator.cpp:2041
+#: filewidgets/kdiroperator.cpp:2043
 #, kde-format
 msgid "Menu"
 msgstr "ម៉ឺនុយ"
 
-#: filewidgets/kdiroperator.cpp:2046
+#: filewidgets/kdiroperator.cpp:2048
 #, kde-format
 msgid "Parent Folder"
 msgstr "ថត​មេ"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2055
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2057
+#: filewidgets/kdiroperator.cpp:2059
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2061
+#: filewidgets/kdiroperator.cpp:2063
 #, kde-format
 msgid "Home Folder"
 msgstr "ថត​ផ្ទះ"
 
-#: filewidgets/kdiroperator.cpp:2065
+#: filewidgets/kdiroperator.cpp:2067
 #, kde-format
 msgid "Reload"
 msgstr "ផ្ទុក​ឡើងវិញ"
 
-#: filewidgets/kdiroperator.cpp:2068
+#: filewidgets/kdiroperator.cpp:2070
 #, fuzzy, kde-format
 #| msgctxt "Default name for a new folder"
 #| msgid "New Folder"
@@ -2521,193 +2521,193 @@ msgctxt "@action"
 msgid "New Folder…"
 msgstr "ថត​ថ្មី"
 
-#: filewidgets/kdiroperator.cpp:2078 widgets/jobuidelegate.cpp:271
+#: filewidgets/kdiroperator.cpp:2080 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
 #: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
 #, kde-format
 msgid "Move to Trash"
 msgstr "ផ្លាស់ទី​ទៅ​ធុង​សំរាម"
 
-#: filewidgets/kdiroperator.cpp:2084
+#: filewidgets/kdiroperator.cpp:2086
 #, kde-format
 msgid "Delete"
 msgstr "លុប"
 
-#: filewidgets/kdiroperator.cpp:2091
+#: filewidgets/kdiroperator.cpp:2093
 #, kde-format
 msgid "Sorting"
 msgstr "តម្រៀប"
 
-#: filewidgets/kdiroperator.cpp:2096
+#: filewidgets/kdiroperator.cpp:2098
 #, fuzzy, kde-format
 #| msgid "Site Name"
 msgid "Sort by Name"
 msgstr "ឈ្មោះ​តំបន់​បណ្តាញ​"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2104
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Sort by Size"
 msgstr "ទិដ្ឋភាព​ខ្លី"
 
-#: filewidgets/kdiroperator.cpp:2108
+#: filewidgets/kdiroperator.cpp:2110
 #, fuzzy, kde-format
 #| msgid "By Date"
 msgid "Sort by Date"
 msgstr "តាម​កាលបរិច្ឆេទ"
 
-#: filewidgets/kdiroperator.cpp:2114
+#: filewidgets/kdiroperator.cpp:2116
 #, fuzzy, kde-format
 #| msgid "Entry Type"
 msgid "Sort by Type"
 msgstr "ប្រភេទធាតុ"
 
-#: filewidgets/kdiroperator.cpp:2123
+#: filewidgets/kdiroperator.cpp:2125
 #, fuzzy, kde-format
 #| msgid "Descending"
 msgid "Ascending"
 msgstr "លំដាប់​ចុះ"
 
-#: filewidgets/kdiroperator.cpp:2130
+#: filewidgets/kdiroperator.cpp:2132
 #, kde-format
 msgid "Descending"
 msgstr "លំដាប់​ចុះ"
 
-#: filewidgets/kdiroperator.cpp:2137
+#: filewidgets/kdiroperator.cpp:2139
 #, kde-format
 msgid "Folders First"
 msgstr "ថត​មុន"
 
-#: filewidgets/kdiroperator.cpp:2143
+#: filewidgets/kdiroperator.cpp:2145
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Hidden Files Last"
 msgstr "បង្ហាញ​ឯកសារ​ដែល​លាក់"
 
-#: filewidgets/kdiroperator.cpp:2150
+#: filewidgets/kdiroperator.cpp:2152
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Icons View"
 msgstr "ទិដ្ឋភាព​ខ្លី"
 
-#: filewidgets/kdiroperator.cpp:2157
+#: filewidgets/kdiroperator.cpp:2159
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgid "Compact View"
 msgstr "ទិដ្ឋភាព​ខ្លី"
 
-#: filewidgets/kdiroperator.cpp:2164
+#: filewidgets/kdiroperator.cpp:2166
 #, fuzzy, kde-format
 #| msgid "Detailed View"
 msgid "Details View"
 msgstr "ទិដ្ឋភាព​លម្អិត"
 
-#: filewidgets/kdiroperator.cpp:2183
+#: filewidgets/kdiroperator.cpp:2185
 #, kde-format
 msgid "Icon Position"
 msgstr "ទីតាំង​រូបតំណាង"
 
-#: filewidgets/kdiroperator.cpp:2186
+#: filewidgets/kdiroperator.cpp:2188
 #, kde-format
 msgid "Next to File Name"
 msgstr "ជាប់​នឹង​ឈ្មោះ​ឯកសារ"
 
-#: filewidgets/kdiroperator.cpp:2192
+#: filewidgets/kdiroperator.cpp:2194
 #, kde-format
 msgid "Above File Name"
 msgstr "ខាង​លើ​ឈ្មោះ​ឯកសារ"
 
-#: filewidgets/kdiroperator.cpp:2206
+#: filewidgets/kdiroperator.cpp:2208
 #, kde-format
 msgid "Short View"
 msgstr "ទិដ្ឋភាព​ខ្លី"
 
-#: filewidgets/kdiroperator.cpp:2213
+#: filewidgets/kdiroperator.cpp:2215
 #, kde-format
 msgid "Detailed View"
 msgstr "ទិដ្ឋភាព​លម្អិត"
 
-#: filewidgets/kdiroperator.cpp:2220
+#: filewidgets/kdiroperator.cpp:2222
 #, kde-format
 msgid "Tree View"
 msgstr "ទិដ្ឋភាព​មែកធាង"
 
-#: filewidgets/kdiroperator.cpp:2227
+#: filewidgets/kdiroperator.cpp:2229
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "ទិដ្ឋភាព​មែកធាង​លម្អិត"
 
-#: filewidgets/kdiroperator.cpp:2240
+#: filewidgets/kdiroperator.cpp:2242
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2246
+#: filewidgets/kdiroperator.cpp:2248
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "បង្ហាញ​ឯកសារ​ដែល​លាក់"
 
-#: filewidgets/kdiroperator.cpp:2253
+#: filewidgets/kdiroperator.cpp:2255
 #, fuzzy, kde-format
 #| msgid "Show Preview"
 msgid "Show Preview Panel"
 msgstr "បង្ហាញ​ការ​មើល​ជាមុន"
 
-#: filewidgets/kdiroperator.cpp:2260
+#: filewidgets/kdiroperator.cpp:2262
 #, kde-format
 msgid "Show Preview"
 msgstr "បង្ហាញ​ការ​មើល​ជាមុន"
 
-#: filewidgets/kdiroperator.cpp:2267
+#: filewidgets/kdiroperator.cpp:2269
 #, kde-format
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2274 filewidgets/kfileplacesview.cpp:1261
+#: filewidgets/kdiroperator.cpp:2276 filewidgets/kfileplacesview.cpp:1265
 #, kde-format
 msgid "Properties"
 msgstr "លក្ខណៈ​សម្បត្តិ"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2285
 #, fuzzy, kde-format
 #| msgid "&View"
 msgid "&View Mode"
 msgstr "ទិដ្ឋភាព "
 
-#: filewidgets/kdiroperator.cpp:2386 filewidgets/kdiroperator.cpp:2398
+#: filewidgets/kdiroperator.cpp:2388 filewidgets/kdiroperator.cpp:2400
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2387 filewidgets/kdiroperator.cpp:2399
+#: filewidgets/kdiroperator.cpp:2389 filewidgets/kdiroperator.cpp:2401
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2390
+#: filewidgets/kdiroperator.cpp:2392
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "ថត​មុន"
 
-#: filewidgets/kdiroperator.cpp:2391
+#: filewidgets/kdiroperator.cpp:2393
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "ថត​មុន"
 
-#: filewidgets/kdiroperator.cpp:2394
+#: filewidgets/kdiroperator.cpp:2396
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "ថត​មុន"
 
-#: filewidgets/kdiroperator.cpp:2395
+#: filewidgets/kdiroperator.cpp:2397
 #, fuzzy, kde-format
 #| msgid "Folders First"
 msgctxt "Sort ascending"
@@ -3133,7 +3133,7 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:338
+#: filewidgets/kfileplacesview.cpp:342
 #, fuzzy, kde-format
 #| msgctxt "items: folders, files (size)"
 #| msgid "%1: %2"
@@ -3141,91 +3141,91 @@ msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:355
+#: filewidgets/kfileplacesview.cpp:359
 #: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 ទំនេរ %2 (បាន​ប្រើ %3%)"
 
-#: filewidgets/kfileplacesview.cpp:665
+#: filewidgets/kfileplacesview.cpp:669
 #, kde-format
 msgid "%1 (hidden)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1219
+#: filewidgets/kfileplacesview.cpp:1223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "សម្អាត​ធុងសំរាម"
 
-#: filewidgets/kfileplacesview.cpp:1244
+#: filewidgets/kfileplacesview.cpp:1248
 #, fuzzy, kde-format
 #| msgid "Mount"
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "ម៉ោន"
 
-#: filewidgets/kfileplacesview.cpp:1254
+#: filewidgets/kfileplacesview.cpp:1258
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "បើក​ជាមួយ"
 
-#: filewidgets/kfileplacesview.cpp:1257
+#: filewidgets/kfileplacesview.cpp:1261
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1266
+#: filewidgets/kfileplacesview.cpp:1270
 #, fuzzy, kde-format
 #| msgid "Add Entry..."
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "បន្ថែម​ធាតុ..."
 
-#: filewidgets/kfileplacesview.cpp:1272
+#: filewidgets/kfileplacesview.cpp:1276
 #, fuzzy, kde-format
 #| msgid "Edit"
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "កែសម្រួល"
 
-#: filewidgets/kfileplacesview.cpp:1277
+#: filewidgets/kfileplacesview.cpp:1281
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "យកចេញ"
 
-#: filewidgets/kfileplacesview.cpp:1281
+#: filewidgets/kfileplacesview.cpp:1285
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1289
+#: filewidgets/kfileplacesview.cpp:1293
 #, fuzzy, kde-format
 #| msgid "&Hide Entry '%1'"
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "លាក់​ធាតុ '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1289
+#: filewidgets/kfileplacesview.cpp:1293
 #, fuzzy, kde-format
 #| msgid "&Hide Entry '%1'"
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "លាក់​ធាតុ '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1301
 #, kde-format
 msgid "&Show All Entries"
 msgstr "បង្ហាញ​ធាតុ​ទាំងអស់ "
 
-#: filewidgets/kfileplacesview.cpp:1302
+#: filewidgets/kfileplacesview.cpp:1306
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgctxt "@item:inmenu"
@@ -3233,7 +3233,7 @@ msgid "Icon Size"
 msgstr "ទិដ្ឋភាព​ខ្លី"
 
 #  i18n: file envvarproxy_ui.ui line 102
-#: filewidgets/kfileplacesview.cpp:1423
+#: filewidgets/kfileplacesview.cpp:1427
 #, fuzzy, kde-format
 #| msgid "Auto D&etect"
 msgctxt ""
@@ -3242,26 +3242,26 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "រក​ឃើញ​ស្វ័យ​ប្រវត្តិ"
 
-#: filewidgets/kfileplacesview.cpp:1443
+#: filewidgets/kfileplacesview.cpp:1447
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1446
+#: filewidgets/kfileplacesview.cpp:1450
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1449
+#: filewidgets/kfileplacesview.cpp:1453
 #, fuzzy, kde-format
 #| msgid "Drive: %1"
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "ដ្រាយ ៖ %1"
 
-#: filewidgets/kfileplacesview.cpp:1452
+#: filewidgets/kfileplacesview.cpp:1456
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -5455,14 +5455,14 @@ msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
 msgstr "កម្មវិធី "
 
-#: widgets/kfileitemdelegate.cpp:217
+#: widgets/kfileitemdelegate.cpp:211
 #, kde-format
 msgctxt "Items in a folder"
 msgid "1 item"
 msgid_plural "%1 items"
 msgstr[0] "ធាតុ %1"
 
-#: widgets/kfileitemdelegate.cpp:272 widgets/kfileitemdelegate.cpp:276
+#: widgets/kfileitemdelegate.cpp:266 widgets/kfileitemdelegate.cpp:270
 #, kde-format
 msgctxt "@info mimetype"
 msgid "Unknown"

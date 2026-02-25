@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:40+0000\n"
+"POT-Creation-Date: 2026-02-25 00:42+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2435,242 +2435,242 @@ msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr "%p%"
 
-#: filewidgets/kdiroperator.cpp:726 filewidgets/kdiroperator.cpp:759
+#: filewidgets/kdiroperator.cpp:728 filewidgets/kdiroperator.cpp:761
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "भवता विलोपनार्थं सञ्चिकां न चिनोति स्म."
 
-#: filewidgets/kdiroperator.cpp:726 filewidgets/kdiroperator.cpp:759
+#: filewidgets/kdiroperator.cpp:728 filewidgets/kdiroperator.cpp:761
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "लोपार्थं किमपि नास्ति"
 
-#: filewidgets/kdiroperator.cpp:772 filewidgets/kdiroperator.cpp:860
+#: filewidgets/kdiroperator.cpp:774 filewidgets/kdiroperator.cpp:862
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "भवता विलोपनार्थं सञ्चिकां न चिनोति स्म."
 
-#: filewidgets/kdiroperator.cpp:772 filewidgets/kdiroperator.cpp:860
+#: filewidgets/kdiroperator.cpp:774 filewidgets/kdiroperator.cpp:862
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "लोपार्थं किमपि नास्ति"
 
-#: filewidgets/kdiroperator.cpp:932 filewidgets/kdiroperator.cpp:1055
+#: filewidgets/kdiroperator.cpp:934 filewidgets/kdiroperator.cpp:1057
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "निर्दिष्टं पुटं नास्ति अथवा पठनीयं नासीत् ।."
 
-#: filewidgets/kdiroperator.cpp:2041
+#: filewidgets/kdiroperator.cpp:2043
 #, kde-format
 msgid "Menu"
 msgstr "विकल्पसूचि"
 
-#: filewidgets/kdiroperator.cpp:2046
+#: filewidgets/kdiroperator.cpp:2048
 #, kde-format
 msgid "Parent Folder"
 msgstr "मातापितृपुटम्"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2055
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "प्रति गच्छतु"
 
-#: filewidgets/kdiroperator.cpp:2057
+#: filewidgets/kdiroperator.cpp:2059
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "अग्रे गच्छतु"
 
-#: filewidgets/kdiroperator.cpp:2061
+#: filewidgets/kdiroperator.cpp:2063
 #, kde-format
 msgid "Home Folder"
 msgstr "गृहपुटम्"
 
-#: filewidgets/kdiroperator.cpp:2065
+#: filewidgets/kdiroperator.cpp:2067
 #, kde-format
 msgid "Reload"
 msgstr "पुनः सम्प्रेषयति"
 
-#: filewidgets/kdiroperator.cpp:2068
+#: filewidgets/kdiroperator.cpp:2070
 #, kde-format
 msgctxt "@action"
 msgid "New Folder…"
 msgstr "नूतनं पुटम्…"
 
-#: filewidgets/kdiroperator.cpp:2078 widgets/jobuidelegate.cpp:271
+#: filewidgets/kdiroperator.cpp:2080 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
 #: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
 #, kde-format
 msgid "Move to Trash"
 msgstr "पुनर्चक्रणबिन् मध्ये स्थानान्तरणम्"
 
-#: filewidgets/kdiroperator.cpp:2084
+#: filewidgets/kdiroperator.cpp:2086
 #, kde-format
 msgid "Delete"
 msgstr "लोपयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2091
+#: filewidgets/kdiroperator.cpp:2093
 #, kde-format
 msgid "Sorting"
 msgstr "क्रमाङ्कनम्"
 
-#: filewidgets/kdiroperator.cpp:2096
+#: filewidgets/kdiroperator.cpp:2098
 #, kde-format
 msgid "Sort by Name"
 msgstr "नाम्ना क्रमेण क्रमयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2104
 #, kde-format
 msgid "Sort by Size"
 msgstr "आकारेण क्रमयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2108
+#: filewidgets/kdiroperator.cpp:2110
 #, kde-format
 msgid "Sort by Date"
 msgstr "तिथिनुसारं क्रमयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2114
+#: filewidgets/kdiroperator.cpp:2116
 #, kde-format
 msgid "Sort by Type"
 msgstr "प्रकारेण क्रमयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2123
+#: filewidgets/kdiroperator.cpp:2125
 #, kde-format
 msgid "Ascending"
 msgstr "आरोहणक्रमम्"
 
-#: filewidgets/kdiroperator.cpp:2130
+#: filewidgets/kdiroperator.cpp:2132
 #, kde-format
 msgid "Descending"
 msgstr "अवरोहणक्रमम्"
 
-#: filewidgets/kdiroperator.cpp:2137
+#: filewidgets/kdiroperator.cpp:2139
 #, kde-format
 msgid "Folders First"
 msgstr "प्रथमं पुटम्"
 
-#: filewidgets/kdiroperator.cpp:2143
+#: filewidgets/kdiroperator.cpp:2145
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "गुप्तसञ्चिकाः अन्तिमः"
 
-#: filewidgets/kdiroperator.cpp:2150
+#: filewidgets/kdiroperator.cpp:2152
 #, kde-format
 msgid "Icons View"
 msgstr "चिह्न दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2157
+#: filewidgets/kdiroperator.cpp:2159
 #, kde-format
 msgid "Compact View"
 msgstr "संकुचित दृश्य"
 
-#: filewidgets/kdiroperator.cpp:2164
+#: filewidgets/kdiroperator.cpp:2166
 #, kde-format
 msgid "Details View"
 msgstr "विवरणं दृश्यम्"
 
-#: filewidgets/kdiroperator.cpp:2183
+#: filewidgets/kdiroperator.cpp:2185
 #, kde-format
 msgid "Icon Position"
 msgstr "चिह्न स्थिति"
 
-#: filewidgets/kdiroperator.cpp:2186
+#: filewidgets/kdiroperator.cpp:2188
 #, kde-format
 msgid "Next to File Name"
 msgstr "सञ्चिकानामस्य पार्श्वे"
 
-#: filewidgets/kdiroperator.cpp:2192
+#: filewidgets/kdiroperator.cpp:2194
 #, kde-format
 msgid "Above File Name"
 msgstr "सञ्चिकानामस्य उपरि"
 
-#: filewidgets/kdiroperator.cpp:2206
+#: filewidgets/kdiroperator.cpp:2208
 #, kde-format
 msgid "Short View"
 msgstr "लघुदृश्यम्"
 
-#: filewidgets/kdiroperator.cpp:2213
+#: filewidgets/kdiroperator.cpp:2215
 #, kde-format
 msgid "Detailed View"
 msgstr "विस्तृतदृश्यम्"
 
-#: filewidgets/kdiroperator.cpp:2220
+#: filewidgets/kdiroperator.cpp:2222
 #, kde-format
 msgid "Tree View"
 msgstr "वृक्षदृश्यम्"
 
-#: filewidgets/kdiroperator.cpp:2227
+#: filewidgets/kdiroperator.cpp:2229
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "विस्तृत वृक्षदृश्य"
 
-#: filewidgets/kdiroperator.cpp:2240
+#: filewidgets/kdiroperator.cpp:2242
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "विवरणदृश्ये विस्तारं अनुमन्यताम्"
 
-#: filewidgets/kdiroperator.cpp:2246
+#: filewidgets/kdiroperator.cpp:2248
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "गुप्तसञ्चिकाः दर्शयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2253
+#: filewidgets/kdiroperator.cpp:2255
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "पूर्वावलोकनपटलं दर्शयतु"
 
-#: filewidgets/kdiroperator.cpp:2260
+#: filewidgets/kdiroperator.cpp:2262
 #, kde-format
 msgid "Show Preview"
 msgstr "पूर्वावलोकनम् दर्शयतु"
 
-#: filewidgets/kdiroperator.cpp:2267
+#: filewidgets/kdiroperator.cpp:2269
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "यत्र स्थितम् अस्ति तत्र पुटं उद्घाटयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2274 filewidgets/kfileplacesview.cpp:1261
+#: filewidgets/kdiroperator.cpp:2276 filewidgets/kfileplacesview.cpp:1265
 #, kde-format
 msgid "Properties"
 msgstr "गुणाः"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2285
 #, kde-format
 msgid "&View Mode"
 msgstr "&दृश्यविधिः"
 
-#: filewidgets/kdiroperator.cpp:2386 filewidgets/kdiroperator.cpp:2398
+#: filewidgets/kdiroperator.cpp:2388 filewidgets/kdiroperator.cpp:2400
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2387 filewidgets/kdiroperator.cpp:2399
+#: filewidgets/kdiroperator.cpp:2389 filewidgets/kdiroperator.cpp:2401
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2390
+#: filewidgets/kdiroperator.cpp:2392
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "प्राचीनतम प्रथम"
 
-#: filewidgets/kdiroperator.cpp:2391
+#: filewidgets/kdiroperator.cpp:2393
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "नवीनतमं प्रथमम्"
 
-#: filewidgets/kdiroperator.cpp:2394
+#: filewidgets/kdiroperator.cpp:2396
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "बृहत्तम प्रथम"
 
-#: filewidgets/kdiroperator.cpp:2395
+#: filewidgets/kdiroperator.cpp:2397
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -3068,96 +3068,96 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "विभाजनप्रबन्धकेन पुनः स्वरूपणं वा सम्पादनं वा कुर्वन्तु"
 
-#: filewidgets/kfileplacesview.cpp:338
+#: filewidgets/kfileplacesview.cpp:342
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:355
+#: filewidgets/kfileplacesview.cpp:359
 #: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 %2 तः मुक्तं (%3% प्रयुक्तम्)"
 
-#: filewidgets/kfileplacesview.cpp:665
+#: filewidgets/kfileplacesview.cpp:669
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (अदृष्ट)"
 
-#: filewidgets/kfileplacesview.cpp:1219
+#: filewidgets/kfileplacesview.cpp:1223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "पुनःप्रयोगस्य कूपं रिक्तं कुर्वन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1244
+#: filewidgets/kfileplacesview.cpp:1248
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "संचयतु"
 
-#: filewidgets/kfileplacesview.cpp:1254
+#: filewidgets/kfileplacesview.cpp:1258
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "नूतन टैब् मध्ये उद्घाटयन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1257
+#: filewidgets/kfileplacesview.cpp:1261
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "नूतनगवाक्ष मध्ये उद्घाटयन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1266
+#: filewidgets/kfileplacesview.cpp:1270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "प्रविष्टि योजयतु…"
 
-#: filewidgets/kfileplacesview.cpp:1272
+#: filewidgets/kfileplacesview.cpp:1276
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&सम्पादयतु…"
 
-#: filewidgets/kfileplacesview.cpp:1277
+#: filewidgets/kfileplacesview.cpp:1281
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "स्थानेभ्यः निष्कासयन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1281
+#: filewidgets/kfileplacesview.cpp:1285
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&गोपयतु"
 
-#: filewidgets/kfileplacesview.cpp:1289
+#: filewidgets/kfileplacesview.cpp:1293
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "खण्डं गोपयन्तु '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1289
+#: filewidgets/kfileplacesview.cpp:1293
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "खण्डं गोपयन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1301
 #, kde-format
 msgid "&Show All Entries"
 msgstr "सर्वाणि प्रविष्टयः दर्शयतु"
 
-#: filewidgets/kfileplacesview.cpp:1302
+#: filewidgets/kfileplacesview.cpp:1306
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "चिह्नस्य आकार"
 
-#: filewidgets/kfileplacesview.cpp:1423
+#: filewidgets/kfileplacesview.cpp:1427
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3165,25 +3165,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "स्वतः आकारं परिवर्तयतु"
 
-#: filewidgets/kfileplacesview.cpp:1443
+#: filewidgets/kfileplacesview.cpp:1447
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "लघु (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1446
+#: filewidgets/kfileplacesview.cpp:1450
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "मध्यम (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1449
+#: filewidgets/kfileplacesview.cpp:1453
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "बृहत्‌ (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1452
+#: filewidgets/kfileplacesview.cpp:1456
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -5318,7 +5318,7 @@ msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
 msgstr "&अन्य अनुप्रयोग…"
 
-#: widgets/kfileitemdelegate.cpp:217
+#: widgets/kfileitemdelegate.cpp:211
 #, kde-format
 msgctxt "Items in a folder"
 msgid "1 item"
@@ -5326,7 +5326,7 @@ msgid_plural "%1 items"
 msgstr[0] "१ द्रव्यम्"
 msgstr[1] "%1 द्रव्यम्"
 
-#: widgets/kfileitemdelegate.cpp:272 widgets/kfileitemdelegate.cpp:276
+#: widgets/kfileitemdelegate.cpp:266 widgets/kfileitemdelegate.cpp:270
 #, kde-format
 msgctxt "@info mimetype"
 msgid "Unknown"

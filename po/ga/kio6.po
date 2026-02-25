@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-19 00:40+0000\n"
+"POT-Creation-Date: 2026-02-25 00:42+0000\n"
 "PO-Revision-Date: 2026-02-18 10:12+0000\n"
 "Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
@@ -2527,242 +2527,242 @@ msgctxt "Loading bar percent value"
 msgid "%p%"
 msgstr "%p%"
 
-#: filewidgets/kdiroperator.cpp:726 filewidgets/kdiroperator.cpp:759
+#: filewidgets/kdiroperator.cpp:728 filewidgets/kdiroperator.cpp:761
 #, kde-format
 msgid "You did not select a file to delete."
 msgstr "Níor roghnaigh tú comhad le scriosadh."
 
-#: filewidgets/kdiroperator.cpp:726 filewidgets/kdiroperator.cpp:759
+#: filewidgets/kdiroperator.cpp:728 filewidgets/kdiroperator.cpp:761
 #, kde-format
 msgid "Nothing to Delete"
 msgstr "Faic le Scriosadh"
 
-#: filewidgets/kdiroperator.cpp:772 filewidgets/kdiroperator.cpp:860
+#: filewidgets/kdiroperator.cpp:774 filewidgets/kdiroperator.cpp:862
 #, kde-format
 msgid "You did not select a file to trash."
 msgstr "Níor roghnaigh tú comhad le cur sa bhruscar."
 
-#: filewidgets/kdiroperator.cpp:772 filewidgets/kdiroperator.cpp:860
+#: filewidgets/kdiroperator.cpp:774 filewidgets/kdiroperator.cpp:862
 #, kde-format
 msgid "Nothing to Trash"
 msgstr "Faic le Cur sa Bhruscar"
 
-#: filewidgets/kdiroperator.cpp:932 filewidgets/kdiroperator.cpp:1055
+#: filewidgets/kdiroperator.cpp:934 filewidgets/kdiroperator.cpp:1057
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
 msgstr "Níl an fillteán sonraithe ann, nó ní féidir é a léamh."
 
-#: filewidgets/kdiroperator.cpp:2041
+#: filewidgets/kdiroperator.cpp:2043
 #, kde-format
 msgid "Menu"
 msgstr "Roghchlár"
 
-#: filewidgets/kdiroperator.cpp:2046
+#: filewidgets/kdiroperator.cpp:2048
 #, kde-format
 msgid "Parent Folder"
 msgstr "Máthairfhillteán"
 
-#: filewidgets/kdiroperator.cpp:2053
+#: filewidgets/kdiroperator.cpp:2055
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
 msgstr "Téigh ar ais"
 
-#: filewidgets/kdiroperator.cpp:2057
+#: filewidgets/kdiroperator.cpp:2059
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
 msgstr "Téigh ar aghaidh"
 
-#: filewidgets/kdiroperator.cpp:2061
+#: filewidgets/kdiroperator.cpp:2063
 #, kde-format
 msgid "Home Folder"
 msgstr "Fillteán Baile"
 
-#: filewidgets/kdiroperator.cpp:2065
+#: filewidgets/kdiroperator.cpp:2067
 #, kde-format
 msgid "Reload"
 msgstr "Athluchtaigh"
 
-#: filewidgets/kdiroperator.cpp:2068
+#: filewidgets/kdiroperator.cpp:2070
 #, kde-format
 msgctxt "@action"
 msgid "New Folder…"
 msgstr "Fillteán Nua…"
 
-#: filewidgets/kdiroperator.cpp:2078 widgets/jobuidelegate.cpp:271
+#: filewidgets/kdiroperator.cpp:2080 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
 #: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
 #, kde-format
 msgid "Move to Trash"
 msgstr "Cuir sa Bhruscar"
 
-#: filewidgets/kdiroperator.cpp:2084
+#: filewidgets/kdiroperator.cpp:2086
 #, kde-format
 msgid "Delete"
 msgstr "Scrios"
 
-#: filewidgets/kdiroperator.cpp:2091
+#: filewidgets/kdiroperator.cpp:2093
 #, kde-format
 msgid "Sorting"
 msgstr "Sórtáil"
 
-#: filewidgets/kdiroperator.cpp:2096
+#: filewidgets/kdiroperator.cpp:2098
 #, kde-format
 msgid "Sort by Name"
 msgstr "Sórtáil de réir Ainm"
 
-#: filewidgets/kdiroperator.cpp:2102
+#: filewidgets/kdiroperator.cpp:2104
 #, kde-format
 msgid "Sort by Size"
 msgstr "Sórtáil de réir Méide"
 
-#: filewidgets/kdiroperator.cpp:2108
+#: filewidgets/kdiroperator.cpp:2110
 #, kde-format
 msgid "Sort by Date"
 msgstr "Sórtáil de réir Dáta"
 
-#: filewidgets/kdiroperator.cpp:2114
+#: filewidgets/kdiroperator.cpp:2116
 #, kde-format
 msgid "Sort by Type"
 msgstr "Sórtáil de réir Cineál"
 
-#: filewidgets/kdiroperator.cpp:2123
+#: filewidgets/kdiroperator.cpp:2125
 #, kde-format
 msgid "Ascending"
 msgstr "Ag dul suas"
 
-#: filewidgets/kdiroperator.cpp:2130
+#: filewidgets/kdiroperator.cpp:2132
 #, kde-format
 msgid "Descending"
 msgstr "Ag dul síos"
 
-#: filewidgets/kdiroperator.cpp:2137
+#: filewidgets/kdiroperator.cpp:2139
 #, kde-format
 msgid "Folders First"
 msgstr "Fillteáin ar dTús"
 
-#: filewidgets/kdiroperator.cpp:2143
+#: filewidgets/kdiroperator.cpp:2145
 #, kde-format
 msgid "Hidden Files Last"
 msgstr "Comhaid Fholaithe Deireanach"
 
-#: filewidgets/kdiroperator.cpp:2150
+#: filewidgets/kdiroperator.cpp:2152
 #, kde-format
 msgid "Icons View"
 msgstr "Amharc Deilbhíní"
 
-#: filewidgets/kdiroperator.cpp:2157
+#: filewidgets/kdiroperator.cpp:2159
 #, kde-format
 msgid "Compact View"
 msgstr "Radharc Dlúth"
 
-#: filewidgets/kdiroperator.cpp:2164
+#: filewidgets/kdiroperator.cpp:2166
 #, kde-format
 msgid "Details View"
 msgstr "Amharc Sonraí"
 
-#: filewidgets/kdiroperator.cpp:2183
+#: filewidgets/kdiroperator.cpp:2185
 #, kde-format
 msgid "Icon Position"
 msgstr "Seasamh Deilbhín"
 
-#: filewidgets/kdiroperator.cpp:2186
+#: filewidgets/kdiroperator.cpp:2188
 #, kde-format
 msgid "Next to File Name"
 msgstr "In aice le hAinm an Chomhaid"
 
-#: filewidgets/kdiroperator.cpp:2192
+#: filewidgets/kdiroperator.cpp:2194
 #, kde-format
 msgid "Above File Name"
 msgstr "Ainm an Chomhaid Thuas"
 
-#: filewidgets/kdiroperator.cpp:2206
+#: filewidgets/kdiroperator.cpp:2208
 #, kde-format
 msgid "Short View"
 msgstr "Amharc Gairid"
 
-#: filewidgets/kdiroperator.cpp:2213
+#: filewidgets/kdiroperator.cpp:2215
 #, kde-format
 msgid "Detailed View"
 msgstr "Amharc Mionsonraithe"
 
-#: filewidgets/kdiroperator.cpp:2220
+#: filewidgets/kdiroperator.cpp:2222
 #, kde-format
 msgid "Tree View"
 msgstr "Amharc Crainn"
 
-#: filewidgets/kdiroperator.cpp:2227
+#: filewidgets/kdiroperator.cpp:2229
 #, kde-format
 msgid "Detailed Tree View"
 msgstr "Amharc Mionsonraithe Crainn"
 
-#: filewidgets/kdiroperator.cpp:2240
+#: filewidgets/kdiroperator.cpp:2242
 #, kde-format
 msgid "Allow Expansion in Details View"
 msgstr "Ceadaigh Leathnú san Amharc Mionsonraí"
 
-#: filewidgets/kdiroperator.cpp:2246
+#: filewidgets/kdiroperator.cpp:2248
 #, kde-format
 msgid "Show Hidden Files"
 msgstr "Taispeáin Comhaid Fholaithe"
 
-#: filewidgets/kdiroperator.cpp:2253
+#: filewidgets/kdiroperator.cpp:2255
 #, kde-format
 msgid "Show Preview Panel"
 msgstr "Taispeáin an Painéal Réamhamhairc"
 
-#: filewidgets/kdiroperator.cpp:2260
+#: filewidgets/kdiroperator.cpp:2262
 #, kde-format
 msgid "Show Preview"
 msgstr "Taispeáin Réamhamharc"
 
-#: filewidgets/kdiroperator.cpp:2267
+#: filewidgets/kdiroperator.cpp:2269
 #, kde-format
 msgid "Open Containing Folder"
 msgstr "Oscail an Fillteán ina bhfuil"
 
-#: filewidgets/kdiroperator.cpp:2274 filewidgets/kfileplacesview.cpp:1261
+#: filewidgets/kdiroperator.cpp:2276 filewidgets/kfileplacesview.cpp:1265
 #, kde-format
 msgid "Properties"
 msgstr "Airíonna"
 
-#: filewidgets/kdiroperator.cpp:2283
+#: filewidgets/kdiroperator.cpp:2285
 #, kde-format
 msgid "&View Mode"
 msgstr "Mód &Radharc"
 
-#: filewidgets/kdiroperator.cpp:2386 filewidgets/kdiroperator.cpp:2398
+#: filewidgets/kdiroperator.cpp:2388 filewidgets/kdiroperator.cpp:2400
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
 msgstr "Z-A"
 
-#: filewidgets/kdiroperator.cpp:2387 filewidgets/kdiroperator.cpp:2399
+#: filewidgets/kdiroperator.cpp:2389 filewidgets/kdiroperator.cpp:2401
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
 msgstr "A-Z"
 
-#: filewidgets/kdiroperator.cpp:2390
+#: filewidgets/kdiroperator.cpp:2392
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
 msgstr "Is Sine Ar dtús"
 
-#: filewidgets/kdiroperator.cpp:2391
+#: filewidgets/kdiroperator.cpp:2393
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
 msgstr "Is Nuaí Ar dtús"
 
-#: filewidgets/kdiroperator.cpp:2394
+#: filewidgets/kdiroperator.cpp:2396
 #, kde-format
 msgctxt "Sort descending"
 msgid "Largest First"
 msgstr "Is Mó Ar dtús"
 
-#: filewidgets/kdiroperator.cpp:2395
+#: filewidgets/kdiroperator.cpp:2397
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Smallest First"
@@ -3171,96 +3171,96 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "Athfhormáidigh nó Eagarthóireacht le Bainisteoir Deighilte"
 
-#: filewidgets/kfileplacesview.cpp:338
+#: filewidgets/kfileplacesview.cpp:342
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:355
+#: filewidgets/kfileplacesview.cpp:359
 #: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 saor as %2 (%3% in úsáid)"
 
-#: filewidgets/kfileplacesview.cpp:665
+#: filewidgets/kfileplacesview.cpp:669
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (hidden)"
 
-#: filewidgets/kfileplacesview.cpp:1219
+#: filewidgets/kfileplacesview.cpp:1223
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Folmhaigh an Bruscar"
 
-#: filewidgets/kfileplacesview.cpp:1244
+#: filewidgets/kfileplacesview.cpp:1248
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Feistigh"
 
-#: filewidgets/kfileplacesview.cpp:1254
+#: filewidgets/kfileplacesview.cpp:1258
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Oscail i gCluaisín Nua"
 
-#: filewidgets/kfileplacesview.cpp:1257
+#: filewidgets/kfileplacesview.cpp:1261
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Oscail i bhFuinneog Nua"
 
-#: filewidgets/kfileplacesview.cpp:1266
+#: filewidgets/kfileplacesview.cpp:1270
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Cuir Iontráil Leis…"
 
-#: filewidgets/kfileplacesview.cpp:1272
+#: filewidgets/kfileplacesview.cpp:1276
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Eagar…"
 
-#: filewidgets/kfileplacesview.cpp:1277
+#: filewidgets/kfileplacesview.cpp:1281
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Bain as Áiteanna"
 
-#: filewidgets/kfileplacesview.cpp:1281
+#: filewidgets/kfileplacesview.cpp:1285
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Folaigh"
 
-#: filewidgets/kfileplacesview.cpp:1289
+#: filewidgets/kfileplacesview.cpp:1293
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Folaigh an Roinn '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1289
+#: filewidgets/kfileplacesview.cpp:1293
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Folaigh an Roinn"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1301
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Taispeáin Gach Iontráil"
 
-#: filewidgets/kfileplacesview.cpp:1302
+#: filewidgets/kfileplacesview.cpp:1306
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Méid na Deilbhíní"
 
-#: filewidgets/kfileplacesview.cpp:1423
+#: filewidgets/kfileplacesview.cpp:1427
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3268,25 +3268,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Athraigh Méid Uathoibríoch"
 
-#: filewidgets/kfileplacesview.cpp:1443
+#: filewidgets/kfileplacesview.cpp:1447
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Beag (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1446
+#: filewidgets/kfileplacesview.cpp:1450
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Meánach (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1449
+#: filewidgets/kfileplacesview.cpp:1453
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Mór (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1452
+#: filewidgets/kfileplacesview.cpp:1456
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -5525,7 +5525,7 @@ msgid "&Other Application…"
 msgstr "&Feidhmchlár Eile…"
 
 # need not all be files, so use "mír" vs. "comhad"
-#: widgets/kfileitemdelegate.cpp:217
+#: widgets/kfileitemdelegate.cpp:211
 #, kde-format
 msgctxt "Items in a folder"
 msgid "1 item"
@@ -5536,7 +5536,7 @@ msgstr[2] "%1 mhír"
 msgstr[3] "%1 mír"
 msgstr[4] "%1 mír"
 
-#: widgets/kfileitemdelegate.cpp:272 widgets/kfileitemdelegate.cpp:276
+#: widgets/kfileitemdelegate.cpp:266 widgets/kfileitemdelegate.cpp:270
 #, kde-format
 msgctxt "@info mimetype"
 msgid "Unknown"
