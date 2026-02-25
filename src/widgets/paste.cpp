@@ -62,18 +62,13 @@ static QUrl getDestinationUrl(const QUrl &srcUrl, const QUrl &destUrl, QWidget *
 
 static QUrl getNewFileName(const QUrl &u, const QString &text, const QString &suggestedFileName, QWidget *widget)
 {
-    bool ok;
-    QString dialogText(text);
-    if (dialogText.isEmpty()) {
-        dialogText = i18n("Filename for clipboard content:");
-    }
-    QString file = QInputDialog::getText(widget, i18nc("@title:dialog", "Paste Clipboard Content"), dialogText, QLineEdit::Normal, suggestedFileName, &ok);
-    if (!ok) {
-        return QUrl();
+    KIO::PasteDialog dlg(i18nc("@title:dialog", "Paste Clipboard Content"), text, suggestedFileName, {}, widget);
+    if (dlg.exec() != QDialog::Accepted) {
+        return {};
     }
 
     QUrl myurl(u);
-    myurl.setPath(Utils::concatPaths(myurl.path(), file));
+    myurl.setPath(Utils::concatPaths(myurl.path(), dlg.lineEditText()));
 
     return getDestinationUrl(u, myurl, widget);
 }
@@ -101,17 +96,12 @@ static QByteArray chooseFormatAndUrl(const QUrl &u,
                                      bool clipboard,
                                      QUrl *newUrl)
 {
-    QString dialogText(text);
-    if (dialogText.isEmpty()) {
-        dialogText = i18n("Filename for clipboard content:");
-    }
-
     auto defaultFilename = suggestedFileName;
     if (defaultFilename.isEmpty()) {
         defaultFilename = i18nc("A default file name excluding extension for some pasted content", "pasted file");
     }
 
-    KIO::PasteDialog dlg(i18nc("@title:dialog", "Paste Clipboard Content"), dialogText, defaultFilename, formats, widget);
+    KIO::PasteDialog dlg(i18nc("@title:dialog", "Paste Clipboard Content"), text, defaultFilename, formats, widget);
 
     if (dlg.exec() != QDialog::Accepted) {
         return QByteArray();
