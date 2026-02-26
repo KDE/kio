@@ -183,8 +183,8 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         KIconLoader::global()->setCustomPalette(opt.palette);
     }
 
-    const bool selectedAndActive = (opt.state & QStyle::State_Selected) && (opt.state & QStyle::State_Active);
-    QIcon::Mode mode = selectedAndActive ? QIcon::Selected : QIcon::Normal;
+    const bool selected = (opt.state & QStyle::State_Selected);
+    QIcon::Mode mode = selected ? QIcon::Selected : QIcon::Normal;
     QIcon icon = index.model()->data(index, Qt::DecorationRole).value<QIcon>();
     QPixmap pm = icon.pixmap(m_iconSize, m_iconSize, mode);
     QPoint point(isLTR ? opt.rect.left() + s_lateralMargin : opt.rect.right() - s_lateralMargin - m_iconSize,
@@ -194,7 +194,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     if (!actionIcon.isNull()) {
         const int iconSize = actionIconSize();
         QIcon::Mode mode = QIcon::Normal;
-        if (selectedAndActive) {
+        if (selected) {
             mode = QIcon::Selected;
         } else if (m_hoveredAction == index) {
             mode = QIcon::Active;
@@ -228,7 +228,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
         }
     }
 
-    if (selectedAndActive) {
+    if (selected) {
         painter->setPen(opt.palette.highlightedText().color());
     } else {
         painter->setPen(opt.palette.text().color());
@@ -264,7 +264,7 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
             QColor capacityBgColor(opt.palette.color(QPalette::WindowText));
             capacityBgColor.setAlphaF(0.2 * capacityBgColor.alphaF());
 
-            QColor capacityFgColor(selectedAndActive ? opt.palette.color(cg, QPalette::HighlightedText) : opt.palette.color(cg, QPalette::Highlight));
+            QColor capacityFgColor(selected ? opt.palette.color(cg, QPalette::HighlightedText) : opt.palette.color(cg, QPalette::Highlight));
             if (usedSpace > 0.95) {
                 if (!m_warningCapacityBarColor.isValid()) {
                     m_warningCapacityBarColor = KColorScheme(cg, KColorScheme::View).foreground(KColorScheme::NegativeText).color();
