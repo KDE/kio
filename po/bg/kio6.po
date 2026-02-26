@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-25 00:42+0000\n"
-"PO-Revision-Date: 2026-01-29 22:54+0100\n"
+"PO-Revision-Date: 2026-02-25 19:14+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -5348,11 +5348,10 @@ msgid "&Open With…"
 msgstr "&Отваряне с…"
 
 #: widgets/kfileitemactions.cpp:809
-#, fuzzy, kde-format
-#| msgid "&Run Executable"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
-msgstr "Стартиране на &изпълним файл:"
+msgstr "Стартиране на &изпълним файл"
 
 #: widgets/kfileitemactions.cpp:831
 #, kde-format
