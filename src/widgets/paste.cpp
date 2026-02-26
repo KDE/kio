@@ -154,13 +154,7 @@ static QStringList extractFormats(const QMimeData *mimeData)
         if (format == QLatin1String("application/x-qiconlist")) { // Q3IconView and kde4's libkonq
             continue;
         }
-        if (format == QLatin1String("application/x-kde-cutselection")) { // see isClipboardDataCut
-            continue;
-        }
-        if (format == QLatin1String("application/x-kde-suggestedfilename")) {
-            continue;
-        }
-        if (format == QLatin1String("application/x-kde-onlyReplaceEmpty")) { // Prevents emptying Klipper via selection
+        if (format.startsWith(u"application/x-kde-")) {
             continue;
         }
         if (format.startsWith(QLatin1String("application/x-qt-"))) { // Qt-internal
@@ -194,10 +188,7 @@ std::pair<KIO::Job *, int> pasteMimeDataImpl(const QMimeData *mimeData, const QU
     } else {
         auto formats = extractFormats(mimeData);
         const auto firstFormat = formats.value(0);
-        // Remove formats that shouldn't be exposed to the user
-        erase_if(formats, [](const QString &string) -> bool {
-            return string.startsWith(u"application/x-kde-");
-        });
+
         if (formats.isEmpty() && firstFormat.isEmpty()) {
             return std::make_pair(nullptr, KIO::ERR_NO_CONTENT);
         } else if (formats.size() > 1) {
