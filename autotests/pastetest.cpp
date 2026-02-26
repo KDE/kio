@@ -195,7 +195,6 @@ void KIOPasteTest::testPasteJob()
     QVERIFY(spy.isValid());
     QVERIFY(spyCopyJobStarted.isValid());
     job->setUiDelegate(nullptr);
-    const bool expectedSuccess = !expectedFileName.isEmpty();
 
     int copying = 0, moving = 0;
     connect(job, &KIO::PasteJob::copyJobStarted, this, [this, &copying, &moving](KIO::CopyJob *copyJob) {
@@ -207,8 +206,8 @@ void KIOPasteTest::testPasteJob()
         });
     });
 
-    QCOMPARE(job->exec(), expectedSuccess);
-    if (expectedSuccess) {
+    QCOMPARE(job->exec(), true);
+    if (!expectedFileName.isEmpty()) {
         const QString destFile = destDir + '/' + expectedFileName;
         QVERIFY2(QFile::exists(destFile), qPrintable(expectedFileName));
         if (isDir) {

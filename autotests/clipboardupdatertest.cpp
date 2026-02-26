@@ -129,8 +129,8 @@ void ClipboardUpdaterTest::testPasteAfterDeleteFile()
     createTestDirectory(pasteDir, NoSymlink);
     KIO::Job *job = KIO::paste(clipboard->mimeData(), QUrl::fromLocalFile(pasteDir), KIO::DefaultFlags);
     QVERIFY(job);
-    QVERIFY(!job->exec());
-    QCOMPARE(job->error(), int(KIO::ERR_NO_CONTENT));
+    QVERIFY(job->exec());
+    QCOMPARE(job->error(), 0);
 }
 
 void ClipboardUpdaterTest::testPasteAfterDeleteFiles()
@@ -152,8 +152,8 @@ void ClipboardUpdaterTest::testPasteAfterDeleteFiles()
     createTestDirectory(pasteDir, NoSymlink);
     KIO::Job *job = KIO::paste(clipboard->mimeData(), QUrl::fromLocalFile(pasteDir), KIO::DefaultFlags);
     QVERIFY(job);
-    QVERIFY(!job->exec());
-    QCOMPARE(job->error(), int(KIO::ERR_NO_CONTENT));
+    QVERIFY(job->exec());
+    QCOMPARE(job->error(), 0);
 }
 
 #include "moc_clipboardupdatertest.cpp"
