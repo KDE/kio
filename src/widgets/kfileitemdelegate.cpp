@@ -834,7 +834,8 @@ QSize KFileItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QMod
         size.rheight() = qMax(decorationSize.height(), displaySize.height());
     }
 
-    size = d->addMargin(size, Private::ItemMargin);
+    size = style->sizeFromContents(QStyle::CT_ItemViewItem, &opt, size, opt.widget);
+
     if (!d->maximumSize.isEmpty()) {
         size = size.boundedTo(d->maximumSize);
     }
@@ -998,67 +999,14 @@ QIcon KFileItemDelegate::Private::decoration(const QStyleOptionViewItem &option,
 
 QRect KFileItemDelegate::Private::labelRectangle(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    const QSize decoSize = (index.column() == 0) ? addMargin(option.decorationSize, Private::IconMargin) : QSize(0, 0);
-    const QRect itemRect = subtractMargin(option.rect, Private::ItemMargin);
-    QRect textArea(QPoint(0, 0), itemRect.size());
-
-    switch (option.decorationPosition) {
-    case QStyleOptionViewItem::Top:
-        textArea.setTop(decoSize.height() + 1);
-        break;
-
-    case QStyleOptionViewItem::Bottom:
-        textArea.setBottom(itemRect.height() - decoSize.height() - 1);
-        break;
-
-    case QStyleOptionViewItem::Left:
-        textArea.setLeft(decoSize.width() + 1);
-        break;
-
-    case QStyleOptionViewItem::Right:
-        textArea.setRight(itemRect.width() - decoSize.width() - 1);
-        break;
-    }
-
-    textArea.translate(itemRect.topLeft());
-    return QStyle::visualRect(option.direction, option.rect, textArea);
+    QStyle *style = option.widget ? option.widget->style() : QApplication::style();
+    return style->subElementRect(QStyle::SE_ItemViewItemText, &option, option.widget);
 }
 
 QPoint KFileItemDelegate::Private::iconPosition(const QStyleOptionViewItem &option) const
 {
-    if (option.index.column() > 0) {
-        return QPoint(0, 0);
-    }
-
-    const QRect itemRect = subtractMargin(option.rect, Private::ItemMargin);
-    Qt::Alignment alignment;
-
-    // Convert decorationPosition to the alignment the decoration will have in option.rect
-    switch (option.decorationPosition) {
-    case QStyleOptionViewItem::Top:
-        alignment = Qt::AlignHCenter | Qt::AlignTop;
-        break;
-
-    case QStyleOptionViewItem::Bottom:
-        alignment = Qt::AlignHCenter | Qt::AlignBottom;
-        break;
-
-    case QStyleOptionViewItem::Left:
-        alignment = Qt::AlignVCenter | Qt::AlignLeft;
-        break;
-
-    case QStyleOptionViewItem::Right:
-        alignment = Qt::AlignVCenter | Qt::AlignRight;
-        break;
-    }
-
-    // Compute the nominal decoration rectangle
-    const QSize size = addMargin(option.decorationSize, Private::IconMargin);
-    const QRect rect = QStyle::alignedRect(option.direction, alignment, size, itemRect);
-
-    // Position the icon in the center of the rectangle
-    QRect iconRect = QRect(QPoint(), option.icon.actualSize(option.decorationSize));
-    iconRect.moveCenter(rect.center());
+    QStyle *style = option.widget ? option.widget->style() : QApplication::style();
+    QRect iconRect = style->subElementRect(QStyle::SE_ItemViewItemDecoration, &option, option.widget);
 
     return iconRect.topLeft();
 }
