@@ -10,13 +10,13 @@
 # Stígur Snæsson <stigur@vortex.is>, 2004.
 # Þröstur Svanbergsson <throstur@bylur.net>, 2004.
 # Arnar Leosson <leosson@frisurf.no>, 2004, 2005.
-# SPDX-FileCopyrightText: 2008, 2009, 2010, 2021, 2022, 2023, 2024, 2025 Sveinn í Felli <sv1@fellsnet.is>
+# SPDX-FileCopyrightText: 2008, 2009, 2010, 2021, 2022, 2023, 2024, 2025, 2026 Sveinn í Felli <sv1@fellsnet.is>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-25 00:42+0000\n"
-"PO-Revision-Date: 2025-12-02 13:27+0000\n"
+"PO-Revision-Date: 2026-02-26 09:31+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -4162,10 +4162,9 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
-#, fuzzy, kde-format
-#| msgid "Could Not Rename Temporary File"
+#, kde-format
 msgid "Could not open temporary file"
-msgstr "Ekki tókst að endurnefna bráðabirgðaskrána"
+msgstr "Mistókst að opna bráðabirgðaskrá"
 
 #: kioworkers/file/file.cpp:765
 #, kde-format
@@ -5333,11 +5332,10 @@ msgid "&Open With…"
 msgstr "&Opna með…"
 
 #: widgets/kfileitemactions.cpp:809
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
-msgstr "&Keyra"
+msgstr "&Keyra keyrsluskrá"
 
 #: widgets/kfileitemactions.cpp:831
 #, kde-format
@@ -5659,7 +5657,7 @@ msgid ""
 "application or if you want the information that is provided by the terminal "
 "emulator window."
 msgstr ""
-"Hakaðu við hér ef forritið sem þú vilt keyra er textaforrit á skipanalínu "
+"Merktu við hér ef forritið sem þú vilt keyra er textaforrit á skipanalínu "
 "eða ef þú vilt sjá þær upplýsingar sem birtast í skjáherminum."
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
@@ -5682,7 +5680,7 @@ msgid ""
 "on exit. Keeping the terminal emulator open allows you to retrieve this "
 "information."
 msgstr ""
-"Hakaðu við hér ef textaforritið birtir upplýsingar sem skipta máli þegar það "
+"Merktu við hér ef textaforritið birtir upplýsingar sem skipta máli þegar það "
 "hættir keyrslu.  Ef skjáhermirinn er hafður opinn sérðu þessar upplýsingar."
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
@@ -5709,7 +5707,7 @@ msgid ""
 "determines file access and other permissions. The password of the user is "
 "required to use this option."
 msgstr ""
-"Hakaðu við hér ef þú vilt keyra þetta forrit sem annar notandi. Allir "
+"Merktu við hér ef þú vilt keyra þetta forrit sem annar notandi. Allir "
 "keyrsluþræðir eru með sér notandaauðkenni.  Þetta auðkenni ákvarðar "
 "aðgangsheimildir að skrám og öðru.  Lykilorð notandans þarf fyrir þennan "
 "valmöguleika."
@@ -5766,7 +5764,7 @@ msgid ""
 "Check this option if you want to make clear that your application has "
 "started. This visual feedback may appear as a busy cursor or in the taskbar."
 msgstr ""
-"Hakaðu við hér ef þú vilt ganga úr skugga um að forritið þitt sé komið í "
+"Merktu við hér ef þú vilt ganga úr skugga um að forritið þitt sé komið í "
 "gang.  Þessar sjónrænu upplýsingar geta birtst í formi biðbendils eða á "
 "verkstikunni."
 
@@ -6811,33 +6809,25 @@ msgid "Appl&y to All"
 msgstr "N&ota á allt"
 
 #: widgets/renamedialog.cpp:280
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "folder conflicts for the remainder of the current job.\n"
-#| "Unless you press Skip you will still be prompted in case of a conflict "
-#| "with an existing file in the directory."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
-"Ef hakað er við þetta verður aðgerð hnappsins sem ýtt er á beitt á alla "
-"eftirfarandi árekstra sem upp gætu komið í eftirstöðvum verksins.\n"
+"Ef merkt er við þetta, verður aðgerð hnappsins sem ýtt er á beitt á alla "
+"eftirfarandi möppuárekstra sem upp gætu komið í eftirstöðvum verksins.\n"
 "Þú verður samt látinn vita ef árekstrar verða við skrár sem þegar eru til "
-"staðar, nema ef þú ýtir á 'Sleppa'."
+"staðar í möppu, nema ef þú ýtir á 'Sleppa'."
 
 #: widgets/renamedialog.cpp:284
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "conflicts for the remainder of the current job."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
-"Ef hakað er við þetta verður aðgerð hnappsins sem ýtt er á beitt á alla "
+"Ef merkt er við þetta verður aðgerð hnappsins sem ýtt er á beitt á alla "
 "eftirfarandi árekstra sem upp gætu komið í eftirstöðvum verksins."
 
 #: widgets/renamedialog.cpp:290
@@ -6973,11 +6963,10 @@ msgstr ""
 "byrjun, í miðjunni og í endanum."
 
 #: widgets/renamedialog.cpp:518
-#, fuzzy, kde-format
-#| msgid "Copy Files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "Afrita skrár"
+msgstr "Bera saman skrár"
 
 #: widgets/renamedialog.cpp:531
 #, kde-format
