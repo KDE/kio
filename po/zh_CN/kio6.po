@@ -5136,7 +5136,7 @@ msgstr "打开方式(&O)…"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
-msgstr ""
+msgstr "运行可执行文件(&R)"
 
 #: widgets/kfileitemactions.cpp:831
 #, kde-format
