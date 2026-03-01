@@ -44,6 +44,7 @@ Name[id]=RPM-Find
 Name[ie]=RPM-Find
 Name[is]=RPM-leit
 Name[it]=Ricerca di RPM
+Name[ja]=RPM-Find
 Name[ka]=RPM-Find
 Name[kk]=RPM-ды табу
 Name[km]=រក RPM
@@ -129,6 +130,7 @@ Query[id]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ie]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[is]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[it]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[ja]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ka]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ko]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[lg]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

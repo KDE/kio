@@ -43,6 +43,7 @@ Name[id]=LEO - Penerjemahan Antara Bahasa Jerman dan Perancis
 Name[ie]=LEO - Traducter inter german e francesi
 Name[is]=LEO - þýða á milli þýsku og frönsku
 Name[it]=LEO - Traduzioni dal tedesco al francese
+Name[ja]=LEO - Translate Between German and French
 Name[ka]=LEO - გადათარგმნეთ გერმანულსა და ფრანგულს შორის
 Name[kk]=LEO - неміс және француз тілдер арасында аудару
 Name[km]=LEO - បកប្រែ​រវាង​ភាសា​អាល្លឺម៉ង់ និង​អង់គ្លេស
@@ -126,6 +127,7 @@ Query[id]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ie]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[is]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[it]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[ja]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ka]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[ko]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[lg]=https://dict.leo.org/?lp=frde&search=\\{@}

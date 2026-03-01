@@ -32,6 +32,7 @@ Name[id]=CPlusPlus
 Name[ie]=CPlusPlus
 Name[is]=CPlusPlus
 Name[it]=CPlusPlus
+Name[ja]=CPlusPlus
 Name[ka]=CPlusPlus
 Name[ko]=CPlusPlus
 Name[lg]=CPlusPlus
@@ -94,6 +95,7 @@ Query[id]=http://cplusplus.com/search.do?q=\\{@}
 Query[ie]=http://cplusplus.com/search.do?q=\\{@}
 Query[is]=http://cplusplus.com/search.do?q=\\{@}
 Query[it]=http://cplusplus.com/search.do?q=\\{@}
+Query[ja]=http://cplusplus.com/search.do?q=\\{@}
 Query[ka]=http://cplusplus.com/search.do?q=\\{@}
 Query[ko]=http://cplusplus.com/search.do?q=\\{@}
 Query[lg]=http://cplusplus.com/search.do?q=\\{@}

@@ -44,6 +44,7 @@ Name[id]=Tesaurus HyperDictionary.com
 Name[ie]=Tresor de HyperDictionary.com
 Name[is]=HyperDictionary.com - samheitaorðabók
 Name[it]=Dizionario dei sinonimi e contrari HyperDictionary.com
+Name[ja]=HyperDictionary.com Thesaurus
 Name[ka]=HyperDictionary.com ლექსიკონი
 Name[kk]=HyperDictionary.com тезаурус
 Name[km]=កម្រង​វេវចនសព្ទ HyperDictionary.com
@@ -140,6 +141,7 @@ Query[id]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[ie]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[is]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[it]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
+Query[ja]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[ka]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[kk]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[km]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}

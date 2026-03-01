@@ -44,6 +44,7 @@ Name[id]=Penelusuran Citra Google
 Name[ie]=Sercha de images de Google
 Name[is]=Google myndaleit
 Name[it]=Ricerca di immagini di Google
+Name[ja]=Google 画像検索
 Name[ka]=Google სურათების ძებნა
 Name[kk]=Google кескіндерді табу
 Name[km]=ស្វែងរក​រូបភាព​តាម​រយៈ​ហ្គូហ្គល
@@ -133,6 +134,7 @@ Query[id]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ie]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[is]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[it]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[ja]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ka]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[kk]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ko]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

@@ -45,6 +45,7 @@ Name[id]=Voila
 Name[ie]=Voila
 Name[is]=Voila
 Name[it]=Voila
+Name[ja]=Voila
 Name[ka]=Voila
 Name[kk]=Voila
 Name[km]=Voila
@@ -131,6 +132,7 @@ Query[id]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ie]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[is]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[it]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[ja]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ka]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[ko]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[lg]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*

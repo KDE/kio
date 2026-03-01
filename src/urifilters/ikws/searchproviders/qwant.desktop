@@ -34,6 +34,7 @@ Name[id]=Qwant
 Name[ie]=Qwant
 Name[is]=Qwant
 Name[it]=Qwant
+Name[ja]=Qwant
 Name[ka]=Qwant
 Name[ko]=Qwant
 Name[lg]=Qwant
@@ -102,6 +103,7 @@ Query[id]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ie]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[ja]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[lg]=https://www.qwant.com/?q=\\{@}&client=kde&t=web

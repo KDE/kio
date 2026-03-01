@@ -39,6 +39,7 @@ Name[id]=Magnatune
 Name[ie]=Magnatune
 Name[is]=Magnatune
 Name[it]=Magnatune
+Name[ja]=Magnatune
 Name[ka]=Magnatune
 Name[kk]=Magnatune
 Name[km]=Magnatune
@@ -114,6 +115,7 @@ Query[id]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[ie]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[is]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[it]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
+Query[ja]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[ka]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[ko]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[lg]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0

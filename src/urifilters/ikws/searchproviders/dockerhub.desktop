@@ -19,6 +19,7 @@ Name[hu]=Docker Hub
 Name[ia]=Docker Hub
 Name[is]=Docker Hub
 Name[it]=Docker Hub
+Name[ja]=Docker Hub
 Name[ka]=Docker Hub
 Name[ko]=Docker Hub
 Name[lg]=Docker Hub
@@ -60,6 +61,7 @@ Query[hu]=https://hub.docker.com/search?q=\\{@}
 Query[ia]=https://hub.docker.com/search?q=\\{@}
 Query[is]=https://hub.docker.com/search?q=\\{@}
 Query[it]=https://hub.docker.com/search?q=\\{@}
+Query[ja]=https://hub.docker.com/search?q=\\{@}
 Query[ka]=https://hub.docker.com/search?q=\\{@}
 Query[ko]=https://hub.docker.com/search?q=\\{@}
 Query[lg]=https://hub.docker.com/search?q=\\{@}

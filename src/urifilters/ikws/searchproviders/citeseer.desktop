@@ -44,6 +44,7 @@ Name[id]=CiteSeer: Pustaka Digital Literatur Ilmiah
 Name[ie]=CiteSeer: biblioteca digital del scientific literatura
 Name[is]=CiteSeer: Scientific Literature Digital Library
 Name[it]=CiteSeer: Biblioteca digitale di letteratura scientifica
+Name[ja]=CiteSeer: Scientific Literature Digital Library
 Name[ka]=CiteSeer: Scientific Literature Digital Library
 Name[kk]=CiteSeer: ғылыми әдебиет цифрлық кітапханасы
 Name[km]=CiteSeer ៖ បណ្ណាល័យ​ឌីជីថល​អក្សរ​សាស្ត្រ​វិទ្យាសាស្ត្រ
@@ -128,6 +129,7 @@ Query[id]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=d
 Query[ie]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[is]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[it]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[ja]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ka]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[ko]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[lg]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

@@ -31,6 +31,7 @@ Name[id]=CPP Reference
 Name[ie]=CPP Reference
 Name[is]=CPP Reference
 Name[it]=Manuale di riferimento CPP
+Name[ja]=CPP Reference
 Name[ka]=CPP მიმართვა
 Name[ko]=CPP Reference
 Name[lg]=CPP Reference
@@ -78,6 +79,7 @@ Query[hu]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[ia]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[is]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[it]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
+Query[ja]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[ka]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[ko]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[lt]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}

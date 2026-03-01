@@ -45,6 +45,7 @@ Name[id]=Manual Referensi Python
 Name[ie]=Python Reference Manual
 Name[is]=Python handbókin
 Name[it]=Manuale di riferimento di Python
+Name[ja]=Python リファレンスマニュアル
 Name[ka]=Python-ის სახელმძღვანელო
 Name[kk]=Python анықтамасы
 Name[km]=សៀវភៅ​យោង​របស់ Python
@@ -131,6 +132,7 @@ Query[id]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Se
 Query[ie]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[is]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[it]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
+Query[ja]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[ka]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[kk]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[ko]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org

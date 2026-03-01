@@ -44,6 +44,7 @@ Name[id]=Ask Jeeves
 Name[ie]=Ask Jeeves
 Name[is]=Ask Jeeves
 Name[it]=Ask Jeeves
+Name[ja]=Ask Jeeves
 Name[ka]=Ask Jeeves
 Name[kk]=Ask Jeeves
 Name[km]=សួរ Jeeves
@@ -121,6 +122,7 @@ Query[hu]=https://www.ask.com/web?q=\\{@}
 Query[ia]=https://www.ask.com/web?q=\\{@}
 Query[is]=https://www.ask.com/web?q=\\{@}
 Query[it]=https://www.ask.com/web?q=\\{@}
+Query[ja]=https://www.ask.com/web?q=\\{@}
 Query[ka]=https://www.ask.com/web?q=\\{@}
 Query[ko]=https://www.ask.com/web?q=\\{@}
 Query[lg]=https://www.ask.com/web?q=\\{@}

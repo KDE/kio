@@ -45,6 +45,7 @@ Name[id]=Google News
 Name[ie]=Google News
 Name[is]=Google fréttir
 Name[it]=Notizie di Google
+Name[ja]=Google ニュース
 Name[ka]=Google სიახლეები
 Name[kk]=Google жаңалықтар
 Name[km]=ព័ត៌មាន​តាម​ហ្គូហ្គល
@@ -133,6 +134,7 @@ Query[id]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ie]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[is]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[it]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[ja]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ka]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[kk]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ko]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8

@@ -36,6 +36,7 @@ Name[id]=Mesin pencari Ecosia
 Name[ie]=Provisor de sercha Ecosia
 Name[is]=Ecosia-leitarvélin
 Name[it]=Motore di ricerca Ecosia
+Name[ja]=Ecosia search engine
 Name[ka]=Ecosia ძებნის ძრავი
 Name[kk]=Ecosia іздеу құралы
 Name[km]=ម៉ាស៊ីន​ស្វែងរក Ecosia
@@ -112,6 +113,7 @@ Query[id]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ie]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[is]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[it]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[ja]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ka]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ko]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[lg]=https://ecosia.org/search.php?q=\\{@}&meta=normal

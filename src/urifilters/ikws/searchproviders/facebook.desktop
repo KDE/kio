@@ -39,6 +39,7 @@ Name[id]=Facebook
 Name[ie]=Facebook
 Name[is]=Facebook
 Name[it]=Facebook
+Name[ja]=Facebook
 Name[ka]=Facebook
 Name[kk]=Facebook
 Name[km]=Facebook
@@ -115,6 +116,7 @@ Query[id]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ie]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[is]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[it]=https://www.facebook.com/search/?q=\\{@}&init=quick
+Query[ja]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ka]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[kk]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ko]=https://www.facebook.com/search/?q=\\{@}&init=quick

@@ -45,6 +45,7 @@ Name[id]=SourceForge
 Name[ie]=SourceForge
 Name[is]=SourceForge
 Name[it]=SourceForge
+Name[ja]=SourceForge
 Name[ka]=SourceForge
 Name[kk]=SourceForge
 Name[km]=SourceForge
@@ -129,6 +130,7 @@ Query[id]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\
 Query[ie]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[is]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[it]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
+Query[ja]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[ka]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[ko]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[lg]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}

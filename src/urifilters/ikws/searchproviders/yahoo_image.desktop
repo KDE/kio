@@ -39,6 +39,7 @@ Name[id]=Yahoo Images
 Name[ie]=Yahoo Images
 Name[is]=Yahoo Images
 Name[it]=Immagini di Yahoo
+Name[ja]=Yahoo Images
 Name[ka]=Yahoo სურათები
 Name[kk]=Yahoo кескіндер
 Name[km]=រូបភាព​របស់​យ៉ាហ៊ូ
@@ -114,6 +115,7 @@ Query[id]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1
 Query[ie]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[is]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[it]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
+Query[ja]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[ka]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[ko]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701
 Query[lg]=https://images.search.yahoo.com/search/images;_ylt=A0geuy0K6JZLsVkB4m1XNyoA?ei=UTF-8&p=\\{@}&y=0&fr2=tab-web&fr=yfp-t-701

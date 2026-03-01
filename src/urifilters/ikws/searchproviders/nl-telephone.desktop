@@ -41,6 +41,7 @@ Name[id]=Penyedia Pencarian Buku Telepon
 Name[ie]=Telephonebook Search Provider
 Name[is]=Leitarvél fyrir símaskrár
 Name[it]=Motore di ricerca dell'elenco telefonico
+Name[ja]=Telephonebook Search Provider
 Name[ka]=Telephonebook-ით ძებნა
 Name[kk]=Телефон кітапшасын іздеу провайдері
 Name[km]=ក្រុមហ៊ុន​ផ្ដល់​​ការ​​ស្វែងរក​សៀវភៅ​លេខ​ទូរស័ព្ទ
@@ -125,6 +126,7 @@ Query[id]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{
 Query[ie]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[is]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[it]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
+Query[ja]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[ka]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[ko]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}
 Query[lg]=https://www.detelefoongids.nl/\\{1}/\\{2}/10-1/?oWhat=\\{1}&oWhere=\\{2}

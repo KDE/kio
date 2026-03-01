@@ -34,6 +34,7 @@ Name[id]=Qwant Shopping
 Name[ie]=Qwant Shopping
 Name[is]=Qwant Shopping
 Name[it]=Acquisti di Qwant
+Name[ja]=Qwant Shopping
 Name[ka]=Qwant საყიდლები
 Name[ko]=Qwant 쇼핑
 Name[lg]=Noonya Ebitundibwa ku Qwant
@@ -101,6 +102,7 @@ Query[id]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ie]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[ja]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[lg]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping

@@ -43,6 +43,7 @@ Name[id]=CTAN - Jaringan Arsip TeX Komprehensif
 Name[ie]=CTAN - Comprehensive TeX Archive Network
 Name[is]=CTAN - Comprehensive TeX Archive Network
 Name[it]=CTAN - Rete globale degli archivi TeX
+Name[ja]=CTAN - Comprehensive TeX Archive Network
 Name[ka]=CTAN - TeX-ის ყოვლისმომცველი არქივი
 Name[kk]=CTAN - TeX архив желісі
 Name[km]=CTAN - Comprehensive TeX Archive Network
@@ -128,6 +129,7 @@ Query[id]=https://ctan.org/search?phrase=\\{@}
 Query[ie]=https://ctan.org/search?phrase=\\{@}
 Query[is]=https://ctan.org/search?phrase=\\{@}
 Query[it]=https://ctan.org/search?phrase=\\{@}
+Query[ja]=https://ctan.org/search?phrase=\\{@}
 Query[ka]=https://ctan.org/search?phrase=\\{@}
 Query[ko]=https://ctan.org/search?phrase=\\{@}
 Query[lg]=https://ctan.org/search?phrase=\\{@}

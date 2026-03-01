@@ -19,6 +19,7 @@ Name[hu]=npm
 Name[ia]=npm
 Name[is]=npm
 Name[it]=npm
+Name[ja]=npm
 Name[ka]=npm
 Name[ko]=npm
 Name[lg]=npm
@@ -60,6 +61,7 @@ Query[hu]=https://www.npmjs.com/search?q=\\{@}
 Query[ia]=https://www.npmjs.com/search?q=\\{@}
 Query[is]=https://www.npmjs.com/search?q=\\{@}
 Query[it]=https://www.npmjs.com/search?q=\\{@}
+Query[ja]=https://www.npmjs.com/search?q=\\{@}
 Query[ka]=https://www.npmjs.com/search?q=\\{@}
 Query[ko]=https://www.npmjs.com/search?q=\\{@}
 Query[lg]=https://www.npmjs.com/search?q=\\{@}

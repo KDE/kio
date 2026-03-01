@@ -32,6 +32,7 @@ Name[id]=KDE Reddit
 Name[ie]=Reddit de KDE
 Name[is]=KDE Reddit
 Name[it]=KDE Reddit
+Name[ja]=KDE の Reddit
 Name[ka]=KDE Reddit-ზე
 Name[ko]=KDE Reddit
 Name[lg]=KDE ku Reddit
@@ -93,6 +94,7 @@ Query[id]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ie]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[is]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[it]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[ja]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ka]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ko]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[lg]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1

@@ -43,6 +43,7 @@ Name[id]=Pencarian Debian Backports
 Name[ie]=Sercha de retroportages de Debian
 Name[is]=Debian Backports Search
 Name[it]=Ricerca gli aggiornamenti non supportati di Debian
+Name[ja]=Debian Backports Search
 Name[ka]=Debian Backports-ში ძებნა
 Name[kk]=Debian порттарын табу
 Name[km]=ការ​ស្វែងរក Debian Backports
@@ -125,6 +126,7 @@ Query[id]=https://packages.debian.org/search?suite=squeeze-backports&section=all
 Query[ie]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[is]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[it]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
+Query[ja]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[ka]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[ko]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[lg]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}

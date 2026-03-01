@@ -44,6 +44,7 @@ Name[id]=Pencarian PHP
 Name[ie]=Sercha PHP
 Name[is]=PHP Search
 Name[it]=Ricerca di PHP
+Name[ja]=PHP 検索
 Name[ka]=PHP ძებნა
 Name[kk]=PHP іздеуі
 Name[km]=ការ​ស្វែងរក PHP
@@ -128,6 +129,7 @@ Query[id]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ie]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[is]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[it]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[ja]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ka]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ko]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[lg]=https://secure.php.net/manual-lookup.php?pattern=\\{@}

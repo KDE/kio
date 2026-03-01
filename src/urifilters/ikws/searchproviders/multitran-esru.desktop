@@ -44,6 +44,7 @@ Name[id]=Multitran - Penerjemahan Antara Bahasa Spanyol dan Rusia
 Name[ie]=Multitran - Traducter inter hispan e russ
 Name[is]=Multitran - þýða á milli spænsku og rússnesku
 Name[it]=Multitran - Traduzioni tra spagnolo e russo
+Name[ja]=Multitran - Translate Between Spanish and Russian
 Name[ka]=Multitran თარგმანი ესპანურიდან რუსულზე და პირიქით
 Name[kk]=LEO - испан және орыс тілдер арасында аудару
 Name[km]=Multitran - បកប្រែ​រវាង​ភាសា​អេស្ប៉ាញ និង​រុស្ស៊ី
@@ -125,6 +126,7 @@ Query[id]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ie]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[is]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[it]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
+Query[ja]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ka]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[ko]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[lg]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}

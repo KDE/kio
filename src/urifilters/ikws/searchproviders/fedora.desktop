@@ -18,6 +18,7 @@ Name[hu]=Fedora Packages
 Name[ia]=Pacchettos de Fedora
 Name[is]=Fedora-pakkar
 Name[it]=Pacchetti Fedora
+Name[ja]=Fedora Packages
 Name[ka]=Fedora-ის პაკეტები
 Name[ko]=Fedora 패키지
 Name[lg]=Emiganda gya mu Fedora
@@ -60,6 +61,7 @@ Query[hu]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ia]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[is]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[it]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[ja]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ka]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ko]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[lg]=https://packages.fedoraproject.org/search?query=\\{@}

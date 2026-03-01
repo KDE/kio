@@ -32,6 +32,7 @@ Name[id]=Masalah KDE Invent
 Name[ie]=Problemas del KDE Invent
 Name[is]=Verkbeiðnir á KDE Invent
 Name[it]=Issue su KDE Invent
+Name[ja]=KDE Invent Issue
 Name[ka]=KDE Invent -ის პრობლემები
 Name[ko]=KDE Invent 이슈
 Name[lg]=Ebizibu Ebyogerwako mu KDE Invent
@@ -92,6 +93,7 @@ Query[id]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ie]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[is]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[it]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[ja]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ka]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ko]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[lg]=https://invent.kde.org/search?scope=issues&search=\\{@}

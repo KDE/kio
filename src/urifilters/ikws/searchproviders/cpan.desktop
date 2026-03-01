@@ -43,6 +43,7 @@ Name[id]=CPAN - Jaringan Arsip Perl Komprehensif
 Name[ie]=CPAN - Comprehensive Perl Archive Network
 Name[is]=CPAN - Comprehensive Perl Archive Network
 Name[it]=CPAN - Rete globale degli archivi Perl
+Name[ja]=CPAN - Comprehensive Perl Archive Network
 Name[ka]=CPAN - Comprehensive Perl Archive Network
 Name[kk]=CPAN - Perl скрипттер архив желісі
 Name[km]=CPAN - Comprehensive Perl Archive Network
@@ -128,6 +129,7 @@ Query[id]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ie]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[is]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[it]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
+Query[ja]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ka]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[ko]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
 Query[lg]=https://search.cpan.org/search?mode=\\{mode,2,""}&query=\\{query,q,1}
