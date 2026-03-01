@@ -82,11 +82,6 @@ void KIO::WidgetsOpenOrExecuteFileHandler::promptUserOpenOrExecute(KJob *job, co
 
         const bool isExecute = result == ExecutableFileOpenDialog::ExecuteFile;
         Q_EMIT executeFile(isExecute);
-
-        if (dialog->isDontAskAgainChecked()) {
-            KConfigGroup cfgGroup(KSharedConfig::openConfig(QStringLiteral("kiorc")), QStringLiteral("Executable scripts"));
-            cfgGroup.writeEntry("behaviourOnLaunch", isExecute ? "execute" : "open");
-        }
     });
 
     dialog->show();
