@@ -90,24 +90,6 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="QCheckBox" name="dontAgainCheckBox">
-       <property name="text">
-        <string comment="@option:check Always open/launch executable files (dont ask again)">Remember for all executable files</string>
-       </property>
-      </widget>
-     </item>
-     <item alignment="Qt::AlignmentFlag::AlignLeft">
-      <widget class="KContextualHelpButton" name="dontAgainHelpButton">
-       <property name="contextualHelpText">
-        <string comment="@info:tooltip How to undo do not ask again">You can undo this under &quot;Confirmations&quot; in Dolphin file manager settings.</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Orientation::Horizontal</enum>

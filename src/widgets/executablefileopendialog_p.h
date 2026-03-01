@@ -42,8 +42,6 @@ public:
 
     explicit ExecutableFileOpenDialog(const QUrl &url, const QMimeType &mimeType, Mode mode, QWidget *parent = nullptr);
 
-    bool isDontAskAgainChecked() const;
-
 protected:
     void showEvent(QShowEvent *event) override;
 
