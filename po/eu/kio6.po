@@ -1,5 +1,5 @@
 # Translation for kio6.po to Euskara/Basque (eu).
-# Copyright (C) 2003-2025 This file is copyright:
+# Copyright (C) 2003-2026 This file is copyright:
 # This file is distributed under the same license as the kio package.
 # SPDX-FileCopyrightText: 2023, 2024, 2025, 2026 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
@@ -8,21 +8,21 @@
 # Asel Luzarraga <asel@euskalnet.net>, 2003, 2004.
 # Ion Gaztañaga <igaztanaga@gmail.com>, 2005.
 # Asier Urio Larrea <asieriko@gmail.com>, 2008.
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2010, 2011, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2010, 2011, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2026.
 # Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-25 00:42+0000\n"
-"PO-Revision-Date: 2026-01-25 13:59+0100\n"
+"PO-Revision-Date: 2026-03-01 00:36+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -4188,10 +4188,9 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
-#, fuzzy, kde-format
-#| msgid "Could Not Rename Temporary File"
+#, kde-format
 msgid "Could not open temporary file"
-msgstr "Ezin izan du aldi baterako fitxategia berrizendatu"
+msgstr "Ezin izan da aldi baterako fitxategia ireki"
 
 #: kioworkers/file/file.cpp:765
 #, kde-format
@@ -5363,11 +5362,10 @@ msgid "&Open With…"
 msgstr "Ireki &honekin…"
 
 #: widgets/kfileitemactions.cpp:809
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
-msgstr "&Exekutatu"
+msgstr "E&xekutatu exekutagarria"
 
 #: widgets/kfileitemactions.cpp:831
 #, kde-format
@@ -6854,33 +6852,25 @@ msgid "Appl&y to All"
 msgstr "Ezarr&i guztiei"
 
 #: widgets/renamedialog.cpp:280
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "folder conflicts for the remainder of the current job.\n"
-#| "Unless you press Skip you will still be prompted in case of a conflict "
-#| "with an existing file in the directory."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
-"Hau markatuta dagoenean sakatutako botoia aplikatuko zaie uneko lana amaitu "
+"Hau markatuta dagoenean, sakatutako botoia aplikatuko zaie uneko lana amaitu "
 "arteko ondorengo karpeta gatazkei.\n"
 "Jauzi sakatu ezean jakinaraziko zaizu direktorio batean existitzen den "
 "fitxategi batekin gatazka dagoen kasuan."
 
 #: widgets/renamedialog.cpp:284
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "conflicts for the remainder of the current job."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
-"Hau markatuta dagoenean sakatutako botoia aplikatuko zaie uneko lana amaitu "
+"Hau markatuta dagoenean, sakatutako botoia aplikatuko zaie uneko lana amaitu "
 "arteko ondorengo gatazkei."
 
 #: widgets/renamedialog.cpp:290

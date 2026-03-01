@@ -9,15 +9,16 @@
 # Yukiko Bando <ybando@k6.dion.ne.jp>, 2006, 2007, 2008, 2009, 2010.
 # Tomohiro Hyakutake <tomhioo@outlook.jp>, 2019, 2020.
 # Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2006, 2010, 2011, 2019, 2022.
+# SPDX-FileCopyrightText: 2026 Mint <5602mint@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-02-25 00:42+0000\n"
-"PO-Revision-Date: 2025-02-23 13:21+0900\n"
-"Last-Translator: Ryuichi Yamada <ryuichi_ya220@outlook.jp>\n"
-"Language-Team: Japanese <kde-jp@kde.org>\n"
+"PO-Revision-Date: 2026-02-23 16:31+0900\n"
+"Last-Translator: Mint <5602mint@gmail.com>\n"
+"Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +26,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 24.12.2\n"
+"X-Generator: Lokalize 25.12.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3093,7 +3094,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "パーティションマネージャで再フォーマットまたは編集する"
 
 #: filewidgets/kfileplacesview.cpp:342
 #, kde-format
@@ -7475,161 +7476,3 @@ msgstr "これは以下のプログラムを開始します:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "このプログラムを信頼しない場合は「キャンセル」をクリックしてください"
-
-#~ msgid "Change Attribute"
-#~ msgstr "属性を変更"
-
-#~ msgid ""
-#~ "Root privileges are required to change file attributes. Do you want to "
-#~ "continue?"
-#~ msgstr "ファイルの属性を変更するには管理者権限が必要です。続行しますか？"
-
-#~ msgid ""
-#~ "Root privileges are required to complete the copy operation. Do you want "
-#~ "to continue?"
-#~ msgstr "コピーを完了するには管理者権限が必要です。続行しますか？"
-
-#~ msgid "Delete Files"
-#~ msgstr "ファイルを削除"
-
-#~ msgid ""
-#~ "Root privileges are required to complete the delete operation. However, "
-#~ "doing so may damage your system. Do you want to continue?"
-#~ msgstr ""
-#~ "削除を完了するには管理者権限が必要です。このような操作はシステムに害を与え"
-#~ "る可能性があります。続行しますか？"
-
-#~ msgid "Create Folder"
-#~ msgstr "フォルダを作成"
-
-#~ msgid ""
-#~ "Root privileges are required to create this folder. Do you want to "
-#~ "continue?"
-#~ msgstr "このフォルダを作成するには管理者権限が必要です。続行しますか？"
-
-#~ msgid "Move Items"
-#~ msgstr "アイテムを移動"
-
-#~ msgid ""
-#~ "Root privileges are required to complete the move operation. Do you want "
-#~ "to continue?"
-#~ msgstr "移動を完了するには管理者権限が必要です。続行しますか？"
-
-#~ msgid "Rename"
-#~ msgstr "名前変更"
-
-#~ msgid ""
-#~ "Root privileges are required to complete renaming. Do you want to "
-#~ "continue?"
-#~ msgstr "名前変更を完了するには管理者権限が必要です。続行しますか？"
-
-#~ msgid ""
-#~ "Root privileges are required to create a symlink. Do you want to continue?"
-#~ msgstr ""
-#~ "シンボリックリンクを作成するには管理者権限が必要です。続行しますか？"
-
-#~ msgid "Transfer data"
-#~ msgstr "データを転送"
-
-#~ msgid ""
-#~ "Root privileges are required to complete transferring data. Do you want "
-#~ "to continue?"
-#~ msgstr "データの転送を完了するには管理者権限が必要です。続行しますか？"
-
-#~ msgid "Undo Changes"
-#~ msgstr "変更を元に戻す"
-
-#~ msgid ""
-#~ "Undoing this operation requires root privileges. Do you want to continue?"
-#~ msgstr "この操作を元に戻すには管理者権限が必要です。続行しますか？"
-
-#~ msgid "Setting ACL for %1"
-#~ msgstr "%1 に ACL を設定"
-
-#~ msgid "Change File Permissions"
-#~ msgstr "ファイルのパーミッションを変更"
-
-#~ msgid "New Permissions: %1"
-#~ msgstr "新しいパーミッション: %1"
-
-#~ msgid "Change File Owner"
-#~ msgstr "ファイルの所有者を変更"
-
-#~ msgid "Remove File"
-#~ msgstr "ファイルを削除"
-
-#~ msgid "Remove Directory"
-#~ msgstr "ディレクトリを削除"
-
-#~ msgid "Directory Permissions: %1"
-#~ msgstr "ディレクトリのパーミッション: %1"
-
-#~ msgid "Open File"
-#~ msgstr "ファイルを開く"
-
-#~ msgid "Open Directory"
-#~ msgstr "ディレクトリを開く"
-
-#~ msgid "New Filename: %1"
-#~ msgstr "新しいファイル名: %1"
-
-#~ msgid "Target: %1"
-#~ msgstr "ターゲット: %1"
-
-#~ msgid "Unknown Action"
-#~ msgstr "未知のアクション"
-
-#~ msgid "Show Bookmarks Button"
-#~ msgstr "ブックマークボタンを表示"
-
-#, fuzzy
-#~| msgid "File Changed"
-#~ msgctxt "Reason why standby is blocked"
-#~ msgid "Files are being moved"
-#~ msgstr "ファイルは変更されています"
-
-#~ msgid "&Description:"
-#~ msgstr "説明(&D):"
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "ここには、役に立つと思われるコメントを入力します。"
-
-#~ msgid "Do not ask again"
-#~ msgstr "次回から確認しない"
-
-#~ msgid "&Filter:"
-#~ msgstr "フィルタ(&F):"
-
-#~ msgid ""
-#~ "<qt>This is the filter to apply to the file list. File names that do not "
-#~ "match the filter will not be shown.<p>You may select from one of the "
-#~ "preset filters in the drop down menu, or you may enter a custom filter "
-#~ "directly into the text area.</p><p>Wildcards such as * and ? are allowed."
-#~ "</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>ファイルリストに適用するフィルタです。フィルタにマッチしなかった"
-#~ "ファイル名は表示されません。</p><p>ドロップダウンメニューからプリセット"
-#~ "フィルタを選択するか、テキストエリアにカスタムフィルタを直接入力してくださ"
-#~ "い。</p><p>* や ? のワイルドカードが使用できます。</p></qt>"
-
-#~ msgid ""
-#~ "More than one folder has been selected and this dialog does not accept "
-#~ "folders, so it is not possible to decide which one to enter. Please "
-#~ "select only one folder to list it."
-#~ msgstr ""
-#~ "このダイアログは複数のフォルダを扱えないため、選択されたフォルダのどのフォ"
-#~ "ルダに移動すればよいのか判断できません。内容を表示するフォルダを 1 つだけ"
-#~ "選択してください。"
-
-#~ msgid "More than one folder provided"
-#~ msgstr "複数のフォルダが選択されました"
-
-#~ msgid ""
-#~ "At least one folder and one file has been selected. Selected files will "
-#~ "be ignored and the selected folder will be listed"
-#~ msgstr ""
-#~ "少なくとも 1 つのフォルダと 1 つのファイルが選択されました。ファイルは無視"
-#~ "して選択されたフォルダの内容を表示します"
-
-#~ msgid "Files and folders selected"
-#~ msgstr "ファイルとフォルダが選択されました"
