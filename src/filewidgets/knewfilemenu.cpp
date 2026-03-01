@@ -548,6 +548,7 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
     for (const auto &url : std::as_const(m_popupFiles)) {
         QString text = entry.text;
         text.remove(QStringLiteral("...")); // the ... is fine for the menu item but not for the default filename
+        text.remove(QStringLiteral("…")); // actual ellipsis.
         text = text.trimmed(); // In some languages, there is a space in front of "...", see bug 268895
         // KDE5 TODO: remove the "..." from link*.desktop files and use i18n("%1...") when making
         // the action.
@@ -627,6 +628,7 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
     // Prompt the user to set the destination filename
     QString text = entry.text;
     text.remove(QStringLiteral("...")); // the ... is fine for the menu item but not for the default filename
+    text.remove(QStringLiteral("…")); // actual ellipsis.
     text = text.trimmed(); // In some languages, there is a space in front of "...", see bug 268895
     // add the extension (from the templatePath), should work with .txt, .html and with ".tar.gz"... etc
     const QString fileName = entry.templatePath.mid(entry.templatePath.lastIndexOf(QLatin1Char('/')));
