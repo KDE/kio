@@ -31,6 +31,7 @@ Name[id]=Repositori KDE Invent
 Name[ie]=Repositorias del KDE Invent
 Name[is]=KDE Invent hugbúnaðarsöfn
 Name[it]=Depositi su KDE Invent
+Name[ja]=KDE Invent リポジトリ
 Name[ka]=KDE Invent რეპოზიტორები
 Name[ko]=KDE Invent 저장소
 Name[lg]=Noonya Puloguramu ku KDE Invent
@@ -82,6 +83,7 @@ Query[id]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ie]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[is]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[it]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[ja]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ka]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[ko]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[lg]=https://invent.kde.org/explore/projects/starred?name=\\{@}

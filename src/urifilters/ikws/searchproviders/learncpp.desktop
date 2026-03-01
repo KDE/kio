@@ -29,6 +29,7 @@ Name[id]=Learn CPP
 Name[ie]=Learn CPP
 Name[is]=Learn CPP
 Name[it]=Impara CPP
+Name[ja]=Learn CPP
 Name[ka]=ისწავლეთ CPP
 Name[ko]=Learn CPP
 Name[lg]=Yiga CPP
@@ -81,6 +82,7 @@ Query[id]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ie]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[is]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[it]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[ja]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ka]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ko]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[lg]=https://www.learncpp.com/gsearch/?q=\\{@}

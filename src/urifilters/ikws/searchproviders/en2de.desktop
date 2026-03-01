@@ -45,6 +45,7 @@ Name[id]=Terjemahan dict.cc: Bahasa Inggris ke Jerman
 Name[ie]=Traduction dict.cc: anglesi a german
 Name[is]=dict.cc þýðingar: Úr ensku í þýsku
 Name[it]=Traduzione dict.cc: dall'inglese al tedesco
+Name[ja]=dict.cc Translation: English to German
 Name[ka]=dict.cc თარგმანი: ინგლისურიდან გერმანულზე
 Name[kk]=dict.cc аудармашы: ағылшын тілінен немісшеге
 Name[km]=ការ​បកប្រែ dict.cc ៖ ភាសា​អង់គ្លេស​ទៅជា​​​អាល្លឺម៉ង់
@@ -124,6 +125,7 @@ Query[id]=https://www.dict.cc/?s=\\{@}
 Query[ie]=https://www.dict.cc/?s=\\{@}
 Query[is]=https://www.dict.cc/?s=\\{@}
 Query[it]=https://www.dict.cc/?s=\\{@}
+Query[ja]=https://www.dict.cc/?s=\\{@}
 Query[ka]=https://www.dict.cc/?s=\\{@}
 Query[ko]=https://www.dict.cc/?s=\\{@}
 Query[lg]=https://www.dict.cc/?s=\\{@}

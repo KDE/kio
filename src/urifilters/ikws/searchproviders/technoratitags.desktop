@@ -44,6 +44,7 @@ Name[id]=Tag Technorati
 Name[ie]=Technorati Tags
 Name[is]=Technorati-merki
 Name[it]=Etichette di Technorati
+Name[ja]=Technorati Tags
 Name[ka]=Technorati ჭდეები
 Name[kk]=Technorati Tags
 Name[km]=ស្លាក Technorati
@@ -121,6 +122,7 @@ Query[id]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ie]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[is]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[it]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[ja]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ka]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ko]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[lg]=https://technorati.com/tag/\\{@}?sourceid=kde-search

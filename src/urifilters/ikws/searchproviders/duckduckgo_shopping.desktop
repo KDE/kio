@@ -38,6 +38,7 @@ Name[id]=Belanja Duck Duck Go
 Name[ie]=Duck Duck Go Shopping
 Name[is]=Duck Duck Go Shopping
 Name[it]=Acquisti di Duck Duck Go
+Name[ja]=Duck Duck Go Shopping
 Name[ka]=Duck Duck Go საყიდლები
 Name[kk]=Duck Duck Go Shopping
 Name[km]=ការ​ទិញ​ឥវ៉ាន់របស់ Duck Duck Go
@@ -110,6 +111,7 @@ Query[id]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ie]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[is]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[it]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
+Query[ja]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ka]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[kk]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ko]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde

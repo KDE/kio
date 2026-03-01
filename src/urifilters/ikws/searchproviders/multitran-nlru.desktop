@@ -44,6 +44,7 @@ Name[id]=Multitran - Penerjemahan Antara Bahasa Belanda dan Rusia
 Name[ie]=Multitran - Traducter inter hollandese e russ
 Name[is]=Multitran - þýða á milli hollensku og rússnesku
 Name[it]=Multitran - Traduzioni tra olandese e russo
+Name[ja]=Multitran - Translate Between Dutch and Russian
 Name[ka]=Multitran თარგმანი ჰოლანდიურიდან რუსულზე და პირიქით
 Name[kk]=LEO - голланд және орыс тілдер арасында аудару
 Name[km]=LEO - បកប្រែ​រវាង​ភាសា​ហុល្លង់ និង​រុស្ស៊ី
@@ -121,6 +122,7 @@ Query[id]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ie]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[is]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[it]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
+Query[ja]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ka]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[ko]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}
 Query[lg]=https://multitran.ru/c/m.exe?l1=24&s=\\{@}

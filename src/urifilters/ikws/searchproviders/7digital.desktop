@@ -39,6 +39,7 @@ Name[id]=7Digital
 Name[ie]=7Digital
 Name[is]=7Digital
 Name[it]=7Digital
+Name[ja]=7Digital
 Name[ka]=7Digital
 Name[kk]=7Digital
 Name[km]=7Digital
@@ -110,6 +111,7 @@ Query[id]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[ie]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[is]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[it]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[ja]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ka]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[ko]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[lg]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

@@ -39,6 +39,7 @@ Name[id]=Jamendo
 Name[ie]=Jamendo
 Name[is]=Jamendo
 Name[it]=Jamendo
+Name[ja]=Jamendo
 Name[ka]=Jamendo
 Name[kk]=Jamendo
 Name[km]=Jamendo
@@ -111,6 +112,7 @@ Query[id]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ie]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[is]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[it]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[ja]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ka]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ko]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[lg]=https://www.jamendo.com/en/search?qs=q=\\{@}

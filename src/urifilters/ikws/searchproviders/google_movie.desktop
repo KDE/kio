@@ -45,6 +45,7 @@ Name[id]=Google Movies
 Name[ie]=Google Movies
 Name[is]=Google kvikmyndir
 Name[it]=Film di Google
+Name[ja]=Google Movies
 Name[ka]=Google ფილმები
 Name[kk]=Google фильмдер
 Name[km]=ភាព​យន្ត​តាម​​ហ្គូហ្គល
@@ -127,6 +128,7 @@ Query[id]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ie]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[is]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[it]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[ja]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ka]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ko]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[lg]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8

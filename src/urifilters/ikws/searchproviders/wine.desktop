@@ -29,6 +29,7 @@ Name[id]=Database WineHQ
 Name[ie]=WineHQ Database
 Name[is]=WineHQ-gagnagrunnur
 Name[it]=Banca dati di WineHQ
+Name[ja]=WineHQ データベース
 Name[ka]=WineHQ -ის ბაზა
 Name[ko]=WineHQ 데이터베이스
 Name[lg]=Ggwanika lya Puloguramu n'ebizifaako erya WineHQ
@@ -81,6 +82,7 @@ Query[id]=https://www.winehq.org/search?q=\\{@}
 Query[ie]=https://www.winehq.org/search?q=\\{@}
 Query[is]=https://www.winehq.org/search?q=\\{@}
 Query[it]=https://www.winehq.org/search?q=\\{@}
+Query[ja]=https://www.winehq.org/search?q=\\{@}
 Query[ka]=https://www.winehq.org/search?q=\\{@}
 Query[ko]=https://www.winehq.org/search?q=\\{@}
 Query[lg]=https://www.winehq.org/search?q=\\{@}

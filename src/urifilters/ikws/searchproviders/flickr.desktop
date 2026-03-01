@@ -39,6 +39,7 @@ Name[id]=Flickr
 Name[ie]=Flickr
 Name[is]=Flickr
 Name[it]=Flickr
+Name[ja]=Flickr
 Name[ka]=Flickr
 Name[kk]=Flickr
 Name[km]=Flickr
@@ -110,6 +111,7 @@ Query[id]=https://www.flickr.com/search/?q=\\{@}
 Query[ie]=https://www.flickr.com/search/?q=\\{@}
 Query[is]=https://www.flickr.com/search/?q=\\{@}
 Query[it]=https://www.flickr.com/search/?q=\\{@}
+Query[ja]=https://www.flickr.com/search/?q=\\{@}
 Query[ka]=https://www.flickr.com/search/?q=\\{@}
 Query[ko]=https://www.flickr.com/search/?q=\\{@}
 Query[lg]=https://www.flickr.com/search/?q=\\{@}

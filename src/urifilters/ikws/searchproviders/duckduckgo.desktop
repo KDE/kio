@@ -39,6 +39,7 @@ Name[id]=Duck Duck Go
 Name[ie]=Duck Duck Go
 Name[is]=Duck Duck Go
 Name[it]=Duck Duck Go
+Name[ja]=Duck Duck Go
 Name[ka]=Duck Duck Go
 Name[kk]=Duck Duck Go
 Name[km]=Duck Duck Go
@@ -110,6 +111,7 @@ Query[id]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ie]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[is]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[it]=https://duckduckgo.com/?q=\\{@}&t=kde
+Query[ja]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ka]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[kk]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[ko]=https://duckduckgo.com/?q=\\{@}&t=kde

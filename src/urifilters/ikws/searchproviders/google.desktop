@@ -46,6 +46,7 @@ Name[id]=Google
 Name[ie]=Google
 Name[is]=Google
 Name[it]=Google
+Name[ja]=Google
 Name[ka]=Google
 Name[kk]=Google
 Name[km]=ហ្គូហ្គល
@@ -131,6 +132,7 @@ Query[id]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[ie]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[is]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[it]=https://www.google.com/search?q=\\{@}&ie=UTF-8
+Query[ja]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[ka]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[kk]=http://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ko]=https://www.google.com/search?q=\\{@}&ie=UTF-8

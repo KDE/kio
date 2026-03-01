@@ -44,6 +44,7 @@ Name[id]=Basis Data Film Internet
 Name[ie]=Internet Movie Database
 Name[is]=Internet Movie Database
 Name[it]=Banca dati cinematografica in rete
+Name[ja]=Internet Movie Database
 Name[ka]=ინტერნეტის ფილმების ბაზა
 Name[kk]=Internet фильмдер қоры
 Name[km]=មូលដ្ឋាន​ទិន្នន័យ​ភាពយន្ត​តាម​អ៊ីនធឺណិត
@@ -124,6 +125,7 @@ Query[id]=https://imdb.com/find?s=all&q=\\{@}
 Query[ie]=https://imdb.com/find?s=all&q=\\{@}
 Query[is]=https://imdb.com/find?s=all&q=\\{@}
 Query[it]=https://imdb.com/find?s=all&q=\\{@}
+Query[ja]=https://imdb.com/find?s=all&q=\\{@}
 Query[ka]=https://imdb.com/find?s=all&q=\\{@}
 Query[ko]=https://imdb.com/find?s=all&q=\\{@}
 Query[lg]=https://imdb.com/find?s=all&q=\\{@}

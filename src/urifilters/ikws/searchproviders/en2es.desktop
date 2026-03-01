@@ -45,6 +45,7 @@ Name[id]=Terjemahan WordReference.com: Bahasa Inggris ke Spanyol
 Name[ie]=Traduction de WordReference.com: anglesi a hispan
 Name[is]=WordReference.com þýðingar: Úr ensku í spænsku
 Name[it]=Traduzione WordReference.com: dall'inglese allo spagnolo
+Name[ja]=WordReference.com Translation: English to Spanish
 Name[ka]=WordReference.com თარგმანი: ინგლისურიდან ესპანურზე
 Name[kk]=WordReference.com ағылшын тілінен испаншаға аудару
 Name[km]=ការ​បកប្រែ WordReference.com ៖ ភាសា​អង់គ្លេស​ទៅជា​​អេស្ប៉ាញ
@@ -123,6 +124,7 @@ Query[id]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[ie]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[is]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[it]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
+Query[ja]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[ka]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[ko]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}
 Query[lg]=https://www.wordreference.com/es/translation.asp?tranword=\\{@}

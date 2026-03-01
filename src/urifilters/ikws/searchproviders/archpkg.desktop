@@ -32,6 +32,7 @@ Name[id]=Pencarian Paket Arch Linux
 Name[ie]=Sercha de paccages de Arch Linux
 Name[is]=Arch Linux Package Search
 Name[it]=Ricerca di pacchetti Arch Linux
+Name[ja]=Arch Linux Package Search
 Name[ka]=Arch Linux-ის პაკეტების ძებნა
 Name[ko]=Arch Linux 패키지 검색
 Name[lg]=Noonya Miganda gya ku Arch Linux
@@ -92,6 +93,7 @@ Query[id]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ie]=https://www.archlinux.org/packages/?q=\\{@}
 Query[is]=https://www.archlinux.org/packages/?q=\\{@}
 Query[it]=https://www.archlinux.org/packages/?q=\\{@}
+Query[ja]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ka]=https://www.archlinux.org/packages/?q=\\{@}
 Query[ko]=https://www.archlinux.org/packages/?q=\\{@}
 Query[lg]=https://www.archlinux.org/packages/?q=\\{@}

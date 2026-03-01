@@ -43,6 +43,7 @@ Name[id]=Pencari Kunci OpenPGP
 Name[ie]=Sercha de claves OpenPGP
 Name[is]=OpenPGP Key Search
 Name[it]=Ricerca di chiavi OpenPGP
+Name[ja]=OpenPGP キー検索
 Name[ka]=OpenPGP გასაღების ძებნა
 Name[kk]=OpenPGP кілттерін табу
 Name[km]=ស្វែងរក​កូនសោ​តាម​រយៈ OpenPGP
@@ -123,6 +124,7 @@ Query[id]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ie]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[is]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[it]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[ja]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ka]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ko]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[lg]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

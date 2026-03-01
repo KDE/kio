@@ -44,6 +44,7 @@ Name[id]=Multitran - Penerjemahan Antara Bahasa Inggris dan Rusia
 Name[ie]=Multitran - Traducter inter anglesi e russ
 Name[is]=Multitran - þýða á milli ensku og rússnesku
 Name[it]=Multitran - Traduzioni tra inglese e russo
+Name[ja]=Multitran - Translate Between English and Russian
 Name[ka]=Multitran  თარგმანი ინგლისურიდან რუსულზე და პირიქით
 Name[kk]=LEO - ағылшын және орыс тілдер арасында аудару
 Name[km]=Multitran - បក​ប្រែ​រវាង​ភាសា​អង់គ្លេស និង​រុស្ស៊ី
@@ -121,6 +122,7 @@ Query[id]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[ie]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[is]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[it]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
+Query[ja]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[ka]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[ko]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[lg]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}

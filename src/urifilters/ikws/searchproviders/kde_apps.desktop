@@ -43,6 +43,7 @@ Name[id]=Pencarian Aplikasi KDE
 Name[ie]=KDE App Search
 Name[is]=KDE App Search
 Name[it]=Ricerca di applicazioni per KDE
+Name[ja]=KDE アプリ検索
 Name[ka]=KDE App ძებნა
 Name[kk]=KDE қолданбаларын табу
 Name[km]=ការ​ស្វែងរក​កម្មវិធី​របស់ KDE
@@ -125,6 +126,7 @@ Query[id]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ie]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[is]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[it]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
+Query[ja]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ka]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[ko]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}
 Query[lg]=https://www.kde-apps.org/content/search.php?search=Search&name=\\{@}

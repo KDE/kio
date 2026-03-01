@@ -44,6 +44,7 @@ Name[id]=HyperDictionary.com
 Name[ie]=HyperDictionary.com
 Name[is]=HyperDictionary.com
 Name[it]=HyperDictionary.com
+Name[ja]=HyperDictionary.com
 Name[ka]=HyperDictionary.com
 Name[kk]=HyperDictionary.com
 Name[km]=HyperDictionary.com
@@ -139,6 +140,7 @@ Query[id]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ie]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[is]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[it]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
+Query[ja]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ka]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[kk]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[km]=http://www.hyperdictionary.com/search.aspx?define=\\{@}

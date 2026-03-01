@@ -46,6 +46,7 @@ Name[id]=Wikipedia - Ensiklopedia Gratis
 Name[ie]=Wikipedia - Li líber enciclopedie
 Name[is]=Wikipedia - Frjálsa alfræðiritið
 Name[it]=Wikipedia - L'enciclopedia libera
+Name[ja]=Wikipedia - フリー百科事典
 Name[ka]=Wikipedia - უფასო ენციკლოპედია
 Name[kk]=Wikipedia - ашық энциклопедия
 Name[km]=Wikipedia - Encyclopedia ​ឥត​គិត​ថ្លៃ
@@ -130,6 +131,7 @@ Query[id]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ie]=https://ie.wikipedia.org/wiki/Special:Serchar?search=\\{@}&go=Continuar
 Query[is]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[it]=https://it.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[ja]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ka]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[kk]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ko]=https://ko.wikipedia.org/wiki/특수:검색?search=\\{@}&go=Go

@@ -39,6 +39,7 @@ Name[id]=Amazon
 Name[ie]=Amazon
 Name[is]=Amazon
 Name[it]=Amazon
+Name[ja]=Amazon
 Name[ka]=ამაზონი
 Name[kk]=Amazon
 Name[km]=Amazon
@@ -110,6 +111,7 @@ Query[id]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-key
 Query[ie]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[is]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[it]=https://www.amazon.it/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
+Query[ja]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[ka]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[ko]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[lg]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0

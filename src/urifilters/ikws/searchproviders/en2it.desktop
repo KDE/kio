@@ -45,6 +45,7 @@ Name[id]=Terjemahan WordReference.com: Bahasa Inggris ke Italia
 Name[ie]=Traduction de WordReference.com: anglesi a italian
 Name[is]=WordReference.com þýðingar: Úr ensku í ítölsku
 Name[it]=Traduzione WordReference.com: dall'inglese all'italiano
+Name[ja]=WordReference.com Translation: English to Italian
 Name[ka]=WordReference.com თარგმანი: ინგლისურიდან იტალიურზე
 Name[kk]=WordReference.com ағылшын тілінен итальяншаға аудару
 Name[km]=ការ​បកប្រែ WordReference.com ៖ ភាសា​អង់គ្លេស​ទៅ​ជា​អ៊ីតាលី
@@ -124,6 +125,7 @@ Query[id]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ie]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[is]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[it]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
+Query[ja]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ka]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[ko]=https://www.wordreference.com/it/translation.asp?enit=\\{@}
 Query[lg]=https://www.wordreference.com/it/translation.asp?enit=\\{@}

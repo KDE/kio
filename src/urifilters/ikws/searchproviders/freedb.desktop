@@ -45,6 +45,7 @@ Name[id]=FreeDB
 Name[ie]=FreeDB
 Name[is]=FreeDB
 Name[it]=FreeDB
+Name[ja]=FreeDB
 Name[ka]=FreeDB
 Name[kk]=FreeDB
 Name[km]=FreeDB
@@ -139,6 +140,7 @@ Query[id]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ie]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[is]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[it]=http://www.freedb.org/freedb_search.php?words=\\{@}
+Query[ja]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ka]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[kk]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[km]=http://www.freedb.org/freedb_search.php?words=\\{@}

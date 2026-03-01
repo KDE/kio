@@ -44,6 +44,7 @@ Name[id]=Direktori Perangkat Lunak Gratis FSF/UNESCO
 Name[ie]=FSF/UNESCO Free Software Directory
 Name[is]=FSF/UNESCO Free Software Directory
 Name[it]=Elenco di software libero di FSF e UNESCO
+Name[ja]=FSF/UNESCO Free Software Directory
 Name[ka]=FSF/UNESCO უფასო პროგრამული უზრუნველყოფის სია
 Name[kk]=FSF/UNESCO ашық бағдарламалық жасау каталогы
 Name[km]=ថត​កម្មវិធី​ឥត​គិត​ថ្លៃ​របស់ FSF/UNESCO
@@ -124,6 +125,7 @@ Query[id]=https://directory.fsf.org/search/?query=\\{@}
 Query[ie]=https://directory.fsf.org/search/?query=\\{@}
 Query[is]=https://directory.fsf.org/search/?query=\\{@}
 Query[it]=https://directory.fsf.org/search/?query=\\{@}
+Query[ja]=https://directory.fsf.org/search/?query=\\{@}
 Query[ka]=https://directory.fsf.org/search/?query=\\{@}
 Query[ko]=https://directory.fsf.org/search/?query=\\{@}
 Query[lg]=https://directory.fsf.org/search/?query=\\{@}

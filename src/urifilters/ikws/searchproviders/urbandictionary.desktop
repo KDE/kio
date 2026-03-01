@@ -38,6 +38,7 @@ Name[id]=Urban Dictionary
 Name[ie]=Urban Dictionary
 Name[is]=Urban Dictionary
 Name[it]=Dizionario urbano
+Name[ja]=Urban Dictionary
 Name[ka]=სალაპარაკო ლექსიკონი
 Name[kk]=Urban Dictionary
 Name[km]=វចនុក្រម Urban
@@ -107,6 +108,7 @@ Query[id]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ie]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[is]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[it]=https://www.urbandictionary.com/define.php?term=\\{@}
+Query[ja]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ka]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ko]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[lg]=https://www.urbandictionary.com/define.php?term=\\{@}

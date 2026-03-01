@@ -37,6 +37,7 @@ Name[id]=Bing
 Name[ie]=Bing
 Name[is]=Bing
 Name[it]=Bing
+Name[ja]=Bing
 Name[ka]=Bing
 Name[kk]=Bing
 Name[km]=Bing
@@ -109,6 +110,7 @@ Query[id]=https://www.bing.com/search?q=\\{@}
 Query[ie]=https://www.bing.com/search?q=\\{@}
 Query[is]=https://www.bing.com/search?q=\\{@}
 Query[it]=https://www.bing.com/search?q=\\{@}
+Query[ja]=https://www.bing.com/search?q=\\{@}
 Query[ka]=https://www.bing.com/search?q=\\{@}
 Query[ko]=https://www.bing.com/search?q=\\{@}
 Query[lg]=https://www.bing.com/search?q=\\{@}

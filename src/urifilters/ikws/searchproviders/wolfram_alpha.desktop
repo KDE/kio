@@ -38,6 +38,7 @@ Name[id]=Wolfram Alpha
 Name[ie]=Wolfram Alpha
 Name[is]=Wolfram Alpha
 Name[it]=Wolfram Alpha
+Name[ja]=Wolfram Alpha
 Name[ka]=Wolfram Alpha
 Name[kk]=Wolfram Alpha
 Name[km]=Wolfram Alpha
@@ -112,6 +113,7 @@ Query[id]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[ie]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[is]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[it]=https://www.wolframalpha.com/input/?i=\\{@}
+Query[ja]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[ka]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[kk]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[ko]=https://www.wolframalpha.com/input/?i=\\{@}

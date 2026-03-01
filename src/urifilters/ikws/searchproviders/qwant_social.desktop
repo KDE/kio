@@ -33,6 +33,7 @@ Name[id]=Qwant Social
 Name[ie]=Qwant Social
 Name[is]=Qwant Social
 Name[it]=Rete sociale di Qwant
+Name[ja]=Qwant Social
 Name[ka]=Qwant სოციალური ქსელები
 Name[ko]=Qwant 소셜
 Name[lg]=Noonya Eby'okutabagana ku Qwant
@@ -95,6 +96,7 @@ Query[id]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ie]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[is]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[it]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[ja]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ka]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ko]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[lg]=https://www.qwant.com/?q=\\{@}&client=kde&t=social

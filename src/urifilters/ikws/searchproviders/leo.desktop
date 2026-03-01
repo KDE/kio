@@ -44,6 +44,7 @@ Name[id]=LEO-Translate
 Name[ie]=LEO-Translate
 Name[is]=LEO-Translate
 Name[it]=Traduzioni LEO
+Name[ja]=LEO-Translate
 Name[ka]=LEO-თარგმანი
 Name[kk]=LEO-аудару
 Name[km]=LEO-បកប្រែ
@@ -126,6 +127,7 @@ Query[id]=https://dict.leo.org/?search=\\{@}
 Query[ie]=https://dict.leo.org/?search=\\{@}
 Query[is]=https://dict.leo.org/?search=\\{@}
 Query[it]=https://dict.leo.org/?search=\\{@}
+Query[ja]=https://dict.leo.org/?search=\\{@}
 Query[ka]=https://dict.leo.org/?search=\\{@}
 Query[ko]=https://dict.leo.org/?search=\\{@}
 Query[lg]=https://dict.leo.org/?search=\\{@}

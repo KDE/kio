@@ -29,6 +29,7 @@ Name[id]=Permintaan Penggabungan KDE Invent
 Name[ie]=KDE Invent Merge Requests
 Name[is]=Samþættingarbeiðnir á KDE Invent
 Name[it]=Richieste di integrazione (MR) su KDE Invent
+Name[ja]=KDE Invent マージリクエスト
 Name[ka]=KDE Invent -ის კოდის განახლების მოთხოვნები
 Name[ko]=KDE Invent 병합 요청
 Name[lg]=Emirimu Egiwedde Egiweeredwayo ku KDE Invent
@@ -77,6 +78,7 @@ Query[id]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ie]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[is]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[it]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[ja]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ka]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[ko]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[lg]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
