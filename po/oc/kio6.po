@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:41+0000\n"
+"POT-Creation-Date: 2026-03-04 00:41+0000\n"
 "PO-Revision-Date: 2008-08-06 00:02+0200\n"
 "Last-Translator: \n"
 "Language-Team: Occitan <oc@li.org>\n"
@@ -6358,38 +6358,39 @@ msgstr "A calcular..."
 msgid "Open file dialog"
 msgstr ""
 
-#: widgets/paste.cpp:68 widgets/paste.cpp:106 widgets/pastejob.cpp:71
+#: widgets/paste.cpp:65 widgets/paste.cpp:104
 #, kde-format
-msgid "Filename for clipboard content:"
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
 msgstr ""
 
-#: widgets/paste.cpp:111
+#: widgets/paste.cpp:101
 #, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr ""
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:113
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
 "no longer applicable. Please copy again what you wanted to paste."
 msgstr ""
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, fuzzy, kde-format
 #| msgid "Select Folder"
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Seleccionar un repertòri"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr ""
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:245
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6397,28 +6398,34 @@ msgid_plural "Paste %1 Items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:247
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr ""
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:251
 #, fuzzy, kde-format
 #| msgid "Paste"
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Pegar"
 
-#: widgets/pastedialog.cpp:45
+#: widgets/pastedialog.cpp:54
 #, kde-format
+msgctxt "@label"
 msgid "Data format:"
 msgstr ""
 
-#: widgets/pastedialog.cpp:53
+#: widgets/pastedialog.cpp:63
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: widgets/pastejob.cpp:71
+#, kde-format
+msgid "Filename for clipboard content:"
+msgstr ""
 
 #: widgets/pastejob.cpp:71
 #, kde-format

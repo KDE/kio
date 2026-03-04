@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:41+0000\n"
+"POT-Creation-Date: 2026-03-04 00:41+0000\n"
 "PO-Revision-Date: 2026-02-17 08:17-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -6801,18 +6801,21 @@ msgstr "Configurar os atalhos da Web…"
 msgid "Open file dialog"
 msgstr "Abrir diálogo de seleção de arquivo"
 
-#: widgets/paste.cpp:68 widgets/paste.cpp:106 widgets/pastejob.cpp:71
-#, kde-format
-msgid "Filename for clipboard content:"
-msgstr "Nome do arquivo para o conteúdo da área de transferência:"
+#: widgets/paste.cpp:65 widgets/paste.cpp:104
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Paste Clipboard Contents…"
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "Colar da área de transferência…"
 
-#: widgets/paste.cpp:111
+#: widgets/paste.cpp:101
 #, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "arquivo colado"
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:113
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6822,19 +6825,19 @@ msgstr ""
 "escolhido para os dados não é mais aplicável. Por favor, copie novamente o "
 "que você deseja colar."
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Colar uma pasta"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Colar um arquivo"
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:245
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6842,27 +6845,34 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Colar um item"
 msgstr[1] "Colar %1 itens"
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:247
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Colar da área de transferência…"
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Colar"
 
-#: widgets/pastedialog.cpp:45
-#, kde-format
+#: widgets/pastedialog.cpp:54
+#, fuzzy, kde-format
+#| msgid "Data format:"
+msgctxt "@label"
 msgid "Data format:"
 msgstr "Formato de dados:"
 
-#: widgets/pastedialog.cpp:53
+#: widgets/pastedialog.cpp:63
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: widgets/pastejob.cpp:71
+#, kde-format
+msgid "Filename for clipboard content:"
+msgstr "Nome do arquivo para o conteúdo da área de transferência:"
 
 #: widgets/pastejob.cpp:71
 #, kde-format

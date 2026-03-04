@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:41+0000\n"
+"POT-Creation-Date: 2026-03-04 00:41+0000\n"
 "PO-Revision-Date: 2026-02-17 07:59+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -6815,18 +6815,21 @@ msgstr "Налаштувати вебскорочення…"
 msgid "Open file dialog"
 msgstr "Діалогове вікно відкриття файлів"
 
-#: widgets/paste.cpp:68 widgets/paste.cpp:106 widgets/pastejob.cpp:71
-#, kde-format
-msgid "Filename for clipboard content:"
-msgstr "Назва файла для вмісту кишені:"
+#: widgets/paste.cpp:65 widgets/paste.cpp:104
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Paste Clipboard Contents…"
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "Вставити вміст кишені…"
 
-#: widgets/paste.cpp:111
+#: widgets/paste.cpp:101
 #, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "вставлений файл"
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:113
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6836,19 +6839,19 @@ msgstr ""
 "«вставити»: вибраний формат даних вже не підходить. Будь ласка, скопіюйте "
 "знов те, що ви хотіли вставити."
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Вставити одну теку"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Вставити один файл"
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:245
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6858,27 +6861,34 @@ msgstr[1] "Вставити %1 об'єкти"
 msgstr[2] "Вставити %1 об'єктів"
 msgstr[3] "Вставити один об'єкт"
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:247
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Вставити вміст кишені…"
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Вставити"
 
-#: widgets/pastedialog.cpp:45
-#, kde-format
+#: widgets/pastedialog.cpp:54
+#, fuzzy, kde-format
+#| msgid "Data format:"
+msgctxt "@label"
 msgid "Data format:"
 msgstr "Формат даних:"
 
-#: widgets/pastedialog.cpp:53
+#: widgets/pastedialog.cpp:63
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: widgets/pastejob.cpp:71
+#, kde-format
+msgid "Filename for clipboard content:"
+msgstr "Назва файла для вмісту кишені:"
 
 #: widgets/pastejob.cpp:71
 #, kde-format

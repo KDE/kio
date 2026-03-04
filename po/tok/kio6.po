@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:41+0000\n"
+"POT-Creation-Date: 2026-03-04 00:41+0000\n"
 "PO-Revision-Date: 2024-04-26 14:54-0400\n"
 "Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
 "Language-Team: C <kde-i18n-doc@kde.org>\n"
@@ -6517,12 +6517,14 @@ msgstr "o ante e nasin lili linluwi..."
 msgid "Open file dialog"
 msgstr "o open e ilo pi open lipu"
 
-#: widgets/paste.cpp:68 widgets/paste.cpp:106 widgets/pastejob.cpp:71
-#, kde-format
-msgid "Filename for clipboard content:"
-msgstr "nimi pi ijo tan supa pali:"
+#: widgets/paste.cpp:65 widgets/paste.cpp:104
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "o &lon e insa supa pali"
 
-#: widgets/paste.cpp:111
+#: widgets/paste.cpp:101
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6530,7 +6532,7 @@ msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "&o lon e lipu %1"
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:113
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6539,19 +6541,19 @@ msgstr ""
 "supa pali li ante. kule wile li ante li kama lon ala. o lon sin e ijo pi "
 "wile sina lon supa pali."
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "o lon e poki wan"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "o lon e lipu wan"
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:245
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6561,28 +6563,35 @@ msgstr[1] "o lon e ijo luka %1"
 msgstr[2] "o lon e ijo mute %1"
 msgstr[3] "o lon e ijo %1"
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:247
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "o &lon e insa supa pali"
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "o lon e lipu lon ni"
 
-#: widgets/pastedialog.cpp:45
-#, kde-format
+#: widgets/pastedialog.cpp:54
+#, fuzzy, kde-format
+#| msgid "Data format:"
+msgctxt "@label"
 msgid "Data format:"
 msgstr "kule sona:"
 
-#: widgets/pastedialog.cpp:53
+#: widgets/pastedialog.cpp:63
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: widgets/pastejob.cpp:71
+#, kde-format
+msgid "Filename for clipboard content:"
+msgstr "nimi pi ijo tan supa pali:"
 
 #: widgets/pastejob.cpp:71
 #, kde-format

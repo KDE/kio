@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:41+0000\n"
+"POT-Creation-Date: 2026-03-04 00:41+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -7102,12 +7102,14 @@ msgstr "Podesi veb prečice..."
 msgid "Open file dialog"
 msgstr "Dijalog za otvaranje fajla"
 
-#: widgets/paste.cpp:68 widgets/paste.cpp:106 widgets/pastejob.cpp:71
-#, kde-format
-msgid "Filename for clipboard content:"
-msgstr "Ime fajla za sadržaj klipborda:"
+#: widgets/paste.cpp:65 widgets/paste.cpp:104
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "&Nalijepi sadržaj klipborda"
 
-#: widgets/paste.cpp:111
+#: widgets/paste.cpp:101
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -7115,7 +7117,7 @@ msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "&Nalijepi %1 fajl"
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:113
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -7125,19 +7127,19 @@ msgstr ""
 "format podataka više nije primjenjiv. Kopirajte ponovo to što želite da "
 "nalijepite."
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Nalijepi jednu fasciklu"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Nalijepi jedan fajl"
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:245
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -7147,28 +7149,35 @@ msgstr[1] "Nalijepi %1 stavke"
 msgstr[2] "Nalijepi %1 stavki"
 msgstr[3] "Nalijepi jednu stavku"
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:247
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "&Nalijepi sadržaj klipborda"
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Nalijepi"
 
-#: widgets/pastedialog.cpp:45
-#, kde-format
+#: widgets/pastedialog.cpp:54
+#, fuzzy, kde-format
+#| msgid "Data format:"
+msgctxt "@label"
 msgid "Data format:"
 msgstr "Format podataka:"
 
-#: widgets/pastedialog.cpp:53
+#: widgets/pastedialog.cpp:63
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: widgets/pastejob.cpp:71
+#, kde-format
+msgid "Filename for clipboard content:"
+msgstr "Ime fajla za sadržaj klipborda:"
 
 #: widgets/pastejob.cpp:71
 #, kde-format

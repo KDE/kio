@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:41+0000\n"
+"POT-Creation-Date: 2026-03-04 00:41+0000\n"
 "PO-Revision-Date: 2026-03-01 20:38+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -6715,18 +6715,21 @@ msgstr "Set opp vevsnarvegar …"
 msgid "Open file dialog"
 msgstr "Filopningsdialog"
 
-#: widgets/paste.cpp:68 widgets/paste.cpp:106 widgets/pastejob.cpp:71
-#, kde-format
-msgid "Filename for clipboard content:"
-msgstr "Filnamn for utklippstavleinnhald:"
+#: widgets/paste.cpp:65 widgets/paste.cpp:104
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Paste Clipboard Contents…"
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "&Lim inn frå utklippstavla …"
 
-#: widgets/paste.cpp:111
+#: widgets/paste.cpp:101
 #, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "innlimt fil"
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:113
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6735,19 +6738,19 @@ msgstr ""
 "Utklippstavla har endra seg sidan sist du limde inn. Det valde dataformatet "
 "kan ikkje lenger brukast. Du bør kopiera igjen det du ville lima inn."
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Lim inn éi mappe"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Lim inn éi fil"
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:245
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6755,27 +6758,34 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Lim inn eitt element"
 msgstr[1] "Lim inn %1 element"
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:247
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "&Lim inn frå utklippstavla …"
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Lim inn"
 
-#: widgets/pastedialog.cpp:45
-#, kde-format
+#: widgets/pastedialog.cpp:54
+#, fuzzy, kde-format
+#| msgid "Data format:"
+msgctxt "@label"
 msgid "Data format:"
 msgstr "Dataformat:"
 
-#: widgets/pastedialog.cpp:53
+#: widgets/pastedialog.cpp:63
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: widgets/pastejob.cpp:71
+#, kde-format
+msgid "Filename for clipboard content:"
+msgstr "Filnamn for utklippstavleinnhald:"
 
 #: widgets/pastejob.cpp:71
 #, kde-format

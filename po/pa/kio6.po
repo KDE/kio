@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:41+0000\n"
+"POT-Creation-Date: 2026-03-04 00:41+0000\n"
 "PO-Revision-Date: 2024-01-30 09:25-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -6560,12 +6560,14 @@ msgstr "ਵੈੱਬ ਸ਼ਾਰਟਕੱਟਾਂ ਦੀ ਸੰਰਚਨਾ..."
 msgid "Open file dialog"
 msgstr "ਫਾਇਲ ਖੋਲ੍ਹੋ ਡਾਈਲਾਗ"
 
-#: widgets/paste.cpp:68 widgets/paste.cpp:106 widgets/pastejob.cpp:71
-#, kde-format
-msgid "Filename for clipboard content:"
-msgstr "ਕਲਿੱਪਬੋਰਡ ਸਮੱਗਰੀ ਲਈ ਫਾਇਲ-ਨਾਂ:"
+#: widgets/paste.cpp:65 widgets/paste.cpp:104
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "ਕਲਿੱਪਬੋਰਡ ਸਮੱਗਰੀ ਚੇਪੋ(&P)"
 
-#: widgets/paste.cpp:111
+#: widgets/paste.cpp:101
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6573,26 +6575,26 @@ msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "ਫਾਈਲ ਚੇਪੋ(&P)"
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:113
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
 "no longer applicable. Please copy again what you wanted to paste."
 msgstr ""
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "ਇੱਕ ਫੋਲਡਰ ਨੂੰ ਚੇਪੋ"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "ਇੱਕ ਫਾਇਲ ਨੂੰ ਚੇਪੋ"
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:245
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6600,28 +6602,35 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "ਇੱਕ ਆਈਟਮ ਨੂੰ ਚੇਪੋ"
 msgstr[1] "%1 ਆਈਟਮਾਂ ਨੂੰ ਚੇਪੋ"
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:247
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "ਕਲਿੱਪਬੋਰਡ ਸਮੱਗਰੀ ਚੇਪੋ(&P)"
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "ਚੇਪੋ"
 
-#: widgets/pastedialog.cpp:45
-#, kde-format
+#: widgets/pastedialog.cpp:54
+#, fuzzy, kde-format
+#| msgid "Data format:"
+msgctxt "@label"
 msgid "Data format:"
 msgstr "ਡਾਟਾ ਫਾਰਮੈਟ:"
 
-#: widgets/pastedialog.cpp:53
+#: widgets/pastedialog.cpp:63
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: widgets/pastejob.cpp:71
+#, kde-format
+msgid "Filename for clipboard content:"
+msgstr "ਕਲਿੱਪਬੋਰਡ ਸਮੱਗਰੀ ਲਈ ਫਾਇਲ-ਨਾਂ:"
 
 #: widgets/pastejob.cpp:71
 #, kde-format

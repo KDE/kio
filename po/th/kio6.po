@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:41+0000\n"
+"POT-Creation-Date: 2026-03-04 00:41+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -6619,12 +6619,15 @@ msgstr "กำหนดทางลัดเว็บ…"
 msgid "Open file dialog"
 msgstr "เปิดกล่องเลือกแฟ้ม"
 
-#: widgets/paste.cpp:68 widgets/paste.cpp:106 widgets/pastejob.cpp:71
-#, kde-format
-msgid "Filename for clipboard content:"
-msgstr "ชื่อแฟ้มสำหรับเนื้อหาคลิปบอร์ด:"
+#: widgets/paste.cpp:65 widgets/paste.cpp:104
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Paste Clipboard Contents…"
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "วางเนื้อหาจากคลิปบอร์ด"
 
-#: widgets/paste.cpp:111
+#: widgets/paste.cpp:101
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6632,7 +6635,7 @@ msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "ว&าง %1 แฟ้ม"
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:113
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6641,46 +6644,53 @@ msgstr ""
 "คลิปบอร์ดมีการเปลี่ยนแปลงตั้งแต่คุณใช้การ 'วาง': "
 "ทำให้ไม่สามารถปรับใช้รูปแบบข้อมูลที่เคยเลือกไว้ใช้ไม่ได้แล้ว โปรดทำการคัดลอกสิ่งที่ต้องวางใหม่อีกครั้ง"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "วางโฟลเดอร์หนึ่ง"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "วางหนึ่งไฟล์"
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:245
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
 msgstr[0] "วาง %1 รายการ"
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:247
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "วางเนื้อหาจากคลิปบอร์ด"
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "วาง"
 
-#: widgets/pastedialog.cpp:45
-#, kde-format
+#: widgets/pastedialog.cpp:54
+#, fuzzy, kde-format
+#| msgid "Data format:"
+msgctxt "@label"
 msgid "Data format:"
 msgstr "รูปแบบข้อมูล:"
 
-#: widgets/pastedialog.cpp:53
+#: widgets/pastedialog.cpp:63
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: widgets/pastejob.cpp:71
+#, kde-format
+msgid "Filename for clipboard content:"
+msgstr "ชื่อแฟ้มสำหรับเนื้อหาคลิปบอร์ด:"
 
 #: widgets/pastejob.cpp:71
 #, kde-format

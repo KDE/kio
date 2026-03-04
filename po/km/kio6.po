@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:41+0000\n"
+"POT-Creation-Date: 2026-03-04 00:41+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -6861,12 +6861,14 @@ msgstr "ផ្លាស់ប្តូរ​គោលការណ៍..."
 msgid "Open file dialog"
 msgstr "បើក​ប្រអប់​ឯកសារ"
 
-#: widgets/paste.cpp:68 widgets/paste.cpp:106 widgets/pastejob.cpp:71
-#, kde-format
-msgid "Filename for clipboard content:"
-msgstr "ឈ្មោះ​ឯកសារ​សម្រាប់​មាតិកា​ក្តារ​តម្បៀត​ខ្ទាស់ ៖"
+#: widgets/paste.cpp:65 widgets/paste.cpp:104
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "បិទភ្ជាប់​មាតិកា​ក្ដារ​តម្បៀត​ខ្ទាស់ "
 
-#: widgets/paste.cpp:111
+#: widgets/paste.cpp:101
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6874,7 +6876,7 @@ msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "បិទភ្ជាប់​ឯកសារ %1"
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:113
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6883,14 +6885,14 @@ msgstr ""
 "ក្ដារ​តម្បៀត​ខ្ទាស់​បាន​ផ្លាស់​ប្ដូរ​តាំង​ពី​អ្នក​បាន​ប្រើ 'បិទភ្ជាប់' ៖ ទ្រង់ទ្រាយ​ទិន្នន័យ​ដែល​បាន​ជ្រើស​មិន​អាច​"
 "អនុវត្ត​បាន​ទៀត​ទេ ។ សូម​ចម្លង​ម្ដង​ទៀត​នូវ​អ្វី​ដែល​អ្នក​ចង់បិទ​ភ្ជាប់ ។"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, fuzzy, kde-format
 #| msgid "Parent Folder"
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "ថត​មេ"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6898,36 +6900,43 @@ msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "បិទភ្ជាប់​ឯកសារ %1"
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:245
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
 msgstr[0] ""
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:247
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "បិទភ្ជាប់​មាតិកា​ក្ដារ​តម្បៀត​ខ្ទាស់ "
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:251
 #, fuzzy, kde-format
 #| msgid "Paste"
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "បិទភ្ជាប់"
 
-#: widgets/pastedialog.cpp:45
-#, kde-format
+#: widgets/pastedialog.cpp:54
+#, fuzzy, kde-format
+#| msgid "Data format:"
+msgctxt "@label"
 msgid "Data format:"
 msgstr "ទ្រង់ទ្រាយ​ទិន្នន័យ ៖"
 
-#: widgets/pastedialog.cpp:53
+#: widgets/pastedialog.cpp:63
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: widgets/pastejob.cpp:71
+#, kde-format
+msgid "Filename for clipboard content:"
+msgstr "ឈ្មោះ​ឯកសារ​សម្រាប់​មាតិកា​ក្តារ​តម្បៀត​ខ្ទាស់ ៖"
 
 #: widgets/pastejob.cpp:71
 #, fuzzy, kde-format

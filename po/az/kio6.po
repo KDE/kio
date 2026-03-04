@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:41+0000\n"
-"PO-Revision-Date: 2026-02-26 01:50+0400\n"
+"POT-Creation-Date: 2026-03-04 00:41+0000\n"
+"PO-Revision-Date: 2026-03-04 00:38+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
@@ -1735,12 +1735,12 @@ msgstr "Dinlənilməni Ləğv Etmək Mümkün Olmadı"
 #: core/job_error.cpp:929
 #, kde-format
 msgid "FIXME: Document this"
-msgstr "FIXME; Bunu Sənədləşdirin"
+msgstr "FIXME; Bunu sənədləşdirin"
 
 #: core/job_error.cpp:933
 #, kde-format
 msgid "Could Not Create Folder"
-msgstr "Qovluq Yaradıla Bilmədi"
+msgstr "Qovluq yaratmaq mümkün olmadı"
 
 #: core/job_error.cpp:934
 #, kde-format
@@ -1755,7 +1755,7 @@ msgstr "Ola bilsin qovluq yaratmaq üçün yer yoxdur."
 #: core/job_error.cpp:946
 #, kde-format
 msgid "Could Not Remove Folder"
-msgstr "Qovluq Silinə Bilmədi"
+msgstr "Qovluğu silmək mümkün olmadı"
 
 #: core/job_error.cpp:948
 #, kde-format
@@ -1780,7 +1780,7 @@ msgstr "Əmin olun ki qovluq var və boşdur və yenidən cəhd edin."
 #: core/job_error.cpp:962
 #, kde-format
 msgid "Could Not Resume File Transfer"
-msgstr "Fayl Köçürməsini Bərpa Mümkün Olmadı"
+msgstr "Faylın köçürülməsini davam etdirmək mümkün olmadı"
 
 #: core/job_error.cpp:964
 #, kde-format
@@ -1799,12 +1799,12 @@ msgstr "Protokol və ya server faylın işinin bərpasını dətəkləməyə bil
 #: core/job_error.cpp:972
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
-msgstr "Köçürməni yenidən başlamağa cəhd etmədən sorğunu təkrarla."
+msgstr "Köçürməni yenidən başlamağa cəhd etmədən sorğunu təkrarlayın."
 
 #: core/job_error.cpp:977
 #, kde-format
 msgid "Could Not Rename Resource"
-msgstr "Resursun Adını Dəyişmək Mümkün Olmadı"
+msgstr "Mənbənin adını dəyişmək mümkün olmadı"
 
 #: core/job_error.cpp:979
 #, kde-format
@@ -1815,7 +1815,7 @@ msgstr ""
 #: core/job_error.cpp:990
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
-msgstr "Resursun İcazələrini Dəyişmək Alınmadı"
+msgstr "Mənbənin icazələrini dəyişmək mümkün olmadı"
 
 #: core/job_error.cpp:992
 #, kde-format
@@ -1829,7 +1829,7 @@ msgstr ""
 #: core/job_error.cpp:1000
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
-msgstr "Resursa Mülkiyyət Hüququnu Dəyişmək Mümkün Olmadı"
+msgstr "Mənbənin sahibini dəyişmək mümkün olmadı"
 
 #: core/job_error.cpp:1002
 #, kde-format
@@ -1837,23 +1837,23 @@ msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
 "strong> failed."
 msgstr ""
-"Göstərilən mənbənin sahibliyini dəyişdirmək cəhdi <strong>%1</strong> "
-"uğursuz oldu."
+"Göstərilən mənbənin sahibini dəyişdirmək cəhdi <strong>%1</strong> uğursuz "
+"oldu."
 
 #: core/job_error.cpp:1010
 #, kde-format
 msgid "Could Not Delete Resource"
-msgstr "Resursu Silmək Olmur"
+msgstr "Mənbəyi silmək mümkün olmadı"
 
 #: core/job_error.cpp:1012
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
-msgstr "Göstərilən mənbəni silmək cəhdi uğursuz <strong>%1</strong>."
+msgstr "Göstərilən mənbəyi silmək cəhdi uğursuz <strong>%1</strong>."
 
 #: core/job_error.cpp:1020
 #, kde-format
 msgid "Unexpected Program Termination"
-msgstr "Proqramın Gözlənilmədən Bağlanması"
+msgstr "Proqramın gözlənilmədən bağlanması"
 
 #: core/job_error.cpp:1022
 #, kde-format
@@ -1867,7 +1867,7 @@ msgstr ""
 #: core/job_error.cpp:1030
 #, kde-format
 msgid "Out of Memory"
-msgstr "Yaddaş Dolub"
+msgstr "Yaddaş dolub"
 
 #: core/job_error.cpp:1032
 #, kde-format
@@ -1881,7 +1881,7 @@ msgstr ""
 #: core/job_error.cpp:1041
 #, kde-format
 msgid "Unknown Proxy Host"
-msgstr "Naməlum Proxy-nin Host-u"
+msgstr "Naməlum proksi serveri"
 
 #: core/job_error.cpp:1043
 #, kde-format
@@ -1890,9 +1890,9 @@ msgid ""
 "strong>, an Unknown Host error was encountered. An unknown host error "
 "indicates that the requested name could not be located on the Internet."
 msgstr ""
-"Göstərilən proxy hostu haqqında məlumat əldə edərkən<strong>%1</strong>, "
+"Göstərilən proksi serveri haqqında məlumat əldə edərkən<strong>%1</strong>, "
 "naməlum Host xətası baş verdi. Naməlum host xətası, tələb olunan adın "
-"İnternetdə tapıla bilməyəcəyini göstərir."
+"internetdə tapıla bilməyəcəyini göstərir."
 
 #: core/job_error.cpp:1049
 #, kde-format
@@ -1901,19 +1901,19 @@ msgid ""
 "your proxy's hostname. If you have been accessing the Internet with no "
 "problems recently, this is unlikely."
 msgstr ""
-"Ola bilsin ki, sizin şəbəkə konfiqurasiyaları, xüsusilə də proxy host adı "
-"ilə probleminiz var. Əgər sonuncu internetə girişinizdə çətinlik olmayıbsa o "
-"zaman bu şəbəkə problei deyil."
+"Ola bilsin ki, sizin şəbəkə tənzimləmələri, xüsusilə də proksi server adı "
+"ilə bir problem var. Əgər sonuncu internetə girişinizdə çətinlik olmayıbsa o "
+"zaman bu şəbəkə problemi deyil."
 
 #: core/job_error.cpp:1053
 #, kde-format
 msgid "Double-check your proxy settings and try again."
-msgstr "Proxy ayarlarını bir daha yoxlayın və yenidən cəhd edin."
+msgstr "Proksi ayarlarını bir daha yoxlayın və yenidən cəhd edin."
 
 #: core/job_error.cpp:1057
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
-msgstr "Kimlik Doğrulaması alınmadı: Metod %1 dəstəklənmir"
+msgstr "Kimlik doğrulaması alınmadı: Metod %1 dəstəklənmir"
 
 #: core/job_error.cpp:1059
 #, kde-format
@@ -1922,9 +1922,9 @@ msgid ""
 "authentication failed because the method that the server is using is not "
 "supported by the KDE program implementing the protocol %1."
 msgstr ""
-"Doğru identifikasiya təfərrüatlarını vermiş olsanız da, autentifikasiya "
-"uğursuz oldu, çünki server istifadə etdiyi metod %1 protokolunu həyata "
-"keçirən KDE proqramı tərəfindən dəstəklənmir."
+"Doğru kimlik məlumatları vermiş olsanız da, kimlik doğrulaması uğursuz oldu, "
+"çünki server, istifadə etdiyi metod %1 protokolunu həyata keçirən KDE "
+"proqramı tərəfindən dəstəklənmir."
 
 #: core/job_error.cpp:1065
 #, kde-format
@@ -1938,12 +1938,12 @@ msgstr ""
 #: core/job_error.cpp:1072
 #, kde-format
 msgid "Request Aborted"
-msgstr "Sorğu Ləğv edildi"
+msgstr "Sorğu ləğv edildi"
 
 #: core/job_error.cpp:1080
 #, kde-format
 msgid "Internal Error in Server"
-msgstr "Serverdə Daxili Xəta"
+msgstr "Serverdə daxili xəta"
 
 #: core/job_error.cpp:1082
 #, kde-format
@@ -1967,8 +1967,8 @@ msgstr ""
 #, kde-format
 msgid "Contact the administrator of the server to advise them of the problem."
 msgstr ""
-"Sever administratoru ilə əlaqə saxlayaraq onları bu xəta barəsində "
-"mılumatlandırın."
+"Sever inzibatçısı ilə əlaqə saxlayaraq onları bu xəta barəsində "
+"məlumatlandırın."
 
 #: core/job_error.cpp:1095
 #, kde-format
@@ -1976,13 +1976,13 @@ msgid ""
 "If you know who the authors of the server software are, submit the bug "
 "report directly to them."
 msgstr ""
-"Əgər siz server proqramının müəllifinin kim olduğunu bilirsinizlə bu "
-"hesabatı birba.a onalara göndərin."
+"Əgər siz server proqramının müəllifinin kim olduğunu bilirsinizsə bu "
+"hesabatı birbaşa onlara göndərin."
 
 #: core/job_error.cpp:1100
 #, kde-format
 msgid "Timeout Error"
-msgstr "Gözləmədə Xəta"
+msgstr "Gözləmədə xəta"
 
 #: core/job_error.cpp:1102
 #, kde-format
@@ -2001,7 +2001,7 @@ msgstr "Server digər sorğulara cavab vermək üçün çox məşğul idi."
 #: core/job_error.cpp:1113
 #, kde-format
 msgid "Unknown Error"
-msgstr "Naməlum Xəta"
+msgstr "Naməlum xəta"
 
 #: core/job_error.cpp:1115
 #, kde-format
@@ -2015,7 +2015,7 @@ msgstr ""
 #: core/job_error.cpp:1125
 #, kde-format
 msgid "Unknown Interruption"
-msgstr "Naməlum Kəsilmə"
+msgstr "Naməlum kəsilmə"
 
 #: core/job_error.cpp:1127
 #, kde-format
@@ -2029,7 +2029,7 @@ msgstr ""
 #: core/job_error.cpp:1137
 #, kde-format
 msgid "Could Not Delete Original File"
-msgstr "Orijinal Fayl Silinə Bilmir"
+msgstr "Orijinal faylı silmək mümkün olmadı"
 
 #: core/job_error.cpp:1139
 #, kde-format
@@ -2039,13 +2039,13 @@ msgid ""
 "strong> could not be deleted."
 msgstr ""
 "Tələb olunan əməliyyat, çox güman ki, bir fayl köçürmə əməliyyatının sonunda "
-"orijinal sənədin silməsini tələb etdi. Orijinal fayl <strong>%1</ strong> "
-"silinə bilmədi."
+"orijinal sənədin silinməsini tələb etdi. Orijinal <strong>%1</ strong> "
+"faylını silmək mümkün olmadı."
 
 #: core/job_error.cpp:1148
 #, kde-format
 msgid "Could Not Delete Temporary File"
-msgstr "Müvəqqəti Fayl Silinə Bilmədi"
+msgstr "Müvəqqəti faylı silmək mümkün olmadı"
 
 #: core/job_error.cpp:1150
 #, kde-format
@@ -2055,13 +2055,13 @@ msgid ""
 "strong> could not be deleted."
 msgstr ""
 "Tələb olunan əməliyyat yüklənərkən yeni faylı saxlamaq üçün müvəqqəti bir "
-"sənəd yaratmağı tələb etdi. Bu <strong>%1</strong> müvəqqəti sənəd silinə "
-"bilmədi."
+"sənəd yaratmağı tələb etdi. Bu <strong>%1</strong> müvəqqəti sənədi silmək "
+"mümkün olmadı."
 
 #: core/job_error.cpp:1160
 #, kde-format
 msgid "Could Not Rename Original File"
-msgstr "Orijinal Fayl Silinə Bilmədi"
+msgstr "Orijinal faylı silmək mümkün olmadı"
 
 #: core/job_error.cpp:1162
 #, kde-format
@@ -2070,12 +2070,12 @@ msgid ""
 "%1</strong>, however it could not be renamed."
 msgstr ""
 "Tələb olunan əməliyyat orijinal <strong>%1</strong> faylının adının "
-"dəyişdirilməsin tələb edir, lakin bü mümkün deyil."
+"dəyişdirilməsini tələb edir, lakin bu mümkün deyil."
 
 #: core/job_error.cpp:1171
 #, kde-format
 msgid "Could Not Rename Temporary File"
-msgstr "Müvəqqəti Faylın Adı Dəyişdirilmədi"
+msgstr "Müvəqqəti faylın adını dəyişmək mümkün olmadı"
 
 #: core/job_error.cpp:1173
 #, kde-format
@@ -2089,17 +2089,17 @@ msgstr ""
 #: core/job_error.cpp:1182
 #, kde-format
 msgid "Could Not Create Link"
-msgstr "Link Yaradıla Bilmir"
+msgstr "Keçid yaratmaq mümkün olmadı"
 
 #: core/job_error.cpp:1183
 #, kde-format
 msgid "Could Not Create Symbolic Link"
-msgstr "Simvolik Link Yaradılmadı"
+msgstr "Simvolik keçid yaratmaq mümkün olmadı"
 
 #: core/job_error.cpp:1184
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
-msgstr "Tələb olunan %1 simvolik link yaradılmadı."
+msgstr "Tələb olunan %1 simvolik keçid yaradıla bilməz."
 
 #: core/job_error.cpp:1190
 #, kde-format
@@ -2109,7 +2109,7 @@ msgstr "Tərkibi yoxdur"
 #: core/job_error.cpp:1195
 #, kde-format
 msgid "Disk Full"
-msgstr "Disk Dolub"
+msgstr "Disk dolub"
 
 #: core/job_error.cpp:1197
 #, kde-format
@@ -2117,7 +2117,7 @@ msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
 "inadequate disk space."
 msgstr ""
-"Tələb olunan <strong>%1</strong> faylı diskdə kifayət qədər yer olamdığı "
+"Tələb olunan <strong>%1</strong> faylı diskdə kifayət qədər yer olmadığı "
 "üçün yazıla bilmir."
 
 #: core/job_error.cpp:1201
@@ -2128,13 +2128,13 @@ msgid ""
 "3) obtain more storage capacity."
 msgstr ""
 "Diski Təmizləmək üçün 1) Lazımsız və müvəqqəti faylları silin; 2) faylları "
-"kənar diskə (məs. CD-R) arxivləşdirin; və ya 3) daha çox yaddaşı olan "
+"xarici diskdə (məs. CD-R) arxivləşdirin; və ya 3) daha çox yaddaşı olan "
 "diskdən istifadə edin."
 
 #: core/job_error.cpp:1208
 #, kde-format
 msgid "Source and Destination Files Identical"
-msgstr "Mənbə və Təyinat Faylı Eynidir"
+msgstr "Mənbə və təyinat faylı eynidir"
 
 #: core/job_error.cpp:1210
 #, kde-format
@@ -2151,7 +2151,7 @@ msgstr "Təyinat faylı üçün başqa bir ad seçin."
 #: core/job_error.cpp:1216
 #, kde-format
 msgid "File or Folder dropped onto itself"
-msgstr "Fayl və Qovluq öz üzərinə atılaraq açılmağa cəhd edildi"
+msgstr "Fayl və qovluq öz üzərinə atılaraq açılmağa cəhd edildi"
 
 #: core/job_error.cpp:1218
 #, kde-format
@@ -2159,7 +2159,7 @@ msgid ""
 "The operation could not be completed because the source and destination file "
 "or folder are the same."
 msgstr ""
-"Əməliyyat başa çatdırılmadı, şünki mənbə və təyinat faylları və ya "
+"Əməliyyat başa çatdırılmadı, çünki mənbə və təyinat faylları və ya "
 "qovluqları eynidir."
 
 #: core/job_error.cpp:1220
@@ -2170,7 +2170,7 @@ msgstr "Obyekti başqa fayl və qovluğun üzərinə atın."
 #: core/job_error.cpp:1230
 #, kde-format
 msgid "Folder moved into itself"
-msgstr "Qovluq oz üzərinə yeri dəyişdirildi"
+msgstr "Qovluq öz üzərinə yeri dəyişdirildi"
 
 #: core/job_error.cpp:1232
 #, kde-format
@@ -2178,7 +2178,7 @@ msgid ""
 "The operation could not be completed because the source can not be moved "
 "into itself."
 msgstr ""
-"Əməliyyat başa çatmadı çünki mənbə faylı oz üzərinə atılaraq açıla bilməz."
+"Əməliyyat başa çatmadı çünki mənbə faylı öz üzərinə atılaraq açıla bilməz."
 
 #: core/job_error.cpp:1234
 #, kde-format
@@ -2188,7 +2188,7 @@ msgstr "Obyekti başqa qovluğa daşıyın."
 #: core/job_error.cpp:1238
 #, kde-format
 msgid "Could not communicate with password server"
-msgstr "Parol serveri ilə bağlantı alınmadı"
+msgstr "Şifrə serveri ilə bağlantı mümkün olmadı"
 
 #: core/job_error.cpp:1240
 #, kde-format
@@ -2196,14 +2196,14 @@ msgid ""
 "The operation could not be completed because the service for requesting "
 "passwords (kpasswdserver) couldn't be contacted"
 msgstr ""
-"Əməliyyat başa çatmadı, çünki tələb olunan parollar serverinə "
+"Əməliyyat başa çatmadı, çünki tələb olunan Şifrələr serverinə "
 "(kpasswdserver) qoşulmaq mümkün olmadı"
 
 #: core/job_error.cpp:1242
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
-"Sessiyanızı yenidən başlamağ cəhd edin və ya kiod faylından xətalara nəzər "
+"Sessiyanızı yenidən başlamağa cəhd edin və ya kiod faylındakı xətalara nəzər "
 "yetirin."
 
 #: core/job_error.cpp:1246
@@ -6730,18 +6730,21 @@ msgstr "Veb qısaltmalarını tənzimləyin..."
 msgid "Open file dialog"
 msgstr "Fayl dialoqunu açın"
 
-#: widgets/paste.cpp:68 widgets/paste.cpp:106 widgets/pastejob.cpp:71
-#, kde-format
-msgid "Filename for clipboard content:"
-msgstr "Yaddaş buferi üçün faylının adı:"
+#: widgets/paste.cpp:65 widgets/paste.cpp:104
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Paste Clipboard Contents…"
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "Mübadilə yaddaşındakıları yerləşdirin..."
 
-#: widgets/paste.cpp:111
+#: widgets/paste.cpp:101
 #, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "yerləşdirilmiş fayl"
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:113
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6751,19 +6754,19 @@ msgstr ""
 "məlumat formatı artıq tətbiq edilmir. Xahiş olunur yerləşdirmək istədiyiniz "
 "elementi yenidən kopyalayın."
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Bir qovluq yerləşdir"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Bir fayl yerləşdir"
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:245
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6771,27 +6774,34 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Bir element yerləşdir"
 msgstr[1] "%1 element yerləşdir"
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:247
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Mübadilə yaddaşındakıları yerləşdirin..."
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Yerləşdirin"
 
-#: widgets/pastedialog.cpp:45
-#, kde-format
+#: widgets/pastedialog.cpp:54
+#, fuzzy, kde-format
+#| msgid "Data format:"
+msgctxt "@label"
 msgid "Data format:"
 msgstr "Verilənlərin formatı:"
 
-#: widgets/pastedialog.cpp:53
+#: widgets/pastedialog.cpp:63
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: widgets/pastejob.cpp:71
+#, kde-format
+msgid "Filename for clipboard content:"
+msgstr "Yaddaş buferi üçün faylının adı:"
 
 #: widgets/pastejob.cpp:71
 #, kde-format

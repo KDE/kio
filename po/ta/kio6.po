@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-03 00:41+0000\n"
+"POT-Creation-Date: 2026-03-04 00:41+0000\n"
 "PO-Revision-Date: 2026-01-31 18:14+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -6676,18 +6676,21 @@ msgstr "இணைய சுருக்குவழிகளை அமை…"
 msgid "Open file dialog"
 msgstr "கோப்பு திறப்பு சாளரம்"
 
-#: widgets/paste.cpp:68 widgets/paste.cpp:106 widgets/pastejob.cpp:71
-#, kde-format
-msgid "Filename for clipboard content:"
-msgstr "பிடிப்புப் பலகையின் உள்ளடக்கத்திற்குரிய கோப்புப்பெயர்:"
+#: widgets/paste.cpp:65 widgets/paste.cpp:104
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "Paste Clipboard Contents…"
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "பிடிப்புப்பலகையில் உள்ளவற்றை ஒட்டு…"
 
-#: widgets/paste.cpp:111
+#: widgets/paste.cpp:101
 #, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "ஒட்டிய கோப்பு"
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:113
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6696,19 +6699,19 @@ msgstr ""
 "நீங்கள் 'ஒட்டு' என்பதை பயன்படுத்திய பிறகு பிடிப்புப்பலகை மாற்றப்பட்டது: தேர்ந்தெடுக்கப்பட்ட "
 "தரவு படிவத்தை பயன்படுத்த முடியாது. நீங்கள் ஒட்ட விரும்பியதை மீண்டும் நகலெடுங்கள்."
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "ஒரு அடைவை ஒட்டு"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:243
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "ஒரு கோப்பை ஒட்டு"
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:245
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6716,27 +6719,34 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "ஒரு உருப்படியை ஒட்டு"
 msgstr[1] "%1 உருப்படிகளை ஒட்டு"
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:247
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "பிடிப்புப்பலகையில் உள்ளவற்றை ஒட்டு…"
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:251
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "ஒட்டு"
 
-#: widgets/pastedialog.cpp:45
-#, kde-format
+#: widgets/pastedialog.cpp:54
+#, fuzzy, kde-format
+#| msgid "Data format:"
+msgctxt "@label"
 msgid "Data format:"
 msgstr "தரவு படிவம்:"
 
-#: widgets/pastedialog.cpp:53
+#: widgets/pastedialog.cpp:63
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
+
+#: widgets/pastejob.cpp:71
+#, kde-format
+msgid "Filename for clipboard content:"
+msgstr "பிடிப்புப் பலகையின் உள்ளடக்கத்திற்குரிய கோப்புப்பெயர்:"
 
 #: widgets/pastejob.cpp:71
 #, kde-format
