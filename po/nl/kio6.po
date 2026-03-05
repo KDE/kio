@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-04 00:41+0000\n"
-"PO-Revision-Date: 2026-02-17 12:09+0100\n"
+"PO-Revision-Date: 2026-03-04 12:27+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -6847,12 +6847,10 @@ msgid "Open file dialog"
 msgstr "Bestandsdialoog openen"
 
 #: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "Klembordinhoud plakken…"
+msgstr "Inhoud klembord plakken"
 
 #: widgets/paste.cpp:101
 #, kde-format
@@ -6903,8 +6901,7 @@ msgid "Paste"
 msgstr "Plakken"
 
 #: widgets/pastedialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Gegevensopmaak:"

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-04 00:41+0000\n"
-"PO-Revision-Date: 2026-02-18 18:10+0100\n"
+"PO-Revision-Date: 2026-03-04 16:29+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -6792,12 +6792,10 @@ msgid "Open file dialog"
 msgstr "Aperi dialogo de file"
 
 #: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "Colla contentos del area de transferentia..."
+msgstr "Colla contento del area de transferentia"
 
 #: widgets/paste.cpp:101
 #, kde-format
@@ -6848,8 +6846,7 @@ msgid "Paste"
 msgstr "Colla"
 
 #: widgets/pastedialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Formato de Datos:"

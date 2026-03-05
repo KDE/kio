@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-04 00:41+0000\n"
-"PO-Revision-Date: 2026-02-17 04:16+0100\n"
+"PO-Revision-Date: 2026-03-04 03:39+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -6485,7 +6485,7 @@ msgstr "Sticky"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1666
 #, kde-format
 msgid "Link"
-msgstr "Ბმული"
+msgstr "ბმული"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1686
 #, kde-format
@@ -6726,12 +6726,10 @@ msgid "Open file dialog"
 msgstr "ფაილის გახსნის დიალოგი"
 
 #: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "&ბაფერის შემცველობის ჩასმა…"
+msgstr "ბუფერის შემცველობის ჩასმა"
 
 #: widgets/paste.cpp:101
 #, kde-format
@@ -6773,7 +6771,7 @@ msgstr[1] "%1 ჩანაწერის ჩასმა"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
-msgstr "&ბაფერის შემცველობის ჩასმა…"
+msgstr "ბუფერის შემცველობის ჩასმა…"
 
 #: widgets/paste.cpp:251
 #, kde-format
@@ -6782,8 +6780,7 @@ msgid "Paste"
 msgstr "ჩასმა"
 
 #: widgets/pastedialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "მონაცემების ფორმატი:"
