@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-04 00:41+0000\n"
-"PO-Revision-Date: 2026-02-17 18:49+0200\n"
+"PO-Revision-Date: 2026-03-06 14:06+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -6809,12 +6809,10 @@ msgid "Open file dialog"
 msgstr "Выбрать файл или папку"
 
 #: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "Вставить содержимое буфера обмена…"
+msgstr "Вставить содержимое буфера обмена"
 
 #: widgets/paste.cpp:101
 #, kde-format
@@ -6867,8 +6865,7 @@ msgid "Paste"
 msgstr "Вставить"
 
 #: widgets/pastedialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Формат данных:"
