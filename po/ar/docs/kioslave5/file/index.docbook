@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Arabic "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="file">
+<title
+>ملف</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Ferdinand.Gassauer; &Ferdinand.Gassauer.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>يُستخدم ميفاق الملف من قِبل جميع تطبيقات كيدي لعرض الملفات المتوفرة محليًا. </para>
+<para
+>عند إدخال <userinput
+><command
+>file:/directoryname</command
+></userinput
+> في كونكيورر، تُعرض ملفات هذا المجلد. </para>
+
+</article>

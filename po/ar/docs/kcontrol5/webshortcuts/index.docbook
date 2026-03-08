@@ -1,0 +1,219 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Arabic "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="ebrowsing" lang="&language;">
+<articleinfo>
+<title
+>اختصارات الوِب</title>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<author
+>&Yves.Arrouye; &Yves.Arrouye.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>أُطر العمل 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>إعدادات النظام</keyword>
+<keyword
+>تصفح محسن</keyword>
+<keyword
+>اختصارات الوِب</keyword>
+<keyword
+>تصفح</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="ebrowse">
+
+<title
+>اختصارات الوِب</title>
+
+<sect2 id="ebrowse-intro">
+
+<title
+>مقدمة</title>
+
+<para
+>يقدّم كُنكيرر بعض الميزات لتحسين تجربة التصفح لديك. إحدى هذه الميزات هي <emphasis
+>اختصارات الوِب</emphasis
+>.</para>
+
+<para
+>ربما لاحظت بالفعل أن كيدي صديقة جداً للإنترنت. على سبيل المثال، يمكنك النقر على عنصر القائمة <guimenuitem
+>شغّل</guimenuitem
+> أو كتابة اختصار لوحة المفاتيح المخصص لهذا الأمر (<keycombo action="simul"
+>&Alt;<keycap
+>F2</keycap
+></keycombo
+> أو <keycombo action="simul"
+>&Alt;&Space;</keycombo
+>، ما لم تكن قد غيرته) ثم كتابة &URI;. <footnote
+><para
+>مُعرّف الموارد الموحد (URI). طريقة معيارية للإشارة إلى مورد ما مثل ملف على حاسوبك، أو عنوان على الشبكة العالمية، أو عنوان بريد إلكتروني، وإلى غير ذلك.</para
+></footnote
+></para>
+
+<para
+>من ناحية أخرى، تتيح لك اختصارات الويب ابتكار أنظمة عناوين &URL; وهمية جديدة، أو اختصارات، تسمح لك أساساً بـ <emphasis
+>وسمنة</emphasis
+> الـ &URI;s شائعة الاستخدام. على سبيل المثال، إذا كنت تحب محرك بحث جوجل، يمكنك ضبط كيدي بحيث يؤدي نظام عنوان &URL; وهمي مثل <emphasis
+>gg</emphasis
+> إلى تشغيل بحث في جوجل. بهذه الطريقة، فإن كتابة <userinput
+>gg:<replaceable
+>استعلامي</replaceable
+></userinput
+> ستبحث عن <replaceable
+>استعلامي</replaceable
+> في جوجل.</para>
+
+<note
+><para
+>يمكن للمرء أن يرى سبب تسميتنا لهذه الأنظمة بأنظمة عناوين &URL; وهمية. إذ تُستخدم مثل نظام عناوين &URL;، ولكن المدخلات لا تُرمز بشكل صحيح كعناوين &URL;، لذا سيكتب المستخدم <userinput
+>google:kde apps</userinput
+> وليس <userinput
+>google:kde+apps</userinput
+>.</para
+></note>
+
+<para
+>يمكنك استخدام اختصارات الويب في أي مكان تستخدم فيه عادةً الـ &URI;s. من المفترض أن تكون اختصارات العديد من محركات البحث مضبوطة بالفعل على نظامك، ولكن يمكنك إضافة كلمات رئيسة جديدة، وتغيير الكلمات الموجودة أو حذفها في هذه الوحدة.</para>
+
+</sect2>
+
+<sect2 id="ebrowse-use">
+
+<title
+>كلمات بحث الويب</title>
+
+<para
+>تُعرض الأسماء الوصفية لاختصارات الويب المعرفة في مربع قائمة. كما هو الحال مع القوائم الأخرى في كيدي، يمكنك النقر فوق رأس العمود لتبديل ترتيب الفرز بين تصاعدي وتنازلي، ويمكنك تغيير حجم الأعمدة.</para>
+
+<para
+>في أسفل القائمة، يجب تحديد الخيار <guilabel
+>مكّن كلمات بحث الويب</guilabel
+> لتفعيل هذه الميزة. استخدم الأزرار الموجودة على اليمين لإنشاء الاختصارات أو تعديلها أو حذفها.</para>
+
+<para
+>إذا حُدد <guilabel
+>استخدم الكلمات الرئيسية المفضلة فقط</guilabel
+>، فستُستخدم فقط الكلمات الرئيسية المحددة كمفضلة في العمود الثاني من القائمة في الأماكن التي لا يمكن فيها عرض سوى عدد قليل من الاختصارات المختارة في وقت واحد. </para>
+ 
+<para
+>تجد تحت القائمة خيارين إضافيين:</para>
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>اختصار الوب المبدئيّ:</guilabel
+></term>
+<listitem>
+<para
+>اختر محرك البحث لاستخدامه في مربعات الإدخال التي توفر خدمات بحث آلي عندما تكتب كلمات وعبارات عادية بدلاً من عنوان &URL;. لتعطيل هذه الميزة اختر <guilabel
+>لاشيء</guilabel
+> من القائمة. </para
+></listitem>
+</varlistentry>
+<varlistentry
+><term
+><guilabel
+>فاصل الكلمات الرئيسة:</guilabel
+></term>
+<listitem>
+<para
+>اختر المحدد الذي يفصل الكلمة الأساسية عن العبارة أو الكلمة المراد البحث عنها. </para
+></listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>إذا نقرت نقراً مزدوجاً فوق إدخال معين في قائمة مزودي البحث المعرفين أو نقرت على زر <guibutton
+>غيّر...</guibutton
+>، فستُعرض تفاصيل ذلك الإدخال في حوار منبثق. بالإضافة إلى الاسم الوصفي للعنصر، يمكنك أيضاً رؤية الـ &URI; المستخدم، بالإضافة إلى الاختصارات المرتبطة التي يمكنك كتابتها في أي مكان في كيدي حيث يُتوقع وجود &URI;s. يمكن أن يكون لمزود بحث معين اختصارات متعددة، كل منها مفصول بفاصلة.</para>
+
+<para
+>تُستخدم مربعات النص ليس فقط لعرض معلومات حول عنصر في قائمة اختصارات الويب، بل أيضاً لتعديل العناصر أو إضافة عناصر جديدة.</para>
+
+<para
+>يمكنك تغيير محتويات مربع النص <guilabel
+>عنوان URL للاختصار:</guilabel
+> أو <guilabel
+>الاختصارات:</guilabel
+>. انقر فوق <guibutton
+>موافق</guibutton
+> لحفظ تغييراتك أو <guibutton
+>إلغاء</guibutton
+> للخروج من الحوار دون تغييرات.</para>
+
+<para
+>إذا فحصت محتويات مربع النص <guilabel
+>عنوان URL للاختصار:</guilabel
+>، فستجد أن معظم الإدخالات، إن لم يكن جميعها، تحتوي على <option
+>\{@}</option
+>. يعمل هذا التسلسل المكون من أربعة أحرف كمعامل (parameter)، مما يعني أنه يُستبدل بأي شيء تكتبه بعد حرف النقطتين الموجود بين الاختصار ومعامله. لإضافة حافظ المكان هذا للاستعلام إلى عنوان &URL; الخاص بالاختصار، انقر فوق الزر الموجود على يمين مربع النص. دعنا نفكر في بعض الأمثلة لتوضيح كيفية استخدام اختصارات الويب.</para>
+
+<para
+>افترض أن &URI; هو <userinput
+>https://www.google.com/search?q=\{@}</userinput
+>، وأن <userinput
+>gg</userinput
+> هو اختصار لهذا الـ &URI;. حينها، تكون كتابة <userinput
+>gg:<replaceable
+>alpha</replaceable
+></userinput
+> معادلة لـ <userinput
+>https://www.google.com/search?q=<replaceable
+>alpha</replaceable
+></userinput
+>. يمكنك كتابة أي شيء بعد حرف <userinput
+>:</userinput
+>؛ فكل ما كتبته سيحل ببساطة محل أحرف <option
+>\{@}</option
+>، بعد تحويله إلى مجموعة الأحرف المناسبة لمزود البحث ثم ترميزه بشكل صحيح كعنوان &URL;. يُعدّل فقط الجزء <option
+>\{@}</option
+> من &URI; البحث، ومن المفترض أن يكون الباقي مرموزاً بشكل صحيح كعنوان &URL; بالفعل ويُترك كما هو.</para>
+
+<para
+>يمكنك أيضًا الحصول على اختصارات بدون معاملات. افترض أن مسار &URI; كان <emphasis
+>file:/home/me/mydocs/calligra/words</emphasis
+> وكان الاختصار هو <emphasis
+>mywords</emphasis
+>. حينئذٍ، تكون كتابة <userinput
+>mywords:</userinput
+> هي نفسها كتابة مسار &URI; كاملاً. لاحظ أنه لا يوجد شيء بعد النقطتين الرأسيتين عند كتابة الاختصار، ولكن النقطتين الرأسيتين لا تزال مطلوبة حتى يتم التعرف على الاختصار على هذا النحو.</para>
+
+<para
+>بحلول الآن، ستكون قد فهمت أنه على الرغم من تسمية هذه الاختصارات باختصارات الويب، إلا أنها في الواقع اختصارات لـ &URI;s موسمنة (parameterized)، والتي لا يمكن أن تشير فقط إلى مواقع الويب مثل محركات البحث ولكن أيضاً إلى أي شيء آخر يمكن الإشارة إليه بواسطة &URI;. تُعد اختصارات الويب ميزة قوية جداً للتنقل في كيدي.</para>
+
+</sect2>
+
+</sect1>
+
+</article>

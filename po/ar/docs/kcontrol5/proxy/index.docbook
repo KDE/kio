@@ -1,0 +1,216 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Arabic "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="proxy" lang="&language;">
+<title
+>الوكيل</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Krishna.Tateneni; &Krishna.Tateneni.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>أُطر العمل 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>إعدادات النظام</keyword>
+<keyword
+>وكيل</keyword>
+<keyword
+>وكلاء</keyword>
+</keywordset>
+
+</articleinfo>
+<sect1 id="proxies">
+<title
+>الوكلاء</title>
+
+<sect2 id="proxies-intro">
+
+<title
+>مقدمة</title>
+
+<para
+>الوكلاء برامج تعمل على حاسوب يعمل عمل خادوم على الشّبكة المتّصل بها (سواء بواسطة مودم أو وسائل أخرى). تستقبل هذه البرامج طلبات &HTTP; و &FTP;، وتجلب الملفّات ذات الصّلة من الإنترنت، وتمرّرها إلى حاسوب العميل الذي قدّم الطلبات.</para>
+
+<para
+>عند ضبط الوكيل، تُعاد توجيه طلبات &HTTP; و/أو &FTP; عبر الحاسوب الذي يعمل كخادوم وكيل. ومع ذلك، يمكنك أيضًا تحديد مضيفين معينين يجب الاتّصال بهم مباشرة، بدلاً من المرور عبر خادوم الوكيل. إذا كنت على شبكة محليّة، على سبيل المثال، فإن الوصول إلى المضيفين المحليّين ربما لا يحتاج إلى المرور عبر خادوم وكيل.</para>
+
+<para
+>يجب عليك فقط ضبط خادوم وكيل إذا طلب مدير الشّبكة ذلك (إذا كنت مستخدمًا لاتّصال هاتفي، فسيكون ذلك مزوّد خدمة الإنترنت أو <acronym
+>ISP</acronym
+>). بخلاف ذلك، وخاصة إذا كنت تشعر ببعض الارتباك بشأن موضوع الوكيل هذا، ولكن كل شيء يبدو على ما يرام في اتّصالك بالإنترنت، فلست بحاجة إلى تغيير أي شيء.</para>
+
+<para
+>يرجى ملاحظة أن استخدام خوادم الوكيل اختياري، ولكن له فائدة أو ميزة متمثلة في منحك وصولاً أسرع إلى البيانات على الإنترنت.</para>
+
+<para
+>إذا كنت غير متأكد مما إذا كنت بحاجة إلى استخدام خادوم وكيل للاتّصال بالإنترنت أم لا، فيرجى مراجعة دليل إعداد مزوّد خدمة الإنترنت أو مدير النّظام لديك.</para>
+
+</sect2>
+
+<sect2 id="proxies-use">
+
+<title
+>الاستخدام</title>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>لا يوجد وكيل</guilabel
+></term>
+<listitem>
+
+<para
+>اختر هذا الخيار إذا كنت <emphasis
+>لا</emphasis
+> تريد استخدام خادوم وكيل وتود الاتّصال بالإنترنت مباشرة.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>إذا قرّرت استخدام وكيل، فلديك عدّة طرق لضبط إعداداته.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>اكتشف ضبط الوكيل آليًّا</guilabel
+></term>
+<listitem>
+
+<para
+>اختر هذا الخيار إذا كنت تريد اكتشاف ملف سكربت ضبط إعدادات الوكيل وتنزيله آليًّا.</para>
+<para
+>يختلف هذا الخيار عن الخيار التّالي في أنه <emphasis
+>لا</emphasis
+> يتطلب منك توفير موقع ملف سكربت الضبط. بدلاً من ذلك، سيُنزّل آليًّا باستخدام بروتوكول <quote
+>اكتشاف الوكيل التّلقائي للوب</quote
+> (<acronym
+>WPAD</acronym
+>).</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>استخدم مسار ضبط الوكيل الآليّ:</guilabel
+></term>
+<listitem>
+<para
+>اختر هذا الخيار إذا كان دعم الوكيل لديك يوفّر من خلال ملف سكربت موجود في عنوان محدّد. يمكنك بعد ذلك إدخال العنوان في مربّع نص الموقع، أو استخدام أيقونة <guiicon
+>المجلّد</guiicon
+> للتصفّح إليه.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>استخدم ضبط وكيل النّظام:</guilabel
+></term>
+<listitem>
+<para
+>تُضبط بعض الأنظمة باستخدام $<envar
+>HTTP_PROXY</envar
+> للسماح للتّطبيقات الرّسومية وغير الرّسومية بمشاركة نفس معلومات ضبط الوكيل.</para>
+<para
+>إذا كنت تعلم أن هذا ينطبق عليك، فاختر هذا الخيار وانقر على زر <guibutton
+>اكتشف آليًّا</guibutton
+> لتوفير أسماء متغيّرات البيئة المستخدمة لضبط عنوان خادوم (أو خوادم) الوكيل.</para>
+<!-- Exceptions fields are different for system proxy (envar) + manual proxy list of hosts/IPs? -->
+<para
+>في حقل <guilabel
+>الاستثناءات:</guilabel
+> أدخل متغيّر البيئة، مثل $<envar
+>NO_PROXY</envar
+>، المستخدم لتخزين عناوين المواقع التي لا ينبغي استخدام خادوم الوكيل لها.</para>
+<para
+>استخدم <guilabel
+>أظهر قيمة متغيّرات البيئة</guilabel
+> لإظهار قيمة متغيّر بيئة بدلاً من اسمه. ومع ذلك لا يمكن تحرير قيم متغيّرات البيئة في هذه الوحدة.</para>
+<!--
+How to enable Auto Detect button?
+-->
+
+</listitem>
+</varlistentry>
+<varlistentry>
+<term
+><guilabel
+>استخدم ضبط الوكيل المحدّد يدويًّا:</guilabel
+></term>
+<listitem>
+
+<para
+>تتضمن معلومات العنوان الكاملة للوكيل كلاً من عنوان الإنترنت ورقم المنفذ. يجب عليك إدخال هذه المعلومات في مربّعات النّص ذات الصّلة. حدّد <guilabel
+>استخدم خادوم الوكيل هذا لكل البروتوكولات</guilabel
+> لنسخ عنوان ومنفذ خادوم وكيل &HTTP; إلى جميع حقول الوكيل الأخرى، للمساعدة في توفير بعض الكتابة.</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>الاستثناءات:</guilabel
+></term>
+<listitem>
+<para
+>أدخل قائمة مفصولة بفواصل بأسماء المضيفين أو عناوين IP التي يجب استثناؤها من استخدام إعدادات الوكيل المذكورة أعلاه. إذا كنت تريد استثناء كل المضيفين لنطاق معين، فما عليك سوى إدخال اسم النّطاق مسبوقًا بنقطة. على سبيل المثال، لاستثناء كل أسماء المضيفين لـ kde.org، أدخل <userinput
+>.kde.org</userinput
+>. رموز البدل مثل <userinput
+>*</userinput
+> أو <userinput
+>?</userinput
+> غير مدعومة ولن يكون لها أي تأثير. بالإضافة إلى ذلك، يمكنك أيضًا إدخال عناوين IP، مثل 127.0.0.1 وعناوين IP مع قناع شبكة، مثل 192.168.0.1/24.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para
+>يمكنك أيضًا اختيار <guilabel
+>استخدم إعدادات الوكيل فقط للعناوين الموجودة في قائمة الاستثناءات</guilabel
+>.</para>
+
+<para
+>حدّد هذا المربّع لعكس استخدام قائمة الاستثناءات، أي أن خوادم الوكيل لن تُستخدم إلا عندما يطابق مسار &URL; المطلوب أحد العناوين المدرجة هنا.</para>
+
+<para
+>تعد هذه الميزة مفيدة إذا كان كل ما تحتاجه هو وكيل للوصول إلى مواقع محددة قليلة، على سبيل المثال، إنترانت داخليّة. إذا كانت لديك متطلبات أكثر تعقيدًا، فقد ترغب في استخدام سكربت ضبط.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+
+</article>

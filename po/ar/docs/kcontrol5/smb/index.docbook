@@ -1,0 +1,112 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Arabic "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="smb" lang="&language;">
+<articleinfo>
+<title
+>مشاركات وندوز</title>
+<authorgroup>
+<author
+>&Mike.McBride; &Mike.McBride.mail;</author>
+<author
+>&Jost.Schenck; &Jost.Schenck.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>أُطر العمل 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>إعدادات النظام</keyword>
+<keyword
+>مشاركات وندوز</keyword>
+</keywordset>
+</articleinfo>
+<sect1 id="windows-shares">
+<title
+>مشاركات وندوز</title>
+
+<sect2 id="windows-shares-intro">
+<title
+>مقدمة</title>
+
+<para
+>يُستخدم ميفاق &SMB; في العديد من الشّبكات المحليّة الصّغيرة لتقديم خدمات الشّبكة. كما تُستخدم أيضًا أسماء مثل <quote
+>شبكة وندوز</quote
+> أو <quote
+>شبكة وندوز لمجموعات العمل</quote
+> أو <quote
+>LanManager</quote
+>. باستخدام &SMB;، يمكنك الوصول إلى ما يسمى <quote
+>المشاركات</quote
+> (أي المجلّدات التي يوفرها الخادوم) بالإضافة إلى الطّابعات.</para>
+
+<para
+>تأتي كيدي (&kde;) بدعم مدمج لميفاق &SMB;. وبما أن كيدي تتمتّع بشفافيّة الشّبكة، فهذا يعني أنه يمكنك الوصول إلى مشاركات &SMB; من أي مكان يمكنك فيه الوصول إلى ملفّاتك المحليّة، على سبيل المثال في مدير الملفّات كنكورر (&konqueror;) وفي مربع حوار الملفّات. للاستفادة من ذلك، يجب عليك تزويد كيدي ببعض المعلومات عن شبكة &SMB; لديك. ولكن لا تقلق، فهذا عادة ما يكون بسيطًا جدًا، على سبيل المثال، جميع عملاء وندوز في شبكتك يحتاجون ويملكون نفس المعلومات.</para>
+
+<!-- Don't know if the following info should go in the base
+documentation --> 
+
+<!-- this smb KIO worker doesn't support showing a list
+of hosts (like e.g. smb:/), for this you need the lan or rlan KIO worker,
+very cool thing (TM) btw. If you want to write some documentation for
+this one too, have a look at kdenetwork/lanbrowsing/lisa/README and
+contact me if you have questions. -->
+
+<note
+><para
+>ليعمل ميفاق &SMB;، يلزم تثبيت سامبا (&Samba;) بشكل صحيح.</para
+></note>
+
+<!-- TODO: link to some place which explains USING SMB, i.e. konqueror
+or file dialog manual -->
+
+</sect2>
+
+<sect2 id="windows-shares-use">
+<title
+>الاستخدام</title>
+
+<para
+>على الرّغم من وجود الكثير من شبكات &SMB; غير الآمنة التي تسمح لأي شخص بالوصول، إلا أنه من حيث المبدأ يتعيّن عليك إثبات هويّتك للوصول إلى خدمات خادوم &SMB;. بشكل مبدئي، ستستخدم كيدي البيانات المدخلة في حقلي <guilabel
+>اسم المستخدم المبدئي:</guilabel
+> و <guilabel
+>كلمة السّر المبدئيّة:</guilabel
+> للتعريف بنفسها على مضيفي &SMB;. إذا تركت حقل <guilabel
+>اسم المستخدم المبدئي:</guilabel
+> فارغًا، فستحاول كيدي الوصول إلى مضيفي &SMB; بدون اسم مستخدم. وإذا تركت كلمة السّر المبدئيّة فارغة، فستحاول بدون كلمة سر. إذا لم تنجح كيدي في الوصول إلى المضيف باستخدام هذه الإعدادات، فسيُطلب منك اسم مستخدم وكلمة سر.</para>
+
+<important
+><para
+>في حين أن تخزين كيدي لكلمة سر &SMB; الخاصّة بك يجعل الأمور أكثر راحة، إلا أن هذا قد يمثّل مشكلة أمنيّة. إذا كنت تستخدم &SMB; في بيئة واعية أمنيًّا، فيجب ألا تخزن كلمة سرك هنا بل أدخلها من جديد في كل مرة تحتاج فيها إلى الوصول إلى مضيف &SMB;.</para
+></important>
+
+</sect2>
+
+</sect1>
+
+</article>

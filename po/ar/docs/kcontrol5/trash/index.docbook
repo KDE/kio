@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Arabic "INCLUDE">
+]>
+<article id="trash" lang="&language;">
+<title
+>المهملات</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Burkhard.Lueck;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2018-05-31</date>
+<releaseinfo
+>أُطر العمل 5.48</releaseinfo>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>إعدادات النظام</keyword>
+<keyword
+>مهملات</keyword>
+</keywordset>
+</articleinfo>
+
+<para
+>تسمح لك هذه الوحدة بضبط إعدادات المهملات. </para>
+
+<variablelist>
+<varlistentry
+><term
+><guilabel
+>نظف:</guilabel
+></term>
+<listitem
+><para
+>حدد هذا المربع للسماح بالحذف التلقائي للملفات التي تكون أقدم من القيمة المحددة. اترك هذا الخيار معطلاً لـ <emphasis
+>عدم</emphasis
+> حذف أي عناصر تلقائيًا بعد فترة زمنية معينة. حدد عدد الأيام التي يمكن أن تبقى فيها الملفات في المهملات. سيتم حذف أي ملفات أقدم من ذلك تلقائيًا. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>الحجم:</guilabel
+></term>
+<listitem
+><para
+>حدد هذا المربع لتقييد المهملات بالحد الأقصى لمساحة القرص التي تحددها. بخلاف ذلك، ستكون غير محدودة. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>قيد بـ</guilabel
+></term>
+<listitem
+><para
+>هذه هي النسبة المئوية القصوى لمساحة القرص التي ستستخدم للمهملات. يتم عرض مقدار مساحة القرص المحسوب المسموح به للمهملات على يمين مربع التدوير. </para
+></listitem>
+</varlistentry>
+
+<varlistentry
+><term
+><guilabel
+>عند امتلاء المهملات:</guilabel
+></term>
+<listitem
+><para
+>عندما يُبلَغ حد الحجم، سيُنفّذ الإجراء المحدد، إما ستُحذف أقدم الملفات أو أكبرها آليًا، أو ستُحذّر. </para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+</article>

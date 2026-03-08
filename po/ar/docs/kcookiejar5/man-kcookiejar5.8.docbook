@@ -1,0 +1,223 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Arabic "INCLUDE"
+><!-- change language only here -->
+]>
+
+<refentry lang="&language;">
+
+<refentryinfo>
+<title
+>دليل مستخدم وعاء كعكات كيدي 5</title>
+<author
+><firstname
+>Waldo</firstname
+> <surname
+> Bastian</surname
+> <affiliation
+> <address
+><email
+>bastian@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Dawit</firstname
+> <surname
+>Alemayehu</surname
+> <affiliation
+> <address
+><email
+>adawit@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<date
+>2015-07-31</date>
+<releaseinfo
+>أُطر العمل 5.13</releaseinfo>
+
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kcookiejar5</command
+></refentrytitle>
+<manvolnum
+>8</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kcookiejar5</command
+></refname>
+<refpurpose
+>واجهة سطر أوامر لخادم كعكات HTTP في كيدي</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<title
+>الموجز</title>
+
+<cmdsynopsis
+><command
+>kcookiejar5</command
+> <arg choice="opt"
+>-h, --help</arg
+> <arg choice="opt"
+>-v, --version</arg
+> <arg choice="opt"
+>--shutdown</arg
+> <arg choice="opt"
+>--remove<replaceable
+> النطاق</replaceable
+></arg
+> <arg choice="opt"
+>--remove-all</arg
+> <arg choice="opt"
+>--reload-config</arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>الوصف</title>
+
+<para
+><command
+>kcookiejar5</command
+> هو واجهة سطر أوامر لمخزن كعكات HTTP المستخدم في كيدي، وهي خدمة دي-باص (DBus) لتخزين واسترجاع وتنظيف الكعكات. </para>
+</refsect1>
+
+<refsect1>
+<title
+>الخيارات</title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><option
+>-h</option
+><option
+>--help</option
+></term>
+<listitem>
+<para
+>يُظهر المساعدة المتعلقة بالخيارات.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>-v</option
+><option
+>--version</option
+></term>
+<listitem>
+<para
+>يُظهر معلومات الإصدار.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--shutdown</option
+></term>
+<listitem>
+<para
+>يغلق وعاء الكعكات وخدمة دي-باص. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--remove</option
+> <parameter
+>النطاق</parameter
+></term>
+<listitem>
+<para
+>يزيل كعكات <parameter
+>النطاق</parameter
+> من وعاء الكعكات. </para>
+</listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term
+><option
+>--remove-all</option
+></term>
+<listitem>
+<para
+>يزيل جميع الكعكات من وعاء الكعكات.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--reaload-config</option
+></term>
+<listitem>
+<para
+>يُعيد تحميل ملف التهيئة. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>الاستخدام</title>
+<para
+><command
+>kcookiejar5</command
+> هو أداة سطر أوامر للوصول إلى وحدة kded التي تدير الكعكات في كنكورر وتطبيقات كيدي الأخرى.</para>
+<para
+>عند تشغيله بدون معاملات، يُحمّل وحدة kded ليوفر واجهة دي-باص لتخزين الكعكات. </para>
+<para
+>عند تشغيل <command
+>kcookiejar5</command
+> ببعض المعاملات، فإنه يؤدي مهام إضافية لوعاء الكعكات الذي يوفره، مثل إزالة الكعكات من <parameter
+>نطاق</parameter
+> ما. </para>
+
+</refsect1>
+
+<refsect1>
+<title
+>انظر أيضًا</title>
+<para
+><replaceable
+>kf5options</replaceable
+>(7), <replaceable
+>qt5options</replaceable
+>(7) </para>
+</refsect1>
+
+<refsect1>
+<title
+>العلل</title>
+<para
+>يرجى استخدام <ulink url="https://bugs.kde.org"
+>متتبع علل كيدي</ulink
+> للإبلاغ عن العلل.</para>
+</refsect1>
+
+</refentry>
+
+
+

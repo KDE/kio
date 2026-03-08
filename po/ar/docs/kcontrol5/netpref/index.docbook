@@ -1,0 +1,157 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Arabic "INCLUDE"
+> <!-- change language only here -->
+]>
+
+<article id="netpref" lang="&language;">
+<articleinfo>
+<title
+>تفضيلات الاتّصال</title>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2016-11-10</date>
+<releaseinfo
+>أُطر العمل 5.29</releaseinfo>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>أساس كيدي</keyword>
+<keyword
+>مركز التحكم</keyword>
+<keyword
+>شبكة</keyword>
+<keyword
+>مهلات</keyword>
+</keywordset>
+
+</articleinfo>
+
+<sect1 id="timeouts">
+
+<title
+>تفضيلات الاتّصال</title>
+
+<para
+>هنا يمكنك ضبط قيم المهلة. قد ترغب في تعديلها إذا كان اتصالك بطيئًا جدًا، ولكن الإعدادات المبدئية مناسبة لمعظم المستخدمين.</para>
+
+<para
+>هنا <guilabel
+>قيم المهلة</guilabel
+> هي الفترة الزمنية التي يجب أن ينتظرها التطبيق للحصول على إجابة من عملية شبكة.</para>
+
+<para
+>يمكنك ضبط المهلات التالية:</para>
+
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>قراءة المقبس:</guilabel
+></term>
+<listitem>
+<para
+>تستخدم بعض التطبيقات <firstterm
+>المقابس (sockets)</firstterm
+> للتواصل. يمكنك تخيل المقبس كصنبور ماء؛ طالما أنه مفتوح، يخرج الماء (أو في حالتنا، البيانات) دون أي تفاعل. إذا أوقف شيء ما تدفق البيانات هذا، فسوف ينتظر التطبيق وصول المزيد. قد يطول هذا الانتظار كثيرًا، ولكن يمكنك ضبط الحد الأقصى لوقت انتظار التطبيق باستخدام هذا الخيار.</para>
+<para
+>بالطبع، سيُطبق هذا الإعداد فقط على تطبيقات كيدي (&kde;).</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>الاتّصال بالوكيل:</guilabel
+></term>
+<listitem>
+<para
+>يضبط مدة انتظار الاتصال بخادم وكيل، في حال كان مهيأً. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>الاتصال بالخادوم:</guilabel
+></term>
+<listitem>
+<para
+>يضبط مدة انتظار الاتصال بخادم بعيد. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>ردّ الخادوم:</guilabel
+></term>
+<listitem>
+<para
+>يضبط مدة انتظار الرد من خادم بعيد. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>يمكنك ضبط <guilabel
+>خيارات FTP</guilabel
+> هنا. في الوقت الحالي يوجد خياران فقط:</para>
+<variablelist>
+<varlistentry>
+<term
+><guilabel
+>مكّن الوضع السلبي (PASV)</guilabel
+></term>
+<listitem
+><para
+>غالبًا ما يكون بروتوكول FTP السلبي مطلوبًا عندما تكون خلف جدار حماية. تسمح العديد من جدران الحماية فقط بالاتصالات التي بدأت من <quote
+>الداخل</quote
+>. يُتحكم في FTP السلبي بواسطة العميل، مما يجعله قابلًا للاستخدام عبر جدران الحماية.</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><guilabel
+>علّم الملفّات المرفوعة جزئيًّا</guilabel
+></term>
+<listitem
+><para
+>عند وضع علامة في هذا المربع، ستضاف للملفات المرفوعة جزئيًا لاحقة <literal role="extension"
+>.part</literal
+> في نهاية اسم الملف. تُحذف هذه اللاحقة بمجرد اكتمال تنزيل الملف.</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+
+
+</sect1>
+</article>
