@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Arabic "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="ftp">
+<title
+>&FTP;</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>&FTP; هي خدمة الإنترنت المستخدمة لنقل ملف بيانات من قرص حاسوب إلى قرص حاسوب آخر، بغض النظر عن نوع نظام التشغيل. </para>
+
+<para
+>بشكل مشابه لتطبيقات الإنترنت الأخرى، يستخدم &FTP; نهج العميل والخادم &mdash; حيث يستدعي المستخدم برنامج &FTP; على الحاسوب، ويطلب منه الاتصال بحاسوب بعيد، ثم يطلب نقل ملف واحد أو أكثر. يصبح برنامج &FTP; المحلي عميلًا يستخدم البروتوكول <acronym
+>TCP</acronym
+> للاتصال ببرنامج خادم &FTP; على الحاسوب البعيد. وفي كل مرة يطلب فيها المستخدم نقل ملف، يتعاون برنامجا العميل والخادم لإرسال نسخة من البيانات عبر الإنترنت.</para>
+
+<para
+>تسمح خوادم &FTP; التي تتيح <quote
+>&FTP; المجهول</quote
+> لأي مستخدم، وليس فقط المستخدمين الذين لديهم حسابات على المضيف، بتصفح أرشيفات <quote
+>ftp</quote
+> وتنزيل الملفات. وتُضبط بعض خوادم &FTP; لتسمح للمستخدمين برفع الملفات.</para>
+
+<para
+>يُستخدم &FTP; بشكل شائع لاسترجاع المعلومات والحصول على البرمجيات المخزنة في ملفات في مواقع أرشيف &FTP; حول العالم. </para>
+
+<para
+>انظر RFC: <ulink url="https://datatracker.ietf.org/doc/html/rfc959"
+>https://datatracker.ietf.org/doc/html/rfc959</ulink
+>.</para>
+
+<para
+>انظر الدليل: <ulink url="man:/ftp"
+>ftp</ulink
+>.</para>
+
+</article>

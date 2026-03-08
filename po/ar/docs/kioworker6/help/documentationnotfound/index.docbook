@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Arabic "INCLUDE">
+]>
+<article id="documentationnotfound" lang="&language;">
+<title
+>التّوثيق غير موجود</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Jack</firstname
+> <surname
+>Ostroff</surname
+> <affiliation
+> <address
+><email
+>ostroffjh@users.sourceforge.net</email
+></address>
+</affiliation>
+</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2020-09-08</date>
+<releaseinfo
+>أُطر العمل 5.73</releaseinfo>
+
+</articleinfo>
+
+<para
+>لم يُعثر على التوثيق المطلوب في حاسوبك.</para>
+
+<para
+>قد يكون التوثيق غير موجود، أو لم يُثبّت مع التطبيق.</para>
+
+<tip
+><para
+>يرجى عدم مراسلة كاتب هذه الصفحة عبر البريد الإلكتروني للعثور على المستند المفقود. فسيطلب منك فقط اتباع التعليمات الموجودة في هذه الصفحة. </para
+></tip>
+
+<simplesect>
+<title
+>كيفية حل هذه المشكلة</title>
+
+<para
+>إذا كان التطبيق من برمجيات كيدي، فاستخدم أولاً وظيفة البحث في مركز مساعدة كيدي. في بعض الحالات، يكون للتوثيق اسم مختلف عن الاسم الذي كان البرنامج يستخدمه لمحاولة العثور عليه. إذا لم ينجح ذلك، فحاول البحث في <ulink url="https://docs.kde.org/"
+>موقع توثيق كيدي</ulink
+> عن التوثيق المطلوب. إذا وجدت التوثيق في ذلك الموقع، فقد توفر توزيعتك حزمة منفصلة للتوثيق (مثل الحزمة المسماة plasma-doc للتوثيق المتعلق ببلازما). يرجى استخدام مدير الحزم في توزيعتك للعثور على التوثيق المفقود وتثبيته.</para>
+
+<para
+>إذا كنت تستخدم توزيعة مبنية على المصادر، مثل جينتو (Gentoo)، فتأكد من عدم وجود أي إعدادات تهيئة (أعلام USE في جينتو) قد تكون عطلت تثبيت التوثيق. </para>
+
+<para
+>إذا فعلت ذلك، ولكن لا تزال هذه الصفحة تظهر بدلاً من دليل التطبيق، فمن المحتمل أنك وجدت علة في نظام المساعدة. في هذه الحالة، يرجى الإبلاغ عن ذلك في <ulink url="https://bugs.kde.org/"
+>متتبع علل كيدي</ulink
+> تحت منتج KIO. </para>
+
+<para
+>إذا لم تجد أي توثيق في <ulink url="https://docs.kde.org/"
+>موقع توثيق كيدي</ulink
+>، فقد لا يحتوي التطبيق على توثيق دون اتصال. يرجى الإبلاغ عن ذلك في <ulink url="https://bugs.kde.org/"
+>متتبع علل كيدي</ulink
+> تحت المنتج الخاص بالتطبيق. </para>
+
+<para
+>في حالة عدم توفر توثيق للتطبيق دون اتصال، يجب عليك استخدام الموارد عبر الإنترنت مثل <ulink url="https://userbase.kde.org/"
+>توثيق UserBase</ulink
+> و<ulink url="https://forum.kde.org/"
+>منتديات مجتمع كيدي</ulink
+> للحصول على المساعدة. </para>
+
+<para
+>بالنسبة للتطبيقات التي ليست من تطبيقات كيدي، يرجى الاتصال بكاتب التطبيق لتحديد ما إذا كان ينبغي توفر توثيق دون اتصال.</para>
+</simplesect>
+
+</article>

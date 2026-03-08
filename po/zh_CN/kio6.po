@@ -2701,18 +2701,18 @@ msgid ""
 "this entry refers to. If you do not enter a label, it will be derived from "
 "the location's URL.</qt>"
 msgstr ""
-"<qt>此段文字将在常用位置面板中显示。<br /><br />请使用言简意赅的文字描述此位"
-"置项的作用。如果没有输入文字标签，程序将从此位置的 URL 自动获取。</qt>"
+"<qt>此段文本将在常用位置面板中显示。<br /><br />请使用言简意赅的文本描述此位"
+"置项的作用。如果没有输入文本标签，程序将从此位置的 URL 自动获取。</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:84
 #, kde-format
 msgid "L&abel:"
-msgstr "文字标签(&A)："
+msgstr "文本标签(&A)："
 
 #: filewidgets/kfileplaceeditdialog.cpp:86
 #, kde-format
 msgid "Enter descriptive label here"
-msgstr "在此输入文字标签"
+msgstr "在此输入文本标签"
 
 #: filewidgets/kfileplaceeditdialog.cpp:91
 #, kde-format
@@ -6480,8 +6480,6 @@ msgstr "打开文件对话框"
 
 #: widgets/paste.cpp:65 widgets/paste.cpp:104
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "粘贴剪贴板内容…"
@@ -6534,7 +6532,6 @@ msgstr "粘贴"
 
 #: widgets/pastedialog.cpp:54
 #, fuzzy, kde-format
-#| msgid "Data format:"
 msgctxt "@label"
 msgid "Data format:"
 msgstr "数据格式："

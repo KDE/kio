@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN"
+"dtd/kdedbx45.dtd" [
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Arabic "INCLUDE"
+> <!-- change language only here -->
+]>
+	
+<article lang="&language;" id="http">
+<title
+>http / https</title>
+<articleinfo>
+<authorgroup>
+<author
+>&Lauri.Watts; &Lauri.Watts.mail;</author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+</articleinfo>
+
+<para
+>HTTPاختصار لـ <emphasis
+>H</emphasis
+>yper<emphasis
+>T</emphasis
+>ext <emphasis
+>T</emphasis
+>ransfer <emphasis
+>P</emphasis
+>rotocol ميفاق نقل النص التشعبي..</para>
+
+<para
+>يُستخدم عامل KIO لـ http بواسطة كل تطبيقات كيدي لمعالجة الاتصالات بخواديم &HTTP;، أي خواديم الويب. الاستخدام الأكثر شيوعًا هو عرض صفحات الويب في متصفح الويب كنكرور.</para>
+
+<para
+>يمكنك استخدام عامل KIO لـ https في كنكرور بإعطائه عنوان &URL;. <userinput
+>https://<replaceable
+>www.kde.org</replaceable
+></userinput
+>.</para>
+
+<para
+>إن https هو http مُغلف في تدفق SSL/TLS.</para>
+<para
+>إن SSL هو بروتوكول طبقة المقابس الآمنة، وهو بروتوكول أمان يوفر خصوصية الاتصالات عبر الإنترنت. يسمح البروتوكول لتطبيقات العميل/الخادوم بالتواصل بطريقة صُممت لمنع التنصت أو التلاعب أو تزوير الرسائل. </para>
+<para
+>يرمز TLS إلى أمن طبقة النقل (Transport Layer Security).</para>
+
+</article>
