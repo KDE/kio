@@ -74,7 +74,7 @@
 <varlistentry
 ><term
 ><guilabel
->قيد بـ</guilabel
+>يقتصر على</guilabel
 ></term>
 <listitem
 ><para
@@ -85,7 +85,7 @@
 <varlistentry
 ><term
 ><guilabel
->عند امتلاء المهملات:</guilabel
+>عند امتلاء سلة المهملات:</guilabel
 ></term>
 <listitem
 ><para

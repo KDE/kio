@@ -35,7 +35,7 @@
 <date
 >2016-11-10</date>
 <releaseinfo
->أُطر العمل </releaseinfo>
+>أُطر العمل 5.29</releaseinfo>
 
 <keywordset>
 <keyword
@@ -149,7 +149,7 @@
 <varlistentry>
 <term
 ><guilabel
->اقبل حتى نهاية الجلسة</guilabel
+>اقبل حتّى تنتهي الجلسة</guilabel
 ></term>
 <listitem>
 <para
@@ -159,7 +159,7 @@
 <varlistentry>
 <term
 ><guilabel
->اطلب التأكيد</guilabel
+>اطلب تّأكيد</guilabel
 ></term>
 <listitem>
 <para
