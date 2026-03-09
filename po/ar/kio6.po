@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-04 00:41+0000\n"
-"PO-Revision-Date: 2026-03-05 09:31+0400\n"
+"PO-Revision-Date: 2026-03-08 09:41+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2469,7 +2469,7 @@ msgstr "القائمة"
 #: filewidgets/kdiroperator.cpp:2048
 #, kde-format
 msgid "Parent Folder"
-msgstr "المجلّد الأبّ"
+msgstr "المجلّد الأب"
 
 #: filewidgets/kdiroperator.cpp:2055
 #, kde-format
@@ -3268,7 +3268,7 @@ msgid ""
 "if the current location is file:/home/konqi clicking this button will take "
 "you to file:/home.</qt>"
 msgstr ""
-"<qt>انقر هذا الزّرّ للدّخول إلى المجلّد الأبّ. <br /><br /> مثلًا إن كان المكان "
+"<qt>انقر هذا الزّرّ للدّخول إلى المجلّد الأب. <br /><br /> مثلًا إن كان المكان "
 "الحاليّ هو file:/home/konqi، نقر هذا الزّرّ سيأخذك إلى file:/home.</qt>"
 
 #: filewidgets/kfilewidget.cpp:1223
@@ -5621,7 +5621,7 @@ msgctxt ""
 "@title:group Title of a group that lets the user choose options about the "
 "terminal when launching a program"
 msgid "Terminal"
-msgstr "الطّرفيّة"
+msgstr "الطرفية"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:39
@@ -5638,13 +5638,13 @@ msgstr ""
 #: widgets/kpropertiesdesktopadvbase.ui:42
 #, kde-format
 msgid "Run in terminal"
-msgstr "شغّل في الطّرفيّة"
+msgstr "شغّل في الطرفية"
 
 #. i18n: ectx: property (text), widget (QLabel, terminalEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:49
 #, kde-format
 msgid "Terminal options:"
-msgstr "&خيارات  الطّرفيّة:"
+msgstr "&خيارات  الطرفية:"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, terminalCloseCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:59
