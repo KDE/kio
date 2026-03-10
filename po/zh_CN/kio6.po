@@ -6479,10 +6479,10 @@ msgid "Open file dialog"
 msgstr "打开文件对话框"
 
 #: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "粘贴剪贴板内容…"
+msgstr "粘贴剪贴板内容"
 
 #: widgets/paste.cpp:101
 #, kde-format
@@ -6531,7 +6531,7 @@ msgid "Paste"
 msgstr "粘贴"
 
 #: widgets/pastedialog.cpp:54
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "数据格式："

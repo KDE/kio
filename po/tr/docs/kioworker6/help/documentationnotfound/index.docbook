@@ -76,19 +76,19 @@
 <para
 ><ulink url="https://docs.kde.org/"
 >&kde; Belgelendirmesi</ulink
-> sitesinde hiçbir belge bulamadıysanız uygulamanın kendisinin çevrimdışı kullanılabilecek bir belgelendirmesi olmayabilir. Bunu, <ulink url="https://bugs.kde.org/"
+> sitesinde hiçbir belge bulamadıysanız uygulamanın kendisinin çevrim dışı kullanılabilecek bir belgelendirmesi olmayabilir. Bunu, <ulink url="https://bugs.kde.org/"
 >&kde;’nin hata izleyicisinde</ulink
 > ilgili uygulama bileşeni altında bildirin. </para>
 
 <para
->Uygulamanın çevrimdışı kullanılabilecek bir belgelendirmesi yoksa yardım almak için çevrimiçi <ulink url="https://userbase.kde.org/"
+>Uygulamanın çevrim dışı kullanılabilecek bir belgelendirmesi yoksa yardım almak için çevrim içi <ulink url="https://userbase.kde.org/"
 >Kullanıcı Tabanı Belgelendirmesi</ulink
 > veya <ulink url="https://forum.kde.org/"
 >&kde; Topluluk Forumları</ulink
 >’na bakın. </para>
 
 <para
->&kde; dışı uygulamalar için lütfen uygulama yazarıyla iletişime geçerek çevrimdışı belgelendirme var mı yok mu diye sorun.</para>
+>&kde; dışı uygulamalar için lütfen uygulama yazarıyla iletişime geçerek çevrim dışı belgelendirme var mı yok mu diye sorun.</para>
 </simplesect>
 
 </article>
