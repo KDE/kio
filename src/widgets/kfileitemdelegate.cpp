@@ -786,18 +786,17 @@ KFileItemDelegate::KFileItemDelegate(QObject *parent)
     int focusVMargin = QApplication::style()->pixelMetric(QStyle::PM_FocusFrameVMargin);
 
     // Margins for horizontal mode (list views, tree views, table views)
-    const int textMargin = focusHMargin * 4;
     if (QApplication::isRightToLeft()) {
-        d->setHorizontalMargin(Private::TextMargin, textMargin, focusVMargin, focusHMargin, focusVMargin);
+        d->setHorizontalMargin(Private::TextMargin, focusHMargin, focusVMargin, focusHMargin, focusVMargin);
     } else {
-        d->setHorizontalMargin(Private::TextMargin, focusHMargin, focusVMargin, textMargin, focusVMargin);
+        d->setHorizontalMargin(Private::TextMargin, focusHMargin, focusVMargin, focusHMargin, focusVMargin);
     }
 
     d->setHorizontalMargin(Private::IconMargin, focusHMargin, focusVMargin);
-    d->setHorizontalMargin(Private::ItemMargin, 2, 0);
+    d->setHorizontalMargin(Private::ItemMargin, focusHMargin, 0);
 
     // Margins for vertical mode (icon views)
-    d->setVerticalMargin(Private::TextMargin, 6, 0);
+    d->setVerticalMargin(Private::TextMargin, focusHMargin, 0);
     d->setVerticalMargin(Private::IconMargin, focusHMargin, focusVMargin);
     d->setVerticalMargin(Private::ItemMargin, 0, 0);
 
