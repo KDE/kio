@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-04 00:41+0000\n"
-"PO-Revision-Date: 2026-03-04 16:29+0100\n"
+"PO-Revision-Date: 2026-03-11 18:48+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -2082,7 +2082,7 @@ msgstr ""
 #: core/job_error.cpp:1148
 #, kde-format
 msgid "Could Not Delete Temporary File"
-msgstr "Il non pote deler file temporari"
+msgstr "Il non pote deler file temporanee"
 
 #: core/job_error.cpp:1150
 #, kde-format
@@ -2091,9 +2091,9 @@ msgid ""
 "to save the new file while being downloaded. This temporary file <strong>%1</"
 "strong> could not be deleted."
 msgstr ""
-"Le requirite operation exigeva le creation de un file temporari ubi "
+"Le requirite operation exigeva le creation de un file temporanee ubi "
 "salveguardar le nove file durante que il esseva discargate. Iste file "
-"temporari <strong>%1</strong> non poterea esser delite."
+"temporanee<strong>%1</strong> non poterea esser delite."
 
 #: core/job_error.cpp:1160
 #, kde-format
@@ -2112,7 +2112,7 @@ msgstr ""
 #: core/job_error.cpp:1171
 #, kde-format
 msgid "Could Not Rename Temporary File"
-msgstr "Il non pote renominar file temporari"
+msgstr "Il non pote renominar file temporanee"
 
 #: core/job_error.cpp:1173
 #, kde-format
@@ -2120,8 +2120,8 @@ msgid ""
 "The requested operation required the creation of a temporary file <strong>"
 "%1</strong>, however it could not be created."
 msgstr ""
-"Le requirite operation exigeva le creation de un  file temporari <strong>%1</"
-"strong>, totevia il non poterea esser create."
+"Le requirite operation exigeva le creation de un  file temporanee <strong>"
+"%1</strong>, totevia il non poterea esser create."
 
 #: core/job_error.cpp:1182
 #, kde-format
@@ -2164,9 +2164,9 @@ msgid ""
 "archiving files to removable media storage such as CD-Recordable discs; or "
 "3) obtain more storage capacity."
 msgstr ""
-"Libera assatis spatio de disco per 1) deler file temporari e non desiderate; "
-"2) archivar files sur media de immagazinage removibile tal como discos CD-"
-"Recordable; o 3) obtener plus capacitate de immagazinage."
+"Libera assatis spatio de disco per 1) deler file temporanee e non "
+"desiderate; 2) archivar files sur media de immagazinage removibile tal como "
+"discos CD-Recordable; o 3) obtener plus capacitate de immagazinage."
 
 #: core/job_error.cpp:1208
 #, kde-format
@@ -4101,7 +4101,7 @@ msgid ""
 "has been modified.\n"
 "Do you still want to delete it?"
 msgstr ""
-"Le supponite file temporari\n"
+"Le supponite file temporanee\n"
 "%1\n"
 "ha essite modificate.\n"
 "Tu ancora vole cancellar lo?"
@@ -4208,7 +4208,7 @@ msgstr ""
 #: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
 #, kde-format
 msgid "Could not open temporary file"
-msgstr "Il non pote aperir file temporari"
+msgstr "Il non pote aperir file temporanee"
 
 #: kioworkers/file/file.cpp:765
 #, kde-format
