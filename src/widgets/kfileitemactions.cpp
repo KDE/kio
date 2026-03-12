@@ -736,6 +736,11 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
     //// Ok, we have everything, now insert
 
     const KFileItemList items = m_props.items();
+    if (items.isEmpty()) {
+        qCWarning(KIO_WIDGETS) << "insertOpenWithActionsTo called with empty itemListProperties";
+        return;
+    }
+
     const KFileItem &firstItem = items.first();
     const bool isLocal = firstItem.url().isLocalFile();
     const bool isDir = m_props.isDirectory();
