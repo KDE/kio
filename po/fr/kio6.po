@@ -3827,7 +3827,7 @@ msgstr "Saisissez un nom de fichier"
 #: filewidgets/knewfilemenu_newfiledialog.ui:79
 #, kde-format
 msgid "Choose custom icon or color"
-msgstr "Sélectionnez une icône ou un couleur personnalisée"
+msgstr "Sélectionnez une icône ou une couleur personnalisée"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
