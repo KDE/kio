@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-04 00:41+0000\n"
-"PO-Revision-Date: 2026-03-08 09:41+0400\n"
+"PO-Revision-Date: 2026-03-14 10:56+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -294,7 +294,7 @@ msgstr "ينقل"
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
-msgstr "يضمّ"
+msgstr "يوصل"
 
 #: core/job.cpp:156
 #, kde-format
@@ -304,13 +304,13 @@ msgstr "الجهاز"
 #: core/job.cpp:156 core/job.cpp:161
 #, kde-format
 msgid "Mountpoint"
-msgstr "نقطة الضمّ"
+msgstr "نقطة الوصلّ"
 
 #: core/job.cpp:161
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
-msgstr "يزيل الضمّ"
+msgstr "يفك الوصل"
 
 #: core/job_error.cpp:37
 #, kde-format
@@ -449,7 +449,7 @@ msgid ""
 "The reported error was:\n"
 "%1"
 msgstr ""
-"تعذّر ضمّ الجهاز.\n"
+"تعذّر وصل الجهاز.\n"
 "أُبلغ عن الخطأ الآتي:\n"
 "%1"
 
@@ -460,7 +460,7 @@ msgid ""
 "The reported error was:\n"
 "%1"
 msgstr ""
-"تعذّرت إزالة ضمّ الجهاز.\n"
+"تعذّرت إزالة وصل الجهاز.\n"
 "أُبلغ عن الخطأ الآتي:\n"
 "%1"
 
@@ -1499,7 +1499,7 @@ msgstr "تعذّر تمهيد جهاز الدّخل/الخرج"
 #: core/job_error.cpp:770
 #, kde-format
 msgid "Could Not Mount Device"
-msgstr "تعذّر ضمّ الجهاز"
+msgstr "تعذّر وصل الجهاز"
 
 #: core/job_error.cpp:772
 #, kde-format
@@ -1507,7 +1507,7 @@ msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
 "error was: <strong>%1</strong>"
 msgstr ""
-"تعذّر تمهيد (”ضمّ“) الجهاز المطلوب. أُبلغ عن الخطأ الآتي: <strong>%1</strong>"
+"تعذّر تمهيد (”وصل“) الجهاز المطلوب. أُبلغ عن الخطأ الآتي: <strong>%1</strong>"
 
 #: core/job_error.cpp:776
 #, kde-format
@@ -1527,7 +1527,7 @@ msgid ""
 "systems, often system administrator privileges are required to initialize a "
 "device."
 msgstr ""
-"قد لا تكون لديك أذونات لتمهيد (”ضمّ“) الجهاز. على أنظمة يونكس، غالبًا ما تكون "
+"قد لا تكون لديك أذونات لتمهيد (”وصل“) الجهاز. على أنظمة يونكس، غالبًا ما تكون "
 "امتيازات مدير النّظام مطلوبة لتمهيد الأجهزة."
 
 #: core/job_error.cpp:786
@@ -1547,7 +1547,7 @@ msgstr "تعذّر إلغاء تمهيد جهاز الدّخل/الخرج"
 #: core/job_error.cpp:794
 #, kde-format
 msgid "Could Not Unmount Device"
-msgstr "تعذّرت إزالة ضمّ الجهاز"
+msgstr "تعذّرت إزالة وصل الجهاز"
 
 #: core/job_error.cpp:796
 #, kde-format
@@ -1555,7 +1555,7 @@ msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
 "reported error was: <strong>%1</strong>"
 msgstr ""
-"تعذّر إلغاء تمهيد (”إزالة ضمّ“) الجهاز المطلوب. أُبلغ عن الخطأ الآتي: <strong>"
+"تعذّر إلغاء تمهيد (”إزالة وصل“) الجهاز المطلوب. أُبلغ عن الخطأ الآتي: <strong>"
 "%1</strong>"
 
 #: core/job_error.cpp:800
@@ -1576,7 +1576,7 @@ msgid ""
 "UNIX systems, system administrator privileges are often required to "
 "uninitialize a device."
 msgstr ""
-"قد لا تكون لديك أذونات لإلغاء تمهيد (”إزالة ضمّ“) الجهاز. على أنظمة يونكس، "
+"قد لا تكون لديك أذونات لإلغاء تمهيد (”إزالة وصل“) الجهاز. على أنظمة يونكس، "
 "غالبًا ما تكون امتيازات مدير النّظام مطلوبة لتمهيد الأجهزة."
 
 #: core/job_error.cpp:810
@@ -3006,13 +3006,13 @@ msgstr "أزِل بأمان…"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "أزل الضمّ…"
+msgstr "أزل الوصل…"
 
 #: filewidgets/kfileplacesmodel.cpp:1428
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
-msgstr "أزل ال&ضمّ"
+msgstr "أزل ال&وصل"
 
 #: filewidgets/kfileplacesmodel.cpp:1452
 #, kde-format
@@ -3108,7 +3108,7 @@ msgstr "أفرِغ المهملات"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
-msgstr "ضمّ"
+msgstr "وصل"
 
 #: filewidgets/kfileplacesview.cpp:1258
 #, kde-format
@@ -5450,13 +5450,13 @@ msgstr "نظام الملفّات:"
 #: widgets/kfilepropspluginwidget.ui:481
 #, kde-format
 msgid "Mounted On:"
-msgstr "مضموم في:"
+msgstr "موصول في:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
 #, kde-format
 msgid "Mounted From:"
-msgstr "مضموم من:"
+msgstr "موصول من:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
