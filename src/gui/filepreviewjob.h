@@ -12,6 +12,7 @@
 #include <KPluginMetaData>
 #include <QDir>
 #include <QImage>
+#include <QPointer>
 #include <QSize>
 #include <kfileitem.h>
 #include <kio/job.h>
@@ -160,8 +161,8 @@ private:
 
     int m_timeoutTimer = -1;
 
-    KIO::TransferJob *m_transferjob = nullptr;
-    KIO::StandardThumbnailJob *m_standardThumbnailJob = nullptr;
+    QPointer<KIO::TransferJob> m_transferjob = nullptr;
+    QPointer<KIO::StandardThumbnailJob> m_standardThumbnailJob = nullptr;
 
     void getOrCreateThumbnail();
     static QImage loadThumbnailFromCache(const QString &url, qreal dpr);
