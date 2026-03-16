@@ -3,8 +3,8 @@
 # SPDX-FileCopyrightText: 2005-2009 Thomas Reitelbach <tr@erdfunkstelle.de>
 # SPDX-FileCopyrightText: 2006 Stephan Johach <lucardus@onlinehome.de>
 # SPDX-FileCopyrightText: 2006-2009, 2011, 2013, 2015-2021 Burkhard Lück <lueck@hube-lueck.de>
-# SPDX-FileCopyrightText: 2010-2013, 2015-2018, 2020-2023 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2010, 2023-2025 Johannes Obermayr <johannesobermayr@gmx.de>
+# SPDX-FileCopyrightText: 2010-2013, 2015-2018, 2020-2023 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2011 Panagiotis Papadopoulos <pano_90@gmx.net>
 # SPDX-FileCopyrightText: 2021 Frank Steinmetzger <dev@felsenfleischer.de>
 # SPDX-FileCopyrightText: 2021 Kai Uwe Broulik <kde@privat.broulik.de>
@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-04 00:41+0000\n"
-"PO-Revision-Date: 2026-02-17 19:03+0100\n"
+"PO-Revision-Date: 2026-03-12 00:17+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -6880,12 +6880,10 @@ msgid "Open file dialog"
 msgstr "Dateiauswahl"
 
 #: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "Inhalt der Zwischenablage einfügen …"
+msgstr "Inhalt der Zwischenablage einfügen"
 
 #: widgets/paste.cpp:101
 #, kde-format
@@ -6936,8 +6934,7 @@ msgid "Paste"
 msgstr "Einfügen"
 
 #: widgets/pastedialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Datenformat:"
