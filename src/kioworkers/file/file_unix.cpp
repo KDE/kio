@@ -273,19 +273,29 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
          * it if it is greater than 0. */
         if (buff.st_birthtime > 0) {
             entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, buff.st_birthtime);
+
+            if ((details & KIO::StatTimeNsOffset) == KIO::StatTimeNsOffset) {
+                entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME_NS_OFFSET, buff.st_birthtimespec.tv_nsec);
+            }
         }
+
 #elif defined __st_birthtime
         /* As above, but OpenBSD calls it slightly differently. */
         if (buff.__st_birthtime > 0) {
             entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, buff.__st_birthtime);
+
+            if ((details & KIO::StatTimeNsOffset) == KIO::StatTimeNsOffset) {
+                entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME_NS_OFFSET, buff.__st_birthtimensec);
+            }
         }
+
 #elif HAVE_STATX
         /* And linux version using statx syscall */
         if (buff.stx_mask & STATX_BTIME) {
             entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, buff.stx_btime.tv_sec);
 
             if ((details & KIO::StatTimeNsOffset) == KIO::StatTimeNsOffset) {
-                entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME_NS_OFFSET, buff.stx_btime.tv_nsec / 1000000);
+                entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME_NS_OFFSET, buff.stx_btime.tv_nsec);
             }
         }
 #endif

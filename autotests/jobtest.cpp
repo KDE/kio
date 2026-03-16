@@ -6,6 +6,7 @@
 */
 
 #include "jobtest.h"
+#include "../src/core/config-stat-unix.h"
 #include "mockcoredelegateextensions.h"
 
 #include "kio/job.h"
@@ -3117,6 +3118,8 @@ void JobTest::statWithNanosecondTimeOffset()
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS_TIME));
     QVERIFY(entry.contains(KIO::UDSEntry::UDS_ACCESS_TIME_NS_OFFSET));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_CREATION_TIME));
+    QVERIFY(entry.contains(KIO::UDSEntry::UDS_CREATION_TIME_NS_OFFSET));
 
     const auto modificationTimeInSec = entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME);
     auto modificationDateTime = QDateTime::fromSecsSinceEpoch(modificationTimeInSec);
@@ -3129,6 +3132,18 @@ void JobTest::statWithNanosecondTimeOffset()
     const auto fileInfo = QFileInfo(testFilePath.toLocalFile());
     QCOMPARE(modificationDateTime, fileInfo.lastModified());
     QCOMPARE(accessDateTime, fileInfo.lastRead());
+
+#if HAVE_STATX
+    struct statx buff;
+    auto result = statx(AT_FDCWD, QFile::encodeName(testFilePath.toLocalFile()).data(), AT_SYMLINK_NOFOLLOW, STATX_ATIME | STATX_MTIME | STATX_BTIME, &buff);
+    QVERIFY(result == 0);
+    QCOMPARE(buff.stx_mtime.tv_sec, entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME));
+    QCOMPARE(buff.stx_mtime.tv_nsec, entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET));
+    QCOMPARE(buff.stx_atime.tv_sec, entry.numberValue(KIO::UDSEntry::UDS_ACCESS_TIME));
+    QCOMPARE(buff.stx_atime.tv_nsec, entry.numberValue(KIO::UDSEntry::UDS_ACCESS_TIME_NS_OFFSET));
+    QCOMPARE(buff.stx_btime.tv_sec, entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME));
+    QCOMPARE(buff.stx_btime.tv_nsec, entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME_NS_OFFSET));
+#endif
 }
 
 #include "moc_jobtest.cpp"
