@@ -46,6 +46,18 @@ inline int LSTAT(const char *path, struct statx *buff, KIO::StatDetails details)
         // dev, inode
         mask |= STATX_INO;
     }
+#if HAVE_STATX_SUBVOL
+    if (details & KIO::StatSubVolId) {
+        // subvol id
+        mask |= STATX_SUBVOL;
+    }
+#endif
+#if HAVE_STATX_MNT_ID_UNIQUE
+    if (details & KIO::StatMountId) {
+        // mount unique id
+        mask |= STATX_MNT_ID_UNIQUE;
+    }
+#endif
     return statx(AT_FDCWD, path, AT_SYMLINK_NOFOLLOW, mask, buff);
 }
 inline int STAT(const char *path, struct statx *buff, const KIO::StatDetails &details)
