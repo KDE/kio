@@ -185,7 +185,17 @@ WorkerResult ForwardingWorkerBase::stat(const QUrl &url)
 {
     QUrl new_url;
     if (d->internalRewriteUrl(url, new_url)) {
-        KIO::SimpleJob *job = KIO::stat(new_url, KIO::HideProgressInfo);
+        KIO::StatJob::StatSide side = StatJob::SourceSide;
+        if (const QString sideMetaData = metaData(QStringLiteral("statSide")); sideMetaData == QLatin1String("dest")) {
+            side = StatJob::DestinationSide;
+        }
+
+        KIO::StatDetails details = KIO::StatDefaultDetails;
+        if (const QString detailsMetaData = metaData(QStringLiteral("details")); !detailsMetaData.isEmpty()) {
+            details = static_cast<KIO::StatDetails>(detailsMetaData.toInt());
+        }
+
+        KIO::SimpleJob *job = KIO::stat(new_url, side, details, KIO::HideProgressInfo);
         d->connectSimpleJob(job);
 
         return d->loopResult();
