@@ -6956,12 +6956,10 @@ msgid "Open file dialog"
 msgstr "Oscail dialóg chomhaid"
 
 #: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "Greamaigh Ábhar an Ghearrthaisce…"
+msgstr ""
 
 #: widgets/paste.cpp:101
 #, kde-format
@@ -7015,11 +7013,10 @@ msgid "Paste"
 msgstr "Greamaigh"
 
 #: widgets/pastedialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
-msgstr "Formáid na sonraí:"
+msgstr ""
 
 #: widgets/pastedialog.cpp:63
 #, kde-format
