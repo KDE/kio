@@ -28,6 +28,7 @@
 
 #include <KConfigGroup>
 #include <KFileUtils>
+#include <KLocalizedString>
 #include <KMountPoint>
 #include <KProtocolInfo>
 #include <KSharedConfig>
@@ -91,7 +92,9 @@ QString FilePreviewJob::parentDirPath(const QString &path)
 
 void FilePreviewJob::start()
 {
-    if (!m_fileItem.targetUrl().isValid()) {
+    QUrl targetUrl = m_fileItem.targetUrl();
+    if (!targetUrl.isValid()) {
+        setError(ERR_INTERNAL);
         emitResult();
         return;
     }
@@ -102,7 +105,8 @@ void FilePreviewJob::start()
         details.setFlag(KIO::StatMimeType);
     }
 
-    KIO::Job *statJob = KIO::stat(m_fileItem.targetUrl(), StatJob::SourceSide, details, KIO::HideProgressInfo);
+    qCDebug(KIO_GUI) << "filepreview: Starting preview for file:" << targetUrl.toString(QUrl::PreferLocalFile);
+    KIO::Job *statJob = KIO::stat(targetUrl, StatJob::SourceSide, details, KIO::HideProgressInfo);
     statJob->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
     statJob->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     connect(statJob, &KIO::Job::result, this, &FilePreviewJob::slotStatFile);
@@ -272,8 +276,10 @@ void FilePreviewJob::slotStatFile(KJob *job)
 
     const KIO::filesize_t size = static_cast<KIO::filesize_t>(statResult.numberValue(KIO::UDSEntry::UDS_SIZE, 0));
     if (size == 0 && !statResult.isDir()) {
-        qCDebug(KIO_GUI) << "FilePreviewJob: skipping an empty file, might be a broken symlink" << m_fileItem.url();
         setError(KIO::ERR_NO_CONTENT);
+        setErrorText(i18nc("%1 is a file url",
+                           "FilePreviewJob: skipping an empty file, might be a broken symlink: %1",
+                           m_fileItem.url().toDisplayString(QUrl::PreferLocalFile)));
         emitResult();
         return;
     }
