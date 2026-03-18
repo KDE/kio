@@ -7,6 +7,7 @@
 
 #include "kio_trash.h"
 #include "../../utils_p.h"
+#include "../kioworkers/file/stat_unix.h"
 #include "kiotrashdebug.h"
 #include "transferjob.h"
 
@@ -495,10 +496,10 @@ bool TrashProtocol::createUDSEntry(const QString &physicalPath,
     entry.fastInsert(KIO::UDSEntry::UDS_SIZE, buff.st_size);
     entry.fastInsert(KIO::UDSEntry::UDS_USER, m_userName); // assumption
     entry.fastInsert(KIO::UDSEntry::UDS_GROUP, m_groupName); // assumption
-    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, buff.st_mtim.tv_sec);
-    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, buff.st_mtim.tv_nsec);
-    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, buff.st_atim.tv_sec); // ## or use it for deletion time?
-    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME_NS_OFFSET, buff.st_atim.tv_nsec);
+    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, stat_mtime(buff));
+    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, stat_mtime_ns(buff));
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, stat_atime(buff)); // ## or use it for deletion time?
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME_NS_OFFSET, stat_atime_ns(buff));
     entry.fastInsert(KIO::UDSEntry::UDS_EXTRA, info.origPath);
     entry.fastInsert(KIO::UDSEntry::UDS_EXTRA + 1, info.deletionDate.toString(Qt::ISODate));
     return true;

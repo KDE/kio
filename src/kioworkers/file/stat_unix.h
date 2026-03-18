@@ -136,7 +136,7 @@ inline static uint64_t stat_mnt_id(const struct statx &buf)
 }
 #endif
 #else
-// regular stat struct
+// regular stat struct (no statx)
 inline int LSTAT(const char *path, QT_STATBUF *buff, KIO::StatDetails details)
 {
     Q_UNUSED(details)
@@ -147,6 +147,9 @@ inline int STAT(const char *path, QT_STATBUF *buff, KIO::StatDetails details)
     Q_UNUSED(details)
     return QT_STAT(path, buff);
 }
+#endif
+
+// QT_STATBUF overloads (always available regardless of HAVE_STATX)
 inline static mode_t stat_mode(const QT_STATBUF &buf)
 {
     return buf.st_mode;
@@ -177,8 +180,10 @@ inline static time_t stat_atime(const QT_STATBUF &buf)
 }
 inline static int64_t stat_atime_ns(const QT_STATBUF &buf)
 {
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN)
     return 0;
+#elif defined(Q_OS_DARWIN)
+    return buf.st_atimespec.tv_nsec;
 #else
     return buf.st_atim.tv_nsec;
 #endif
@@ -189,12 +194,13 @@ inline static time_t stat_mtime(const QT_STATBUF &buf)
 }
 inline static int64_t stat_mtime_ns(const QT_STATBUF &buf)
 {
-#ifdef Q_OS_WIN
+#if defined(Q_OS_WIN)
     return 0;
+#elif defined(Q_OS_DARWIN)
+    return buf.st_mtimespec.tv_nsec;
 #else
     return buf.st_mtim.tv_nsec;
 #endif
 }
-#endif
 
 #endif // STAT_UNIX_H

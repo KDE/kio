@@ -10,6 +10,7 @@
 
 #include "udsentry.h"
 
+#include "../kioworkers/file/stat_unix.h"
 #include "../utils_p.h"
 
 #include <QDataStream>
@@ -363,11 +364,11 @@ UDSEntry::UDSEntry(const QT_STATBUF &buff, const QString &name)
     d->insert(UDS_INODE, buff.st_ino);
     d->insert(UDS_FILE_TYPE, buff.st_mode & QT_STAT_MASK); // extract file type
     d->insert(UDS_ACCESS, buff.st_mode & 07777); // extract permissions
-    d->insert(UDS_MODIFICATION_TIME, buff.st_mtime);
-    d->insert(UDS_ACCESS_TIME, buff.st_atime);
-#ifndef Q_OS_WIN
-    d->insert(UDS_MODIFICATION_TIME_NS_OFFSET, buff.st_mtim.tv_nsec);
-    d->insert(UDS_ACCESS_TIME_NS_OFFSET, buff.st_atim.tv_nsec);
+    d->insert(UDS_MODIFICATION_TIME, stat_mtime(buff));
+    d->insert(UDS_MODIFICATION_TIME_NS_OFFSET, stat_mtime_ns(buff));
+    d->insert(UDS_ACCESS_TIME, stat_atime(buff));
+    d->insert(UDS_ACCESS_TIME_NS_OFFSET, stat_atime_ns(buff));
+#if !defined(Q_OS_WIN)
     d->insert(UDS_LOCAL_USER_ID, buff.st_uid);
     d->insert(UDS_LOCAL_GROUP_ID, buff.st_gid);
 #endif
