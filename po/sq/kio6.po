@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:41+0000\n"
+"POT-Creation-Date: 2026-03-18 00:41+0000\n"
 "PO-Revision-Date: 2025-12-07 00:08-0500\n"
 "Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
 "Language-Team: sq\n"
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "S’arrihet të krijohet “worker” KIO: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:998
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1008
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4228,22 +4228,22 @@ msgstr "S’u gjet dot programi “mount”"
 msgid "Could not find program \"umount\""
 msgstr "S’u gjet dot programi “umount”"
 
-#: kioworkers/file/file_unix.cpp:591
+#: kioworkers/file/file_unix.cpp:601
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "S’mund të kopjohet kartelë nga %1 në %2. (Errno: %3)"
 
-#: kioworkers/file/file_unix.cpp:805
+#: kioworkers/file/file_unix.cpp:815
 #, kde-format
 msgid "No media in device for %1"
 msgstr "S’ka media te pajisja për %1"
 
-#: kioworkers/file/file_unix.cpp:1066
+#: kioworkers/file/file_unix.cpp:1076
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "S’u mor dot ID përdoruesi për emrin e dhënë të përdoruesit %1"
 
-#: kioworkers/file/file_unix.cpp:1077
+#: kioworkers/file/file_unix.cpp:1087
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "S’u mor dot ID grupi për emrin e dhënë të grupit %1"

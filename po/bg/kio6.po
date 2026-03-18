@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:41+0000\n"
+"POT-Creation-Date: 2026-03-18 00:41+0000\n"
 "PO-Revision-Date: 2026-02-25 19:14+0100\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Невъзможно създаване на входно/изходна връзка: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:998
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1008
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4189,22 +4189,22 @@ msgstr "Програмата \"mount\" не може да бъде намере�
 msgid "Could not find program \"umount\""
 msgstr "Програмата \"umount\" не може да бъде намерена"
 
-#: kioworkers/file/file_unix.cpp:591
+#: kioworkers/file/file_unix.cpp:601
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Копирането на файла от %1 в %2 беше неуспешно. (грешка: %3)"
 
-#: kioworkers/file/file_unix.cpp:805
+#: kioworkers/file/file_unix.cpp:815
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Няма носител в устройството %1"
 
-#: kioworkers/file/file_unix.cpp:1066
+#: kioworkers/file/file_unix.cpp:1076
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ИД за потребител „%1“ не може да бъде получен"
 
-#: kioworkers/file/file_unix.cpp:1077
+#: kioworkers/file/file_unix.cpp:1087
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ИД за група „%1“ не може да бъде получен"

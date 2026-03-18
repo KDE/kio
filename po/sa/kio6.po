@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-04 00:41+0000\n"
+"POT-Creation-Date: 2026-03-18 00:41+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO कार्यकर्ता निर्मातुं असमर्थः: %1"
 
-#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:998
+#: core/copyjob.cpp:167 kioworkers/file/file_unix.cpp:1008
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4119,22 +4119,22 @@ msgstr "\"mount\" इति कार्यक्रमः न लब्धः �
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" इति कार्यक्रमः न लब्धः ।"
 
-#: kioworkers/file/file_unix.cpp:591
+#: kioworkers/file/file_unix.cpp:601
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1 तः %2 पर्यन्तं सञ्चिकां प्रतिलिखितुं न शक्यते । (त्रुटिसङ्ख्या: %3)"
 
-#: kioworkers/file/file_unix.cpp:805
+#: kioworkers/file/file_unix.cpp:815
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 इत्यस्य कृते उपकरणे कोऽपि माध्यमः नास्ति"
 
-#: kioworkers/file/file_unix.cpp:1066
+#: kioworkers/file/file_unix.cpp:1076
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "दत्तस्य उपयोक्तृनाम %1 कृते उपयोक्तृ-तादात्म्यम् (user id) प्राप्तुं न शक्तम्"
 
-#: kioworkers/file/file_unix.cpp:1077
+#: kioworkers/file/file_unix.cpp:1087
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "दत्तसमूहनाम %1 कृते समूह id प्राप्तुं न शक्तम्"
