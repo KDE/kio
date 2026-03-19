@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-18 00:41+0000\n"
+"POT-Creation-Date: 2026-03-19 00:40+0000\n"
 "PO-Revision-Date: 2026-03-16 16:29+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -113,7 +113,7 @@ msgstr "檔案已存在"
 msgid "Already Exists as Folder"
 msgstr "已存在以此為名的資料夾"
 
-#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "垃圾桶"
@@ -3740,6 +3740,12 @@ msgstr "儲存圖片到 %1 時發生錯誤。"
 msgid "Icon file too big, download aborted"
 msgstr "圖示檔案太大了，放棄下載"
 
+#: gui/filepreviewjob.cpp:281
+#, kde-format
+msgctxt "%1 is a file url"
+msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
+msgstr ""
+
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
 msgid "No mail client found"
@@ -4359,15 +4365,15 @@ msgstr "在連線到 %2 發生了無預期的錯誤 (%1)。"
 msgid "Network"
 msgstr "網路"
 
-#: kioworkers/trash/kio_trash.cpp:116 kioworkers/trash/kio_trash.cpp:160
-#: kioworkers/trash/kio_trash.cpp:220 kioworkers/trash/kio_trash.cpp:383
-#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:593
-#: kioworkers/trash/kio_trash.cpp:603
+#: kioworkers/trash/kio_trash.cpp:117 kioworkers/trash/kio_trash.cpp:161
+#: kioworkers/trash/kio_trash.cpp:221 kioworkers/trash/kio_trash.cpp:384
+#: kioworkers/trash/kio_trash.cpp:416 kioworkers/trash/kio_trash.cpp:594
+#: kioworkers/trash/kio_trash.cpp:604
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "不正確的 URL %1"
 
-#: kioworkers/trash/kio_trash.cpp:135
+#: kioworkers/trash/kio_trash.cpp:136
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4378,12 +4384,12 @@ msgstr ""
 "目錄 %1 不存在，所以無法回復這個檔案。您可以重新建立該目錄，或是把這個檔案拖"
 "曳到別處去存放。"
 
-#: kioworkers/trash/kio_trash.cpp:188 kioworkers/trash/kio_trash.cpp:209
+#: kioworkers/trash/kio_trash.cpp:189 kioworkers/trash/kio_trash.cpp:210
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "無效的通訊協定結合。"
 
-#: kioworkers/trash/kio_trash.cpp:200 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:201 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "檔案已經在垃圾桶內了。"

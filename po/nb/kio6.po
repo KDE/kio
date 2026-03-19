@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-18 00:41+0000\n"
+"POT-Creation-Date: 2026-03-19 00:40+0000\n"
 "PO-Revision-Date: 2025-09-13 12:21+0200\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -116,7 +116,7 @@ msgstr "Fila finnes fra før"
 msgid "Already Exists as Folder"
 msgstr "Finnes fra før som mappe"
 
-#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "Papirkurv"
@@ -3895,6 +3895,12 @@ msgstr "Feil ved lagring av bilde %1"
 msgid "Icon file too big, download aborted"
 msgstr "Ikonfila er for stor – avbryter nedlasting"
 
+#: gui/filepreviewjob.cpp:281
+#, kde-format
+msgctxt "%1 is a file url"
+msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
+msgstr ""
+
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
 msgid "No mail client found"
@@ -4533,15 +4539,15 @@ msgstr "En uventet feil (%1) oppstod ved forsøk på %2."
 msgid "Network"
 msgstr "Nettverk"
 
-#: kioworkers/trash/kio_trash.cpp:116 kioworkers/trash/kio_trash.cpp:160
-#: kioworkers/trash/kio_trash.cpp:220 kioworkers/trash/kio_trash.cpp:383
-#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:593
-#: kioworkers/trash/kio_trash.cpp:603
+#: kioworkers/trash/kio_trash.cpp:117 kioworkers/trash/kio_trash.cpp:161
+#: kioworkers/trash/kio_trash.cpp:221 kioworkers/trash/kio_trash.cpp:384
+#: kioworkers/trash/kio_trash.cpp:416 kioworkers/trash/kio_trash.cpp:594
+#: kioworkers/trash/kio_trash.cpp:604
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "Ødelagt URL %1"
 
-#: kioworkers/trash/kio_trash.cpp:135
+#: kioworkers/trash/kio_trash.cpp:136
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4554,12 +4560,12 @@ msgstr ""
 "nytt og bruke gjenopprett-funksjonen på nytt, eller dra elementet hvor som "
 "helst for å gjenopprette det."
 
-#: kioworkers/trash/kio_trash.cpp:188 kioworkers/trash/kio_trash.cpp:209
+#: kioworkers/trash/kio_trash.cpp:189 kioworkers/trash/kio_trash.cpp:210
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "Ugyldig kombinasjon av protokoller."
 
-#: kioworkers/trash/kio_trash.cpp:200 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:201 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Denne fila er allerede i papirkurven."

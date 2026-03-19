@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-18 00:41+0000\n"
+"POT-Creation-Date: 2026-03-19 00:40+0000\n"
 "PO-Revision-Date: 2026-03-04 13:00+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -120,7 +120,7 @@ msgstr "Dosya Halihazırda Var"
 msgid "Already Exists as Folder"
 msgstr "Klasör Olarak Halihazırda Var"
 
-#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1890 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "Çöp Kutusu"
@@ -3866,6 +3866,12 @@ msgstr "Görsel %1 konumuna kaydedilirken hata"
 msgid "Icon file too big, download aborted"
 msgstr "Simge dosyası çok büyük, indirme iptal edildi"
 
+#: gui/filepreviewjob.cpp:281
+#, kde-format
+msgctxt "%1 is a file url"
+msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
+msgstr ""
+
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
 msgid "No mail client found"
@@ -4508,15 +4514,15 @@ msgstr "%2 yapılmaya çalışılırken beklenmedik bir hata oluştu (%1)."
 msgid "Network"
 msgstr "Ağ"
 
-#: kioworkers/trash/kio_trash.cpp:116 kioworkers/trash/kio_trash.cpp:160
-#: kioworkers/trash/kio_trash.cpp:220 kioworkers/trash/kio_trash.cpp:383
-#: kioworkers/trash/kio_trash.cpp:415 kioworkers/trash/kio_trash.cpp:593
-#: kioworkers/trash/kio_trash.cpp:603
+#: kioworkers/trash/kio_trash.cpp:117 kioworkers/trash/kio_trash.cpp:161
+#: kioworkers/trash/kio_trash.cpp:221 kioworkers/trash/kio_trash.cpp:384
+#: kioworkers/trash/kio_trash.cpp:416 kioworkers/trash/kio_trash.cpp:594
+#: kioworkers/trash/kio_trash.cpp:604
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "Hatalı URL: %1"
 
-#: kioworkers/trash/kio_trash.cpp:135
+#: kioworkers/trash/kio_trash.cpp:136
 #, kde-format
 msgid ""
 "The directory %1 does not exist anymore, so it is not possible to restore "
@@ -4529,12 +4535,12 @@ msgstr ""
 "yeniden yapabilirsiniz veya bu ögeleri fare ile tutup istediğiniz yere "
 "taşıyabilirsiniz."
 
-#: kioworkers/trash/kio_trash.cpp:188 kioworkers/trash/kio_trash.cpp:209
+#: kioworkers/trash/kio_trash.cpp:189 kioworkers/trash/kio_trash.cpp:210
 #, kde-format
 msgid "Invalid combination of protocols."
 msgstr "Geçersiz protokol kombinasyonu."
 
-#: kioworkers/trash/kio_trash.cpp:200 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:201 kioworkers/trash/kio_trash_win.cpp:232
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Dosya halihazırda çöp kutusunda."
