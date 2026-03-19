@@ -43,7 +43,6 @@ KIOWIDGETS_EXECUTABLE_TESTS(
     openfilemanagerwindowtest
     previewtest
     faviconfinder
-    ${runapplication_EXE}
 )
 
 add_subdirectory(messageboxworker)

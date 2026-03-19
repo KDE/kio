@@ -18,6 +18,7 @@ ecm_add_test(
     LINK_LIBRARIES KF6::KIOCore Qt6::Test
 )
 
+set(kacltest_SRC)
 if (ACL_FOUND)
     set (kacltest_SRC kacltest.cpp)
 endif()
