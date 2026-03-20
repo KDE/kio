@@ -446,6 +446,9 @@ KFilePlacesModel::KFilePlacesModel(QObject *parent)
     if (KProtocolInfo::isKnownProtocol(QStringLiteral("afc"))) {
         predicate = QLatin1Char('[') + predicate + QLatin1String(" OR PortableMediaPlayer.supportedProtocols == 'afc']");
     }
+    if (KProtocolInfo::isKnownProtocol(QStringLiteral("kdeconnect"))) {
+        predicate = QLatin1Char('[') + predicate + QLatin1String(" OR PortableMediaPlayer.supportedProtocols == 'kdeconnect']");
+    }
 
     d->predicate = Solid::Predicate::fromString(predicate);
 
