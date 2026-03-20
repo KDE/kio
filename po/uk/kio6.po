@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-19 00:40+0000\n"
-"PO-Revision-Date: 2026-03-04 14:42+0200\n"
+"PO-Revision-Date: 2026-03-19 12:28+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -3931,6 +3931,8 @@ msgstr "Файл піктограми є надто великим, отрима
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
+"FilePreviewJob: пропускаємо порожній файл, можливо, пошкоджене символічне "
+"посилання: %1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format

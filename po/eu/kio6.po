@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-19 00:40+0000\n"
-"PO-Revision-Date: 2026-03-07 21:45+0100\n"
+"PO-Revision-Date: 2026-03-19 20:07+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -3920,6 +3920,8 @@ msgstr "Ikono fitxategi handiegia, jaistea galarazi da"
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
+"FilePreviewJob: fitxategi huts bat baztertzen, baliteke hautsitako esteka "
+"sinboliko bat izatea: %1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format

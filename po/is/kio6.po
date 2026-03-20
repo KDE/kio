@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-19 00:40+0000\n"
-"PO-Revision-Date: 2026-02-26 09:31+0000\n"
+"PO-Revision-Date: 2026-03-19 18:32+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -3897,6 +3897,7 @@ msgstr "Táknskrá of stór, hætt við niðurhal"
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
+"FilePreviewJob: sleppi auðri Skrá, gæti verið rofið tákntengi (symlink): %1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
@@ -6733,12 +6734,10 @@ msgid "Open file dialog"
 msgstr "Opna skráarglugga"
 
 #: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "Líma innihald klippispjalds…"
+msgstr "Líma innihald klippispjalds"
 
 #: widgets/paste.cpp:101
 #, kde-format
@@ -6788,8 +6787,7 @@ msgid "Paste"
 msgstr "Líma"
 
 #: widgets/pastedialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Gagnasnið:"
