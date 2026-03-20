@@ -202,6 +202,7 @@ void KUrlNavigatorTest::testUrlParsing_data()
     QTest::newRow("homeDir") << QStringLiteral("~") << QUrl::fromLocalFile(QDir::homePath());
     KUser user(KUser::UseRealUserID);
     QTest::newRow("userHomeDir") << (QStringLiteral("~") + user.loginName()) << QUrl::fromLocalFile(user.homeDir());
+    QTest::newRow("enviromentVariables") << QStringLiteral("$HOME") << QUrl::fromLocalFile(user.homeDir());
 }
 
 void KUrlNavigatorTest::testUrlParsing()
@@ -229,6 +230,7 @@ void KUrlNavigatorTest::testRelativePaths()
     const QString dirB = tempDirPath + QLatin1String("/a/b");
     const QString dirC = tempDirPath + QLatin1String("/.c");
     const QString link = tempDirPath + QLatin1String("/l");
+    const QString trash = QLatin1String("trash:/");
     createTestDirectory(dirA);
     createTestDirectory(dirB);
     createTestDirectory(dirC);
@@ -242,6 +244,7 @@ void KUrlNavigatorTest::testRelativePaths()
     const QUrl tempDirUrl = QUrl::fromLocalFile(tempDirPath);
     const QUrl dirAUrl = QUrl::fromLocalFile(dirA);
     const QUrl linkUrl = QUrl::fromLocalFile(link);
+    const QUrl trashUrl = QUrl(trash);
 
     // Change to tempDir
     m_navigator->setLocationUrl(tempDirUrl);
@@ -302,6 +305,14 @@ void KUrlNavigatorTest::testRelativePaths()
     m_navigator->editor()->setCurrentText(QStringLiteral("../../l"));
     QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
     QTRY_COMPARE(m_navigator->locationUrl(), linkUrl);
+
+    // Go to trash:
+    m_navigator->setLocationUrl(trashUrl);
+    m_navigator->setUrlEditable(true);
+    // Replace all the text with "a"
+    m_navigator->editor()->setCurrentText(QStringLiteral("/a"));
+    QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
+    QTRY_COMPARE(m_navigator->locationUrl(), QUrl::fromLocalFile("/a"));
 }
 
 void KUrlNavigatorTest::testFixUrlPath_data()

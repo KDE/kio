@@ -340,8 +340,8 @@ void KUrlNavigatorPrivate::slotApplyUrl(QUrl url)
     // SPDX-FileCopyrightText: 2001 Anders Lund <anders.lund@lund.tdcadsl.dk>
 
     // For example "desktop:/" _not_ "desktop:", see the comment in slotSchemeChanged()
-    if (!url.isEmpty() && url.path().isEmpty() && KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
-        url.setPath(QStringLiteral("/"));
+    if (!url.isEmpty() && !url.path().startsWith(QLatin1Char('/')) && KProtocolInfo::protocolClass(url.scheme()) == QLatin1String(":local")) {
+        url.setPath(QStringLiteral("/") + url.path());
     }
 
     const auto urlStr = url.toString();
@@ -403,7 +403,7 @@ void KUrlNavigatorPrivate::applyUncommittedUrl(ApplyUrlMethod method)
     }
 
     // Treat absolute paths as absolute paths.
-    // Relative paths get appended to the current path.
+    // Relative paths get appended to the current path, if protocol supports it.
     if (text.startsWith(QLatin1Char('/'))) {
         url.setPath(text);
     } else {
@@ -428,8 +428,12 @@ void KUrlNavigatorPrivate::applyUncommittedUrl(ApplyUrlMethod method)
             return;
         }
 
-        // ... otherwise fallback to whatever QUrl::fromUserInput() returns
-        applyUrl(QUrl::fromUserInput(text));
+        const QUrl textUrl(text);
+        if (textUrl.scheme().isEmpty()) {
+            applyUrl(QUrl::fromLocalFile(text));
+        } else {
+            applyUrl(textUrl);
+        }
     });
 }
 
