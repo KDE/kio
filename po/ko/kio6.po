@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-19 00:40+0000\n"
+"POT-Creation-Date: 2026-03-21 00:41+0000\n"
 "PO-Revision-Date: 2026-02-04 00:17+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3666,7 +3666,7 @@ msgstr "나중에 폴더 속성에서 아이콘을 변경할 수 있습니다."
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:602 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, kde-format
@@ -3674,39 +3674,39 @@ msgid "Copy"
 msgstr "복사"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:610 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "붙여넣기"
 
-#: filewidgets/kurlnavigator.cpp:626
+#: filewidgets/kurlnavigator.cpp:630
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "\"%1\"을(를) 새 탭으로 열기"
 
-#: filewidgets/kurlnavigator.cpp:634
+#: filewidgets/kurlnavigator.cpp:638
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "\"%1\"을(를) 새 창으로 열기"
 
-#: filewidgets/kurlnavigator.cpp:643
+#: filewidgets/kurlnavigator.cpp:647
 #, kde-format
 msgid "Edit"
 msgstr "편집"
 
-#: filewidgets/kurlnavigator.cpp:646
+#: filewidgets/kurlnavigator.cpp:650
 #, kde-format
 msgid "Navigate"
 msgstr "탐색"
 
-#: filewidgets/kurlnavigator.cpp:661
+#: filewidgets/kurlnavigator.cpp:665
 #, kde-format
 msgid "Show Full Path"
 msgstr "전체 경로 표시"
 
-#: filewidgets/kurlnavigator.cpp:822
+#: filewidgets/kurlnavigator.cpp:826
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -3810,7 +3810,7 @@ msgstr "%1(으)로 그림을 저장할 수 없음"
 msgid "Icon file too big, download aborted"
 msgstr "아이콘 파일이 너무 커서 다운로드 중단함"
 
-#: gui/filepreviewjob.cpp:281
+#: gui/filepreviewjob.cpp:285
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"

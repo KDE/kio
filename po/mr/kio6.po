@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-19 00:40+0000\n"
+"POT-Creation-Date: 2026-03-21 00:41+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -3503,7 +3503,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:602 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, kde-format
@@ -3511,41 +3511,41 @@ msgid "Copy"
 msgstr "प्रत करा"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:610 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "चिटकवा"
 
-#: filewidgets/kurlnavigator.cpp:626
+#: filewidgets/kurlnavigator.cpp:630
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "यामध्ये उघडा"
 
-#: filewidgets/kurlnavigator.cpp:634
+#: filewidgets/kurlnavigator.cpp:638
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "यामध्ये उघडा"
 
-#: filewidgets/kurlnavigator.cpp:643
+#: filewidgets/kurlnavigator.cpp:647
 #, kde-format
 msgid "Edit"
 msgstr "संपादित करा"
 
-#: filewidgets/kurlnavigator.cpp:646
+#: filewidgets/kurlnavigator.cpp:650
 #, kde-format
 msgid "Navigate"
 msgstr "संचारण करा"
 
-#: filewidgets/kurlnavigator.cpp:661
+#: filewidgets/kurlnavigator.cpp:665
 #, kde-format
 msgid "Show Full Path"
 msgstr "पूर्ण मार्ग दर्शवा"
 
-#: filewidgets/kurlnavigator.cpp:822
+#: filewidgets/kurlnavigator.cpp:826
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -3649,7 +3649,7 @@ msgstr ""
 msgid "Icon file too big, download aborted"
 msgstr ""
 
-#: gui/filepreviewjob.cpp:281
+#: gui/filepreviewjob.cpp:285
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-19 00:40+0000\n"
+"POT-Creation-Date: 2026-03-21 00:41+0000\n"
 "PO-Revision-Date: 2025-10-31 23:33+0100\n"
 "Last-Translator: Rasmus Rosendahl-Kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -3785,7 +3785,7 @@ msgstr "Du kan ændrer ikonet senere i mappeegenskaberne."
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:602 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, kde-format
@@ -3793,39 +3793,39 @@ msgid "Copy"
 msgstr "Kopiér"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:610 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Indsæt"
 
-#: filewidgets/kurlnavigator.cpp:626
+#: filewidgets/kurlnavigator.cpp:630
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Åbn \"%1\" i ny fane"
 
-#: filewidgets/kurlnavigator.cpp:634
+#: filewidgets/kurlnavigator.cpp:638
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Åbn \"%1\" i nyt vindue"
 
-#: filewidgets/kurlnavigator.cpp:643
+#: filewidgets/kurlnavigator.cpp:647
 #, kde-format
 msgid "Edit"
 msgstr "Redigér"
 
-#: filewidgets/kurlnavigator.cpp:646
+#: filewidgets/kurlnavigator.cpp:650
 #, kde-format
 msgid "Navigate"
 msgstr "Navigér"
 
-#: filewidgets/kurlnavigator.cpp:661
+#: filewidgets/kurlnavigator.cpp:665
 #, kde-format
 msgid "Show Full Path"
 msgstr "Vis fuld sti"
 
-#: filewidgets/kurlnavigator.cpp:822
+#: filewidgets/kurlnavigator.cpp:826
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Cannot transfer <filename>%1</filename>"
@@ -3932,7 +3932,7 @@ msgstr "Fejl under gemning af billede til %1"
 msgid "Icon file too big, download aborted"
 msgstr "Ikonfilen er for stor, download afbrudt"
 
-#: gui/filepreviewjob.cpp:281
+#: gui/filepreviewjob.cpp:285
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"

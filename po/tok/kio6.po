@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-19 00:40+0000\n"
+"POT-Creation-Date: 2026-03-21 00:41+0000\n"
 "PO-Revision-Date: 2024-04-26 14:54-0400\n"
 "Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
 "Language-Team: C <kde-i18n-doc@kde.org>\n"
@@ -3581,7 +3581,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:602 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, kde-format
@@ -3589,12 +3589,12 @@ msgid "Copy"
 msgstr "o tu e lipu tawa lipu jo"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:610 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "o pana e lipu tan lipu jo"
 
-#: filewidgets/kurlnavigator.cpp:626
+#: filewidgets/kurlnavigator.cpp:630
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu"
 #| msgid "Open in New Tab"
@@ -3602,7 +3602,7 @@ msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "o open lon nena sin"
 
-#: filewidgets/kurlnavigator.cpp:634
+#: filewidgets/kurlnavigator.cpp:638
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu"
 #| msgid "Open in New Window"
@@ -3610,22 +3610,22 @@ msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "o open lon lupa sin"
 
-#: filewidgets/kurlnavigator.cpp:643
+#: filewidgets/kurlnavigator.cpp:647
 #, kde-format
 msgid "Edit"
 msgstr "ante"
 
-#: filewidgets/kurlnavigator.cpp:646
+#: filewidgets/kurlnavigator.cpp:650
 #, kde-format
 msgid "Navigate"
 msgstr "o tawa"
 
-#: filewidgets/kurlnavigator.cpp:661
+#: filewidgets/kurlnavigator.cpp:665
 #, kde-format
 msgid "Show Full Path"
 msgstr "o lukin e nasin tawa suli"
 
-#: filewidgets/kurlnavigator.cpp:822
+#: filewidgets/kurlnavigator.cpp:826
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Cannot transfer <filename>%1</filename>"
@@ -3730,7 +3730,7 @@ msgstr "mi ken ala awen e sitelen lon %1"
 msgid "Icon file too big, download aborted"
 msgstr "suli sitelen li ike la mi kama ala jo e ona."
 
-#: gui/filepreviewjob.cpp:281
+#: gui/filepreviewjob.cpp:285
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
