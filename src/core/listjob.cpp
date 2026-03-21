@@ -8,6 +8,7 @@
 
 #include "listjob.h"
 #include "../utils_p.h"
+#include "global.h"
 #include "job_p.h"
 #include "worker_p.h"
 #include <QTimer>
@@ -263,11 +264,13 @@ void ListJob::slotFinished()
     SimpleJob::slotFinished();
 }
 
+// TODO KF7: add optional details parameter
 ListJob *KIO::listDir(const QUrl &url, JobFlags flags, ListJob::ListFlags listFlags)
 {
     return ListJobPrivate::newJob(url, false, QString(), QString(), listFlags, flags);
 }
 
+// TODO KF7: add optional details parameter
 ListJob *KIO::listRecursive(const QUrl &url, JobFlags flags, ListJob::ListFlags listFlags)
 {
     return ListJobPrivate::newJob(url, true, QString(), QString(), listFlags, flags);
@@ -281,6 +284,12 @@ void ListJob::setUnrestricted(bool unrestricted)
     } else {
         d->m_extraFlags &= ~JobPrivate::EF_ListJobUnrestricted;
     }
+}
+
+void ListJob::setDetails(KIO::StatDetails details)
+{
+    Q_D(ListJob);
+    addMetaData(QStringLiteral("details"), QString::number(details));
 }
 
 void ListJobPrivate::start(Worker *worker)

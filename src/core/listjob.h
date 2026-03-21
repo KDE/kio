@@ -66,6 +66,12 @@ public:
      */
     void setUnrestricted(bool unrestricted);
 
+    /*!
+     * Selects the level of \a details we want.
+     * \since 6.25
+     */
+    void setDetails(KIO::StatDetails details);
+
 Q_SIGNALS:
     /*!
      * This signal emits the entry found by the job while listing.
