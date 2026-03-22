@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-21 00:41+0000\n"
-"PO-Revision-Date: 2026-03-05 09:06+0100\n"
+"PO-Revision-Date: 2026-03-20 08:38+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -33,7 +33,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Accelerator-Marker: &\n"
 "X-Environment: kde\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 "X-Text-Markup: kde4\n"
 
 #, kde-format
@@ -3999,6 +3999,8 @@ msgstr "Fichier d'icône trop volumineux, téléchargement annulé."
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
+"FilePreviewJob : fichier vide ignoré. Il pourrait s'agir d'un lien "
+"symbolique cassé : %1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format

@@ -3724,7 +3724,7 @@ msgstr "图标文件太大，下载已中止"
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
-msgstr ""
+msgstr "文件预览任务：跳过一个空文件，它可能是一个损坏的符号链接：%1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
