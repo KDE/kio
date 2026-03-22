@@ -95,6 +95,14 @@ public:
      */
     void setTotalSize(KIO::filesize_t bytes);
 
+    /*!
+     * Sets the source file size for put operations.
+     * Workers can use this to optimize upload strategy (e.g. multipart chunk size).
+     *
+     * \since 6.25
+     */
+    void setSourceSize(KIO::filesize_t size);
+
 protected:
     bool doResume() override;
 

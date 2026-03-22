@@ -55,6 +55,11 @@ void KIO::TransferJob::setTotalSize(KIO::filesize_t bytes)
     setTotalAmount(KJob::Bytes, bytes);
 }
 
+void KIO::TransferJob::setSourceSize(KIO::filesize_t size)
+{
+    addMetaData(QStringLiteral("sourceSize"), QString::number(size));
+}
+
 // Worker got a redirection request
 void TransferJob::slotRedirection(const QUrl &url)
 {
