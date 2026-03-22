@@ -962,8 +962,8 @@ void KFileItemTest::testIsReadable()
     QCOMPARE(fileItem.isReadable(), readable);
 
     QVERIFY(file.remove());
-    // still cached thanks to the cached internal udsentry
-    QCOMPARE(fileItem.isReadable(), readable);
+    // not existing, can't be readable
+    QCOMPARE(fileItem.isReadable(), false);
 }
 
 void KFileItemTest::testIsWritable_data()
@@ -993,8 +993,8 @@ void KFileItemTest::testIsWritable()
     QCOMPARE(fileItem.isWritable(), writable);
 
     QVERIFY(file.remove());
-    // still cached thanks to the cached internal udsentry
-    QCOMPARE(fileItem.isWritable(), writable);
+    // not existing, can't be writable
+    QCOMPARE(fileItem.isWritable(), false);
 }
 
 void KFileItemTest::testIsExecutable_data()
@@ -1024,8 +1024,8 @@ void KFileItemTest::testIsExecutable()
     QCOMPARE(fileItem.isExecutable(), executable);
 
     QVERIFY(file.remove());
-    // still cached thanks to the cached internal udsentry
-    QCOMPARE(fileItem.isExecutable(), executable);
+    // not existing, can't be executable
+    QCOMPARE(fileItem.isExecutable(), false);
 }
 
 // Restore permissions so that the QTemporaryDir cleanup can happen (taken from tst_qsavefile.cpp)

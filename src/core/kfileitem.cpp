@@ -1326,6 +1326,11 @@ bool KFileItem::isReadable() const
 
     d->ensureInitialized();
 
+    // Or if we can't read it - not network transparent
+    if (d->m_bIsLocalUrl) {
+        return QFileInfo(d->m_url.toLocalFile()).isReadable();
+    }
+
     if (d->m_permissions != KFileItem::Unknown) {
         const mode_t readMask = S_IRUSR | S_IRGRP | S_IROTH;
         // No read permission at all
@@ -1337,32 +1342,6 @@ bool KFileItem::isReadable() const
         if ((d->m_permissions & readMask) == readMask) {
             return true;
         }
-
-#ifndef Q_OS_WIN
-        const auto uidOfItem = userId();
-        if (uidOfItem != -1) {
-            const auto currentUser = KUserId::currentUserId();
-            if (((uint)uidOfItem) == currentUser.nativeId()) {
-                return S_IRUSR & d->m_permissions;
-            }
-            const auto gidOfItem = groupId();
-            if (gidOfItem != -1) {
-                if (KUser(currentUser).groups().contains(KUserGroup(gidOfItem))) {
-                    return S_IRGRP & d->m_permissions;
-                }
-
-                return S_IROTH & d->m_permissions;
-            }
-        }
-#else
-        // simple special case
-        return S_IRUSR & d->m_permissions;
-#endif
-    }
-
-    // Or if we can't read it - not network transparent
-    if (d->m_bIsLocalUrl && !QFileInfo(d->m_url.toLocalFile()).isReadable()) {
-        return false;
     }
 
     return true;
@@ -1376,42 +1355,19 @@ bool KFileItem::isWritable() const
 
     d->ensureInitialized();
 
-    if (d->m_permissions != KFileItem::Unknown) {
-        // No write permission at all
-        if ((d->m_permissions & (S_IWUSR | S_IWGRP | S_IWOTH)) == 0) {
-            return false;
-        }
-
-#ifndef Q_OS_WIN
-        const auto uidOfItem = userId();
-        if (uidOfItem != -1) {
-            const auto currentUser = KUserId::currentUserId();
-            if (((uint)uidOfItem) == currentUser.nativeId()) {
-                return S_IWUSR & d->m_permissions;
-            }
-            const auto gidOfItem = groupId();
-            if (gidOfItem != -1) {
-                if (KUser(currentUser).groups().contains(KUserGroup(gidOfItem))) {
-                    return S_IWGRP & d->m_permissions;
-                }
-
-                if (S_IWOTH & d->m_permissions) {
-                    return true;
-                }
-            }
-        }
-#else
-        // simple special case
-        return S_IWUSR & d->m_permissions;
-#endif
-    }
-
     // Or if we can't write it - not network transparent
     if (d->m_bIsLocalUrl) {
         return QFileInfo(d->m_url.toLocalFile()).isWritable();
-    } else {
-        return KProtocolManager::supportsWriting(d->m_url);
     }
+
+    if (d->m_permissions != KFileItem::Unknown) {
+        const mode_t writeMask = S_IWUSR | S_IWGRP | S_IWOTH;
+        // No write permission at all
+        if ((d->m_permissions & writeMask) == 0) {
+            return false;
+        }
+    }
+    return KProtocolManager::supportsWriting(d->m_url);
 }
 
 bool KFileItem::isHidden() const
