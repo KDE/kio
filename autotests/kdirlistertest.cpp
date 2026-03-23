@@ -1778,8 +1778,8 @@ void KDirListerTest::testUnreadableParentDirectory()
 
 void KDirListerTest::testPathWithSquareBrackets()
 {
-#if QT_VERSION == QT_VERSION_CHECK(6, 8, 3) || QT_VERSION == QT_VERSION_CHECK(6, 9, 0)
-    QSKIP("This test is expected to fail on Qt 6.8.3 / 6.9.0");
+#if QT_VERSION == QT_VERSION_CHECK(6, 9, 0)
+    QSKIP("This test is expected to fail on Qt 6.9.0");
 #endif
     QTemporaryDir newDir(homeTmpDir());
     QFile file(newDir.filePath("[test].txt"));
