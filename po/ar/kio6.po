@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-21 00:41+0000\n"
-"PO-Revision-Date: 2026-03-14 10:56+0400\n"
+"POT-Creation-Date: 2026-03-25 00:41+0000\n"
+"PO-Revision-Date: 2026-03-23 22:21+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "المجلّد موجود فعلًا"
 
-#: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:368
+#: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:48
 #, kde-format
 msgid "File Already Exists"
@@ -3846,7 +3846,7 @@ msgstr "ملفّ الأيقونة كبير جدًّا، أُجهض التّنز�
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
-msgstr ""
+msgstr "مهمة معاينة الملف: تخطي ملف فارغ، قد يكون رابطًا رمزيًا معطلاً: %1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
