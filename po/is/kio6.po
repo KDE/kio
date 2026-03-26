@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-03-25 00:41+0000\n"
-"PO-Revision-Date: 2026-03-19 18:32+0000\n"
+"PO-Revision-Date: 2026-03-25 13:12+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -2299,7 +2299,7 @@ msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
 msgstr ""
-"Tókst ekki að finna heiti forrits út frá '%1', sláðu inn gilt heiti á "
+"Tókst ekki að finna heiti forrits út frá '%1', settu inn gilt heiti á "
 "forriti."
 
 #: core/openwith.cpp:142
@@ -2315,7 +2315,7 @@ msgid ""
 "<filename>%1</filename> was not found; please enter a valid path to an "
 "executable program."
 msgstr ""
-"<filename>%1</filename> fannst ekki; sláðu inn gilda slóð á keyranlegt "
+"<filename>%1</filename> fannst ekki; settu inn gilda slóð á keyranlegt "
 "forrit."
 
 #: core/slavebase.cpp:806
@@ -2846,7 +2846,7 @@ msgstr "&Merking:"
 #: filewidgets/kfileplaceeditdialog.cpp:86
 #, kde-format
 msgid "Enter descriptive label here"
-msgstr "Sláðu hér inn lýsandi merkingu"
+msgstr "Settu hér inn lýsandi merkingu"
 
 #: filewidgets/kfileplaceeditdialog.cpp:91
 #, kde-format
@@ -3705,7 +3705,7 @@ msgstr "Búa til nýja möppu í: %1"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr "Sláðu inn möppuheiti"
+msgstr "Settu inn nafn möppu"
 
 #: filewidgets/knewfilemenu.cpp:1641
 #, kde-format
@@ -5577,9 +5577,9 @@ msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
 "Press down arrow to navigate the results."
 msgstr ""
-"Sláðu inn til að sía út forritin hér fyrir neðan, eða tilgreindu nafn á "
+"Skrifaðu til að sía út forritin hér fyrir neðan, eða tilgreindu heiti á "
 "skipun.\n"
-"Ýttu á niðurörina til að fara í gegnum niðurstöðurnar."
+"Ýttu á niður-örina til að fara í gegnum niðurstöðurnar."
 
 #: widgets/kopenwithdialog.cpp:699
 #, kde-format
@@ -5729,7 +5729,7 @@ msgstr "Keyra sem annar notandi"
 #: widgets/kpropertiesdesktopadvbase.ui:107
 #, kde-format
 msgid "Enter the user name you want to run the application as."
-msgstr "Sláðu inn notandanafn þess sem þú vilt keyra forritið sem."
+msgstr "Settu inn notandanafn þess sem þú vilt keyra forritið sem."
 
 #. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:110
@@ -5741,7 +5741,7 @@ msgstr "Notandanafn:"
 #: widgets/kpropertiesdesktopadvbase.ui:120
 #, kde-format
 msgid "Enter the user name you want to run the application as here."
-msgstr "Sláðu hér inn notandanafn þess sem þú vilt keyra forritið sem."
+msgstr "Settu inn notandanafn þess sem þú vilt keyra forritið sem hér."
 
 #. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
 #: widgets/kpropertiesdesktopadvbase.ui:130
@@ -5789,8 +5789,8 @@ msgid ""
 "Type the name you want to give to this application here. This application "
 "will appear under this name in the applications menu and in the panel."
 msgstr ""
-"Sláðu hér inn heitið sem þú vilt gefa þessu forriti.  Forritið mun birtast "
-"undir þessu nafni í forritavalmyndinni og á skjáb.rðsstikunni"
+"Settu hér inn heitið sem þú vilt gefa þessu forriti.  Forritið mun birtast "
+"undir þessu nafni í forritavalmyndinni og á skjáborðsstikunni"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
@@ -5800,8 +5800,8 @@ msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"Sláðu inn almenna lýsingu fyrir forritið hér.  Dæmi: myndskoðunarforrit "
-"Mætti lýsa sem \"Myndskoðari\"."
+"Settu hér inn almenna lýsingu fyrir forritið.  Dæmi: myndskoðunarforriti "
+"mætti lýsa sem \"Myndskoðari\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
@@ -5817,7 +5817,7 @@ msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
-"Sláðu inn lýsingu á forritinu hér sem sýnir notagildi þess.  Dæmi: forrit "
+"Settu inn lýsingu á forritinu hér sem sýnir notagildi þess.  Dæmi: forrit "
 "til að skoða myndir myndi verða \"Skoða og breyta myndum\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
@@ -6915,7 +6915,7 @@ msgid ""
 "Please enter a new file name:"
 msgstr ""
 "Þessi aðgerð myndi skrifa '%1' yfir sjálfa sig.\n"
-"Vinsamlegast sláðu inn nýtt heiti:"
+"Settu inn nýtt heiti á skrána:"
 
 #: widgets/renamedialog.cpp:350
 #, kde-format
