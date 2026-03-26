@@ -1190,7 +1190,7 @@ KIO::WorkerResult HTTPProtocol::mkdir(const QUrl &url, int)
 KIO::WorkerResult HTTPProtocol::rename(const QUrl &src, const QUrl &dest, KIO::JobFlags flags)
 {
     QMap<QByteArray, QByteArray> extraHeaders = {
-        {"Destination", dest.toString(QUrl::FullyEncoded).toUtf8()},
+        {"Destination", protocolChangedToHttp(dest).toString(QUrl::FullyEncoded).toUtf8()},
         {"Overwrite", (flags & KIO::Overwrite) ? "T" : "F"},
         {"Depth", "infinity"},
     };
@@ -1222,7 +1222,7 @@ KIO::WorkerResult HTTPProtocol::copy(const QUrl &src, const QUrl &dest, int, KIO
     }
 
     QMap<QByteArray, QByteArray> extraHeaders = {
-        {"Destination", dest.toString(QUrl::FullyEncoded).toUtf8()},
+        {"Destination", protocolChangedToHttp(dest).toString(QUrl::FullyEncoded).toUtf8()},
         {"Overwrite", (flags & KIO::Overwrite) ? "T" : "F"},
         {"Depth", "infinity"},
     };
