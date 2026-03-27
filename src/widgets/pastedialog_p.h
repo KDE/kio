@@ -29,8 +29,11 @@ public:
     QString lineEditText() const;
     int comboItem() const;
 
+    void setIcon(const QIcon &icon);
+
 private:
     QLabel *m_label;
+    QLabel *m_iconLabel;
     QLineEdit *m_lineEdit;
     QComboBox *m_comboBox;
     QString m_lastValidComboboxFormat;
