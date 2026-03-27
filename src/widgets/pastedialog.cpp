@@ -66,7 +66,7 @@ KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const 
             QMimeType mime = db.mimeTypeForName(format);
             if (mime.isValid()) {
                 auto label = i18n("%1 (%2)", mime.comment(), format);
-                m_comboBox->addItem(label, mime.name());
+                m_comboBox->addItem(QIcon::fromTheme(mime.iconName()), label, mime.name());
             } else {
                 m_comboBox->addItem(format);
             }
