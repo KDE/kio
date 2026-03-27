@@ -31,6 +31,7 @@
 #include <QFileInfo>
 #include <QInputDialog>
 #include <QMimeData>
+#include <QMimeDatabase>
 #include <QTemporaryFile>
 
 static QUrl getDestinationUrl(const QUrl &srcUrl, const QUrl &destUrl, QWidget *widget)
@@ -60,9 +61,14 @@ static QUrl getDestinationUrl(const QUrl &srcUrl, const QUrl &destUrl, QWidget *
     return destUrl;
 }
 
-static QUrl getNewFileName(const QUrl &u, const QString &text, const QString &suggestedFileName, QWidget *widget)
+static QUrl getNewFileName(const QUrl &u, const QString &text, const QString &suggestedFileName, const QString &format, QWidget *widget)
 {
-    KIO::PasteDialog dlg(i18nc("@title:dialog", "Paste Clipboard Content"), text, suggestedFileName, {}, widget);
+    QStringList formats;
+    if (!format.isEmpty()) {
+        formats.append(format);
+    }
+
+    KIO::PasteDialog dlg(i18nc("@title:dialog", "Paste Clipboard Content"), text, suggestedFileName, formats, widget);
     if (dlg.exec() != QDialog::Accepted) {
         return {};
     }
@@ -195,7 +201,14 @@ std::pair<KIO::Job *, int> pasteMimeDataImpl(const QMimeData *mimeData, const QU
         return std::make_pair(nullptr, KIO::ERR_NO_CONTENT);
     }
 
-    const QUrl newUrl = getNewFileName(destUrl, dialogText, suggestedFilename, widget);
+    QString guessedFormat;
+    QMimeDatabase db;
+    const QMimeType guessedMimeType = db.mimeTypeForData(ba);
+    if (guessedMimeType.isValid() && !guessedMimeType.isDefault()) {
+        guessedFormat = guessedMimeType.name();
+    }
+
+    const QUrl newUrl = getNewFileName(destUrl, dialogText, suggestedFilename, guessedFormat, widget);
     if (newUrl.isEmpty()) {
         return std::make_pair(nullptr, KIO::ERR_USER_CANCELED);
     }

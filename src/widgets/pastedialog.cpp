@@ -52,12 +52,16 @@ KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const 
     if (formats.isEmpty()) {
         setIcon(QIcon());
     } else {
-        innerLayout->addWidget(new QLabel(i18nc("@label", "Data format:")));
+        QMimeDatabase db;
+
+        auto *comboBoxHeading = new QLabel(i18nc("@label", "Data format:"));
+        comboBoxHeading->setVisible(formats.size() > 1);
+        innerLayout->addWidget(comboBoxHeading);
+
         m_comboBox = new QComboBox;
-        m_comboBox->setVisible(!formats.isEmpty());
+        m_comboBox->setVisible(formats.size() > 1);
 
         // Populate the combobox with nice human-readable labels
-        QMimeDatabase db;
         for (const QString &format : formats) {
             QMimeType mime = db.mimeTypeForName(format);
             if (mime.isValid()) {
