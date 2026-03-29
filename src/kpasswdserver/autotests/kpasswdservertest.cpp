@@ -184,6 +184,9 @@ private Q_SLOTS:
         info.password.clear();
         result = KIO::AuthInfo();
         queryAuthWithDialog(server, info, filledInfo, result, s_buttonCancel, QDialog::Accepted /*unused*/, QStringLiteral("Invalid username or password"));
+
+        // wait for the beep notification to auto-close
+        QTest::qWait(1600);
     }
 
     void testAcceptRetryDialog()
