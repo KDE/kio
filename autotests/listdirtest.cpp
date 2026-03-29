@@ -80,11 +80,11 @@ void ListDirTest::detailsTestCase()
 
     createEmptyTestFiles(10, tempDir.path());
 
-    KIO::ListJob *job = KIO::listDir(dirUrl, KIO::HideProgressInfo, KIO::ListJob::ListFlag::IncludeHidden);
+    auto job = std::unique_ptr<KIO::ListJob>(KIO::listDir(dirUrl, KIO::HideProgressInfo, KIO::ListJob::ListFlag::IncludeHidden));
     job->setDetails(details);
     job->setUiDelegate(nullptr);
 
-    QSignalSpy spy(job, &KIO::ListJob::entries);
+    QSignalSpy spy(job.get(), &KIO::ListJob::entries);
     QVERIFY(spy.wait(1000));
 
     const KIO::UDSEntryList entries = spy.takeFirst().at(1).value<KIO::UDSEntryList>();
