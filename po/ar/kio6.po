@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-25 00:41+0000\n"
+"POT-Creation-Date: 2026-03-30 00:39+0000\n"
 "PO-Revision-Date: 2026-03-23 22:21+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -2631,7 +2631,7 @@ msgstr "اعرض معاينة"
 msgid "Open Containing Folder"
 msgstr "افتح المجلد الحاوي"
 
-#: filewidgets/kdiroperator.cpp:2276 filewidgets/kfileplacesview.cpp:1265
+#: filewidgets/kdiroperator.cpp:2276 filewidgets/kfileplacesview.cpp:1269
 #, kde-format
 msgid "Properties"
 msgstr "الخصائص"
@@ -3079,13 +3079,13 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "أعد تهيئة أو حرر بمحرر الأقسام"
 
-#: filewidgets/kfileplacesview.cpp:342
+#: filewidgets/kfileplacesview.cpp:343
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "‏%1: ‏%2"
 
-#: filewidgets/kfileplacesview.cpp:359
+#: filewidgets/kfileplacesview.cpp:360
 #: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
@@ -3093,83 +3093,83 @@ msgid "%1 free of %2 (%3% used)"
 msgstr "المتبقي %1 من أصل %2 (%3٪ مستخدمة)"
 
 # %1 هو اسم مجموعة (يمكن يكون بالإنجليزي)
-#: filewidgets/kfileplacesview.cpp:669
+#: filewidgets/kfileplacesview.cpp:673
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "‏%1 (مخفيّ)"
 
-#: filewidgets/kfileplacesview.cpp:1223
+#: filewidgets/kfileplacesview.cpp:1227
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "أفرِغ المهملات"
 
-#: filewidgets/kfileplacesview.cpp:1248
+#: filewidgets/kfileplacesview.cpp:1252
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "وصل"
 
-#: filewidgets/kfileplacesview.cpp:1258
+#: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "افتح في لسان"
 
-#: filewidgets/kfileplacesview.cpp:1261
+#: filewidgets/kfileplacesview.cpp:1265
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "افتح في نافذة جديدة"
 
-#: filewidgets/kfileplacesview.cpp:1270
+#: filewidgets/kfileplacesview.cpp:1274
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "أضف مدخلة..."
 
-#: filewidgets/kfileplacesview.cpp:1276
+#: filewidgets/kfileplacesview.cpp:1280
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&حرّر…"
 
-#: filewidgets/kfileplacesview.cpp:1281
+#: filewidgets/kfileplacesview.cpp:1285
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "أزِل من الأماكن"
 
-#: filewidgets/kfileplacesview.cpp:1285
+#: filewidgets/kfileplacesview.cpp:1289
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "أ&خفِ"
 
-#: filewidgets/kfileplacesview.cpp:1293
+#: filewidgets/kfileplacesview.cpp:1297
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "أخفِ قسم '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1293
+#: filewidgets/kfileplacesview.cpp:1297
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "أخفِ القسم"
 
-#: filewidgets/kfileplacesview.cpp:1301
+#: filewidgets/kfileplacesview.cpp:1305
 #, kde-format
 msgid "&Show All Entries"
 msgstr "ا&عرض كلّ المدخلات"
 
-#: filewidgets/kfileplacesview.cpp:1306
+#: filewidgets/kfileplacesview.cpp:1310
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "حجم الأيقونة"
 
-#: filewidgets/kfileplacesview.cpp:1427
+#: filewidgets/kfileplacesview.cpp:1431
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3177,25 +3177,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "تحجيم آليّ"
 
-#: filewidgets/kfileplacesview.cpp:1447
+#: filewidgets/kfileplacesview.cpp:1451
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "صغير (%1×%1)"
 
-#: filewidgets/kfileplacesview.cpp:1450
+#: filewidgets/kfileplacesview.cpp:1454
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "متوسط (%1×%1)"
 
-#: filewidgets/kfileplacesview.cpp:1453
+#: filewidgets/kfileplacesview.cpp:1457
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "كبير (%1×%1)"
 
-#: filewidgets/kfileplacesview.cpp:1456
+#: filewidgets/kfileplacesview.cpp:1460
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -4571,7 +4571,7 @@ msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "أعِد المحاولة"
 
-#: kpasswdserver/kpasswdserver.cpp:796
+#: kpasswdserver/kpasswdserver.cpp:797
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "حواريّ الاستيثاق"
