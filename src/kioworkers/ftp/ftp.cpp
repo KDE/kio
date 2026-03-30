@@ -639,6 +639,15 @@ Result FtpInternal::ftpLogin(bool *userChanged)
                     q->cacheAuthentication(info);
                 }
             }
+            if (!ftpSendCmd(QByteArrayLiteral("CLNT kio_ftp")) || m_iRespType != 2) {
+                qCDebug(KIO_FTP) << "CLNT command failed or is not supported (code:" << m_iRespCode << ")";
+            }
+            if (ftpSendCmd(QByteArrayLiteral("OPTS UTF8 ON")) && m_iRespCode == 200) {
+                qCDebug(KIO_FTP) << "UTF-8 enabled successfully (code 200)";
+                q->remoteEncoding()->setEncoding("UTF-8");
+            } else {
+                qCDebug(KIO_FTP) << "OPTS UTF8 ON failed or not supported (code: " << m_iRespCode << "), falling back to default encoding";
+            }
             failedAuth = -1;
         } else {
             // some servers don't let you login anymore
