@@ -1088,7 +1088,7 @@ QString KFileItem::mimeComment() const
     QMimeType mime = currentMimeType();
     // This cannot move to kio_file (with UDS_DISPLAY_TYPE) because it needs
     // the MIME type to be determined, which is done here, and possibly delayed...
-    if (isLocalUrl && !d->isSlow() && mime.inherits(QStringLiteral("application/x-desktop"))) {
+    if (isLocalUrl && mime.inherits(QStringLiteral("application/x-desktop")) && !d->isSlow()) {
         KDesktopFile cfg(url.toLocalFile());
 
         // Display "Link" instead of the destination mime
