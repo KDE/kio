@@ -27,7 +27,9 @@ public:
 
     ~NameFinderJobPrivate()
     {
-        delete m_statJob;
+        if (m_statJob) {
+            delete m_statJob;
+        }
     }
 
     QUrl m_baseUrl;
