@@ -25,6 +25,11 @@ public:
     {
     }
 
+    ~NameFinderJobPrivate()
+    {
+        delete m_statJob;
+    }
+
     QUrl m_baseUrl;
     QString m_name;
     QUrl m_finalUrl;
