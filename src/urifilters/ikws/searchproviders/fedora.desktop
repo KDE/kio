@@ -13,6 +13,7 @@ Name[fi]=Fedora-paketit
 Name[fr]=Paquets de Fedora
 Name[ga]=Pacáistí Fedora
 Name[gl]=Paquetes de Fedora
+Name[gu]=ફેડોરાના પેકેજો
 Name[he]=חבילות פדורה
 Name[hr]=Fedora paketi
 Name[hu]=Fedora Packages
@@ -57,6 +58,7 @@ Query[fi]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[fr]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ga]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[gl]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[gu]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[he]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[hr]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[hu]=https://packages.fedoraproject.org/search?query=\\{@}

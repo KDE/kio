@@ -26,6 +26,7 @@ Name[fr]=Qwant
 Name[ga]=Qwant
 Name[gd]=Qwant
 Name[gl]=Qwant
+Name[gu]=ક્વાન્ટ
 Name[he]=Qwant
 Name[hr]=Qwant
 Name[hu]=Qwant
@@ -95,6 +96,7 @@ Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[ga]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[gl]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
+Query[gu]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[he]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[hr]=https://www.qwant.com/?q=\\{@}&client=kde&t=web
 Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&t=web

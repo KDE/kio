@@ -14,6 +14,7 @@ Name[fi]=Plasma-lisäosat ja -laajennukset
 Name[fr]=Modules complémentaires et extensions de Plasma
 Name[ga]=Breiseáin agus Síneadh Plasma
 Name[gl]=Complementos e extensións de Plasma
+Name[gu]=પ્લાઝમા એડ-ઓન્સ તેમજ એક્સટેન્સનો
 Name[he]=תוספים והרחבות של פלזמה
 Name[hr]=Plasma dodaci i proširenja
 Name[hu]=Plasma bővítmények és kiterjesztések
@@ -57,6 +58,7 @@ Query[fi]=https://store.kde.org/browse?tag=\\{@}
 Query[fr]=https://store.kde.org/browse?tag=\\{@}
 Query[ga]=https://store.kde.org/browse?tag=\\{@}
 Query[gl]=https://store.kde.org/browse?tag=\\{@}
+Query[gu]=https://store.kde.org/browse?tag=\\{@}
 Query[he]=https://store.kde.org/browse?tag=\\{@}
 Query[hr]=https://store.kde.org/browse?tag=\\{@}
 Query[hu]=https://store.kde.org/browse?tag=\\{@}

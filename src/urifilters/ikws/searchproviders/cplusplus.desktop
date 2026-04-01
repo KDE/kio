@@ -24,6 +24,7 @@ Name[fi]=CPlusPlus
 Name[fr]=CPlusPlus
 Name[ga]=CPlusPlus
 Name[gl]=CPlusPlus
+Name[gu]=સી વત્તા વત્તા(CPlusPlus)
 Name[he]=CPlusPlus
 Name[hr]=CPlusPlus
 Name[hu]=CPlusPlus
@@ -87,6 +88,7 @@ Query[fi]=http://cplusplus.com/search.do?q=\\{@}
 Query[fr]=http://cplusplus.com/search.do?q=\\{@}
 Query[ga]=http://cplusplus.com/search.do?q=\\{@}
 Query[gl]=http://cplusplus.com/search.do?q=\\{@}
+Query[gu]=http://cplusplus.com/search.do?q=\\{@}
 Query[he]=http://cplusplus.com/search.do?q=\\{@}
 Query[hr]=http://cplusplus.com/search.do?q=\\{@}
 Query[hu]=http://cplusplus.com/search.do?q=\\{@}

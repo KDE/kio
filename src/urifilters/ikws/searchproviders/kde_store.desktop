@@ -26,6 +26,7 @@ Name[fi]=KDE Store
 Name[fr]=Boutique de KDE
 Name[ga]=Siopa KDE
 Name[gl]=KDE Store
+Name[gu]=KDEનુ બજાર
 Name[he]=חנות KDE
 Name[hr]=KDE trgovina
 Name[hu]=KDE Store
@@ -86,6 +87,7 @@ Query[fi]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[fr]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[ga]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[gl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[gu]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[he]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[hr]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[hu]=https://store.kde.org/content/search.php?search=Search&name=\\{@}

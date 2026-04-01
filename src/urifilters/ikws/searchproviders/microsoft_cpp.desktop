@@ -23,6 +23,7 @@ Name[fi]=Microsoft C++ -ohjeistus
 Name[fr]=Documentation de Microsoft C++
 Name[ga]=Doiciméadú Microsoft C++
 Name[gl]=Documentación de C++ de Microsoft
+Name[gu]=માઇક્્રોસોફ્ટના c++ માટેના દસ્તાવેજ
 Name[he]=התיעוד של C++‎ מאת Microsoft
 Name[hr]=Dokumentacija za Microsoft C++
 Name[hu]=Microsoft C++ dokumentáció
@@ -85,6 +86,7 @@ Query[fi]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[fr]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ga]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[gl]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[gu]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[he]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[hr]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[hu]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B

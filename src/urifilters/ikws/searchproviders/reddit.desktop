@@ -23,6 +23,7 @@ Name[fi]=Reddit
 Name[fr]=Reddit
 Name[ga]=Reddit
 Name[gl]=Reddit
+Name[gu]=રેડિટ
 Name[he]=רדיט
 Name[hr]=Reddit
 Name[hu]=Reddit
@@ -85,6 +86,7 @@ Query[fi]=https://www.reddit.com/search/?q=\\{@}
 Query[fr]=https://www.reddit.com/search/?q=\\{@}
 Query[ga]=https://www.reddit.com/search/?q=\\{@}
 Query[gl]=https://www.reddit.com/search/?q=\\{@}
+Query[gu]=https://www.reddit.com/search/?q=\\{@}
 Query[he]=https://www.reddit.com/search/?q=\\{@}
 Query[hr]=https://www.reddit.com/search/?q=\\{@}
 Query[hu]=https://www.reddit.com/search/?q=\\{@}

@@ -25,6 +25,7 @@ Name[fi]=KDE Bugs
 Name[fr]=Bogues de KDE
 Name[ga]=Fabhtanna KDE
 Name[gl]=KDE Bugs
+Name[gu]=KDEના ગોટાળા
 Name[he]=תקלות ב־KDE
 Name[hr]=KDE greške
 Name[hu]=KDE Bugs
@@ -88,6 +89,7 @@ Query[fr]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ga]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[gd]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[gl]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[gu]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[he]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[hi]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[hr]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

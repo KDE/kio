@@ -22,6 +22,7 @@ Name[fi]=Rust STD -ohjeistus
 Name[fr]=Documentation de Rust STD
 Name[ga]=Doiciméadú STD Meirge
 Name[gl]=Documentación estándar de Rust
+Name[gu]=રસ્ટ ઓનલાઇન દસ્તાવેજ
 Name[he]=התיעוד התקני (STD) של Rust
 Name[hr]=Rust STD dokumentacija
 Name[hu]=Rust STD dokumentáció
@@ -84,6 +85,7 @@ Query[fi]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[fr]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ga]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[gl]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[gu]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[he]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[hr]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[hu]=https://doc.rust-lang.org/std/index.html?search=\\{@}

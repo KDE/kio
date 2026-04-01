@@ -33,7 +33,7 @@ Name[fy]=Wiktionary - It frije wurdboek
 Name[ga]=Vicífhoclóir - An Foclóir Saor
 Name[gd]=Wiktionary - The Free Dictionary
 Name[gl]=Wiktionary, o dicionario libre
-Name[gu]=વીક્ટીઓનેરી - મુક્ત શબ્દકોશ
+Name[gu]=વિકીઓનરી - મુક્ત શબ્દકોશ
 Name[he]=ויקימילון - המילון החופשי
 Name[hi]=विकिपेडिया- मुफ्त विश्वकोश
 Name[hne]=विकिपेडिया- फोकट विस्वकोस
@@ -123,6 +123,7 @@ Query[fr]=https://fr.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ga]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[gd]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[gl]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[gu]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[he]=https://he.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[hi]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[hr]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

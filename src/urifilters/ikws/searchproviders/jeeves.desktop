@@ -32,7 +32,7 @@ Name[fy]=Ask Jeeves
 Name[ga]=Ask Jeeves
 Name[gd]=Ask Jeeves
 Name[gl]=Pregúntalle a Jeeves
-Name[gu]=આસ્ક જીવ્સ
+Name[gu]=જીવ્સને પૂછો
 Name[he]=Ask Jeeves
 Name[hi]=आस्क जीव्स
 Name[hne]=आस्क जीव्स
@@ -117,6 +117,7 @@ Query[fi]=https://www.ask.com/web?q=\\{@}
 Query[fr]=https://www.ask.com/web?q=\\{@}
 Query[ga]=https://www.ask.com/web?q=\\{@}
 Query[gl]=https://www.ask.com/web?q=\\{@}
+Query[gu]=https://www.ask.com/web?q=\\{@}
 Query[he]=https://www.ask.com/web?q=\\{@}
 Query[hr]=https://www.ask.com/web?q=\\{@}
 Query[hu]=https://www.ask.com/web?q=\\{@}

@@ -26,6 +26,7 @@ Name[fr]=Boutique « Google »
 Name[ga]=Siopadóireacht Google
 Name[gd]=Google Shopping
 Name[gl]=Compras en Google
+Name[gu]=Google Shopping
 Name[he]=קניות Google
 Name[hi]=गूगल खरीदारी
 Name[hr]=Google kupnja
@@ -99,6 +100,7 @@ Query[fr]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ga]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[gd]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[gl]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[gu]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[he]=https://www.google.com/search?hl=he&tbm=shop&q=\\{@}
 Query[hi]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[hr]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

@@ -29,7 +29,7 @@ Name[fy]=Acroniemen databank
 Name[ga]=Bunachar Sonraí Acrainmneacha
 Name[gd]=Stòr-dàta ghearr-ainmean
 Name[gl]=Base de datos de siglas
-Name[gu]=ટૂંકાનામ ડેટાબેઝ
+Name[gu]=ટૂંકાનામ માટેનો ડેટાબેઝ
 Name[he]=מאגר ראשי תיבות
 Name[hi]=एक्रोनिम डाटाबेस
 Name[hne]=एक्रोनिम डाटाबेस
@@ -120,6 +120,7 @@ Query[fi]=https://www.abbreviations.com/\\{@}
 Query[fr]=https://www.abbreviations.com/\\{@}
 Query[ga]=https://www.abbreviations.com/\\{@}
 Query[gl]=https://www.abbreviations.com/\\{@}
+Query[gu]=http://www.baidu.com/s?wd=\\{@}
 Query[he]=https://www.abbreviations.com/\\{@}
 Query[hr]=https://www.abbreviations.com/\\{@}
 Query[hu]=https://www.abbreviations.com/\\{@}

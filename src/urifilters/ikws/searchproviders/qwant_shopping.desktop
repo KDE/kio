@@ -26,6 +26,7 @@ Name[fr]=Magasinage « Qwant »
 Name[ga]=Siopadóireacht Qwant
 Name[gd]=Qwant Shopping
 Name[gl]=Compras en Qwant
+Name[gu]=ક્વાન્ટ ખરીદી
 Name[he]=קניות Qwant
 Name[hr]=Qwant kupovina
 Name[hu]=Qwant vásárlás
@@ -94,6 +95,7 @@ Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ga]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[gl]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[gu]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[he]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[hr]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping

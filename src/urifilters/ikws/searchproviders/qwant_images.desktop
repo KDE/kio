@@ -26,6 +26,7 @@ Name[fr]=Images « Qwant »
 Name[ga]=Íomhánna Qwant
 Name[gd]=Qwant Images
 Name[gl]=Imaxes en Qwant
+Name[gu]=ક્વાન્ટ છબિઓ
 Name[he]=תמונות Qwant
 Name[hr]=Qwant slike
 Name[hu]=Qwant képek
@@ -94,6 +95,7 @@ Query[fi]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[fr]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[ga]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[gl]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[gu]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[he]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[hr]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[hu]=https://www.qwant.com/?q=\\{@}&client=kde&t=images

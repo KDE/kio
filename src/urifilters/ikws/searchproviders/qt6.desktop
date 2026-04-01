@@ -26,6 +26,7 @@ Name[fi]=Qt6-verkko-ohjeistus
 Name[fr]=Documentation en ligne de Qt6
 Name[ga]=Doiciméadú Ar Líne Qt6
 Name[gl]=Documentación en liña de Qt6
+Name[gu]=તાજેતરનાં Qt ઓનલાઇન દસ્તાવેજ
 Name[he]=התיעוד המקוון של Qt6
 Name[hr]=Qt6 Online dokumentacija
 Name[hu]=Qt6 online dokumentáció
@@ -86,6 +87,7 @@ Query[fi]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[fr]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[ga]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[gl]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[gu]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[he]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[hr]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[hu]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
