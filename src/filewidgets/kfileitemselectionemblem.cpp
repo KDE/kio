@@ -26,11 +26,15 @@ KFileItemSelectionEmblem::~KFileItemSelectionEmblem()
 
 bool KFileItemSelectionEmblem::isEmblemEnabled()
 {
-    if (m_itemView->selectionMode() == QAbstractItemView::ExtendedSelection && qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
-        if (m_fileItem.isDir()) {
-            return m_dirOperator->isSelected(m_fileItem);
+    if (qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
+        if (m_dirOperator->dirOnlyMode()) {
+            return true;
+        } else if ((m_itemView->selectionMode() == QAbstractItemView::ExtendedSelection)) {
+            if (m_fileItem.isDir()) {
+                return m_dirOperator->isSelected(m_fileItem);
+            }
+            return true;
         }
-        return true;
     }
     return false;
 }
@@ -54,7 +58,10 @@ void KFileItemSelectionEmblem::updateSelectionEmblemRectForIndex(const int iconS
 bool KFileItemSelectionEmblem::handleMousePressEvent(const QPoint mousePos)
 {
     if (isEmblemEnabled() && m_fileItemDelegate && m_fileItemDelegate->selectionEmblemRect().contains(mousePos)) {
-        m_itemView->selectionModel()->select(m_index, QItemSelectionModel::Toggle | QItemSelectionModel::Rows);
+        // In SingleSelection mode we just want to toggle one item at a time, not multiple
+        const auto toggleMode =
+            m_itemView->selectionMode() == QAbstractItemView::SingleSelection ? QItemSelectionModel::ToggleCurrent : QItemSelectionModel::Toggle;
+        m_itemView->selectionModel()->select(m_index, toggleMode | QItemSelectionModel::Rows);
         return true;
     }
     return false;

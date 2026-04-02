@@ -1127,7 +1127,7 @@ void KFileItemDelegate::drawSelectionEmblem(QStyleOptionViewItem option, QPainte
         return;
     }
     const auto state = option.state;
-    if ((state & QStyle::State_MouseOver && !fileItem(index).isDir()) || (state & QStyle::State_Selected)) {
+    if ((state & QStyle::State_MouseOver) || (state & QStyle::State_Selected)) {
         const QString selectionEmblem = state & QStyle::State_Selected ? QStringLiteral("emblem-remove") : QStringLiteral("emblem-added");
         const auto emblem = QIcon::fromTheme(selectionEmblem).pixmap(d->emblemRect.size(), state & QStyle::State_MouseOver ? QIcon::Active : QIcon::Disabled);
 
