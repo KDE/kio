@@ -54,7 +54,7 @@ void KFileItemSelectionEmblem::updateSelectionEmblemRectForIndex(const int iconS
 bool KFileItemSelectionEmblem::handleMousePressEvent(const QPoint mousePos)
 {
     if (isEmblemEnabled() && m_fileItemDelegate && m_fileItemDelegate->selectionEmblemRect().contains(mousePos)) {
-        m_itemView->selectionModel()->select(m_index, QItemSelectionModel::Toggle);
+        m_itemView->selectionModel()->select(m_index, QItemSelectionModel::Toggle | QItemSelectionModel::Rows);
         return true;
     }
     return false;

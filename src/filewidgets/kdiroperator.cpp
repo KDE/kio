@@ -1979,7 +1979,7 @@ void KDirOperator::setCurrentItems(const KFileItemList &items)
             if (!item.isNull()) {
                 const QModelIndex dirIndex = d->m_dirModel->indexForItem(item);
                 proxyIndex = d->m_proxyModel->mapFromSource(dirIndex);
-                selModel->select(proxyIndex, QItemSelectionModel::Select);
+                selModel->select(proxyIndex, QItemSelectionModel::Select | QItemSelectionModel::Rows);
             }
         }
         if (proxyIndex.isValid()) {
@@ -2916,7 +2916,7 @@ void KDirOperatorPrivate::slotExpandToUrl(const QModelIndex &index)
 
                     // if we have expanded the last parent of this item, select it
                     if (item.url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash) == url.adjusted(QUrl::StripTrailingSlash)) {
-                        treeView->selectionModel()->select(proxyIndex, QItemSelectionModel::Select);
+                        treeView->selectionModel()->select(proxyIndex, QItemSelectionModel::Select | QItemSelectionModel::Rows);
                     }
                 }
                 it = m_itemsToBeSetAsCurrent.erase(it);
