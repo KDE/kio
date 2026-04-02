@@ -108,6 +108,10 @@
                 "Ruta orixinal",
                 "Data de eliminación"
             ],
+            "ExtraNames[gu]": [
+                "મૂળ સ્થાન",
+                "બદલાયાની તારીખ"
+            ],
             "ExtraNames[he]": [
                 "נתיב מקורי",
                 "תאריך מחיקה"
