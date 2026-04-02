@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-31 00:40+0000\n"
+"POT-Creation-Date: 2026-04-02 00:40+0000\n"
 "PO-Revision-Date: 2025-10-01 17:44+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -6690,19 +6690,19 @@ msgstr ""
 "Schránka se změnila od poslední operace vložení: zvolený datový formát již "
 "není použitelný. Prosím zkopírujte znovu, co jste chtěli vložit."
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:234
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Vložit jednu složku"
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:234
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Vložit jeden soubor"
 
-#: widgets/paste.cpp:245
+#: widgets/paste.cpp:236
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6711,13 +6711,13 @@ msgstr[0] "Vložit jednu položku"
 msgstr[1] "Vložit %1 položky"
 msgstr[2] "Vložit %1 položek"
 
-#: widgets/paste.cpp:247
+#: widgets/paste.cpp:238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Vložit obsah schránky…"
 
-#: widgets/paste.cpp:251
+#: widgets/paste.cpp:242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
@@ -6735,12 +6735,12 @@ msgstr "Formát dat:"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Název souboru pro obsah schránky:"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Název souboru pro upuštěný obsah:"

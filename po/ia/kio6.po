@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-31 00:40+0000\n"
+"POT-Creation-Date: 2026-04-02 00:40+0000\n"
 "PO-Revision-Date: 2026-03-23 17:04+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -6821,19 +6821,19 @@ msgstr ""
 "seligite de datos non es plus applicabile. Pro favor copia de nove illo que "
 "tu voleva collar."
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:234
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Colla un dossier"
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:234
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Colla un file"
 
-#: widgets/paste.cpp:245
+#: widgets/paste.cpp:236
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6841,13 +6841,13 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Colla un elemento"
 msgstr[1] "Colla %1 elementos"
 
-#: widgets/paste.cpp:247
+#: widgets/paste.cpp:238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Colla contentos del area de transferentia..."
 
-#: widgets/paste.cpp:251
+#: widgets/paste.cpp:242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
@@ -6864,12 +6864,12 @@ msgstr "Formato de Datos:"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Nomine de file pro contentos del area de transferentia:"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Nomine de file pro contentos cadite:"

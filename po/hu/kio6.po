@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-31 00:40+0000\n"
+"POT-Creation-Date: 2026-04-02 00:40+0000\n"
 "PO-Revision-Date: 2025-09-03 20:54+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -6800,19 +6800,19 @@ msgstr ""
 "A vágólap megváltozott a 'beillesztés' használata óta: a választott "
 "adatformátum már nem megfelelő. Végezze el újból a vágólapra másolást."
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:234
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Mappa beillesztése"
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:234
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Fájl beillesztése"
 
-#: widgets/paste.cpp:245
+#: widgets/paste.cpp:236
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6820,13 +6820,13 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Egy elem beillesztése"
 msgstr[1] "%1 elem beillesztése"
 
-#: widgets/paste.cpp:247
+#: widgets/paste.cpp:238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Vágólap tartalmának beillesztése…"
 
-#: widgets/paste.cpp:251
+#: widgets/paste.cpp:242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
@@ -6844,12 +6844,12 @@ msgstr "Adatformátum:"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Fájlnév a vágólap tartalmához:"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Ejtett tartalmak fájlneve:"

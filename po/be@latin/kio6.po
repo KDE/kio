@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-31 00:40+0000\n"
+"POT-Creation-Date: 2026-04-02 00:40+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -7065,19 +7065,19 @@ msgstr ""
 "zmianiŭsia: abrany farmat danych nieprydatny. Jašče raz skapijujcie toje, "
 "što chočacie ŭstavić."
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:234
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Ustavić adzin kataloh"
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:234
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Ustavić adzin fajl"
 
-#: widgets/paste.cpp:245
+#: widgets/paste.cpp:236
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Paste One Item"
@@ -7090,14 +7090,14 @@ msgstr[1] "Ustavić %1 eliemienty"
 msgstr[2] "Ustavić %1 eliemientaŭ"
 msgstr[3] "Ustavić %1 eliemienty"
 
-#: widgets/paste.cpp:247
+#: widgets/paste.cpp:238
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "&Ustavić zmiesciva bufiera abmienu"
 
-#: widgets/paste.cpp:251
+#: widgets/paste.cpp:242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
@@ -7115,12 +7115,12 @@ msgstr "Farmat danych:"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Nazva fajla dlia bufiera abmienu:"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Nazva dlia zmiesciva, jakoje pieraciahvajecca:"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-31 00:40+0000\n"
+"POT-Creation-Date: 2026-04-02 00:40+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -7179,19 +7179,19 @@ msgstr ""
 "data is nie meer van toepassing nie. Gaan kopieër asb. weer die inligting "
 "wat jy hier wou plak."
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:234
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Een Gids"
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:234
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Plak Lêer"
 
-#: widgets/paste.cpp:245
+#: widgets/paste.cpp:236
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -7199,14 +7199,14 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Een Item"
 msgstr[1] "%1 Iteme"
 
-#: widgets/paste.cpp:247
+#: widgets/paste.cpp:238
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Plak klipbord inhoud"
 
-#: widgets/paste.cpp:251
+#: widgets/paste.cpp:242
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
@@ -7224,12 +7224,12 @@ msgstr "Data formaat:"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Lêernaam vir klipbord inhoud:"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, fuzzy, kde-format
 #| msgid "Filename for clipboard content:"
 msgid "Filename for dropped contents:"

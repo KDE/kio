@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-31 00:40+0000\n"
+"POT-Creation-Date: 2026-04-02 00:40+0000\n"
 "PO-Revision-Date: 2026-03-31 23:12+0530\n"
 "Last-Translator: CrazyCourt651 <CrazyCourt651@gmail.com>\n"
 "Language-Team: Gujarati\n"
@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Gtranslator 50.0\n"
 
 #, kde-format
@@ -6698,19 +6698,19 @@ msgstr ""
 "તમે 'મૂકો' નો ઉપયોગ કર્યો ત્યારથી ક્લિપબોર્ડ બદલાઈ ગયું છે: પસંદ કરેલ ડેટા ફોર્મેટ હવે લાગુ "
 "પડતું નથી. કૃપા કરીને તમે જે મૂકો કરવા માંગતા હતા તેને ફરીથી કોપી (નકલ) કરો."
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:234
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "એક ફોલ્ડર મૂકો"
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:234
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "એક ફાઇલ મૂકો (&P)"
 
-#: widgets/paste.cpp:245
+#: widgets/paste.cpp:236
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6718,13 +6718,13 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "એક વસ્તુ મૂકો"
 msgstr[1] "%1 વસ્તુઓ મૂકો"
 
-#: widgets/paste.cpp:247
+#: widgets/paste.cpp:238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "ક્લિપબોર્ડ વિષયવસ્તુ મૂકો…"
 
-#: widgets/paste.cpp:251
+#: widgets/paste.cpp:242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
@@ -6741,12 +6741,12 @@ msgstr "માહિતી બંધારણ:"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "ક્લિપબોર્ડ વિષયવસ્તુ માટે ફાઇલનામ:"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "છોડેલી સામગ્રી માટે ફાઇલનામ:"

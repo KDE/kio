@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-31 00:40+0000\n"
+"POT-Creation-Date: 2026-04-02 00:40+0000\n"
 "PO-Revision-Date: 2024-09-19 21:59+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -6932,19 +6932,19 @@ msgstr ""
 "'επικόλληση'. Η επιλεγμένη μορφή δεδομένων δεν μπορεί αν χρησιμοποιηθεί. "
 "Παρακαλώ αντιγράψτε και πάλι στο πρόχειρο αυτό που θέλατε να επικολλήσετε."
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:234
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Επικόλληση ενός φακέλου"
 
-#: widgets/paste.cpp:243
+#: widgets/paste.cpp:234
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Επικόλληση ενός αρχείου"
 
-#: widgets/paste.cpp:245
+#: widgets/paste.cpp:236
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6952,13 +6952,13 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Επικόλληση ενός αντικειμένου"
 msgstr[1] "Επικόλληση %1 αντικειμένων"
 
-#: widgets/paste.cpp:247
+#: widgets/paste.cpp:238
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Επικόλληση των περιεχομένων του προχείρου…"
 
-#: widgets/paste.cpp:251
+#: widgets/paste.cpp:242
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
@@ -6976,12 +6976,12 @@ msgstr "Μορφή δεδομένων:"
 msgid "%1 (%2)"
 msgstr "%1 (θύρα %2)"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Όνομα αρχείου για περιεχόμενο πρόχειρου:"
 
-#: widgets/pastejob.cpp:71
+#: widgets/pastejob.cpp:75
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Όνομα αρχείου για περιεχόμενα απόθεσης:"
