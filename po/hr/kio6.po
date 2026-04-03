@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-02 00:40+0000\n"
+"POT-Creation-Date: 2026-04-03 00:39+0000\n"
 "PO-Revision-Date: 2025-11-18 11:44+0100\n"
 "Last-Translator: Igor Dobrača <igor.dobraca@skole.hr>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -2265,17 +2265,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nedokumentirana greška"
 
-#: core/kfileitem.cpp:1523
+#: core/kfileitem.cpp:1479
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Simbolički link na %1)"
 
-#: core/kfileitem.cpp:1525
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, link na %2)"
 
-#: core/kfileitem.cpp:1528
+#: core/kfileitem.cpp:1484
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Pokazuje na %1)"

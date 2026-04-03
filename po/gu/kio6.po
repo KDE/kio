@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-02 00:40+0000\n"
+"POT-Creation-Date: 2026-04-03 00:39+0000\n"
 "PO-Revision-Date: 2026-03-31 23:12+0530\n"
 "Last-Translator: CrazyCourt651 <CrazyCourt651@gmail.com>\n"
 "Language-Team: Gujarati\n"
@@ -2235,17 +2235,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "દસ્તાવેજ ન કરેલ ક્ષતિ"
 
-#: core/kfileitem.cpp:1523
+#: core/kfileitem.cpp:1479
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 પર સાંકેતિક કડી)"
 
-#: core/kfileitem.cpp:1525
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2 ને કડી)"
 
-#: core/kfileitem.cpp:1528
+#: core/kfileitem.cpp:1484
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (%1 સાથે જોડેલ)"

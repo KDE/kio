@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-02 00:40+0000\n"
-"PO-Revision-Date: 2026-02-25 19:14+0100\n"
+"POT-Creation-Date: 2026-04-03 00:39+0000\n"
+"PO-Revision-Date: 2026-04-03 00:13+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -2262,17 +2262,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Недокументирана грешка"
 
-#: core/kfileitem.cpp:1523
+#: core/kfileitem.cpp:1479
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Символна връзка към %1)"
 
-#: core/kfileitem.cpp:1525
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(Връзка към %1 (%2)"
 
-#: core/kfileitem.cpp:1528
+#: core/kfileitem.cpp:1484
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Сочи към %1)"
@@ -3904,6 +3904,8 @@ msgstr "Файлът на иконата е твърде голям, изтег�
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
+"FilePreviewJob: пропускане на празен файл, може да е повредена символна "
+"връзка: %1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
@@ -6760,12 +6762,10 @@ msgid "Open file dialog"
 msgstr "Диалог за отваряне на файл"
 
 #: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "Поставяне на съдържанието на клипборда…"
+msgstr "Поставяне съдържанието на клипборда"
 
 #: widgets/paste.cpp:101
 #, kde-format
@@ -6816,8 +6816,7 @@ msgid "Paste"
 msgstr "Поставяне"
 
 #: widgets/pastedialog.cpp:54
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Формат на данните:"
