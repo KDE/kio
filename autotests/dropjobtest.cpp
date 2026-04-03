@@ -524,6 +524,24 @@ private Q_SLOTS:
         QVERIFY(!QFile::exists(destFile));
     }
 
+    void testInvalidUrl()
+    {
+        QTemporaryDir tempDestDir;
+        QVERIFY(tempDestDir.isValid());
+        const QUrl destUrl = QUrl::fromLocalFile(tempDestDir.path());
+
+        QMimeData mimeData;
+        mimeData.setUrls({QUrl("not a url")});
+
+        QDropEvent dropEvent(QPoint(10, 10), Qt::CopyAction /*unused*/, &mimeData, Qt::LeftButton, Qt::NoModifier);
+        KIO::DropJob *job = KIO::drop(&dropEvent, destUrl, KIO::HideProgressInfo);
+
+        JobSpy jobSpy(job);
+
+        QVERIFY(jobSpy.waitForResult());
+        QCOMPARE(jobSpy.error(), KIO::ERR_NO_CONTENT);
+    }
+
 private:
     static QMenu *findPopup()
     {

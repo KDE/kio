@@ -86,7 +86,7 @@ public:
     DropJobPrivate(const QDropEvent *dropEvent, const QUrl &destUrl, DropJobFlags dropjobFlags, JobFlags flags)
         : JobPrivate()
         , m_mimeData(dropEvent->mimeData()) // Extract everything from the dropevent, since it will be deleted before the job starts
-        , m_urls(KUrlMimeData::urlsFromMimeData(m_mimeData, KUrlMimeData::PreferLocalUrls, &m_metaData))
+        , m_urls(sanitizeUrls(KUrlMimeData::urlsFromMimeData(m_mimeData, KUrlMimeData::PreferLocalUrls, &m_metaData)))
         , m_dropAction(dropEvent->dropAction())
         , m_possibleActions(dropEvent->possibleActions())
         , m_relativePos(dropEvent->position().toPoint())
@@ -123,6 +123,20 @@ public:
         // So for remote URLs, we just assume they point to a directory, the user will get an error from KIO::copy if not.
         return true;
     }
+
+    QList<QUrl> sanitizeUrls(const QList<QUrl> &urls)
+    {
+        QList<QUrl> result;
+        for (const QUrl &url : urls) {
+            if (url.isValid() && !url.scheme().isEmpty()) {
+                result << url;
+            } else {
+                qCWarning(KIO_WIDGETS) << "DropJob: Ignoring invalid URL" << url;
+            }
+        }
+        return result;
+    }
+
     void handleCopyToDirectory();
     void slotDropActionDetermined(int error);
     void handleDropToDesktopFile();

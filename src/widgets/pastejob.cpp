@@ -8,6 +8,7 @@
 #include "pastejob.h"
 #include "pastejob_p.h"
 
+#include "kio_widgets_debug.h"
 #include "paste.h"
 
 #include <QMimeData>
@@ -37,6 +38,19 @@ PasteJob::~PasteJob()
 {
 }
 
+QList<QUrl> sanitizeUrls(const QList<QUrl> &urls)
+{
+    QList<QUrl> result;
+    for (const QUrl &url : urls) {
+        if (url.isValid() && !url.scheme().isEmpty()) {
+            result << url;
+        } else {
+            qCWarning(KIO_WIDGETS) << "PasteJob: Ignoring invalid URL" << url;
+        }
+    }
+    return result;
+}
+
 void PasteJobPrivate::slotStart()
 {
     Q_Q(PasteJob);
@@ -53,7 +67,7 @@ void PasteJobPrivate::slotStart()
     KIO::Job *job = nullptr;
     KIO::CopyJob *copyJob = nullptr;
     if (m_mimeData->hasUrls()) {
-        const QList<QUrl> urls = KUrlMimeData::urlsFromMimeData(m_mimeData, KUrlMimeData::PreferLocalUrls);
+        const QList<QUrl> urls = sanitizeUrls(KUrlMimeData::urlsFromMimeData(m_mimeData, KUrlMimeData::PreferLocalUrls));
         if (!urls.isEmpty()) {
             if (move) {
                 copyJob = KIO::move(urls, m_destDir, m_flags);
