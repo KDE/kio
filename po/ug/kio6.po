@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-03 00:39+0000\n"
+"POT-Creation-Date: 2026-04-05 00:40+0000\n"
 "PO-Revision-Date: 2026-01-22 21:14-0500\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -4817,31 +4817,18 @@ msgctxt "@action:button Launch script"
 msgid "&Launch"
 msgstr "قوزغات(&L)"
 
-#: widgets/executablefileopendialog.cpp:81
-#, kde-format
-msgctxt "@option:check"
-msgid "Launch executable files without asking"
-msgstr "ئىشلەتكۈچىدىن سورىمايلا ئىجراچان ھۆججەتنى قوزغىتىدۇ"
-
-#: widgets/executablefileopendialog.cpp:84
-#, kde-format
-msgctxt "@option:check Open in the associated app"
-msgid "Open executable files in the default application without asking"
-msgstr ""
-"ئىشلەتكۈچىدىن سورىمايلا ئىجراچان ھۆججەتنى كۆڭۈلدىكى پىروگراممىدا ئاچىدۇ"
-
-#: widgets/executablefileopendialog.cpp:87
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "سىز بۇ ھۆججەتكە قانداق مەشغۇلات ئېلىپ بارماقچى؟"
 
-#: widgets/executablefileopendialog.cpp:90
+#: widgets/executablefileopendialog.cpp:83
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "ئاچ(&O)"
 
-#: widgets/executablefileopendialog.cpp:92
+#: widgets/executablefileopendialog.cpp:85
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
@@ -4852,23 +4839,6 @@ msgstr "%1 دا ئاچ(&O)"
 #, kde-format
 msgid "Would you like to launch this file?"
 msgstr "بۇ ھۆججەتنى قوزغىتامسىز؟"
-
-#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
-#: widgets/executablefileopendialog.ui:97
-#, kde-format
-msgctxt "@option:check Always open/launch executable files (dont ask again)"
-msgid "Remember for all executable files"
-msgstr "بارلىق ئىجراچان ھۆججەت ئۈچۈن ئەستە تۇتىدۇ"
-
-#. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
-#: widgets/executablefileopendialog.ui:104
-#, kde-format
-msgctxt "@info:tooltip How to undo do not ask again"
-msgid ""
-"You can undo this under \"Confirmations\" in Dolphin file manager settings."
-msgstr ""
-"سىز Dolphin ھۆججەت باشقۇرغۇچ تەڭشىكىدىكى «جەزملەش» تاللانمىسىدا بۇ "
-"مەشغۇلاتتىن يېنىۋالالايسىز."
 
 #: widgets/fileundomanager.cpp:126
 #, kde-format
@@ -7426,6 +7396,27 @@ msgstr "بۇ پىروگراممىنى قوزغىتىدۇ:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "ئەگەر بۇ پىروگراممىغا ئىشەنمىسىڭىز ۋاز كەچنى چېكىڭ"
+
+#~ msgctxt "@option:check"
+#~ msgid "Launch executable files without asking"
+#~ msgstr "ئىشلەتكۈچىدىن سورىمايلا ئىجراچان ھۆججەتنى قوزغىتىدۇ"
+
+#~ msgctxt "@option:check Open in the associated app"
+#~ msgid "Open executable files in the default application without asking"
+#~ msgstr ""
+#~ "ئىشلەتكۈچىدىن سورىمايلا ئىجراچان ھۆججەتنى كۆڭۈلدىكى پىروگراممىدا ئاچىدۇ"
+
+#~ msgctxt "@option:check Always open/launch executable files (dont ask again)"
+#~ msgid "Remember for all executable files"
+#~ msgstr "بارلىق ئىجراچان ھۆججەت ئۈچۈن ئەستە تۇتىدۇ"
+
+#~ msgctxt "@info:tooltip How to undo do not ask again"
+#~ msgid ""
+#~ "You can undo this under \"Confirmations\" in Dolphin file manager "
+#~ "settings."
+#~ msgstr ""
+#~ "سىز Dolphin ھۆججەت باشقۇرغۇچ تەڭشىكىدىكى «جەزملەش» تاللانمىسىدا بۇ "
+#~ "مەشغۇلاتتىن يېنىۋالالايسىز."
 
 #~ msgid "Delete Files"
 #~ msgstr "ھۆججەت ئۆچۈر"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-03 00:39+0000\n"
+"POT-Creation-Date: 2026-04-05 00:40+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda\n"
@@ -4908,32 +4908,18 @@ msgctxt "@action:button Launch script"
 msgid "&Launch"
 msgstr "&Tandika"
 
-#: widgets/executablefileopendialog.cpp:81
-#, kde-format
-msgctxt "@option:check"
-msgid "Launch executable files without asking"
-msgstr "Kompyuta fayiro eza puloguramu ezitandikenga nga tesoose kubuuza"
-
-#: widgets/executablefileopendialog.cpp:84
-#, kde-format
-msgctxt "@option:check Open in the associated app"
-msgid "Open executable files in the default application without asking"
-msgstr ""
-"Kompyuta fayiro ez'ebiragiro ezikebezenga puloguramu eyategekebwa "
-"okwekubiirwa nga tesoose kubuuza"
-
-#: widgets/executablefileopendialog.cpp:87
+#: widgets/executablefileopendialog.cpp:80
 #, kde-format
 msgid "What do you wish to do with this file?"
 msgstr "Fayiro eno kiki ky'oyagala okugikolako?"
 
-#: widgets/executablefileopendialog.cpp:90
+#: widgets/executablefileopendialog.cpp:83
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "&Bikkula"
 
-#: widgets/executablefileopendialog.cpp:92
+#: widgets/executablefileopendialog.cpp:85
 #, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
@@ -4944,23 +4930,6 @@ msgstr "&Bikkuza %1"
 #, kde-format
 msgid "Would you like to launch this file?"
 msgstr "Fayiro eno etandikibwe?"
-
-#. i18n: ectx: property (text), widget (QCheckBox, dontAgainCheckBox)
-#: widgets/executablefileopendialog.ui:97
-#, kde-format
-msgctxt "@option:check Always open/launch executable files (dont ask again)"
-msgid "Remember for all executable files"
-msgstr "Eno ekozesebwenga bulijjo okukebera fayiro ez'ebiragiro"
-
-#. i18n: ectx: property (contextualHelpText), widget (KContextualHelpButton, dontAgainHelpButton)
-#: widgets/executablefileopendialog.ui:104
-#, kde-format
-msgctxt "@info:tooltip How to undo do not ask again"
-msgid ""
-"You can undo this under \"Confirmations\" in Dolphin file manager settings."
-msgstr ""
-"Bino osobola okubijjululira mu katunda ak'eby'enkakasa aka mu nteekateeka "
-"ez'ekiteekateekafayiro Dolphin."
 
 #: widgets/fileundomanager.cpp:126
 #, kde-format
@@ -7666,6 +7635,28 @@ msgstr "Kino kijja okutandika puloguramu:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Puloguramu eno bw'oba togyesiga, koona ku Sazzamu"
+
+#~ msgctxt "@option:check"
+#~ msgid "Launch executable files without asking"
+#~ msgstr "Kompyuta fayiro eza puloguramu ezitandikenga nga tesoose kubuuza"
+
+#~ msgctxt "@option:check Open in the associated app"
+#~ msgid "Open executable files in the default application without asking"
+#~ msgstr ""
+#~ "Kompyuta fayiro ez'ebiragiro ezikebezenga puloguramu eyategekebwa "
+#~ "okwekubiirwa nga tesoose kubuuza"
+
+#~ msgctxt "@option:check Always open/launch executable files (dont ask again)"
+#~ msgid "Remember for all executable files"
+#~ msgstr "Eno ekozesebwenga bulijjo okukebera fayiro ez'ebiragiro"
+
+#~ msgctxt "@info:tooltip How to undo do not ask again"
+#~ msgid ""
+#~ "You can undo this under \"Confirmations\" in Dolphin file manager "
+#~ "settings."
+#~ msgstr ""
+#~ "Bino osobola okubijjululira mu katunda ak'eby'enkakasa aka mu nteekateeka "
+#~ "ez'ekiteekateekafayiro Dolphin."
 
 #~ msgid "Change Attribute"
 #~ msgstr "Kyusa Atiributo"
