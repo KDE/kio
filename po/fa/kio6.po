@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-05 00:40+0000\n"
+"POT-Creation-Date: 2026-04-07 00:40+0000\n"
 "PO-Revision-Date: 2023-06-08 11:57+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -94,7 +94,7 @@ msgid "Folder Already Exists"
 msgstr "در حال حاضر، پوشه موجود است"
 
 #: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
-#: core/job_error.cpp:577 widgets/paste.cpp:48
+#: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "پرونده هم‌اکنون موجود است"
@@ -6802,14 +6802,7 @@ msgstr "پیکربندی میان‌برهای وب…"
 msgid "Open file dialog"
 msgstr "باز کردن محاوره پرونده"
 
-#: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, fuzzy, kde-format
-#| msgid "&Paste Clipboard Contents"
-msgctxt "@title:dialog"
-msgid "Paste Clipboard Content"
-msgstr "&جایگذاری محتویات تخته یادداشت‌"
-
-#: widgets/paste.cpp:101
+#: widgets/paste.cpp:69
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6817,7 +6810,14 @@ msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "&جایگذاری %1 پرونده‌"
 
-#: widgets/paste.cpp:113
+#: widgets/paste.cpp:79 widgets/paste.cpp:113
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "&جایگذاری محتویات تخته یادداشت‌"
+
+#: widgets/paste.cpp:122
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6827,19 +6827,19 @@ msgstr ""
 "برگزیده، بیشتر از این قابل کاربرد نیست. لطفاً آنچه که می‌خواستید بچسبانید را "
 "دوباره رونوشت کنید."
 
-#: widgets/paste.cpp:234
+#: widgets/paste.cpp:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "جایگذاری یک پوشه"
 
-#: widgets/paste.cpp:234
+#: widgets/paste.cpp:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "جایگذاری یک پرونده"
 
-#: widgets/paste.cpp:236
+#: widgets/paste.cpp:252
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6847,27 +6847,27 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "جایگذاری %1 مورد"
 msgstr[1] "جایگذاری یک مورد"
 
-#: widgets/paste.cpp:238
+#: widgets/paste.cpp:254
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "&جایگذاری محتویات تخته یادداشت‌"
 
-#: widgets/paste.cpp:242
+#: widgets/paste.cpp:258
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "جایگذاری"
 
-#: widgets/pastedialog.cpp:54
+#: widgets/pastedialog.cpp:57
 #, fuzzy, kde-format
 #| msgid "Data format:"
 msgctxt "@label"
 msgid "Data format:"
 msgstr "قالب داده‌:"
 
-#: widgets/pastedialog.cpp:63
+#: widgets/pastedialog.cpp:68
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"

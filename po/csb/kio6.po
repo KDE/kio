@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-05 00:40+0000\n"
+"POT-Creation-Date: 2026-04-07 00:40+0000\n"
 "PO-Revision-Date: 2009-08-03 17:47+0200\n"
 "Last-Translator: Michôł Òstrowsczi <michol@linuxcsb.org>\n"
 "Language-Team: Kashubian <i18n-csb@linuxcsb.org>\n"
@@ -96,7 +96,7 @@ msgid "Folder Already Exists"
 msgstr "Katalog ju je"
 
 #: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
-#: core/job_error.cpp:577 widgets/paste.cpp:48
+#: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Lopk ju je"
@@ -6732,14 +6732,7 @@ msgstr "Zmieni &pòlitikã..."
 msgid "Open file dialog"
 msgstr ""
 
-#: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, fuzzy, kde-format
-#| msgid "&Paste Clipboard Contents"
-msgctxt "@title:dialog"
-msgid "Paste Clipboard Content"
-msgstr "&Wlepi zamkłosc tacnika"
-
-#: widgets/paste.cpp:101
+#: widgets/paste.cpp:69
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6747,7 +6740,14 @@ msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "&Wlepi lopk"
 
-#: widgets/paste.cpp:113
+#: widgets/paste.cpp:79 widgets/paste.cpp:113
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "&Wlepi zamkłosc tacnika"
+
+#: widgets/paste.cpp:122
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6757,7 +6757,7 @@ msgstr ""
 "pòdôwków ni ma terô brëkùnkù. Proszã znowa skòpérowac to, co bëlo do "
 "wlepieniô."
 
-#: widgets/paste.cpp:234
+#: widgets/paste.cpp:250
 #, fuzzy, kde-format
 #| msgid "One Folder"
 #| msgid_plural "%1 Folders"
@@ -6765,7 +6765,7 @@ msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Jeden katalog"
 
-#: widgets/paste.cpp:234
+#: widgets/paste.cpp:250
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6773,7 +6773,7 @@ msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "&Wlepi lopk"
 
-#: widgets/paste.cpp:236
+#: widgets/paste.cpp:252
 #, fuzzy, kde-format
 #| msgid "One Item"
 #| msgid_plural "%1 Items"
@@ -6784,28 +6784,28 @@ msgstr[0] "Jeden element"
 msgstr[1] "%1 elementë"
 msgstr[2] "%1 elementów"
 
-#: widgets/paste.cpp:238
+#: widgets/paste.cpp:254
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "&Wlepi zamkłosc tacnika"
 
-#: widgets/paste.cpp:242
+#: widgets/paste.cpp:258
 #, fuzzy, kde-format
 #| msgid "Paste"
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Wlepi"
 
-#: widgets/pastedialog.cpp:54
+#: widgets/pastedialog.cpp:57
 #, fuzzy, kde-format
 #| msgid "Data format:"
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Fòrmat pòdôwków:"
 
-#: widgets/pastedialog.cpp:63
+#: widgets/pastedialog.cpp:68
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"

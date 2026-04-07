@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-05 00:40+0000\n"
+"POT-Creation-Date: 2026-04-07 00:40+0000\n"
 "PO-Revision-Date: 2025-11-18 11:44+0100\n"
 "Last-Translator: Igor Dobrača <igor.dobraca@skole.hr>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -104,7 +104,7 @@ msgid "Folder Already Exists"
 msgstr "Direktorij već postoji"
 
 #: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
-#: core/job_error.cpp:577 widgets/paste.cpp:48
+#: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Datoteka već postoji"
@@ -6732,7 +6732,13 @@ msgstr "Konfigurirajte web prečace…"
 msgid "Open file dialog"
 msgstr "Dijalog za otvoranje datoteke"
 
-#: widgets/paste.cpp:65 widgets/paste.cpp:104
+#: widgets/paste.cpp:69
+#, kde-format
+msgctxt "A default file name excluding extension for some pasted content"
+msgid "pasted file"
+msgstr "zalijepljena datoteka"
+
+#: widgets/paste.cpp:79 widgets/paste.cpp:113
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Paste Clipboard Contents…"
@@ -6740,13 +6746,7 @@ msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "Zalijepite sadržaj međuspremnika…"
 
-#: widgets/paste.cpp:101
-#, kde-format
-msgctxt "A default file name excluding extension for some pasted content"
-msgid "pasted file"
-msgstr "zalijepljena datoteka"
-
-#: widgets/paste.cpp:113
+#: widgets/paste.cpp:122
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6756,19 +6756,19 @@ msgstr ""
 "podataka više nije prihvatljiv. Molim da kopirate ponovno ono što želite "
 "zalijepiti."
 
-#: widgets/paste.cpp:234
+#: widgets/paste.cpp:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Zalijepi jednu mapu"
 
-#: widgets/paste.cpp:234
+#: widgets/paste.cpp:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Zalijepi jednu datoteku"
 
-#: widgets/paste.cpp:236
+#: widgets/paste.cpp:252
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6777,26 +6777,26 @@ msgstr[0] "Zalijepi %1 stavku"
 msgstr[1] "Zalijepi %1 stavke"
 msgstr[2] "Zalijepi %1 stavki"
 
-#: widgets/paste.cpp:238
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Zalijepite sadržaj međuspremnika…"
 
-#: widgets/paste.cpp:242
+#: widgets/paste.cpp:258
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Zalijepi"
 
-#: widgets/pastedialog.cpp:54
+#: widgets/pastedialog.cpp:57
 #, fuzzy, kde-format
 #| msgid "Data format:"
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Format datuma:"
 
-#: widgets/pastedialog.cpp:63
+#: widgets/pastedialog.cpp:68
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"

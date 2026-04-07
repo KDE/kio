@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-05 00:40+0000\n"
-"PO-Revision-Date: 2026-03-01 20:47+0900\n"
+"POT-Creation-Date: 2026-04-07 00:40+0000\n"
+"PO-Revision-Date: 2026-03-27 12:52+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
 "Language: ja\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -98,7 +98,7 @@ msgid "Folder Already Exists"
 msgstr "フォルダは既に存在します"
 
 #: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
-#: core/job_error.cpp:577 widgets/paste.cpp:48
+#: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "ファイルは既に存在します"
@@ -6703,15 +6703,7 @@ msgstr "ウェブショートカットを設定..."
 msgid "Open file dialog"
 msgstr "ファイル選択ダイアログを開きます"
 
-#: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
-msgctxt "@title:dialog"
-msgid "Paste Clipboard Content"
-msgstr "クリップボードの内容を貼り付け..."
-
-#: widgets/paste.cpp:101
+#: widgets/paste.cpp:69
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Paste One File"
@@ -6719,7 +6711,13 @@ msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "1個のファイルを貼り付け"
 
-#: widgets/paste.cpp:113
+#: widgets/paste.cpp:79 widgets/paste.cpp:113
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "クリップボードの内容を貼り付け"
+
+#: widgets/paste.cpp:122
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6729,45 +6727,45 @@ msgstr ""
 "フォーマットは適用できなくなりました。貼り付けるものをもう一度コピーしてくだ"
 "さい。"
 
-#: widgets/paste.cpp:234
+#: widgets/paste.cpp:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "1個のフォルダを貼り付け"
 
-#: widgets/paste.cpp:234
+#: widgets/paste.cpp:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "1個のファイルを貼り付け"
 
-#: widgets/paste.cpp:236
+#: widgets/paste.cpp:252
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
 msgstr[0] "%1個のアイテムを貼り付け"
 
-#: widgets/paste.cpp:238
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "クリップボードの内容を貼り付け..."
 
-#: widgets/paste.cpp:242
+#: widgets/paste.cpp:258
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "貼り付け"
 
-#: widgets/pastedialog.cpp:54
+#: widgets/pastedialog.cpp:57
 #, fuzzy, kde-format
 #| msgid "Data format:"
 msgctxt "@label"
 msgid "Data format:"
 msgstr "データフォーマット:"
 
-#: widgets/pastedialog.cpp:63
+#: widgets/pastedialog.cpp:68
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -6903,10 +6901,9 @@ msgid "C&ontinue"
 msgstr "続行(&O)"
 
 #: widgets/renamedialog.cpp:416
-#, fuzzy, kde-format
-#| msgid "This action will overwrite the destination."
+#, kde-format
 msgid "Would you like to overwrite the destination?"
-msgstr "この操作は転送先を上書きします。"
+msgstr "転送先に上書きしますか？"
 
 #: widgets/renamedialog.cpp:418
 #, fuzzy, kde-format
@@ -6915,28 +6912,24 @@ msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "この操作は転送先を上書きします。"
 
 #: widgets/renamedialog.cpp:461
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>more recent</b>."
-msgstr "転送先は<b>%1 小さいです</b>。"
+msgstr "転送元の方が<b>新しい</b>ファイルです。"
 
 #: widgets/renamedialog.cpp:463
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>older</b>."
-msgstr "転送先は<b>%1 小さいです</b>。"
+msgstr "転送元の方が<b>古い</b>ファイルです。"
 
 #: widgets/renamedialog.cpp:472
-#, fuzzy, kde-format
-#| msgid "The destination is <b>smaller by %1</b>"
+#, kde-format
 msgid "The source is <b>smaller by %1</b>."
-msgstr "転送先は<b>%1 小さいです</b>。"
+msgstr "転送元の方が<b> %1 小さい</b>ファイルです。"
 
 #: widgets/renamedialog.cpp:475
-#, fuzzy, kde-format
-#| msgid "The destination is <b>bigger by %1</b>"
+#, kde-format
 msgid "The source is <b>bigger by %1</b>."
-msgstr "転送先は<b>%1 大きいです</b>。"
+msgstr "転送元の方が<b> %1 大きい</b>ファイルです。"
 
 #: widgets/renamedialog.cpp:489
 #, kde-format

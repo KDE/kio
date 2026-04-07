@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmsocks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-05 00:40+0000\n"
+"POT-Creation-Date: 2026-04-07 00:40+0000\n"
 "PO-Revision-Date: 2021-11-08 14:26+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -86,7 +86,7 @@ msgid "Folder Already Exists"
 msgstr "Zapisk hižo eksistuje"
 
 #: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
-#: core/job_error.cpp:577 widgets/paste.cpp:48
+#: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Dataja hižo eksistuje"
@@ -6813,14 +6813,7 @@ msgstr "Strate&giju změnić..."
 msgid "Open file dialog"
 msgstr "Dialog za wočinjenje dataje"
 
-#: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, fuzzy, kde-format
-#| msgid "&Paste Clipboard Contents"
-msgctxt "@title:dialog"
-msgid "Paste Clipboard Content"
-msgstr "Wobsah clipboarda &zasunyć"
-
-#: widgets/paste.cpp:101
+#: widgets/paste.cpp:69
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6828,7 +6821,14 @@ msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "%1 dataju  &zasunyć"
 
-#: widgets/paste.cpp:113
+#: widgets/paste.cpp:79 widgets/paste.cpp:113
+#, fuzzy, kde-format
+#| msgid "&Paste Clipboard Contents"
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "Wobsah clipboarda &zasunyć"
+
+#: widgets/paste.cpp:122
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6837,13 +6837,13 @@ msgstr ""
 "Clipboard je so změnił, po tym zo sće 'zasunyli'; datowy format hižo "
 "njepłaći. Prošu kopěrujće hišće raz, štož sće chcyli zasunyć."
 
-#: widgets/paste.cpp:234
+#: widgets/paste.cpp:250
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Zapisk zničić"
 
-#: widgets/paste.cpp:234
+#: widgets/paste.cpp:250
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6851,7 +6851,7 @@ msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "%1 dataju  &zasunyć"
 
-#: widgets/paste.cpp:236
+#: widgets/paste.cpp:252
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6861,28 +6861,28 @@ msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
 
-#: widgets/paste.cpp:238
+#: widgets/paste.cpp:254
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Wobsah clipboarda &zasunyć"
 
-#: widgets/paste.cpp:242
+#: widgets/paste.cpp:258
 #, fuzzy, kde-format
 #| msgid "Date"
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Datum"
 
-#: widgets/pastedialog.cpp:54
+#: widgets/pastedialog.cpp:57
 #, fuzzy, kde-format
 #| msgid "Data format:"
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Format datow:"
 
-#: widgets/pastedialog.cpp:63
+#: widgets/pastedialog.cpp:68
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-05 00:40+0000\n"
+"POT-Creation-Date: 2026-04-07 00:40+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -94,7 +94,7 @@ msgid "Folder Already Exists"
 msgstr "文件夹已存在"
 
 #: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
-#: core/job_error.cpp:577 widgets/paste.cpp:48
+#: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "文件已存在"
@@ -6457,19 +6457,19 @@ msgstr "配置网页搜索缩略词…"
 msgid "Open file dialog"
 msgstr "打开文件对话框"
 
-#: widgets/paste.cpp:65 widgets/paste.cpp:104
-#, kde-format
-msgctxt "@title:dialog"
-msgid "Paste Clipboard Content"
-msgstr "粘贴剪贴板内容"
-
-#: widgets/paste.cpp:101
+#: widgets/paste.cpp:69
 #, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "粘贴的文件"
 
-#: widgets/paste.cpp:113
+#: widgets/paste.cpp:79 widgets/paste.cpp:113
+#, kde-format
+msgctxt "@title:dialog"
+msgid "Paste Clipboard Content"
+msgstr "粘贴剪贴板内容"
+
+#: widgets/paste.cpp:122
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6478,44 +6478,44 @@ msgstr ""
 "剪贴板中的内容在上次“粘贴”之后已经改变：所选的数据格式不再适用。请重新复制您"
 "想要粘贴的内容。"
 
-#: widgets/paste.cpp:234
+#: widgets/paste.cpp:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "粘贴 1 个文件夹"
 
-#: widgets/paste.cpp:234
+#: widgets/paste.cpp:250
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "粘贴 1 个文件"
 
-#: widgets/paste.cpp:236
+#: widgets/paste.cpp:252
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
 msgstr[0] "粘贴 %1 个项目"
 
-#: widgets/paste.cpp:238
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "粘贴剪贴板内容…"
 
-#: widgets/paste.cpp:242
+#: widgets/paste.cpp:258
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "粘贴"
 
-#: widgets/pastedialog.cpp:54
+#: widgets/pastedialog.cpp:57
 #, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "数据格式："
 
-#: widgets/pastedialog.cpp:63
+#: widgets/pastedialog.cpp:68
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -7141,21 +7141,3 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
-
-#~ msgctxt "@option:check"
-#~ msgid "Launch executable files without asking"
-#~ msgstr "直接运行可执行文件，不请求用户确认"
-
-#~ msgctxt "@option:check Open in the associated app"
-#~ msgid "Open executable files in the default application without asking"
-#~ msgstr "直接使用在默认应用程序打开可执行文件，不请求用户确认"
-
-#~ msgctxt "@option:check Always open/launch executable files (dont ask again)"
-#~ msgid "Remember for all executable files"
-#~ msgstr "为所有可执行文件记住此状态"
-
-#~ msgctxt "@info:tooltip How to undo do not ask again"
-#~ msgid ""
-#~ "You can undo this under \"Confirmations\" in Dolphin file manager "
-#~ "settings."
-#~ msgstr "您可以在 Dolphin 文件管理器设置中的“请求确认”选项卡中撤销此操作。"

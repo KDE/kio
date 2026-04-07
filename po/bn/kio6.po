@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-05 00:40+0000\n"
+"POT-Creation-Date: 2026-04-07 00:40+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -96,7 +96,7 @@ msgid "Folder Already Exists"
 msgstr "ফোল্ডার আগে থেকেই আছে"
 
 #: core/copyjob.cpp:1736 core/copyjob.cpp:2441 core/filecopyjob.cpp:371
-#: core/job_error.cpp:577 widgets/paste.cpp:48
+#: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "ফাইল আগে থেকেই আছে"
@@ -6419,39 +6419,39 @@ msgstr "পলিসি &বদলাও..."
 msgid "Open file dialog"
 msgstr "ফাইল ডায়ালগ খোলো"
 
-#: widgets/paste.cpp:65 widgets/paste.cpp:104
+#: widgets/paste.cpp:69
+#, fuzzy, kde-format
+msgctxt "A default file name excluding extension for some pasted content"
+msgid "pasted file"
+msgstr "একটি ফাইল"
+
+#: widgets/paste.cpp:79 widgets/paste.cpp:113
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "ক্লিপবোর্ড-এর বিষয়&বস্তু পেস্ট করো"
 
-#: widgets/paste.cpp:101
-#, fuzzy, kde-format
-msgctxt "A default file name excluding extension for some pasted content"
-msgid "pasted file"
-msgstr "একটি ফাইল"
-
-#: widgets/paste.cpp:113
+#: widgets/paste.cpp:122
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
 "no longer applicable. Please copy again what you wanted to paste."
 msgstr ""
 
-#: widgets/paste.cpp:234
+#: widgets/paste.cpp:250
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "একটি ফোল্ডার"
 
-#: widgets/paste.cpp:234
+#: widgets/paste.cpp:250
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "একটি ফাইল"
 
-#: widgets/paste.cpp:236
+#: widgets/paste.cpp:252
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6459,27 +6459,27 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "একটি বস্তু"
 msgstr[1] "%1-টি বস্তু"
 
-#: widgets/paste.cpp:238
+#: widgets/paste.cpp:254
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "ক্লিপবোর্ড-এর বিষয়&বস্তু পেস্ট করো"
 
-#: widgets/paste.cpp:242
+#: widgets/paste.cpp:258
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "তারিখ"
 
-#: widgets/pastedialog.cpp:54
+#: widgets/pastedialog.cpp:57
 #, fuzzy, kde-format
 #| msgid "Data format:"
 msgctxt "@label"
 msgid "Data format:"
 msgstr "তথ্য ফরম্যাট"
 
-#: widgets/pastedialog.cpp:63
+#: widgets/pastedialog.cpp:68
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
