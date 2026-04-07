@@ -1123,7 +1123,7 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
 void KFileItemDelegate::drawSelectionEmblem(QStyleOptionViewItem option, QPainter *painter, const QModelIndex &index) const
 {
-    if (index.column() != 0 || !qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
+    if (d->emblemRect.isNull() || index.column() != 0 || !qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick)) {
         return;
     }
     const auto state = option.state;
@@ -1386,6 +1386,10 @@ bool KFileItemDelegate::eventFilter(QObject *object, QEvent *event)
 
 void KFileItemDelegate::setSelectionEmblemRect(QRect rect, int iconSize)
 {
+    if (iconSize == 0) {
+        d->emblemRect = QRect();
+        return;
+    }
     const auto emblemSize = d->scaledEmblemSize(iconSize);
 
     // With small icons, try to center the emblem on top of the icon

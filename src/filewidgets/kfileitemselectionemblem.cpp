@@ -50,8 +50,12 @@ KFileItemDelegate *KFileItemSelectionEmblem::fileItemDelegate()
 
 void KFileItemSelectionEmblem::updateSelectionEmblemRectForIndex(const int iconSize)
 {
-    if (isEmblemEnabled() && m_fileItemDelegate) {
-        m_fileItemDelegate->setSelectionEmblemRect(m_itemView->visualRect(m_index), iconSize);
+    if (m_fileItemDelegate) {
+        if (isEmblemEnabled()) {
+            m_fileItemDelegate->setSelectionEmblemRect(m_itemView->visualRect(m_index), iconSize);
+        } else {
+            m_fileItemDelegate->setSelectionEmblemRect(QRect(), 0);
+        }
     }
 }
 
