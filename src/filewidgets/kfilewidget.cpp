@@ -208,6 +208,8 @@ public:
      */
     bool currentDirSelectable() const;
 
+    void updatePlaceholderText() const;
+
     KFileWidget *const q;
 
     // the last selected url
@@ -399,12 +401,7 @@ KFileWidget::KFileWidget(const QUrl &_startDir, QWidget *parent)
     connect(d->m_urlNavigator, &KUrlNavigator::urlChanged, this, [this](const QUrl &url) {
         d->enterUrl(url);
         if (d->currentDirSelectable()) {
-            const auto dir = QDir(url.path()).dirName();
-            if (!dir.isEmpty()) {
-                d->m_locationEdit->lineEdit()->setPlaceholderText(i18n("Current Directory: %1", dir));
-            } else {
-                d->m_locationEdit->lineEdit()->setPlaceholderText(QString());
-            }
+            d->updatePlaceholderText();
         }
     });
     connect(d->m_urlNavigator, &KUrlNavigator::returnPressed, d->m_ops, qOverload<>(&QWidget::setFocus));
@@ -2061,15 +2058,28 @@ void KFileWidget::setMode(KFile::Modes m)
     }
 
     d->updateAutoSelectExtension();
-
     // Need to make sure we enable the okButton when expected to do so,
     // since it's possible we call setMode and setOperationMode in different order.
+    if (d->currentDirSelectable()) {
+        d->m_locationEdit->clearFocus();
+        d->updatePlaceholderText();
+    }
     d->m_okButton->setEnabled(d->currentDirSelectable() || !d->m_locationEdit->lineEdit()->text().isEmpty());
 }
 
 KFile::Modes KFileWidget::mode() const
 {
     return d->m_ops->mode();
+}
+
+void KFileWidgetPrivate::updatePlaceholderText() const
+{
+    const auto dir = QDir(m_urlNavigator->locationUrl().path()).dirName();
+    if (!dir.isEmpty()) {
+        m_locationEdit->lineEdit()->setPlaceholderText(i18n("Current Directory: %1", dir));
+    } else {
+        m_locationEdit->lineEdit()->setPlaceholderText(QString());
+    }
 }
 
 void KFileWidgetPrivate::readViewConfig()
