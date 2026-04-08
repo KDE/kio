@@ -3044,7 +3044,7 @@ void KFileWidgetPrivate::setInlinePreviewShown(bool show)
 
 bool KFileWidgetPrivate::currentDirSelectable() const
 {
-    return (m_operationMode == KFileWidget::OperationMode::Saving && m_ops->mode() & KFile::Directory);
+    return (m_ops->mode() & KFile::Directory);
 }
 
 void KFileWidget::setConfirmOverwrite(bool enable)
