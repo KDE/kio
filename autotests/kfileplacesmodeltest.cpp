@@ -107,6 +107,7 @@ static QString bookmarksFile()
 
 void KFilePlacesModelTest::initTestCase()
 {
+    qunsetenv("LANG");
     QVERIFY(m_tmpHome.isValid());
     qputenv("HOME", m_tmpHome.path().toUtf8()); // use a empty home dir
 
