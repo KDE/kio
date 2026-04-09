@@ -34,6 +34,7 @@ Name[pt]=Pesquisa de Pacotes do Fedora
 Name[pt_BR]=Pacotes Fedora
 Name[ro]=Pachete Fedora
 Name[ru]=Пакеты Fedora
+Name[sk]=Fedora Packages
 Name[sl]=Paketi Fedora
 Name[sv]=Fedora-paket
 Name[th]=แพ็คเกจ Fedora
@@ -79,6 +80,7 @@ Query[pt]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[pt_BR]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ro]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ru]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[sk]=https://directory.fsf.org/search/?query=\\{@}
 Query[sl]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[sv]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[th]=https://packages.fedoraproject.org/search?query=\\{@}

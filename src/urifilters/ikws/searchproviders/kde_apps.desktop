@@ -79,6 +79,7 @@ Query[pt]=https://store.kde.org/browse?tag=\\{@}
 Query[pt_BR]=https://store.kde.org/browse?tag=\\{@}
 Query[ro]=https://store.kde.org/browse?tag=\\{@}
 Query[ru]=https://store.kde.org/browse?tag=\\{@}
+Query[sk]=https://invent.kde.org/search?search=\\{@}
 Query[sl]=https://store.kde.org/browse?tag=\\{@}
 Query[sv]=https://store.kde.org/browse?tag=\\{@}
 Query[th]=https://store.kde.org/browse?tag=\\{@}

@@ -35,6 +35,7 @@ Name[pt]=npm
 Name[pt_BR]=npm
 Name[ro]=npm
 Name[ru]=npm
+Name[sk]=npm
 Name[sl]=npm
 Name[sv]=npm
 Name[th]=npm
@@ -79,6 +80,7 @@ Query[pt]=https://www.npmjs.com/search?q=\\{@}
 Query[pt_BR]=https://www.npmjs.com/search?q=\\{@}
 Query[ro]=https://www.npmjs.com/search?q=\\{@}
 Query[ru]=https://www.npmjs.com/search?q=\\{@}
+Query[sk]=https://www.bing.com/search?q=\\{@}
 Query[sl]=https://www.npmjs.com/search?q=\\{@}
 Query[sv]=https://www.npmjs.com/search?q=\\{@}
 Query[th]=https://www.npmjs.com/search?q=\\{@}

@@ -78,6 +78,7 @@ Query[pt]=https://caniuse.com/?search=\\{@}
 Query[pt_BR]=https://caniuse.com/?search=\\{@}
 Query[ro]=https://caniuse.com/?search=\\{@}
 Query[ru]=https://caniuse.com/?search=\\{@}
+Query[sk]=https://vimeo.com/search?q=\\{@}
 Query[sl]=https://caniuse.com/?search=\\{@}
 Query[sv]=https://caniuse.com/?search=\\{@}
 Query[th]=https://caniuse.com/?search=\\{@}
