@@ -142,8 +142,7 @@ int KProtocolManager::minimumKeepSize()
 {
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
-    return config()->group(QString()).readEntry("MinimumKeepSize",
-                                                DEFAULT_MINIMUM_KEEP_SIZE); // 5000 byte
+    return DEFAULT_MINIMUM_KEEP_SIZE;
 }
 
 bool KProtocolManager::autoResume()
