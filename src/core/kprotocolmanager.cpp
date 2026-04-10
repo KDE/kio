@@ -138,12 +138,14 @@ bool KProtocolManager::markPartial()
     return config()->group(QString()).readEntry("MarkPartial", true);
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 26)
 int KProtocolManager::minimumKeepSize()
 {
     KProtocolManagerPrivate *d = kProtocolManagerPrivate();
     QMutexLocker lock(&d->mutex);
     return DEFAULT_MINIMUM_KEEP_SIZE;
 }
+#endif
 
 bool KProtocolManager::autoResume()
 {

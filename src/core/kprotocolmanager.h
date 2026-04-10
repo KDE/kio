@@ -122,6 +122,7 @@ public:
      */
     static bool markPartial();
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 26)
     /*!
      * Returns the minimum file size for keeping aborted
      * downloads.
@@ -129,8 +130,13 @@ public:
      * Any data downloaded that does not meet this minimum
      * requirement will simply be discarded. The default size
      * is 5 KB.
+     *
+     * \deprecated[6.26]
+     *
+     * Use DEFAULT_MINIMUM_KEEP_SIZE
      */
     static int minimumKeepSize();
+#endif
 
     /*===================== PROTOCOL CAPABILITIES ===============================*/
 
