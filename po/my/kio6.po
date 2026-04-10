@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-07 00:40+0000\n"
+"POT-Creation-Date: 2026-04-10 00:40+0000\n"
 "PO-Revision-Date: 2025-09-10 15:28+0630\n"
 "Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2717,7 +2717,7 @@ msgid "All Supported Files"
 msgstr "အသုံးပြုနိုင်သော ဖိုင်များအားလုံး"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2060
+#: filewidgets/kfilewidget.cpp:2057
 #, kde-format
 msgid "All Files"
 msgstr "ဖိုင်အားလုံး"
@@ -2920,18 +2920,18 @@ msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "မနေ့ကမွမ်းမံခဲ့မှုများ"
 
-#: filewidgets/kfileplacesmodel.cpp:1127
+#: filewidgets/kfileplacesmodel.cpp:1130
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "နေရာများပန်နယ်သို့ မထည့်သွင်းနိုင်ခဲ့ပါ- %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1134
+#: filewidgets/kfileplacesmodel.cpp:1137
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "နေရာများပန်နယ်သို့ ဖိုင်တွဲများသာထည့်သွင်းနိုင်သည်။"
 
-#: filewidgets/kfileplacesmodel.cpp:1377
+#: filewidgets/kfileplacesmodel.cpp:1380
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Configure Web Shortcuts…"
@@ -2939,69 +2939,69 @@ msgctxt "@action:inmenu"
 msgid "Configure…"
 msgstr "ဝက်ဘ်ဖြတ်လမ်းများ ပြင်ဆင်မည်…"
 
-#: filewidgets/kfileplacesmodel.cpp:1413
+#: filewidgets/kfileplacesmodel.cpp:1416
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "လွှတ်နေသည်…"
 
-#: filewidgets/kfileplacesmodel.cpp:1415
+#: filewidgets/kfileplacesmodel.cpp:1418
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Rလွှတ်"
 
-#: filewidgets/kfileplacesmodel.cpp:1419
+#: filewidgets/kfileplacesmodel.cpp:1422
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "အထိအခိုက်မရှိစွာ ဖယ်ရှားနေသည်…"
 
-#: filewidgets/kfileplacesmodel.cpp:1421
+#: filewidgets/kfileplacesmodel.cpp:1424
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&Sအထိအခိုက်မရှိစွာဖယ်ရှားမည်"
 
-#: filewidgets/kfileplacesmodel.cpp:1426
+#: filewidgets/kfileplacesmodel.cpp:1429
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "ဖြုတ်နေသည်"
 
-#: filewidgets/kfileplacesmodel.cpp:1428
+#: filewidgets/kfileplacesmodel.cpp:1431
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&Uဖြုတ်ရန်"
 
-#: filewidgets/kfileplacesmodel.cpp:1452
+#: filewidgets/kfileplacesmodel.cpp:1455
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&Eထုတ်မည်"
 
-#: filewidgets/kfileplacesmodel.cpp:1499
+#: filewidgets/kfileplacesmodel.cpp:1502
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "'%1' စက်သည် မှတ်ဉာဏ်စက်မဟုတ်ပါ။ သို့ဖြစ်ပါ၍ ဖြုတ်မရပါ။"
 
-#: filewidgets/kfileplacesmodel.cpp:1534
+#: filewidgets/kfileplacesmodel.cpp:1537
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "'%1'ရယူအသုံးပြုနေစဥ် အမှားဖြစ်ပေါ်ခဲ့သည်၊ စစ်စတမ်အကြောင်းပြန်ချက် - %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1536
+#: filewidgets/kfileplacesmodel.cpp:1539
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "'%1'ရယူအသုံးပြုနေစဥ် အမှားဖြစ်ပေါ်ခဲ့သည်"
 
-#: filewidgets/kfileplacesmodel.cpp:1562
+#: filewidgets/kfileplacesmodel.cpp:1565
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr "ဤစက်ရှိ တစ်ခုသို့တစ်ခုထက်ပိုသောဖိုင်များကိုဖွင့်ထားသည်"
 
-#: filewidgets/kfileplacesmodel.cpp:1565
+#: filewidgets/kfileplacesmodel.cpp:1568
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3011,13 +3011,13 @@ msgid_plural ""
 "<application>%2</application>."
 msgstr[0] "ဤစက်ရှိ တစ်ခုသို့တစ်ခုထက်ပိုသောဖိုင်များကို <application>%2</application>.တွင်ဖွင့်ထားသည်"
 
-#: filewidgets/kfileplacesmodel.cpp:1568
+#: filewidgets/kfileplacesmodel.cpp:1571
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesmodel.cpp:1615
+#: filewidgets/kfileplacesmodel.cpp:1618
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
@@ -3144,33 +3144,27 @@ msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
 msgstr "အလွန်ကြီး (%1x%1)"
 
-#: filewidgets/kfilewidget.cpp:404
-#, fuzzy, kde-format
-#| msgid "Create Directory"
-msgid "Current Directory: %1"
-msgstr "ဖိုင်တွဲတည်ဆောက်ရန်"
-
-#: filewidgets/kfilewidget.cpp:640
+#: filewidgets/kfilewidget.cpp:637
 #, kde-format
 msgid "You can only select one file"
 msgstr "တစ်ဖိုင်သာရွေးနိုင်သည်"
 
-#: filewidgets/kfilewidget.cpp:640
+#: filewidgets/kfilewidget.cpp:637
 #, kde-format
 msgid "More than one file provided"
 msgstr "တစ်ခုထက်ပိုသောဖိုင်ပေးထားသည်"
 
-#: filewidgets/kfilewidget.cpp:816
+#: filewidgets/kfilewidget.cpp:813
 #, kde-format
 msgid "You can only select local files"
 msgstr "စက်တွင်းဖိုင်များသာရွေးနိုင်သည်"
 
-#: filewidgets/kfilewidget.cpp:816
+#: filewidgets/kfilewidget.cpp:813
 #, kde-format
 msgid "Remote files not accepted"
 msgstr "အဝေးဖိုင်များလက်မခံပါ"
 
-#: filewidgets/kfilewidget.cpp:823
+#: filewidgets/kfilewidget.cpp:820
 #, kde-format
 msgid ""
 "The selected URL uses an unsupported scheme. Please use the following "
@@ -3181,22 +3175,22 @@ msgid_plural ""
 msgstr[0] ""
 "ရွေးချယ်ထားသော ယူအာအယ်လ်သည် မထောက်ပံ့ထားသည့် အစီအစဥ်ပြပုံ သုံးထားသည်။ နောက်ပါ အစီအစဥ်ပြပုံ သုံးပါ- %2"
 
-#: filewidgets/kfilewidget.cpp:829
+#: filewidgets/kfilewidget.cpp:826
 #, kde-format
 msgid "Unsupported URL scheme"
 msgstr "အသုံးပြု၍မရသော ယူအာအယ်လ်အစီအစဥ်ပုံ"
 
-#: filewidgets/kfilewidget.cpp:850
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "The file \"%1\" could not be found"
 msgstr "\"%1\" ဖိုင်ကိုရှာမတွေ့နိုင်ခဲ့ပါ"
 
-#: filewidgets/kfilewidget.cpp:850
+#: filewidgets/kfilewidget.cpp:847
 #, kde-format
 msgid "Cannot open file"
 msgstr "ဖိုင်ဖွင့်မရပါ"
 
-#: filewidgets/kfilewidget.cpp:1219
+#: filewidgets/kfilewidget.cpp:1216
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3206,42 +3200,42 @@ msgstr ""
 "<qt>မိခင်ဖိုင်တွဲသို့ ဝင်ရောက်ရန် ဤခလုတ်ကိုနှိပ်ပါ။ <br/><br/> ဥပမာအားဖြင့် လက်ရှိတည်နေရာသည် file:/home/"
 "konqi ဖြစ်သည်ဆိုပါဆို ဤခလုတ်ကို နှိပ်လိုက်လျှင် file:/home သို့ရောက်သွားမည်ဖြစ်သည်။</qt>"
 
-#: filewidgets/kfilewidget.cpp:1223
+#: filewidgets/kfilewidget.cpp:1220
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr "ရှောက်ကြည့်မှတ်တမ်းတွင် နောက်တစ်လှမ်းဆုတ်ရန် ဤခလုတ်ကို နှိပ်ပါ။"
 
-#: filewidgets/kfilewidget.cpp:1224
+#: filewidgets/kfilewidget.cpp:1221
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr "ရှောက်ကြည့်မှတ်တမ်းတွင် ရှေ့တစ်လှမ်းတိုးရန် ဤခလုတ်ကို နှိပ်ပါ။"
 
-#: filewidgets/kfilewidget.cpp:1226
+#: filewidgets/kfilewidget.cpp:1223
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr "လက်ရှိတည်နေရာ၏ ဒေတာများ ပြန်တွန်းတင်ရန် ဤခလုတ်ကို နှိပ်ပါ။"
 
-#: filewidgets/kfilewidget.cpp:1228
+#: filewidgets/kfilewidget.cpp:1225
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "ဖိုင်တွဲ အသစ်တည်ဆောက်ရန် ဤခလုတ်ကို နှိပ်ပါ။"
 
-#: filewidgets/kfilewidget.cpp:1230
+#: filewidgets/kfilewidget.cpp:1227
 #, kde-format
 msgid "Show Places Panel"
 msgstr "နေရာများ ပန်နယ် ပြမည်"
 
-#: filewidgets/kfilewidget.cpp:1237
+#: filewidgets/kfilewidget.cpp:1234
 #, kde-format
 msgid "Show Quick Filter"
 msgstr "လျှင်မြန်စစ်ထုတ်တန်းပြရန်"
 
-#: filewidgets/kfilewidget.cpp:1245
+#: filewidgets/kfilewidget.cpp:1242
 #, kde-format
 msgid "Options"
 msgstr "ရွေးချယ်ချက်များ"
 
-#: filewidgets/kfilewidget.cpp:1248
+#: filewidgets/kfilewidget.cpp:1245
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3256,12 +3250,12 @@ msgstr ""
 "li><li>နေရာများ ပန်နယ်</li><li>ဖိုင်အကြိုပြချက်များ</li><li>ဖိုင်မှ ဖိုင်တွဲ ခွဲထားမည်</li></"
 "ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1267
+#: filewidgets/kfilewidget.cpp:1264
 #, kde-format
 msgid "Bookmarks"
 msgstr "စာမျက်နှာမှတ်သားချက်များ"
 
-#: filewidgets/kfilewidget.cpp:1271
+#: filewidgets/kfilewidget.cpp:1268
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3274,35 +3268,35 @@ msgstr ""
 ">ထိုစာမျက်နှာမှတ်သားချက်များသည် ဖိုင် အပြော-ဝင်းဒိုးတွင်သာ တည်နေရာ မှတ်သားခြင်းဖြစ်သည်။</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1316 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1313 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Nအမည် -"
 
-#: filewidgets/kfilewidget.cpp:1341
+#: filewidgets/kfilewidget.cpp:1338
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "အမည်ပြောင်းမှု ချေမည်"
 
-#: filewidgets/kfilewidget.cpp:1396
+#: filewidgets/kfilewidget.cpp:1393
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr "ဖိုင်တွဲပြောင်းလဲသောအခါ စစ်ထုတ်တန်းကို ထားထားမည်"
 
-#: filewidgets/kfilewidget.cpp:1400
+#: filewidgets/kfilewidget.cpp:1397
 #, kde-format
 msgid "Filter by name…"
 msgstr "အမည်ဖြင့်စစ်ထုတ်…"
 
-#: filewidgets/kfilewidget.cpp:1408
+#: filewidgets/kfilewidget.cpp:1405
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "စစ်ထုတ်တမ်းမပြတော့ပါ"
 
-#: filewidgets/kfilewidget.cpp:1457
+#: filewidgets/kfilewidget.cpp:1454
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3314,85 +3308,91 @@ msgstr ""
 "မောက့်စ်ညာဘက်ခလုတ်နှိပ်၍ <b>စာသားပြီးမြောက်စေမှု</b> မီနူးမှ နှစ်သက်သော ထုံးနည်းရွေး၍ ထိန်းချုပ်နိုင်သည်။</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:1464
+#: filewidgets/kfilewidget.cpp:1461
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "သိမ်းဆည်းမည့်ဖိုင်၏ အမည်ဖြစ်သည်။"
 
-#: filewidgets/kfilewidget.cpp:1467
+#: filewidgets/kfilewidget.cpp:1464
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
 "listing several files, separated by spaces."
 msgstr "၎င်းသည် ဖွင့်ရမည့် ဖိုင်စာရင်းဖြစ်သည်။ ဖိုင်တစ်ခုမက 'နေရာလွတ်'အက္ခရာ ခြား၍ ဖော်ပြနိုင်သည်။"
 
-#: filewidgets/kfilewidget.cpp:1472
+#: filewidgets/kfilewidget.cpp:1469
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "ဖွင့်မည့်ဖိုင်၏ အမည်ဖြစ်သည်။"
 
-#: filewidgets/kfilewidget.cpp:1485
+#: filewidgets/kfilewidget.cpp:1482
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "နေရာများ"
 
-#: filewidgets/kfilewidget.cpp:1766
+#: filewidgets/kfilewidget.cpp:1763
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "ဖိုင် \"%1\" ရှိနှင့်ပြီးဖြစ်သည်။ ထပ်ရေးချင်ပါသလား။"
 
-#: filewidgets/kfilewidget.cpp:1767
+#: filewidgets/kfilewidget.cpp:1764
 #, kde-format
 msgid "Overwrite File?"
 msgstr "ဖိုင်ကို ထပ်ရေးမှာလား။"
 
-#: filewidgets/kfilewidget.cpp:1964
+#: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "You can only select local files."
 msgstr "စက်တွင်းဖိုင်များသာရွေးနိုင်သည်။"
 
-#: filewidgets/kfilewidget.cpp:1964
+#: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "အဝေးဖိုင်များလက်မခံပါ"
 
-#: filewidgets/kfilewidget.cpp:2058
+#: filewidgets/kfilewidget.cpp:2055
 #, kde-format
 msgid "All Folders"
 msgstr "ဖိုင်တွဲအားလုံး"
 
-#: filewidgets/kfilewidget.cpp:2198 widgets/kfileitemactions.cpp:842
+#: filewidgets/kfilewidget.cpp:2079
+#, fuzzy, kde-format
+#| msgid "Create Directory"
+msgid "Current Directory: %1"
+msgstr "ဖိုင်တွဲတည်ဆောက်ရန်"
+
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:842
 #, kde-format
 msgid "&Open"
 msgstr "&Oဖွင့်"
 
-#: filewidgets/kfilewidget.cpp:2299
+#: filewidgets/kfilewidget.cpp:2309
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "အိုင်ကွန် အရွယ်အစား - %1 ပစ်ခ်ဆယ်"
 
-#: filewidgets/kfilewidget.cpp:2466
+#: filewidgets/kfilewidget.cpp:2476
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "&xဖိုင်အမည်တိုးချဲ့မှု အလိုအလျောက်ရွေးချယ်မည်် (%1)"
 
-#: filewidgets/kfilewidget.cpp:2467
+#: filewidgets/kfilewidget.cpp:2477
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "တိုးချဲ့မှု <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2473
+#: filewidgets/kfilewidget.cpp:2483
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "&xဖိုင်အမည်တိုးချဲ့မှု အလိုအလျောက်ရွေးချယ်မည််"
 
-#: filewidgets/kfilewidget.cpp:2474
+#: filewidgets/kfilewidget.cpp:2484
 #, kde-format
 msgid "a suitable extension"
 msgstr "သင့်တော်သော တိုးချဲ့စနစ်"
 
-#: filewidgets/kfilewidget.cpp:2482
+#: filewidgets/kfilewidget.cpp:2492
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3417,12 +3417,12 @@ msgstr ""
 "(period ကို အလိုအလျောက်ဖယ်ရှားသွားမည်).</li></ol>မသေချာလျှင်တော့ သင်၏ဖိုင်များကို ပိုမိုလွယ်ကူစွာ "
 "စီမံနိုင်ရန် ဤရွေးချယ်ချက်ကို ဖွင့်ထားပေးပါ။"
 
-#: filewidgets/kfilewidget.cpp:2948
+#: filewidgets/kfilewidget.cpp:2958
 #, kde-format
 msgid "&File type:"
 msgstr "&Fဖိုင်အမျိုးအစား -"
 
-#: filewidgets/kfilewidget.cpp:2952
+#: filewidgets/kfilewidget.cpp:2962
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3431,7 +3431,7 @@ msgstr ""
 "<qt>၎င်းသည် ဖိုင်အမျိုးအစားရွေးချယ်ကိရိယာဖြစ်သည်။ ၎င်းကို ဖိုင်သိမ်းဆည်းရမည့်ပုံစံ ရွေးချယ်ရာတွင် အသုံးပြုသည်။</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:2954
+#: filewidgets/kfilewidget.cpp:2964
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
