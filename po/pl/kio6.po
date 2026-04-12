@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-10 00:40+0000\n"
-"PO-Revision-Date: 2026-01-24 11:07+0100\n"
+"PO-Revision-Date: 2026-04-11 08:58+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -3893,6 +3893,8 @@ msgstr "Plik ikony zbyt duży, przerwano pobieranie"
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
+"FilePreviewJob: pomijanie pustego pliku, to może być uszkodzone dowiązanie: "
+"%1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
@@ -4940,7 +4942,7 @@ msgstr "C&ofnij: Utworzenie pliku"
 #: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Batch Rename"
-msgstr "C&ofnij: Wsadowa zmiana nazwy"
+msgstr "C&ofnij: Masowa zmiana nazwy"
 
 #: widgets/fileundomanager.cpp:357
 #, kde-format
@@ -4990,7 +4992,7 @@ msgstr "&Ponów: Utworzenie pliku"
 #: widgets/fileundomanager.cpp:379
 #, kde-format
 msgid "&Redo: Batch Rename"
-msgstr "&Ponów: Wsadowa zmiana nazwy"
+msgstr "&Ponów: Masowa zmiana nazwy"
 
 #: widgets/fileundomanager.cpp:906
 #, kde-format
@@ -5311,8 +5313,7 @@ msgid "&Open With…"
 msgstr "&Otwórz w…"
 
 #: widgets/kfileitemactions.cpp:809
-#, fuzzy, kde-format
-#| msgid "&Run Executable"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "U&ruchom plik wykonywalny"
@@ -6731,12 +6732,10 @@ msgid "pasted file"
 msgstr "wklejony plik"
 
 #: widgets/paste.cpp:79 widgets/paste.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "Wklej zawartość schowka…"
+msgstr "Wklej zawartość schowka"
 
 #: widgets/paste.cpp:122
 #, kde-format
@@ -6782,8 +6781,7 @@ msgid "Paste"
 msgstr "Wklej"
 
 #: widgets/pastedialog.cpp:57
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Format danych:"
