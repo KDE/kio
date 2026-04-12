@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2025-07-19 08:56+0200\n"
+"PO-Revision-Date: 2026-04-11 08:58+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
 "Language: pl\n"
@@ -7180,7 +7180,7 @@ msgstr "C&ofnij: Utworzenie pliku"
 #: widgets/fileundomanager.cpp:327
 #, kde-format
 msgid "Und&o: Batch Rename"
-msgstr "C&ofnij: Wsadowa zmiana nazwy"
+msgstr "C&ofnij: Masowa zmiana nazwy"
 
 #: widgets/fileundomanager.cpp:726
 #, kde-format
