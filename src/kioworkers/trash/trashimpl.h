@@ -57,7 +57,7 @@ public:
     bool moveInTrash(quint64 trashId, const QString &oldFileId, const QString &newFileId);
 
     /// Get rid of a trashed file
-    bool del(quint64 trashId, const QString &fileId);
+    bool del(quint64 trashId, const QString &fileId, const QUrl &trashUrl = QUrl());
 
     /// Empty trash, i.e. delete all trashed files
     bool emptyTrash();

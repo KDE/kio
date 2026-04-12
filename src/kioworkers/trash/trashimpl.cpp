@@ -566,7 +566,7 @@ bool TrashImpl::moveInTrash(quint64 trashId, const QString &oldFileId, const QSt
     return false;
 }
 
-bool TrashImpl::del(quint64 trashId, const QString &fileId)
+bool TrashImpl::del(quint64 trashId, const QString &fileId, const QUrl &trashUrl)
 {
 #ifdef Q_OS_OSX
     createTrashInfrastructure(trashId);
@@ -575,18 +575,9 @@ bool TrashImpl::del(quint64 trashId, const QString &fileId)
     const QString info = infoPath(trashId, fileId);
     const QString file = filesPath(trashId, fileId);
 
-    QT_STATBUF buff;
-    if (QT_LSTAT(QFile::encodeName(info).constData(), &buff) == -1) {
-        if (errno == EACCES) {
-            error(KIO::ERR_ACCESS_DENIED, file);
-        } else {
-            error(KIO::ERR_DOES_NOT_EXIST, file);
-        }
-        return false;
-    }
-
     const bool isDir = QFileInfo(file).isDir();
     if (!synchronousDel(file, true, isDir)) {
+        error(m_lastErrorCode, file);
         return false;
     }
 
@@ -595,7 +586,22 @@ bool TrashImpl::del(quint64 trashId, const QString &fileId)
         trashSize.remove(fileId);
     }
 
-    QFile::remove(info);
+    if (::remove(QFile::encodeName(info).constData()) == -1) {
+        if (errno == EACCES || errno == EPERM) {
+            error(KIO::ERR_CANNOT_DELETE, file);
+        } else if (errno == ENOENT)
+            error(KIO::ERR_DOES_NOT_EXIST, file);
+    } else {
+        qWarning() << "trash:/ got error code" << errno << " when deleting " << info;
+        error(KIO::ERR_UNKNOWN, file);
+    }
+        return false;
+    }
+
+    if (!trashUrl.isEmpty()) {
+        org::kde::KDirNotify::emitFilesRemoved({trashUrl});
+    }
+
     fileRemoved();
     return true;
 }
