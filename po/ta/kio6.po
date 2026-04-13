@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-04-10 00:40+0000\n"
-"PO-Revision-Date: 2026-01-31 18:14+0530\n"
+"PO-Revision-Date: 2026-04-12 18:17+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.12.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3854,6 +3854,7 @@ msgstr "சின்னம் கோப்பு பெரிதாக உள்
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
+"முன்னோட்ட சேவை: காலியான கோப்பு தவிர்க்கப்படுகிறது, இது உடைந்த இணைப்பாக இருக்கலாம்: %1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
@@ -5259,11 +5260,10 @@ msgid "&Open With…"
 msgstr "&செயலியில் திற…"
 
 #: widgets/kfileitemactions.cpp:809
-#, fuzzy, kde-format
-#| msgid "&Run Executable"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
-msgstr "&இயக்கு"
+msgstr "நிரலை இயக்கு"
 
 #: widgets/kfileitemactions.cpp:831
 #, kde-format
@@ -6661,12 +6661,10 @@ msgid "pasted file"
 msgstr "ஒட்டிய கோப்பு"
 
 #: widgets/paste.cpp:79 widgets/paste.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "பிடிப்புப்பலகையில் உள்ளவற்றை ஒட்டு…"
+msgstr "பிடிப்புப்பலகையில் உள்ளவற்றை ஒட்டுவது"
 
 #: widgets/paste.cpp:122
 #, kde-format
@@ -6710,11 +6708,10 @@ msgid "Paste"
 msgstr "ஒட்டு"
 
 #: widgets/pastedialog.cpp:57
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
-msgstr "தரவு படிவம்:"
+msgstr "தரவின் வகை:"
 
 #: widgets/pastedialog.cpp:68
 #, kde-format
