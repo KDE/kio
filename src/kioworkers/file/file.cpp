@@ -604,8 +604,7 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
 
             QT_STATBUF buff;
             if (QT_STAT(QFile::encodeName(dest).constData(), &buff) == 0) {
-                int size = configValue(QStringLiteral("MinimumKeepSize"), DEFAULT_MINIMUM_KEEP_SIZE);
-                if (buff.st_size < size) {
+                if (buff.st_size < DEFAULT_MINIMUM_KEEP_SIZE) {
                     QFile::remove(dest);
                 }
             }

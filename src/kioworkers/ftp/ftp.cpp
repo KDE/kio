@@ -2080,7 +2080,7 @@ Result FtpInternal::ftpPut(int iCopyFile, const QUrl &dest_url, int permissions,
         qCDebug(KIO_FTP) << "Error during 'put'. Aborting.";
         if (bMarkPartial) {
             // Remove if smaller than minimum size
-            if (ftpSize(dest, 'I') && (processed_size < q->configValue(QStringLiteral("MinimumKeepSize"), DEFAULT_MINIMUM_KEEP_SIZE))) {
+            if (ftpSize(dest, 'I') && (processed_size < DEFAULT_MINIMUM_KEEP_SIZE)) {
                 const QByteArray cmd = "DELE " + q->remoteEncoding()->encode(dest);
                 (void)ftpSendCmd(cmd);
             }
@@ -2367,8 +2367,7 @@ Result FtpInternal::ftpCopyGet(int &iCopyFile, const QString &sCopyFile, const Q
         } else {
             sPartInfo.refresh();
             if (sPartInfo.exists()) { // should a very small ".part" be deleted?
-                int size = q->configValue(QStringLiteral("MinimumKeepSize"), DEFAULT_MINIMUM_KEEP_SIZE);
-                if (sPartInfo.size() < size) {
+                if (sPartInfo.size() < DEFAULT_MINIMUM_KEEP_SIZE) {
                     QFile::remove(sPart);
                 }
             }
