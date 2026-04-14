@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-10 00:40+0000\n"
+"POT-Creation-Date: 2026-04-14 00:39+0000\n"
 "PO-Revision-Date: 2026-03-19 20:07+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -4176,7 +4176,7 @@ msgstr "Exekutatu beharreko komandoa"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'komando'-rentzako URL(ak) edo fitxategi lokala(k)"
 
-#: kioworkers/file/file.cpp:650
+#: kioworkers/file/file.cpp:649
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4185,7 +4185,7 @@ msgstr ""
 "Ezin izan dira aldatu\n"
 "%1(r)en baimenak"
 
-#: kioworkers/file/file.cpp:658
+#: kioworkers/file/file.cpp:657
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4195,17 +4195,17 @@ msgstr ""
 "Ezin izan du ondokoaren jabea eta taldea aldatu\n"
 "%1"
 
-#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Ezin izan da aldi baterako fitxategia ireki"
 
-#: kioworkers/file/file.cpp:765
+#: kioworkers/file/file.cpp:764
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Ezin izan du «mount» programa aurkitu"
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:841
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Ezin izan du «umount» programa aurkitu"
@@ -4279,7 +4279,7 @@ msgstr ""
 msgid "Site:"
 msgstr "Gunea:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4303,7 +4303,7 @@ msgstr ""
 "\n"
 "Zerbitzariak esan du: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4312,12 +4312,12 @@ msgstr ""
 "Erabiltzaile-izen bat eta pasahitz bat eman behar duzu behean zerrendatuta "
 "dagoen proxy zerbitzarirako, edozein gunera sartzeko baimena izan aurretik."
 
-#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy-a:"
 
-#: kioworkers/ftp/ftp.cpp:2502
+#: kioworkers/ftp/ftp.cpp:2501
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Proxy-aren autentifikazioak huts egin du."

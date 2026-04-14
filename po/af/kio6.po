@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-10 00:40+0000\n"
+"POT-Creation-Date: 2026-04-14 00:39+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -4400,7 +4400,7 @@ msgstr "Opdrag om uit te voer"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL(s) en plaaslike lêer(s) gebruik vir 'opdrag'"
 
-#: kioworkers/file/file.cpp:650
+#: kioworkers/file/file.cpp:649
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4409,7 +4409,7 @@ msgstr ""
 "Kon nie verander regte vir\n"
 "%1"
 
-#: kioworkers/file/file.cpp:658
+#: kioworkers/file/file.cpp:657
 #, fuzzy, kde-format
 #| msgid "Could not change permissions for %1."
 msgctxt "@info"
@@ -4418,18 +4418,18 @@ msgid ""
 "%1"
 msgstr "Kon nie regte vir %1 verander nie."
 
-#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "Kon Nie Herbenaam Tydelike Lêer"
 
-#: kioworkers/file/file.cpp:765
+#: kioworkers/file/file.cpp:764
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Kon nie vind program \"heg\""
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:841
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Kon nie vind program \"ontheg\""
@@ -4505,7 +4505,7 @@ msgstr ""
 msgid "Site:"
 msgstr "Tuiste:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4528,7 +4528,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr "Besig om te %1 begin"
 
-#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4537,12 +4537,12 @@ msgstr ""
 "Jy moet 'n gebruikernaam en wagwoord vir die volmag bediener wat hier onder "
 "vertoon word verskaf voordat toegang na die tuistes verleen sal word."
 
-#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Volmag:"
 
-#: kioworkers/ftp/ftp.cpp:2502
+#: kioworkers/ftp/ftp.cpp:2501
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Volmag Geldigheidsverklaring Gevaal."

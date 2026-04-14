@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-10 00:40+0000\n"
+"POT-Creation-Date: 2026-04-14 00:39+0000\n"
 "PO-Revision-Date: 2026-03-23 17:04+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -4194,7 +4194,7 @@ msgstr "Commando que il debe exequer"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL(s) o file(s) local usate pro 'command'"
 
-#: kioworkers/file/file.cpp:650
+#: kioworkers/file/file.cpp:649
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4203,7 +4203,7 @@ msgstr ""
 "Il non pote cambiar permissiones pro\n"
 "%1"
 
-#: kioworkers/file/file.cpp:658
+#: kioworkers/file/file.cpp:657
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4213,17 +4213,17 @@ msgstr ""
 "On non pote cambiar proprietate e gruppo per\n"
 " %1"
 
-#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Il non pote aperir file temporanee"
 
-#: kioworkers/file/file.cpp:765
+#: kioworkers/file/file.cpp:764
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Il non pote trovar le programma \"mount\""
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:841
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Il non pote trovar le programma \"umount\""
@@ -4297,7 +4297,7 @@ msgstr ""
 msgid "Site:"
 msgstr "Sito:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4321,7 +4321,7 @@ msgstr ""
 "\n"
 "Le servitor diceva: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4330,12 +4330,12 @@ msgstr ""
 "Tu necessita fornir un nomine de usator e un contrasigno pro le servitor de "
 "proxy listate a basso ante que es permittite acceder omne sitos."
 
-#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy:"
 
-#: kioworkers/ftp/ftp.cpp:2502
+#: kioworkers/ftp/ftp.cpp:2501
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Authentication de proxy falleva."

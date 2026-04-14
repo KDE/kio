@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-10 00:40+0000\n"
+"POT-Creation-Date: 2026-04-14 00:39+0000\n"
 "PO-Revision-Date: 2025-09-03 20:54+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -4170,7 +4170,7 @@ msgstr "A végrehajtandó parancs"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "A parancsban használt URL-ek és helyi fájlok"
 
-#: kioworkers/file/file.cpp:650
+#: kioworkers/file/file.cpp:649
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4179,7 +4179,7 @@ msgstr ""
 "Nem sikerült megváltoztatni a jogosultságokat itt:\n"
 "%1"
 
-#: kioworkers/file/file.cpp:658
+#: kioworkers/file/file.cpp:657
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4189,18 +4189,18 @@ msgstr ""
 "Nem sikerült megváltoztatni a következő tulajdonosát és csoportját:\n"
 "%1"
 
-#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "Nem sikerült átnevezni egy ideiglenes fájlt"
 
-#: kioworkers/file/file.cpp:765
+#: kioworkers/file/file.cpp:764
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "A „mount” program nem található"
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:841
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Az „umount” program nem található"
@@ -4274,7 +4274,7 @@ msgstr ""
 msgid "Site:"
 msgstr "Méret:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4298,7 +4298,7 @@ msgstr ""
 "\n"
 "A kiszolgáló válasza: „%1”"
 
-#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4308,12 +4308,12 @@ msgstr ""
 "a hozzá tartozó jelszót. Csak sikeres azonosítás után lehet más site-okat "
 "elérni."
 
-#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy:"
 
-#: kioworkers/ftp/ftp.cpp:2502
+#: kioworkers/ftp/ftp.cpp:2501
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "A proxy-n nem sikerült a felhasználóazonosítás."

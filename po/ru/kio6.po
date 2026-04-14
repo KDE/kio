@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-10 00:40+0000\n"
+"POT-Creation-Date: 2026-04-14 00:39+0000\n"
 "PO-Revision-Date: 2026-04-03 19:28+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -4194,7 +4194,7 @@ msgstr "Команда для выполнения"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "Адреса URL и/или локальные файлы для команды"
 
-#: kioworkers/file/file.cpp:650
+#: kioworkers/file/file.cpp:649
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4203,7 +4203,7 @@ msgstr ""
 "Невозможно изменить права доступа для\n"
 "%1"
 
-#: kioworkers/file/file.cpp:658
+#: kioworkers/file/file.cpp:657
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4213,17 +4213,17 @@ msgstr ""
 "Невозможно изменить владельца и группу\n"
 "%1"
 
-#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Не удалось открыть временный файл"
 
-#: kioworkers/file/file.cpp:765
+#: kioworkers/file/file.cpp:764
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Невозможно найти программу «mount»"
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:841
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Невозможно найти программу «umount»"
@@ -4295,7 +4295,7 @@ msgstr "Для доступа к этому сайту требуется вве
 msgid "Site:"
 msgstr "Сайт:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4319,7 +4319,7 @@ msgstr ""
 "\n"
 "Ответ сервера: «%1»"
 
-#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4328,12 +4328,12 @@ msgstr ""
 "Вам необходимо ввести имя и пароль для данного прокси-сервера, чтобы иметь "
 "через него доступ к другим сайтам."
 
-#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Прокси:"
 
-#: kioworkers/ftp/ftp.cpp:2502
+#: kioworkers/ftp/ftp.cpp:2501
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Ошибка идентификации на прокси-сервере."

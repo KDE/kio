@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-10 00:40+0000\n"
-"PO-Revision-Date: 2026-02-16 23:38+0000\n"
+"POT-Creation-Date: 2026-04-14 00:39+0000\n"
+"PO-Revision-Date: 2026-04-03 14:15+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -4200,7 +4200,7 @@ msgstr "Comanda de executat"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL-ul(urile) sau fișierul(le) local(e) utilizate pentru 'command'"
 
-#: kioworkers/file/file.cpp:650
+#: kioworkers/file/file.cpp:649
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4209,7 +4209,7 @@ msgstr ""
 "Nu s-au putut schimba permisiunile pentru\n"
 "%1"
 
-#: kioworkers/file/file.cpp:658
+#: kioworkers/file/file.cpp:657
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4219,17 +4219,17 @@ msgstr ""
 "Nu s-a putut schimba proprietarul și grupul pentru\n"
 "%1"
 
-#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Nu s-a putut deschide fișierul temporar"
 
-#: kioworkers/file/file.cpp:765
+#: kioworkers/file/file.cpp:764
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Programul „mount” nu a putut fi găsit"
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:841
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Programul „umount” nu a putut fi găsit"
@@ -4301,7 +4301,7 @@ msgstr "Trebuie să introduceți un nume și o parolă pentru a accesa acest sai
 msgid "Site:"
 msgstr "Sait:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4325,7 +4325,7 @@ msgstr ""
 "\n"
 "Serverul a spus: „%1”"
 
-#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4334,12 +4334,12 @@ msgstr ""
 "Trebuie să specificați un nume și o parolă pentru serverul proxy arătat mai "
 "jos înainte de a putea accesa saituri web."
 
-#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy:"
 
-#: kioworkers/ftp/ftp.cpp:2502
+#: kioworkers/ftp/ftp.cpp:2501
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Autentificare proxy eșuată."
@@ -5367,8 +5367,7 @@ msgid "&Open With…"
 msgstr "&Deschide cu…"
 
 #: widgets/kfileitemactions.cpp:809
-#, fuzzy, kde-format
-#| msgid "&Run Executable"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Rulează executabilul"
@@ -6821,12 +6820,10 @@ msgid "pasted file"
 msgstr "fișier lipit"
 
 #: widgets/paste.cpp:79 widgets/paste.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "Lipește conținutul clipboard-ului…"
+msgstr "Lipește conținutul clipboard-ului"
 
 #: widgets/paste.cpp:122
 #, kde-format
@@ -6872,8 +6869,7 @@ msgid "Paste"
 msgstr "Lipește"
 
 #: widgets/pastedialog.cpp:57
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Formatul datelor:"
@@ -6909,19 +6905,14 @@ msgid "Appl&y to All"
 msgstr "Aplică la &toate"
 
 #: widgets/renamedialog.cpp:280
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "folder conflicts for the remainder of the current job.\n"
-#| "Unless you press Skip you will still be prompted in case of a conflict "
-#| "with an existing file in the directory."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
-"Când acesta este bifat butonul apăsat va fi aplicat tuturor conflictelor de "
+"Când acesta este bifat, butonul apăsat va fi aplicat tuturor conflictelor de "
 "dosare ulterioare găsite pe parcursul sarcinii curente.\n"
 "Dacă nu apăsați Sari veți fi întrebat în continuare în cazul unui conflict "
 "cu un fișier existent în dosar."

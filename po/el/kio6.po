@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-10 00:40+0000\n"
+"POT-Creation-Date: 2026-04-14 00:39+0000\n"
 "PO-Revision-Date: 2024-09-19 21:59+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -4238,7 +4238,7 @@ msgstr "Εντολή για εκτέλεση"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL(s) ή τοπικό αρχείο(α) που χρησιμοποιείται για την 'εντολή'"
 
-#: kioworkers/file/file.cpp:650
+#: kioworkers/file/file.cpp:649
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4247,7 +4247,7 @@ msgstr ""
 "Αδύνατη η αλλαγή των αδειών για το\n"
 "%1"
 
-#: kioworkers/file/file.cpp:658
+#: kioworkers/file/file.cpp:657
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4257,18 +4257,18 @@ msgstr ""
 "Αδύνατη η αλλαγή της ιδιοκτησίας και ομάδας για το\n"
 "%1"
 
-#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "Δεν ήταν δυνατή η μετονομασία του προσωρινού αρχείου"
 
-#: kioworkers/file/file.cpp:765
+#: kioworkers/file/file.cpp:764
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Δεν ήταν δυνατή η εύρεση του προγράμματος \"mount\""
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:841
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Δεν ήταν δυνατή η εύρεση του προγράμματος \"umount\""
@@ -4342,7 +4342,7 @@ msgstr ""
 msgid "Site:"
 msgstr "Δικτυακός τόπος:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4366,7 +4366,7 @@ msgstr ""
 "\n"
 "Ο εξυπηρετητής είπε: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4375,12 +4375,12 @@ msgstr ""
 "Πρέπει να δώσετε όνομα χρήστη και κωδικό πρόσβασης για τον παρακάτω "
 "διαμεσολαβητή προτού σας δοθεί πρόσβαση σε κάποιο διαδικτυακό τόπο."
 
-#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Διαμεσολαβητής:"
 
-#: kioworkers/ftp/ftp.cpp:2502
+#: kioworkers/ftp/ftp.cpp:2501
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Η ταυτοποίηση διαμεσολαβητή απέτυχε."

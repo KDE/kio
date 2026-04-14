@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-10 00:40+0000\n"
+"POT-Creation-Date: 2026-04-14 00:39+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -4186,7 +4186,7 @@ msgstr ""
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""
 
-#: kioworkers/file/file.cpp:650
+#: kioworkers/file/file.cpp:649
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4195,7 +4195,7 @@ msgstr ""
 "មិន​អាច​ផ្លាស់ប្តូរ​សិទ្ធិ​ឲ្យ\n"
 "%1 បានទេ"
 
-#: kioworkers/file/file.cpp:658
+#: kioworkers/file/file.cpp:657
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgctxt "@info"
@@ -4204,18 +4204,18 @@ msgid ""
 "%1"
 msgstr "មិនអាច​ប្ដូរ​ភាព​ជា​ម្ចាស់​សម្រាប់ %1 បានឡើយ ។"
 
-#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "មិន​អាច​ប្តូរ​ឈ្មោះ​ឯកសារ​បណ្តោះ​អាសន្ន​បានឡើយ"
 
-#: kioworkers/file/file.cpp:765
+#: kioworkers/file/file.cpp:764
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "មិន​អាច​រក​ឃើញ​កម្មវិធី \"ម៉ោន\""
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:841
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "មិន​អាច​រក​ឃើញ​កម្មវិធី \"អាន់ម៉ោន\""
@@ -4288,7 +4288,7 @@ msgstr "អ្នក​ត្រូវ​ផ្តល់​ឈ្មោះ​អ
 msgid "Site:"
 msgstr "តំបន់បណ្ដាញ ៖"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4311,7 +4311,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr "បើក %1"
 
-#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4320,12 +4320,12 @@ msgstr ""
 "អ្នក​ត្រូវ​ផ្តល់​ឈ្មោះ​អ្នកប្រើ និង​ពាក្យ​សម្ងាត់ ឲ្យ​ម៉ាស៊ីន​បម្រើ​ប្រូកស៊ី​ដែល​បាន​រាយ​ខាងក្រោម មុន​ពេល​អ្នក​អាច​ចូល​"
 "ដំណើរការ​តំបន់បណ្ដាញ​ណាមួយ ។"
 
-#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "ប្រូកស៊ី ៖"
 
-#: kioworkers/ftp/ftp.cpp:2502
+#: kioworkers/ftp/ftp.cpp:2501
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "ការផ្ទៀងផ្ទាត់ភាព​ត្រឹមត្រូវ​ប្រូកស៊ី​បាន​បរាជ័យ ។"

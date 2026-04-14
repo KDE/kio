@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-04-10 00:40+0000\n"
+"POT-Creation-Date: 2026-04-14 00:39+0000\n"
 "PO-Revision-Date: 2026-04-12 18:17+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -4106,7 +4106,7 @@ msgstr "இயக்க வேண்டிய கட்டளை"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "கட்டளைக்கு பயன்படும் முகவரி(கள்) அல்லது உள்ளமை கோப்பு(கள்)"
 
-#: kioworkers/file/file.cpp:650
+#: kioworkers/file/file.cpp:649
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4115,7 +4115,7 @@ msgstr ""
 "%1\n"
 "என்பதற்கு அனுமதிகளை மாற்ற முடியவில்லை"
 
-#: kioworkers/file/file.cpp:658
+#: kioworkers/file/file.cpp:657
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4123,17 +4123,17 @@ msgid ""
 "%1"
 msgstr "%1 என்பதற்கான உரிமையாளரையும் குழுவையும் மாற்ற முடியவில்லை."
 
-#: kioworkers/file/file.cpp:741 kioworkers/file/file.cpp:833
+#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "தற்காலிகக் கோப்பைத் திறக்க முடியவில்லை"
 
-#: kioworkers/file/file.cpp:765
+#: kioworkers/file/file.cpp:764
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" நிரலை கண்டுபிடிக்க முடியவில்லை"
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:841
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" நிரலை கண்டுபிடிக்க முடியவில்லை"
@@ -4205,7 +4205,7 @@ msgstr "இத்தளத்தை அணுக நீங்கள் ஒரு
 msgid "Site:"
 msgstr "தளம்:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4229,7 +4229,7 @@ msgstr ""
 "\n"
 "சேவையகம் கூறியது: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2495 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4238,12 +4238,12 @@ msgstr ""
 "எந்த இணையதளத்தையும் அணுகுமுன், நீங்கள் கீழ்கண்ட பதிலி சேவையகத்துக்கான பயனர் பெயரையும் "
 "கடவுச்சொல்லையும் தர வேண்டும்."
 
-#: kioworkers/ftp/ftp.cpp:2499 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "பதிலி:"
 
-#: kioworkers/ftp/ftp.cpp:2502
+#: kioworkers/ftp/ftp.cpp:2501
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "பதிலி உறுதிப்பாடு தோல்வியடைந்தது!"
