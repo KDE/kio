@@ -116,7 +116,7 @@ void FilePreviewJob::start()
     connect(statJob, &KIO::Job::result, this, &FilePreviewJob::slotStatFile);
     statJob->start();
 
-    m_timeoutTimer = startTimer(2s);
+    m_timeoutTimer = startTimer(5s);
 }
 
 bool FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
