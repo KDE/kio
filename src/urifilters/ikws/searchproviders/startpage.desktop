@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Service
+Name=Startpage
+Keys=sp,startpage
+Query=https://www.startpage.com/sp/search?query=\\{@}
