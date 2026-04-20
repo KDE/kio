@@ -1,5 +1,29 @@
 [Desktop Entry]
 Type=Service
 Name=Startpage
+Name[ca]=Startpage
+Name[ca@valencia]=Startpage
+Name[es]=Startpage
+Name[he]=Startpage
+Name[ia]=Pagina de initio
+Name[ka]=Startpage
+Name[nl]=Startpagina
+Name[pt_BR]=Startpage
+Name[sl]=Startpage
+Name[tr]=Startpage
+Name[uk]=Startpage
+Name[zh_TW]=Startpage
 Keys=sp,startpage
 Query=https://www.startpage.com/sp/search?query=\\{@}
+Query[ca]=https://www.startpage.com/sp/search?query=\\{@}
+Query[ca@valencia]=https://www.startpage.com/sp/search?query=\\{@}
+Query[es]=https://www.startpage.com/sp/search?query=\\{@}
+Query[he]=https://www.startpage.com/sp/search?query=\\{@}
+Query[ia]=https://www.startpage.com/sp/search?query=\\{@}
+Query[ka]=https://www.startpage.com/sp/search?query=\\{@}
+Query[nl]=https://www.startpage.com/sp/search?query=\\{@}
+Query[pt_BR]=https://www.startpage.com/sp/search?query=\\{@}
+Query[sl]=https://www.startpage.com/sp/search?query=\\{@}
+Query[tr]=https://www.startpage.com/sp/search?query=\\{@}
+Query[uk]=https://www.startpage.com/sp/search?query=\\{@}
+Query[zh_TW]=https://www.startpage.com/sp/search?query=\\{@}
