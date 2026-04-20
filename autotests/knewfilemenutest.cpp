@@ -76,15 +76,30 @@ private Q_SLOTS:
         // The files in template dirs are traversed only once
         QFile templ(m_xdgConfigDir + "/test-templates/test-text.desktop");
         QVERIFY(templ.open(QIODevice::WriteOnly));
-        const QByteArray contents =
+        const QByteArray contents1 =
             "[Desktop Entry]\n"
             "Name=Custom...\n"
             "Type=Link\n"
             "URL=TestTextFile.txt\n"
             "Icon=text-plain\n";
 
-        templ.write(contents);
+        templ.write(contents1);
         templ.close();
+        QFile templText(m_xdgConfigDir + "/test-templates/TestTextFile.txt");
+        QVERIFY(templText.open(QIODevice::WriteOnly));
+        templText.close();
+
+        QFile notExist(m_xdgConfigDir + "/test-templates/not-existing.desktop");
+        QVERIFY(notExist.open(QIODevice::WriteOnly));
+        const QByteArray contents2 =
+            "[Desktop Entry]\n"
+            "Name=Doesn't exist\n"
+            "Type=Link\n"
+            "URL=NonExisting.txt\n"
+            "Icon=text-plain\n";
+
+        notExist.write(contents2);
+        notExist.close();
 
         QDir folderTemplate(templatesLoc + "/my-folder");
         QVERIFY(folderTemplate.mkdir(folderTemplate.path()));
@@ -318,14 +333,19 @@ private Q_SLOTS:
         KNewFileMenu menu(this);
         menu.setWorkingDirectory(QUrl::fromLocalFile(m_tmpDir.path()));
         menu.checkUpToDate();
-        const auto list = menu.menu()->actions();
-        auto it = std::find_if(list.cbegin(), list.cend(), [](QAction *act) {
+        const auto list1 = menu.menu()->actions();
+        auto it = std::find_if(list1.cbegin(), list1.cend(), [](QAction *act) {
             return act->text() == QStringLiteral("Custom...");
         });
-        QVERIFY(it != list.cend());
+        QVERIFY(it != list1.cend());
         // There is a separator between system-wide templates and the ones
         // from the user's home
         QVERIFY((*--it)->isSeparator());
+        const auto list2 = menu.menu()->actions();
+        it = std::find_if(list2.cbegin(), list2.cend(), [](QAction *act) {
+            return act->text() == QStringLiteral("Doesn't exist");
+        });
+        QVERIFY(it == list2.cend());
     }
 
     void testParsingSimpleTemplates()
@@ -480,6 +500,7 @@ private Q_SLOTS:
         QVERIFY(chooseIconBox->isVisibleTo(dialog));
 
         // It should remember that it was expanded.
+        // TODO: Run test in separate home or read the current state so that repeated tests don't fail
         if (buttonIndex == 0) {
             QVERIFY(!chooseIconBox->isExpanded());
         } else {

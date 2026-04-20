@@ -104,7 +104,6 @@ class KNewFileMenuSingleton
 public:
     KNewFileMenuSingleton()
         : dirWatch(nullptr)
-        , filesParsed(false)
         , templatesList(nullptr)
         , templatesVersion(0)
     {
@@ -115,12 +114,6 @@ public:
         delete templatesList;
     }
 
-    /*
-     * Opens the desktop files and completes the Entry list
-     * Input: the entry list. Output: the entry list ;-)
-     */
-    void parseFiles();
-
     enum EntryType {
         Unknown = 0, // Not parsed, i.e. we don't know
         LinkToTemplate, // A desktop file that points to a file or dir to copy
@@ -130,6 +123,8 @@ public:
     std::unique_ptr<KDirWatch> dirWatch;
 
     struct Entry {
+        QString url;
+        QString key;
         QString text;
         QString filePath; /// The displayed name in the context menu and the suggested filename. When using a .desktop file this is used to refer back to
                           /// it during parsing.
@@ -139,8 +134,8 @@ public:
         EntryType entryType; /// Defines if the created file will be a copy or a symbolic link
         QString comment; /// The prompt label asking for filename
         QString mimeType;
+        bool parseFile(QString file);
     };
-    // NOTE: only filePath is known before we call parseFiles
 
     /*
      * List of all template files. It is important that they are in
@@ -148,11 +143,6 @@ public:
      */
     typedef QList<Entry> EntryList;
 
-    /*
-     * Set back to false each time new templates are found,
-     * and to true on the first call to parseFiles
-     */
-    bool filesParsed;
     EntryList *templatesList;
 
     /*
@@ -163,53 +153,41 @@ public:
     int templatesVersion;
 };
 
-struct EntryInfo {
-    QString key; /// Context menu order is the alphabetical order of this variable
-    QString url;
-    KNewFileMenuSingleton::Entry entry;
-};
-
-void KNewFileMenuSingleton::parseFiles()
+bool KNewFileMenuSingleton::Entry::parseFile(QString file)
 {
-    // qDebug();
-    filesParsed = true;
-    QMutableListIterator templIter(*templatesList);
-    while (templIter.hasNext()) {
-        KNewFileMenuSingleton::Entry &templ = templIter.next();
-        const QString &filePath = templ.filePath;
-        QString text;
-        QString templatePath;
-        // If a desktop file, then read the name from it.
-        // Otherwise (or if no name in it?) use file name
-        if (KDesktopFile::isDesktopFile(filePath)) {
-            KDesktopFile desktopFile(filePath);
-            if (desktopFile.noDisplay()) {
-                templIter.remove();
-                continue;
-            }
+    // Parse .desktop files
+    QMimeDatabase db;
+    if (KDesktopFile::isDesktopFile(file)) {
+        filePath = file;
+        const KDesktopFile config(file);
+        url = config.desktopGroup().readEntry("URL");
+        key = config.desktopGroup().readEntry("Name");
+        entryType = KNewFileMenuSingleton::Template;
+        KDesktopFile desktopFile(file);
+        if (desktopFile.noDisplay()) {
+            return false;
+        }
 
-            text = desktopFile.readName();
-            templ.icon = desktopFile.readIcon();
-            templ.comment = desktopFile.readComment();
-            if (desktopFile.readType() == QLatin1String("Link")) {
-                templatePath = desktopFile.desktopGroup().readPathEntry("URL", QString());
-                if (templatePath.startsWith(QLatin1String("file:/"))) {
-                    templatePath = QUrl(templatePath).toLocalFile();
-                } else if (!templatePath.startsWith(QLatin1Char('/')) && !templatePath.startsWith(QLatin1String("__"))) {
-                    // A relative path, then (that's the default in the files we ship)
-                    const QStringView linkDir = QStringView(filePath).left(filePath.lastIndexOf(QLatin1Char('/')) + 1 /*keep / */);
-                    // qDebug() << "linkDir=" << linkDir;
-                    templatePath = linkDir + templatePath;
-                }
+        text = desktopFile.readName();
+        icon = desktopFile.readIcon();
+        comment = desktopFile.readComment();
+        if (desktopFile.readType() == QLatin1String("Link")) {
+            templatePath = desktopFile.desktopGroup().readPathEntry("URL", QString());
+            if (templatePath.startsWith(QLatin1String("file:/"))) {
+                templatePath = QUrl(templatePath).toLocalFile();
+            } else if (!templatePath.startsWith(QLatin1Char('/')) && !templatePath.startsWith(QLatin1String("__"))) {
+                // A relative path, then (that's the default in the files we ship)
+                const QStringView linkDir = QStringView(filePath).left(filePath.lastIndexOf(QLatin1Char('/')) + 1 /*keep / */);
+                // qDebug() << "linkDir=" << linkDir;
+                templatePath = linkDir + templatePath;
             }
-            if (templatePath.isEmpty()) {
-                // No URL key, this is an old-style template
-                templ.entryType = KNewFileMenuSingleton::Template;
-                templ.templatePath = templ.filePath; // we'll copy the file
-            } else {
-                templ.entryType = KNewFileMenuSingleton::LinkToTemplate;
-                templ.templatePath = templatePath;
-            }
+        }
+        if (templatePath.isEmpty()) {
+            // No URL key, this is an old-style template
+            entryType = KNewFileMenuSingleton::Template;
+            templatePath = filePath; // we'll copy the file
+        } else {
+            entryType = KNewFileMenuSingleton::LinkToTemplate;
         }
         if (text.isEmpty()) {
             text = QUrl(filePath).fileName();
@@ -218,12 +196,54 @@ void KNewFileMenuSingleton::parseFiles()
                 text.chop(suffix.size());
             }
         }
-        templ.text = text;
+        QFileInfo fileinfo(templatePath);
+        if (!fileinfo.isReadable() && QFileInfo(filePath).isNativePath()) {
+            return false;
+        }
         /*// qDebug() << "Updating entry with text=" << text
                         << "entryType=" << templ.entryType
                         << "templatePath=" << templ.templatePath;*/
+        QMimeType mime = db.mimeTypeForFile(file);
+        mimeType = mime.name();
     }
+    // Parse non-.desktop files
+    else {
+        QFileInfo fileinfo(file);
+        if (!fileinfo.isReadable()) {
+            return false;
+        }
+        url = file;
+        key = fileinfo.fileName();
+        entryType = KNewFileMenuSingleton::Template;
+        text = fileinfo.baseName();
+        filePath = file;
+        templatePath = file;
+        QMimeType mime = db.mimeTypeForFile(file);
+        mimeType = mime.name();
+        icon = mime.iconName();
+        comment = i18nc("@label:textbox Prompt for new file of type", "Enter %1 filename:", mime.comment());
+    }
+    // Put Directory first in the list (a bit hacky),
+    // and TextFile before others because it's the most used one.
+    // This also sorts by user-visible name.
+    // The rest of the re-ordering is done in fillMenu.
+    if (file.endsWith(QLatin1String("Directory.desktop"))) {
+        key.prepend(QLatin1Char('0'));
+    } else if (file.startsWith(QDir::homePath())) {
+        key.prepend(QLatin1Char('1'));
+    } else if (file.endsWith(QLatin1String("TextFile.desktop"))) {
+        key.prepend(QLatin1Char('2'));
+    } else {
+        key.prepend(QLatin1Char('3'));
+    }
+    return true;
 }
+
+struct EntryInfo {
+    QString key; /// Context menu order is the alphabetical order of this variable
+    QString url;
+    KNewFileMenuSingleton::Entry entry;
+};
 
 Q_GLOBAL_STATIC(KNewFileMenuSingleton, kNewMenuGlobals)
 
@@ -607,10 +627,7 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
         QMimeDatabase db;
         const QString extension = db.suffixForFileName(text);
         if (extension.isEmpty()) {
-            // For an unknown extension just exclude the extension after
-            // the last point. This does not work for multiple extensions like
-            // *.tar.gz but usually this is anyhow a known extension.
-            selectionLength = text.lastIndexOf(QLatin1Char('.'));
+            selectionLength = text.indexOf(QLatin1Char('.'));
 
             // If no point could be found, use whole text length for selection.
             if (selectionLength < 1) {
@@ -809,37 +826,6 @@ void KNewFileMenuPrivate::fillMenu()
                 } else {
                     if (lastTemplatePath.startsWith(QDir::homePath()) && !templatePath.startsWith(QDir::homePath())) {
                         menu->addSeparator();
-                    }
-                    if (!m_supportedMimeTypes.isEmpty()) {
-                        bool keep = false;
-
-                        // We need to do MIME type filtering, for real files.
-                        const bool createSymlink = entry.templatePath == QLatin1String("__CREATE_SYMLINK__");
-                        if (createSymlink) {
-                            keep = true;
-                        } else if (!KDesktopFile::isDesktopFile(entry.templatePath)) {
-                            // Determine MIME type on demand
-                            QMimeDatabase db;
-                            QMimeType mime;
-                            if (entry.mimeType.isEmpty()) {
-                                mime = db.mimeTypeForFile(entry.templatePath);
-                                // qDebug() << entry.templatePath << "is" << mime.name();
-                                entry.mimeType = mime.name();
-                            } else {
-                                mime = db.mimeTypeForName(entry.mimeType);
-                            }
-                            for (const QString &supportedMime : std::as_const(m_supportedMimeTypes)) {
-                                if (mime.inherits(supportedMime)) {
-                                    keep = true;
-                                    break;
-                                }
-                            }
-                        }
-
-                        if (!keep) {
-                            // qDebug() << "Not keeping" << entry.templatePath;
-                            continue;
-                        }
                     }
 
                     QAction *act = new QAction(q);
@@ -1077,7 +1063,6 @@ void KNewFileMenuPrivate::slotFillTemplates()
         QObject::connect(instance->dirWatch.get(), &KDirWatch::dirty, q, slotFunc);
         QObject::connect(instance->dirWatch.get(), &KDirWatch::created, q, slotFunc);
         QObject::connect(instance->dirWatch.get(), &KDirWatch::deleted, q, slotFunc);
-        // Ok, this doesn't cope with new dirs in XDG_DATA_DIRS, but that's another story
     }
 
     // Look into "templates" dirs.
@@ -1092,58 +1077,26 @@ void KNewFileMenuPrivate::slotFillTemplates()
     };
     files.erase(std::remove_if(files.begin(), files.end(), removeFunc), files.end());
 
-    // Ensure desktop files are always before template files
-    // This ensures consistent behavior
+    // Ensure desktop files are always after template files
+    // This ensures consistent behavior and overrides plain entries with ones generated from desktop files
     std::partition(files.begin(), files.end(), [](const QString &a) {
-        return a.endsWith(QStringLiteral(".desktop"));
+        return !a.endsWith(QStringLiteral(".desktop"));
     });
 
     std::vector<EntryInfo> uniqueEntries;
-    QMimeDatabase db;
+
     for (const QString &file : files) {
         // qDebug() << file;
         KNewFileMenuSingleton::Entry entry;
         entry.entryType = KNewFileMenuSingleton::Unknown; // not parsed yet
-        QString url;
-        QString key;
-
-        if (file.endsWith(QLatin1String(".desktop"))) {
-            entry.filePath = file;
-            const KDesktopFile config(file);
-            url = config.desktopGroup().readEntry("URL");
-            key = config.desktopGroup().readEntry("Name");
-        }
-        // Preparse non-.desktop files
-        else {
-            QFileInfo fileinfo(file);
-            url = file;
-            key = fileinfo.fileName();
-            entry.entryType = KNewFileMenuSingleton::Template;
-            entry.text = fileinfo.baseName();
-            entry.filePath = fileinfo.completeBaseName();
-            entry.templatePath = file;
-            QMimeType mime = db.mimeTypeForFile(file);
-            entry.mimeType = mime.name();
-            entry.icon = mime.iconName();
-            entry.comment = i18nc("@label:textbox Prompt for new file of type", "Enter %1 filename:", mime.comment());
-        }
-        // Put Directory first in the list (a bit hacky),
-        // and TextFile before others because it's the most used one.
-        // This also sorts by user-visible name.
-        // The rest of the re-ordering is done in fillMenu.
-        if (file.endsWith(QLatin1String("Directory.desktop"))) {
-            key.prepend(QLatin1Char('0'));
-        } else if (file.startsWith(QDir::homePath())) {
-            key.prepend(QLatin1Char('1'));
-        } else if (file.endsWith(QLatin1String("TextFile.desktop"))) {
-            key.prepend(QLatin1Char('2'));
-        } else {
-            key.prepend(QLatin1Char('3'));
+        if (!entry.parseFile(file)) {
+            qCInfo(KFILEWIDGETS_LOG) << "KNewFileMenu: invalid template file:" << file;
+            continue;
         }
 
-        EntryInfo eInfo = {key, url, entry};
-        auto it = std::find_if(uniqueEntries.begin(), uniqueEntries.end(), [&url](const EntryInfo &info) {
-            return url == info.url;
+        EntryInfo eInfo = {entry.key, entry.url, entry};
+        auto it = std::find_if(uniqueEntries.begin(), uniqueEntries.end(), [&entry](const EntryInfo &info) {
+            return entry.url == info.url;
         });
 
         if (it != uniqueEntries.cend()) {
@@ -1158,7 +1111,6 @@ void KNewFileMenuPrivate::slotFillTemplates()
     });
 
     ++instance->templatesVersion;
-    instance->filesParsed = false;
 
     instance->templatesList->clear();
 
@@ -1526,13 +1478,6 @@ void KNewFileMenu::checkUpToDate()
         if (!s->templatesList) { // No templates list up to now
             s->templatesList = new KNewFileMenuSingleton::EntryList;
             d->slotFillTemplates();
-            s->parseFiles();
-        }
-
-        // This might have been already done for other popupmenus,
-        // that's the point in s->filesParsed.
-        if (!s->filesParsed) {
-            s->parseFiles();
         }
 
         d->fillMenu();
