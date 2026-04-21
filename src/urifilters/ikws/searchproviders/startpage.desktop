@@ -9,6 +9,7 @@ Name[ia]=Pagina de initio
 Name[ka]=Startpage
 Name[nl]=Startpagina
 Name[pt_BR]=Startpage
+Name[sk]=Úvodná stránka
 Name[sl]=Startpage
 Name[tr]=Startpage
 Name[uk]=Startpage
@@ -23,6 +24,7 @@ Query[ia]=https://www.startpage.com/sp/search?query=\\{@}
 Query[ka]=https://www.startpage.com/sp/search?query=\\{@}
 Query[nl]=https://www.startpage.com/sp/search?query=\\{@}
 Query[pt_BR]=https://www.startpage.com/sp/search?query=\\{@}
+Query[sk]=https://www.startpage.com/sp/search?query=\\{@}
 Query[sl]=https://www.startpage.com/sp/search?query=\\{@}
 Query[tr]=https://www.startpage.com/sp/search?query=\\{@}
 Query[uk]=https://www.startpage.com/sp/search?query=\\{@}
