@@ -4706,9 +4706,9 @@ msgstr ""
 "<qt>\n"
 "Zamietnutie tzv. third-party cookies. Zvoľte si túto možnosť, ak chcete "
 "zamietnuť všetky cookies zo iných stránok než z tej, ktorú ste si vyžiadali. "
-"Napríklad, ak navštíivte <b>www.foobar.com</b> s touto voľbou zapnutou, iba "
+"Napríklad, ak navštívite <b>www.foobar.com</b> s touto voľbou zapnutou, iba "
 "cookies pochádzajúce z www.foobar.com budú spracované podľa vašich "
-"nastavení. Cookies zo všetých ostatných serverov budú automaticky "
+"nastavení. Cookies zo všetkých ostatných serverov budú automaticky "
 "odmietnuté. Toto redukuje možnosť operátorov stránok vytvárať si profil o "
 "vašich prehliadacích zvykoch.\n"
 "</qt>"
@@ -6988,7 +6988,7 @@ msgid ""
 "Copy and paste a checksum in the field below.<br/>A checksum is usually "
 "provided by the website you downloaded this file from."
 msgstr ""
-"Zkopírujte a vložte kontrolný súčet do poľa nižšie.<br/>Kontrolný súčet je "
+"Skopírujte a vložte kontrolný súčet do poľa nižšie.<br/>Kontrolný súčet je "
 "zvyčajne poskytovaný webstránkou, z ktorej ste stiahli tento súbor."
 
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
@@ -7052,7 +7052,7 @@ msgstr "Spočítať"
 #: widgets/checksumswidget.ui:188 widgets/checksumswidget.ui:225
 #, kde-format
 msgid "Click to copy the checksum to the clipboard."
-msgstr "Kliknite na zkopírovanie kontrolného súčtu do schránky."
+msgstr "Kliknite na skopírovanie kontrolného súčtu do schránky."
 
 #: widgets/dropjob.cpp:181
 #, kde-format
@@ -7942,7 +7942,7 @@ msgstr "Tu zadajte užívateľské meno, pod ktorým chcete spustiť aplikáciu.
 #: widgets/kpropertiesdesktopadvbase.ui:142
 #, kde-format
 msgid "Discrete GPU"
-msgstr "Samustatná GPU"
+msgstr "Samostatná GPU"
 
 #. i18n: ectx: property (text), widget (QCheckBox, discreteGpuCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:148
