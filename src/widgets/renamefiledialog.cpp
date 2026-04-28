@@ -15,7 +15,6 @@
 #include <KIO/BatchRenameJob>
 #include <KIO/CopyJob>
 #include <KIO/FileUndoManager>
-#include <KJobUiDelegate>
 #include <KJobWidgets>
 #include <KLocalizedString>
 #include <KMessageWidget>
@@ -23,6 +22,7 @@
 
 #include <QComboBox>
 #include <QDialogButtonBox>
+#include <QFile>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
@@ -41,6 +41,7 @@ namespace
 
 enum Result {
     Ok,
+    Warning,
     Invalid
 };
 
@@ -53,6 +54,10 @@ struct ValidationResult {
 inline ValidationResult ok()
 {
     return ValidationResult{Result::Ok, QString(), KMessageWidget::MessageType::Information};
+};
+inline ValidationResult warning(const QString &text)
+{
+    return ValidationResult{Result::Warning, text, KMessageWidget::MessageType::Warning};
 };
 inline ValidationResult invalid(const QString &text)
 {
@@ -67,6 +72,26 @@ static bool renamesAsDirectory(const KFileItem &item)
 {
     return item.isDir() && !item.isLink();
 }
+
+static QString extensionForName(const QString &name)
+{
+    QMimeDatabase db;
+    const QString extension = db.suffixForFileName(name);
+    if (!extension.isEmpty()) {
+        return extension;
+    }
+
+    if (name.startsWith(QLatin1Char('.')) && !name.startsWith(QLatin1String("..")) && name.indexOf(QLatin1Char('.'), 1) < 0 && name.length() > 1) {
+        return name.mid(1);
+    }
+
+    const int lastDot = name.lastIndexOf(QLatin1Char('.'));
+    if (lastDot < 1 || lastDot == name.length() - 1) {
+        return QString();
+    }
+
+    return name.mid(lastDot + 1);
+};
 
 /// design pattern strategy
 class RenameOperationAbstractStrategy
@@ -200,6 +225,24 @@ public:
         }
         if (placeholder == QLatin1String("..") || (placeholder == QLatin1String("."))) {
             return invalid(xi18nc("@info %1 is an invalid filename", "<filename>%1</filename> is not a valid file name.", placeholder));
+        }
+        const KFileItem &item = items.first();
+        const QString oldName = item.name();
+        const QString newName = placeholder;
+        const bool becomesHidden = newName.startsWith(QLatin1Char('.')) && !oldName.startsWith(QLatin1Char('.'));
+
+        if (becomesHidden) {
+            const QString warnMsg = item.isDir() ? i18nc("@info", "Adding a dot to the beginning of this folder's name will hide it from view.")
+                                                 : i18nc("@info", "Adding a dot to the beginning of this file's name will hide it from view.");
+            return warning(warnMsg);
+        }
+
+        if (!item.isDir()) {
+            const QString oldExt = extensionForName(oldName);
+            const QString newExt = extensionForName(newName);
+            if (oldExt.compare(newExt, Qt::CaseInsensitive) != 0) {
+                return warning(i18nc("@info", "The file's type may change, which could prevent it from opening correctly."));
+            }
         }
         return ok();
     }
@@ -802,7 +845,7 @@ void RenameFileDialog::slotStateChanged()
     } else {
         validationResult = d->renameStrategy->validate(d->items, previewText);
     }
-    d->okButton->setEnabled(validationResult.result == Result::Ok);
+    d->okButton->setEnabled(validationResult.result == Result::Ok || validationResult.result == Result::Warning);
     if (validationResult.result == Result::Ok || validationResult.text.isEmpty()) {
         d->messageWidget->hide();
         QTimer::singleShot(0, this, [this]() {
