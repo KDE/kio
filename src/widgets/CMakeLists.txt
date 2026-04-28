@@ -60,6 +60,7 @@ target_sources(KF6KIOWidgets PRIVATE
   kpropertiesdialogplugin.cpp
   kpropertiesdialogbuiltin_p.cpp
   sslui.cpp
+  renamefilewarning.cpp
 )
 
 if (HAVE_QTDBUS)
@@ -177,6 +178,7 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   Paste
   KUriFilterSearchProviderActions # KF6: fix and move to non-KIO prefixed install folder
   RenameFileDialog
+  RenameFileWarning
   WidgetsAskUserActionHandler
 
   PREFIX KIO
