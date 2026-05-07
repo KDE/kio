@@ -125,6 +125,7 @@ KIOCORE_EXPORT QString decodeFileName(const QString &str);
 /*!
  * Error codes that can be emitted by KIO.
  *
+ * \value [since 6.27] ERR_NONE No error
  * \value ERR_CANNOT_OPEN_FOR_READING
  * \value ERR_CANNOT_OPEN_FOR_WRITING
  * \value ERR_CANNOT_LAUNCH_PROCESS
@@ -206,7 +207,9 @@ KIOCORE_EXPORT QString decodeFileName(const QString &str);
  * \value [since 5.100] ERR_TRASH_FILE_TOO_LARGE Moving files/dirs to the Trash failed due to size constraints
  * \value [since 6.21] ERR_TRASH_NOT_AVAILABLE Moving files/dirs to the Trash failed because a trash directory is not available for their location.
  */
+// TODO KF7: rename to Result, and ERR_NONE to OK
 enum Error {
+    ERR_NONE = KJob::NoError,
     ERR_CANNOT_OPEN_FOR_READING = KJob::UserDefinedError + 1,
     ERR_CANNOT_OPEN_FOR_WRITING = KJob::UserDefinedError + 2,
     ERR_CANNOT_LAUNCH_PROCESS = KJob::UserDefinedError + 3,
