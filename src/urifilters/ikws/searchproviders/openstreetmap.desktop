@@ -3,8 +3,11 @@ Charset=
 Keys=osm,openstreetmap
 Name=OpenStreetMap
 Name[ca]=OpenStreetMap
+Name[ca@valencia]=OpenStreetMap
 Name[cs]=OpenStreetMap
 Name[es]=OpenStreetMap
+Name[he]=OpenStreetMap
+Name[ia]=OpenStreetMap
 Name[ka]=OpenStreetMap
 Name[nl]=OpenStreetMap
 Name[pt_BR]=OpenStreetMap
@@ -13,7 +16,10 @@ Name[tr]=OpenStreetMap
 Name[uk]=OpenStreetMap
 Query=https://www.openstreetmap.org/search?query=\\{@}
 Query[ca]=https://www.openstreetmap.org/search?query=\\{@}
+Query[ca@valencia]=https://www.openstreetmap.org/search?query=\\{@}
 Query[es]=https://www.openstreetmap.org/search?query=\\{@}
+Query[he]=https://www.openstreetmap.org/search?query=\\{@}
+Query[ia]=https://www.openstreetmap.org/search?query=\\{@}
 Query[ka]=https://www.openstreetmap.org/search?query=\\{@}
 Query[nl]=https://www.openstreetmap.org/search?query=\\{@}
 Query[pt_BR]=https://www.openstreetmap.org/search?query=\\{@}

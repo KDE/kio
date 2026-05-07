@@ -2,7 +2,10 @@
 Charset=
 Name=Flathub
 Name[ca]=Flathub
+Name[ca@valencia]=Flathub
 Name[es]=Flathub
+Name[he]=Flathub
+Name[ia]=Flathub
 Name[ka]=Flathub
 Name[nl]=Flathub
 Name[pt_BR]=Flathub
@@ -13,7 +16,10 @@ Type=Service
 Keys=flathub,app
 Query=https://flathub.org/apps/search?q=\\{@}
 Query[ca]=https://flathub.org/apps/search?q=\\{@}
+Query[ca@valencia]=https://flathub.org/apps/search?q=\\{@}
 Query[es]=https://flathub.org/apps/search?q=\\{@}
+Query[he]=https://flathub.org/he/apps/search?q=\\{@} 
+Query[ia]=https://flathub.org/apps/search?q=\\{@}
 Query[ka]=https://flathub.org/apps/search?q=\\{@}
 Query[nl]=https://flathub.org/apps/search?q=\\{@}
 Query[pt_BR]=https://flathub.org/apps/search?q=\\{@}
