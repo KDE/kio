@@ -56,6 +56,11 @@ if (HAVE_QTDBUS AND CMAKE_SYSTEM_NAME STREQUAL "Linux")
         ${kiogui_dbus_SRCS}
         systemd/systemdprocessrunner.cpp
         systemd/scopedprocessrunner.cpp
+        applicationchooserjob_linux.cpp
+    )
+else()
+    target_sources(KF6KIOGui PRIVATE
+        applicationchooserjob_noop.cpp
     )
 endif ()
 
@@ -115,6 +120,7 @@ ecm_generate_headers(KIOGui_CamelCase_HEADERS
   OpenWithHandlerInterface
   PreviewJob
   ThumbnailCreator
+  ApplicationChooserJob
 
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_gui_HEADERS
