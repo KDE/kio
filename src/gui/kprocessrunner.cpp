@@ -201,7 +201,7 @@ KProcessRunner *KProcessRunner::fromExecutable(const QString &executable,
 {
     const QString actualExec = QStandardPaths::findExecutable(executable);
     if (actualExec.isEmpty()) {
-        qCInfo(KIO_GUI) << "Could not find an executable named:" << executable;
+        qCWarning(KIO_GUI) << "Could not find an executable named:" << executable;
         return {};
     }
 

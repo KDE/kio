@@ -183,7 +183,7 @@ WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
     // Remove existing file or symlink, if requested (#151851)
     if (metaData(QStringLiteral("overwrite")) == QLatin1String("true")) {
         if (!QFile::remove(path)) {
-            qCInfo(KIO_FILE) << "Couldn't overwrite in mkdir. Error:" << errno;
+            qCWarning(KIO_FILE) << "Couldn't overwrite in mkdir. Error:" << errno;
             return WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, path);
         }
     }
@@ -629,7 +629,7 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
         // so we must remove it manually first
         if (_flags & KIO::Overwrite) {
             if (!QFile::remove(dest_orig)) {
-                // qCInfo(KIO_FILE) << " Couldn't overwrite " << dest;
+                // qCWarning(KIO_FILE) << " Couldn't overwrite " << dest;
             }
         }
 
