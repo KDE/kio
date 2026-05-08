@@ -10,7 +10,6 @@ ecm_qt_declare_logging_category(kio_http
     HEADER debug.h
     IDENTIFIER KIOHTTP_LOG
     CATEGORY_NAME kf.kio.workers.http
-    DEFAULT_SEVERITY Info
     DESCRIPTION "kio_http (KIO)"
     EXPORT KIO
 )

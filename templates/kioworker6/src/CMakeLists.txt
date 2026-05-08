@@ -13,7 +13,6 @@ ecm_qt_declare_logging_category(%{APPNAMELC}
     IDENTIFIER %{APPNAMEUC}_LOG
     CATEGORY_NAME kf.kio.workers.%{APPNAMELC}
     DESCRIPTION "KIO worker (%{APPNAME})"
-    DEFAULT_SEVERITY Debug # Change "Debug" to "Info" once doing first releases
     EXPORT %{APPNAMEUC}
 )
 

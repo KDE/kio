@@ -16,7 +16,6 @@ ecm_qt_declare_logging_category(kio_remote
     IDENTIFIER KIOREMOTE_LOG
     CATEGORY_NAME kf.kio.workers.remote
     OLD_CATEGORY_NAMES kf5.kio.kio_remote kf.kio.slaves.remote
-    DEFAULT_SEVERITY Info
     DESCRIPTION "kio_remote (KIO)"
     EXPORT KIO
 )

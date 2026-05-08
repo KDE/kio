@@ -65,7 +65,6 @@ ecm_qt_export_logging_category(
     IDENTIFIER KIO_KFILEWIDGETS_FW
     CATEGORY_NAME kf.kio.filewidgets.kfilewidget
     OLD_CATEGORY_NAMES kf5.kio.filewidgets.kfilewidget
-    DEFAULT_SEVERITY Info
     DESCRIPTION "KFileWidgets (KIO)"
     EXPORT KIO
 )
@@ -75,7 +74,6 @@ ecm_qt_declare_logging_category(KF6KIOFileWidgets
     IDENTIFIER KIO_KFILEWIDGETS_KFILEFILTERCOMBO
     CATEGORY_NAME kf.kio.filewidgets.kfilefiltercombo
     OLD_CATEGORY_NAMES kf5.kio.filewidgets.kfilefiltercombo
-    DEFAULT_SEVERITY Warning
     DESCRIPTION "KFileFilterCombo (KIO)"
     EXPORT KIO
 )
@@ -85,7 +83,6 @@ ecm_qt_declare_logging_category(KF6KIOFileWidgets
     IDENTIFIER KFILEWIDGETS_LOG
     CATEGORY_NAME kf.kio.filewidgets.kfilewidgets
     OLD_CATEGORY_NAMES kf5.kio.filewidgets.kfilewidgets
-    DEFAULT_SEVERITY Warning
     DESCRIPTION "KFileWidgets (KIO)"
     EXPORT KIO
 )
