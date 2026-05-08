@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=WineHQ Database
+Name[am]=WineHQ Database
 Name[ar]=قاعدة بيانات WineHQ
 Name[ast]=Base de datos de WineHQ
 Name[az]=WineHQ verilənlər bazası
@@ -64,6 +65,7 @@ Name[zh_TW]=WineHQ 資料庫
 Type=Service
 Keys=winehq,wine
 Query=https://www.winehq.org/search?q=\\{@}
+Query[am]=https://www.winehq.org/search?q=\\{@}
 Query[ar]=https://www.winehq.org/search?q=\\{@}
 Query[ast]=https://www.winehq.org/search?q=\\{@}
 Query[az]=https://www.winehq.org/search?q=\\{@}

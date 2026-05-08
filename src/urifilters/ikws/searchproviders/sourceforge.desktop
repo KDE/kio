@@ -2,6 +2,7 @@
 Keys=sf,sourceforge
 Name=SourceForge
 Name[af]=Sourceforge
+Name[am]=SourceForge
 Name[ar]=سورس فورج
 Name[as]=SourceForge
 Name[ast]=SourceForge
@@ -99,6 +100,7 @@ Name[xh]=SourceForge
 Name[zh_CN]=SourceForge
 Name[zh_TW]=SourceForge
 Query=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
+Query[am]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[ar]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[az]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[be]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}

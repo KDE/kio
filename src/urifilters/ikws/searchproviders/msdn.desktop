@@ -2,6 +2,7 @@
 Type=Service
 Name=Microsoft Developer Network Search
 Name[af]=Microsoft Developer Network Soektog
+Name[am]=Microsoft Developer Network Search
 Name[ar]=بحث شبكة مايكروسوفت للمطورين
 Name[as]=Microsoft Developer Network Search
 Name[az]=Microsoft Developer Network Axtarışı
@@ -98,6 +99,7 @@ Name[zh_CN]=MSDN 微软开发者网络搜索
 Name[zh_TW]=微軟開發者網路搜尋
 Keys=msdn
 Query=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
+Query[am]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[ar]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[az]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}
 Query[be]=https://social.msdn.microsoft.com/Search/en-US?query=\\{@}

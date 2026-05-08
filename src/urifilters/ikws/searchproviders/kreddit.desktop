@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=KDE Reddit
+Name[am]=KDE Reddit
 Name[ar]=قناة كِيدِي على ردت
 Name[ast]=KDE Reddit
 Name[az]=KDE Reddit
@@ -64,6 +65,7 @@ Name[zh_TW]=KDE Reddit
 Type=Service
 Keys=kreddit
 Query=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[am]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[ar]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[az]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[be]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1

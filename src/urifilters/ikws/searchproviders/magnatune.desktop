@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=magnatune,mt
 Name=Magnatune
+Name[am]=Magnatune
 Name[ar]=Magnatune
 Name[ast]=Magnatune
 Name[az]=Magnatune
@@ -83,6 +84,7 @@ Name[wa]=Magnatune
 Name[zh_CN]=Magnatune
 Name[zh_TW]=Magnatune
 Query=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
+Query[am]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[ar]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[ast]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[az]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0

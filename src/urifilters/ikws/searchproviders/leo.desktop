@@ -2,6 +2,7 @@
 Type=Service
 Name=LEO-Translate
 Name[af]=LEO-Vertaal
+Name[am]=LEO-ይተርጉሙ
 Name[ar]=ترجمة LEO
 Name[as]=LEO-Translate
 Name[ast]=LEO-Translate
@@ -99,6 +100,7 @@ Name[zh_CN]=LEO 翻译
 Name[zh_TW]=LEO-Translate
 Keys=leo
 Query=https://dict.leo.org/?search=\\{@}
+Query[am]=https://dict.leo.org/?search=\\{@}
 Query[ar]=https://dict.leo.org/?search=\\{@}
 Query[ast]=https://dict.leo.org/?search=\\{@}
 Query[az]=https://dict.leo.org/?search=\\{@}

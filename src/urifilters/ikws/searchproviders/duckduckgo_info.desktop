@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=duckduckgoinfo,ddi
 Name=Duck Duck Go Info
+Name[am]=Duck Duck Go Info
 Name[ar]=معلومات دك دك جو
 Name[az]=Duck Duck Go  haqqında məlumat
 Name[be]=Duck Duck Go Info
@@ -81,6 +82,7 @@ Name[wa]=Duck Duck Go Info
 Name[zh_CN]=Duck Duck Go 信息
 Name[zh_TW]=Duck Duck Go Info
 Query=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
+Query[am]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ar]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[az]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[be]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde

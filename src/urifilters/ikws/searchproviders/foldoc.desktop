@@ -2,6 +2,7 @@
 Type=Service
 Name=Free On-Line Dictionary of Computing
 Name[af]=Gratis Aanlyn Woordeboek van Rekenaars
+Name[am]=Free On-Line Dictionary of Computing
 Name[ar]=قاموس الحوسبة الحر عبر الإنترنت
 Name[as]=Free On-Line Dictionary of Computing
 Name[az]=İnformatika üzrə pulsuz online lüğət
@@ -97,6 +98,7 @@ Name[zh_CN]=Free On-Line Dictionary of Computing (自由计算机技术在线词
 Name[zh_TW]=免費的線上電腦辭典
 Keys=fd,foldoc
 Query=https://foldoc.org/\\{@}
+Query[am]=https://foldoc.org/\\{@}
 Query[ar]=https://foldoc.org/\\{@}
 Query[az]=https://foldoc.org/\\{@}
 Query[be]=https://foldoc.org/\\{@}

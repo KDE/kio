@@ -2,6 +2,7 @@
 Type=Service
 Name=Google News
 Name[af]=Google Nuus
+Name[am]=Google ዜና
 Name[ar]=أخبار جوجل
 Name[as]=Google News
 Name[ast]=Google News
@@ -101,6 +102,7 @@ Name[zh_CN]=Google 新闻
 Name[zh_TW]=Google 新聞
 Keys=ggn,googlenews
 Query=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[am]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[ar]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[az]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[be]=https://news.google.com/news?q=\\{@}&ie=UTF-8&oe=UTF-8

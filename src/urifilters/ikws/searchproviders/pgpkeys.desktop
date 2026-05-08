@@ -2,6 +2,7 @@
 Keys=pgp,pgpkeys
 Name=OpenPGP Key Search
 Name[af]=OpenPGP Sleutel Soektog
+Name[am]=OpenPGP Key ፍለጋ
 Name[ar]=بحث عن مفتاح OpenPGP
 Name[as]=OpenPGP চাবিৰ অনুসন্ধান
 Name[az]=OpenPGP Açar Axtarışı
@@ -97,6 +98,7 @@ Name[xh]=Uphendlo Lwesitshixo se OpenPGP
 Name[zh_CN]=OpenPGP 密钥搜索
 Name[zh_TW]=OpenPGP 金鑰搜尋
 Query=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[am]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[ar]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[az]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[be]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

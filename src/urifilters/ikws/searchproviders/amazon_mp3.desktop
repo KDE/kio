@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=amazonmp3,az3,amz3,amzmp3
 Name=Amazon MP3
+Name[am]=Amazon MP3
 Name[ar]=أمازون MP3
 Name[ast]=Amazon MP3
 Name[az]=Amazon MP3
@@ -83,6 +84,7 @@ Name[wa]=Amazon MP3
 Name[zh_CN]=Amazon MP3
 Name[zh_TW]=Amazon MP3
 Query=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
+Query[am]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[ar]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[ast]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0
 Query[az]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=digital-music&field-keywords=\\{@}&x=0&y=0

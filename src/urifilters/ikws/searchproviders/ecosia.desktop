@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Ecosia search engine
+Name[am]=Ecosia search engine
 Name[ar]=محرّك بحث Ecosia
 Name[az]=Ecosia axtarış vasitəsi
 Name[be]=Ecosia
@@ -81,6 +82,7 @@ Name[zh_CN]=Ecosia 搜索引擎
 Name[zh_TW]=Ecosia 搜索引擎
 Keys=ec,et,ethicle
 Query=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[am]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ar]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[ast]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[az]=https://ecosia.org/search.php?q=\\{@}&meta=normal

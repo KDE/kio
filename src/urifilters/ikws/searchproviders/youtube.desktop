@@ -2,6 +2,7 @@
 Keys=yt,youtube
 Icon=im-youtube
 Name=YouTube
+Name[am]=YouTube
 Name[ar]=يوتيوب
 Name[ast]=YouTube
 Name[az]=YouTube
@@ -83,6 +84,7 @@ Name[wa]=YouTube
 Name[zh_CN]=YouTube
 Name[zh_TW]=YouTube
 Query=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
+Query[am]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[ar]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[ast]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[az]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f

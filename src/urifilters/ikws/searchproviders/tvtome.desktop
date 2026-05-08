@@ -3,6 +3,7 @@ Charset=utf8
 Keys=tvtome
 Name=TV Tome
 Name[af]=TV Tome
+Name[am]=TV Tome
 Name[ar]=TV Tome
 Name[as]=TV Tome
 Name[az]=TV Tome
@@ -98,6 +99,7 @@ Name[wa]=TV Tome
 Name[zh_CN]=TV Tome
 Name[zh_TW]=TV Tome
 Query=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
+Query[am]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[ar]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[az]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[be]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0

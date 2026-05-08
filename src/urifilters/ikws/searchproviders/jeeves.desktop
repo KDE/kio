@@ -2,6 +2,7 @@
 Type=Service
 Name=Ask Jeeves
 Name[af]=Vra Jeeves
+Name[am]=Ask Jeeves
 Name[ar]=Ask Jeeves
 Name[as]=Ask Jeeves
 Name[az]=Ask Jeeves
@@ -98,6 +99,7 @@ Name[zh_CN]=Ask Jeeves
 Name[zh_TW]=Ask Jeeves
 Keys=ask,jeeves
 Query=https://www.ask.com/web?q=\\{@}
+Query[am]=https://www.ask.com/web?q=\\{@}
 Query[ar]=https://www.ask.com/web?q=\\{@}
 Query[ast]=https://www.ask.com/web?q=\\{@}
 Query[az]=https://www.ask.com/web?q=\\{@}

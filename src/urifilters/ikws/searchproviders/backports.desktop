@@ -2,6 +2,7 @@
 Keys=backports
 Name=Debian Backports Search
 Name[af]=Debian Backports Soektog
+Name[am]=Debian Backports Search
 Name[ar]=بحث مستودعات الحزم الحديثة لديبيان 
 Name[as]=Debian Backports Search
 Name[az]=Debian Portlarının Axtarışı
@@ -94,6 +95,7 @@ Name[wa]=Cweraedje di backports Debian
 Name[zh_CN]=Debian 向后移植软件包搜索
 Name[zh_TW]=Debian Backports 搜尋
 Query=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
+Query[am]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[ar]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[ast]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[az]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}

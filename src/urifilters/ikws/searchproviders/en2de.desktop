@@ -4,6 +4,7 @@ Hidden=false
 Keys=en2de
 Name=dict.cc Translation: English to German
 Name[af]=dict.cc Vertaling: Engels na Duits
+Name[am]=dict.cc ትርጉም፡ እንግሊዝኛ ወደ ጀርመንኛ
 Name[ar]=ترجمة dict.cc: من الانجليزية إلى الألمانية
 Name[as]=dict.cc Translation: English to German
 Name[az]=dict.cc  tərcümə: İngiliscədən Almancaya
@@ -97,6 +98,7 @@ Name[wa]=Ratournaedje dict.cc: di l' inglès viè l' almand
 Name[zh_CN]=dict.cc 翻译：英语译德语
 Name[zh_TW]=dict.cc 翻譯: 英文至德文
 Query=https://www.dict.cc/?s=\\{@}
+Query[am]=https://www.dict.cc/?s=\\{@}
 Query[ar]=https://www.dict.cc/?s=\\{@}
 Query[ast]=https://www.dict.cc/?s=\\{@}
 Query[az]=https://www.dict.cc/?s=\\{@}

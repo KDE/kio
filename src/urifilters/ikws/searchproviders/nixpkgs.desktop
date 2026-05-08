@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Nix Packages
+Name[am]=Nix Packages
 Name[ar]=حزم Nix
 Name[az]=Nix paketləri
 Name[bg]=Nix Packages
@@ -46,6 +47,7 @@ Name[zh_CN]=Nix 软件包
 Name[zh_TW]=Nix 軟體包
 Keys=nixpkg,nixpkgs
 Query=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[am]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[ar]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[az]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[bg]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}

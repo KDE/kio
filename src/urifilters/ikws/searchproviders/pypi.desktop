@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=pypi
 Name=PyPI
+Name[am]=PyPI
 Name[ar]=PyPI
 Name[az]=PyPI
 Name[be]=PyPI
@@ -55,6 +56,7 @@ Name[uk]=PyPI
 Name[zh_CN]=PyPI
 Name[zh_TW]=PyPI
 Query=https://pypi.org/search/?q=\\{@}
+Query[am]=https://pypi.org/search/?q=\\{@}
 Query[ar]=https://pypi.org/search/?q=\\{@}
 Query[ast]=https://pypi.org/search/?q=\\{@}
 Query[az]=https://pypi.org/search/?q=\\{@}

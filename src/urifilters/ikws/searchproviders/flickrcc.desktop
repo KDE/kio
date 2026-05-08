@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=flickrcc,flkrcc,flkcc
 Name=Flickr Creative Commons
+Name[am]=Flickr Creative Commons
 Name[ar]=Flickr للمشاع الإبداعي
 Name[az]=Flickr Creative Commons Lisenziyası
 Name[be]=Flickr Creative Commons
@@ -82,6 +83,7 @@ Name[wa]=Flickr Creative Commons
 Name[zh_CN]=Flickr 知识共享协议图片
 Name[zh_TW]=Flickr Creative Commons
 Query=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
+Query[am]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[ar]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[az]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1
 Query[be]=https://www.flickr.com/search/?q=\\{@}&l=cc&ct=0&mt=all&adv=1

@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Google Maps
+Name[am]=Google ካርታዎች
 Name[ar]=خرائط جوجل
 Name[ast]=Google Maps
 Name[az]=Google Xəritələr
@@ -82,6 +83,7 @@ Name[zh_CN]=Google 地图
 Name[zh_TW]=Google 地圖
 Keys=googlemaps,ggmaps,ggm
 Query=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
+Query[am]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[ar]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[az]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[be]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr

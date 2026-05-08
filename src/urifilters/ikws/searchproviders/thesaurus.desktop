@@ -2,6 +2,7 @@
 Type=Service
 Name=Merriam-Webster Thesaurus
 Name[af]=Merriam-Webster Thesaurus
+Name[am]=Merriam-Webster Thesaurus
 Name[ar]=قاموس Merriam-Webster للمترادفات
 Name[as]=Merriam-Webster Thesaurus
 Name[az]=Merriam-Webster Thesaurus
@@ -98,6 +99,7 @@ Name[zh_CN]=Merriam-Webster 韦氏同义词词典
 Name[zh_TW]=韋氏同義詞辭典
 Keys=ths,thesaurus
 Query=https://www.merriam-webster.com/thesaurus/\\{@}
+Query[am]=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[ar]=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[az]=https://www.merriam-webster.com/thesaurus/\\{@}
 Query[be]=https://www.merriam-webster.com/thesaurus/\\{@}

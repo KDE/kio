@@ -4,6 +4,7 @@ Hidden=false
 Keys=yahoo,yh
 Icon=im-yahoo
 Name=Yahoo
+Name[am]=Yahoo
 Name[ar]=ياهو
 Name[ast]=Yahoo
 Name[az]=Yahoo
@@ -85,6 +86,7 @@ Name[wa]=Yahoo
 Name[zh_CN]=Yahoo
 Name[zh_TW]=Yahoo
 Query=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
+Query[am]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
 Query[ar]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
 Query[ast]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
 Query[az]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search

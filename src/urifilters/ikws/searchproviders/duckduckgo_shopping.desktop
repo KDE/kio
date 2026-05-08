@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=duckduckgoshopping,dds,dukgoshop
 Name=Duck Duck Go Shopping
+Name[am]=Duck Duck Go ግብይት
 Name[ar]=تسوّق دك دك جو
 Name[az]=Duck Duck Go : Alış
 Name[be]=Куплі Duck Duck Go
@@ -82,6 +83,7 @@ Name[wa]=Duck Duck Go Botikes
 Name[zh_CN]=Duck Duck Go 购物
 Name[zh_TW]=Duck Duck Go Shopping
 Query=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
+Query[am]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[ar]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[az]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde
 Query[be]=https://duckduckgo.com/?q=\\{@}&v=s&t=kde

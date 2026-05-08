@@ -4,6 +4,7 @@ Hidden=false
 Keys=wordref
 Name=WordReference.com English Dictionary
 Name[af]=WordReference.com Engelse Woordeboek
+Name[am]=WordReference.com የእንግሊዝኛ መዝገበ ቃላት
 Name[ar]=قاموس WordReference.com الانجليزي
 Name[as]=WordReference.com English Dictionary
 Name[az]=WordReference.com İngilis dili lüğəti
@@ -98,6 +99,7 @@ Name[wa]=WordReference.com diccionaire inglès
 Name[zh_CN]=WordReference.com 英语词典
 Name[zh_TW]=WordReference.com 英文字典
 Query=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[am]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ar]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ast]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[az]=https://www.wordreference.com/english/definition.asp?en=\\{@}

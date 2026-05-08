@@ -2,6 +2,7 @@
 Keys=rfc,rfcs
 Name=IETF Requests for Comments
 Name[af]=IETF Versoeke vir Kommentaar
+Name[am]=የIETF አስተያየቶች ጥያቄ
 Name[ar]=طلبات IETF للتعليق
 Name[as]=IETF Requests for Comments
 Name[az]=IETF üçün şərhlər
@@ -94,6 +95,7 @@ Name[xh]=Izicelo Zogqabazo ze IETF
 Name[zh_CN]=IETF 评论请求
 Name[zh_TW]=IETF RFC 文件
 Query=https://datatracker.ietf.org/doc/\\{@}
+Query[am]=https://datatracker.ietf.org/doc/\\{@}
 Query[ar]=https://datatracker.ietf.org/doc/\\{@}
 Query[az]=https://datatracker.ietf.org/doc/\\{@}
 Query[be]=https://datatracker.ietf.org/doc/\\{@}

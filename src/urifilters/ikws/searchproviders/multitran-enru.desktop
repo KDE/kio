@@ -3,6 +3,7 @@ Charset=cp 1251
 Type=Service
 Name=Multitran - Translate Between English and Russian
 Name[af]=Multitran - Vertaal tussen Engels en Russies
+Name[am]=Multitran - በእንግሊዝኛ እና በሩሲያ መካከል ይተርጉሙ
 Name[ar]=Multitran - ترجمة بين الانجليزية والروسية
 Name[as]=Multitran - ইংৰাজী আৰু ৰুচীয় ভাষাৰ মাজত অনুবাদ
 Name[az]=Multitran - İngilis və Rus arasında tərcümə
@@ -95,6 +96,7 @@ Name[zh_CN]=Multitran - 在英语和俄语之间互译
 Name[zh_TW]=Multitran - 翻譯英語和俄語
 Keys=mt,mten
 Query=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
+Query[am]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[ar]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[az]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[be]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}

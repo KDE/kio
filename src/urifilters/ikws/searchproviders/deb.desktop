@@ -2,6 +2,7 @@
 Keys=debian,deb
 Name=Debian Package Search
 Name[af]=Debian Paket Soektog
+Name[am]=Debian Package Search
 Name[ar]=بحث حزم ديبيان
 Name[as]=Debian Package Search
 Name[ast]=Busca de paquetes de Debian
@@ -98,6 +99,7 @@ Name[wa]=Cweraedje di pacaedje Debian
 Name[zh_CN]=Debian 软件包搜索
 Name[zh_TW]=Debian 軟體包搜尋
 Query=https://packages.debian.org/\\{@}
+Query[am]=https://packages.debian.org/\\{@}
 Query[ar]=https://packages.debian.org/\\{@}
 Query[ast]=https://packages.debian.org/\\{@}
 Query[az]=https://packages.debian.org/\\{@}

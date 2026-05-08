@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=github,gh
 Name=GitHub
+Name[am]=GitHub
 Name[ar]=جِت هاب
 Name[ast]=GitHub
 Name[az]=GitHub
@@ -83,6 +84,7 @@ Name[wa]=GitHub
 Name[zh_CN]=GitHub
 Name[zh_TW]=GitHub
 Query=https://github.com/search?q=\\{@}&x=0&y=0
+Query[am]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[ar]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[ast]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[az]=https://github.com/search?q=\\{@}&x=0&y=0

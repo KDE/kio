@@ -2,6 +2,7 @@
 Keys=ctan
 Name=CTAN - Comprehensive TeX Archive Network
 Name[af]=CTAN - Omvattende Tex Argief Netwerk
+Name[am]=CTAN - Comprehensive TeX Archive Network
 Name[ar]=CTAN - شبكة أرشيف تيخ الشاملة
 Name[as]=CTAN - Comprehensive TeX Archive Network
 Name[az]=CTAN - Hərtərəfli TeX Arxiv Şəbəkəsi
@@ -97,6 +98,7 @@ Name[xh]=CTAN - Enomxholo TeX Indawo yokugcina Yomsebenzi womnatha
 Name[zh_CN]=CTAN - 综合性 TeX 档案网络
 Name[zh_TW]=CTAN - 全面的 Tex 收集網路
 Query=https://ctan.org/search?phrase=\\{@}
+Query[am]=https://ctan.org/search?phrase=\\{@}
 Query[ar]=https://ctan.org/search?phrase=\\{@}
 Query[ast]=https://ctan.org/search?phrase=\\{@}
 Query[az]=https://ctan.org/search?phrase=\\{@}

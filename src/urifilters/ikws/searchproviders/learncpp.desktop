@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Learn CPP
+Name[am]=Learn CPP
 Name[ar]=Learn CPP
 Name[ast]=Learn CPP
 Name[az]=CPP öyrənin
@@ -64,6 +65,7 @@ Name[zh_TW]=Learn CPP
 Type=Service
 Keys=learncpp
 Query=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[am]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ar]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[ast]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[az]=https://www.learncpp.com/gsearch/?q=\\{@}

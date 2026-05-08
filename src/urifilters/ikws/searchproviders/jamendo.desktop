@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=jamendo,jmd
 Name=Jamendo
+Name[am]=Jamendo
 Name[ar]=Jamendo
 Name[ast]=Jamendo
 Name[az]=Jamendo
@@ -84,6 +85,7 @@ Name[wa]=Jamendo
 Name[zh_CN]=Jamendo
 Name[zh_TW]=Jamendo
 Query=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[am]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ar]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[ast]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[az]=https://www.jamendo.com/en/search?qs=q=\\{@}

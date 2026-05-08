@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Docker Hub
+Name[am]=Docker Hub
 Name[ar]=مجمع دوكر
 Name[az]=Docker Hub repozitoriyası
 Name[bg]=Docker Hub
@@ -46,6 +47,7 @@ Name[zh_CN]=Docker Hub
 Name[zh_TW]=Docker Hub
 Keys=docker,dockerhub,dh,dk,dhub,dkstore
 Query=https://hub.docker.com/search?q=\\{@}
+Query[am]=https://hub.docker.com/search?q=\\{@}
 Query[ar]=https://hub.docker.com/search?q=\\{@}
 Query[az]=https://hub.docker.com/search?q=\\{@}
 Query[bg]=https://hub.docker.com/search?q=\\{@}

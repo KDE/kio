@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=qwsh
 Name=Qwant Shopping
+Name[am]=Qwant ግብይት
 Name[ar]=تسوّق Qwant
 Name[ast]=Qwant Shopping
 Name[az]=Qwant Alış-Veriş
@@ -72,6 +73,7 @@ Name[vi]=Qwant Mua sắm
 Name[zh_CN]=Qwant 购物
 Name[zh_TW]=Qwant Shopping
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
+Query[am]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[ar]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping
 Query[be]=https://www.qwant.com/?q=\\{@}&client=kde&t=shopping

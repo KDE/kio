@@ -2,6 +2,7 @@
 Keys=php
 Name=PHP Search
 Name[af]=PHP Soektog
+Name[am]=PHP ፍለጋ
 Name[ar]=بحث PHP
 Name[as]=PHP Search
 Name[az]=PHP Axtarış
@@ -98,6 +99,7 @@ Name[xh]=Uphendlo lwe PHP
 Name[zh_CN]=PHP 搜索
 Name[zh_TW]=PHP 搜尋
 Query=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[am]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[ar]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[az]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[be]=https://secure.php.net/manual-lookup.php?pattern=\\{@}

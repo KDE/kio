@@ -2,6 +2,7 @@
 Type=Service
 Name=FreeDB
 Name[af]=FreeDB
+Name[am]=FreeDB
 Name[ar]=FreeDB
 Name[as]=FreeDB
 Name[ast]=FreeDB
@@ -100,6 +101,7 @@ Name[zh_TW]=FreeDB
 Keys=fdb,freedb
 Query=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[af]=http://www.freedb.org/freedb_search.php?words=\\{@}
+Query[am]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[ar]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[as]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[az]=http://www.freedb.org/freedb_search.php?words=\\{@}

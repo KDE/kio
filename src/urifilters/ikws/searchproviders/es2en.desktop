@@ -4,6 +4,7 @@ Hidden=false
 Keys=es2en
 Name=WordReference.com Translation: Spanish to English
 Name[af]=WordReference.com Vertaling: Spaans na Engels
+Name[am]=WordReference.com ትርጉም፡ ስፓኒሽኛ ወደ እንግሊዝኛ
 Name[ar]=ترجمة WordReference.com: من الإسبانية إلى الانجليزية
 Name[as]=WordReference.com Translation: Spanish to English
 Name[az]=WordReference.com  Tərcümə: İspancadan İngiliscəyə
@@ -97,6 +98,7 @@ Name[wa]=WordReference.com ratournaedje do castiyan viè l' inglès
 Name[zh_CN]=WordReference.com 翻译：西班牙语译英语
 Name[zh_TW]=WordReference.com 翻譯: 西班牙文至英文
 Query=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[am]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[ar]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[az]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[be]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}

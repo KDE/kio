@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=qwso
 Name=Qwant Social
+Name[am]=Qwant ማህበራዊ
 Name[ar]=مجتمع Qwant
 Name[ast]=Qwant Social
 Name[az]=Qwant Sosial
@@ -73,6 +74,7 @@ Name[vi]=Qwant Xã hội
 Name[zh_CN]=Qwant 社交
 Name[zh_TW]=Qwant Social
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[am]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[ar]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[be]=https://www.qwant.com/?q=\\{@}&client=kde&t=social

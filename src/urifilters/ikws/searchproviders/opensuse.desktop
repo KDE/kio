@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=openSUSE Software
+Name[am]=openSUSE Software
 Name[ar]=برامج أوبن سوزي
 Name[az]=openSUSE proqram təminatı
 Name[be]=Праграмнае забеспячэнне openSUSE
@@ -63,6 +64,7 @@ Name[zh_TW]=openSUSE 軟體
 Type=Service
 Keys=opensuse
 Query=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[am]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[ar]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[az]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[be]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}

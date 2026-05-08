@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=CPP Reference
+Name[am]=CPP Reference
 Name[ar]=CPP Reference
 Name[az]=CPP keçidi
 Name[be]=CPP Reference
@@ -63,6 +64,7 @@ Name[zh_TW]=CPP Reference
 Type=Service
 Keys=cppreference,cppref,cpp
 Query=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
+Query[am]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[ar]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[az]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[bg]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}

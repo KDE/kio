@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=facebook,face,fb
 Name=Facebook
+Name[am]=Facebook
 Name[ar]=فيس بوك
 Name[ast]=Facebook
 Name[az]=Facebook
@@ -83,6 +84,7 @@ Name[wa]=Facebook
 Name[zh_CN]=Facebook
 Name[zh_TW]=Facebook
 Query=https://www.facebook.com/search/?q=\\{@}&init=quick
+Query[am]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[ar]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[az]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[be]=https://www.facebook.com/search/?q=\\{@}&init=quick

@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=qt5
 Name=Qt5 Online Documentation
+Name[am]=Qt5 Online ሰነዶች
 Name[ar]=توثيق عبر الإنترنت كيوت5
 Name[az]=Qt5 onlayn sənədləşməsi
 Name[be]=Сеціўная дакументацыя Qt5
@@ -64,6 +65,7 @@ Name[vi]=Tài liệu trực tuyến Qt5
 Name[zh_CN]=Qt5 在线文档
 Name[zh_TW]=Qt5 線上說明文件
 Query=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
+Query[am]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[ar]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[az]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}
 Query[be]=https://doc.qt.io/qt-5/search-results.html?q=\\{@}

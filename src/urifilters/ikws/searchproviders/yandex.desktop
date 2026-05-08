@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=ya,yandex,я,яндекс
 Name=Yandex
+Name[am]=Yandex
 Name[ar]=ياندكس
 Name[ast]=Yandex
 Name[az]=Yandex
@@ -62,6 +63,7 @@ Name[vi]=Yandex
 Name[zh_CN]=Yandex
 Name[zh_TW]=Yandex
 Query=https://yandex.ru/search/?text=\\{@}
+Query[am]=https://yandex.ru/search/?text=\\{@}
 Query[ar]=https://yandex.ru/search/?text=\\{@}
 Query[ast]=https://yandex.ru/search/?text=\\{@}
 Query[az]=https://yandex.ru/search/?text=\\{@}

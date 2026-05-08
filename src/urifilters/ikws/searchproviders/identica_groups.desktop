@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=identicagroups,identig,identicag,idg
 Name=Identi.ca Groups
+Name[am]=Identi.ca ቡድኖች
 Name[ar]=مجموعات آيدنتكا
 Name[az]=Identi.ca  Qrupları
 Name[be]=Групы Identi.ca
@@ -82,6 +83,7 @@ Name[wa]=Identi.ca Groupes
 Name[zh_CN]=Identi.ca 群组
 Name[zh_TW]=Identi.ca Groups
 Query=https://identi.ca/search/group?q=\\{@}
+Query[am]=https://identi.ca/search/group?q=\\{@}
 Query[ar]=https://identi.ca/search/group?q=\\{@}
 Query[az]=https://identi.ca/search/group?q=\\{@}
 Query[be]=https://identi.ca/search/group?q=\\{@}

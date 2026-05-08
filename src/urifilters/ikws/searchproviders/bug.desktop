@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=bug,bugft,bugno,bugnr,feature,ccbug
 Name=KDE Bugs
+Name[am]=KDE Bugs
 Name[ar]=علل كِيدِي
 Name[ast]=KDE Bugs
 Name[az]=KDE Xətaları
@@ -65,6 +66,7 @@ Name[vi]=Lỗi KDE
 Name[zh_CN]=KDE 程序缺陷搜索
 Name[zh_TW]=KDE Bugs 問題回報
 Query=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[am]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[ar]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[az]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[be]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

@@ -2,6 +2,7 @@
 Type=Service
 Name=HyperDictionary.com
 Name[af]=HyperDictionary.com
+Name[am]=HyperDictionary.com
 Name[ar]=HyperDictionary.com
 Name[as]=HyperDictionary.com
 Name[az]=HyperDictionary.com
@@ -100,6 +101,7 @@ Name[zh_TW]=HyperDictionary.com
 Keys=hd,hyperdict
 Query=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[af]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
+Query[am]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[ar]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[as]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[az]=http://www.hyperdictionary.com/search.aspx?define=\\{@}

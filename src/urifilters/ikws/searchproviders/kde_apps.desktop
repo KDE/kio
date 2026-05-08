@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Plasma Add-Ons and Extensions
+Name[am]=Plasma Add-Ons and Extensions
 Name[ar]=امتدادات وملاحق بلازما
 Name[az]=Plasma əlavələri və genişlənmələri
 Name[bg]=Разширения и добавки на Plasma
@@ -46,6 +47,7 @@ Name[zh_CN]=Plasma 附加组件和扩展
 Name[zh_TW]=Plasma 延伸元件與擴充功能
 Keys=ext,extension
 Query=https://store.kde.org/browse?tag=\\{@}
+Query[am]=https://store.kde.org/browse?tag=\\{@}
 Query[ar]=https://store.kde.org/browse?tag=\\{@}
 Query[az]=https://store.kde.org/browse?tag=\\{@}
 Query[bg]=https://store.kde.org/browse?tag=\\{@}

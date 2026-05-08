@@ -2,6 +2,7 @@
 Type=Service
 Name=Google Groups
 Name[af]=Google Groepe
+Name[am]=Google ቡድኖች
 Name[ar]=مجموعات جوجل
 Name[as]=Google Groups
 Name[az]=Google Qrupları
@@ -101,6 +102,7 @@ Name[zh_CN]=Google 兴趣小组
 Name[zh_TW]=Google 群組
 Keys=ggg,groups,dj,deja
 Query=https://groups.google.com/groups?oi=djq&as_q=\\{@}
+Query[am]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[ar]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[az]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[be]=https://groups.google.com/groups?oi=djq&as_q=\\{@}

@@ -3,11 +3,13 @@ Charset=
 Hidden=false
 Keys=zdf
 Name=ZDF Mediathek
+Name[ar]=ZDF Mediathek
 Name[ca]=ZDF Mediathek
 Name[ca@valencia]=ZDF Mediathek
 Name[es]=ZDF Mediathek
 Name[he]=ZDF Mediathek
 Name[ia]=ZDF Mediathek
+Name[is]=ZDF Mediathek
 Name[ka]=ZDF Mediathek
 Name[nl]=ZDF Mediatiek
 Name[pt_BR]=ZDF Mediathek
@@ -15,11 +17,13 @@ Name[sl]=ZDF Mediathek
 Name[tr]=ZDF Mediathek
 Name[uk]=ZDF Mediathek
 Query=https://www.zdf.de/suche?q=\\{@}
+Query[ar]=https://www.zdf.de/suche?q=\\{@}
 Query[ca]=https://www.zdf.de/suche?q=\\{@}
 Query[ca@valencia]=https://www.zdf.de/suche?q=\\{@}
 Query[es]=https://www.zdf.de/suche?q=\\{@}
 Query[he]=https://www.zdf.de/suche?q=\\{@}
 Query[ia]=https://www.zdf.de/suche?q=\\{@}
+Query[is]=https://www.zdf.de/suche?q=\\{@}
 Query[ka]=https://www.zdf.de/suche?q=\\{@}
 Query[nl]=https://www.zdf.de/suche?q=\\{@}
 Query[pt_BR]=https://www.zdf.de/suche?q=\\{@}

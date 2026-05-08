@@ -2,6 +2,7 @@
 Keys=dbug
 Name=Debian BTS Bug Search
 Name[af]=Debian BTS Fout Soektog
+Name[am]=Debian BTS Bug Search
 Name[ar]=بحث علل دبيان
 Name[as]=Debian BTS Bug Search
 Name[az]=Debian BTS Xəta Axtarışı
@@ -94,6 +95,7 @@ Name[wa]=Cweraedje di bug BTS Debian
 Name[zh_CN]=Debian BTS 程序缺陷搜索
 Name[zh_TW]=Debian BTS 臭蟲搜尋
 Query=https://bugs.debian.org/\\{@}
+Query[am]=https://bugs.debian.org/\\{@}
 Query[ar]=https://bugs.debian.org/\\{@}
 Query[ast]=https://bugs.debian.org/\\{@}
 Query[az]=https://bugs.debian.org/\\{@}

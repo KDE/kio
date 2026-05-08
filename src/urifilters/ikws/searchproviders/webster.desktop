@@ -2,6 +2,7 @@
 Type=Service
 Name=Merriam-Webster Dictionary
 Name[af]=Merriam-Webster Woordeboek
+Name[am]=Merriam-Webster መዝገበ ቃላት
 Name[ar]=قاموس Merriam-Webster
 Name[as]=Merriam-Webster Dictionary
 Name[az]=Merriam-Webster Dictionary
@@ -99,6 +100,7 @@ Name[zh_CN]=Merriam-Webster 韦氏词典
 Name[zh_TW]=韋氏詞典
 Keys=dict,webster
 Query=https://www.merriam-webster.com/dictionary/\\{@}
+Query[am]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[ar]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[az]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[be]=https://www.merriam-webster.com/dictionary/\\{@}

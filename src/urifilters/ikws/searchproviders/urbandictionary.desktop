@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=urbandictionary,ud
 Name=Urban Dictionary
+Name[am]=Urban መዝገበ ቃላት
 Name[ar]=قاموس Urban
 Name[az]=Urban Lüğəti
 Name[be]=Слоўнік Urban
@@ -81,6 +82,7 @@ Name[wa]=Urban Dictionary
 Name[zh_CN]=Urban Dictionary 俚语词典
 Name[zh_TW]=Urban Dictionary
 Query=https://www.urbandictionary.com/define.php?term=\\{@}
+Query[am]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[ar]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[az]=https://www.urbandictionary.com/define.php?term=\\{@}
 Query[be]=https://www.urbandictionary.com/define.php?term=\\{@}

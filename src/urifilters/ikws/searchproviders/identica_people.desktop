@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=identicapeople,identip,idp
 Name=Identi.ca People
+Name[am]=Identi.ca ሰዎች
 Name[ar]=ناس آيدنتكا
 Name[az]=Identi.ca İnsanlar
 Name[be]=Людзі Identi.ca
@@ -82,6 +83,7 @@ Name[wa]=Identi.ca Djins
 Name[zh_CN]=Identi.ca 人物
 Name[zh_TW]=Identi.ca People
 Query=https://identi.ca/search/people?q=\\{@}&search=Search
+Query[am]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[ar]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[az]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[be]=https://identi.ca/search/people?q=\\{@}&search=Search

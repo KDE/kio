@@ -2,6 +2,7 @@
 Type=Service
 Name=Technorati
 Name[af]=Technorati
+Name[am]=Technorati
 Name[ar]=Technorati
 Name[as]=Technorati
 Name[ast]=Technorati
@@ -99,6 +100,7 @@ Name[zh_CN]=Technorati
 Name[zh_TW]=Technorati
 Keys=tr,technorati
 Query=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[am]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[ar]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[az]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[be]=https://technorati.com/search?return=sites&authority=high&q=\\{@}

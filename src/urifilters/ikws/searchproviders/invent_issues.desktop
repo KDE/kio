@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=inventissues,invissues,issues,issue
 Name=KDE Invent Issues
+Name[am]=KDE Invent Issues
 Name[ar]=مشكلات KDE Invent
 Name[ast]=Problemes de KDE Invent
 Name[az]=KDE Invent problemləri
@@ -62,6 +63,7 @@ Name[vi]=Các vấn đề ở Invent KDE
 Name[zh_CN]=KDE Invent 问题
 Name[zh_TW]=KDE Invent 議題
 Query=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[am]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ar]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[ast]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[az]=https://invent.kde.org/search?scope=issues&search=\\{@}

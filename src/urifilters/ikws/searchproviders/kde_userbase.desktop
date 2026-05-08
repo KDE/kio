@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=kdeuserbase,userbase,ub
 Name=KDE UserBase
+Name[am]=KDE UserBase
 Name[ar]=قاعدة مستخدمي KDE
 Name[az]=KDE İstifadəçi Baza
 Name[be]=База карыстальніка KDE
@@ -82,6 +83,7 @@ Name[wa]=KDE UserBase (Uzeus)
 Name[zh_CN]=KDE 用户百科网站
 Name[zh_TW]=KDE UserBase
 Query=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[am]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[ar]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[az]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[be]=https://userbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Rust STD Documentation
+Name[am]=Rust STD ሰነዶች
 Name[ar]=توثيق رست STD
 Name[az]=Rust STD sənədləşməsi
 Name[be]=Дакументацыя Rust STD
@@ -62,6 +63,7 @@ Name[zh_TW]=Rust STD 標準函式庫說明文件
 Type=Service
 Keys=rust
 Query=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[am]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[ar]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[az]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[be]=https://doc.rust-lang.org/std/index.html?search=\\{@}

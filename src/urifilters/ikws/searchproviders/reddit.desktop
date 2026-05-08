@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Reddit
+Name[am]=Reddit
 Name[ar]=ردت
 Name[az]=Reddit
 Name[be]=Reddit
@@ -63,6 +64,7 @@ Name[zh_TW]=Reddit
 Type=Service
 Keys=reddit
 Query=https://www.reddit.com/search/?q=\\{@}
+Query[am]=https://www.reddit.com/search/?q=\\{@}
 Query[ar]=https://www.reddit.com/search/?q=\\{@}
 Query[az]=https://www.reddit.com/search/?q=\\{@}
 Query[be]=https://www.reddit.com/search/?q=\\{@}

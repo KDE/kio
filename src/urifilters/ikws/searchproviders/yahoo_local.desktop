@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=yahoolocal,yhl
 Name=Yahoo Local
+Name[am]=Yahoo Local
 Name[ar]=ياهو المحلي
 Name[ast]=Yahoo Local
 Name[az]=Yahoo Local
@@ -82,6 +83,7 @@ Name[wa]=Yahoo Coinrece
 Name[zh_CN]=Yahoo 本地信息
 Name[zh_TW]=Yahoo Local
 Query=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
+Query[am]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[ar]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[ast]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[az]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img

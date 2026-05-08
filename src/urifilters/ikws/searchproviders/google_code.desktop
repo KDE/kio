@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=ggc,googlecode,ggcode
 Name=Google Code
+Name[am]=Google Code
 Name[ar]=جوجل كود
 Name[ast]=Google Code
 Name[az]=Google Code
@@ -82,6 +83,7 @@ Name[wa]=Google Côde
 Name[zh_CN]=Google Code
 Name[zh_TW]=Google Code
 Query=https://code.google.com/query/#q=\\{%2520}
+Query[am]=https://code.google.com/query/#q=\\{%2520}
 Query[ar]=https://code.google.com/query/#q=\\{%2520}
 Query[az]=https://code.google.com/query/#q=\\{%2520}
 Query[be]=https://code.google.com/query/#q=\\{%2520}

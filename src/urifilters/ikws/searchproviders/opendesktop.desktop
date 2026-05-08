@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=opendesktop,odesk,od
 Name=openDesktop.org
+Name[am]=openDesktop.org
 Name[ar]=openDesktop.org
 Name[ast]=openDesktop.org
 Name[az]=openDesktop.org
@@ -82,6 +83,7 @@ Name[wa]=openDesktop.org
 Name[zh_CN]=openDesktop.org
 Name[zh_TW]=openDesktop.org
 Query=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[am]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ar]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[ast]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[az]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}

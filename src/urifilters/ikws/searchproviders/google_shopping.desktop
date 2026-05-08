@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Google Shopping
+Name[am]=Google ግብይት
 Name[ar]=تسوّق جوجل
 Name[ast]=Google Shopping
 Name[az]=Google Alış-Veriş
@@ -76,6 +77,7 @@ Name[zh_CN]=Google 购物
 Name[zh_TW]=Google Shopping
 Keys=ggs,ggshopping
 Query=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[am]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ar]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[az]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[be]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

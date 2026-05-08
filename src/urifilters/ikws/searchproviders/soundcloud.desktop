@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Soundcloud
+Name[am]=Soundcloud
 Name[ar]=ساوند كلاود
 Name[ast]=Soundcloud
 Name[az]=Soundcloud
@@ -70,6 +71,7 @@ Name[zh_CN]=Soundcloud
 Name[zh_TW]=Soundcloud
 Keys=sc
 Query=https://soundcloud.com/search?q=\\{@}
+Query[am]=https://soundcloud.com/search?q=\\{@}
 Query[ar]=https://soundcloud.com/search?q=\\{@}
 Query[az]=https://soundcloud.com/search?q=\\{@}
 Query[be]=https://soundcloud.com/search?q=\\{@}

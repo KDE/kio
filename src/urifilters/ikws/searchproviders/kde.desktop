@@ -5,6 +5,7 @@ Keys=kdeapi,kde,api
 Icon=kde
 Name=KDE API Documentation
 Name[af]=KDE API Dokumentasie
+Name[am]=KDE API ሰነዶች
 Name[ar]=توثيق واجهة برمجة تطبيقات كِيدِي
 Name[as]=KDE API Documentation
 Name[az]=KDE API Sənədləşməsi
@@ -100,6 +101,7 @@ Name[wa]=Documintåcion di l' API di KDE
 Name[zh_CN]=KDE API 文档
 Name[zh_TW]=KDE API 說明文件
 Query=https://api.kde.org/search.html?query=\\{@}
+Query[am]=https://api.kde.org/search.html?query=\\{@}
 Query[ar]=https://api.kde.org/search.html?query=\\{@}
 Query[az]=https://api.kde.org/search.html?query=\\{@}
 Query[be]=https://api.kde.org/search.html?query=\\{@}

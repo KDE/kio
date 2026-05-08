@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=deepl
 Name=DeepL
+Name[am]=DeepL
 Name[ar]=ترجمة موقع DeepL
 Name[ast]=DeepL
 Name[az]=DeepL
@@ -65,6 +66,7 @@ Name[vi]=DeepL
 Name[zh_CN]=DeepL
 Name[zh_TW]=DeepL
 Query=https://www.deepl.com/translator#any/any/\\{@}
+Query[am]=https://www.deepl.com/translator#any/any/\\{@}
 Query[ar]=https://www.deepl.com/translator#any/any/\\{@}
 Query[az]=https://www.deepl.com/translator#any/any/\\{@}
 Query[be]=https://www.deepl.com/translator#any/any/\\{@}

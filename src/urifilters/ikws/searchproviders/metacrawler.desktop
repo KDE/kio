@@ -2,6 +2,7 @@
 Type=Service
 Name=MetaCrawler
 Name[af]=Metacrawler
+Name[am]=MetaCrawler
 Name[ar]=MetaCrawler
 Name[as]=MetaCrawler
 Name[ast]=MetaCrawler
@@ -100,6 +101,7 @@ Name[zh_CN]=MetaCrawler
 Name[zh_TW]=MetaCrawler
 Keys=mc,meta,metacrawler
 Query=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[am]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[ar]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[az]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[be]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
