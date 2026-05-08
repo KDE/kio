@@ -606,6 +606,7 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
         }
         QUrl newUrl = url;
         newUrl.setPath(newUrl.path() + QLatin1Char('/'));
+        redirection(newUrl);
         return makeRequest(newUrl, method, inputData, dataMode, extraHeaders);
     }
     if (inputData) {
