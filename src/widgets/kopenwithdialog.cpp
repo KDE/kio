@@ -810,7 +810,10 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
     // edit->setText( _value );
     // The resize is what caused "can't click on items before clicking on Name header" in previous versions.
     // Probably due to the resizeEvent handler using width().
-    q->resize(q->minimumWidth(), 0.6 * q->screen()->availableGeometry().height());
+    const QRect available = q->screen()->availableGeometry();
+    const int shortSide = qMin(available.width(), available.height());
+    const int height = qMin(int(shortSide * 0.6), 600);
+    q->resize(qMax(q->minimumWidth(), 450), height);
     edit->setFocus();
     q->slotTextChanged();
 }
