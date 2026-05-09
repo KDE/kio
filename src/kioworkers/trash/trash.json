@@ -6,6 +6,9 @@
                 "Original Path",
                 "Deletion Date"
             ],
+            "ExtraNames[am]": [
+                "ኦሪጅናል ዱካ፤ የተሰረዘበት ቀን"
+            ],
             "ExtraNames[ar]": [
                 "المسار الأصلي",
                 "تاريخ الحذف"
