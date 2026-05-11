@@ -26,6 +26,7 @@
 #include <sys/utime.h>
 #include <winsock2.h> //struct timeval
 #else
+#include <fcntl.h>
 #include <utime.h>
 #endif
 
@@ -189,14 +190,48 @@ WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
     }
 
     QT_STATBUF buff;
-    if (QT_LSTAT(QFile::encodeName(path).constData(), &buff) == -1) {
+    QByteArray pathEncoded = QFile::encodeName(path);
+    if (QT_LSTAT(pathEncoded.constData(), &buff) == -1) {
         if (!QDir().mkdir(path)) {
             return WorkerResult::fail(KIO::ERR_CANNOT_MKDIR, path);
         }
 
-        if (permissions != -1) {
-            return chmod(url, permissions);
+#ifdef Q_OS_UNIX
+        // Apply permissions and ownership through a descriptor to the directory
+        // mkdir just created, so the changes always land on that inode.
+        // O_NOFOLLOW and O_DIRECTORY make the open fail if the entry has been
+        // replaced by a symlink or a non-directory in the meantime.
+        const int fd = QT_OPEN(pathEncoded.constData(), O_RDONLY | O_DIRECTORY | O_NOFOLLOW | O_CLOEXEC);
+        if (fd == -1) {
+            return WorkerResult::fail(KIO::ERR_CANNOT_MKDIR, path);
         }
+
+        if (permissions != -1 && ::fchmod(fd, permissions) < 0) {
+            QT_CLOSE(fd);
+            return WorkerResult::fail(KIO::ERR_CANNOT_CHMOD, path);
+        }
+
+        // preserve ownership
+        bool uidOk;
+        auto uid = metaData(QStringLiteral("uid")).toInt(&uidOk);
+        bool gidOk;
+        auto gid = metaData(QStringLiteral("gid")).toInt(&gidOk);
+        if (uidOk || gidOk) {
+            if (::fchown(fd, uid, gid) < 0) {
+                qCWarning(KIO_FILE) << "Couldn't chown directory in mkdir, path:" << path << ". Error:" << errno;
+            }
+        }
+
+        QT_CLOSE(fd);
+#else
+        if (permissions != -1) {
+            auto chmodResult = chmod(url, permissions);
+            if (!chmodResult.success()) {
+                return chmodResult;
+            }
+        }
+#endif
+
         return WorkerResult::pass();
     }
 

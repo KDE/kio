@@ -107,6 +107,17 @@ void MkdirJob::slotFinished()
     SimpleJob::slotFinished();
 }
 
+void MkdirJob::setOwnership(int uid, int gid)
+{
+    if (uid != -1) {
+        addMetaData(QStringLiteral("uid"), QString::number(uid));
+    }
+    if (gid != -1) {
+        addMetaData(QStringLiteral("gid"), QString::number(gid));
+    }
+}
+
+// TODO KF7 add uid/gid parameters
 KIO::MkdirJob *KIO::mkdir(const QUrl &url, int permissions)
 {
     // qDebug() << "mkdir " << url;

@@ -222,7 +222,9 @@ struct CopyInfo {
     QUrl uSource;
     QUrl uDest;
     QString linkDest; // for symlinks only
-    int permissions;
+    int permissions = -1;
+    int gid = -1;
+    int uid = -1;
     QDateTime ctime;
     QDateTime mtime;
     KIO::filesize_t size; // 0 for dirs
@@ -535,7 +537,6 @@ void CopyJobPrivate::slotResultStating(KJob *job)
             q->removeSubjob(job);
             Q_ASSERT(!q->hasSubjobs()); // We should have only one job at a time ...
             struct CopyInfo info;
-            info.permissions = (mode_t)-1;
             info.size = KIO::invalidFilesize;
             info.uSource = srcurl;
             info.uDest = m_dest;
@@ -848,6 +849,8 @@ void CopyJobPrivate::addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &
 {
     struct CopyInfo info;
     info.permissions = entry.numberValue(KIO::UDSEntry::UDS_ACCESS, -1);
+    info.gid = entry.numberValue(KIO::UDSEntry::UDS_LOCAL_GROUP_ID, -1);
+    info.uid = entry.numberValue(KIO::UDSEntry::UDS_LOCAL_USER_ID, -1);
     const auto modificationTime = entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1);
     if (modificationTime != -1) {
         info.mtime = QDateTime::fromSecsSinceEpoch(modificationTime, QTimeZone::UTC);
@@ -1555,7 +1558,8 @@ void CopyJobPrivate::processCreateNextDir(const QList<CopyInfo>::Iterator &it, i
 
     // Create the directory - with default permissions so that we can put files into it
     // TODO : change permissions once all is finished; but for stuff coming from CDROM it sucks...
-    KIO::SimpleJob *newjob = KIO::mkdir(it->uDest, -1);
+    KIO::MkdirJob *newjob = KIO::mkdir(it->uDest, -1);
+    newjob->setOwnership(it->uid, it->gid);
     newjob->setParentJob(q);
     if (shouldOverwriteFile(it->uDest.path())) { // if we are overwriting an existing file or symlink
         newjob->addMetaData(QStringLiteral("overwrite"), QStringLiteral("true"));

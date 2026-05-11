@@ -48,6 +48,7 @@ private Q_SLOTS:
     void asyncStoredPutReadyReadAfterFinish();
     void copyFileToSamePartition();
     void testCopyFilePermissionsToSamePartition();
+    void testMkdirPermissionsAndOwnership();
     void copyDirectoryToSamePartition();
     void copyDirectoryToExistingDirectory();
     void copyDirectoryToExistingSymlinkedDirectory();

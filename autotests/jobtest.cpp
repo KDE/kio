@@ -21,6 +21,7 @@
 #include <kio/filecopyjob.h>
 #include <kio/listjob.h>
 #include <kio/mimetypejob.h>
+#include <kio/mkdirjob.h>
 #include <kio/statjob.h>
 #include <kio/storedtransferjob.h>
 #include <kmountpoint.h>
@@ -926,6 +927,36 @@ void JobTest::testCopyFilePermissionsToSamePartition()
     // unit tests
     QVERIFY(QFile::remove(dest));
     QVERIFY(QFile::remove(src));
+#endif
+}
+
+void JobTest::testMkdirPermissionsAndOwnership()
+{
+#if defined(Q_OS_UNIX)
+    QT_STATBUF buff;
+
+    // A new directory created with explicit permissions has exactly those bits.
+    const QString permDir = homeTmpDir() + "mkdirWithPerms";
+    KIO::MkdirJob *permJob = KIO::mkdir(QUrl::fromLocalFile(permDir), 0750);
+    permJob->setUiDelegate(nullptr);
+    QVERIFY2(permJob->exec(), qPrintable(permJob->errorString()));
+    QCOMPARE(QT_LSTAT(QFile::encodeName(permDir).constData(), &buff), 0);
+    QCOMPARE(buff.st_mode & 0777, mode_t(0750));
+    QVERIFY(QDir(permDir).removeRecursively());
+
+    // A new directory created with an explicit owner gets it. A normal user can
+    // only set its own uid and gid, so use those, which still exercises the
+    // ownership code path and proves it does not fail or change the owner.
+    const QString ownDir = homeTmpDir() + "mkdirWithOwnership";
+    KIO::MkdirJob *ownJob = KIO::mkdir(QUrl::fromLocalFile(ownDir), 0700);
+    ownJob->setOwnership(getuid(), getgid());
+    ownJob->setUiDelegate(nullptr);
+    QVERIFY2(ownJob->exec(), qPrintable(ownJob->errorString()));
+    QCOMPARE(QT_LSTAT(QFile::encodeName(ownDir).constData(), &buff), 0);
+    QCOMPARE(buff.st_uid, getuid());
+    QCOMPARE(buff.st_gid, getgid());
+    QCOMPARE(buff.st_mode & 0777, mode_t(0700));
+    QVERIFY(QDir(ownDir).removeRecursively());
 #endif
 }
 
