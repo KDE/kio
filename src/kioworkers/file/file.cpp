@@ -189,14 +189,32 @@ WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
     }
 
     QT_STATBUF buff;
-    if (QT_LSTAT(QFile::encodeName(path).constData(), &buff) == -1) {
+    QByteArray pathEncoded = QFile::encodeName(path);
+    if (QT_LSTAT(pathEncoded.constData(), &buff) == -1) {
         if (!QDir().mkdir(path)) {
             return WorkerResult::fail(KIO::ERR_CANNOT_MKDIR, path);
         }
 
         if (permissions != -1) {
-            return chmod(url, permissions);
+            auto chmodResult = chmod(url, permissions);
+            if (!chmodResult.success()) {
+                return chmodResult;
+            }
         }
+
+#ifdef Q_OS_UNIX
+        // preserve ownership
+        bool uidOk;
+        auto uid = metaData(QStringLiteral("uid")).toInt(&uidOk);
+        bool gidOk;
+        auto gid = metaData(QStringLiteral("gid")).toInt(&gidOk);
+        if (uidOk || gidOk) {
+            if (::chown(pathEncoded.constData(), uid, gid) < 0) {
+                qCWarning(KIO_FILE) << "Couldn't chown directory in mkdir, path:" << path << ". Error:" << errno;
+            }
+        }
+#endif
+
         return WorkerResult::pass();
     }
 

@@ -30,6 +30,15 @@ class KIOCORE_EXPORT MkdirJob : public SimpleJob
 public:
     ~MkdirJob() override;
 
+    /*!
+     * uid and gid to use for the new directory
+     *
+     * Only supported on unix filesystem.
+     *
+     * \since 6.28
+     */
+    void setOwnership(int uid, int gid);
+
 Q_SIGNALS:
     /*!
      * Signals a redirection.
