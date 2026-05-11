@@ -619,7 +619,7 @@ void KUrlNavigatorPrivate::openContextMenu(const QPoint &p)
     const bool isWindowSignal = q->isSignalConnected(QMetaMethod::fromSignal(&KUrlNavigator::newWindowRequested));
     if (isTabSignal || isWindowSignal) {
         auto it = std::find_if(m_navButtons.cbegin(), m_navButtons.cend(), [&p](const KUrlNavigatorButton *button) {
-            return button->geometry().contains(p);
+            return button->isVisible() && button->geometry().contains(p);
         });
         if (it != m_navButtons.cend()) {
             const auto *button = *it;
