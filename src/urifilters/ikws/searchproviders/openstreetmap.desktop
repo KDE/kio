@@ -20,6 +20,7 @@ Name[sl]=OpenStreetMap
 Name[tr]=OpenStreetMap
 Name[uk]=OpenStreetMap
 Name[zh_CN]=OpenStreetMap
+Name[zh_TW]=OpenStreetMap
 Query=https://www.openstreetmap.org/search?query=\\{@}
 Query[ar]=https://www.openstreetmap.org/search?query=\\{@}
 Query[ca]=https://www.openstreetmap.org/search?query=\\{@}
@@ -38,4 +39,5 @@ Query[sl]=https://www.openstreetmap.org/search?query=\\{@}
 Query[tr]=https://www.openstreetmap.org/search?query=\\{@}
 Query[uk]=https://www.openstreetmap.org/search?query=\\{@}
 Query[zh_CN]=https://www.openstreetmap.org/search?query=\\{@}
+Query[zh_TW]=https://www.openstreetmap.org/search?query=\\{@}
 Type=Service

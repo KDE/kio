@@ -18,6 +18,7 @@ Name[sl]=Flathub
 Name[tr]=Flathub
 Name[uk]=Flathub
 Name[zh_CN]=Flathub
+Name[zh_TW]=Flathub
 Type=Service
 Keys=flathub,app
 Query=https://flathub.org/apps/search?q=\\{@}
@@ -38,3 +39,4 @@ Query[sl]=https://flathub.org/apps/search?q=\\{@}
 Query[tr]=https://flathub.org/apps/search?q=\\{@}
 Query[uk]=https://flathub.org/apps/search?q=\\{@}
 Query[zh_CN]=https://flathub.org/apps/search?q=\\{@}
+Query[zh_TW]=https://flathub.org/apps/search?q=\\{@}

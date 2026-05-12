@@ -20,6 +20,7 @@ Name[sl]=ZDF Mediathek
 Name[tr]=ZDF Mediathek
 Name[uk]=ZDF Mediathek
 Name[zh_CN]=ZDF Mediathek
+Name[zh_TW]=ZDF Mediathek
 Query=https://www.zdf.de/suche?q=\\{@}
 Query[ar]=https://www.zdf.de/suche?q=\\{@}
 Query[ca]=https://www.zdf.de/suche?q=\\{@}
@@ -38,4 +39,5 @@ Query[sl]=https://www.zdf.de/suche?q=\\{@}
 Query[tr]=https://www.zdf.de/suche?q=\\{@}
 Query[uk]=https://www.zdf.de/suche?q=\\{@}
 Query[zh_CN]=https://www.zdf.de/suche?q=\\{@}
+Query[zh_TW]=https://www.zdf.de/suche?q=\\{@}
 Type=Service
