@@ -275,7 +275,7 @@ enum JobFlag {
     HideProgressInfo = 1,
     Resume = 2,
     Overwrite = 4,
-    NoPrivilegeExecution KIOCORE_ENUMERATOR_DEPRECATED_VERSION(6, 19, "Not implemented") = 8,
+    NoPrivilegeExecution KIOCORE_DEPRECATED_VERSION(6, 19, "Not implemented") = 8,
 };
 
 Q_DECLARE_FLAGS(JobFlags, JobFlag)
