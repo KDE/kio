@@ -180,7 +180,6 @@ include(CMakePackageConfigHelpers)
 configure_package_config_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/KF6KIOConfig.cmake.in"
   "${CMAKE_CURRENT_BINARY_DIR}/KF6KIOConfig.cmake"
-  PATH_VARS KDE_INSTALL_DBUSINTERFACEDIR
   INSTALL_DESTINATION  ${CMAKECONFIG_INSTALL_DIR}
 )
 
