@@ -248,6 +248,13 @@ public:
     QUrl uncommittedUrl() const;
 
     /*!
+     * Applies the edited URL in m_pathBox to the URL navigator.
+     *
+     * \since 6.27
+     */
+    void applyUncommittedUrl();
+
+    /*!
      * Returns the amount of locations in the history. The data for each
      *         location can be retrieved by KUrlNavigator::locationUrl() and
      *         KUrlNavigator::locationState().

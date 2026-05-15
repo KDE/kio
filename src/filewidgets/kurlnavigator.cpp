@@ -1192,6 +1192,11 @@ QUrl KUrlNavigator::uncommittedUrl() const
     }
 }
 
+void KUrlNavigator::applyUncommittedUrl()
+{
+    d->applyUncommittedUrl(KUrlNavigatorPrivate::ApplyUrlMethod::Apply);
+}
+
 void KUrlNavigator::setLocationUrl(const QUrl &newUrl)
 {
     d->m_coreUrlNavigator->setCurrentLocationUrl(newUrl);

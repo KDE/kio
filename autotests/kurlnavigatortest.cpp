@@ -361,4 +361,14 @@ void KUrlNavigatorTest::testInitWithRedundantPathSeparators()
     QCOMPARE(buttonUrl, QUrl::fromLocalFile(QStringLiteral("/home/foo/test")));
 }
 
+void KUrlNavigatorTest::testApplyUncommittedUrl()
+{
+    m_navigator->setLocationUrl(QUrl());
+    m_navigator->setUrlEditable(true);
+    m_navigator->editor()->setCurrentText(QStringLiteral("/home/foo/.config"));
+    QCOMPARE(m_navigator->uncommittedUrl(), QUrl::fromLocalFile(QStringLiteral("/home/foo/.config")));
+    m_navigator->applyUncommittedUrl();
+    QCOMPARE(m_navigator->locationUrl(), QUrl::fromLocalFile(QStringLiteral("/home/foo/.config")));
+}
+
 #include "moc_kurlnavigatortest.cpp"
