@@ -304,8 +304,7 @@ enum Error {
  * \value CC_Refresh Always validate cached entry with remote site
  * \value CC_Reload Always fetch from remote site
  */
-KIOCORE_DEPRECATED_VERSION(6, 6, "Not used")
-enum CacheControl {
+enum KIOCORE_DEPRECATED_VERSION(6, 6, "Not used") CacheControl {
     CC_CacheOnly,
     CC_Cache,
     CC_Verify,
