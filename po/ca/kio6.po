@@ -13,14 +13,14 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-14 00:39+0000\n"
-"PO-Revision-Date: 2026-03-19 11:23+0100\n"
+"PO-Revision-Date: 2026-05-17 15:44+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -5786,7 +5786,7 @@ msgstr "GPU dedicada"
 #: widgets/kpropertiesdesktopadvbase.ui:136
 #, kde-format
 msgid "Run using dedicated graphics card"
-msgstr "Executa usant la targeta gràfica dedicada"
+msgstr "Executa usant una targeta gràfica dedicada"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup4)
 #: widgets/kpropertiesdesktopadvbase.ui:146
@@ -7502,177 +7502,3 @@ msgstr "Això iniciarà el programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Si no confieu en aquest programa, cliqueu «Cancel·la»"
-
-#~ msgctxt "@option:check"
-#~ msgid "Launch executable files without asking"
-#~ msgstr "Llança els fitxers executables sense preguntar"
-
-#~ msgctxt "@option:check Open in the associated app"
-#~ msgid "Open executable files in the default application without asking"
-#~ msgstr ""
-#~ "Obre els fitxers executables a l'aplicació predeterminada sense preguntar"
-
-#~ msgctxt "@option:check Always open/launch executable files (dont ask again)"
-#~ msgid "Remember for all executable files"
-#~ msgstr "Recorda per a tots els fitxers executables"
-
-#~ msgctxt "@info:tooltip How to undo do not ask again"
-#~ msgid ""
-#~ "You can undo this under \"Confirmations\" in Dolphin file manager "
-#~ "settings."
-#~ msgstr ""
-#~ "Podeu desfer això a «Confirmacions» dins de la configuració del gestor de "
-#~ "fitxers Dolphin."
-
-#~ msgid "Change Attribute"
-#~ msgstr "Canvia l'atribut"
-
-#~ msgid ""
-#~ "Root privileges are required to change file attributes. Do you want to "
-#~ "continue?"
-#~ msgstr ""
-#~ "Es requereixen privilegis d'administrador per a canviar els atributs del "
-#~ "fitxer. Voleu continuar?"
-
-#~ msgid ""
-#~ "Root privileges are required to complete the copy operation. Do you want "
-#~ "to continue?"
-#~ msgstr ""
-#~ "Es requereixen privilegis d'administrador per a completar l'operació de "
-#~ "còpia. Voleu continuar?"
-
-#~ msgid "Delete Files"
-#~ msgstr "Suprimeix els fitxers"
-
-#~ msgid ""
-#~ "Root privileges are required to complete the delete operation. However, "
-#~ "doing so may damage your system. Do you want to continue?"
-#~ msgstr ""
-#~ "Es requereixen privilegis d'administrador per a completar l'operació de "
-#~ "supressió. Tanmateix, fer-ho podria malmetre el sistema. Voleu continuar?"
-
-#~ msgid "Create Folder"
-#~ msgstr "Crea una carpeta"
-
-#~ msgid ""
-#~ "Root privileges are required to create this folder. Do you want to "
-#~ "continue?"
-#~ msgstr ""
-#~ "Es requereixen privilegis d'administrador per a crear aquesta carpeta. "
-#~ "Voleu continuar?"
-
-#~ msgid "Move Items"
-#~ msgstr "Mou elements"
-
-#~ msgid ""
-#~ "Root privileges are required to complete the move operation. Do you want "
-#~ "to continue?"
-#~ msgstr ""
-#~ "Es requereixen privilegis d'administrador per a completar l'operació de "
-#~ "moure. Voleu continuar?"
-
-#~ msgid "Rename"
-#~ msgstr "Reanomena"
-
-#~ msgid ""
-#~ "Root privileges are required to complete renaming. Do you want to "
-#~ "continue?"
-#~ msgstr ""
-#~ "Es requereixen privilegis d'administrador per a completar l'operació de "
-#~ "reanomenat. Voleu continuar?"
-
-#~ msgid ""
-#~ "Root privileges are required to create a symlink. Do you want to continue?"
-#~ msgstr ""
-#~ "Es requereixen privilegis d'administrador per a crear un enllaç simbòlic. "
-#~ "Voleu continuar?"
-
-#~ msgid "Transfer data"
-#~ msgstr "Transferència de dades"
-
-#~ msgid ""
-#~ "Root privileges are required to complete transferring data. Do you want "
-#~ "to continue?"
-#~ msgstr ""
-#~ "Es requereixen privilegis d'administrador per a completar la "
-#~ "transferència de dades. Voleu continuar?"
-
-#~ msgid "Undo Changes"
-#~ msgstr "Desfés els canvis"
-
-#~ msgid ""
-#~ "Undoing this operation requires root privileges. Do you want to continue?"
-#~ msgstr ""
-#~ "Es requereixen privilegis d'administrador per a desfer aquesta operació. "
-#~ "Voleu continuar?"
-
-#~ msgid "Setting ACL for %1"
-#~ msgstr "S'està establint l'ACL per a %1"
-
-#~ msgid "Change File Permissions"
-#~ msgstr "Canvi dels permisos de fitxer"
-
-#~ msgid "New Permissions: %1"
-#~ msgstr "Permisos nous: %1"
-
-#~ msgid "Change File Owner"
-#~ msgstr "Canvi del propietari de fitxer"
-
-#~ msgid "New Owner: UID=%1, GID=%2"
-#~ msgstr "Propietari nou: UID=%1, GID=%2"
-
-#~ msgid "Remove File"
-#~ msgstr "Elimina el fitxer"
-
-#~ msgid "Remove Directory"
-#~ msgstr "Elimina el directori"
-
-#~ msgid "Directory Permissions: %1"
-#~ msgstr "Permisos del directori: %1"
-
-#~ msgid "Open File"
-#~ msgstr "Obre un fitxer"
-
-#~ msgid "Open Directory"
-#~ msgstr "Obre un directori"
-
-#~ msgid "New Filename: %1"
-#~ msgstr "Nom nou del fitxer: %1"
-
-#~ msgid "Target: %1"
-#~ msgstr "Destinació: %1"
-
-#~ msgid "Change Timestamp"
-#~ msgstr "Canvia la marca de temps"
-
-#~ msgid "From: %1, To: %2"
-#~ msgstr "Des de: %1, A: %2"
-
-#~ msgid "Unknown Action"
-#~ msgstr "Acció desconeguda"
-
-#~ msgid ""
-#~ "Action: %1\n"
-#~ "Source: %2\n"
-#~ "%3"
-#~ msgstr ""
-#~ "Acció: %1\n"
-#~ "Origen: %2\n"
-#~ "%3"
-
-#~ msgid "Show Bookmarks Button"
-#~ msgstr "Mostra el botó de les adreces d'interès"
-
-#~ msgctxt "Reason why standby is blocked"
-#~ msgid "Files are being moved"
-#~ msgstr "S'estan movent els fitxers"
-
-#~ msgctxt "Reason why standby is blocked"
-#~ msgid "Files are being copied"
-#~ msgstr "S'estan copiant els fitxers"
-
-#~ msgid "&Description:"
-#~ msgstr "&Descripció:"
-
-#~ msgid "Type any comment you think is useful here."
-#~ msgstr "Introduïu aquí qualsevol comentari que creieu útil."
