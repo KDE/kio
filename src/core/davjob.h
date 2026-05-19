@@ -133,6 +133,23 @@ KIOCORE_EXPORT DavJob *davSearch(const QUrl &url, const QString &nsURI, const QS
  */
 KIOCORE_EXPORT DavJob *davReport(const QUrl &url, const QString &report, const QString &depth, JobFlags flags = DefaultFlags);
 
+/*!
+ * \relates KIO::DavJob
+ *
+ * Creates a new DavJob that issues a MKCOL command.
+ *
+ * \a url the URL of the resource
+ *
+ * \a report a MKCOL document that describes the request to make
+ *
+ * \a flags We support HideProgressInfo here
+ *
+ * Returns the new DavJob
+ *
+ * \since 6.27.0
+ */
+KIOCORE_EXPORT DavJob *davMkCol(const QUrl &url, const QString &properties, JobFlags flags = DefaultFlags);
+
 } // namespace KIO
 
 #endif

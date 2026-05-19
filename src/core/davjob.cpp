@@ -131,4 +131,9 @@ DavJob *KIO::davReport(const QUrl &url, const QString &report, const QString &de
     return job;
 }
 
+DavJob *KIO::davMkCol(const QUrl &url, const QString &properties, JobFlags flags)
+{
+    return DavJobPrivate::newJob(url, (int)KIO::DAV_MKCOL, properties, flags);
+}
+
 #include "moc_davjob.cpp"
