@@ -50,8 +50,14 @@ DavJob::DavJob(DavJobPrivate &dd, int method, const QString &request)
     stream << (int)7 << d->m_url << method;
     // Same for static data
     if (!request.isEmpty()) {
-        d->staticData = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + request.toUtf8();
-        d->staticData.chop(1);
+        if (!request.startsWith(QLatin1StringView("<?xml"))) {
+            // QDomDocument
+            d->staticData = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" + request.toUtf8();
+            d->staticData.chop(1);
+        } else {
+            // QXmlStreamWriter
+            d->staticData = request.toUtf8();
+        }
         d->savedStaticData = d->staticData;
         stream << static_cast<qint64>(d->staticData.size());
     } else {

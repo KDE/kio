@@ -140,7 +140,7 @@ KIOCORE_EXPORT DavJob *davReport(const QUrl &url, const QString &report, const Q
  *
  * \a url the URL of the resource
  *
- * \a report a MKCOL document that describes the request to make
+ * \a properties a MKCOL document that describes the request to make
  *
  * \a flags We support HideProgressInfo here
  *
