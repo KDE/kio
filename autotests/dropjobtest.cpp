@@ -89,8 +89,12 @@ private Q_SLOTS:
         m_trashDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QLatin1String("/Trash");
         QDir(m_trashDir).removeRecursively();
 
-        m_tempDir = QTemporaryDir(QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/dropjobtest"));
-        m_nonWritableTempDir = QTemporaryDir(QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/dropjobtest_ro"));
+        // m_tempDir = QTemporaryDir(QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/dropjobtest"));
+        // m_nonWritableTempDir = QTemporaryDir(QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/dropjobtest_ro"));
+
+        qWarning() << "a" << QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation);
+
+        qWarning() << m_tempDir.errorString() << m_tempDir.isValid() << m_tempDir.path();
 
         QVERIFY(m_tempDir.isValid());
         QVERIFY(m_nonWritableTempDir.isValid());
