@@ -850,14 +850,6 @@ void KDirModel::clearAllPreviews()
 
 void KDirModel::itemChanged(const QModelIndex &index)
 {
-    // This method is really a itemMimeTypeChanged(), it's mostly called by KFilePreviewGenerator.
-    // When the MIME type is determined, clear the old "preview" (could be
-    // MIME type dependent like when cutting files, #164185)
-    KDirModelNode *node = d->nodeForIndex(index);
-    if (node) {
-        node->setPreview(QIcon());
-    }
-
     qCDebug(category) << "dataChanged(" << debugIndex(index) << ")";
     Q_EMIT dataChanged(index, index);
 }

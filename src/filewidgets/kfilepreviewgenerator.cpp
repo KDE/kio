@@ -626,12 +626,6 @@ void KFilePreviewGeneratorPrivate::addToPreviewQueue(const KFileItem &item, cons
         limitToSize(icon, m_viewAdapter->iconSize() * pixmap.devicePixelRatio());
     }
 
-    if (m_hasCutSelection && isCutItem(item)) {
-        // apply the disabled effect to the icon for marking it as "cut item"
-        // and apply the icon to the item
-        KIconEffect::toDisabled(icon);
-    }
-
     const QSize size = icon.size();
     icon = KIconUtils::addOverlays(icon, item.overlays()).pixmap(size / pixmap.devicePixelRatio(), pixmap.devicePixelRatio());
 
@@ -717,7 +711,6 @@ void KFilePreviewGeneratorPrivate::clearCutItemsCache()
     if (!previews.isEmpty()) {
         // assure that the previews gets restored
         Q_ASSERT(m_previewShown);
-        orderItems(previews);
         updateIcons(previews);
     }
 }
@@ -739,17 +732,18 @@ void KFilePreviewGeneratorPrivate::dispatchIconUpdateQueue()
             for (const ItemInfo &preview : std::as_const(m_previews)) {
                 const QModelIndex idx = dirModel->indexForUrl(preview.url);
                 if (idx.isValid() && (idx.column() == 0)) {
-                    dirModel->setData(idx, QIcon(preview.pixmap), Qt::DecorationRole);
+                    auto icon = preview.pixmap;
+                    const auto item = dirModel->itemForIndex(idx);
+                    if (m_hasCutSelection && isCutItem(item)) {
+                        KIconEffect::toDisabled(icon);
+                        m_cutItemsCache.insert(item.url(), icon);
+                    }
+                    dirModel->setData(idx, QIcon(icon), Qt::DecorationRole);
                 }
             }
             m_previews.clear();
         }
 
-        // dispatch MIME type queue
-        for (const KFileItem &item : std::as_const(m_resolvedMimeTypes)) {
-            const QModelIndex idx = dirModel->indexForItem(item);
-            dirModel->itemChanged(idx);
-        }
         m_resolvedMimeTypes.clear();
 
         m_pendingVisibleIconUpdates -= count;
