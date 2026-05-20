@@ -46,6 +46,7 @@ private Q_SLOTS:
     void testChmodDirectory();
     void testExpandToUrl_data();
     void testExpandToUrl();
+    void testExpandToUrlBelowFile();
     void testFilter();
     void testFilterPatterns();
     void testMimeFilter();

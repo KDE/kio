@@ -927,6 +927,19 @@ void KDirModelTest::testExpandToUrl()
     }
 }
 
+void KDirModelTest::testExpandToUrlBelowFile()
+{
+    // Expanding to a URL whose path goes "into" an existing *file*, e.g. the user
+    // types "toplevelfile_1/foo" in a file dialog, must not assert (it used to).
+    const QString path = m_tempDir->path() + '/';
+    // The file itself is known to the model.
+    QVERIFY(m_dirModel->indexForUrl(QUrl::fromLocalFile(path + "toplevelfile_1")).isValid());
+
+    const QUrl url = QUrl::fromLocalFile(path + "toplevelfile_1/foo");
+    m_dirModel->expandToUrl(url); // should not assert
+    QVERIFY(!m_dirModel->indexForUrl(url).isValid());
+}
+
 void KDirModelTest::slotExpand(const QModelIndex &index)
 {
     QVERIFY(index.isValid());

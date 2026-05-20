@@ -394,7 +394,12 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
             return node;
         }
         qCDebug(category) << "going into" << node->item().url();
-        Q_ASSERT(isDir(node));
+        if (!isDir(node)) {
+            // The url points to something below an existing file, e.g. the user typed
+            // "file.png/foo" in a file dialog. That can't exist, so there's nothing to expand.
+            qCDebug(category) << node->item().url() << "is not a directory, cannot descend into" << url;
+            return nullptr;
+        }
         dirNode = static_cast<KDirModelDirNode *>(node);
     }
     // NOTREACHED
