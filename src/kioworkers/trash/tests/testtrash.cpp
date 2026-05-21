@@ -922,6 +922,14 @@ void TestTrash::statFileInDirectory()
     QCOMPARE(item.text(), QStringLiteral("testfile"));
 }
 
+void TestTrash::statInvalid()
+{
+    QUrl url(QStringLiteral("trash:/foo-bar"));
+    KIO::UDSEntry entry;
+    bool ok = MyNetAccess_stat(url, entry);
+    QVERIFY(!ok);
+}
+
 void TestTrash::statBrokenSymlinkInSubdir()
 {
     QUrl url(QStringLiteral("trash:/0-subDirBrokenSymlink/link"));

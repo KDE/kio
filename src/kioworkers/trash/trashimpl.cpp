@@ -1227,7 +1227,6 @@ bool TrashImpl::parseURL(const QUrl &url, quint64 &trashId, QString &fileId, QSt
 
     trashId = QStringView(path).mid(start, slashPos - start).toULongLong(&ok);
 
-    Q_ASSERT_X(ok, Q_FUNC_INFO, qUtf8Printable(url.toString()));
     if (!ok) {
         return false;
     }

@@ -58,6 +58,7 @@ private Q_SLOTS:
     void statDirectoryInRoot();
     void statSymlinkInRoot();
     void statFileInDirectory();
+    void statInvalid();
     void statBrokenSymlinkInSubdir();
     void testRemoveStaleInfofile();
 
