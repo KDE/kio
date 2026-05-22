@@ -252,12 +252,6 @@ bool KNewFileMenuSingleton::Entry::parseFile(QString file)
     return true;
 }
 
-struct EntryInfo {
-    QString key; /// Context menu order is the alphabetical order of this variable
-    QString url;
-    KNewFileMenuSingleton::Entry entry;
-};
-
 Q_GLOBAL_STATIC(KNewFileMenuSingleton, kNewMenuGlobals)
 
 class KNewFileMenuCopyData
@@ -1096,7 +1090,7 @@ void KNewFileMenuPrivate::slotFillTemplates()
         return !a.endsWith(QStringLiteral(".desktop"));
     });
 
-    std::vector<EntryInfo> uniqueEntries;
+    std::vector<KNewFileMenuSingleton::Entry> uniqueEntries;
 
     for (const QString &file : files) {
         // qDebug() << file;
@@ -1107,19 +1101,18 @@ void KNewFileMenuPrivate::slotFillTemplates()
             continue;
         }
 
-        EntryInfo eInfo = {entry.key, entry.url, entry};
-        auto it = std::find_if(uniqueEntries.begin(), uniqueEntries.end(), [&entry](const EntryInfo &info) {
+        auto it = std::find_if(uniqueEntries.begin(), uniqueEntries.end(), [&entry](const KNewFileMenuSingleton::Entry &info) {
             return entry.url == info.url;
         });
 
         if (it != uniqueEntries.cend()) {
-            *it = eInfo;
+            *it = entry;
         } else {
-            uniqueEntries.push_back(eInfo);
+            uniqueEntries.push_back(entry);
         }
     }
 
-    std::sort(uniqueEntries.begin(), uniqueEntries.end(), [](const EntryInfo &a, const EntryInfo &b) {
+    std::sort(uniqueEntries.begin(), uniqueEntries.end(), [](const KNewFileMenuSingleton::Entry &a, const KNewFileMenuSingleton::Entry &b) {
         return a.key < b.key;
     });
 
@@ -1129,7 +1122,8 @@ void KNewFileMenuPrivate::slotFillTemplates()
 
     instance->templatesList->reserve(uniqueEntries.size());
     for (const auto &info : uniqueEntries) {
-        instance->templatesList->append(info.entry);
+        // qDebug() << info;
+        instance->templatesList->append(info);
     };
 }
 
