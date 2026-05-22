@@ -130,8 +130,8 @@ public:
         QString filePath; /// The actual filepath derived from url and the suggested basename for a new file
         QString templatePath; /// Where the file is copied from, the suggested file extension and whether the menu entries have a separator around them.
         EntryType entryType; /// Defines if the created file will be a copy or a symbolic link
-        QString mimeType;
-        QString icon; /// The icon displayed in the context menu
+        QMimeType mimeType; /// Mimetype that the icon and comment are derived from
+        QIcon icon; /// The icon displayed in the context menu
 
         bool parseFile(QString file);
     };
@@ -182,7 +182,7 @@ bool KNewFileMenuSingleton::Entry::parseFile(QString file)
         key = desktopFile.readName();
         text = desktopFile.readName();
         comment = desktopFile.readComment();
-        icon = desktopFile.readIcon();
+        icon = QIcon::fromTheme(desktopFile.readIcon());
 
         filePath = file;
         entryType = KNewFileMenuSingleton::Template;
@@ -216,8 +216,7 @@ bool KNewFileMenuSingleton::Entry::parseFile(QString file)
         if (!fileinfo.isReadable() && QFileInfo(filePath).isNativePath()) {
             return false;
         }
-        QMimeType mime = db.mimeTypeForFile(file);
-        mimeType = mime.name();
+        mimeType = db.mimeTypeForFile(file);
     }
     // Parse non-.desktop files
     else {
@@ -231,10 +230,9 @@ bool KNewFileMenuSingleton::Entry::parseFile(QString file)
         filePath = file;
         templatePath = file;
         entryType = KNewFileMenuSingleton::Template;
-        QMimeType mime = db.mimeTypeForFile(file);
-        mimeType = mime.name();
-        icon = mime.iconName();
-        comment = i18nc("@label:textbox Prompt for new file of type", "Enter %1 filename:", mime.comment());
+        mimeType = db.mimeTypeForFile(file);
+        icon = QIcon::fromTheme(mimeType.iconName());
+        comment = i18nc("@label:textbox Prompt for new file of type", "Enter %1 filename:", mimeType.comment());
     }
     // Put Directory first in the list (a bit hacky),
     // and TextFile before others because it's the most used one.
@@ -669,7 +667,7 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
     }
 
     m_label->setText(entry.comment);
-    setIcon(QIcon::fromTheme(entry.icon));
+    setIcon(entry.icon);
 
     m_lineEdit->setText(text);
 
@@ -813,7 +811,7 @@ void KNewFileMenuPrivate::fillMenu()
                 if (templatePath.endsWith(QLatin1String("emptydir"))) {
                     QAction *act = new QAction(q);
                     m_newDirAction = act;
-                    act->setIcon(QIcon::fromTheme(entry.icon));
+                    act->setIcon(entry.icon);
                     act->setText(i18nc("@item:inmenu Create New", "%1", entry.text));
                     act->setActionGroup(m_newMenuGroup);
 
@@ -837,7 +835,7 @@ void KNewFileMenuPrivate::fillMenu()
 
                     QAction *act = new QAction(q);
                     act->setData(idx);
-                    act->setIcon(QIcon::fromTheme(entry.icon));
+                    act->setIcon(entry.icon);
                     act->setText(i18nc("@item:inmenu Create New", "%1", entry.text));
                     act->setActionGroup(m_newMenuGroup);
 
