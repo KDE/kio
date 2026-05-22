@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-21 00:40+0000\n"
-"PO-Revision-Date: 2026-03-11 02:06+0200\n"
+"POT-Creation-Date: 2026-05-22 00:39+0000\n"
+"PO-Revision-Date: 2026-05-21 17:46+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -35,7 +35,7 @@ msgstr ""
 #: core/chmodjob.cpp:197
 #, kde-format
 msgid "Could not modify the ownership of file %1"
-msgstr "Nepavyko pakeisti failo %1 nuosavybės"
+msgstr "Nepavyko modifikuoti failo %1 nuosavybės"
 
 #: core/chmodjob.cpp:231
 #, kde-kuit-format
@@ -43,8 +43,8 @@ msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
 "insufficient access to the file to perform the change."
 msgstr ""
-"Nepavyko pakeisti failo <filename>%1</filename> nuosavybės. Jums nepakanka "
-"prieigos prie failo, kad atliktumėte pakeitimus."
+"Nepavyko modifikuoti failo <filename>%1</filename> nuosavybės. Jums "
+"nepakanka prieigos prie failo, kad atliktumėte pakeitimus."
 
 #: core/connectionbackend.cpp:107
 #, kde-format
@@ -2296,17 +2296,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nedokumentuota klaida"
 
-#: core/kfileitem.cpp:1479
+#: core/kfileitem.cpp:1481
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Simbolinė nuoroda į %1)"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Nuoroda į %2)"
 
-#: core/kfileitem.cpp:1484
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Veda į %1)"
@@ -3941,6 +3941,8 @@ msgstr "Piktogramos failas per didelis, atsiuntimas nutrauktas"
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
+"FilePreviewJob: praleidžiamas tuščias failas, gali būti sugadinta simbolinė "
+"nuoroda: %1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
@@ -4111,7 +4113,7 @@ msgid ""
 msgstr ""
 "Tariamai laikinas failas\n"
 "%1\n"
-"buvo pakeistas.\n"
+"buvo modifikuotas.\n"
 "Ar vis tiek norite jį ištrinti?"
 
 #: kioexec/main.cpp:242
@@ -4129,7 +4131,7 @@ msgid ""
 msgstr ""
 "Failas\n"
 "%1\n"
-"pakeistas.\n"
+"buvo modifikuotas.\n"
 "Ar išsiųsti pakeitimus?"
 
 #: kioexec/main.cpp:302
@@ -4141,13 +4143,13 @@ msgstr "KIOExec"
 #, kde-format
 msgid "KIO Exec - Opens remote files, watches modifications, asks for upload"
 msgstr ""
-"KIO Exec – Atveria nuotolinius failus, seka pasikeitimus, klausia dėl failų "
+"KIO Exec – Atveria nuotolinius failus, seka modifikavimus, klausia dėl failų "
 "išsiuntimo"
 
 #: kioexec/main.cpp:306
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
-msgstr "(c) 1998-2000,2003 KFM/Konqueror programuotojai"
+msgstr "(c) 1998–2000,2003 KFM/Konqueror programuotojai"
 
 #: kioexec/main.cpp:307
 #, kde-format
@@ -4303,7 +4305,7 @@ msgstr "<b>%1</b>"
 #: kioworkers/ftp/ftp.cpp:664
 #, kde-format
 msgid "Login OK"
-msgstr "Prisijungimas pavyko"
+msgstr "Prisijungti pavyko"
 
 #: kioworkers/ftp/ftp.cpp:689
 #, kde-format
@@ -4843,28 +4845,28 @@ msgstr "Skaičiuoti"
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Spauskite, jei norite kontrolinę sumą nukopijuoti į iškarpinę."
 
-#: widgets/dropjob.cpp:178
+#: widgets/dropjob.cpp:192
 #, kde-format
 msgid "C&ancel"
 msgstr "A&tsisakyti"
 
-#: widgets/dropjob.cpp:290
+#: widgets/dropjob.cpp:304
 #, kde-format
 msgid "&Move Here"
 msgstr "&Perkelti čia"
 
-#: widgets/dropjob.cpp:296
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Atsisiųsti čia"
 
-#: widgets/dropjob.cpp:296
+#: widgets/dropjob.cpp:310
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Kopijuoti čia"
 
-#: widgets/dropjob.cpp:303
+#: widgets/dropjob.cpp:317
 #, kde-format
 msgid "&Link Here"
 msgstr "Sukurti čia &nuorodą"
@@ -5496,7 +5498,7 @@ msgstr "Sukurta:"
 #: widgets/kfilepropspluginwidget.ui:406
 #, kde-format
 msgid "Modified:"
-msgstr "Keista:"
+msgstr "Modifikuota:"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:429
@@ -5762,25 +5764,25 @@ msgstr ""
 #: widgets/kpropertiesdesktopadvbase.ui:84
 #, kde-format
 msgid "Run as a different user"
-msgstr "Vykdyti kito naudotojo teisėmis"
+msgstr "Paleisti kito naudotojo teisėmis"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, suidEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:107
 #, kde-format
 msgid "Enter the user name you want to run the application as."
-msgstr "Įrašykite naudotojo vardą, kurio vardu norite leisti programą."
+msgstr "Įrašykite naudotojo vardą, kurio vardu norite paleisti programą."
 
 #. i18n: ectx: property (text), widget (QLabel, suidEditLabel)
 #: widgets/kpropertiesdesktopadvbase.ui:110
 #, kde-format
 msgid "Username:"
-msgstr "Naudotojas:"
+msgstr "Naudotojo vardas:"
 
 #. i18n: ectx: property (whatsThis), widget (KLineEdit, suidEdit)
 #: widgets/kpropertiesdesktopadvbase.ui:120
 #, kde-format
 msgid "Enter the user name you want to run the application as here."
-msgstr "Čia įrašykite naudotojo vardą, kurio vardu norite leisti programą."
+msgstr "Čia įrašykite naudotojo vardą, kurio vardu norite paleisti programą."
 
 #. i18n: ectx: property (title), widget (QGroupBox, discreteGpuGroupBox)
 #: widgets/kpropertiesdesktopadvbase.ui:130
@@ -5818,7 +5820,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopadvbase.ui:155
 #, kde-format
 msgid "Enable launch feedback"
-msgstr "Įgalinti paleidimo grįžtamąjį ryšį"
+msgstr "Įjungti paleidimo grįžtamąjį ryšį"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
@@ -6044,7 +6046,7 @@ msgid ""
 "Bus options or to run it as a different user."
 msgstr ""
 "Spauskite čia norėdami pakeisti programos veikimo būdą, grįžtamąjį ryšį, D-"
-"Bus parinktis ar vykdyti ją kito naudotojo teisėmis."
+"Bus parinktis ar paleisti ją kito naudotojo teisėmis."
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
 #: widgets/kpropertiesdesktopbase.ui:281
@@ -6862,12 +6864,12 @@ msgstr "Duomenų formatas:"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:75
+#: widgets/pastejob.cpp:89
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Iškarpinės turinio failo pavadinimas:"
 
-#: widgets/pastejob.cpp:75
+#: widgets/pastejob.cpp:89
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Numesto turinio failo pavadinimas:"
