@@ -11,8 +11,6 @@
 
 #include "kiocore_export.h"
 
-#include <KAuthorized>
-
 class QUrl;
 class QString;
 
