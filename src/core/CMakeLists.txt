@@ -225,7 +225,7 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "GNU
 endif()
 
 # Headers prefixed with KIO/
-ecm_generate_headers(KIOCore_CamelCase_HEADERS
+ecm_generate_headers(KIOCore_Namespaced_CamelCase_HEADERS
   HEADER_NAMES
   DirectorySizeJob
   Job #     ### should forward to job_base.h, not job.h...
@@ -289,7 +289,7 @@ install(FILES
 )
 
 # Headers not prefixed with KIO/
-ecm_generate_headers(KIOCore_HEADERS
+ecm_generate_headers(KIOCore_CamelCase_HEADERS
   HEADER_NAMES
   KACL
   KUrlAuthorized
@@ -315,9 +315,31 @@ ecm_generate_headers(KIOCore_HEADERS
 
 ecm_generate_qdoc(KF6KIOCore kiocore.qdocconf)
 
-install(FILES ${KIOCore_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore/KIO COMPONENT Devel)
+install(FILES ${KIOCore_Namespaced_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore/KIO COMPONENT Devel)
 
 install(FILES
   ${KIOCore_HEADERS}
+  ${KIOCore_CamelCase_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiocore_export.h
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOCore COMPONENT Devel)
+
+ecm_add_installed_library_check(KF6KIOCore
+    PACKAGE_NAME "KF6KIO"
+    PACKAGE_VERSION ${KIO_VERSION}
+    PACKAGE_TARGET_NAMESPACE "KF6::"
+)
+
+ecm_installed_library_check_include_strings(KF6KIOCore
+    HEADERS ${KIOCore_CamelCase_HEADERS}
+)
+
+ecm_installed_library_check_include_strings(KF6KIOCore
+    HEADERS ${KIOCore_Namespaced_CamelCase_HEADERS}
+    PREFIX KIO
+)
+
+ecm_installed_library_check_version_preprocessor_macros(KF6KIOCore
+    PREFIX KIO
+    VERSION ${KIO_VERSION}
+    SILENT
+)

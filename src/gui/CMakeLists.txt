@@ -104,7 +104,7 @@ target_link_libraries(KF6KIOGui
 target_link_libraries(KF6KIOGui PRIVATE KF6::WindowSystem)
 
 # Headers prefixed with KIO/
-ecm_generate_headers(KIOGui_CamelCase_HEADERS
+ecm_generate_headers(KIOGui_Namespaced_CamelCase_HEADERS
   HEADER_NAMES
   ApplicationLauncherJob
   CommandLauncherJob
@@ -121,7 +121,7 @@ ecm_generate_headers(KIOGui_CamelCase_HEADERS
 )
 
 # Headers not prefixed with KIO/
-ecm_generate_headers(KIOGui_HEADERS
+ecm_generate_headers(KIOGui_CamelCase_HEADERS
   HEADER_NAMES
   KCoreUrlNavigator
   KEMailClientLauncherJob
@@ -133,7 +133,9 @@ ecm_generate_headers(KIOGui_HEADERS
 
 ecm_generate_qdoc(KF6KIOGui kiogui.qdocconf)
 
-install(FILES ${KIOGui_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui/KIO COMPONENT Devel)
+install(FILES
+  ${KIOGui_Namespaced_CamelCase_HEADERS}
+  DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui/KIO COMPONENT Devel)
 
 install(TARGETS KF6KIOGui EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -143,5 +145,27 @@ install(FILES
 
 install(FILES
   ${KIOGui_HEADERS}
+  ${KIOGui_CamelCase_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiogui_export.h
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui COMPONENT Devel)
+
+ecm_add_installed_library_check(KF6KIOGui
+    PACKAGE_NAME "KF6KIO"
+    PACKAGE_VERSION ${KIO_VERSION}
+    PACKAGE_TARGET_NAMESPACE "KF6::"
+)
+
+ecm_installed_library_check_include_strings(KF6KIOGui
+    HEADERS ${KIOGui_CamelCase_HEADERS}
+)
+
+ecm_installed_library_check_include_strings(KF6KIOGui
+    HEADERS ${KIOGui_Namespaced_CamelCase_HEADERS}
+    PREFIX KIO
+)
+
+ecm_installed_library_check_version_preprocessor_macros(KF6KIOGui
+    PREFIX KIO
+    VERSION ${KIO_VERSION}
+    SILENT
+)

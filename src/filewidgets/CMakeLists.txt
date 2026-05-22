@@ -121,7 +121,7 @@ if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND EXCLUDE_DEPRECATE
     list(APPEND _deprecated_public_header KFilePlaceEditDialog)
 endif()
 
-ecm_generate_headers(KIOFileWidgets_HEADERS
+ecm_generate_headers(KIOFileWidgets_CamelCase_HEADERS
   HEADER_NAMES
   ${_deprecated_public_header}
   KAbstractViewAdapter
@@ -150,7 +150,24 @@ install(TARGETS KF6KIOFileWidgets EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFA
 
 install(FILES
   ${KIOFileWidgets_HEADERS}
+  ${KIOFileWidgets_CamelCase_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiofilewidgets_export.h
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOFileWidgets COMPONENT Devel)
+
+ecm_add_installed_library_check(KF6KIOFileWidgets
+    PACKAGE_NAME "KF6KIO"
+    PACKAGE_VERSION ${KIO_VERSION}
+    PACKAGE_TARGET_NAMESPACE "KF6::"
+)
+
+ecm_installed_library_check_include_strings(KF6KIOFileWidgets
+    HEADERS ${KIOFileWidgets_CamelCase_HEADERS}
+)
+
+ecm_installed_library_check_version_preprocessor_macros(KF6KIOFileWidgets
+    PREFIX KIO
+    VERSION ${KIO_VERSION}
+    SILENT
+)
 
 add_subdirectory(dropIntoNewFolder)

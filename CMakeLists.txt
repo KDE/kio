@@ -27,6 +27,7 @@ include(ECMQtDeclareLoggingCategory)
 include(ECMSourceVersionControl)
 include(ECMDeprecationSettings)
 include(ECMGenerateQDoc)
+include(ECMInstalledLibraryCheck)
 
 ecm_setup_version(
   PROJECT

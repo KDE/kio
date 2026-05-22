@@ -138,7 +138,7 @@ if(ACL_FOUND)
 endif()
 
 # Headers not prefixed with KIO/
-ecm_generate_headers(KIOWidgets_HEADERS
+ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   HEADER_NAMES
   KPropertiesDialog
   KPropertiesDialogPlugin
@@ -164,7 +164,7 @@ ecm_generate_headers(KIOWidgets_HEADERS
 ecm_generate_qdoc(KF6KIOWidgets kiowidgets.qdocconf)
 
 # Headers prefixed with KIO/
-ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
+ecm_generate_headers(KIOWidgets_Namespaced_CamelCase_HEADERS
   HEADER_NAMES
   DeleteOrTrashJob
   SslUi
@@ -182,7 +182,7 @@ ecm_generate_headers(KIOWidgets_CamelCase_HEADERS
   PREFIX KIO
   REQUIRED_HEADERS KIO_namespaced_widgets_HEADERS
 )
-install(FILES ${KIOWidgets_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets/KIO COMPONENT Devel)
+install(FILES ${KIOWidgets_Namespaced_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets/KIO COMPONENT Devel)
 
 install(TARGETS KF6KIOWidgets EXPORT KF6KIOTargets ${KF_INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -192,5 +192,27 @@ install(FILES
 
 install(FILES
   ${KIOWidgets_HEADERS}
+  ${KIOWidgets_CamelCase_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiowidgets_export.h
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOWidgets COMPONENT Devel)
+
+ecm_add_installed_library_check(KF6KIOWidgets
+    PACKAGE_NAME "KF6KIO"
+    PACKAGE_VERSION ${KIO_VERSION}
+    PACKAGE_TARGET_NAMESPACE "KF6::"
+)
+
+ecm_installed_library_check_include_strings(KF6KIOWidgets
+    HEADERS ${KIOWidgets_CamelCase_HEADERS}
+)
+
+ecm_installed_library_check_include_strings(KF6KIOWidgets
+    HEADERS ${KIOWidgets_Namespaced_CamelCase_HEADERS}
+    PREFIX KIO
+)
+
+ecm_installed_library_check_version_preprocessor_macros(KF6KIOWidgets
+    PREFIX KIO
+    VERSION ${KIO_VERSION}
+    SILENT
+)
