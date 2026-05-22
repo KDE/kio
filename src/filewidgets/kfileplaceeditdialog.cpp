@@ -11,6 +11,7 @@
 #include <KAboutData>
 #include <KConfig>
 #include <KIconButton>
+#include <KIconLoader>
 #include <KLineEdit> // For KUrlRequester::lineEdit()
 #include <KLocalizedString>
 #include <kio/global.h>
@@ -51,6 +52,7 @@ bool KFilePlaceEditDialog::getInformation(bool allowGlobal,
     return false;
 }
 
+// TODO KF7: remove argument iconSize and hardcode the internally only-used value 64
 KFilePlaceEditDialog::KFilePlaceEditDialog(bool allowGlobal,
                                            const QUrl &url,
                                            const QString &label,

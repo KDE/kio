@@ -36,6 +36,7 @@
 #include <KColorUtils>
 #include <KConfig>
 #include <KConfigGroup>
+#include <KIconLoader>
 #include <KJob>
 #include <KLocalizedString>
 #include <KProtocolInfo>
