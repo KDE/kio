@@ -123,17 +123,16 @@ public:
     std::unique_ptr<KDirWatch> dirWatch;
 
     struct Entry {
-        QString url;
-        QString key;
-        QString text;
-        QString filePath; /// The displayed name in the context menu and the suggested filename. When using a .desktop file this is used to refer back to
-                          /// it during parsing.
-        QString templatePath; /// Where the file is copied from, the suggested file extension and whether the menu entries have a separator around them.
-                              /// Same as filePath for Template.
-        QString icon; /// The icon displayed in the context menu
-        EntryType entryType; /// Defines if the created file will be a copy or a symbolic link
+        QString url; /// URL of a file received from getTemplateFilePaths
+        QString key; /// The key used for sorting the files in the menu
+        QString text; /// Text shown on the new file submenu
         QString comment; /// The prompt label asking for filename
+        QString filePath; /// The actual filepath derived from url and the suggested basename for a new file
+        QString templatePath; /// Where the file is copied from, the suggested file extension and whether the menu entries have a separator around them.
+        EntryType entryType; /// Defines if the created file will be a copy or a symbolic link
         QString mimeType;
+        QString icon; /// The icon displayed in the context menu
+
         bool parseFile(QString file);
     };
 
@@ -155,36 +154,38 @@ public:
 
 bool KNewFileMenuSingleton::Entry::parseFile(QString file)
 {
-    // Parse .desktop files
     QMimeDatabase db;
+    // Parse .desktop files
     if (KDesktopFile::isDesktopFile(file)) {
-        filePath = file;
-        const KDesktopFile config(file);
-        url = config.desktopGroup().readEntry("URL");
-        key = config.desktopGroup().readEntry("Name");
-        entryType = KNewFileMenuSingleton::Template;
-        KDesktopFile desktopFile(file);
+        const KDesktopFile desktopFile(file);
+
         if (desktopFile.noDisplay()) {
             return false;
         }
 
+        url = desktopFile.readUrl();
+        key = desktopFile.readName();
         text = desktopFile.readName();
-        icon = desktopFile.readIcon();
         comment = desktopFile.readComment();
+        icon = desktopFile.readIcon();
+
+        filePath = file;
+        entryType = KNewFileMenuSingleton::Template;
+
         if (desktopFile.readType() == QLatin1String("Link")) {
-            templatePath = desktopFile.desktopGroup().readPathEntry("URL", QString());
-            if (templatePath.startsWith(QLatin1String("file:/"))) {
-                templatePath = QUrl(templatePath).toLocalFile();
-            } else if (!templatePath.startsWith(QLatin1Char('/')) && !templatePath.startsWith(QLatin1String("__"))) {
+            if (url.startsWith(QLatin1String("file:/"))) {
+                templatePath = QUrl(url).toLocalFile();
+            } else if (!url.startsWith(QLatin1Char('/')) && !url.startsWith(QLatin1String("__"))) {
                 // A relative path, then (that's the default in the files we ship)
                 const QStringView linkDir = QStringView(filePath).left(filePath.lastIndexOf(QLatin1Char('/')) + 1 /*keep / */);
                 // qDebug() << "linkDir=" << linkDir;
-                templatePath = linkDir + templatePath;
+                templatePath = linkDir + url;
+            } else {
+                templatePath = url;
             }
         }
         if (templatePath.isEmpty()) {
             // No URL key, this is an old-style template
-            entryType = KNewFileMenuSingleton::Template;
             templatePath = filePath; // we'll copy the file
         } else {
             entryType = KNewFileMenuSingleton::LinkToTemplate;
@@ -200,9 +201,6 @@ bool KNewFileMenuSingleton::Entry::parseFile(QString file)
         if (!fileinfo.isReadable() && QFileInfo(filePath).isNativePath()) {
             return false;
         }
-        /*// qDebug() << "Updating entry with text=" << text
-                        << "entryType=" << templ.entryType
-                        << "templatePath=" << templ.templatePath;*/
         QMimeType mime = db.mimeTypeForFile(file);
         mimeType = mime.name();
     }
@@ -214,10 +212,10 @@ bool KNewFileMenuSingleton::Entry::parseFile(QString file)
         }
         url = file;
         key = fileinfo.fileName();
-        entryType = KNewFileMenuSingleton::Template;
         text = fileinfo.baseName();
         filePath = file;
         templatePath = file;
+        entryType = KNewFileMenuSingleton::Template;
         QMimeType mime = db.mimeTypeForFile(file);
         mimeType = mime.name();
         icon = mime.iconName();
