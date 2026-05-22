@@ -152,6 +152,21 @@ public:
     int templatesVersion;
 };
 
+QDebug operator<<(QDebug debug, const KNewFileMenuSingleton::Entry &Entry)
+{
+    debug.nospace() << "url\t\t" << Entry.url << "\n";
+    debug.nospace() << "key\t\t" << Entry.key << "\n";
+    debug.nospace() << "text\t\t" << Entry.text << "\n";
+    debug.nospace() << "filepath\t" << Entry.filePath << "\n";
+    debug.nospace() << "templatepath\t" << Entry.templatePath << "\n";
+    debug.nospace() << "entrytype\t" << Entry.entryType << "\n";
+    debug.nospace() << "comment\t\t" << Entry.comment << "\n";
+    debug.nospace() << "mimetype\t" << Entry.mimeType << "\n";
+    debug.nospace() << "icon\t\t" << Entry.icon << "\n";
+
+    return debug;
+}
+
 bool KNewFileMenuSingleton::Entry::parseFile(QString file)
 {
     QMimeDatabase db;
