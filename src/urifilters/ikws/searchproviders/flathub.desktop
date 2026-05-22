@@ -11,6 +11,7 @@ Name[ia]=Flathub
 Name[is]=Flathub
 Name[it]=Flathub
 Name[ka]=Flathub
+Name[lt]=Flathub
 Name[nl]=Flathub
 Name[pt_BR]=Flathub
 Name[sk]=Flathub
@@ -32,6 +33,7 @@ Query[ia]=https://flathub.org/apps/search?q=\\{@}
 Query[is]=https://flathub.org/apps/search?q=\\{@}
 Query[it]=https://flathub.org/apps/search?q=\\{@}
 Query[ka]=https://flathub.org/apps/search?q=\\{@}
+Query[lt]=https://flathub.org/apps/search?q=\\{@}
 Query[nl]=https://flathub.org/apps/search?q=\\{@}
 Query[pt_BR]=https://flathub.org/apps/search?q=\\{@}
 Query[sk]=https://flathub.org/apps/search?q=\\{@}
