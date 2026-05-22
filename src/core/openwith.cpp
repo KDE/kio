@@ -16,6 +16,7 @@
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KLocalizedString>
+#include <KService>
 #include <KSharedConfig>
 
 #include "desktopexecparser.h"

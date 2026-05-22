@@ -12,9 +12,15 @@
 
 #include <QString>
 
+#ifdef Q_QDOC
 #include <KService>
+#else
+#include <QExplicitlySharedDataPointer>
+#endif
 
 #include "kiocore_export.h"
+
+class KService;
 
 namespace KIO
 {
@@ -52,7 +58,15 @@ public:
      *
      * Returns an AcceptResult
      */
+#ifdef Q_QDOC
     static AcceptResult accept(KService::Ptr &service,
+#else
+    // Avoiding the actual use of class internal typedef KService::Ptr here,
+    // otherwise the whole KIOCore needs to declare public dependency on KService just for this method.
+    // The caller of this method has to have an instance of KService around and thus need themselves
+    // to depend on KService, so KIOCore here can rely on that.
+    static AcceptResult accept(QExplicitlySharedDataPointer<KService> &service,
+#endif
                                const QString &typedExec,
                                bool remember,
                                const QString &mimeType,
