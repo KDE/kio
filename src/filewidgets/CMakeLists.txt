@@ -94,7 +94,7 @@ ecm_generate_export_header(KF6KIOFileWidgets
     USE_VERSION_HEADER
     VERSION_BASE_NAME KIO
     DEPRECATED_BASE_VERSION 0
-    DEPRECATION_VERSIONS 6.3 6.15 6.19
+    DEPRECATION_VERSIONS 6.3 6.15 6.19 6.27
     EXCLUDE_DEPRECATED_BEFORE_AND_AT ${EXCLUDE_DEPRECATED_BEFORE_AND_AT}
 )
 
@@ -116,8 +116,14 @@ target_link_libraries(KF6KIOFileWidgets
     KF6::ColorScheme
 )
 
+set(_deprecated_public_header)
+if(NOT EXCLUDE_DEPRECATED_BEFORE_AND_AT STREQUAL "CURRENT" AND EXCLUDE_DEPRECATED_BEFORE_AND_AT VERSION_LESS 6.27.0)
+    list(APPEND _deprecated_public_header KFilePlaceEditDialog)
+endif()
+
 ecm_generate_headers(KIOFileWidgets_HEADERS
   HEADER_NAMES
+  ${_deprecated_public_header}
   KAbstractViewAdapter
   KImageFilePreview
   KPreviewWidgetBase
@@ -126,7 +132,6 @@ ecm_generate_headers(KIOFileWidgets_HEADERS
   KFileCopyToMenu
   KFileCustomDialog
   KFileFilterCombo
-  KFilePlaceEditDialog
   KFilePlacesModel
   KFilePlacesView
   KFilePreviewGenerator
