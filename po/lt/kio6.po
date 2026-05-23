@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-22 00:39+0000\n"
+"POT-Creation-Date: 2026-05-23 00:39+0000\n"
 "PO-Revision-Date: 2026-05-21 17:46+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -4642,7 +4642,7 @@ msgstr "Išvalyti šiukšlinės turinį"
 msgid "Restore a trashed file to its original location"
 msgstr "Atkurti šiukšlinėje esantį failą į jo pirminę vietą"
 
-#: kioworkers/trash/trashimpl.cpp:1306
+#: kioworkers/trash/trashimpl.cpp:1305
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""

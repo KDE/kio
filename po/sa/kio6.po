@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-22 00:39+0000\n"
+"POT-Creation-Date: 2026-05-23 00:39+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -4533,7 +4533,7 @@ msgstr "पुनःप्रयोगस्य कूपस्य सामग�
 msgid "Restore a trashed file to its original location"
 msgstr "विलोपितां सञ्चिकां तस्याः मूलस्थाने पुनः स्थापयन्तु"
 
-#: kioworkers/trash/trashimpl.cpp:1306
+#: kioworkers/trash/trashimpl.cpp:1305
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
