@@ -460,6 +460,13 @@ void DeleteJobPrivate::deleteNextDir()
         // qDebug() << "KDirNotify'ing FilesRemoved" << m_srcList;
 #ifdef WITH_QTDBUS
         org::kde::KDirNotify::emitFilesRemoved(m_srcList);
+#else
+        const bool trashDirChanged = std::any_of(m_srcList.cbegin(), m_srcList.cend(), [](const QUrl &url) {
+            return url.scheme() == QLatin1String("trash");
+        });
+        if (trashDirChanged) {
+            KCoreDirLister().updateDirectory(QUrl(QStringLiteral("trash:/")));
+        }
 #endif
     }
     if (m_reportTimer != nullptr) {
@@ -478,6 +485,9 @@ void DeleteJobPrivate::restoreDirWatch() const
     const auto itEnd = m_parentDirs.constEnd();
     for (auto it = m_parentDirs.constBegin(); it != itEnd; ++it) {
         KDirWatch::self()->restartDirScan(*it);
+#ifndef WITH_QTDBUS
+        KDirWatch::self()->setDirty(*it);
+#endif
     }
 }
 

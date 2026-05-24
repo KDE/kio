@@ -8,6 +8,7 @@
 #include "restorejob.h"
 
 #include "job_p.h"
+#include "kcoredirlister.h"
 #include "kiocoredebug.h"
 #include <kdirnotify.h>
 
@@ -77,6 +78,8 @@ void RestoreJobPrivate::slotStart()
     } else {
 #ifdef WITH_QTDBUS
         org::kde::KDirNotify::emitFilesRemoved(m_urls);
+#else
+        KCoreDirLister().updateDirectory(QUrl(QStringLiteral("trash:/")));
 #endif
         q->emitResult();
     }

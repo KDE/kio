@@ -2235,11 +2235,24 @@ void CopyJob::emitResult()
 #endif
         }
     }
+#ifndef WITH_QTDBUS
+    const auto isTrashUrl = [](const QUrl &url) {
+        return url.scheme() == QLatin1String("trash");
+    };
+    const bool trashDirChanged =
+        isTrashUrl(d->m_globalDest) || (d->m_mode == CopyJob::Move && std::any_of(d->m_successSrcList.cbegin(), d->m_successSrcList.cend(), isTrashUrl));
+    if (trashDirChanged) {
+        KCoreDirLister().updateDirectory(QUrl(QStringLiteral("trash:/")));
+    }
+#endif
 
     // Re-enable watching on the dirs that held the deleted/moved files
     if (d->m_mode == CopyJob::Move) {
         for (const auto &dir : d->m_parentDirs) {
             KDirWatch::self()->restartDirScan(dir);
+#ifndef WITH_QTDBUS
+            KDirWatch::self()->setDirty(dir);
+#endif
         }
     }
     Job::emitResult();
