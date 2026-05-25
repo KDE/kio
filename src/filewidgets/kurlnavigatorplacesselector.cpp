@@ -7,6 +7,7 @@
 
 #include "kurlnavigatorplacesselector_p.h"
 
+#include <KLocalizedString>
 #include <KProtocolInfo>
 #include <KUrlMimeData>
 #include <kfileplacesmodel.h>
@@ -43,6 +44,10 @@ KUrlNavigatorPlacesSelector::KUrlNavigatorPlacesSelector(KUrlNavigator *parent, 
     setMenu(m_placesMenu);
 
     setAcceptDrops(true);
+
+#ifndef QT_NO_ACCESSIBILITY
+    setAccessibleName(i18nc("@action:button accessible name for the places selector in the URL navigator", "Places"));
+#endif
 }
 
 KUrlNavigatorPlacesSelector::~KUrlNavigatorPlacesSelector()
