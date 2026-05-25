@@ -573,6 +573,7 @@ void KDirModelTest::testRenameFile()
     const QUrl newUrl = QUrl::fromLocalFile(m_tempDir->path() + "/toplevelfile_2_renamed");
 
     QSignalSpy spyDataChanged(m_dirModel, &QAbstractItemModel::dataChanged);
+    QSignalSpy dirModelDataChanged(m_dirModel, &KDirModel::dataChanged);
 
     KIO::SimpleJob *job = KIO::rename(url, newUrl, KIO::HideProgressInfo);
     QVERIFY(job->exec());
@@ -582,8 +583,14 @@ void KDirModelTest::testRenameFile()
         QVERIFY(spyDataChanged.wait());
     }
 
+    // Also wait for the folderModel itself emit dataChanged
+    if (dirModelDataChanged.isEmpty()) {
+        QVERIFY(dirModelDataChanged.wait());
+    }
+
     // If we come here, then dataChanged() was emitted - all good.
     QCOMPARE(spyDataChanged.count(), 1);
+    QCOMPARE(dirModelDataChanged.count(), 1);
     COMPARE_INDEXES(spyDataChanged[0][0].value<QModelIndex>(), m_secondFileIndex);
     QModelIndex receivedIndex = spyDataChanged[0][1].value<QModelIndex>();
     QCOMPARE(receivedIndex.row(), m_secondFileIndex.row()); // only compare row; column is count-1
@@ -605,6 +612,11 @@ void KDirModelTest::testRenameFile()
     if (spyDataChanged.isEmpty()) {
         QVERIFY(spyDataChanged.wait());
     }
+    // Also wait for the folderModel itself emit dataChanged
+    if (dirModelDataChanged.isEmpty()) {
+        QVERIFY(dirModelDataChanged.wait());
+    }
+
     QCOMPARE(m_dirModel->itemForIndex(m_secondFileIndex).url().toString(), url.toString());
 }
 

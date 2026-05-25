@@ -1025,6 +1025,7 @@ bool KDirModel::setData(const QModelIndex &index, const QVariant &value, int rol
             job->uiDelegate()->setAutoErrorHandlingEnabled(true);
             // undo handling
             KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Rename, QList<QUrl>() << item.url(), newUrl, job);
+            Q_EMIT dataChanged(index, index, QList<int>{role});
             return true;
         }
         break;
