@@ -13,6 +13,7 @@ Name[ia]=OpenStreetMap
 Name[is]=OpenStreetMap
 Name[it]=OpenStreetMap
 Name[ka]=OpenStreetMap
+Name[ko]=오픈스트리트맵
 Name[lt]=OpenStreetMap
 Name[nl]=OpenStreetMap
 Name[pt_BR]=OpenStreetMap
@@ -33,6 +34,7 @@ Query[ia]=https://www.openstreetmap.org/search?query=\\{@}
 Query[is]=https://www.openstreetmap.org/search?query=\\{@}
 Query[it]=https://www.openstreetmap.org/search?query=\\{@}
 Query[ka]=https://www.openstreetmap.org/search?query=\\{@}
+Query[ko]=https://www.openstreetmap.org/search?query=\\{@}
 Query[lt]=https://www.openstreetmap.org/search?query=\\{@}
 Query[nl]=https://www.openstreetmap.org/search?query=\\{@}
 Query[pt_BR]=https://www.openstreetmap.org/search?query=\\{@}

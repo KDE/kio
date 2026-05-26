@@ -12,6 +12,7 @@ Name[ia]=Pagina de initio
 Name[is]=Startpage
 Name[it]=Startpage
 Name[ka]=Startpage
+Name[ko]=Startpage
 Name[lt]=Startpage
 Name[nl]=Startpagina
 Name[pt_BR]=Startpage
@@ -34,6 +35,7 @@ Query[ia]=https://www.startpage.com/sp/search?query=\\{@}
 Query[is]=https://www.startpage.com/sp/search?query=\\{@}
 Query[it]=https://www.startpage.com/sp/search?query=\\{@}
 Query[ka]=https://www.startpage.com/sp/search?query=\\{@}
+Query[ko]=https://www.startpage.com/sp/search?query=\\{@}
 Query[lt]=https://www.startpage.com/sp/search?query=\\{@}
 Query[nl]=https://www.startpage.com/sp/search?query=\\{@}
 Query[pt_BR]=https://www.startpage.com/sp/search?query=\\{@}
