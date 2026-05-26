@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-05-23 00:39+0000\n"
-"PO-Revision-Date: 2026-02-04 00:17+0100\n"
+"PO-Revision-Date: 2026-05-25 21:14+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3814,7 +3814,7 @@ msgstr "아이콘 파일이 너무 커서 다운로드 중단함"
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
-msgstr ""
+msgstr "FilePreviewJob: 빈 파일을 건너뜀, 깨진 심볼릭 링크일 수도 있음: %1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
@@ -5214,8 +5214,7 @@ msgid "&Open With…"
 msgstr "다음으로 열기(&O)…"
 
 #: widgets/kfileitemactions.cpp:814
-#, fuzzy, kde-format
-#| msgid "&Run Executable"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "파일 실행(&R)"
@@ -6597,12 +6596,10 @@ msgid "pasted file"
 msgstr "붙여넣은 파일"
 
 #: widgets/paste.cpp:79 widgets/paste.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "클립보드 내용 붙여넣기…"
+msgstr "클립보드 내용 붙여넣기"
 
 #: widgets/paste.cpp:122
 #, kde-format
@@ -6645,8 +6642,7 @@ msgid "Paste"
 msgstr "붙여넣기"
 
 #: widgets/pastedialog.cpp:57
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "데이터 형식:"
