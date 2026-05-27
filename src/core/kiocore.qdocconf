@@ -20,7 +20,8 @@ depends += \
     kiogui \
     kiowidgets \
     kiofilewidgets \
-    kconfigcore
+    kconfigcore \
+    kservice
 
 qhp.projects            = KIOCore
 
