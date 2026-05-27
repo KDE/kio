@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-23 00:39+0000\n"
+"POT-Creation-Date: 2026-05-27 00:41+0000\n"
 "PO-Revision-Date: 2025-08-19 17:33+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -3809,6 +3809,15 @@ msgstr "Vairāk"
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
 msgstr "Iet uz vietu ceļā"
+
+#: filewidgets/kurlnavigatorplacesselector.cpp:49
+#, fuzzy, kde-format
+#| msgctxt "@item"
+#| msgid "Places"
+msgctxt ""
+"@action:button accessible name for the places selector in the URL navigator"
+msgid "Places"
+msgstr "Vietas"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format

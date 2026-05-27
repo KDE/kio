@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-23 00:39+0000\n"
+"POT-Creation-Date: 2026-05-27 00:41+0000\n"
 "PO-Revision-Date: 2025-12-07 00:08-0500\n"
 "Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
 "Language-Team: sq\n"
@@ -3851,6 +3851,15 @@ msgstr "Më tepër"
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
 msgstr "Shko te Vendndodhja në Shteg:"
+
+#: filewidgets/kurlnavigatorplacesselector.cpp:49
+#, fuzzy, kde-format
+#| msgctxt "@item"
+#| msgid "Places"
+msgctxt ""
+"@action:button accessible name for the places selector in the URL navigator"
+msgid "Places"
+msgstr "Vende"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format

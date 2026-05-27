@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-23 00:39+0000\n"
+"POT-Creation-Date: 2026-05-27 00:41+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3752,6 +3752,15 @@ msgstr "अधिकः"
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
 msgstr "Location on Path इत्यत्र गच्छन्तु"
+
+#: filewidgets/kurlnavigatorplacesselector.cpp:49
+#, fuzzy, kde-format
+#| msgctxt "@item"
+#| msgid "Places"
+msgctxt ""
+"@action:button accessible name for the places selector in the URL navigator"
+msgid "Places"
+msgstr "स्थानाः"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format

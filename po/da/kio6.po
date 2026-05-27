@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-23 00:39+0000\n"
+"POT-Creation-Date: 2026-05-27 00:41+0000\n"
 "PO-Revision-Date: 2025-10-31 23:33+0100\n"
 "Last-Translator: Rasmus Rosendahl-Kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -3844,6 +3844,15 @@ msgstr "Mere"
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
 msgstr "Gå til lokation eller sti"
+
+#: filewidgets/kurlnavigatorplacesselector.cpp:49
+#, fuzzy, kde-format
+#| msgctxt "@item"
+#| msgid "Places"
+msgctxt ""
+"@action:button accessible name for the places selector in the URL navigator"
+msgid "Places"
+msgstr "Steder"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format
