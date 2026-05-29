@@ -1476,7 +1476,7 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
 }
 
 struct KCoreDirListerCache::ItemInUseChange {
-    ItemInUseChange(const QUrl &old, const QUrl &newU, DirItem *di)
+    ItemInUseChange(const QUrl &old, const QUrl &newU, DirItem *di) noexcept
         : oldUrl(old)
         , newUrl(newU)
         , dirItem(di)

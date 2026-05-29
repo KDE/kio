@@ -31,7 +31,7 @@ public:
      */
     static KProtocolInfoFactory *self();
 
-    KProtocolInfoFactory();
+    KProtocolInfoFactory() noexcept;
     ~KProtocolInfoFactory();
 
     /*!

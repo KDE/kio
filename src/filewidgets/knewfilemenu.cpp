@@ -102,7 +102,7 @@ static KConfigGroup stateConfig()
 class KNewFileMenuSingleton
 {
 public:
-    KNewFileMenuSingleton()
+    KNewFileMenuSingleton() noexcept
         : dirWatch(nullptr)
         , templatesList(nullptr)
         , templatesVersion(0)

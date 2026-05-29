@@ -51,12 +51,12 @@ private:
         inline Field()
         {
         }
-        inline Field(const uint index, const QString &value)
+        inline Field(const uint index, const QString &value) noexcept
             : m_str(value)
             , m_index(index)
         {
         }
-        inline Field(const uint index, long long value = 0)
+        inline Field(const uint index, long long value = 0) noexcept
             : m_long(value)
             , m_index(index)
         {

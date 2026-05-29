@@ -25,7 +25,7 @@ KProtocolInfoFactory *KProtocolInfoFactory::self()
     return kProtocolInfoFactoryInstance();
 }
 
-KProtocolInfoFactory::KProtocolInfoFactory()
+KProtocolInfoFactory::KProtocolInfoFactory() noexcept
     : m_cacheDirty(true)
 {
 }

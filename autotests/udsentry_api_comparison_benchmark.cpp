@@ -213,15 +213,15 @@ class AnotherUDSEntry
 {
 private:
     struct Field {
-        inline Field()
+        inline Field() noexcept
         {
         }
-        inline Field(const uint index, const QString &value)
+        inline Field(const uint index, const QString &value) noexcept
             : m_str(value)
             , m_index(index)
         {
         }
-        inline Field(const uint index, long long value = 0)
+        inline Field(const uint index, long long value = 0) noexcept
             : m_long(value)
             , m_index(index)
         {
@@ -330,12 +330,12 @@ private:
         inline Field()
         {
         }
-        inline Field(const uint index, const QString &value)
+        inline Field(const uint index, const QString &value) noexcept
             : m_str(value)
             , m_index(index)
         {
         }
-        inline Field(const uint index, long long value = 0)
+        inline Field(const uint index, long long value = 0) noexcept
             : m_long(value)
             , m_index(index)
         {
@@ -435,13 +435,13 @@ private:
         inline StringField()
         {
         }
-        inline StringField(const uint index, const QString &value)
+        inline StringField(const uint index, const QString &value) noexcept
             : m_index(index)
             , m_str(value)
         {
         }
         // This operator helps to gain 1ms just comparing the key
-        inline bool operator==(const StringField &other) const
+        inline bool operator==(const StringField &other) const noexcept
         {
             return m_index == other.m_index;
         }
@@ -450,16 +450,16 @@ private:
         QString m_str;
     };
     struct NumberField {
-        inline NumberField()
+        inline NumberField() noexcept
         {
         }
-        inline NumberField(const uint index, long long value = 0)
+        inline NumberField(const uint index, long long value = 0) noexcept
             : m_index(index)
             , m_long(value)
         {
         }
         // This operator helps to gain 1ms just comparing the key
-        inline bool operator==(const NumberField &other) const
+        inline bool operator==(const NumberField &other) const noexcept
         {
             return m_index == other.m_index;
         }

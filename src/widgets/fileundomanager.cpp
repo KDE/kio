@@ -628,7 +628,7 @@ void FileUndoManagerPrivate::stepTrashingFiles(bool redo)
     if (!m_fileTrashStack.empty()) {
         m_currentJob = KIO::trash(m_fileTrashStack, KIO::HideProgressInfo);
         m_currentJob->setParentJob(m_undoJob);
-        auto onFinished = [this](UndoCommand cmd) {
+        auto onFinished = [this](UndoCommand cmd) noexcept {
             m_cmdToBePushed = cmd;
         };
         new CommandRecorder(m_currentCmd.m_type, m_fileTrashStack, QUrl(QStringLiteral("trash:/")), onFinished, m_currentJob);
