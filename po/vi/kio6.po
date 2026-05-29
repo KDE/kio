@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:41+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2023-10-24 10:35+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -2282,7 +2282,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Không thể xác định kiểu tệp cho %1"
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2291,13 +2291,13 @@ msgstr ""
 "Không trích xuất được tên tệp thực thi từ '%1', vui lòng gõ một tên chương "
 "trình hợp lệ."
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> có vẻ không phải là một chương trình thực thi."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

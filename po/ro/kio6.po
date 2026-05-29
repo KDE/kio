@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:41+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2026-04-03 14:15+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -2330,7 +2330,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Nu s-a putut determina tipul de fișier pentru %1"
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2339,13 +2339,13 @@ msgstr ""
 "Nu s-a putut extrage un nume executabil din '%1', vă rugăm introduceți o "
 "denumire de program validă."
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> nu pare a fi un program executabil."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

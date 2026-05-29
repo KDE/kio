@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:41+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2024-09-19 21:59+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2344,7 +2344,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Αδύνατος ο προσδιορισμός του τύπου του αρχείου για το %1"
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2353,13 +2353,13 @@ msgstr ""
 "Αδυναμία εξαγωγής ονόματος εκτελέσιμου από '%1', παρακαλώ πληκτρολογήστε ένα "
 "έγκυρο όνομα προγράμματος."
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> δεν φαίνεται να είναι εκτελέσιμο πρόγραμμα."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

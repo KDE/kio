@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:41+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2026-01-22 21:14-0500\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -2276,7 +2276,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "%1 نىڭ ھۆججەت تۈرىنى ئېنىقلىغىلى بولمايدۇ"
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2285,7 +2285,7 @@ msgstr ""
 "«%1» دىن ئىجراچان ھۆججەت ئاتىنى يايالمىدى، ئىناۋەتلىك پىروگرامما ئاتىدىن "
 "بىرنى كىرگۈزۈڭ."
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
@@ -2293,7 +2293,7 @@ msgstr ""
 "قارىغاندا <filename>%1</filename> ئىجرا قىلغىلى بولىدىغان پىروگرامما "
 "ئەمەستەك قىلىدۇ."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

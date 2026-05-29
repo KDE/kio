@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:41+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2026-03-19 20:07+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -2311,7 +2311,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Ezin du zehaztu %1(r)en fitxategi-mota"
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2320,13 +2320,13 @@ msgstr ""
 "Ezin izan du «%1»(e)tik exekutagarria erauzi, mesedez, tekleatu baliozko "
 "programa-izen bat."
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "Ez du ematen <filename>%1</filename> programa exekutagarria denik."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

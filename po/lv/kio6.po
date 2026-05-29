@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:41+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2025-08-19 17:33+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -2293,7 +2293,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Neizdodas noteikt „%1“ datnes tipu"
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2302,13 +2302,13 @@ msgstr ""
 "Neizdevās no „%1“ iegūt izpilddatnes nosaukumu. Lūdzu, ievadiet derīgu "
 "programmas nosaukumu."
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "Izskatās, ka „<filename>%1</filename>“ nav izpildāma datne."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

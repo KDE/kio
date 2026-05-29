@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:41+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2024-12-08 16:20+0100\n"
 "Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
 "Language-Team: Kabyle\n"
@@ -2038,7 +2038,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Ur yezmir ara ad d-yaf anaw n ufaylu i %1"
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2046,13 +2046,13 @@ msgid ""
 msgstr ""
 "Ur tezmireḍ ara ad d-tekkseḍ isem seg '%1', ttxil-k, aru isem n wahil ameɣtu."
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> ur d-yettban ara d aseɣẓan yettwaselkamen."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

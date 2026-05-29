@@ -3,13 +3,13 @@
 #
 # Zlatko Popov <zlatkopopov@fsa-bg.org>, 2006, 2007, 2008.
 # Yasen Pramatarov <yasen@lindeas.com>, 2009, 2010.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025, 2026 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2022-2026 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:41+0000\n"
-"PO-Revision-Date: 2026-04-03 00:13+0200\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
+"PO-Revision-Date: 2026-05-28 22:26+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.03.70\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2292,7 +2292,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Не може да се определи типът на файла за %1"
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2301,13 +2301,13 @@ msgstr ""
 "Неуспешно извличане на име на изпълним файл от „%1“, моля, въведете валидно "
 "име."
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> не изглежда да е изпълнима програма."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3814,9 +3814,7 @@ msgid "Go to Location on Path"
 msgstr "Отиване към място по пътя"
 
 #: filewidgets/kurlnavigatorplacesselector.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Places"
+#, kde-format
 msgctxt ""
 "@action:button accessible name for the places selector in the URL navigator"
 msgid "Places"

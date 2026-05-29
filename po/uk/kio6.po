@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:41+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2026-05-27 08:04+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -2311,7 +2311,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Не вдалося визначити тип файла %1"
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2320,13 +2320,13 @@ msgstr ""
 "Неможливо отримати назву програми з «%1», будь ласка, введіть чинну назву "
 "програми."
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "Здається, <filename>%1</filename> не є виконуваною програмою."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

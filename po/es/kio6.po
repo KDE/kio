@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:41+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2026-05-27 11:14+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -2345,7 +2345,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "No se ha podido determinar el tipo de archivo para %1"
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2354,13 +2354,13 @@ msgstr ""
 "No se puede extraer el nombre de ejecutable de «%1». Escriba un nombre de "
 "programa válido."
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "Parece que <filename>%1</filename> no es un programa ejecutable."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

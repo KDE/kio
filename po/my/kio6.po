@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:41+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2025-09-10 15:28+0630\n"
 "Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2206,20 +2206,20 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "%1၏ ဖိုင်အမျိုးအစားကို မဆုံးဖြတ်နိုင်ပါ"
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
 msgstr "'%1' မှ လုပ်ဆောင်-ဖိုင်အမည် မရခဲ့ပါ။ ကျေးဇူးပြု၍ မှန်ကန်သော ပရိုဂရမ်အမည် ရိုက်သွင်းပါ။"
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> သည် ဆောင်ရွက်၍ရသော ပရိုဂရမ်မဟုတ်ပါ။"
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

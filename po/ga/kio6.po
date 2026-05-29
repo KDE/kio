@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:41+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2026-02-18 10:12+0000\n"
 "Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
@@ -2332,7 +2332,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Ní féidir cineál comhaid %1 a chinneadh"
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2340,13 +2340,13 @@ msgid ""
 msgstr ""
 "Níorbh fhéidir ainm an chláir inrite a fháil ó '%1'. Cuir ainm bailí isteach."
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "Ní cosúil gur clár inrite é <filename>%1</filename>."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""

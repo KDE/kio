@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-27 00:41+0000\n"
+"POT-Creation-Date: 2026-05-29 00:39+0000\n"
 "PO-Revision-Date: 2024-10-03 20:40+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -2323,7 +2323,7 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Tidak dapat mematok tipe file untuk %1"
 
-#: core/openwith.cpp:90
+#: core/openwith.cpp:91
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2332,7 +2332,7 @@ msgstr ""
 "Tidak bisa mengekstrak nama dapat dieksekusi dari '%1', mohon ketik nama "
 "program yang absah."
 
-#: core/openwith.cpp:142
+#: core/openwith.cpp:143
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
@@ -2340,7 +2340,7 @@ msgstr ""
 "<filename>%1</filename> tidak bisa muncul sebagai program yang dapat "
 "dieksekusi."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:144
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
