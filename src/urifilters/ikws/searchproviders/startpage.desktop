@@ -2,6 +2,7 @@
 Type=Service
 Name=Startpage
 Name[ar]=Startpage
+Name[bg]=Startpage
 Name[ca]=Startpage
 Name[ca@valencia]=Startpage
 Name[es]=Startpage
@@ -25,6 +26,7 @@ Name[zh_TW]=Startpage
 Keys=sp,startpage
 Query=https://www.startpage.com/sp/search?query=\\{@}
 Query[ar]=https://www.startpage.com/sp/search?query=\\{@}
+Query[bg]=https://www.startpage.com/sp/search?query=\\{@}
 Query[ca]=https://www.startpage.com/sp/search?query=\\{@}
 Query[ca@valencia]=https://www.startpage.com/sp/search?query=\\{@}
 Query[es]=https://www.startpage.com/sp/search?query=\\{@}
