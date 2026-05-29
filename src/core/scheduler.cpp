@@ -51,6 +51,11 @@ public:
     ~SchedulerPrivate()
     {
         removeWorkerOnHold();
+        // Kill all pending/running jobs while the scheduler is still alive so that
+        // their destructors can safely call cancelJob() without accessing freed memory.
+        for (ProtoQueue *pq : std::as_const(m_protocols)) {
+            pq->killAllJobs();
+        }
         delete q;
         q = nullptr;
         qDeleteAll(m_protocols); // ~ProtoQueue will kill and delete all workers
@@ -260,6 +265,17 @@ QList<Worker *> HostQueue::allWorkers() const
     return ret;
 }
 
+QList<SimpleJob *> HostQueue::allJobs() const
+{
+    QList<SimpleJob *> ret;
+    ret.reserve(m_queuedJobs.size() + m_runningJobs.size());
+    for (auto it = m_queuedJobs.cbegin(); it != m_queuedJobs.cend(); ++it) {
+        ret.append(it.value());
+    }
+    ret.append(QList<SimpleJob *>(m_runningJobs.cbegin(), m_runningJobs.cend()));
+    return ret;
+}
+
 static void ensureNoDuplicates(QMap<int, HostQueue *> *queuesBySerial)
 {
     Q_UNUSED(queuesBySerial);
@@ -322,6 +338,26 @@ ProtoQueue::~ProtoQueue()
         // kill the worker process and remove the interface in our process
         worker->kill();
     }
+}
+
+void ProtoQueue::killAllJobs()
+{
+    // Collect all jobs first to avoid modifying the maps while iterating them.
+    QList<SimpleJob *> jobs;
+    for (auto &[hostname, hq] : m_queuesByHostname) {
+        jobs += hq.allJobs();
+    }
+    for (SimpleJob *job : std::as_const(jobs)) {
+        // Reset m_schedSerial before deleting so that SimpleJob::~SimpleJob() does not
+        // call Scheduler::cancelJob(). During TLS cleanup, the QThreadStorage slot is
+        // already cleared, so schedulerPrivate() would create a fresh SchedulerPrivate
+        // and leak it.
+        SimpleJobPrivate::get(job)->m_schedSerial = 0;
+        delete job;
+    }
+    m_queuesByHostname.clear();
+    m_queuesBySerial.clear();
+    m_runningJobsCount = 0;
 }
 
 void ProtoQueue::queueJob(SimpleJob *job)

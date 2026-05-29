@@ -76,6 +76,7 @@ public:
     KIO::SimpleJob *takeFirstInQueue();
     bool removeJob(KIO::SimpleJob *job);
 
+    QList<KIO::SimpleJob *> allJobs() const;
     QList<KIO::Worker *> allWorkers() const;
 
 private:
@@ -118,6 +119,7 @@ public:
     KIO::Worker *createWorker(const QString &protocol, KIO::SimpleJob *job, const QUrl &url);
     bool removeWorker(KIO::Worker *worker);
     QList<KIO::Worker *> allWorkers() const;
+    void killAllJobs();
 
 private Q_SLOTS:
     // start max one (non-connected) job and return
