@@ -18,8 +18,11 @@
 #include "desktopexecparser.h"
 #include "gpudetection_p.h"
 #include "krecentdocument.h"
+
+#include <KConfigGroup>
 #include <KDesktopFile>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <KWindowSystem>
 
 #if HAVE_WAYLAND
@@ -433,6 +436,18 @@ QString KProcessRunner::resolveServiceAlias() const
     QString servName = m_service ? m_service->aliasFor() : QString{};
     if (servName.isEmpty()) {
         servName = name();
+    }
+
+    // when launching in a terminal use the appId of the terminal emulator, otherwise
+    // the appId of the activation token doesn't match the actual window'
+    if (m_service && m_service->terminal()) {
+        const KConfigGroup confGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
+        const QString terminalService = confGroup.readEntry("TerminalService", QStringLiteral("org.kde.konsole.desktop"));
+
+        const auto terminal = KService::serviceByStorageId(terminalService);
+        if (terminal) {
+            return terminal->desktopEntryName();
+        }
     }
 
     return servName;
