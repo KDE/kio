@@ -3636,13 +3636,11 @@ msgid "Go to Location on Path"
 msgstr "转到路径上的位置"
 
 #: filewidgets/kurlnavigatorplacesselector.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Places"
+#, kde-format
 msgctxt ""
 "@action:button accessible name for the places selector in the URL navigator"
 msgid "Places"
-msgstr "常用位置"
+msgstr "位置"
 
 #: filewidgets/kurlnavigatorschemecombo.cpp:155
 #, kde-format

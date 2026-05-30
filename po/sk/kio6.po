@@ -3797,9 +3797,7 @@ msgid "Go to Location on Path"
 msgstr "Prejsť na umiestnenie na ceste"
 
 #: filewidgets/kurlnavigatorplacesselector.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Places"
+#, kde-format
 msgctxt ""
 "@action:button accessible name for the places selector in the URL navigator"
 msgid "Places"
