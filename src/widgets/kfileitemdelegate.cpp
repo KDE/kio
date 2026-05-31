@@ -1111,7 +1111,16 @@ void KFileItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
     style->drawPrimitive(QStyle::PE_PanelItemViewItem, &opt, painter, opt.widget);
 
-    painter->drawPixmap(iconPos, icon);
+    // Calculate the actual logical size of the generated pixmap
+    QSize actualIconSize(icon.width() / dpr, icon.height() / dpr);
+
+    // Calculate the offset to center the icon within the allocated decoration size
+    int xOffset = (opt.decorationSize.width() - actualIconSize.width()) / 2;
+    int yOffset = (opt.decorationSize.height() - actualIconSize.height()) / 2;
+
+    // Shift the icon position to the center
+    QPoint centeredIconPos = iconPos + QPoint(xOffset, yOffset);
+    painter->drawPixmap(centeredIconPos, icon);
 
     d->drawTextItems(painter, labelLayout, labelColor, infoLayout, infoColor, textBoundingRect);
     d->drawFocusRect(painter, opt, focusRect);
