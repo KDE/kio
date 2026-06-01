@@ -39,21 +39,10 @@ KSambaSharePrivate::KSambaSharePrivate(KSambaShare *parent)
     , userSharePath()
     , skipUserShare(false)
 {
-    setUserSharePath();
-    data = parse(getNetUserShareInfo());
 }
 
 KSambaSharePrivate::~KSambaSharePrivate()
 {
-}
-
-void KSambaSharePrivate::setUserSharePath()
-{
-    const QString rawString = testparmParamValue(QStringLiteral("usershare path"));
-    const QFileInfo fileInfo(rawString);
-    if (fileInfo.isDir()) {
-        userSharePath = rawString;
-    }
 }
 
 int KSambaSharePrivate::runProcess(const QString &fullExecutablePath, const QStringList &args, QByteArray &stdOut, QByteArray &stdErr)
@@ -134,45 +123,6 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
     }
 
     return QString();
-}
-
-QByteArray KSambaSharePrivate::getNetUserShareInfo()
-{
-    if (skipUserShare) {
-        return QByteArray();
-    }
-
-    const QString exec = QStandardPaths::findExecutable(QStringLiteral("net"));
-    if (exec.isEmpty()) {
-        qCDebug(KIO_CORE_SAMBASHARE) << "Could not find the 'net' tool, most likely samba-client isn't installed";
-        return QByteArray();
-    }
-
-    QByteArray stdOut;
-    QByteArray stdErr;
-
-    const QStringList args{
-        QStringLiteral("usershare"),
-        QStringLiteral("info"),
-    };
-
-    runProcess(exec, args, stdOut, stdErr);
-
-    if (!stdErr.isEmpty()) {
-        if (stdErr.contains("You do not have permission to create a usershare")) {
-            skipUserShare = true;
-        } else if (stdErr.contains("usershares are currently disabled")) {
-            skipUserShare = true;
-        } else {
-            // TODO: parse and process other error messages.
-            // create a parser for the error output and
-            // send error message somewhere
-            qCDebug(KIO_CORE) << "We got some errors while running 'net usershare info'";
-            qCDebug(KIO_CORE) << stdErr;
-        }
-    }
-
-    return stdOut;
 }
 
 QStringList KSambaSharePrivate::shareNames() const
@@ -428,28 +378,80 @@ QMap<QString, KSambaShareData> KSambaSharePrivate::parse(const QByteArray &users
     return shares;
 }
 
-void KSambaSharePrivate::slotFileChange(const QString &path)
+void KSambaSharePrivate::startLoad()
 {
-    if (path != userSharePath) {
+    const QString exec = QStandardPaths::findExecutable(QStringLiteral("testparm"));
+    if (exec.isEmpty()) {
+        Q_EMIT q_ptr->changed();
         return;
     }
-    data = parse(getNetUserShareInfo());
-    qCDebug(KIO_CORE) << "reloading data; path changed:" << path;
-    Q_Q(KSambaShare);
-    Q_EMIT q->changed();
+    auto *p = new QProcess(q_ptr);
+    p->setProcessChannelMode(QProcess::SeparateChannels);
+    QObject::connect(p, &QProcess::finished, q_ptr, [this, p] {
+        onTestparmFinished(p);
+    });
+    p->start(exec, {QStringLiteral("-d0"), QStringLiteral("-s"), QStringLiteral("--parameter-name"), QStringLiteral("usershare path")});
+}
+
+void KSambaSharePrivate::onTestparmFinished(QProcess *p)
+{
+    const QString rawString = QString::fromLocal8Bit(p->readAllStandardOutput().trimmed());
+    p->deleteLater();
+
+    if (QFileInfo(rawString).isDir()) {
+        userSharePath = rawString;
+        KDirWatch::self()->addDir(userSharePath, KDirWatch::WatchFiles);
+        QObject::connect(KDirWatch::self(), &KDirWatch::dirty, q_ptr, [this](const QString &path) {
+            slotFileChange(path);
+        });
+    }
+    runNetUsershareInfo();
+}
+
+void KSambaSharePrivate::runNetUsershareInfo()
+{
+    const QString netExec = QStandardPaths::findExecutable(QStringLiteral("net"));
+    if (skipUserShare || netExec.isEmpty()) {
+        Q_EMIT q_ptr->changed();
+        return;
+    }
+    auto *np = new QProcess(q_ptr);
+    np->setProcessChannelMode(QProcess::SeparateChannels);
+    QObject::connect(np, &QProcess::finished, q_ptr, [this, np] {
+        onNetFinished(np);
+    });
+    np->start(netExec, {QStringLiteral("usershare"), QStringLiteral("info")});
+}
+
+void KSambaSharePrivate::onNetFinished(QProcess *p)
+{
+    const QByteArray stdErr = p->readAllStandardError();
+    const QByteArray stdOut = p->readAllStandardOutput();
+    p->deleteLater();
+    if (stdErr.contains("You do not have permission to create a usershare") || stdErr.contains("usershares are currently disabled")) {
+        skipUserShare = true;
+    }
+    data = parse(stdOut);
+    Q_EMIT q_ptr->changed();
+}
+
+void KSambaSharePrivate::slotFileChange(const QString &path)
+{
+    if (path == userSharePath) {
+        runNetUsershareInfo();
+    }
 }
 
 KSambaShare::KSambaShare()
     : QObject(nullptr)
     , d_ptr(new KSambaSharePrivate(this))
 {
-    Q_D(KSambaShare);
-    if (!d->userSharePath.isEmpty() && QFileInfo::exists(d->userSharePath)) {
-        KDirWatch::self()->addDir(d->userSharePath, KDirWatch::WatchFiles);
-        connect(KDirWatch::self(), &KDirWatch::dirty, this, [d](const QString &path) {
-            d->slotFileChange(path);
-        });
-    }
+    QMetaObject::invokeMethod(
+        this,
+        [this] {
+            d_func()->startLoad();
+        },
+        Qt::QueuedConnection);
 }
 
 KSambaShare::~KSambaShare()

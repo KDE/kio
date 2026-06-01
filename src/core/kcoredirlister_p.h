@@ -269,6 +269,8 @@ private Q_SLOTS:
     void slotUpdateResult(KJob *job);
     void processPendingUpdates();
 
+    void slotShareStateChanged();
+
 private:
     void itemsAddedInDirectory(const QUrl &url);
 

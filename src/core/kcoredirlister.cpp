@@ -14,6 +14,7 @@
 
 #include "../utils_p.h"
 #include "kiocoredebug.h"
+#include "ksambashare.h"
 #include <kio/listjob.h>
 
 #include <KJobUiDelegate>
@@ -54,6 +55,8 @@ KCoreDirListerCache::KCoreDirListerCache()
     connect(KDirWatch::self(), &KDirWatch::dirty, this, &KCoreDirListerCache::slotFileDirty);
     connect(KDirWatch::self(), &KDirWatch::created, this, &KCoreDirListerCache::slotFileCreated);
     connect(KDirWatch::self(), &KDirWatch::deleted, this, &KCoreDirListerCache::slotFileDeleted);
+
+    connect(KSambaShare::instance(), &KSambaShare::changed, this, &KCoreDirListerCache::slotShareStateChanged);
 
 #ifdef WITH_QTDBUS
     kdirnotify = new org::kde::KDirNotify(QString(), QString(), QDBusConnection::sessionBus(), this);
@@ -845,6 +848,26 @@ void KCoreDirListerCache::slotFilesChanged(const QStringList &fileList) // from 
     // ( see kde-2.2.2's kdirlister )
 
     processPendingUpdates();
+}
+
+void KCoreDirListerCache::slotShareStateChanged()
+{
+    bool changed = false;
+    for (auto it = itemsInUse.constBegin(); it != itemsInUse.constEnd(); ++it) {
+        const DirItem *dirItem = it.value();
+        if (!dirItem) {
+            continue;
+        }
+        for (const KFileItem &item : dirItem->lstItems) {
+            if (item.isDir() && item.isLocalFile()) {
+                emitRefreshItem(item, item);
+                changed = true;
+            }
+        }
+    }
+    if (changed) {
+        processPendingUpdates();
+    }
 }
 
 void KCoreDirListerCache::slotFileRenamed(const QString &_src, const QString &_dst, const QString &dstPath) // from KDirNotify signals

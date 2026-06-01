@@ -13,6 +13,7 @@
 #include "ksambasharedata.h"
 
 class QString;
+class QProcess;
 class KSambaShare;
 
 class KSambaSharePrivate
@@ -21,12 +22,14 @@ public:
     explicit KSambaSharePrivate(KSambaShare *parent);
     ~KSambaSharePrivate();
 
-    void setUserSharePath();
+    void startLoad();
+    void onTestparmFinished(QProcess *p);
+    void runNetUsershareInfo();
+    void onNetFinished(QProcess *p);
 
     static int runProcess(const QString &fullExecutablePath, const QStringList &args, QByteArray &stdOut, QByteArray &stdErr);
     static QString testparmParamValue(const QString &parameterName);
 
-    QByteArray getNetUserShareInfo();
     QStringList shareNames() const;
     QStringList sharedDirs() const;
     KSambaShareData getShareByName(const QString &shareName) const;
