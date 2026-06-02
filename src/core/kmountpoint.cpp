@@ -431,7 +431,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
             mnt_table_parse_mtab(table, "/proc/self/mountinfo")
 #endif
             == 0) {
-            struct libmnt_iter *itr = mnt_new_iter(MNT_ITER_FORWARD);
+            struct libmnt_iter *itr = mnt_new_iter(MNT_ITER_BACKWARD);
             struct libmnt_fs *fs;
 
             while (mnt_table_next_fs(table, itr, &fs) == 0) {
