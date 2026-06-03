@@ -392,11 +392,11 @@ void KIO::OpenUrlJobPrivate::handleBinaries(const QMimeType &mimeType)
 
     if (m_showOpenOrExecuteDialog) {
         auto dialogFinished = [this, localPath, isNativeBinary](bool shouldExecute) {
-            // shouldExecute is always true if we get here, because for binaries the
-            // dialog only offers Execute/Cancel
-            Q_UNUSED(shouldExecute)
-
-            handleBinariesHelper(localPath, isNativeBinary);
+            if (shouldExecute) {
+                handleBinariesHelper(localPath, isNativeBinary);
+            } else {
+                openInPreferredApp();
+            }
         };
 
         // Ask the user for confirmation before executing this binary (for binaries
