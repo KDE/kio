@@ -34,7 +34,6 @@
 #include <QDebug>
 #include <kmountpoint.h>
 
-#include <array>
 #include <cerrno>
 #include <stdint.h>
 #include <utime.h>
@@ -608,13 +607,13 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
     /* standard read/write fallback */
     if (sizeProcessed < srcSize) {
-        std::array<char, s_maxIPCSize> buffer;
+        QByteArray buffer(s_maxIPCSize, Qt::Uninitialized);
         while (!wasKilled() && sizeProcessed < srcSize) {
             if (testMode && destFile.fileName().contains(QLatin1String("slow"))) {
                 QThread::msleep(50);
             }
 
-            const ssize_t readBytes = ::read(srcFile.handle(), &buffer, s_maxIPCSize);
+            const ssize_t readBytes = ::read(srcFile.handle(), buffer.data(), s_maxIPCSize);
 
             if (readBytes == -1) {
                 if (errno == EINTR) { // Interrupted
