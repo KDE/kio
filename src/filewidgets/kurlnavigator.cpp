@@ -329,6 +329,9 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     }
     // Set fixed height once so switching modes never causes window layout shifts
     q->setFixedHeight(qMax(m_pathBox->sizeHint().height(), m_badgeWidgetContainer->sizeHint().height()));
+
+    // Needed for the hover effect to work on the entire navigation bar
+    q->setAttribute(Qt::WA_Hover);
 }
 
 void KUrlNavigatorPrivate::appendWidget(QWidget *widget, int stretch)
@@ -1433,38 +1436,19 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     QStyleOptionFrame option;
     option.initFrom(this);
-    option.state = QStyle::State_None;
+    option.lineWidth = style()->pixelMetric(QStyle::PM_DefaultFrameWidth, &option, this);
+    option.midLineWidth = 0;
 
-    if (hasFocus()) {
-        option.palette.setColor(QPalette::Window, palette().color(QPalette::Highlight));
-    }
-
-    // only draw PE_FrameLineEdit when not in editable mode
-    // when in editable mode, it should morph seamlessly into KUrlComboBox
-    if (d->m_backgroundEnabled) {
-        if (!d->m_editable) {
-            option.palette.setColor(QPalette::Base, palette().alternateBase().color());
-            style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
+    if (d->m_backgroundEnabled && !d->m_editable) {
+        option.palette.setColor(QPalette::Base, palette().alternateBase().color());
+        option.state |= QStyle::State_Enabled;
+        if (m_showFocusIndicator && d->m_active) {
+            option.state |= QStyle::State_HasFocus;
         }
-    }
-
-    if (m_showFocusIndicator && !d->m_editable) {
-        // here we have some "magic" values (9, 5, 4)
-        // the goal is to have focus indicator similar/indentical to tab focus indicator (from Qt)
-        // so these "magic" values have been experimentally set, but
-        // there is no direct 1-to-1 relation between them
-        const int lineWidth = 9;
-        QColor activeColor = option.palette.color(QPalette::Active, QPalette::Accent);
-        QColor inactiveColor = option.palette.color(QPalette::Inactive, QPalette::Accent);
-
-        QBrush brush(d->m_active ? activeColor : inactiveColor);
-        painter.setPen(QPen(brush, lineWidth, Qt::PenStyle::SolidLine, Qt::PenCapStyle::RoundCap));
-        const int x = 5;
-        const int y = lineWidth - 4;
-        painter.setRenderHint(QPainter::Antialiasing, true);
-        painter.setClipRegion(QRegion(0, 0, width(), 4));
-
-        painter.drawLine(x, y, width() - x, y);
+        if (underMouse()) {
+            option.state |= QStyle::State_MouseOver;
+        }
+        style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
     }
 }
 
