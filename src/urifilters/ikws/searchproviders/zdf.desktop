@@ -7,6 +7,7 @@ Name[ar]=ZDF Mediathek
 Name[bg]=ZDF Mediathek
 Name[ca]=ZDF Mediathek
 Name[ca@valencia]=ZDF Mediathek
+Name[de]=ZDF Mediathek
 Name[es]=ZDF Mediathek
 Name[fr]=Médiathèque ZDF
 Name[he]=ZDF Mediathek
@@ -29,6 +30,7 @@ Query[ar]=https://www.zdf.de/suche?q=\\{@}
 Query[bg]=https://www.zdf.de/suche?q=\\{@}
 Query[ca]=https://www.zdf.de/suche?q=\\{@}
 Query[ca@valencia]=https://www.zdf.de/suche?q=\\{@}
+Query[de]=https://www.zdf.de/suche?q=\\{@}
 Query[es]=https://www.zdf.de/suche?q=\\{@}
 Query[fr]=https://www.zdf.de/suche?q=\\{@}
 Query[he]=https://www.zdf.de/suche?q=\\{@}
