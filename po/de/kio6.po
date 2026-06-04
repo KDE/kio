@@ -9,24 +9,24 @@
 # SPDX-FileCopyrightText: 2021 Frank Steinmetzger <dev@felsenfleischer.de>
 # SPDX-FileCopyrightText: 2021 Kai Uwe Broulik <kde@privat.broulik.de>
 # SPDX-FileCopyrightText: 2024-2025 Flori G <Renner03@protonmail.com>
-# SPDX-FileCopyrightText: 2025-2026 Alexander Becker <alex-at-kde-l10n-de@freenet.de>
 # SPDX-FileCopyrightText: 2025 Alois Spitzbart <spitz234@hotmail.com>
 # SPDX-FileCopyrightText: 2025 Oliver Schramm <oliver.schramm97@gmail.com>
+# SPDX-FileCopyrightText: 2025-2026 Alexander Becker <alex-at-kde-l10n-de@freenet.de>
 # SPDX-FileCopyrightText: 2025-2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-05-31 00:40+0000\n"
-"PO-Revision-Date: 2026-04-19 21:36+0200\n"
-"Last-Translator: Alexander Becker <alex-at-kde-l10n-de@freenet.de>\n"
+"POT-Creation-Date: 2026-06-04 00:40+0000\n"
+"PO-Revision-Date: 2026-06-02 20:23+0200\n"
+"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1105,7 +1105,7 @@ msgid ""
 msgstr ""
 "Sie können eine Internetsuche nach einem Softwaremodul (englische "
 "Bezeichnung: „KIO worker“) mit Unterstützung dieses Protokolls starten. Ein "
-"Ort zum Suchen ist z. B. <a href=\"https://store.kde.org/\">https://store."
+"Ort zum Suchen ist z. B. <a href=\"https://store.kde.org/\">https://store."
 "kde.org</a>."
 
 #: core/job_error.cpp:517
@@ -1383,11 +1383,10 @@ msgid ""
 "an infinite loop - i.e. the file was (perhaps in a roundabout way) linked to "
 "itself."
 msgstr ""
-"Unix-Umgebungen sind normalerweise imstande, separate Dateien oder Ordner "
-"(über so genannte „Links“) miteinander zu verknüpfen. KDE hat eine "
-"Verknüpfung oder eine Serie solcher Verknüpfungen entdeckt, die eine "
-"Endlosschleife bilden, d. h. die Datei wurde vermutlich aus Versehen mit "
-"sich selbst verknüpft."
+"In Unix-Umgebungen ist es normalerweise möglich, Dateien oder Ordner mit "
+"einzelnen Namen oder Orten zu verknüpfen. KDE hat eine Verknüpfung oder eine "
+"Reihe solcher Verknüpfungen entdeckt, die eine Endlosschleife bilden, d. h. "
+"die Datei wurde vermutlich aus Versehen mit sich selbst verknüpft."
 
 #: core/job_error.cpp:673 core/job_error.cpp:699
 #, kde-format
@@ -1427,11 +1426,11 @@ msgid ""
 "link or series of links that results in an infinite loop - i.e. the file was "
 "(perhaps in a roundabout way) linked to itself."
 msgstr ""
-"Unix-Umgebungen sind normalerweise imstande, separate Dateien oder Ordner "
-"(über so genannte „Links“) miteinander zu verknüpfen. Während des "
-"angeforderten Kopiervorgangs hat KDE eine Verknüpfung oder eine Serie "
-"solcher Verknüpfungen entdeckt, die eine Endlosschleife bilden, d. h. die "
-"Datei wurde vermutlich aus Versehen mit sich selbst verknüpft."
+"In Unix-Umgebungen ist es normalerweise möglich, Dateien oder Ordner mit "
+"einzelnen Namen oder Orten zu verknüpfen. Während des angeforderten "
+"Kopiervorgangs hat KDE eine Verknüpfung oder eine Reihe solcher "
+"Verknüpfungen entdeckt, die eine Endlosschleife bilden, d. h. die Datei "
+"wurde vermutlich aus Versehen mit sich selbst verknüpft."
 
 #: core/job_error.cpp:705
 #, kde-format
@@ -1590,7 +1589,7 @@ msgid ""
 "peripheral/portable device, the device may not be correctly connected."
 msgstr ""
 "Das Gerät ist eventuell nicht betriebsbereit. Vielleicht enthält es kein "
-"Medium (z. B. keine CD bei einem CD-ROM-Laufwerk), oder es ist nicht korrekt "
+"Medium (z. B. keine CD bei einem CD-ROM-Laufwerk), oder es ist nicht korrekt "
 "angeschlossen."
 
 #: core/job_error.cpp:781
@@ -2195,8 +2194,8 @@ msgid ""
 "3) obtain more storage capacity."
 msgstr ""
 "Machen Sie genügend Speicherplatz frei, indem Sie 1) nicht mehr benötigte "
-"bzw. temporäre Dateien löschen, 2) Daten archivieren (z. B. auf CD-ROM) oder "
-"3) zusätzliche Speichermöglichkeiten verfügbar machen."
+"bzw. temporäre Dateien löschen, 2) Daten archivieren (z. B. auf CD-ROM) oder "
+"3) zusätzlichen Speicher verfügbar machen."
 
 #: core/job_error.cpp:1208
 #, kde-format
@@ -3389,8 +3388,8 @@ msgid ""
 "you to file:/home.</qt>"
 msgstr ""
 "<qt>Klicken Sie auf diesen Knopf, um in den darüber liegenden Ordner zu "
-"gelangen. <br /><br />Ist der aktuelle Ordner z. B. file:/home/konqi, dann "
-"bringt Sie ein Druck auf diesen Knopf nach file:/home.</qt>"
+"gelangen. <br /><br />Ist der aktuelle Ordner z. B. file:/home/konqi, bringt "
+"Sie ein Druck auf diesen Knopf nach file:/home.</qt>"
 
 #: filewidgets/kfilewidget.cpp:1220
 #, kde-format
@@ -3442,7 +3441,7 @@ msgid ""
 "folders from files</li></ul></qt>"
 msgstr ""
 "<qt>Dies ist das Einrichtungsmenü für den Dateidialog. Von hier aus sind "
-"zahlreiche Einstellungen zugänglich. So z. B.: <ul><li>wie Dateien in den "
+"zahlreiche Einstellungen zugänglich, z. B.: <ul><li>wie Dateien in den "
 "Listen sortiert werden</li><li>Ansichtstypen, einschließlich Symbol- oder "
 "Listendarstellung</li><li>Anzeigen versteckter Dateien</li><li>die "
 "Seitenleiste Orte</li><li>Dateivorschauen</li> <li>separate Darstellung von "
@@ -3718,7 +3717,7 @@ msgstr ""
 #: filewidgets/knewfilemenu.cpp:1213
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
-msgstr "Mit Schrägstrichen in Ordnernamen werden Unterordner erstellt, z. B.:"
+msgstr "Mit Schrägstrichen in Ordnernamen werden Unterordner erstellt, z. B.:"
 
 #: filewidgets/knewfilemenu.cpp:1227
 #, kde-format
@@ -5369,43 +5368,43 @@ msgstr "System-Einrichtung wird aktualisiert"
 msgid "Updating system configuration…"
 msgstr "System-Einrichtung wird aktualisiert …"
 
-#: widgets/kdirmodel.cpp:1256
+#: widgets/kdirmodel.cpp:1258
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Name"
 
-#: widgets/kdirmodel.cpp:1258
+#: widgets/kdirmodel.cpp:1260
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Größe"
 
-#: widgets/kdirmodel.cpp:1260
+#: widgets/kdirmodel.cpp:1262
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Datum"
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1264
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Berechtigungen"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1266
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Eigentümer"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Gruppe"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
@@ -6004,9 +6003,9 @@ msgstr ""
 "%F – Liste von Dateinamen für Programme, die mehrere auf einmal können\n"
 "%u – einzelne Adresse (URL)\n"
 "%U – Liste von Adressen (URLs)\n"
-"%i - Symbol der .desktop-Datei\n"
-"%c - Name der .desktop-Datei\n"
-"%k - Speicherort der .desktop-Datei"
+"%i – Symbol der .desktop-Datei\n"
+"%c – Name der .desktop-Datei\n"
+"%k – Speicherort der .desktop-Datei"
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:139
@@ -6048,7 +6047,7 @@ msgid ""
 "qt>"
 msgstr ""
 "<qt><p>Diese Liste sollte die Dateitypen anzeigen, mit denen Ihr Programm "
-"umgehen kann. Die Liste beruht auf <u>MIME-Typen</u>.</p> \n"
+"umgehen kann. Die Liste beruht auf <u>MIME-Typen</u>.</p>\n"
 "<p>MIME (Multipurpose Internet (E)Mail Extension) ist ein Standardprotokoll "
 "zur Identifizierung des Datentyps auf Grund von Dateierweiterungen und "
 "entsprechenden <u>MIME-Typen</u>. Beispiel: Die Buchstaben „bmp“ nach dem "
@@ -6058,9 +6057,10 @@ msgstr ""
 "informiert werden, über welche Fähigkeiten ein Programm in dieser Hinsicht "
 "verfügt.</p>\n"
 "<p>Wenn Sie ein Programm mit einem oder mehreren MIME-Typen verknüpfen "
-"möchten, die nicht in der Liste stehen, dann klicken Sie auf den Knopf "
-"<b>Hinzufügen</b>. Gibt es einen Dateityp in der Liste, mit dem das Programm "
-"nicht umgehen kann, dann klicken Sie auf den Knopf <b>Entfernen</b>.</p></qt>"
+"möchten, die nicht in dieser Liste stehen, klicken Sie unten auf den Knopf "
+"<b>Hinzufügen</b>. Gibt es einen Dateityp in dieser Liste, mit dem das "
+"Programm nicht umgehen kann, klicken Sie unten auf den Knopf <b>Entfernen</"
+"b>.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
 #: widgets/kpropertiesdesktopbase.ui:196
