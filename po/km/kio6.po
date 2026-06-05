@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-04 00:40+0000\n"
+"POT-Creation-Date: 2026-06-05 00:39+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "មិន​អាច​បង្កើត io-slave ៖ %1"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1008
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1007
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -3577,7 +3577,7 @@ msgid ""
 "files shown.</qt>"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:224
+#: filewidgets/knewfilemenu.cpp:235
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a different name"
@@ -3585,38 +3585,38 @@ msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "បញ្ចូល​ឈ្មោះ​ផ្សេង"
 
-#: filewidgets/knewfilemenu.cpp:538
+#: filewidgets/knewfilemenu.cpp:543
 #, kde-format
 msgid "Sorry"
 msgstr "សូម​ទោស"
 
-#: filewidgets/knewfilemenu.cpp:549
+#: filewidgets/knewfilemenu.cpp:554
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>មិន​ទាន់​មាន​ឯកសារ​ពុម្ព <b>%1</b> នៅ​ឡើយទេ ។</qt>"
 
-#: filewidgets/knewfilemenu.cpp:700 filewidgets/knewfilemenu.cpp:765
+#: filewidgets/knewfilemenu.cpp:705 filewidgets/knewfilemenu.cpp:770
 #, kde-format
 msgid "Name for new link:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:703
+#: filewidgets/knewfilemenu.cpp:708
 #, kde-format
 msgid "Create Symlink"
 msgstr "​បង្កើត​តំណ​និមិត្ត​សញ្ញា"
 
-#: filewidgets/knewfilemenu.cpp:769
+#: filewidgets/knewfilemenu.cpp:774
 #, kde-format
 msgid "Create link to URL"
 msgstr "បង្កើត​តំណ​ទៅ​កាន់ URL"
 
-#: filewidgets/knewfilemenu.cpp:810 filewidgets/knewfilemenu.cpp:834
+#: filewidgets/knewfilemenu.cpp:815 filewidgets/knewfilemenu.cpp:839
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1179
+#: filewidgets/knewfilemenu.cpp:1184
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3624,7 +3624,7 @@ msgid ""
 "use by the operating system."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1187
+#: filewidgets/knewfilemenu.cpp:1192
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "The name \"%1\" starts with a dot, so the directory will be hidden by "
@@ -3635,7 +3635,7 @@ msgid ""
 "default."
 msgstr "ឈ្មោះ \"%1\" ចាប់ផ្ដើម​ដោយ ដូច្នេះ​ថត​នឹង​ត្រូវ​បានលាក់​​តាម​លំនាំដើម ។"
 
-#: filewidgets/knewfilemenu.cpp:1195
+#: filewidgets/knewfilemenu.cpp:1200
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3644,27 +3644,27 @@ msgid ""
 "potential oddities."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1213
+#: filewidgets/knewfilemenu.cpp:1218
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:1232
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1239
+#: filewidgets/knewfilemenu.cpp:1244
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1249
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1258
+#: filewidgets/knewfilemenu.cpp:1263
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3672,51 +3672,51 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1267
+#: filewidgets/knewfilemenu.cpp:1272
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1339
+#: filewidgets/knewfilemenu.cpp:1344
 #, fuzzy, kde-kuit-format
 #| msgid "An older item named '%1' already exists."
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "មាន​វត្ថុ​ចាស់មួយ​ឈ្មោះ '%1' រួច​ហើយ ។"
 
-#: filewidgets/knewfilemenu.cpp:1341
+#: filewidgets/knewfilemenu.cpp:1346
 #, fuzzy, kde-kuit-format
 #| msgid "A file named %1 already exists."
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "មាន​ឯកសារ​ដែល​មាន​ឈ្មោះ %1 រួច​ហើយ ។"
 
-#: filewidgets/knewfilemenu.cpp:1427
+#: filewidgets/knewfilemenu.cpp:1432
 #, kde-format
 msgid "Create New"
 msgstr "បង្កើត​ថ្មី"
 
-#: filewidgets/knewfilemenu.cpp:1462
+#: filewidgets/knewfilemenu.cpp:1467
 #, kde-format
 msgid "Link to Device"
 msgstr "តភ្ជាប់​ទៅ​ឧបករណ៍"
 
-#: filewidgets/knewfilemenu.cpp:1501
+#: filewidgets/knewfilemenu.cpp:1506
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "ថត​ថ្មី"
 
-#: filewidgets/knewfilemenu.cpp:1524
+#: filewidgets/knewfilemenu.cpp:1529
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "មិនធ្វើ​វិញ ៖ បង្កើត​ថត"
 
-#: filewidgets/knewfilemenu.cpp:1526
+#: filewidgets/knewfilemenu.cpp:1531
 #, fuzzy, kde-format
 #| msgid ""
 #| "Create new folder in:\n"
@@ -3726,7 +3726,7 @@ msgstr ""
 "បង្កើត​ថត​ថ្មី​ក្នុង ៖\n"
 "%1"
 
-#: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1534 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a different name"
@@ -3734,7 +3734,7 @@ msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "បញ្ចូល​ឈ្មោះ​ផ្សេង"
 
-#: filewidgets/knewfilemenu.cpp:1586
+#: filewidgets/knewfilemenu.cpp:1591
 #, fuzzy, kde-format
 #| msgid "Default"
 msgid "Default"
@@ -3781,7 +3781,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:609 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, kde-format
@@ -3789,41 +3789,41 @@ msgid "Copy"
 msgstr "​ចម្លង"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:610 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:613 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "បិទភ្ជាប់"
 
-#: filewidgets/kurlnavigator.cpp:630
+#: filewidgets/kurlnavigator.cpp:633
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "បើក​ជាមួយ"
 
-#: filewidgets/kurlnavigator.cpp:638
+#: filewidgets/kurlnavigator.cpp:641
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "បើក​ជាមួយ"
 
-#: filewidgets/kurlnavigator.cpp:647
+#: filewidgets/kurlnavigator.cpp:650
 #, kde-format
 msgid "Edit"
 msgstr "កែសម្រួល"
 
-#: filewidgets/kurlnavigator.cpp:650
+#: filewidgets/kurlnavigator.cpp:653
 #, kde-format
 msgid "Navigate"
 msgstr "រុករក"
 
-#: filewidgets/kurlnavigator.cpp:665
+#: filewidgets/kurlnavigator.cpp:668
 #, kde-format
 msgid "Show Full Path"
 msgstr "បង្ហាញ​ផ្លូវពេញលេញ"
 
-#: filewidgets/kurlnavigator.cpp:826
+#: filewidgets/kurlnavigator.cpp:829
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -4229,22 +4229,22 @@ msgstr "មិន​អាច​រក​ឃើញ​កម្មវិធី \"
 msgid "Could not find program \"umount\""
 msgstr "មិន​អាច​រក​ឃើញ​កម្មវិធី \"អាន់ម៉ោន\""
 
-#: kioworkers/file/file_unix.cpp:601
+#: kioworkers/file/file_unix.cpp:600
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "មិន​អាច​ចម្លង​ឯកសារ​ពី %1 ទៅកាន់ %2 បានឡើយ ។ (លេខ​កំហុស ៖ %3)"
 
-#: kioworkers/file/file_unix.cpp:815
+#: kioworkers/file/file_unix.cpp:814
 #, kde-format
 msgid "No media in device for %1"
 msgstr "គ្មាន​ឧបករណ៍​ផ្ទុក​ក្នុង​ឧបករណ៍​សម្រាប់ %1 ឡើយ"
 
-#: kioworkers/file/file_unix.cpp:1076
+#: kioworkers/file/file_unix.cpp:1075
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "មិន​អាច​ទទួល​លេខសម្គាល់​អ្នក​ប្រើ​សម្រាប់​ឈ្មោះ​អ្នក​ប្រើ %1"
 
-#: kioworkers/file/file_unix.cpp:1087
+#: kioworkers/file/file_unix.cpp:1086
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "មិនអាច​យក​លេខសម្គាល់​ក្រុម​សម្រាប់​ឈ្មោះក្រុម %1 ដែលបាន​ផ្ដល់​ឲ្យទេ"
@@ -5329,43 +5329,43 @@ msgstr "ធ្វើ​បច្ចុប្បន្នភាព​​ការ
 msgid "Updating system configuration…"
 msgstr "ធ្វើ​បច្ចុប្បន្នភាព​​ការ​កំណត់​រចនាសម្ព័ន្ធ​របស់​ប្រព័ន្ធ ។"
 
-#: widgets/kdirmodel.cpp:1258
+#: widgets/kdirmodel.cpp:1263
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "ឈ្មោះ"
 
-#: widgets/kdirmodel.cpp:1260
+#: widgets/kdirmodel.cpp:1265
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "ទំហំ"
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1267
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "កាលបរិច្ឆេទ"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1269
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "សិទ្ធិ"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1271
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "ម្ចាស់"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1273
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "ក្រុម"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1275
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

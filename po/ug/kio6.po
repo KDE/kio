@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-04 00:40+0000\n"
+"POT-Creation-Date: 2026-06-05 00:39+0000\n"
 "PO-Revision-Date: 2026-05-31 18:45-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO worker قۇرالمايدۇ: %1"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1008
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1007
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3529,44 +3529,44 @@ msgstr ""
 "<qt>بۇ ھۆججەت تۈرىنى تاللىغۇچ. ئۇ ھۆججەتنىڭ كۆرسىتىش پىچىمىنى تاللاشقا "
 "ئىشلىتىلىدۇ.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:224
+#: filewidgets/knewfilemenu.cpp:235
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "%1 ھۆججەت ئاتى كىرگۈزۈلىدۇ:"
 
-#: filewidgets/knewfilemenu.cpp:538
+#: filewidgets/knewfilemenu.cpp:543
 #, kde-format
 msgid "Sorry"
 msgstr "كەچۈر"
 
-#: filewidgets/knewfilemenu.cpp:549
+#: filewidgets/knewfilemenu.cpp:554
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>قېلىپ ھۆججەت<b>%1</b> مەۋجۇت ئەمەس.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:700 filewidgets/knewfilemenu.cpp:765
+#: filewidgets/knewfilemenu.cpp:705 filewidgets/knewfilemenu.cpp:770
 #, kde-format
 msgid "Name for new link:"
 msgstr "يېڭى ئۇلانمىنىڭ ئىسمى:"
 
-#: filewidgets/knewfilemenu.cpp:703
+#: filewidgets/knewfilemenu.cpp:708
 #, kde-format
 msgid "Create Symlink"
 msgstr "بەلگە ئۇلانما قۇر"
 
-#: filewidgets/knewfilemenu.cpp:769
+#: filewidgets/knewfilemenu.cpp:774
 #, kde-format
 msgid "Create link to URL"
 msgstr "تور ئادرېسقا ئۇلانما قۇر"
 
-#: filewidgets/knewfilemenu.cpp:810 filewidgets/knewfilemenu.cpp:834
+#: filewidgets/knewfilemenu.cpp:815 filewidgets/knewfilemenu.cpp:839
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1179
+#: filewidgets/knewfilemenu.cpp:1184
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3576,7 +3576,7 @@ msgstr ""
 "بۇ <filename>%1</filename> ئىسىمنى ئىشلەتكىلى بولمايدۇ چۈنكى ئۇ مەشغۇلات "
 "سىستېمىسىنىڭ ئىشلىتىشىگە قالدۇرۇلغان."
 
-#: filewidgets/knewfilemenu.cpp:1187
+#: filewidgets/knewfilemenu.cpp:1192
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3586,7 +3586,7 @@ msgstr ""
 "<filename>%1</filename> ئات چېكىت بىلەن باشلانغان شۇڭا ئۇ كۆڭۈلدىكى ئەھۋالدا "
 "يوشۇرۇلىدۇ."
 
-#: filewidgets/knewfilemenu.cpp:1195
+#: filewidgets/knewfilemenu.cpp:1200
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3598,28 +3598,28 @@ msgstr ""
 "تىزىلغاندا باشقا تۈرلەرنىڭ ئالدىغا تىزىلىدۇ ئۇنىڭدىن باشقا تاسادىپىي "
 "ئەھۋاللارنى كەلتۈرۈپ چىقىرىشى مۇمكىن."
 
-#: filewidgets/knewfilemenu.cpp:1213
+#: filewidgets/knewfilemenu.cpp:1218
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "قىسقۇچ ئىسمىدا يانتۇ سىزىق (/) ئىشلىتىلسە تارماق قىسقۇچ قۇرىدۇ، مەسىلەن:"
 
-#: filewidgets/knewfilemenu.cpp:1227
+#: filewidgets/knewfilemenu.cpp:1232
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "قىسقۇچ ئىسمىدا يانتۇ سىزىق (/) ئىشلىتىلسە تارماق قىسقۇچ قۇرىدۇ."
 
-#: filewidgets/knewfilemenu.cpp:1239
+#: filewidgets/knewfilemenu.cpp:1244
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "ھۆججەت ۋە قىسقۇچ ئاتى يانتۇ سىزىق (/) نى  ئۆز ئىچىگە ئالمايدۇ."
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1249
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "ھۆججەت ۋە قىسقۇچ ئاتى سول يانتۇ سىزىق (\\) نى  ئۆز ئىچىگە ئالمايدۇ."
 
-#: filewidgets/knewfilemenu.cpp:1258
+#: filewidgets/knewfilemenu.cpp:1263
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3629,7 +3629,7 @@ msgstr ""
 "<filename>%1</filename> ئاتلىق ھۆججەت ياكى قىسقۇچنى قۇرالمايدۇ چۈنكى ئۇ "
 "ئىشلەتكۈچىنىڭ باش قىسقۇچىنىڭ ئورنى بىلەن دەستىلىنىدۇ."
 
-#: filewidgets/knewfilemenu.cpp:1267
+#: filewidgets/knewfilemenu.cpp:1272
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3639,52 +3639,52 @@ msgstr ""
 "قىلىنمايدۇ، چۈنكى تېرمىنالدا مەزمۇن ئۆچۈرگەندە ئۇ مۈجمەللىك ياكى خەتەر پەيدا "
 "قىلىشى مۇمكىن."
 
-#: filewidgets/knewfilemenu.cpp:1339
+#: filewidgets/knewfilemenu.cpp:1344
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> ئاتلىق مۇندەرىجە مەۋجۇت."
 
-#: filewidgets/knewfilemenu.cpp:1341
+#: filewidgets/knewfilemenu.cpp:1346
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> ئاتلىق ھۆججەت مەۋجۇت."
 
-#: filewidgets/knewfilemenu.cpp:1427
+#: filewidgets/knewfilemenu.cpp:1432
 #, kde-format
 msgid "Create New"
 msgstr "يېڭىدىن قۇر"
 
-#: filewidgets/knewfilemenu.cpp:1462
+#: filewidgets/knewfilemenu.cpp:1467
 #, kde-format
 msgid "Link to Device"
 msgstr "ئۈسكۈنىگە ئۇلا"
 
-#: filewidgets/knewfilemenu.cpp:1501
+#: filewidgets/knewfilemenu.cpp:1506
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "يېڭى قىسقۇچ"
 
-#: filewidgets/knewfilemenu.cpp:1524
+#: filewidgets/knewfilemenu.cpp:1529
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "يېڭى قىسقۇچ قۇر"
 
-#: filewidgets/knewfilemenu.cpp:1526
+#: filewidgets/knewfilemenu.cpp:1531
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "يېڭى قىسقۇچنى %1 غا قۇرىدۇ:"
 
-#: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1534 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "قىسقۇچ ئاتى كىرگۈزۈلىدۇ"
 
-#: filewidgets/knewfilemenu.cpp:1586
+#: filewidgets/knewfilemenu.cpp:1591
 #, kde-format
 msgid "Default"
 msgstr "كۆڭۈلدىكى"
@@ -3725,7 +3725,7 @@ msgstr "سەل تۇرۇپ قىسقۇچ خاسلىقىدىن سىنبەلگىنى
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:606 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:609 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, kde-format
@@ -3733,39 +3733,39 @@ msgid "Copy"
 msgstr "كۆچۈر"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:610 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:613 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "چاپلا"
 
-#: filewidgets/kurlnavigator.cpp:630
+#: filewidgets/kurlnavigator.cpp:633
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "«%1» نى يېڭى بەتكۈچتە ئاچ"
 
-#: filewidgets/kurlnavigator.cpp:638
+#: filewidgets/kurlnavigator.cpp:641
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "«%1» نى يېڭى كۆزنەكتە ئاچ"
 
-#: filewidgets/kurlnavigator.cpp:647
+#: filewidgets/kurlnavigator.cpp:650
 #, kde-format
 msgid "Edit"
 msgstr "تەھرىر"
 
-#: filewidgets/kurlnavigator.cpp:650
+#: filewidgets/kurlnavigator.cpp:653
 #, kde-format
 msgid "Navigate"
 msgstr "يولباشچى"
 
-#: filewidgets/kurlnavigator.cpp:665
+#: filewidgets/kurlnavigator.cpp:668
 #, kde-format
 msgid "Show Full Path"
 msgstr "تولۇق يولنى كۆرسەت"
 
-#: filewidgets/kurlnavigator.cpp:826
+#: filewidgets/kurlnavigator.cpp:829
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -4174,22 +4174,22 @@ msgstr "«mount» پىروگراممىنى تاپالمىدى"
 msgid "Could not find program \"umount\""
 msgstr "«umount» پىروگراممىنى تاپالمىدى"
 
-#: kioworkers/file/file_unix.cpp:601
+#: kioworkers/file/file_unix.cpp:600
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "ھۆججەتنى %1 دىن %2 غا كۆچۈرەلمىدى. (خاتالىق نومۇرى: %3)"
 
-#: kioworkers/file/file_unix.cpp:815
+#: kioworkers/file/file_unix.cpp:814
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 نىڭ ئۈسكۈنىسىدە ۋاسىتە يوق"
 
-#: kioworkers/file/file_unix.cpp:1076
+#: kioworkers/file/file_unix.cpp:1075
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "بېرىلگەن ئىشلەتكۈچى ئاتى %1 نىڭ ئىشلەتكۈچى كىملىكىگە ئېرىشەلمىدى"
 
-#: kioworkers/file/file_unix.cpp:1087
+#: kioworkers/file/file_unix.cpp:1086
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "بېرىلگەن گۇرۇپپا ئاتى %1 نىڭ گۇرۇپپا كىملىكىگە ئېرىشەلمىدى"
@@ -5229,43 +5229,43 @@ msgstr "سىستېما سەپلىمىسىنى يېڭىلاۋاتىدۇ"
 msgid "Updating system configuration…"
 msgstr "سىستېما سەپلىمىسىنى يېڭىلاۋاتىدۇ…"
 
-#: widgets/kdirmodel.cpp:1258
+#: widgets/kdirmodel.cpp:1263
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "ئاتى"
 
-#: widgets/kdirmodel.cpp:1260
+#: widgets/kdirmodel.cpp:1265
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "چوڭلۇقى"
 
-#: widgets/kdirmodel.cpp:1262
+#: widgets/kdirmodel.cpp:1267
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "چېسلا"
 
-#: widgets/kdirmodel.cpp:1264
+#: widgets/kdirmodel.cpp:1269
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "ئىجازەت"
 
-#: widgets/kdirmodel.cpp:1266
+#: widgets/kdirmodel.cpp:1271
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "ئىگىدار"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1273
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "گۇرۇپپا"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1275
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
