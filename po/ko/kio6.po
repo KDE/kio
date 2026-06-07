@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-05 00:39+0000\n"
-"PO-Revision-Date: 2026-05-25 21:14+0200\n"
+"PO-Revision-Date: 2026-06-06 13:00+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -3725,9 +3725,7 @@ msgid "Go to Location on Path"
 msgstr "위치의 경로로 기동"
 
 #: filewidgets/kurlnavigatorplacesselector.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Places"
+#, kde-format
 msgctxt ""
 "@action:button accessible name for the places selector in the URL navigator"
 msgid "Places"
