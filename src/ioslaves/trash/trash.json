@@ -134,6 +134,10 @@
                 "Percorso originale",
                 "Data di eliminazione"
             ],
+            "ExtraNames[ja]": [
+                "元の場所",
+                "削除日時"
+            ],
             "ExtraNames[ka]": [
                 "წინა ბილიკი",
                 "წაშლის თარიღი"
