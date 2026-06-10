@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-05 00:39+0000\n"
+"POT-Creation-Date: 2026-06-10 00:41+0000\n"
 "PO-Revision-Date: 2026-04-03 14:15+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -2720,7 +2720,7 @@ msgstr "Arată previzualizare"
 msgid "Open Containing Folder"
 msgstr "Deschide dosarul conținător"
 
-#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1269
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1270
 #, kde-format
 msgid "Properties"
 msgstr "Proprietăți"
@@ -2850,17 +2850,17 @@ msgstr "Toate fișierele susținute"
 msgid "All Files"
 msgstr "Toate fișierele"
 
-#: filewidgets/kfileplaceeditdialog.cpp:66
+#: filewidgets/kfileplaceeditdialog.cpp:68
 #, kde-format
 msgid "Add Places Entry"
 msgstr "Adaugă înregistrare Locuri"
 
-#: filewidgets/kfileplaceeditdialog.cpp:68
+#: filewidgets/kfileplaceeditdialog.cpp:70
 #, kde-format
 msgid "Edit Places Entry"
 msgstr "Modifică înregistrare Locuri"
 
-#: filewidgets/kfileplaceeditdialog.cpp:78
+#: filewidgets/kfileplaceeditdialog.cpp:80
 #, kde-format
 msgid ""
 "<qt>This is the text that will appear in the Places panel.<br /><br />The "
@@ -2873,17 +2873,17 @@ msgstr ""
 "la ce se referă această înregistrare. Dacă nu introduceți o etichetă, "
 "aceasta va fi determinată din URL-ul amplasării.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:84
+#: filewidgets/kfileplaceeditdialog.cpp:86
 #, kde-format
 msgid "L&abel:"
 msgstr "&Etichetă:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:86
+#: filewidgets/kfileplaceeditdialog.cpp:88
 #, kde-format
 msgid "Enter descriptive label here"
 msgstr "Introduceți aici o etichetă descriptivă"
 
-#: filewidgets/kfileplaceeditdialog.cpp:91
+#: filewidgets/kfileplaceeditdialog.cpp:93
 #, kde-format
 msgid ""
 "<qt>This is the location associated with the entry. Any valid URL may be "
@@ -2896,12 +2896,12 @@ msgstr ""
 "org/pub/kde/stable<br /><br />Dacă apăsați butonul din stânga liniei de "
 "editare, puteți răsfoi până la un URL corespunzător.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:98
+#: filewidgets/kfileplaceeditdialog.cpp:100
 #, kde-format
 msgid "&Location:"
 msgstr "Amp&lasare:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:105
+#: filewidgets/kfileplaceeditdialog.cpp:107
 #, kde-format
 msgid ""
 "<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
@@ -2910,17 +2910,17 @@ msgstr ""
 "<qt>Aceasta este pictograma care va apărea în panoul Locuri.<br /><br /"
 ">Apăsați pe buton pentru a alege o pictogramă diferită.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:126
+#: filewidgets/kfileplaceeditdialog.cpp:128
 #, kde-format
 msgid "Choose an &icon:"
 msgstr "Alegeți o p&ictogramă:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:136
+#: filewidgets/kfileplaceeditdialog.cpp:138
 #, kde-format
 msgid "&Only show when using this application (%1)"
 msgstr "&Arată numai la folosirea acestei aplicații (%1)"
 
-#: filewidgets/kfileplaceeditdialog.cpp:139
+#: filewidgets/kfileplaceeditdialog.cpp:141
 #, kde-format
 msgid ""
 "<qt>Select this setting if you want this entry to show only when using the "
@@ -2979,160 +2979,160 @@ msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
 msgstr "%1 (de pe %2)"
 
-#: filewidgets/kfileplacesmodel.cpp:158
+#: filewidgets/kfileplacesmodel.cpp:162
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "Toate marcajele"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:254
+#: filewidgets/kfileplacesmodel.cpp:258
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "Acasă"
 
-#: filewidgets/kfileplacesmodel.cpp:263
+#: filewidgets/kfileplacesmodel.cpp:267
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "Birou"
 
-#: filewidgets/kfileplacesmodel.cpp:270
+#: filewidgets/kfileplacesmodel.cpp:274
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "Documente"
 
-#: filewidgets/kfileplacesmodel.cpp:277
+#: filewidgets/kfileplacesmodel.cpp:281
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "Descărcări"
 
-#: filewidgets/kfileplacesmodel.cpp:282
+#: filewidgets/kfileplacesmodel.cpp:286
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "Rețea"
 
-#: filewidgets/kfileplacesmodel.cpp:287
+#: filewidgets/kfileplacesmodel.cpp:291
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "Gunoi"
 
-#: filewidgets/kfileplacesmodel.cpp:348
+#: filewidgets/kfileplacesmodel.cpp:352
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "Muzică"
 
-#: filewidgets/kfileplacesmodel.cpp:355
+#: filewidgets/kfileplacesmodel.cpp:359
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "Fotografii"
 
-#: filewidgets/kfileplacesmodel.cpp:364
+#: filewidgets/kfileplacesmodel.cpp:368
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "Videoclipuri"
 
-#: filewidgets/kfileplacesmodel.cpp:391
+#: filewidgets/kfileplacesmodel.cpp:395
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "Fișiere recente"
 
-#: filewidgets/kfileplacesmodel.cpp:396
+#: filewidgets/kfileplacesmodel.cpp:400
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "Locuri recente"
 
-#: filewidgets/kfileplacesmodel.cpp:419
+#: filewidgets/kfileplacesmodel.cpp:423
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "Modificate azi"
 
-#: filewidgets/kfileplacesmodel.cpp:423
+#: filewidgets/kfileplacesmodel.cpp:427
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "Modificate ieri"
 
-#: filewidgets/kfileplacesmodel.cpp:1130
+#: filewidgets/kfileplacesmodel.cpp:1134
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Nu s-a putut adăuga la panoul Locuri: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1137
+#: filewidgets/kfileplacesmodel.cpp:1141
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "Doar dosarele pot fi adăugate la panoul Locuri."
 
-#: filewidgets/kfileplacesmodel.cpp:1380
+#: filewidgets/kfileplacesmodel.cpp:1384
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
 msgstr "Configurează…"
 
-#: filewidgets/kfileplacesmodel.cpp:1416
+#: filewidgets/kfileplacesmodel.cpp:1420
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "Se eliberează…"
 
-#: filewidgets/kfileplacesmodel.cpp:1418
+#: filewidgets/kfileplacesmodel.cpp:1422
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "Elibe&rează"
 
-#: filewidgets/kfileplacesmodel.cpp:1422
+#: filewidgets/kfileplacesmodel.cpp:1426
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "Se scoate în siguranță…"
 
-#: filewidgets/kfileplacesmodel.cpp:1424
+#: filewidgets/kfileplacesmodel.cpp:1428
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&Scoate în siguranță"
 
-#: filewidgets/kfileplacesmodel.cpp:1429
+#: filewidgets/kfileplacesmodel.cpp:1433
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Se demontează…"
 
-#: filewidgets/kfileplacesmodel.cpp:1431
+#: filewidgets/kfileplacesmodel.cpp:1435
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "&Demontează"
 
-#: filewidgets/kfileplacesmodel.cpp:1455
+#: filewidgets/kfileplacesmodel.cpp:1459
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "Scoat&e suportul"
 
-#: filewidgets/kfileplacesmodel.cpp:1502
+#: filewidgets/kfileplacesmodel.cpp:1506
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Dispozitivul „%1” nu este un disc și nu poate fi scos."
 
-#: filewidgets/kfileplacesmodel.cpp:1538
+#: filewidgets/kfileplacesmodel.cpp:1542
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "A apărut o eroare la accesarea „%1”, sistemul a răspuns: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1540
+#: filewidgets/kfileplacesmodel.cpp:1544
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "A apărut o eroare la accesarea „%1”"
 
-#: filewidgets/kfileplacesmodel.cpp:1567
+#: filewidgets/kfileplacesmodel.cpp:1571
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 "Unul sau mai multe fișiere de pe acest dispozitiv sunt deschise într-o "
 "aplicație."
 
-#: filewidgets/kfileplacesmodel.cpp:1570
+#: filewidgets/kfileplacesmodel.cpp:1574
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3150,108 +3150,108 @@ msgstr[2] ""
 "Unul sau mai multe fișiere de pe acest dispozitiv sunt deschise în "
 "următoarele aplicații: <application>%2</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1573
+#: filewidgets/kfileplacesmodel.cpp:1577
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ", "
 
-#: filewidgets/kfileplacesmodel.cpp:1620
+#: filewidgets/kfileplacesmodel.cpp:1624
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "Formatează sau modifică cu Gestionarul de partiții"
 
-#: filewidgets/kfileplacesview.cpp:343
+#: filewidgets/kfileplacesview.cpp:344
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:360
+#: filewidgets/kfileplacesview.cpp:361
 #: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 liberi din %2 (%3% utilizat)"
 
-#: filewidgets/kfileplacesview.cpp:673
+#: filewidgets/kfileplacesview.cpp:674
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (ascuns)"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1228
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Golește gunoiul"
 
-#: filewidgets/kfileplacesview.cpp:1252
+#: filewidgets/kfileplacesview.cpp:1253
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Montează"
 
-#: filewidgets/kfileplacesview.cpp:1262
+#: filewidgets/kfileplacesview.cpp:1263
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Deschide în filă nouă"
 
-#: filewidgets/kfileplacesview.cpp:1265
+#: filewidgets/kfileplacesview.cpp:1266
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Deschide în fereastră nouă"
 
-#: filewidgets/kfileplacesview.cpp:1274
+#: filewidgets/kfileplacesview.cpp:1275
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Adaugă înregistrare…"
 
-#: filewidgets/kfileplacesview.cpp:1280
+#: filewidgets/kfileplacesview.cpp:1281
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Modifică…"
 
-#: filewidgets/kfileplacesview.cpp:1285
+#: filewidgets/kfileplacesview.cpp:1286
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Elimină din Locuri"
 
-#: filewidgets/kfileplacesview.cpp:1289
+#: filewidgets/kfileplacesview.cpp:1290
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Ascunde"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1298
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Ascunde secțiunea „%1”"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1298
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Ascunde secțiunea"
 
-#: filewidgets/kfileplacesview.cpp:1305
+#: filewidgets/kfileplacesview.cpp:1306
 #, kde-format
 msgid "&Show All Entries"
 msgstr "Arată toate înregi&strările"
 
-#: filewidgets/kfileplacesview.cpp:1310
+#: filewidgets/kfileplacesview.cpp:1311
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Dimensiune pictograme"
 
-#: filewidgets/kfileplacesview.cpp:1431
+#: filewidgets/kfileplacesview.cpp:1432
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3259,25 +3259,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Redimensionare automată"
 
-#: filewidgets/kfileplacesview.cpp:1451
+#: filewidgets/kfileplacesview.cpp:1452
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Mică (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1454
+#: filewidgets/kfileplacesview.cpp:1455
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Medie (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1457
+#: filewidgets/kfileplacesview.cpp:1458
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Mare (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1460
+#: filewidgets/kfileplacesview.cpp:1461
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

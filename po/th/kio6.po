@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-05 00:39+0000\n"
+"POT-Creation-Date: 2026-06-10 00:41+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -2610,7 +2610,7 @@ msgstr "แสดงตัวอย่าง"
 msgid "Open Containing Folder"
 msgstr "เปิดโฟลเดอร์ที่บรรจุ"
 
-#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1269
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1270
 #, kde-format
 msgid "Properties"
 msgstr "คุณสมบัติ"
@@ -2740,17 +2740,17 @@ msgstr "ทุกแฟ้มที่รองรับ"
 msgid "All Files"
 msgstr "ทุกไฟล์"
 
-#: filewidgets/kfileplaceeditdialog.cpp:66
+#: filewidgets/kfileplaceeditdialog.cpp:68
 #, kde-format
 msgid "Add Places Entry"
 msgstr "เพิ่มรายการให้กับที่หลัก ๆ"
 
-#: filewidgets/kfileplaceeditdialog.cpp:68
+#: filewidgets/kfileplaceeditdialog.cpp:70
 #, kde-format
 msgid "Edit Places Entry"
 msgstr "แก้ไขรายการของที่หลัก ๆ"
 
-#: filewidgets/kfileplaceeditdialog.cpp:78
+#: filewidgets/kfileplaceeditdialog.cpp:80
 #, kde-format
 msgid ""
 "<qt>This is the text that will appear in the Places panel.<br /><br />The "
@@ -2763,17 +2763,17 @@ msgstr ""
 "ที่จะช่วยให้คุณจดจำได้ว่าแต่ละรายการอ้างถึงอะไร หากคุณไม่ป้อนค่าลงในป้าย "
 "มันจะทำการคัดลอกเอาจากตำแหน่งที่อยู่ URL</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:84
+#: filewidgets/kfileplaceeditdialog.cpp:86
 #, kde-format
 msgid "L&abel:"
 msgstr "&ป้าย:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:86
+#: filewidgets/kfileplaceeditdialog.cpp:88
 #, kde-format
 msgid "Enter descriptive label here"
 msgstr "ป้อนคำอธิบายที่นี่"
 
-#: filewidgets/kfileplaceeditdialog.cpp:91
+#: filewidgets/kfileplaceeditdialog.cpp:93
 #, kde-format
 msgid ""
 "<qt>This is the location associated with the entry. Any valid URL may be "
@@ -2785,12 +2785,12 @@ msgstr ""
 "%1<br />http://www.kde.org<br />ftp://ftp.kde.org/pub/kde/stable<br /><br /"
 ">คุณสามารถเรียกดูที่อยู่ URL ได้ด้วยการคลิกบนปุ่มถัดไปยังช่องแก้ไขข้อความ</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:98
+#: filewidgets/kfileplaceeditdialog.cpp:100
 #, kde-format
 msgid "&Location:"
 msgstr "&ตำแหน่ง:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:105
+#: filewidgets/kfileplaceeditdialog.cpp:107
 #, kde-format
 msgid ""
 "<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
@@ -2798,17 +2798,17 @@ msgid ""
 msgstr ""
 "<qt>นี่เป็นไอคอนที่จะใช้แสดงในถาดที่หลัก ๆ<br /><br />คลิกที่ปุ่มเพื่อเลือกไอคอนอื่น ๆ</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:126
+#: filewidgets/kfileplaceeditdialog.cpp:128
 #, kde-format
 msgid "Choose an &icon:"
 msgstr "เลือกไ&อคอน:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:136
+#: filewidgets/kfileplaceeditdialog.cpp:138
 #, kde-format
 msgid "&Only show when using this application (%1)"
 msgstr "แสดงเฉ&พาะเมื่อใช้โปรแกรมนี้ (%1) เท่านั้น"
 
-#: filewidgets/kfileplaceeditdialog.cpp:139
+#: filewidgets/kfileplaceeditdialog.cpp:141
 #, kde-format
 msgid ""
 "<qt>Select this setting if you want this entry to show only when using the "
@@ -2866,90 +2866,90 @@ msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
 msgstr "%1 (จาก %2)"
 
-#: filewidgets/kfileplacesmodel.cpp:158
+#: filewidgets/kfileplacesmodel.cpp:162
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr "แท็กทั้งหมด"
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:254
+#: filewidgets/kfileplacesmodel.cpp:258
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr "พื้นที่ส่วนตัว"
 
-#: filewidgets/kfileplacesmodel.cpp:263
+#: filewidgets/kfileplacesmodel.cpp:267
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr "เดสก์ท็อป"
 
-#: filewidgets/kfileplacesmodel.cpp:270
+#: filewidgets/kfileplacesmodel.cpp:274
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "เอกสาร"
 
-#: filewidgets/kfileplacesmodel.cpp:277
+#: filewidgets/kfileplacesmodel.cpp:281
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr "ดาวน์โหลด"
 
-#: filewidgets/kfileplacesmodel.cpp:282
+#: filewidgets/kfileplacesmodel.cpp:286
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "เครือข่าย"
 
-#: filewidgets/kfileplacesmodel.cpp:287
+#: filewidgets/kfileplacesmodel.cpp:291
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "ถังขยะ"
 
-#: filewidgets/kfileplacesmodel.cpp:348
+#: filewidgets/kfileplacesmodel.cpp:352
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr "เพลง"
 
-#: filewidgets/kfileplacesmodel.cpp:355
+#: filewidgets/kfileplacesmodel.cpp:359
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr "รูปภาพ"
 
-#: filewidgets/kfileplacesmodel.cpp:364
+#: filewidgets/kfileplacesmodel.cpp:368
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr "วิดีโอ"
 
-#: filewidgets/kfileplacesmodel.cpp:391
+#: filewidgets/kfileplacesmodel.cpp:395
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "ไฟล์ล่าสุด"
 
-#: filewidgets/kfileplacesmodel.cpp:396
+#: filewidgets/kfileplacesmodel.cpp:400
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "ตำแหน่งล่าสุด:"
 
-#: filewidgets/kfileplacesmodel.cpp:419
+#: filewidgets/kfileplacesmodel.cpp:423
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "แก้ไขวันนี้"
 
-#: filewidgets/kfileplacesmodel.cpp:423
+#: filewidgets/kfileplacesmodel.cpp:427
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr "แก้ไขเมื่อวานนี้"
 
-#: filewidgets/kfileplacesmodel.cpp:1130
+#: filewidgets/kfileplacesmodel.cpp:1134
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "ไม่สามารถเพิ่มแผงสถานที่ได้: %1"
 
-#: filewidgets/kfileplacesmodel.cpp:1137
+#: filewidgets/kfileplacesmodel.cpp:1141
 #, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "สามารถเพิ่มเฉพาะโฟลเดอร์ลงในแผงสถานที่ได้เท่านั้น"
 
-#: filewidgets/kfileplacesmodel.cpp:1380
+#: filewidgets/kfileplacesmodel.cpp:1384
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Configure Web Shortcuts…"
@@ -2957,69 +2957,69 @@ msgctxt "@action:inmenu"
 msgid "Configure…"
 msgstr "กำหนดทางลัดเว็บ…"
 
-#: filewidgets/kfileplacesmodel.cpp:1416
+#: filewidgets/kfileplacesmodel.cpp:1420
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "กําลังปล่อย"
 
-#: filewidgets/kfileplacesmodel.cpp:1418
+#: filewidgets/kfileplacesmodel.cpp:1422
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "ปลดปล่อย"
 
-#: filewidgets/kfileplacesmodel.cpp:1422
+#: filewidgets/kfileplacesmodel.cpp:1426
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "กําลังถอดออกอย่างปลอดภัย"
 
-#: filewidgets/kfileplacesmodel.cpp:1424
+#: filewidgets/kfileplacesmodel.cpp:1428
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&ถอดออกอย่างปลอดภัย"
 
-#: filewidgets/kfileplacesmodel.cpp:1429
+#: filewidgets/kfileplacesmodel.cpp:1433
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "กําลังหยุดเมานท์"
 
-#: filewidgets/kfileplacesmodel.cpp:1431
+#: filewidgets/kfileplacesmodel.cpp:1435
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "หยุดเมานท์"
 
-#: filewidgets/kfileplacesmodel.cpp:1455
+#: filewidgets/kfileplacesmodel.cpp:1459
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "&เอาสื่อออก"
 
-#: filewidgets/kfileplacesmodel.cpp:1502
+#: filewidgets/kfileplacesmodel.cpp:1506
 #, kde-format
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "อุปกรณ์ '%1' ไม่ใช่อุปกรณ์ประเภทดิสก์ จึงไม่สามารถเด้งสื่อออกได้"
 
-#: filewidgets/kfileplacesmodel.cpp:1538
+#: filewidgets/kfileplacesmodel.cpp:1542
 #, kde-format
 msgid "An error occurred while accessing '%1', the system responded: %2"
 msgstr "เกิดข้อผิดพลาดขึ้น ขณะกำลังเข้าใช้งาน %1 ระบบแจ้งกลับมาว่า: %2"
 
-#: filewidgets/kfileplacesmodel.cpp:1540
+#: filewidgets/kfileplacesmodel.cpp:1544
 #, kde-format
 msgid "An error occurred while accessing '%1'"
 msgstr "เกิดข้อผิดพลาดขณะกำลังเข้าใช้งาน '%1'"
 
-#: filewidgets/kfileplacesmodel.cpp:1567
+#: filewidgets/kfileplacesmodel.cpp:1571
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr "ไฟล์หนึ่งไฟล์ขึ้นไปบนอุปกรณ์นี้เปิดอยู่ในแอปพลิเคชัน"
 
-#: filewidgets/kfileplacesmodel.cpp:1570
+#: filewidgets/kfileplacesmodel.cpp:1574
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3030,108 +3030,108 @@ msgid_plural ""
 msgstr[0] ""
 "ไฟล์หนึ่งไฟล์ขึ้นไปบนอุปกรณ์นี้ถูกเปิดในแอปพลิเคชัน:<application>%2</application>."
 
-#: filewidgets/kfileplacesmodel.cpp:1573
+#: filewidgets/kfileplacesmodel.cpp:1577
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ","
 
-#: filewidgets/kfileplacesmodel.cpp:1620
+#: filewidgets/kfileplacesmodel.cpp:1624
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "ฟอร์แมตใหม่หรือแก้ไขด้วย Partition Manager"
 
-#: filewidgets/kfileplacesview.cpp:343
+#: filewidgets/kfileplacesview.cpp:344
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:360
+#: filewidgets/kfileplacesview.cpp:361
 #: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "ว่าง %1 จากพื้นที่รวม %2 (ใช้ไป %3%)"
 
-#: filewidgets/kfileplacesview.cpp:673
+#: filewidgets/kfileplacesview.cpp:674
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (ซ่อน)"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1228
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "เทถังขยะทิ้ง"
 
-#: filewidgets/kfileplacesview.cpp:1252
+#: filewidgets/kfileplacesview.cpp:1253
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "ทำการเมานท์"
 
-#: filewidgets/kfileplacesview.cpp:1262
+#: filewidgets/kfileplacesview.cpp:1263
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "เปิดในแท็บใหม่"
 
-#: filewidgets/kfileplacesview.cpp:1265
+#: filewidgets/kfileplacesview.cpp:1266
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "เปิดในหน้าต่างใหม่"
 
-#: filewidgets/kfileplacesview.cpp:1274
+#: filewidgets/kfileplacesview.cpp:1275
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "เพิ่มรายการ..."
 
-#: filewidgets/kfileplacesview.cpp:1280
+#: filewidgets/kfileplacesview.cpp:1281
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&แก้ไข"
 
-#: filewidgets/kfileplacesview.cpp:1285
+#: filewidgets/kfileplacesview.cpp:1286
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "ลบออกจากสถานที่"
 
-#: filewidgets/kfileplacesview.cpp:1289
+#: filewidgets/kfileplacesview.cpp:1290
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&ซ่อน"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1298
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "ซ่อนส่วน '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1298
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "ซ่อนส่วน"
 
-#: filewidgets/kfileplacesview.cpp:1305
+#: filewidgets/kfileplacesview.cpp:1306
 #, kde-format
 msgid "&Show All Entries"
 msgstr "แสดง&รายการทั้งหมด"
 
-#: filewidgets/kfileplacesview.cpp:1310
+#: filewidgets/kfileplacesview.cpp:1311
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "มุมมองไอคอน"
 
-#: filewidgets/kfileplacesview.cpp:1431
+#: filewidgets/kfileplacesview.cpp:1432
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3139,25 +3139,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "ปรับขนาดอัตโนมัติ"
 
-#: filewidgets/kfileplacesview.cpp:1451
+#: filewidgets/kfileplacesview.cpp:1452
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "เล็ก (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1454
+#: filewidgets/kfileplacesview.cpp:1455
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "กลาง (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1457
+#: filewidgets/kfileplacesview.cpp:1458
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "ใหญ่ (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1460
+#: filewidgets/kfileplacesview.cpp:1461
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-05 00:39+0000\n"
+"POT-Creation-Date: 2026-06-10 00:41+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -2745,7 +2745,7 @@ msgstr "Bonisa Imboniso yakuqala"
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1269
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1270
 #, fuzzy, kde-format
 msgid "Properties"
 msgstr "Izinto zobumnini ze%1"
@@ -2881,17 +2881,17 @@ msgstr "Zonke iifayile ezixhasiweyo"
 msgid "All Files"
 msgstr "*|Zonke Iifayile"
 
-#: filewidgets/kfileplaceeditdialog.cpp:66
+#: filewidgets/kfileplaceeditdialog.cpp:68
 #, fuzzy, kde-format
 msgid "Add Places Entry"
 msgstr "&Hlela Ungeniso..."
 
-#: filewidgets/kfileplaceeditdialog.cpp:68
+#: filewidgets/kfileplaceeditdialog.cpp:70
 #, fuzzy, kde-format
 msgid "Edit Places Entry"
 msgstr "&Hlela Ungeniso..."
 
-#: filewidgets/kfileplaceeditdialog.cpp:78
+#: filewidgets/kfileplaceeditdialog.cpp:80
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the text that will appear in the Quick Access panel.<p>The "
@@ -2907,19 +2907,19 @@ msgstr ""
 "Olukawulezayo.<p>Uchazo kufuneka luqulathe igama elinye lamagama amabini "
 "azakuncedisa ukuba ukukhumbula ukuba elingeniso libhekisa kwintoni.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:84
+#: filewidgets/kfileplaceeditdialog.cpp:86
 #, fuzzy, kde-format
 #| msgid "&Name:"
 msgid "L&abel:"
 msgstr "&Igama:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:86
+#: filewidgets/kfileplaceeditdialog.cpp:88
 #, fuzzy, kde-format
 #| msgid "Enter a description"
 msgid "Enter descriptive label here"
 msgstr "Ngenisa inkcazelo"
 
-#: filewidgets/kfileplaceeditdialog.cpp:91
+#: filewidgets/kfileplaceeditdialog.cpp:93
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the location associated with the entry. Any valid URL may be "
@@ -2937,12 +2937,12 @@ msgstr ""
 "pub/kde/stable<p>Ngokunqakraza kwiqosha elisecaleni kwebhokisi yokuhlela "
 "umbhalo ungakhangela incwadi kwi URL eyiyo.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:98
+#: filewidgets/kfileplaceeditdialog.cpp:100
 #, kde-format
 msgid "&Location:"
 msgstr "&Indawo ekuyo:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:105
+#: filewidgets/kfileplaceeditdialog.cpp:107
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the icon that will appear in the Quick Access panel.<p>Click "
@@ -2954,17 +2954,17 @@ msgstr ""
 "<qt>Eli liqhosha lophawu lomafanekiso elizakubonakala kwi Quick Access panel."
 "<p> Nqakraza kwiqosha ukukhetha uphawu lomfanekiso.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:126
+#: filewidgets/kfileplaceeditdialog.cpp:128
 #, kde-format
 msgid "Choose an &icon:"
 msgstr "Khetha uphawu &lomfanekiso:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:136
+#: filewidgets/kfileplaceeditdialog.cpp:138
 #, kde-format
 msgid "&Only show when using this application (%1)"
 msgstr "&Bonisa kuphela xa usebenzisa esisicelo (%1)"
 
-#: filewidgets/kfileplaceeditdialog.cpp:139
+#: filewidgets/kfileplaceeditdialog.cpp:141
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Select this setting if you want this entry to show only when using "
@@ -3028,157 +3028,157 @@ msgctxt "@info:tooltip path (mounted from)"
 msgid "%1 (from %2)"
 msgstr "%1 (ufako %2)"
 
-#: filewidgets/kfileplacesmodel.cpp:158
+#: filewidgets/kfileplacesmodel.cpp:162
 msgctxt "KFile System Bookmarks"
 msgid "All tags"
 msgstr ""
 
 #. i18nc calls has to be "KFile System Bookmarks".
 #. The real i18nc call is made later, with this context, so the two must match.
-#: filewidgets/kfileplacesmodel.cpp:254
+#: filewidgets/kfileplacesmodel.cpp:258
 msgctxt "KFile System Bookmarks"
 msgid "Home"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:263
+#: filewidgets/kfileplacesmodel.cpp:267
 msgctxt "KFile System Bookmarks"
 msgid "Desktop"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:270
+#: filewidgets/kfileplacesmodel.cpp:274
 #, fuzzy
 #| msgid "FIXME: Document this"
 msgctxt "KFile System Bookmarks"
 msgid "Documents"
 msgstr "FIXME: Yenza oku kubelixwebhu"
 
-#: filewidgets/kfileplacesmodel.cpp:277
+#: filewidgets/kfileplacesmodel.cpp:281
 msgctxt "KFile System Bookmarks"
 msgid "Downloads"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:282
+#: filewidgets/kfileplacesmodel.cpp:286
 #, fuzzy
 msgctxt "KFile System Bookmarks"
 msgid "Network"
 msgstr "Incwadi enenkcukacha Entsha:"
 
-#: filewidgets/kfileplacesmodel.cpp:287
+#: filewidgets/kfileplacesmodel.cpp:291
 #, fuzzy
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
 msgstr "Umonakalo"
 
-#: filewidgets/kfileplacesmodel.cpp:348
+#: filewidgets/kfileplacesmodel.cpp:352
 msgctxt "KFile System Bookmarks"
 msgid "Music"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:355
+#: filewidgets/kfileplacesmodel.cpp:359
 msgctxt "KFile System Bookmarks"
 msgid "Pictures"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:364
+#: filewidgets/kfileplacesmodel.cpp:368
 msgctxt "KFile System Bookmarks"
 msgid "Videos"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:391
+#: filewidgets/kfileplacesmodel.cpp:395
 #, fuzzy
 #| msgid "Delete Files"
 msgctxt "KFile System Bookmarks"
 msgid "Recent Files"
 msgstr "Cima Iifayile"
 
-#: filewidgets/kfileplacesmodel.cpp:396
+#: filewidgets/kfileplacesmodel.cpp:400
 #, fuzzy
 #| msgid "Location:"
 msgctxt "KFile System Bookmarks"
 msgid "Recent Locations"
 msgstr "Indawo ekuyo:"
 
-#: filewidgets/kfileplacesmodel.cpp:419
+#: filewidgets/kfileplacesmodel.cpp:423
 #, fuzzy
 #| msgid "Modified:"
 msgctxt "KFile System Bookmarks"
 msgid "Modified Today"
 msgstr "Iguqulwe kancinane:"
 
-#: filewidgets/kfileplacesmodel.cpp:423
+#: filewidgets/kfileplacesmodel.cpp:427
 msgctxt "KFile System Bookmarks"
 msgid "Modified Yesterday"
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1130
+#: filewidgets/kfileplacesmodel.cpp:1134
 #, fuzzy, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
 msgstr "Ayinakufumana udweliso lwenkqubo '%1'"
 
-#: filewidgets/kfileplacesmodel.cpp:1137
+#: filewidgets/kfileplacesmodel.cpp:1141
 #, fuzzy, kde-format
 msgid "Only folders can be added to the Places panel."
 msgstr "Ifayile okanye ulawulo %1 ayisekho."
 
-#: filewidgets/kfileplacesmodel.cpp:1380
+#: filewidgets/kfileplacesmodel.cpp:1384
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
 msgstr "Tshintsha Inkqubo ye Cookie"
 
-#: filewidgets/kfileplacesmodel.cpp:1416
+#: filewidgets/kfileplacesmodel.cpp:1420
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
 msgstr "&Susa Umngeno"
 
-#: filewidgets/kfileplacesmodel.cpp:1418
+#: filewidgets/kfileplacesmodel.cpp:1422
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Release"
 msgstr "&Susa Umngeno"
 
-#: filewidgets/kfileplacesmodel.cpp:1422
+#: filewidgets/kfileplacesmodel.cpp:1426
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
 msgstr "&Susa Umngeno"
 
-#: filewidgets/kfileplacesmodel.cpp:1424
+#: filewidgets/kfileplacesmodel.cpp:1428
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Safely Remove"
 msgstr "&Susa Umngeno"
 
-#: filewidgets/kfileplacesmodel.cpp:1429
+#: filewidgets/kfileplacesmodel.cpp:1433
 #, fuzzy, kde-format
 #| msgid "Unmounting"
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
 msgstr "Ayinyuki"
 
-#: filewidgets/kfileplacesmodel.cpp:1431
+#: filewidgets/kfileplacesmodel.cpp:1435
 #, fuzzy, kde-format
 #| msgid "Unmount"
 msgctxt "@action:inmenu"
 msgid "&Unmount"
 msgstr "Yehlisa"
 
-#: filewidgets/kfileplacesmodel.cpp:1455
+#: filewidgets/kfileplacesmodel.cpp:1459
 #, fuzzy, kde-format
 #| msgid "Eject"
 msgctxt "@action:inmenu"
 msgid "&Eject"
 msgstr "Khupha ngaphandle"
 
-#: filewidgets/kfileplacesmodel.cpp:1502
+#: filewidgets/kfileplacesmodel.cpp:1506
 #, fuzzy, kde-format
 #| msgid "The specified resource may not exist."
 msgid "The device '%1' is not a disk and cannot be ejected."
 msgstr "Ulawulo olukhankanyiweyo lunokungabikho."
 
-#: filewidgets/kfileplacesmodel.cpp:1538
+#: filewidgets/kfileplacesmodel.cpp:1542
 #, fuzzy, kde-format
 #| msgid ""
 #| "An error occurred while attempting to %1, %2. A summary of the reasons is "
@@ -3188,18 +3188,18 @@ msgstr ""
 "Impazamo yenzekile ngexesha uzama uku %1, %2.  Isishwakathelo sezizathu "
 "sanga phantsi.<ul>"
 
-#: filewidgets/kfileplacesmodel.cpp:1540
+#: filewidgets/kfileplacesmodel.cpp:1544
 #, fuzzy, kde-format
 #| msgid "An unexpected error (%1) occurred while attempting to %2."
 msgid "An error occurred while accessing '%1'"
 msgstr "Imposiso engalindelekanga (%1) yenzekile ngexesha uzama ukulayisha %2."
 
-#: filewidgets/kfileplacesmodel.cpp:1567
+#: filewidgets/kfileplacesmodel.cpp:1571
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1570
+#: filewidgets/kfileplacesmodel.cpp:1574
 #, kde-kuit-format
 msgid ""
 "One or more files on this device are opened in application <application>"
@@ -3210,102 +3210,102 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: filewidgets/kfileplacesmodel.cpp:1573
+#: filewidgets/kfileplacesmodel.cpp:1577
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
 msgstr ""
 
-#: filewidgets/kfileplacesmodel.cpp:1620
+#: filewidgets/kfileplacesmodel.cpp:1624
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:343
+#: filewidgets/kfileplacesview.cpp:344
 #, fuzzy, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1"
 
-#: filewidgets/kfileplacesview.cpp:360
+#: filewidgets/kfileplacesview.cpp:361
 #: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #, fuzzy, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1/%2 (%3% esetyenzisiweyo)"
 
-#: filewidgets/kfileplacesview.cpp:673
+#: filewidgets/kfileplacesview.cpp:674
 #, kde-format
 msgid "%1 (hidden)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1228
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Umonakalo"
 
-#: filewidgets/kfileplacesview.cpp:1252
+#: filewidgets/kfileplacesview.cpp:1253
 #, fuzzy, kde-format
 #| msgid "Mount"
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Nyusa"
 
-#: filewidgets/kfileplacesview.cpp:1262
+#: filewidgets/kfileplacesview.cpp:1263
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Vula Nge"
 
-#: filewidgets/kfileplacesview.cpp:1265
+#: filewidgets/kfileplacesview.cpp:1266
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1274
+#: filewidgets/kfileplacesview.cpp:1275
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "&Yongeza Ungeniso..."
 
-#: filewidgets/kfileplacesview.cpp:1280
+#: filewidgets/kfileplacesview.cpp:1281
 #, fuzzy, kde-format
 #| msgid "&Edit..."
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Hlela..."
 
-#: filewidgets/kfileplacesview.cpp:1285
+#: filewidgets/kfileplacesview.cpp:1286
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "&Susa Umngeno"
 
-#: filewidgets/kfileplacesview.cpp:1289
+#: filewidgets/kfileplacesview.cpp:1290
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1298
 #, fuzzy, kde-format
 #| msgid "&Add Entry..."
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "&Yongeza Ungeniso..."
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1298
 #, fuzzy, kde-format
 #| msgid "&Add Entry..."
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "&Yongeza Ungeniso..."
 
-#: filewidgets/kfileplacesview.cpp:1305
+#: filewidgets/kfileplacesview.cpp:1306
 #, fuzzy, kde-format
 #| msgid ""
 #| "Show\n"
@@ -3315,14 +3315,14 @@ msgstr ""
 "Bonisa\n"
 "Amangeno"
 
-#: filewidgets/kfileplacesview.cpp:1310
+#: filewidgets/kfileplacesview.cpp:1311
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Imboniselo Emfutshane"
 
-#: filewidgets/kfileplacesview.cpp:1431
+#: filewidgets/kfileplacesview.cpp:1432
 #, fuzzy, kde-format
 #| msgid "Auto &Detect"
 msgctxt ""
@@ -3331,25 +3331,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "&Bhaqa Ngokuzenzekelayo"
 
-#: filewidgets/kfileplacesview.cpp:1451
+#: filewidgets/kfileplacesview.cpp:1452
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1454
+#: filewidgets/kfileplacesview.cpp:1455
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1457
+#: filewidgets/kfileplacesview.cpp:1458
 #, fuzzy, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "ubungakanani %1"
 
-#: filewidgets/kfileplacesview.cpp:1460
+#: filewidgets/kfileplacesview.cpp:1461
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
