@@ -2274,11 +2274,19 @@ void KFileWidgetPrivate::activateUrlNavigator()
 
 void KFileWidgetPrivate::slotDirOpIconSizeChanged(int size)
 {
-    if (size == m_stdIconSizes[m_iconSizeSlider->value()])
+    int sliderValue = m_iconSizeSlider->value();
+    short currentIconSliderSize = m_stdIconSizes[sliderValue];
+    Q_ASSERT(sliderValue < m_stdIconSizes.size());
+    if (size == currentIconSliderSize)
         return;
-    m_iconSizeSlider->triggerAction(size < m_stdIconSizes[m_iconSizeSlider->value()] ? QSlider::SliderSingleStepSub : QSlider::SliderSingleStepAdd);
-    m_zoomOutAction->setDisabled(m_iconSizeSlider->value() == m_iconSizeSlider->minimum());
-    m_zoomInAction->setDisabled(m_iconSizeSlider->value() == m_iconSizeSlider->maximum());
+    if (std::abs(size - currentIconSliderSize) != 1) {
+        auto it = std::lower_bound(m_stdIconSizes.cbegin(), m_stdIconSizes.cend(), size);
+        m_iconSizeSlider->setValue(it - m_stdIconSizes.cbegin());
+        return;
+    }
+    m_iconSizeSlider->triggerAction(size < currentIconSliderSize ? QSlider::SliderSingleStepSub : QSlider::SliderSingleStepAdd);
+    m_zoomOutAction->setDisabled(sliderValue == m_iconSizeSlider->minimum());
+    m_zoomInAction->setDisabled(sliderValue == m_iconSizeSlider->maximum());
 }
 
 void KFileWidgetPrivate::changeIconsSize(ZoomState zoom)
