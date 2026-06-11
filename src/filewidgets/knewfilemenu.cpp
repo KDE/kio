@@ -117,11 +117,11 @@ public:
     std::unique_ptr<KDirWatch> dirWatch;
 
     struct Entry {
-        QString url; /// URL of a file received from getTemplateFilePaths
+        QString url; /// URL of the file read from .desktop file URL field
         QString key; /// The key used for sorting the files in the menu
         QString text; /// Text shown on the new file submenu
         QString comment; /// The prompt label asking for filename
-        QString filePath; /// The actual filepath derived from url and the suggested basename for a new file
+        QString filePath; /// URL of a file received from getTemplateFilePaths and the suggested basename for a new file
         QString templatePath; /// Where the file is copied from, the suggested file extension and whether the menu entries have a separator around them.
         QMimeType mimeType; /// Mimetype that the icon and comment are derived from
         QIcon icon; /// The icon displayed in the context menu
@@ -178,8 +178,10 @@ bool KNewFileMenuSingleton::Entry::parseFile(QString file)
 
         filePath = file;
 
-        if (desktopFile.readType() == QLatin1String("Link")) {
-            if (url.startsWith(QLatin1String("file:/"))) {
+        if (desktopFile.readType() == QLatin1String("Link") && !url.isEmpty()) {
+            if (!QUrl(url).isLocalFile() && !QUrl(url).isRelative()) {
+                templatePath = url;
+            } else if (url.startsWith(QLatin1String("file:/"))) {
                 templatePath = QUrl(url).toLocalFile();
             } else if (!url.startsWith(QLatin1Char('/')) && !url.startsWith(QLatin1String("__"))) {
                 // A relative path, then (that's the default in the files we ship)
@@ -189,19 +191,16 @@ bool KNewFileMenuSingleton::Entry::parseFile(QString file)
             } else {
                 templatePath = url;
             }
+        } else {
+            templatePath = filePath;
         }
-        if (templatePath.isEmpty()) {
-            templatePath = filePath; // we'll copy the file
-        }
+
         if (text.isEmpty()) {
-            text = QUrl(filePath).fileName();
-            const QLatin1String suffix(".desktop");
-            if (text.endsWith(suffix)) {
-                text.chop(suffix.size());
-            }
+            text = QFileInfo(filePath).baseName();
         }
-        QFileInfo fileinfo(templatePath);
-        if (!fileinfo.isReadable() && QFileInfo(filePath).isNativePath()) {
+
+        // TODO: Allow external files through non-local urls
+        if (!QFileInfo(templatePath).isReadable() && QFileInfo(filePath).isNativePath()) {
             return false;
         }
         mimeType = db.mimeTypeForFile(file);
