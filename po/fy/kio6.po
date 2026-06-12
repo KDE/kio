@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-10 00:41+0000\n"
+"POT-Creation-Date: 2026-06-12 00:40+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -3707,32 +3707,32 @@ msgstr "Iepen Directory"
 msgid "&Open"
 msgstr "&Iepenje"
 
-#: filewidgets/kfilewidget.cpp:2307
+#: filewidgets/kfilewidget.cpp:2315
 #, fuzzy, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Ofbylding - %1x%2 piksels"
 
-#: filewidgets/kfilewidget.cpp:2474
+#: filewidgets/kfilewidget.cpp:2482
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Automatysk triemnammetahea&ksels selektearje (%1)"
 
-#: filewidgets/kfilewidget.cpp:2475
+#: filewidgets/kfilewidget.cpp:2483
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "it taheaksel <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2481
+#: filewidgets/kfilewidget.cpp:2489
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Automatysk triemnammetahea&ksels selektearje"
 
-#: filewidgets/kfilewidget.cpp:2482
+#: filewidgets/kfilewidget.cpp:2490
 #, kde-format
 msgid "a suitable extension"
 msgstr "in gaadlik taheaksel"
 
-#: filewidgets/kfilewidget.cpp:2490
+#: filewidgets/kfilewidget.cpp:2498
 #, fuzzy, kde-format
 #| msgid ""
 #| "This option enables some convenient features for saving files with "
@@ -3771,20 +3771,20 @@ msgstr ""
 "(dizze punt sil automatysk fuorthelle wurde).</li></ol>Binne jo net wis? Lit "
 "dizze opsje dan oanstean. Dit makket it behearen fan jo triemen ienfâldiger."
 
-#: filewidgets/kfilewidget.cpp:2956
+#: filewidgets/kfilewidget.cpp:2964
 #, fuzzy, kde-format
 #| msgid "&Filter:"
 msgid "&File type:"
 msgstr "&Filterje:"
 
-#: filewidgets/kfilewidget.cpp:2960
+#: filewidgets/kfilewidget.cpp:2968
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2962
+#: filewidgets/kfilewidget.cpp:2970
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
