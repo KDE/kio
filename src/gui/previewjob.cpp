@@ -16,6 +16,7 @@
 
 #include <KConfigGroup>
 #include <KSharedConfig>
+#include <QImage>
 #include <QMetaMethod>
 #include <QMimeDatabase>
 #include <QPixmap>
@@ -373,6 +374,25 @@ QStringList PreviewJob::supportedMimeTypes()
         result += plugin.mimeTypes();
     }
     return result;
+}
+
+QImage PreviewJob::cachedThumbnail(const KFileItem &item, const QSize &size, qreal devicePixelRatio)
+{
+    // A symlink's thumbnail is keyed by its target (which needs a stat to
+    // resolve) and a directory has no single cached file, so those are left to
+    // a full PreviewJob.
+    if (!item.isLocalFile() || item.isDir() || item.isLink()) {
+        return QImage();
+    }
+
+    const QByteArray uri = item.targetUrl().toEncoded(QUrl::RemovePassword | QUrl::FullyEncoded);
+    const QString thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
+    return FilePreviewJob::cachedThumbnail(uri, thumbRoot, size, devicePixelRatio);
+}
+
+bool PreviewJob::cachedThumbnailMatchesFile(const QImage &thumbnail, const KFileItem &item)
+{
+    return FilePreviewJob::thumbnailMatchesFile(thumbnail, item.time(KFileItem::ModificationTime), item.size());
 }
 
 PreviewJob *KIO::filePreview(const KFileItemList &items, const QSize &size, const QStringList *enabledPlugins)

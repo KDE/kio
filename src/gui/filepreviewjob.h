@@ -20,12 +20,6 @@
 class QTimer;
 class FilePreviewJobTest;
 
-#ifdef BUILD_TESTING
-#define KIOGUI_TEST_EXPORT KIOGUI_EXPORT
-#else
-#define KIOGUI_TEST_EXPORT
-#endif
-
 namespace KIO
 {
 
@@ -124,6 +118,8 @@ private Q_SLOTS:
 
 private:
     friend class ::FilePreviewJobTest;
+    // For the synchronous PreviewJob::cachedThumbnail() entry point.
+    friend class PreviewJob;
 
     enum CachePolicy {
         Prevent,
@@ -173,7 +169,19 @@ private:
     QPointer<KIO::TransferJob> m_transferjob = nullptr;
     QPointer<KIO::StandardThumbnailJob> m_standardThumbnailJob = nullptr;
 
+    void statFile();
     void getOrCreateThumbnail();
+
+    // Cache file path for the encoded uri at the given size, empty if the size
+    // exceeds every cache bucket.
+    static QString thumbnailCachePath(const QByteArray &uri, const QString &thumbRoot, const QSize &size, qreal devicePixelRatio);
+
+    // Cached thumbnail for the encoded uri, or a null image on a miss. May be
+    // stale; check with thumbnailMatchesFile().
+    static QImage cachedThumbnail(const QByteArray &uri, const QString &thumbRoot, const QSize &size, qreal devicePixelRatio);
+
+    static bool thumbnailMatchesFile(const QImage &thumb, const QDateTime &sourceMTime, KIO::filesize_t sourceSize);
+
     static QImage loadThumbnailFromCache(const QString &url, qreal dpr);
     bool isCacheValid(const QImage &thumb);
     void createThumbnail(const QString &);
