@@ -15,6 +15,8 @@
 #include <kfileitem.h>
 #include <kio/job.h>
 
+#include <QImage>
+
 class QPixmap;
 class KPluginMetaData;
 
@@ -162,6 +164,29 @@ public:
      * Returns the list of MIME types
      */
     static QStringList supportedMimeTypes();
+
+    /*!
+     * Returns the thumbnail cached for \a item at \a size (for the given
+     * \a devicePixelRatio) in the shared thumbnail cache, or a null image if
+     * none is cached for it.
+     *
+     * This is a synchronous local cache lookup that never generates a
+     * thumbnail. It lets a caller show a cached thumbnail straight away,
+     * without the asynchronous round-trip of a full PreviewJob. The returned
+     * thumbnail may be out of date; use cachedThumbnailMatchesFile() to check,
+     * so a stale thumbnail can be shown while a fresh one is generated.
+     *
+     * \since 6.28
+     */
+    static QImage cachedThumbnail(const KFileItem &item, const QSize &size, qreal devicePixelRatio = 1.0);
+
+    /*!
+     * Returns whether \a thumbnail, as returned by cachedThumbnail(), still
+     * matches \a item, i.e. does not need to be regenerated.
+     *
+     * \since 6.28
+     */
+    static bool cachedThumbnailMatchesFile(const QImage &thumbnail, const KFileItem &item);
 
 Q_SIGNALS:
     /*!

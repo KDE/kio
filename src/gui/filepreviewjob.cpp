@@ -97,12 +97,26 @@ QString FilePreviewJob::parentDirPath(const QString &path)
 
 void FilePreviewJob::start()
 {
-    QUrl targetUrl = m_fileItem.targetUrl();
-    if (!targetUrl.isValid()) {
+    if (!m_fileItem.targetUrl().isValid()) {
         setError(ERR_INTERNAL);
         emitResult();
         return;
     }
+
+    m_timeoutTimer = new QTimer(this);
+    m_timeoutTimer->setSingleShot(true);
+    connect(m_timeoutTimer, &QTimer::timeout, this, &FilePreviewJob::slotTimeout);
+    // Stop the timer once the job finishes, so it cannot fire into a deleted job.
+    connect(this, &KJob::finished, m_timeoutTimer, &QTimer::stop);
+    m_timeoutTimer->start(5s);
+
+    statFile();
+}
+
+void FilePreviewJob::statFile()
+{
+    const QUrl targetUrl = m_fileItem.targetUrl();
+
     // We need to first check the device id's so we can find out if the images can be cached
     QFlags<KIO::StatDetail> details = KIO::StatDefaultDetails | KIO::StatInode | KIO::StatResolveSymlink | KIO::StatMountId;
 
@@ -116,16 +130,67 @@ void FilePreviewJob::start()
     statJob->addMetaData(QStringLiteral("no-auth-prompt"), QStringLiteral("true"));
     connect(statJob, &KIO::Job::result, this, &FilePreviewJob::slotStatFile);
     statJob->start();
+}
 
-    // Single-shot timeout. Owned by this job, so it is destroyed with it.
-    m_timeoutTimer = new QTimer(this);
-    m_timeoutTimer->setSingleShot(true);
-    connect(m_timeoutTimer, &QTimer::timeout, this, &FilePreviewJob::slotTimeout);
+QString FilePreviewJob::thumbnailCachePath(const QByteArray &uri, const QString &thumbRoot, const QSize &size, qreal devicePixelRatio)
+{
+    struct CachePool {
+        QLatin1String dir;
+        int minSize;
+    };
+    static const CachePool pools[] = {
+        {QLatin1String("normal/"), 128},
+        {QLatin1String("large/"), 256},
+        {QLatin1String("x-large/"), 512},
+        {QLatin1String("xx-large/"), 1024},
+    };
+    const int wants = devicePixelRatio * std::max(size.width(), size.height());
+    QLatin1String dir;
+    for (const auto &pool : pools) {
+        if (pool.minSize >= wants) {
+            dir = pool.dir;
+            break;
+        }
+    }
+    if (dir.isEmpty()) {
+        return QString();
+    }
 
-    // Stop the timeout timer as soon as the job finishes.
-    connect(this, &KJob::finished, m_timeoutTimer, &QTimer::stop);
+    QCryptographicHash md5(QCryptographicHash::Md5);
+    md5.addData(uri);
+    const QString name = QString::fromLatin1(md5.result().toHex()) + QLatin1String(".png");
+    return thumbRoot + dir + name;
+}
 
-    m_timeoutTimer->start(5s);
+QImage FilePreviewJob::cachedThumbnail(const QByteArray &uri, const QString &thumbRoot, const QSize &size, qreal devicePixelRatio)
+{
+    const QString path = thumbnailCachePath(uri, thumbRoot, size, devicePixelRatio);
+    if (path.isEmpty()) {
+        return QImage();
+    }
+
+    QImage thumb = loadThumbnailFromCache(path, devicePixelRatio);
+    if (thumb.isNull()) {
+        return QImage();
+    }
+
+    // A cache file is keyed by the source uri, so a mismatch means this is not
+    // our thumbnail (a hash collision); do not use it at all.
+    if (thumb.text(QStringLiteral("Thumb::URI")) != QString::fromUtf8(uri)) {
+        return QImage();
+    }
+
+    return thumb;
+}
+
+bool FilePreviewJob::thumbnailMatchesFile(const QImage &thumb, const QDateTime &sourceMTime, KIO::filesize_t sourceSize)
+{
+    if (thumb.text(QStringLiteral("Thumb::MTime")).toLongLong() != sourceMTime.toSecsSinceEpoch()) {
+        return false;
+    }
+    // Thumb::Size is optional, but when present it must match.
+    const QString recordedSize = thumb.text(QStringLiteral("Thumb::Size"));
+    return recordedSize.isEmpty() || recordedSize.toULongLong() == static_cast<qulonglong>(sourceSize);
 }
 
 bool FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
