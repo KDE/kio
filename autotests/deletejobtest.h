@@ -17,6 +17,7 @@ private Q_SLOTS:
     void deleteFileTestCase();
     void deleteDirectoryTestCase_data() const;
     void deleteDirectoryTestCase();
+    void deletePartialFailureNotifiesRemovals();
 
 private:
     void createEmptyTestFiles(const QStringList &fileNames, const QString &path) const;
