@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-12 00:40+0000\n"
+"POT-Creation-Date: 2026-06-13 00:40+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -90,13 +90,13 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "មាន​ថត​រួច​ហើយ"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2463 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "មាន​ឯកសារ​រួច​ហើយ"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2463
+#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "មាន​ជា​ថត​រួច​ហើយ"
