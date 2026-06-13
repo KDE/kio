@@ -20,12 +20,6 @@
 class QTimer;
 class FilePreviewJobTest;
 
-#ifdef BUILD_TESTING
-#define KIOGUI_TEST_EXPORT KIOGUI_EXPORT
-#else
-#define KIOGUI_TEST_EXPORT
-#endif
-
 namespace KIO
 {
 
@@ -124,6 +118,8 @@ private Q_SLOTS:
 
 private:
     friend class ::FilePreviewJobTest;
+    // For the synchronous PreviewJob::cachedThumbnail() entry point.
+    friend class PreviewJob;
 
     enum CachePolicy {
         Prevent,
@@ -170,10 +166,31 @@ private:
 
     QTimer *m_timeoutTimer = nullptr;
 
+    // Whether the on-disk thumbnail cache has already been looked up.
+    bool m_cacheThumbnailChecked = false;
+
     QPointer<KIO::TransferJob> m_transferjob = nullptr;
     QPointer<KIO::StandardThumbnailJob> m_standardThumbnailJob = nullptr;
 
+    void statFile();
+    // Returns true if a cache lookup was started.
+    bool tryEmitCachedThumbnail();
     void getOrCreateThumbnail();
+
+    // Path of the cache file for the encoded source uri at the given size, or an
+    // empty string when the size is larger than any cache bucket.
+    static QString thumbnailCachePath(const QByteArray &uri, const QString &thumbRoot, const QSize &size, qreal devicePixelRatio);
+
+    // Loads the thumbnail cached for the encoded source uri at the given size,
+    // or a null image if none is cached for it. The returned thumbnail may be
+    // out of date; use thumbnailMatchesFile() to check. Shared by the
+    // synchronous and asynchronous lookups.
+    static QImage cachedThumbnail(const QByteArray &uri, const QString &thumbRoot, const QSize &size, qreal devicePixelRatio);
+
+    // Whether a cached thumbnail still matches the source file's modification
+    // time and size, i.e. does not need to be regenerated.
+    static bool thumbnailMatchesFile(const QImage &thumb, const QDateTime &sourceMTime, KIO::filesize_t sourceSize);
+
     static QImage loadThumbnailFromCache(const QString &url, qreal dpr);
     bool isCacheValid(const QImage &thumb);
     void createThumbnail(const QString &);

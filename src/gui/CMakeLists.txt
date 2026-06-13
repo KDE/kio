@@ -90,6 +90,16 @@ ecm_generate_export_header(KF6KIOGui
 
 target_include_directories(KF6KIOGui INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui>")
 
+# FilePreviewJob (an internal class) is exported only for autotests; see
+# filepreviewjob.h. Define the macro from here rather than in the header, and
+# keep it to the build tree so it is not forced on consumers of the installed
+# library.
+if(BUILD_TESTING)
+    target_compile_definitions(KF6KIOGui PUBLIC "$<BUILD_INTERFACE:KIOGUI_TEST_EXPORT=KIOGUI_EXPORT>")
+else()
+    target_compile_definitions(KF6KIOGui PRIVATE KIOGUI_TEST_EXPORT=)
+endif()
+
 target_link_libraries(KF6KIOGui
   PUBLIC
     KF6::KIOCore
@@ -145,3 +155,9 @@ install(FILES
   ${KIOGui_HEADERS}
   ${CMAKE_CURRENT_BINARY_DIR}/kiogui_export.h
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui COMPONENT Devel)
+
+if(BUILD_TESTING)
+  # FilePreviewJob is an internal class; install its header only for test builds
+  # so autotests can include it like a normal consumer.
+  install(FILES filepreviewjob.h DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF}/KIOGui/kio COMPONENT Devel)
+endif()
