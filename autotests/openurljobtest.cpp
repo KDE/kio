@@ -171,7 +171,7 @@ void OpenUrlJobTest::startProcess()
     // We can find out that it was executed because it writes to "dest".
     const QString dest = m_tempDir.path() + "/dest";
     QTRY_VERIFY2(QFile::exists(dest), qPrintable(dest));
-    QCOMPARE(readFile(dest), srcFile);
+    QTRY_COMPARE(readFile(dest), srcFile);
 
     QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete);
 }
@@ -522,7 +522,7 @@ void OpenUrlJobTest::launchExternalBrowser()
         dest = m_tempDir.path() + QLatin1String("/dest"); // see the .desktop file in writeApplicationDesktopFile
     }
     QTRY_VERIFY(QFileInfo::exists(dest)); // TRY because CommandLineLauncherJob finishes immediately
-    QCOMPARE(readFile(dest), remoteImage.toString());
+    QTRY_COMPARE(readFile(dest), remoteImage.toString());
 
     // Restore settings
     KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("General")).deleteEntry("BrowserApplication");
