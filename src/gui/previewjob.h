@@ -220,6 +220,14 @@ protected Q_SLOTS:
     void slotResult(KJob *job) override;
 
 private:
+    friend class PreviewJobPrivate;
+
+    // Looks up every pending item's cached thumbnail in parallel, emits the
+    // hits, and leaves the misses to the worker-limited generation batches.
+    void resolveCachedThumbnails();
+
+    void emitPreview(const KFileItem &item, const QImage &previewImage);
+
     Q_DECLARE_PRIVATE(PreviewJob)
 
 public:

@@ -16,12 +16,15 @@
 
 #include <KConfigGroup>
 #include <KSharedConfig>
+#include <QFileInfo>
+#include <QFutureWatcher>
 #include <QImage>
 #include <QMetaMethod>
 #include <QMimeDatabase>
 #include <QPixmap>
 #include <QStandardPaths>
 #include <QTimer>
+#include <QtConcurrentMap>
 
 #include "job_p.h"
 
@@ -207,7 +210,7 @@ void PreviewJobPrivate::startPreview()
         // caching info about thumbroot device id separately, to avoid repeated lookup
         setupData.thumbRootDeviceId = deviceIdForLocalPath(setupData.thumbRoot);
 
-        startNextFilePreviewJobBatch();
+        q_func()->resolveCachedThumbnails();
     });
     pathsFileDeviceIdsJob->start();
 }
@@ -315,13 +318,7 @@ void PreviewJob::slotResult(KJob *job)
         const auto &fileItem = previewJob->item();
         if (!previewJob->previewImage().isNull()) {
             d->thumbnailWorkerMetaData = previewJob->thumbnailWorkerMetaData();
-            auto previewImage = previewJob->previewImage();
-            Q_EMIT generated(fileItem, previewImage);
-            if (isSignalConnected(QMetaMethod::fromSignal(&PreviewJob::gotPreview))) {
-                QPixmap pixmap = QPixmap::fromImage(previewImage);
-                pixmap.setDevicePixelRatio(d->options.devicePixelRatio);
-                Q_EMIT gotPreview(fileItem, pixmap);
-            }
+            emitPreview(fileItem, previewJob->previewImage());
         } else {
             Q_EMIT failed(fileItem);
         }
@@ -337,6 +334,88 @@ void PreviewJob::slotResult(KJob *job)
     // slot might have been called synchronously from startNextFilePreviewJobBatch(), as KIO::stat currently can do
     // so always delay the next call to the next event-loop, to ensure startNextFilePreviewJobBatch() has exited
     d->scheduleNextFilePreviewJobBatch();
+}
+
+namespace
+{
+struct CachedThumbnailRequest {
+    KFileItem item;
+    QByteArray uri;
+    QString localPath;
+    KIO::filesize_t fileSize = 0;
+};
+struct CachedThumbnailResult {
+    KFileItem item;
+    QImage preview; // null if nothing usable was cached
+};
+}
+
+void PreviewJob::emitPreview(const KFileItem &fileItem, const QImage &previewImage)
+{
+    Q_D(PreviewJob);
+    Q_EMIT generated(fileItem, previewImage);
+    if (isSignalConnected(QMetaMethod::fromSignal(&PreviewJob::gotPreview))) {
+        QPixmap pixmap = QPixmap::fromImage(previewImage);
+        pixmap.setDevicePixelRatio(d->options.devicePixelRatio);
+        Q_EMIT gotPreview(fileItem, pixmap);
+    }
+}
+
+void PreviewJob::resolveCachedThumbnails()
+{
+    Q_D(PreviewJob);
+
+    // Local files have an on-disk thumbnail to look up; the rest (remote,
+    // directories, symlinks, sequence frames) go straight to generation.
+    QList<CachedThumbnailRequest> toCheck;
+    QList<KFileItem> needGeneration;
+    for (const KFileItem &item : std::as_const(d->fileItems)) {
+        bool isLocal = false;
+        const QUrl url = item.mostLocalUrl(&isLocal);
+        if (d->options.sequenceIndex == 0 && isLocal && !item.isDir() && !item.isLink()) {
+            toCheck.append({item, url.toEncoded(QUrl::RemovePassword | QUrl::FullyEncoded), url.toLocalFile(), static_cast<KIO::filesize_t>(item.size())});
+        } else {
+            needGeneration.append(item);
+        }
+    }
+
+    if (toCheck.isEmpty()) {
+        d->startNextFilePreviewJobBatch();
+        return;
+    }
+
+    const QString thumbRoot = d->setupData.thumbRoot;
+    const QSize size = d->options.size;
+    const qreal dpr = d->options.devicePixelRatio;
+
+    auto *watcher = new QFutureWatcher<CachedThumbnailResult>(this);
+    connect(watcher, &QFutureWatcher<CachedThumbnailResult>::finished, this, [this, watcher, needGeneration]() {
+        watcher->deleteLater();
+        Q_D(PreviewJob);
+
+        QList<KFileItem> misses = needGeneration;
+        const QList<CachedThumbnailResult> results = watcher->future().results();
+        for (const CachedThumbnailResult &result : results) {
+            if (result.preview.isNull()) {
+                misses.append(result.item);
+            } else {
+                emitPreview(result.item, result.preview);
+            }
+        }
+
+        d->fileItems = misses;
+        d->startNextFilePreviewJobBatch();
+    });
+
+    // Run on the thread pool, not bound by the thumbnail worker count, so a
+    // whole view of cached items resolves in one wave.
+    watcher->setFuture(QtConcurrent::mapped(toCheck, [thumbRoot, size, dpr](const CachedThumbnailRequest &request) -> CachedThumbnailResult {
+        const QImage thumb = FilePreviewJob::cachedThumbnail(request.uri, thumbRoot, size, dpr);
+        if (!thumb.isNull() && FilePreviewJob::thumbnailMatchesFile(thumb, QFileInfo(request.localPath).lastModified(), request.fileSize)) {
+            return {request.item, FilePreviewJob::scaledPreview(thumb, size)};
+        }
+        return {request.item, QImage()};
+    }));
 }
 
 QList<KPluginMetaData> PreviewJob::availableThumbnailerPlugins()
