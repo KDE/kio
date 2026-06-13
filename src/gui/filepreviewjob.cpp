@@ -762,16 +762,18 @@ void FilePreviewJob::saveThumbnailToCache(const QImage &thumb, const QString &pa
     }
 }
 
-void FilePreviewJob::emitPreview(const QImage &thumb)
+QImage FilePreviewJob::scaledPreview(const QImage &thumb, const QSize &size)
 {
     const qreal ratio = thumb.devicePixelRatio();
-
-    QImage preview = thumb;
-    if (preview.width() > m_options.size.width() * ratio || preview.height() > m_options.size.height() * ratio) {
-        preview = preview.scaled(QSize(m_options.size.width() * ratio, m_options.size.height() * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    if (thumb.width() > size.width() * ratio || thumb.height() > size.height() * ratio) {
+        return thumb.scaled(QSize(size.width() * ratio, size.height() * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     }
+    return thumb;
+}
 
-    m_preview = preview;
+void FilePreviewJob::emitPreview(const QImage &thumb)
+{
+    m_preview = scaledPreview(thumb, m_options.size);
     emitResult();
 }
 

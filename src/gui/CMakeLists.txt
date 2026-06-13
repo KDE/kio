@@ -109,6 +109,7 @@ target_link_libraries(KF6KIOGui
   PRIVATE
     KF6::Solid
     KF6::I18n
+    Qt6::Concurrent
 )
 
 target_link_libraries(KF6KIOGui PRIVATE KF6::WindowSystem)
