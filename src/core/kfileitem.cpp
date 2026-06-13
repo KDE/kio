@@ -1217,7 +1217,9 @@ QString KFileItem::iconName() const
         }
 
         if (isDir()) {
-            if (isDirectoryMounted(url)) {
+            // Reading the .directory file opens it synchronously, which can block
+            // for a long time on a slow filesystem, so skip it for those.
+            if (!d->isSlow() && isDirectoryMounted(url)) {
                 d->m_iconName = iconFromDirectoryFile(localFile);
                 if (!d->m_iconName.isEmpty()) {
                     d->m_useIconNameCache = d->m_bMimeTypeKnown;
