@@ -135,7 +135,7 @@
      <item row="4" column="0">
       <widget class="QLabel" name="defaultHandlerLabel_Left">
        <property name="text">
-        <string>Open With:</string>
+        <string>Open with:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -452,7 +452,7 @@
      <item row="14" column="0">
       <widget class="QLabel" name="fsLabel_Left">
        <property name="text">
-        <string>File System:</string>
+        <string>File system:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -478,7 +478,7 @@
      <item row="15" column="0">
       <widget class="QLabel" name="mountPointLabel_Left">
        <property name="text">
-        <string>Mounted On:</string>
+        <string>Mounted on:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -504,7 +504,7 @@
      <item row="16" column="0">
       <widget class="QLabel" name="mountSrcLabel_Left">
        <property name="text">
-        <string>Mounted From:</string>
+        <string>Mounted from:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -530,7 +530,7 @@
      <item row="17" column="0">
       <widget class="QLabel" name="freespaceLabel">
        <property name="text">
-        <string>Free Space:</string>
+        <string>Free space:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
