@@ -182,6 +182,9 @@ private:
 
     static bool thumbnailMatchesFile(const QImage &thumb, const QDateTime &sourceMTime, KIO::filesize_t sourceSize);
 
+    // Scales thumb down to fit size (honouring its dpr), or returns it as-is.
+    static QImage scaledPreview(const QImage &thumb, const QSize &size);
+
     static QImage loadThumbnailFromCache(const QString &url, qreal dpr);
     bool isCacheValid(const QImage &thumb);
     void createThumbnail(const QString &);
