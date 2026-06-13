@@ -41,6 +41,7 @@
 #include <QMimeDatabase>
 #include <QSaveFile>
 #include <QTemporaryDir>
+#include <QTimer>
 #include <QtConcurrent/QtConcurrent>
 
 #ifdef WITH_QTDBUS
@@ -116,7 +117,15 @@ void FilePreviewJob::start()
     connect(statJob, &KIO::Job::result, this, &FilePreviewJob::slotStatFile);
     statJob->start();
 
-    m_timeoutTimer = startTimer(5s);
+    // Single-shot timeout. Owned by this job, so it is destroyed with it.
+    m_timeoutTimer = new QTimer(this);
+    m_timeoutTimer->setSingleShot(true);
+    connect(m_timeoutTimer, &QTimer::timeout, this, &FilePreviewJob::slotTimeout);
+
+    // Stop the timeout timer as soon as the job finishes.
+    connect(this, &KJob::finished, m_timeoutTimer, &QTimer::stop);
+
+    m_timeoutTimer->start(5s);
 }
 
 bool FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
@@ -766,20 +775,18 @@ QImage FilePreviewJob::previewImage() const
     return m_preview;
 }
 
-void FilePreviewJob::timerEvent(QTimerEvent *event)
+void FilePreviewJob::slotTimeout()
 {
-    if (event->timerId() == m_timeoutTimer) {
-        if (m_transferjob) {
-            m_transferjob->kill();
-        }
-        if (m_standardThumbnailJob) {
-            m_standardThumbnailJob->kill();
-        }
-
-        setError(KIO::ERR_INTERNAL);
-        setErrorText(u"Timeout"_s);
-        emitResult();
+    if (m_transferjob) {
+        m_transferjob->kill();
     }
+    if (m_standardThumbnailJob) {
+        m_standardThumbnailJob->kill();
+    }
+
+    setError(KIO::ERR_INTERNAL);
+    setErrorText(u"Timeout"_s);
+    emitResult();
 }
 
 std::unique_ptr<SHM> SHM::create(int size)

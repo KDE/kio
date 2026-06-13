@@ -99,6 +99,7 @@ if (TARGET KF6::KIOGui)
     favicontest.cpp
     openurljobtest.cpp
     kemailclientlauncherjobtest.cpp
+    filepreviewjobtest.cpp
     LINK_LIBRARIES KF6::KIOCore KF6::KIOGui KF6::WindowSystem Qt6::Test
   )
 
