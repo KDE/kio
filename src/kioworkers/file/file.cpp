@@ -157,21 +157,58 @@ WorkerResult FileProtocol::chmod(const QUrl &url, int permissions)
     return WorkerResult::pass();
 }
 
+#ifdef Q_OS_WIN
+// Set the modification time of path through the Win32 API, which keeps
+// 100-nanosecond resolution and stores the time in UTC. The C runtime utime
+// only keeps whole seconds and converts through local time. The creation and
+// access times are left unchanged.
+static bool setWindowsModificationTime(const QString &path, const QDateTime &mtime)
+{
+    HANDLE handle = CreateFileW(reinterpret_cast<const wchar_t *>(path.utf16()),
+                                FILE_WRITE_ATTRIBUTES,
+                                FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE,
+                                nullptr,
+                                OPEN_EXISTING,
+                                FILE_FLAG_BACKUP_SEMANTICS, // also needed to open a directory
+                                nullptr);
+    if (handle == INVALID_HANDLE_VALUE) {
+        return false;
+    }
+
+    // A FILETIME counts 100-nanosecond intervals since 1601-01-01.
+    // 11644473600000: milliseconds between 1601-01-01 and the Unix epoch (1970-01-01).
+    // 10000: 100-nanosecond intervals per millisecond.
+    const qint64 intervals = (mtime.toMSecsSinceEpoch() + 11644473600000LL) * 10000LL;
+    FILETIME modificationTime;
+    modificationTime.dwLowDateTime = static_cast<DWORD>(intervals & 0xFFFFFFFF);
+    modificationTime.dwHighDateTime = static_cast<DWORD>((intervals >> 32) & 0xFFFFFFFF);
+
+    const bool ok = SetFileTime(handle, nullptr, nullptr, &modificationTime);
+    CloseHandle(handle);
+    return ok;
+}
+#endif
+
 WorkerResult FileProtocol::setModificationTime(const QUrl &url, const QDateTime &mtime)
 {
     const QString path(url.toLocalFile());
     QT_STATBUF statbuf;
-    if (QT_LSTAT(QFile::encodeName(path).constData(), &statbuf) == 0) {
-        struct utimbuf utbuf;
-        utbuf.actime = statbuf.st_atime; // access time, unchanged
-        utbuf.modtime = mtime.toSecsSinceEpoch(); // modification time
-        if (::utime(QFile::encodeName(path).constData(), &utbuf) != 0) {
-            return WorkerResult::fail(KIO::ERR_CANNOT_SETTIME, path);
-        }
-        return WorkerResult::pass();
-    } else {
+    if (QT_LSTAT(QFile::encodeName(path).constData(), &statbuf) != 0) {
         return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, path);
     }
+#ifdef Q_OS_WIN
+    if (!setWindowsModificationTime(path, mtime)) {
+        return WorkerResult::fail(KIO::ERR_CANNOT_SETTIME, path);
+    }
+#else
+    struct utimbuf utbuf;
+    utbuf.actime = statbuf.st_atime; // access time, unchanged
+    utbuf.modtime = mtime.toSecsSinceEpoch(); // modification time
+    if (::utime(QFile::encodeName(path).constData(), &utbuf) != 0) {
+        return WorkerResult::fail(KIO::ERR_CANNOT_SETTIME, path);
+    }
+#endif
+    return WorkerResult::pass();
 }
 
 WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
@@ -664,9 +701,9 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
     if (!mtimeStr.isEmpty()) {
         QDateTime dt = QDateTime::fromString(mtimeStr, Qt::ISODate);
         if (dt.isValid()) {
+#ifndef Q_OS_WIN
             QT_STATBUF dest_statbuf;
             if (QT_STAT(QFile::encodeName(dest_orig).constData(), &dest_statbuf) == 0) {
-#ifndef Q_OS_WIN
                 struct timeval utbuf[2];
                 // access time
                 utbuf[0].tv_sec = dest_statbuf.st_atime; // access time, unchanged  ## TODO preserve msec
@@ -675,13 +712,10 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
                 utbuf[1].tv_sec = dt.toSecsSinceEpoch();
                 utbuf[1].tv_usec = dt.time().msec() * 1000;
                 utimes(QFile::encodeName(dest_orig).constData(), utbuf);
-#else
-                struct utimbuf utbuf;
-                utbuf.actime = dest_statbuf.st_atime;
-                utbuf.modtime = dt.toSecsSinceEpoch();
-                utime(QFile::encodeName(dest_orig).constData(), &utbuf);
-#endif
             }
+#else
+            setWindowsModificationTime(dest_orig, dt);
+#endif
         }
     }
 
