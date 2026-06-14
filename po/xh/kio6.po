@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-13 00:40+0000\n"
+"POT-Creation-Date: 2026-06-14 00:39+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -2319,18 +2319,18 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Impazamo Engababhalwanga"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, fuzzy, kde-format
 #| msgid "Symbolic Link"
 msgid "(Symbolic Link to %1)"
 msgstr "Ikhonkco olunophawu"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1485
 #, fuzzy, kde-format
 msgid "(%1, Link to %2)"
 msgstr "Ikhonkco kwi %1"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1488
 #, fuzzy, kde-format
 #| msgid "Points to:"
 msgid " (Points to %1)"
@@ -4019,7 +4019,7 @@ msgstr ""
 msgid "Icon file too big, download aborted"
 msgstr ""
 
-#: gui/filepreviewjob.cpp:285
+#: gui/filepreviewjob.cpp:294
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -5528,10 +5528,9 @@ msgstr "Imixholo:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Open With"
-msgid "Open With:"
-msgstr "Vula Nge"
+#, kde-format
+msgid "Open with:"
+msgstr "Vula nge:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:192
@@ -5610,25 +5609,25 @@ msgstr "Ifunyenwe: "
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
 #, fuzzy, kde-format
-msgid "File System:"
+msgid "File system:"
 msgstr "Filesystems"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
 #, fuzzy, kde-format
-msgid "Mounted On:"
+msgid "Mounted on:"
 msgstr "Incopho yonyuso:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
 #, fuzzy, kde-format
-msgid "Mounted From:"
+msgid "Mounted from:"
 msgstr "Incopho yonyuso:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
 #, kde-format
-msgid "Free Space:"
+msgid "Free space:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -7512,6 +7511,15 @@ msgstr ""
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
+#, fuzzy
+#~| msgid "Open With"
+#~ msgid "Open With:"
+#~ msgstr "Vula Nge"
+
+#, fuzzy
+#~ msgid "File System:"
+#~ msgstr "Filesystems"
+
 #~ msgid "Delete Files"
 #~ msgstr "Cima Iifayile"
 
@@ -9309,10 +9317,6 @@ msgstr ""
 #~ msgid "Read only"
 #~ msgstr "Funda kuphela"
 
-#, fuzzy
-#~ msgid "File system:"
-#~ msgstr "Filesystems"
-
 #~ msgid "Mount point (/mnt/floppy):"
 #~ msgstr "Mount point (/mnt/floppy):"
 
@@ -9771,9 +9775,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Ayikwazi ukwenza i io-slave:\n"
 #~ "klauncher ithe: %1"
-
-#~ msgid "Open with:"
-#~ msgstr "Vula nge:"
 
 #, fuzzy
 #~| msgid "Disk cache &size:"

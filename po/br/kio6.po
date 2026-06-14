@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-13 00:40+0000\n"
+"POT-Creation-Date: 2026-06-14 00:39+0000\n"
 "PO-Revision-Date: 2004-09-19 18:24+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud.com>\n"
 "Language-Team: Brezhoneg <Suav.Icb.fr>\n"
@@ -2054,19 +2054,19 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "War-nij"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, fuzzy, kde-format
 #| msgid "Symbolic Link"
 msgid "(Symbolic Link to %1)"
 msgstr "Arouezere"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1485
 #, fuzzy, kde-format
 #| msgid "Link to %1 (%2)"
 msgid "(%1, Link to %2)"
 msgstr "Liammañ ouzh %1 (%2)"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1488
 #, fuzzy, kde-format
 #| msgid "Points to:"
 msgid " (Points to %1)"
@@ -3733,7 +3733,7 @@ msgstr ""
 msgid "Icon file too big, download aborted"
 msgstr ""
 
-#: gui/filepreviewjob.cpp:285
+#: gui/filepreviewjob.cpp:294
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -5248,10 +5248,9 @@ msgstr "Endalc'had :"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Open With"
-msgid "Open With:"
-msgstr "Digeriñ gant"
+#, kde-format
+msgid "Open with:"
+msgstr "Digeriñ gant :"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:192
@@ -5328,29 +5327,28 @@ msgstr "Diwezhañ :"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
-#, fuzzy, kde-format
-#| msgid "File system:"
-msgid "File System:"
+#, kde-format
+msgid "File system:"
 msgstr "Reizhiad restroù :"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
-msgid "Mounted On:"
+msgid "Mounted on:"
 msgstr "Marc'het war :"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
-msgid "Mounted From:"
+msgid "Mounted from:"
 msgstr "Marc'het war :"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
 #, kde-format
-msgid "Free Space:"
+msgid "Free space:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -7237,6 +7235,16 @@ msgstr ""
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
+#, fuzzy
+#~| msgid "Open With"
+#~ msgid "Open With:"
+#~ msgstr "Digeriñ gant"
+
+#, fuzzy
+#~| msgid "File system:"
+#~ msgid "File System:"
+#~ msgstr "Reizhiad restroù :"
+
 #~ msgid "Delete Files"
 #~ msgstr "Distruj restroù"
 
@@ -8205,9 +8213,6 @@ msgstr ""
 #~ msgid "Read only"
 #~ msgstr "Lenn-hepken"
 
-#~ msgid "File system:"
-#~ msgstr "Reizhiad restroù :"
-
 #~ msgid "Mount point (/mnt/floppy):"
 #~ msgstr "Poent marc'hañ (/mnt/floppy) :"
 
@@ -8578,9 +8583,6 @@ msgstr ""
 #~ "Unable to create io-slave:\n"
 #~ "klauncher said: %1"
 #~ msgstr "Divarrek da grouiñ restr gwareziñ"
-
-#~ msgid "Open with:"
-#~ msgstr "Digeriñ gant :"
 
 #, fuzzy
 #~| msgid "Disk cache &size:"

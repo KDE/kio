@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-13 00:40+0000\n"
+"POT-Creation-Date: 2026-06-14 00:39+0000\n"
 "PO-Revision-Date: 2024-12-15 19:32+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2190,17 +2190,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "अदस्तावेज़ीकृत त्रुटि"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "( %1 पर एक सिंबालिक लिंक)"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1485
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, इस पर कड़ी: %2)"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1488
 #, fuzzy, kde-format
 #| msgid "Points to:"
 msgid " (Points to %1)"
@@ -3883,7 +3883,7 @@ msgstr ""
 msgid "Icon file too big, download aborted"
 msgstr ""
 
-#: gui/filepreviewjob.cpp:285
+#: gui/filepreviewjob.cpp:294
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -5423,10 +5423,9 @@ msgstr "विषयसूचीः"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Open With"
-msgid "Open With:"
-msgstr "के साथ खोलें"
+#, kde-format
+msgid "Open with:"
+msgstr "के साथ खोलें:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:192
@@ -5504,29 +5503,28 @@ msgstr "पहुंचाः"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
-#, fuzzy, kde-format
-#| msgid "File system:"
-msgid "File System:"
-msgstr "फ़ाइल तंत्र ः"
+#, kde-format
+msgid "File system:"
+msgstr "फ़ाइल सिस्टमः"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
-msgid "Mounted On:"
+msgid "Mounted on:"
 msgstr "पर माउन्टेड:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
-msgid "Mounted From:"
+msgid "Mounted from:"
 msgstr "पर माउन्टेड:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
 #, kde-format
-msgid "Free Space:"
+msgid "Free space:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -7495,6 +7493,16 @@ msgstr ""
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
+#, fuzzy
+#~| msgid "Open With"
+#~ msgid "Open With:"
+#~ msgstr "के साथ खोलें"
+
+#, fuzzy
+#~| msgid "File system:"
+#~ msgid "File System:"
+#~ msgstr "फ़ाइल तंत्र ः"
+
 #~ msgid "Delete Files"
 #~ msgstr "फ़ाइलें मिटाएँ"
 
@@ -8985,9 +8993,6 @@ msgstr ""
 #~ msgid "Read only"
 #~ msgstr "सिर्फ पढ़ने के लिए"
 
-#~ msgid "File system:"
-#~ msgstr "फ़ाइल सिस्टमः"
-
 #~ msgid "Mount point (/mnt/floppy):"
 #~ msgstr "माउन्ट पाइंट (/mnt/floppy):"
 
@@ -9381,9 +9386,6 @@ msgstr ""
 #~ msgstr ""
 #~ "कुकी हैंडलर सेवा प्रारंभ करने में अक्षम.\n"
 #~ "आपके कम्प्यूटर पर भंडारित कुकीज़ को आप प्रबंधित करने में आप सक्षम नहीं होंगे."
-
-#~ msgid "Open with:"
-#~ msgstr "के साथ खोलें:"
 
 #~ msgid ""
 #~ "%1.\n"

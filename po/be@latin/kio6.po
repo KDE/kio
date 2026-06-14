@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-13 00:40+0000\n"
+"POT-Creation-Date: 2026-06-14 00:39+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -2341,17 +2341,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Niezadakumientavanaja pamylka"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Simvaličnaja spasylka na %1)"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1485
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, spasylka na %2)"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1488
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Spasylajecca na %1)"
@@ -4041,7 +4041,7 @@ msgstr "Nie ŭdalosia zachavać vyjavu ŭ %1"
 msgid "Icon file too big, download aborted"
 msgstr "Fajl značka zanadta vialiki, spampoŭvannie skasavana"
 
-#: gui/filepreviewjob.cpp:285
+#: gui/filepreviewjob.cpp:294
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -5589,8 +5589,8 @@ msgstr "Zmiesciva:"
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
 #, kde-format
-msgid "Open With:"
-msgstr "Adkryvać z dapamohaj:"
+msgid "Open with:"
+msgstr "Adkryć u:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:192
@@ -5668,25 +5668,28 @@ msgstr "Apošni dostup:"
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
-msgid "File System:"
+msgid "File system:"
 msgstr "Fajlavaja sistema:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, kde-format
-msgid "Mounted On:"
+#, fuzzy, kde-format
+#| msgid "Mounted On:"
+msgid "Mounted on:"
 msgstr "Prymantavana na:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, kde-format
-msgid "Mounted From:"
+#, fuzzy, kde-format
+#| msgid "Mounted From:"
+msgid "Mounted from:"
 msgstr "Prymantavana z:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, kde-format
-msgid "Free Space:"
+#, fuzzy, kde-format
+#| msgid "Free Space:"
+msgid "Free space:"
 msgstr "Voĺnaja prastora:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -7852,6 +7855,12 @@ msgstr "Heta zapuscić prahramu:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Kali vy nie daviarajecie hetaj prahramie, nacisnicie \"Skasavać\""
+
+#~ msgid "Open With:"
+#~ msgstr "Adkryvać z dapamohaj:"
+
+#~ msgid "File System:"
+#~ msgstr "Fajlavaja sistema:"
 
 #~ msgid "Change Attribute"
 #~ msgstr "Zmianić atrybut"
@@ -10149,9 +10158,6 @@ msgstr "Kali vy nie daviarajecie hetaj prahramie, nacisnicie \"Skasavać\""
 #~ msgid "Read only"
 #~ msgstr "Toĺki dlia čytannia"
 
-#~ msgid "File system:"
-#~ msgstr "Fajlavaja sistema:"
-
 #~ msgid "Mount point (/mnt/floppy):"
 #~ msgstr "Punkt macavannia (/mnt/floppy):"
 
@@ -10500,9 +10506,6 @@ msgstr "Kali vy nie daviarajecie hetaj prahramie, nacisnicie \"Skasavać\""
 #~ msgstr ""
 #~ "Niemahčyma stvaryć io-slave:\n"
 #~ "klauncher paviedamiŭ: %1"
-
-#~ msgid "Open with:"
-#~ msgstr "Adkryć u:"
 
 #~ msgid ""
 #~ "%1.\n"

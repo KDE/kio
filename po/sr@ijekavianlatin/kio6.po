@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-13 00:40+0000\n"
+"POT-Creation-Date: 2026-06-14 00:39+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -2301,17 +2301,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nedokumentovana greška"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(simbolička veza ka %1)"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1485
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, veza ka %2)"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1488
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (pokazuje na %1)"
@@ -4039,7 +4039,7 @@ msgstr "Greška pri upisivanju slike u %1"
 msgid "Icon file too big, download aborted"
 msgstr "Fajl ikonice prevelik, preuzimanje obustavljeno"
 
-#: gui/filepreviewjob.cpp:285
+#: gui/filepreviewjob.cpp:294
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -5655,7 +5655,7 @@ msgstr "Sadržaj:"
 #: widgets/kfilepropspluginwidget.ui:138
 #, fuzzy, kde-format
 #| msgid "Open With"
-msgid "Open With:"
+msgid "Open with:"
 msgstr "Otvori pomoću"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
@@ -5736,23 +5736,22 @@ msgstr "Pristup:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
-#, fuzzy, kde-format
-#| msgid "File system:"
-msgid "File System:"
+#, kde-format
+msgid "File system:"
 msgstr "Fajl sistem:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
-msgid "Mounted On:"
+msgid "Mounted on:"
 msgstr "Montiranje:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
-msgid "Mounted From:"
+msgid "Mounted from:"
 msgstr "Montiranje:"
 
 # >> @item:inlistbox Keyword delimiter character
@@ -5761,7 +5760,7 @@ msgstr "Montiranje:"
 #, fuzzy, kde-format
 #| msgctxt "Space as keyword delimiter"
 #| msgid "Space"
-msgid "Free Space:"
+msgid "Free space:"
 msgstr "razmak"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -7900,6 +7899,11 @@ msgstr "Ovo će pokrenuti program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ako ne vjerujete programu, kliknite na „Odustani“."
+
+#, fuzzy
+#~| msgid "File system:"
+#~ msgid "File System:"
+#~ msgstr "Fajl sistem:"
 
 # >> @title:window
 #~ msgid "Delete Files"
@@ -10234,9 +10238,6 @@ msgstr "Ako ne vjerujete programu, kliknite na „Odustani“."
 
 #~ msgid "Read only"
 #~ msgstr "samo za čitanje"
-
-#~ msgid "File system:"
-#~ msgstr "Fajl sistem:"
 
 #~ msgid "Mount point (/mnt/floppy):"
 #~ msgstr "Tačka montiranja (/mnt/floppy):"

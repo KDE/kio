@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-13 00:40+0000\n"
+"POT-Creation-Date: 2026-06-14 00:39+0000\n"
 "PO-Revision-Date: 2014-02-25 01:34+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -2331,17 +2331,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nich dokmenteert Fehler"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symboolsch Link op \"%1\")"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1485
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Link op \"%2\")"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1488
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (wiest op %1)"
@@ -4049,7 +4049,7 @@ msgstr ""
 msgid "Icon file too big, download aborted"
 msgstr ""
 
-#: gui/filepreviewjob.cpp:285
+#: gui/filepreviewjob.cpp:294
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -5602,10 +5602,9 @@ msgstr "Inholden:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Open With"
-msgid "Open With:"
-msgstr "Opmaken mit"
+#, kde-format
+msgid "Open with:"
+msgstr "Opmaken mit:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:192
@@ -5684,23 +5683,22 @@ msgstr "Togrepen:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
-#, fuzzy, kde-format
-#| msgid "File system:"
-msgid "File System:"
+#, kde-format
+msgid "File system:"
 msgstr "Dateisysteem:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
-msgid "Mounted On:"
+msgid "Mounted on:"
 msgstr "Inhangt in:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
-msgid "Mounted From:"
+msgid "Mounted from:"
 msgstr "Inhangt in:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
@@ -5708,7 +5706,7 @@ msgstr "Inhangt in:"
 #, fuzzy, kde-format
 #| msgctxt "Space as keyword delimiter"
 #| msgid "Space"
-msgid "Free Space:"
+msgid "Free space:"
 msgstr "Freeteken"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -7804,6 +7802,16 @@ msgstr "Dit start dat Programm:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Wenn Du dit Programm nich troost, klick op \"Afbreken\"."
+
+#, fuzzy
+#~| msgid "Open With"
+#~ msgid "Open With:"
+#~ msgstr "Opmaken mit"
+
+#, fuzzy
+#~| msgid "File system:"
+#~ msgid "File System:"
+#~ msgstr "Dateisysteem:"
 
 #~ msgid "Delete Files"
 #~ msgstr "Dateien wegdoon"
@@ -10101,9 +10109,6 @@ msgstr "Wenn Du dit Programm nich troost, klick op \"Afbreken\"."
 #~ msgid "Read only"
 #~ msgstr "Bloots lesen"
 
-#~ msgid "File system:"
-#~ msgstr "Dateisysteem:"
-
 #~ msgid "Mount point (/mnt/floppy):"
 #~ msgstr "Inhang-Oort (/mnt/floppy):"
 
@@ -10608,9 +10613,6 @@ msgstr "Wenn Du dit Programm nich troost, klick op \"Afbreken\"."
 #~ msgstr ""
 #~ "De Kookjepleeg-Deenst lett sik nich starten.\n"
 #~ "Du kannst de op dissen Reekner sekerten Kookjes nich plegen."
-
-#~ msgid "Open with:"
-#~ msgstr "Opmaken mit:"
 
 #~ msgid ""
 #~ "%1.\n"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-13 00:40+0000\n"
+"POT-Creation-Date: 2026-06-14 00:39+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -2236,17 +2236,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "កំហុស​ដែល​មិន​បាន​កត់​ត្រា"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(តំណ​និមិត្តសញ្ញា​ទៅកាន់ %1)"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1485
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1 តភ្ជាប់​ទៅ %2)"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1488
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (ចង្អុល​ទៅ %1)"
@@ -3939,7 +3939,7 @@ msgstr ""
 msgid "Icon file too big, download aborted"
 msgstr ""
 
-#: gui/filepreviewjob.cpp:285
+#: gui/filepreviewjob.cpp:294
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -5471,10 +5471,9 @@ msgstr "មាតិកា ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Open With"
-msgid "Open With:"
-msgstr "បើក​ជាមួយ"
+#, kde-format
+msgid "Open with:"
+msgstr "បើក​ជាមួយ ៖"
 
 #  i18n: file kcookiespoliciesdlg_ui.ui line 192
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
@@ -5554,29 +5553,28 @@ msgstr "បាន​ដំណើរការ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
-#, fuzzy, kde-format
-#| msgid "File system:"
-msgid "File System:"
+#, kde-format
+msgid "File system:"
 msgstr "ប្រព័ន្ធ​ឯកសារ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
-msgid "Mounted On:"
+msgid "Mounted on:"
 msgstr "បាន​ម៉ោន​លើ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
 #, fuzzy, kde-format
 #| msgid "Mounted on:"
-msgid "Mounted From:"
+msgid "Mounted from:"
 msgstr "បាន​ម៉ោន​លើ ៖"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
 #, kde-format
-msgid "Free Space:"
+msgid "Free space:"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -7610,6 +7608,16 @@ msgstr "វា​នឹង​ចាប់ផ្ដើម​កម្មវិធ
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "ប្រសិន​បើ​មិនជឿជាក់​លើ​កម្មវិធី​នេះទេ ចុច​បោះបង់"
+
+#, fuzzy
+#~| msgid "Open With"
+#~ msgid "Open With:"
+#~ msgstr "បើក​ជាមួយ"
+
+#, fuzzy
+#~| msgid "File system:"
+#~ msgid "File System:"
+#~ msgstr "ប្រព័ន្ធ​ឯកសារ ៖"
 
 #~ msgid "Delete Files"
 #~ msgstr "លុប​ឯកសារ"
@@ -9690,9 +9698,6 @@ msgstr "ប្រសិន​បើ​មិនជឿជាក់​លើ​ក
 #~ msgid "Read only"
 #~ msgstr "បាន​តែ​អាន"
 
-#~ msgid "File system:"
-#~ msgstr "ប្រព័ន្ធ​ឯកសារ ៖"
-
 #~ msgid "Mount point (/mnt/floppy):"
 #~ msgstr "ចំណុច​ម៉ោន (/mnt/floppy) ៖"
 
@@ -10127,9 +10132,6 @@ msgstr "ប្រសិន​បើ​មិនជឿជាក់​លើ​ក
 #~ msgstr ""
 #~ "មិន​អាច​ចាប់ផ្ដើម​សេវា​កម្មវិធី​ដោះស្រាយ​ខូគី ។\n"
 #~ "អ្នក​នឹង​មិន​អាច​គ្រប់គ្រង​ខូគី ដែល​ត្រូវ​បាន​រក្សា​ទុក​ក្នុង​កុំព្យូទ័រ​របស់​អ្នក​ឡើយ ។"
-
-#~ msgid "Open with:"
-#~ msgstr "បើក​ជាមួយ ៖"
 
 #~ msgid ""
 #~ "%1.\n"

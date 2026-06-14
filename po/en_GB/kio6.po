@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-13 00:40+0000\n"
+"POT-Creation-Date: 2026-06-14 00:39+0000\n"
 "PO-Revision-Date: 2024-11-08 14:59+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -2266,17 +2266,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Undocumented Error"
 
-#: core/kfileitem.cpp:1481
+#: core/kfileitem.cpp:1483
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symbolic Link to %1)"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1485
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Link to %2)"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1488
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Points to %1)"
@@ -3921,7 +3921,7 @@ msgstr "Error saving image to %1"
 msgid "Icon file too big, download aborted"
 msgstr "Icon file too big, download aborted"
 
-#: gui/filepreviewjob.cpp:285
+#: gui/filepreviewjob.cpp:294
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -5422,8 +5422,8 @@ msgstr "Content:"
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
 #, kde-format
-msgid "Open With:"
-msgstr "Open With:"
+msgid "Open with:"
+msgstr "Open with:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:192
@@ -5501,25 +5501,28 @@ msgstr "Accessed:"
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
-msgid "File System:"
-msgstr "File System:"
+msgid "File system:"
+msgstr "File system:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, kde-format
-msgid "Mounted On:"
+#, fuzzy, kde-format
+#| msgid "Mounted On:"
+msgid "Mounted on:"
 msgstr "Mounted On:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, kde-format
-msgid "Mounted From:"
+#, fuzzy, kde-format
+#| msgid "Mounted From:"
+msgid "Mounted from:"
 msgstr "Mounted From:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, kde-format
-msgid "Free Space:"
+#, fuzzy, kde-format
+#| msgid "Free Space:"
+msgid "Free space:"
 msgstr "Free Space:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
@@ -7548,6 +7551,12 @@ msgstr "This will start the program:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "If you do not trust this program, click Cancel"
+
+#~ msgid "Open With:"
+#~ msgstr "Open With:"
+
+#~ msgid "File System:"
+#~ msgstr "File System:"
 
 #~ msgid "Change Attribute"
 #~ msgstr "Change Attribute"
@@ -9850,9 +9859,6 @@ msgstr "If you do not trust this program, click Cancel"
 #~ msgid "Read only"
 #~ msgstr "Read only"
 
-#~ msgid "File system:"
-#~ msgstr "File system:"
-
 #~ msgid "Mount point (/mnt/floppy):"
 #~ msgstr "Mount point (/mnt/floppy):"
 
@@ -10377,9 +10383,6 @@ msgstr "If you do not trust this program, click Cancel"
 #~ "Unable to start the cookie handler service.\n"
 #~ "You will not be able to manage the cookies that are stored on your "
 #~ "computer."
-
-#~ msgid "Open with:"
-#~ msgstr "Open with:"
 
 #~ msgid ""
 #~ "%1.\n"
