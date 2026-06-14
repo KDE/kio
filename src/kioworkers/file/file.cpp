@@ -21,11 +21,7 @@
 
 #include <assert.h>
 #include <cerrno>
-#ifdef Q_OS_WIN
-#include <qt_windows.h>
-#include <sys/utime.h>
-#include <winsock2.h> //struct timeval
-#else
+#ifndef Q_OS_WIN
 #include <fcntl.h>
 #include <utime.h>
 #endif
@@ -161,17 +157,22 @@ WorkerResult FileProtocol::setModificationTime(const QUrl &url, const QDateTime 
 {
     const QString path(url.toLocalFile());
     QT_STATBUF statbuf;
-    if (QT_LSTAT(QFile::encodeName(path).constData(), &statbuf) == 0) {
-        struct utimbuf utbuf;
-        utbuf.actime = statbuf.st_atime; // access time, unchanged
-        utbuf.modtime = mtime.toSecsSinceEpoch(); // modification time
-        if (::utime(QFile::encodeName(path).constData(), &utbuf) != 0) {
-            return WorkerResult::fail(KIO::ERR_CANNOT_SETTIME, path);
-        }
-        return WorkerResult::pass();
-    } else {
+    if (QT_LSTAT(QFile::encodeName(path).constData(), &statbuf) != 0) {
         return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, path);
     }
+#ifdef Q_OS_WIN
+    if (!setWindowsModificationTime(path, mtime)) {
+        return WorkerResult::fail(KIO::ERR_CANNOT_SETTIME, path);
+    }
+#else
+    struct utimbuf utbuf;
+    utbuf.actime = statbuf.st_atime; // access time, unchanged
+    utbuf.modtime = mtime.toSecsSinceEpoch(); // modification time
+    if (::utime(QFile::encodeName(path).constData(), &utbuf) != 0) {
+        return WorkerResult::fail(KIO::ERR_CANNOT_SETTIME, path);
+    }
+#endif
+    return WorkerResult::pass();
 }
 
 WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
@@ -698,9 +699,9 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
     if (!mtimeStr.isEmpty()) {
         QDateTime dt = QDateTime::fromString(mtimeStr, Qt::ISODate);
         if (dt.isValid()) {
+#ifndef Q_OS_WIN
             QT_STATBUF dest_statbuf;
             if (QT_STAT(QFile::encodeName(dest_orig).constData(), &dest_statbuf) == 0) {
-#ifndef Q_OS_WIN
                 struct timeval utbuf[2];
                 // access time
                 utbuf[0].tv_sec = dest_statbuf.st_atime; // access time, unchanged  ## TODO preserve msec
@@ -709,13 +710,10 @@ KIO::WorkerResult FileProtocol::put(const QUrl &url, int _mode, KIO::JobFlags _f
                 utbuf[1].tv_sec = dt.toSecsSinceEpoch();
                 utbuf[1].tv_usec = dt.time().msec() * 1000;
                 utimes(QFile::encodeName(dest_orig).constData(), utbuf);
-#else
-                struct utimbuf utbuf;
-                utbuf.actime = dest_statbuf.st_atime;
-                utbuf.modtime = dt.toSecsSinceEpoch();
-                utime(QFile::encodeName(dest_orig).constData(), &utbuf);
-#endif
             }
+#else
+            setWindowsModificationTime(dest_orig, dt);
+#endif
         }
     }
 

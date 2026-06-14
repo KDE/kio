@@ -108,6 +108,32 @@ static UDSEntry createUDSEntryWin(const QFileInfo &fileInfo)
     return entry;
 }
 
+bool FileProtocol::setWindowsModificationTime(const QString &path, const QDateTime &mtime)
+{
+    HANDLE handle = CreateFileW(reinterpret_cast<const wchar_t *>(path.utf16()),
+                                FILE_WRITE_ATTRIBUTES,
+                                FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE,
+                                nullptr,
+                                OPEN_EXISTING,
+                                FILE_FLAG_BACKUP_SEMANTICS, // also needed to open a directory
+                                nullptr);
+    if (handle == INVALID_HANDLE_VALUE) {
+        return false;
+    }
+
+    // A FILETIME counts 100-nanosecond intervals since 1601-01-01.
+    // 11644473600000: milliseconds between 1601-01-01 and the Unix epoch (1970-01-01).
+    // 10000: 100-nanosecond intervals per millisecond.
+    const qint64 intervals = (mtime.toMSecsSinceEpoch() + 11644473600000LL) * 10000LL;
+    FILETIME modificationTime;
+    modificationTime.dwLowDateTime = static_cast<DWORD>(intervals & 0xFFFFFFFF);
+    modificationTime.dwHighDateTime = static_cast<DWORD>((intervals >> 32) & 0xFFFFFFFF);
+
+    const bool ok = SetFileTime(handle, nullptr, nullptr, &modificationTime);
+    CloseHandle(handle);
+    return ok;
+}
+
 WorkerResult FileProtocol::copy(const QUrl &src, const QUrl &dest, int _mode, JobFlags _flags)
 {
     // qDebug() << "copy(): " << src << " -> " << dest << ", mode=" << _mode;

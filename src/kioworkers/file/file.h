@@ -77,6 +77,12 @@ private:
     int setACL(const char *path, mode_t perm, bool _directoryDefault);
     KIO::WorkerResult deleteRecursive(const QString &path);
 
+#ifdef Q_OS_WIN
+    // Set the modification time of path, leaving the creation and access times
+    // unchanged. Returns false on failure.
+    static bool setWindowsModificationTime(const QString &path, const QDateTime &mtime);
+#endif
+
     KIO::WorkerResult redirect(const QUrl &url);
 
     // Close without calling finish(). Use this to close after error.
