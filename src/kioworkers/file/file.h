@@ -27,8 +27,6 @@
 #include <acl/libacl.h>
 #endif
 
-#include "file_p.h"
-
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_FILE)
 
@@ -78,11 +76,6 @@ public:
 private:
     int setACL(const char *path, mode_t perm, bool _directoryDefault);
     KIO::WorkerResult deleteRecursive(const QString &path);
-
-    // We want to execute chmod/chown/utime with elevated privileges (in copy & put)
-    // only during the brief period privileges are elevated. If it's not the case show
-    // a warning and continue.
-    KIO::WorkerResult tryChangeFileAttr(ActionType action, const QVariantList &args, int errcode);
 
     KIO::WorkerResult redirect(const QUrl &url);
 
