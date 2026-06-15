@@ -527,7 +527,9 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
     // _mode == -1 means don't touch dest permissions, leave it with the system default ones
     if (_mode != -1) {
-        if (::chmod(_dest.constData(), _mode) == -1) {
+        // Change permissions through the open descriptor so they land on the
+        // file just opened, not on whatever the path resolves to now.
+        if (::fchmod(destFile.handle(), _mode) == -1) {
             qCWarning(KIO_FILE) << "Could not change permissions for" << dest;
         }
     }
@@ -663,7 +665,7 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
     srcFile.close();
 
-    destFile.flush(); // so the write() happens before futimes()
+    destFile.flush(); // so the writes complete before the timestamp and ownership changes
 
     // copy access and modification time
     if (!wasKilled()) {
@@ -683,6 +685,20 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
         if (::futimes(destFile.handle(), ut) != 0) {
 #endif
             qCWarning(KIO_FILE) << "Couldn't preserve access and modification time for" << dest;
+        }
+    }
+
+    // preserve ownership through the open descriptor, so the change lands on
+    // the file just written
+    if (_mode != -1) {
+        if (::fchown(destFile.handle(), -1 /*keep user*/, buffSrc.st_gid) == 0) {
+            // as we are the owner of the new file, we can always change the group, but
+            // we might not be allowed to change the owner
+            if (::fchown(destFile.handle(), buffSrc.st_uid, -1 /*keep group*/) < 0) {
+                qCWarning(KIO_FILE) << "Couldn't chown destFile" << _dest << "(" << strerror(errno) << ")";
+            }
+        } else {
+            qCWarning(KIO_FILE) << "Couldn't preserve group for" << dest;
         }
     }
 
@@ -715,19 +731,6 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
         }
     }
 #endif
-
-    // preserve ownership
-    if (_mode != -1) {
-        if (::chown(_dest.data(), -1 /*keep user*/, buffSrc.st_gid) == 0) {
-            // as we are the owner of the new file, we can always change the group, but
-            // we might not be allowed to change the owner
-            if (::chown(_dest.data(), buffSrc.st_uid, -1 /*keep group*/) < 0) {
-                qCWarning(KIO_FILE) << "Couldn't chown destFile" << _dest << "(" << strerror(errno) << ")";
-            }
-        } else {
-            qCWarning(KIO_FILE) << "Couldn't preserve group for" << dest;
-        }
-    }
 
     if (!_destBackup.isEmpty()) { // Overwrite final dest file with new file
         if (::unlink(_destBackup.constData()) == -1) {
