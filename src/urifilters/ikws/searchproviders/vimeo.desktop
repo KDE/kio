@@ -53,6 +53,8 @@ Name[mai]=Vimeo
 Name[ml]=വിമിയോ
 Name[mr]=विमिओ
 Name[my]=ဗင်မီယို
+Name[nan_TW]=Vimeo
+Name[nan_TW@latin]=Vimeo
 Name[nb]=Vimeo
 Name[nds]=Vimeo
 Name[nl]=Vimeo
@@ -124,6 +126,8 @@ Query[lg]=https://vimeo.com/search?q=\\{@}
 Query[lt]=https://vimeo.com/search?q=\\{@}
 Query[lv]=https://vimeo.com/search?q=\\{@}
 Query[my]=https://vimeo.com/search?q=\\{@}
+Query[nan_TW]=https://vimeo.com/search?q=\\{@}
+Query[nan_TW@latin]=https://vimeo.com/search?q=\\{@}
 Query[nb]=https://vimeo.com/search?q=\\{@}
 Query[nl]=https://vimeo.com/search?q=\\{@}
 Query[nn]=https://vimeo.com/search?q=\\{@}

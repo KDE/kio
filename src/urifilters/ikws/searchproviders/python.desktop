@@ -62,6 +62,8 @@ Name[ml]=പൈത്തണ്‍ സഹായക ഗ്രന്ഥം
 Name[mr]=पायथन रेफरेंस पुस्तिका
 Name[ms]=Manual Rujukan Python
 Name[my]=ပိုက်သွန်အကိုးအကားလက်စွဲစာအုပ်
+Name[nan_TW]=Python 參考手冊
+Name[nan_TW@latin]=Python Tsham-khó Tshiú-tsheh
 Name[nb]=Python-referansehåndbok
 Name[nds]=Python-Referenzhandbook
 Name[ne]=पाइथन सन्दर्भ म्यानुअल
@@ -144,6 +146,8 @@ Query[lt]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Se
 Query[lv]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[mr]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[my]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
+Query[nan_TW]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
+Query[nan_TW@latin]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[nb]=https://www.google.no/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[nds]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org
 Query[nl]=https://www.google.com/search?sourceid=python-search&q=\\{@}&submit=Search&q=site%3Apython.org

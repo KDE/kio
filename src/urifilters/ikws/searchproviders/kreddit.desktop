@@ -41,6 +41,8 @@ Name[lg]=KDE ku Reddit
 Name[lt]=KDE Reddit
 Name[lv]=KDE Reddit
 Name[my]=ကေဒီအီး ရက်ဒစ်
+Name[nan_TW]=KDE Reddit
+Name[nan_TW@latin]=KDE Reddit
 Name[nb]=KDE Reddit
 Name[nl]=KDE-Reddit
 Name[nn]=KDE Reddit
@@ -105,6 +107,8 @@ Query[lg]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[lt]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[lv]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[my]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[nan_TW]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[nan_TW@latin]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[nb]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[nl]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[nn]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1

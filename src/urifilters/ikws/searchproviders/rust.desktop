@@ -39,6 +39,8 @@ Name[lg]=Ebiwandiko Ebikwata ku Rust STD
 Name[lt]=Rust STD dokumentacija
 Name[lv]=„Rust“ STD dokumentācija
 Name[my]=ရက်စ် အက်စ်တီဒီ ဒိုကူမန်တေးရှင်း
+Name[nan_TW]=Rust STD 文件
+Name[nan_TW@latin]=Rust STD Bûn-kiānn
 Name[nb]=Rust STD-dokumentasjon
 Name[nl]=Rust STD-documentatie
 Name[nn]=Rust STD-dokumentasjon
@@ -103,6 +105,8 @@ Query[lg]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[lt]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[lv]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[my]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[nan_TW]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[nan_TW@latin]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[nb]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[nl]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[nn]=https://doc.rust-lang.org/std/index.html?search=\\{@}

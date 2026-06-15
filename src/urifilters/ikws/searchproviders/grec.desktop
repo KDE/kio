@@ -43,6 +43,8 @@ Name[lg]=Enkuluze Mawuuno Ey'olulimi oLuKatalani (GRan Enciclopèdia Catalana)
 Name[lt]=Didysis katalonų kalbos žodynas (GRan Enciclopèdia Catalana)
 Name[lv]=Lielā katalāņu valodas vārdnīca („GRan Enciclopèdia Catalana“)
 Name[my]=ကတ်တလန်ဘာသာစကား၏ ဒစ်ရှင်နရီကြီး (GRan Enciclopèdia Catalana)
+Name[nan_TW]=Catalunya 語大辭典 (GRan Enciclopèdia Catalana))
+Name[nan_TW@latin]=Catalunya-gí Tāi-sû-tián (GRan Enciclopèdia Catalana)
 Name[nb]=Den store, katalanske ordboka (GRan Enciclopèdia Catalana)
 Name[nl]=Groot woordenboek van de Catalaanse taal (GRan Enciclopèdia Catalana)
 Name[nn]=Den store, katalanske ordboka (GRan Enciclopèdia Catalana)
@@ -121,6 +123,8 @@ Query[mai]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[ml]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[mr]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[my]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
+Query[nan_TW]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
+Query[nan_TW@latin]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[nb]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[nds]=http://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}
 Query[nl]=https://ec.grec.net/cgi-bin/AppDLC3.exe?APP=CERCADLC&GECART=\\{@}

@@ -54,6 +54,8 @@ Name[mai]=याहू
 Name[ml]=യാഹൂ
 Name[mr]=याहू 
 Name[my]=ယဟူး
+Name[nan_TW]=Yahoo
+Name[nan_TW@latin]=Yahoo
 Name[nb]=Yahoo
 Name[nds]=Yahoo
 Name[nl]=Yahoo
@@ -128,6 +130,8 @@ Query[lt]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701
 Query[lv]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
 Query[ml]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
 Query[my]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
+Query[nan_TW]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
+Query[nan_TW@latin]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
 Query[nb]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
 Query[nl]=https://search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search
 Query[nn]=https://no.search.yahoo.com/search?toggle=1&cop=mss&ei=UTF-8&fr=yfp-t-701&p=\\{@}&x=0&y=0&=Web+Search

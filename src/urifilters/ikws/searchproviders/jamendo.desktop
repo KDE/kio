@@ -53,6 +53,8 @@ Name[mai]=जामिनडो
 Name[ml]=ജാമെണ്ടോ
 Name[mr]=जामेंदो
 Name[my]=ဂျမန်ဒို
+Name[nan_TW]=Jamendo
+Name[nan_TW@latin]=Jamendo
 Name[nb]=Jamendo
 Name[nds]=Jamendo
 Name[nl]=Jamendo
@@ -126,6 +128,8 @@ Query[lg]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[lt]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[lv]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[my]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[nan_TW]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[nan_TW@latin]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[nb]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[nl]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[nn]=https://www.jamendo.com/en/search?qs=q=\\{@}

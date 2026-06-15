@@ -45,6 +45,8 @@ Name[lv]=„Qwant Social“
 Name[ml]=ക്വാണ്ട് സോഷ്യൽ
 Name[mr]=क्वांट सामाजिक
 Name[my]=ကွမ့် ဆိုရှယ်
+Name[nan_TW]=Qwant 社交
+Name[nan_TW@latin]=Qwant Siā-kau
 Name[nb]=Qwant sosialt
 Name[nds]=Qwant-Meenschap
 Name[nl]=Qwant sociaal
@@ -114,6 +116,8 @@ Query[lg]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[lv]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[my]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[nan_TW]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[nan_TW@latin]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[nb]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[nn]=https://www.qwant.com/?q=\\{@}&client=kde&t=social

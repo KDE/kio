@@ -61,6 +61,8 @@ Name[ml]=ആസ്ക് ജീവ്സ്
 Name[mr]=आस्क जीव्स
 Name[ms]=Ask Jeeves
 Name[my]=ဂျီစ်ကိုမေးရန်
+Name[nan_TW]=Ask Jeeves
+Name[nan_TW@latin]=Ask Jeeves
 Name[nb]=Ask Jeeves
 Name[nds]=Fraag Jeeves
 Name[ne]=आस्क जीभेज
@@ -133,6 +135,8 @@ Query[lg]=https://www.ask.com/web?q=\\{@}
 Query[lt]=https://www.ask.com/web?q=\\{@}
 Query[lv]=https://www.ask.com/web?q=\\{@}
 Query[my]=https://www.ask.com/web?q=\\{@}
+Query[nan_TW]=https://www.ask.com/web?q=\\{@}
+Query[nan_TW@latin]=https://www.ask.com/web?q=\\{@}
 Query[nb]=https://www.ask.com/web?q=\\{@}
 Query[nl]=https://www.ask.com/web?q=\\{@}
 Query[nn]=https://www.ask.com/web?q=\\{@}

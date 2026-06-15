@@ -42,6 +42,8 @@ Name[lg]=Noonya Puloguramu ku KDE Invent
 Name[lt]=KDE Invent saugyklos
 Name[lv]=„KDE Invent“ krātuves
 Name[my]=ကေဒီအီး အင်ဗန့် ရီပိုစစ်တိုရီများ
+Name[nan_TW]=KDE Invent 版本庫
+Name[nan_TW@latin]=KDE Invent Pán-pún-khòo
 Name[nb]=KDE Invent-pakkebrønner
 Name[nl]=Opslagruimtes van KDE-invent
 Name[nn]=KDE Invent-pakkebrønnar
@@ -105,6 +107,8 @@ Query[lg]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[lt]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[lv]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[my]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[nan_TW]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[nan_TW@latin]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[nb]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[nl]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[nn]=https://invent.kde.org/explore/projects/starred?name=\\{@}

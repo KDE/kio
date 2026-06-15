@@ -41,6 +41,8 @@ Name[lg]=Ekiwandike Ekiraga Enkola ya Krita mu Bujjuvu
 Name[lt]=Krita naudotojo vadovas
 Name[lv]=„Krita“ rokasgrāmata
 Name[my]=Krita လက်စွဲစာအုပ်
+Name[nan_TW]=Krita 手冊
+Name[nan_TW@latin]=Krita Tshiú-tsheh
 Name[nb]=Krita-manualen
 Name[nl]=Krita-handleiding
 Name[nn]=Krita-manualen
@@ -106,6 +108,8 @@ Query[lg]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[lt]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[lv]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[my]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[nan_TW]=https://docs.krita.org/en/search.html?q=\\{@}
+Query[nan_TW@latin]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[nb]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[nl]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[nn]=https://docs.krita.org/en/search.html?q=\\{@}

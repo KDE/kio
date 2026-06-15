@@ -53,6 +53,8 @@ Name[mai]=7Digital
 Name[ml]=7ഡിജിറ്റല്‍
 Name[mr]=7डिजिटल
 Name[my]=၇ဒီဂျစ်တယ်
+Name[nan_TW]=7Digital
+Name[nan_TW@latin]=7Digital
 Name[nb]=7Digital
 Name[nds]=7Digital
 Name[nl]=7Digital
@@ -125,6 +127,8 @@ Query[lg]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[lt]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[lv]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[my]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[nan_TW]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[nan_TW@latin]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[nb]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[nl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[nn]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

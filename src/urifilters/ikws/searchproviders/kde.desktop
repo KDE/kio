@@ -64,6 +64,8 @@ Name[ml]=കെഡിഇ എപിഐ വിവരണം
 Name[mr]=केडीई API दस्तऐवजीकरण
 Name[ms]=Dokumentasi API KDE
 Name[my]=ကေဒီအီး အေပီအိုင် ဒိုကူမန်တေးရှင်း
+Name[nan_TW]=KDE API 文件
+Name[nan_TW@latin]=KDE API Bûn-kiānn
 Name[nb]=KDE API-dokumentasjon
 Name[nds]=KDE-API-Dokmentatschoon
 Name[ne]=केडीई एपीआई मिसिलिकरण
@@ -141,6 +143,8 @@ Query[lg]=https://api.kde.org/search.html?query=\\{@}
 Query[lt]=https://api.kde.org/search.html?query=\\{@}
 Query[lv]=https://api.kde.org/search.html?query=\\{@}
 Query[my]=https://api.kde.org/search.html?query=\\{@}
+Query[nan_TW]=https://api.kde.org/search.html?query=\\{@}
+Query[nan_TW@latin]=https://api.kde.org/search.html?query=\\{@}
 Query[nb]=https://api.kde.org/search.html?query=\\{@}
 Query[nl]=https://api.kde.org/search.html?query=\\{@}
 Query[nn]=https://api.kde.org/search.html?query=\\{@}

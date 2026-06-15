@@ -41,6 +41,8 @@ Name[lg]=Ebiwandiko Ebikwata ku Flatpak
 Name[lt]=Flatpak dokumentacija
 Name[lv]=„Flatpak“ dokumentācija
 Name[my]=ဖလက်ပတ်ခ် ဒိုကူမန်တေးရှင်း
+Name[nan_TW]=Flatpak 文件
+Name[nan_TW@latin]=Flatpak Bûn-kiānn
 Name[nb]=Flatpak-dokumentasjon
 Name[nl]=Flatpak-documentatie
 Name[nn]=Flatpak-dokumentasjon
@@ -106,6 +108,8 @@ Query[lg]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[lt]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[lv]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[my]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[nan_TW]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[nan_TW@latin]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[nb]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[nl]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[nn]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

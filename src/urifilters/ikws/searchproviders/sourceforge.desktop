@@ -62,6 +62,8 @@ Name[ml]=സോഴ്സ്ഫോര്‍ജ്
 Name[mr]=सोर्सफोर्ज
 Name[ms]=SourceForge
 Name[my]=စို့ဖေါ့ဂျ်
+Name[nan_TW]=SourceForge
+Name[nan_TW@latin]=SourceForge
 Name[nb]=SourceForge
 Name[nds]=SourceForge
 Name[ne]=सोर्स फर्ज
@@ -140,6 +142,8 @@ Query[lg]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\
 Query[lt]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[lv]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[my]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
+Query[nan_TW]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
+Query[nan_TW@latin]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[nb]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[nl]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}
 Query[nn]=https://sourceforge.net/search/?type_of_search=\\{type,"soft"}&exact=\\{exact,"0"}&words=\\{@}

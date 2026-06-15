@@ -62,6 +62,8 @@ Name[ml]=ഫീഡ്സ്റ്റര്‍
 Name[mr]=Feedster
 Name[ms]=Feedster
 Name[my]=ဖီဒ်စတား
+Name[nan_TW]=Feedster
+Name[nan_TW@latin]=Feedster
 Name[nb]=Feedster
 Name[nds]=Feedster
 Name[ne]=फेडस्टर
@@ -140,6 +142,8 @@ Query[lg]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{
 Query[lt]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[lv]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[my]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[nan_TW]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
+Query[nan_TW@latin]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[nb]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[nl]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[nn]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}

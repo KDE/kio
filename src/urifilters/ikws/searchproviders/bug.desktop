@@ -42,6 +42,8 @@ Name[lg]=Mpulunguse ezizuulidwa mu KDE
 Name[lt]=KDE klaidos
 Name[lv]=KDE kļūdas
 Name[my]=ခေဒီအီးဆိုင်ရာ ဆော့ဖ်လ်ဝဲလ်ပြစ်ချက်များ
+Name[nan_TW]=KDE Bugs
+Name[nan_TW@latin]=KDE Tshò-gōo
 Name[nb]=KDE-feil
 Name[nl]=KDE-bugs
 Name[nn]=KDE-feil
@@ -110,6 +112,8 @@ Query[lt]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[lv]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[mr]=http://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[my]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[nan_TW]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
+Query[nan_TW@latin]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[nb]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[nds]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}
 Query[nl]=https://bugs.kde.org/buglist.cgi?quicksearch=\\{@}

@@ -61,6 +61,8 @@ Name[ml]=പിഎച്പി (PHP) തെരച്ചില്‍
 Name[mr]=PHP शोध
 Name[ms]=Carian PHP
 Name[my]=ပီအိပ့်ချ်ပီ ရှာရန်
+Name[nan_TW]=PHP 搜揣
+Name[nan_TW@latin]=PHP Tshiau-tshuē
 Name[nb]=PHP-søk
 Name[nds]=PHP-Söök
 Name[ne]=PHP खोजी
@@ -139,6 +141,8 @@ Query[lg]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[lt]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[lv]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[my]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[nan_TW]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[nan_TW@latin]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[nb]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[nl]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[nn]=https://secure.php.net/manual-lookup.php?pattern=\\{@}

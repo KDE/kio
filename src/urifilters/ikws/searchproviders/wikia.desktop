@@ -52,6 +52,8 @@ Name[lv]=Wikia
 Name[ml]=വിക്കിയ
 Name[mr]=विकिआ
 Name[my]=ဝစ်ကီယား
+Name[nan_TW]=Wikia
+Name[nan_TW@latin]=Wikia
 Name[nb]=Wikia
 Name[nds]=Wikia
 Name[nl]=Wikia
@@ -123,6 +125,8 @@ Query[lg]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=
 Query[lt]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[lv]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[my]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query[nan_TW]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
+Query[nan_TW@latin]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[nb]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[nl]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search
 Query[nn]=https://www.wikia.com/Special:Search?search=\\{@}&wikia_search_submit=Search

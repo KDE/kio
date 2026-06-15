@@ -60,6 +60,8 @@ Name[mk]=Multitran - превод меѓу англиски и руски
 Name[ml]=മള്‍ട്ടിട്രാന്‍ - ഇംഗ്ലീഷും റഷ്യനും തമ്മില്‍ പരിഭാഷപ്പെടുത്തുക
 Name[mr]=मल्टिट्रान - इंग्रजी व रशियन भाषांतर करा
 Name[my]=မာလ်တိုင်ထရန် - အင်္ဂလိပ်နှင့်ရုရှားကြား ဘာသာပြန်
+Name[nan_TW]=Multitran - 英語 kah 俄羅斯語之間 ê 翻譯
+Name[nan_TW@latin]=Multitran - Ing-gí kah Gô-lô-su-gí tsi-kan ê huan-i̍k
 Name[nb]=Multitran – Oversett mellom engelsk og russisk
 Name[nds]=Multitran - Översetten twischen Engelsch un Russ'sch
 Name[nl]=Multitran - vertaal van Engels naar Russisch
@@ -136,6 +138,8 @@ Query[lg]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[lt]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[lv]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[my]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
+Query[nan_TW]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
+Query[nan_TW@latin]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[nb]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[nl]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}
 Query[nn]=https://multitran.ru/c/m.exe?l1=1&l2=2&s=\\{@}

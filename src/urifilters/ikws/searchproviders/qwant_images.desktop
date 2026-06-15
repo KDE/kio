@@ -44,6 +44,8 @@ Name[lt]=Qwant paveikslai
 Name[lv]=„Qwant“ attēli
 Name[mr]=क्वांट प्रतिमा
 Name[my]=ကွမ့် ပုံများ
+Name[nan_TW]=Qwant 影像
+Name[nan_TW@latin]=Qwant Iánn-siōng
 Name[nb]=Qwant bilder
 Name[nds]=Qwant-Biller
 Name[nl]=Qwant afbeeldingen
@@ -113,6 +115,8 @@ Query[lg]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[lt]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[lv]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[my]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[nan_TW]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
+Query[nan_TW@latin]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[nb]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[nl]=https://www.qwant.com/?q=\\{@}&client=kde&t=images
 Query[nn]=https://www.qwant.com/?q=\\{@}&client=kde&t=images

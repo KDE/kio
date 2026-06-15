@@ -52,6 +52,8 @@ Name[lv]=Yahoo Local
 Name[ml]=യാഹൂ പ്രാദേശികം
 Name[mr]=याहू स्थानिक
 Name[my]=ယဟူး ဒေသတွင်း
+Name[nan_TW]=Yahoo 本地
+Name[nan_TW@latin]=Yahoo Pún-tē
 Name[nb]=Yahoo Local
 Name[nds]=Yahoo - Lokaal
 Name[nl]=Yahoo lokaal
@@ -124,6 +126,8 @@ Query[lg]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=ta
 Query[lt]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[lv]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[my]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
+Query[nan_TW]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
+Query[nan_TW@latin]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[nb]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[nl]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img
 Query[nn]=https://local.yahoo.com/results?stx=\\{@}&ei=UTF-8&fr=yfp-t-701&fr2=tab-img

@@ -40,6 +40,8 @@ Name[lg]=Reddit
 Name[lt]=Reddit
 Name[lv]=Reddit
 Name[my]=ရက်ဒစ်
+Name[nan_TW]=Reddit
+Name[nan_TW@latin]=Reddit
 Name[nb]=Reddit
 Name[nl]=Reddit
 Name[nn]=Reddit
@@ -104,6 +106,8 @@ Query[lg]=https://www.reddit.com/search/?q=\\{@}
 Query[lt]=https://www.reddit.com/search/?q=\\{@}
 Query[lv]=https://www.reddit.com/search/?q=\\{@}
 Query[my]=https://www.reddit.com/search/?q=\\{@}
+Query[nan_TW]=https://www.reddit.com/search/?q=\\{@}
+Query[nan_TW@latin]=https://www.reddit.com/search/?q=\\{@}
 Query[nb]=https://www.reddit.com/search/?q=\\{@}
 Query[nl]=https://www.reddit.com/search/?q=\\{@}
 Query[nn]=https://www.reddit.com/search/?q=\\{@}

@@ -61,6 +61,8 @@ Name[ml]=HyperDictionary.com പര്യായനിഘണ്ടു
 Name[mr]=हायपर-डिक्शनरी.कॉम शब्दकोश
 Name[ms]=HyperDictionary.com Thesaurus
 Name[my]=ဟိုက်ပါဒစ်ရှင်နရီ ဒေါ့ ကွန်း ဝေါဟာရပဒေသာကျမ်း
+Name[nan_TW]=HyperDictionary.com 同義詞辭典
+Name[nan_TW@latin]=HyperDictionary.com Tông-gí-sû-tián
 Name[nb]=HyperDictionary.com Thesaurus
 Name[nds]=HyperDictionary.com-Synonümwöörbook
 Name[ne]=HyperDictionary.com Thesaurus
@@ -158,6 +160,8 @@ Query[ml]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[mr]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[ms]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[my]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
+Query[nan_TW]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
+Query[nan_TW@latin]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[nb]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[nds]=http://www.hyperdictionary.com/search.aspx?Dict=T&define=\\{@}
 Query[ne]=http://www.hyperdictionary.com/search.aspx?Dict=Tdefine=\\{@}

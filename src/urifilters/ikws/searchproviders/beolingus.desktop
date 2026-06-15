@@ -49,6 +49,8 @@ Name[lv]=„Beolingus“ tiešsaistes vārdnīca
 Name[ml]=ബിയോലിങ്കസ് ഓണ്‍ലൈന്‍ നിഘണ്ടു
 Name[mr]=बिओलिंगस ऑनलाइन शब्दकोश
 Name[my]=ဘိုလင်းဂတ်စ် အွန်လိုင်းဒစ်ရှင်နရီ
+Name[nan_TW]=Beolingus 線頂辭典
+Name[nan_TW@latin]=Beolingus Suànn-tíng Sû-tián
 Name[nb]=Beolingus – nettordbok
 Name[nds]=Beolingus-Internetwöörbook
 Name[nl]=Beolingus on-line woordenboek (de-en, de-es, de-pt) 
@@ -122,6 +124,8 @@ Query[lg]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0
 Query[lt]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[lv]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[my]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
+Query[nan_TW]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
+Query[nan_TW@latin]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[nb]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[nl]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email
 Query[nn]=https://dict.tu-chemnitz.de/dings.cgi?lang=de&service=deen&opterrors=0&optpro=0&query=\\{@}&iservice=&comment=&email

@@ -17,6 +17,8 @@ Name[it]=OpenStreetMap
 Name[ka]=OpenStreetMap
 Name[ko]=오픈스트리트맵
 Name[lt]=OpenStreetMap
+Name[nan_TW]=OpenStreetMap
+Name[nan_TW@latin]=OpenStreetMap
 Name[nl]=OpenStreetMap
 Name[pt_BR]=OpenStreetMap
 Name[sk]=OpenStreetMap
@@ -41,6 +43,8 @@ Query[it]=https://www.openstreetmap.org/search?query=\\{@}
 Query[ka]=https://www.openstreetmap.org/search?query=\\{@}
 Query[ko]=https://www.openstreetmap.org/search?query=\\{@}
 Query[lt]=https://www.openstreetmap.org/search?query=\\{@}
+Query[nan_TW]=https://www.openstreetmap.org/search?query=\\{@}
+Query[nan_TW@latin]=https://www.openstreetmap.org/search?query=\\{@}
 Query[nl]=https://www.openstreetmap.org/search?query=\\{@}
 Query[pt_BR]=https://www.openstreetmap.org/search?query=\\{@}
 Query[sk]=https://www.openstreetmap.org/search?query=\\{@}

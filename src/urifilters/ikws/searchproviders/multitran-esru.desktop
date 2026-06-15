@@ -60,6 +60,8 @@ Name[mk]=Multitran - превод меѓу шпански и руски
 Name[ml]=മള്‍ട്ടിട്രാന്‍ - സ്പാനിഷും റഷ്യനും തമ്മില്‍ പരിഭാഷപ്പെടുത്തുക
 Name[mr]=मल्टिट्रान - स्पेनिश व रशियन भाषांतर करा
 Name[my]=မာလ်တိုင်ထရန် - စပိန်နှင့်ရုရှားကြား ဘာသာပြန်
+Name[nan_TW]=Multitran - 西班牙語 kah 俄羅斯語之間 ê 翻譯
+Name[nan_TW@latin]=Multitran - Se-pan-gâ-gí kahGô-lô-su-gí tsi-kan ê huan-i̍k
 Name[nb]=Multitran – Oversett mellom spansk og russisk
 Name[nds]=Multitran - Översetten twischen Spaansch un Russ'sch
 Name[nl]=Multitran - vertaal van Spaans naar Russisch
@@ -136,6 +138,8 @@ Query[lg]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[lt]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[lv]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[my]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
+Query[nan_TW]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
+Query[nan_TW@latin]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[nb]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[nl]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}
 Query[nn]=https://multitran.ru/c/m.exe?l1=5&s=\\{@}

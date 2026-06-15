@@ -42,6 +42,8 @@ Name[lg]=KDE Invent
 Name[lt]=KDE Invent
 Name[lv]=KDE Invent
 Name[my]=ကေဒီအီး အင်ဗန့်
+Name[nan_TW]=KDE Invent
+Name[nan_TW@latin]=KDE Invent
 Name[nb]=KDE Invent
 Name[nl]=KDE-invent
 Name[nn]=KDE Invent
@@ -105,6 +107,8 @@ Query[lg]=https://invent.kde.org/search?search=\\{@}
 Query[lt]=https://invent.kde.org/search?search=\\{@}
 Query[lv]=https://invent.kde.org/search?search=\\{@}
 Query[my]=https://invent.kde.org/search?search=\\{@}
+Query[nan_TW]=https://invent.kde.org/search?search=\\{@}
+Query[nan_TW@latin]=https://invent.kde.org/search?search=\\{@}
 Query[nb]=https://invent.kde.org/search?search=\\{@}
 Query[nl]=https://invent.kde.org/search?search=\\{@}
 Query[nn]=https://invent.kde.org/search?search=\\{@}

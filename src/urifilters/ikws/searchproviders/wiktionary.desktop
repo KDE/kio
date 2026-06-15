@@ -61,6 +61,8 @@ Name[mk]=Wiktionary - Слободниот речник
 Name[ml]=വിക്ഷ്ണറി - സ്വതന്ത്ര നിഘണ്ടു
 Name[mr]=विकिपेडिया- मोफत विश्वकोश
 Name[my]=ဝစ်ရှင်နရီ - အခကြေးငွေမလိုအပ်သော ဒစ်ရှင်နာရီ
+Name[nan_TW]=Wiktionary - 自由 ê 字典 kap 辭典
+Name[nan_TW@latin]=Wiktionary - Tsū-iû ê Jī-tián kap Sû-tián
 Name[nb]=Wiktionary – den frie ordboka
 Name[nds]=Wiktionary.nds - dat fre'e plattdüütsche Wöörbook
 Name[ne]=विक्सनरी - नि:शुल्क शब्दकोश
@@ -144,6 +146,8 @@ Query[lt]=https://lt.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[lv]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[mr]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[my]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[nan_TW]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[nan_TW@latin]=https://en.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nb]=https://no.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nds]=https://nds.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nl]=https://nl.wiktionary.org/wiki/Special:Search?search=\\{@}&go=Go

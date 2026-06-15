@@ -29,6 +29,8 @@ Name[lg]=Kifo Ky'abawandisi ba Puloguramu Ekya Mozilla (MDN)
 Name[lt]=Mozilla Developer Network (MDN)
 Name[lv]=„Mozilla“ izstrādātāju tīkls (MDN)
 Name[my]=Mozilla Developer Network (MDN)
+Name[nan_TW]=Mozilla 開發者網路 (MDN)
+Name[nan_TW@latin]=Mozilla Khai-huat-tsiá Bāng-lōo (MDN)
 Name[nb]=Mozilla Developer Network (MDN)
 Name[nl]=Mozilla Developer Network (MDN)
 Name[pl]=Mozilla Developer Network (MDN)
@@ -75,6 +77,8 @@ Query[lg]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[lt]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[lv]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[my]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[nan_TW]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[nan_TW@latin]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[nb]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[nl]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[pl]=https://developer.mozilla.org/en-US/search?q=\\{@}

@@ -41,6 +41,8 @@ Name[lg]=Yiga CPP
 Name[lt]=Learn CPP
 Name[lv]=Learn CPP
 Name[my]=စီပီပီ လေ့လာသင်ယူကြမယ်
+Name[nan_TW]=Learn CPP
+Name[nan_TW@latin]=Learn CPP
 Name[nb]=Lær CPP
 Name[nl]=CPP leren
 Name[nn]=Lær CPP
@@ -106,6 +108,8 @@ Query[lg]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[lt]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[lv]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[my]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[nan_TW]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[nan_TW@latin]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[nb]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[nl]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[nn]=https://www.learncpp.com/gsearch/?q=\\{@}

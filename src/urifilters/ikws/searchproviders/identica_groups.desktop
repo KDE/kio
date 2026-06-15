@@ -52,6 +52,8 @@ Name[mai]=Identi.ca समूह
 Name[ml]=ഐഡന്റിക്ക ഗ്രൂപ്പുകള്‍
 Name[mr]=Identi.ca ग्रुप्स
 Name[my]=အိုင်ဒမ်တီ.ကာ အုပ်စုများ
+Name[nan_TW]=Identi.ca 群組
+Name[nan_TW@latin]=Identi.ca Kûn-tsoo
 Name[nb]=Identi.ca-grupper
 Name[nds]=Identi.ca - Koppeln
 Name[nl]=Identi.ca Groepen
@@ -127,6 +129,8 @@ Query[lt]=https://identi.ca/search/group?q=\\{@}
 Query[lv]=https://identi.ca/search/group?q=\\{@}
 Query[mr]=https://identi.ca/search/group?q=\\{@}
 Query[my]=https://identi.ca/search/group?q=\\{@}
+Query[nan_TW]=https://identi.ca/search/group?q=\\{@}
+Query[nan_TW@latin]=https://identi.ca/search/group?q=\\{@}
 Query[nb]=https://identi.ca/search/group?q=\\{@}
 Query[nds]=https://identi.ca/search/group?q=\\{@}
 Query[nl]=https://identi.ca/search/group?q=\\{@}

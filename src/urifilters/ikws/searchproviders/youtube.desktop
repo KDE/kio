@@ -52,6 +52,8 @@ Name[mai]=YouTube
 Name[ml]=യുട്യൂബ്
 Name[mr]=यूट्यूब
 Name[my]=ယူကျုဘ်
+Name[nan_TW]=YouTube
+Name[nan_TW@latin]=YouTube
 Name[nb]=YouTube
 Name[nds]=YouTube
 Name[nl]=YouTube
@@ -129,6 +131,8 @@ Query[lt]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[lv]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[mr]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[my]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
+Query[nan_TW]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
+Query[nan_TW@latin]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[nb]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[nds]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[nl]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f

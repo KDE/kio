@@ -40,6 +40,8 @@ Name[lg]=Ebiwandiko Ebikwata ku Microsoft C++
 Name[lt]=Microsoft C++ dokumentacija
 Name[lv]=„Microsoft“ C++ dokumentācija
 Name[my]=မိုက်ခရိုဆော့ဖ် စီ++ ဒိုကူမန်တေးရှင်း
+Name[nan_TW]=Microsoft C++ 文件
+Name[nan_TW@latin]=Microsoft C++ Bûn-kiānn
 Name[nb]=Microsoft C++-dokumentasjon
 Name[nl]=Microsoft C++ documentatie
 Name[nn]=Microsoft C++-dokumentasjon
@@ -104,6 +106,8 @@ Query[lg]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[lt]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[lv]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[my]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[nan_TW]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[nan_TW@latin]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[nb]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[nl]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[nn]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B

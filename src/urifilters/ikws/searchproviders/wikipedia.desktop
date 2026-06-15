@@ -31,6 +31,8 @@ Name[lg]=Wikipedia
 Name[lt]=Vikipedija
 Name[lv]=Vikipēdija
 Name[my]=ဝီကီပီးဒီးယား
+Name[nan_TW]=Wikipedia
+Name[nan_TW@latin]=Wikipedia
 Name[nb]=Wikipedia
 Name[nl]=Wikipedia
 Name[pl]=Wikipedia
@@ -94,6 +96,8 @@ Query[lt]=https://lt.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[lv]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[mr]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[my]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[nan_TW]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[nan_TW@latin]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nb]=https://no.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nds]=https://nds.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[nl]=https://nl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

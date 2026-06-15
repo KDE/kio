@@ -40,6 +40,8 @@ Name[lg]=CPP Reference
 Name[lt]=CPP rodyklė
 Name[lv]=CPP atsauce
 Name[my]=စီပီပီ အကိုးအကား
+Name[nan_TW]=CPP 參考
+Name[nan_TW@latin]=CPP Tsham-khó
 Name[nb]=CPP-referanse
 Name[nl]=CPP-referentie
 Name[nn]=CPP-referanse
@@ -90,6 +92,8 @@ Query[ko]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[lt]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[lv]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[my]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
+Query[nan_TW]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
+Query[nan_TW@latin]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[nl]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[pl]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[pt_BR]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}

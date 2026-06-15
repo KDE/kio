@@ -60,6 +60,8 @@ Name[ml]=ഡെബിയന്‍ ബാക്ക് പോര്‍ട്ടു
 Name[mr]=डेबियन बॅकपोर्ट शोध
 Name[ms]=Carian Port Belakang Debian
 Name[my]=ဒေဘီယမ် ဘက့်ခ်ပေါ့များ ရှာဖွေရန်
+Name[nan_TW]=Debian Backports 搜揣
+Name[nan_TW@latin]=Debian Backports Tshiau-tshuē
 Name[nb]=Søk etter tilbakeportede Debian-pakker
 Name[nds]=Debian-Backport-Söök
 Name[ne]=डेबियन ब्याकस्पोर्टस खोजी
@@ -137,6 +139,8 @@ Query[lt]=https://packages.debian.org/search?suite=squeeze-backports&section=all
 Query[lv]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[ml]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[my]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
+Query[nan_TW]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
+Query[nan_TW@latin]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[nb]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[nl]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}
 Query[nn]=https://packages.debian.org/search?suite=squeeze-backports&section=all&arch=any&searchon=names&keywords=\\{@}

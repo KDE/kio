@@ -45,6 +45,8 @@ Name[lt]=GitLab
 Name[lv]=GitLab
 Name[ml]=ഗിറ്റ്ലാബ്
 Name[my]=ဂစ်လပ်ဘ်
+Name[nan_TW]=GitLab
+Name[nan_TW@latin]=GitLab
 Name[nb]=GitLab
 Name[nl]=GitLab
 Name[nn]=GitLab
@@ -110,6 +112,8 @@ Query[lg]=https://gitlab.com/search?search=\\{@}
 Query[lt]=https://gitlab.com/search?search=\\{@}
 Query[lv]=https://gitlab.com/search?search=\\{@}
 Query[my]=https://gitlab.com/search?search=\\{@}
+Query[nan_TW]=https://gitlab.com/search?search=\\{@}
+Query[nan_TW@latin]=https://gitlab.com/search?search=\\{@}
 Query[nb]=https://gitlab.com/search?search=\\{@}
 Query[nl]=https://gitlab.com/search?search=\\{@}
 Query[nn]=https://gitlab.com/search?search=\\{@}

@@ -53,6 +53,8 @@ Name[mai]=GitHub
 Name[ml]=ഗിറ്റ്ഹബ്
 Name[mr]=जिटहब
 Name[my]=ဂစ်ဟပ်ဘ်
+Name[nan_TW]=GitHub
+Name[nan_TW@latin]=GitHub
 Name[nb]=GitHub
 Name[nds]=GitHub
 Name[nl]=GitHub
@@ -129,6 +131,8 @@ Query[lt]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[lv]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[mr]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[my]=https://github.com/search?q=\\{@}&x=0&y=0
+Query[nan_TW]=https://github.com/search?q=\\{@}&x=0&y=0
+Query[nan_TW@latin]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[nb]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[nds]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[nl]=https://github.com/search?q=\\{@}&x=0&y=0

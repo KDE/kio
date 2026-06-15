@@ -61,6 +61,8 @@ Name[ml]=റൂബി പ്രയോഗ ശേഖരം
 Name[mr]=रूबी अनुप्रयोग संग्रह
 Name[ms]=Arkib Aplikasi Ruby
 Name[my]=ရူဘီအပ္ပလီကေးရှင်းဟောင်းတိုက်
+Name[nan_TW]=Ruby 應用程式封存
+Name[nan_TW@latin]=Ruby Ìng-iōng-tîng-sik Hong-tsûn
 Name[nb]=Ruby-programarkiv
 Name[nds]=Ruby-Programmarchiv
 Name[ne]=रुबी अनुप्रयोग सङ्ग्रह
@@ -140,6 +142,8 @@ Query[lg]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[lt]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[lv]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[my]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[nan_TW]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[nan_TW@latin]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[nb]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[nl]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[nn]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

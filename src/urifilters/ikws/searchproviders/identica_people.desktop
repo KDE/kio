@@ -52,6 +52,8 @@ Name[mai]=Identi.ca लोकनिसभ
 Name[ml]=ഐഡന്റിക്കയിലെ ആളുകള്‍
 Name[mr]=Identi.ca लोक
 Name[my]=အိုင်ဒမ်တီ.ကာ အများပြည်သူ
+Name[nan_TW]=Identi.ca 人物
+Name[nan_TW@latin]=Identi.ca Jîn-bu̍t
 Name[nb]=Identi.ca-folk
 Name[nds]=Identi.ca - Lüüd
 Name[nl]=Identi.ca Mensen
@@ -127,6 +129,8 @@ Query[lt]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[lv]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[mr]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[my]=https://identi.ca/search/people?q=\\{@}&search=Search
+Query[nan_TW]=https://identi.ca/search/people?q=\\{@}&search=Search
+Query[nan_TW@latin]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[nb]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[nds]=https://identi.ca/search/people?q=\\{@}&search=Search
 Query[nl]=https://identi.ca/search/people?q=\\{@}&search=Search

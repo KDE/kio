@@ -17,6 +17,8 @@ Name[it]=ZDF Mediathek
 Name[ka]=ZDF Mediathek
 Name[ko]=ZDF Mediathek
 Name[lt]=ZDF Mediathek
+Name[nan_TW]=ZDF Mediathek
+Name[nan_TW@latin]=ZDF Mediathek
 Name[nl]=ZDF Mediatiek
 Name[pt_BR]=ZDF Mediathek
 Name[sk]=ZDF Mediathek
@@ -40,6 +42,8 @@ Query[it]=https://www.zdf.de/suche?q=\\{@}
 Query[ka]=https://www.zdf.de/suche?q=\\{@}
 Query[ko]=https://www.zdf.de/suche?q=\\{@}
 Query[lt]=https://www.zdf.de/suche?q=\\{@}
+Query[nan_TW]=https://www.zdf.de/suche?q=\\{@}
+Query[nan_TW@latin]=https://www.zdf.de/suche?q=\\{@}
 Query[nl]=https://www.zdf.de/suche?q=\\{@}
 Query[pt_BR]=https://www.zdf.de/suche?q=\\{@}
 Query[sk]=https://www.zdf.de/suche?q=\\{@}

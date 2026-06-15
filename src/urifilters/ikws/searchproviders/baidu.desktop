@@ -51,6 +51,8 @@ Name[mai]=बैडू
 Name[ml]=ബൈഡു
 Name[mr]=बैदु
 Name[my]=ဘိုင်ဒူ
+Name[nan_TW]=百度
+Name[nan_TW@latin]=Pah-tōo
 Name[nb]=Baidu
 Name[nds]=Baidu
 Name[nl]=Baidu
@@ -124,6 +126,8 @@ Query[lg]=https://www.baidu.com/s?wd=\\{@}
 Query[lt]=https://www.baidu.com/s?wd=\\{@}
 Query[lv]=https://www.baidu.com/s?wd=\\{@}
 Query[my]=https://www.baidu.com/s?wd=\\{@}
+Query[nan_TW]=https://www.baidu.com/s?wd=\\{@}
+Query[nan_TW@latin]=https://www.baidu.com/s?wd=\\{@}
 Query[nb]=https://www.baidu.com/s?wd=\\{@}
 Query[nl]=https://www.baidu.com/s?wd=\\{@}
 Query[nn]=https://www.baidu.com/s?wd=\\{@}

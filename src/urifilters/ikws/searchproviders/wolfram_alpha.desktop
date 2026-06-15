@@ -53,6 +53,8 @@ Name[mk]=Волфрам Алфа
 Name[ml]=വുള്‍ഫ്രാം ആല്‍ഫ
 Name[mr]=वोल्फ्राम अल्फा
 Name[my]=ဝုဖ်ဖရန်အယ်ဖာ
+Name[nan_TW]=Wolfram Alpha
+Name[nan_TW@latin]=Wolfram Alpha
 Name[nb]=Wolfram Alpha
 Name[nds]=Wolfram Alpha
 Name[nl]=Wolfram Alpha
@@ -129,6 +131,8 @@ Query[lt]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[lv]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[mr]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[my]=https://www.wolframalpha.com/input/?i=\\{@}
+Query[nan_TW]=https://www.wolframalpha.com/input/?i=\\{@}
+Query[nan_TW@latin]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[nb]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[nds]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[nl]=https://www.wolframalpha.com/input/?i=\\{@}

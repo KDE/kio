@@ -63,6 +63,8 @@ Name[ml]=ഗൂഗിള്‍
 Name[mr]=गूगल
 Name[ms]=Google
 Name[my]=ဂူးဂယ်
+Name[nan_TW]=Google
+Name[nan_TW@latin]=Google
 Name[nb]=Google
 Name[nds]=Google.de
 Name[ne]=गुगल
@@ -148,6 +150,8 @@ Query[lt]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[lv]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[mr]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[my]=https://www.google.com/search?q=\\{@}&ie=UTF-8
+Query[nan_TW]=https://www.google.com/search?q=\\{@}&ie=UTF-8
+Query[nan_TW@latin]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[nb]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[nds]=https://www.google.de/search?q=\\{@}&ie=UTF-8
 Query[nl]=https://www.google.com/search?q=\\{@}&ie=UTF-8

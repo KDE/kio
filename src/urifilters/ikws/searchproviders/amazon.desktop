@@ -52,6 +52,8 @@ Name[lv]=Amazon
 Name[mai]=अमेजन
 Name[mr]=अमेझोन
 Name[my]=အမေဇုန်
+Name[nan_TW]=Amazon
+Name[nan_TW@latin]=Amazon
 Name[nb]=Amazon
 Name[nds]=Amazon.de
 Name[nl]=Amazon
@@ -124,6 +126,8 @@ Query[lg]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-key
 Query[lt]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[lv]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[my]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
+Query[nan_TW]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
+Query[nan_TW@latin]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[nb]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[nl]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[nn]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0

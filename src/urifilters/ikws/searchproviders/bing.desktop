@@ -50,6 +50,8 @@ Name[lv]=Bing
 Name[mai]=बिंग
 Name[mr]=बिंग
 Name[my]=ဘင်
+Name[nan_TW]=Bing
+Name[nan_TW@latin]=Bing
 Name[nb]=Bing
 Name[nds]=Bing
 Name[nl]=Bing
@@ -123,6 +125,8 @@ Query[lg]=https://www.bing.com/search?q=\\{@}
 Query[lt]=https://www.bing.com/search?q=\\{@}
 Query[lv]=https://www.bing.com/search?q=\\{@}
 Query[my]=https://www.bing.com/search?q=\\{@}
+Query[nan_TW]=https://www.bing.com/search?q=\\{@}
+Query[nan_TW@latin]=https://www.bing.com/search?q=\\{@}
 Query[nb]=https://www.bing.com/search?q=\\{@}
 Query[nl]=https://www.bing.com/search?q=\\{@}
 Query[nn]=https://www.bing.com/search?q=\\{@}

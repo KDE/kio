@@ -62,6 +62,8 @@ Name[ml]=ഗൂഗിള്‍ ചലചിത്രങ്ങള്‍
 Name[mr]=गूगल सिनेमा
 Name[ms]=Wayang Google
 Name[my]=ဂူးဂယ်ရုပ်ရှင်များ
+Name[nan_TW]=Google 電影
+Name[nan_TW@latin]=Google Tiān-iánn
 Name[nb]=Google filmer
 Name[nds]=Google-Filmen
 Name[ne]=गुगल चलचित्र
@@ -142,6 +144,8 @@ Query[lg]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[lt]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[lv]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[my]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[nan_TW]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
+Query[nan_TW@latin]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[nb]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[nl]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8
 Query[nn]=https://www.google.com/search?q=\\{@}&ie=UTF-8&oe=UTF-8

@@ -41,6 +41,8 @@ Name[lg]=Emirimu Egiwedde Egiweeredwayo ku KDE Invent
 Name[lt]=KDE Invent suliejimo užklausos
 Name[lv]=„KDE Invent“ pievienošanas pieprasījumi
 Name[my]=ကေဒီအီး အင်ဗန့် ပေါင်းစပ်ရန်တောင်းဆိုချက်များ
+Name[nan_TW]=KDE Invent 合併請求
+Name[nan_TW@latin]=KDE Invent Ha̍p-pìng Tshíng-kiû
 Name[nb]=KDE Invent-fletteforespørsler
 Name[nl]=KDE-invent samenvoegaanvragen
 Name[nn]=KDE Invent-fletteførespurnadar
@@ -102,6 +104,8 @@ Query[lg]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[lt]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[lv]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[my]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[nan_TW]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[nan_TW@latin]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[nb]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[nl]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[nn]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}

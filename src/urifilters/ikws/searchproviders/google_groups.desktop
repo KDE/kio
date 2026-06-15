@@ -61,6 +61,8 @@ Name[ml]=ഗൂഗിള്‍ കൂട്ടങ്ങള്‍
 Name[mr]=Google समूह
 Name[ms]=Kumpulan Google
 Name[my]=ဂူးဂယ်အုပ်စုများ
+Name[nan_TW]=Google 群組
+Name[nan_TW@latin]=Google Kûn-tsoo
 Name[nb]=Google Groups
 Name[nds]=Google-Koppeln
 Name[ne]=गुगल समूह
@@ -146,6 +148,8 @@ Query[lt]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[lv]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[mr]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[my]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
+Query[nan_TW]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
+Query[nan_TW@latin]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[nb]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[nds]=https://groups.google.com/groups?oi=djq&as_q=\\{@}
 Query[nl]=https://groups.google.com/groups?oi=djq&as_q=\\{@}

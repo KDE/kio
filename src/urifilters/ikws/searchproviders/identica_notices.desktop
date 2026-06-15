@@ -52,6 +52,8 @@ Name[mai]=Identi.ca सूचना
 Name[ml]=ഐഡന്റിക്ക നോട്ടീസുകള്‍
 Name[mr]=Identi.ca सूचना
 Name[my]=အိုင်ဒမ်တီ.ကာ ကြေညာချက်များ
+Name[nan_TW]=Identi.ca 通知
+Name[nan_TW@latin]=Identi.ca Thong-ti
 Name[nb]=Identi.ca-varsel
 Name[nds]=Identi.ca - Uthäng
 Name[nl]=Identi.ca Notities
@@ -127,6 +129,8 @@ Query[lt]=https://identi.ca/search/notice?q=\\{@}
 Query[lv]=https://identi.ca/search/notice?q=\\{@}
 Query[mr]=https://identi.ca/search/notice?q=\\{@}
 Query[my]=https://identi.ca/search/notice?q=\\{@}
+Query[nan_TW]=https://identi.ca/search/notice?q=\\{@}
+Query[nan_TW@latin]=https://identi.ca/search/notice?q=\\{@}
 Query[nb]=https://identi.ca/search/notice?q=\\{@}
 Query[nds]=https://identi.ca/search/notice?q=\\{@}
 Query[nl]=https://identi.ca/search/notice?q=\\{@}

@@ -52,6 +52,8 @@ Name[lv]=Google Code
 Name[mai]=गूगल कोड
 Name[mr]=गूगल कोड
 Name[my]=ဂူးဂယ်ကုတ်
+Name[nan_TW]=Google Code
+Name[nan_TW@latin]=Google Code
 Name[nb]=Google Code
 Name[nds]=Google.com-Kode
 Name[nl]=Google Code
@@ -127,6 +129,8 @@ Query[lt]=https://code.google.com/query/#q=\\{%2520}
 Query[lv]=https://code.google.com/query/#q=\\{%2520}
 Query[mr]=https://code.google.com/query/#q=\\{%2520}
 Query[my]=https://code.google.com/query/#q=\\{%2520}
+Query[nan_TW]=https://code.google.com/query/#q=\\{%2520}
+Query[nan_TW@latin]=https://code.google.com/query/#q=\\{%2520}
 Query[nb]=https://code.google.com/query/#q=\\{%2520}
 Query[nds]=https://code.google.com/query/#q=\\{%2520}
 Query[nl]=https://code.google.com/query/#q=\\{%2520}

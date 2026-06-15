@@ -40,6 +40,8 @@ Name[lg]=puloguramu eza openSUSE
 Name[lt]=openSUSE programinė įranga
 Name[lv]=„openSUSE“ programmatūra
 Name[my]=အိုးပန်းဆူဆီ ဆော့ဖ်ဝဲလ်
+Name[nan_TW]=openSUSE 軟體
+Name[nan_TW@latin]=openSUSE Nńg-thé
 Name[nb]=openSUSE-programvare
 Name[nl]=openSUSE-software
 Name[nn]=openSUSE-programvare
@@ -104,6 +106,8 @@ Query[lg]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[lt]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[lv]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[my]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[nan_TW]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
+Query[nan_TW@latin]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[nb]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[nl]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}
 Query[nn]=https://software.opensuse.org/search?utf8=%E2%9C%93&q=\\{@}

@@ -29,6 +29,8 @@ Name[lg]=Emiganda gya mu Nix
 Name[lt]=Nix paketai
 Name[lv]=„Nix“ pakotnes
 Name[my]=Nix Packages
+Name[nan_TW]=Nix 套件
+Name[nan_TW@latin]=Nix Thò-kiānn
 Name[nb]=Nix-pakker
 Name[nl]=Nix-pakketten
 Name[pl]=Pakiety Nix
@@ -75,6 +77,8 @@ Query[lg]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\
 Query[lt]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[lv]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[my]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[nan_TW]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[nan_TW@latin]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[nb]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[nl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[pl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}

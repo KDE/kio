@@ -50,6 +50,8 @@ Name[mai]=इकोसिया खोज इंजिन
 Name[ml]=എക്കോഷ്യ തെരച്ചില്‍ എഞ്ചിന്‍
 Name[mr]=एकोसिआ शोध इंजिन
 Name[my]=အီကိုးရှား ရှာဖွေအင်ဂျင်
+Name[nan_TW]=Ecosia 搜揣 ia̋n-jín
+Name[nan_TW@latin]=Ecosia tshiau-tshuē ia̋n-jín
 Name[nb]=Ecosia søkemotor
 Name[nds]=Ecosia-Söökmaschien
 Name[nl]=Ecosia zoekmachine
@@ -123,6 +125,8 @@ Query[lg]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[lt]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[lv]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[my]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[nan_TW]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[nan_TW@latin]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[nb]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[nl]=https://www.ethicle.com/search.php?q=\\{@}
 Query[nn]=https://ecosia.org/search.php?q=\\{@}&meta=normal

@@ -42,6 +42,8 @@ Name[lg]=Soundcloud
 Name[lt]=Soundcloud
 Name[lv]=Soundcloud
 Name[my]=ဆောင်းကလောက်
+Name[nan_TW]=Soundcloud
+Name[nan_TW@latin]=Soundcloud
 Name[nb]=SoundCloud
 Name[nl]=Soundcloud
 Name[nn]=SoundCloud
@@ -111,6 +113,8 @@ Query[lg]=https://soundcloud.com/search?q=\\{@}
 Query[lt]=https://soundcloud.com/search?q=\\{@}
 Query[lv]=https://soundcloud.com/search?q=\\{@}
 Query[my]=https://soundcloud.com/search?q=\\{@}
+Query[nan_TW]=https://soundcloud.com/search?q=\\{@}
+Query[nan_TW@latin]=https://soundcloud.com/search?q=\\{@}
 Query[nb]=https://soundcloud.com/search?q=\\{@}
 Query[nl]=https://soundcloud.com/search?q=\\{@}
 Query[nn]=https://soundcloud.com/search?q=\\{@}

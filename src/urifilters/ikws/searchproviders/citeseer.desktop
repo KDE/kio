@@ -61,6 +61,8 @@ Name[ml]=സൈറ്റ്സിയര്‍: ശാസ്ത്രസാഹി
 Name[mr]=CiteSeer: वैज्ञानिक साहित्य डिजिटल पुस्तकालय
 Name[ms]=CiteSeer: Pustaka Digital Risalah Sains
 Name[my]=ဆိုက်ဆီယာ - သိပ္ပံစာပေဆိုင်ရာ ဒီဂျစ်တယ်စာကြည့်တိုက်
+Name[nan_TW]=CiteSeer: 科學文獻數位圖書館
+Name[nan_TW@latin]=CiteSeer: Kho-ha̍k Bûn-hian Sòo-ūi Tôo-su-kuán
 Name[nb]=CiteSeer: Digitalt bibliotek for vitenskapelig litteratur
 Name[nds]=CiteSeer: Digitale Bibliotheek för wetenschaplich Literatuur
 Name[ne]=CiteSeer: वैज्ञानिक साहित्य डिजिटल लाइब्रेरी
@@ -139,6 +141,8 @@ Query[lg]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=d
 Query[lt]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[lv]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[my]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[nan_TW]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
+Query[nan_TW@latin]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[nb]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[nl]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc
 Query[nn]=https://citeseer.ist.psu.edu/search?q=\\{@}&submit=Search&sort=rlv&t=doc

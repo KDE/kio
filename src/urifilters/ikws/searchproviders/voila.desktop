@@ -62,6 +62,8 @@ Name[ml]=വോയിലാ
 Name[mr]=वॉइला
 Name[ms]=Voila
 Name[my]=ဗွိုင်လာ
+Name[nan_TW]=Voila
+Name[nan_TW@latin]=Voila
 Name[nb]=Voila
 Name[nds]=Voila
 Name[ne]=भोइला
@@ -142,6 +144,8 @@ Query[lg]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[lt]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[lv]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[my]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[nan_TW]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
+Query[nan_TW@latin]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[nb]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[nl]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*
 Query[nn]=https://www.voila.com/S/geek?an=1&kw=\\{@}&dt=*

@@ -61,6 +61,8 @@ Name[ml]=എഫ്എസ്എഫ്/യുനെസ്കോ സ്വതന്
 Name[mr]=FSF/UNESCO ची मोफत सॉफ्टवेअर संचयीका
 Name[ms]=Direktori Perisian Percuma FSF/UNESCO
 Name[my]=အက်ဖ်အက်စ်အက်ဖ်/ယူနက်စ်စကို လွတ်လပ်သောဆော့ဖ်လ်ဝဲလ် ဒါရိုက်ထရီ
+Name[nan_TW]=FSF/UNESCO 自由軟體目錄
+Name[nan_TW@latin]=FSF/UNESCO Tsū-iû Nńg-thé Bo̍k-lo̍k
 Name[nb]=FSF/UNESCO-katalogen over fri programvare
 Name[nds]=FSF/UNESCO-Verteken mit fre'e Programmen
 Name[ne]=FSF/UNESCO नि: शुल्क सफ्टवेयर शब्दकोश
@@ -138,6 +140,8 @@ Query[lg]=https://directory.fsf.org/search/?query=\\{@}
 Query[lt]=https://directory.fsf.org/search/?query=\\{@}
 Query[lv]=https://directory.fsf.org/search/?query=\\{@}
 Query[my]=https://directory.fsf.org/search/?query=\\{@}
+Query[nan_TW]=https://directory.fsf.org/search/?query=\\{@}
+Query[nan_TW@latin]=https://directory.fsf.org/search/?query=\\{@}
 Query[nb]=https://directory.fsf.org/search/?query=\\{@}
 Query[nl]=https://directory.fsf.org/search/?query=\\{@}
 Query[nn]=https://directory.fsf.org/search/?query=\\{@}
