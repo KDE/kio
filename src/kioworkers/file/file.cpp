@@ -144,7 +144,6 @@ WorkerResult FileProtocol::chmod(const QUrl &url, int permissions)
 {
     const QString path(url.toLocalFile());
     const QByteArray _path(QFile::encodeName(path));
-    /* FIXME: Should be atomic */
 #ifdef Q_OS_UNIX
     // QFile::Permissions does not support special attributes like sticky
     if (::chmod(_path.constData(), permissions) == -1)
