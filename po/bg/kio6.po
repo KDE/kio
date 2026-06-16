@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-14 00:39+0000\n"
-"PO-Revision-Date: 2026-05-28 22:26+0200\n"
+"POT-Creation-Date: 2026-06-16 00:40+0000\n"
+"PO-Revision-Date: 2026-06-15 20:27+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -17,12 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Радостин Раднев,Златко Попов"
+msgstr "Радостин Раднев,Златко Попов, Минчо Кондарев"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Невъзможно създаване на входно/изходна връзка: %1"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1007
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1010
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -90,23 +90,23 @@ msgstr ""
 "Избирането на Замяна ще замени всички невалидни знаци (в името на файла на "
 "местоназначението) с долна черта \"_\"."
 
-#: core/copyjob.cpp:1426 core/job_error.cpp:588
+#: core/copyjob.cpp:1429 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Вече има такава директория"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Вече има такъв файл"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Вече съществува като директория"
 
-#: core/copyjob.cpp:1914 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1918 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "Кошче"
@@ -4170,7 +4170,7 @@ msgstr "Команда за изпълнение"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL адреси или локални файлове, използвани за \"команда\""
 
-#: kioworkers/file/file.cpp:649
+#: kioworkers/file/file.cpp:684
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4179,7 +4179,7 @@ msgstr ""
 "Неуспешна смяна на правата за достъп\n"
 "%1"
 
-#: kioworkers/file/file.cpp:657
+#: kioworkers/file/file.cpp:692
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4189,37 +4189,37 @@ msgstr ""
 "Неуспешна смяна на собственика и групата за\n"
 "%1"
 
-#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
+#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Не може да се отвори временен файл"
 
-#: kioworkers/file/file.cpp:764
+#: kioworkers/file/file.cpp:796
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Програмата \"mount\" не може да бъде намерена"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:873
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Програмата \"umount\" не може да бъде намерена"
 
-#: kioworkers/file/file_unix.cpp:600
+#: kioworkers/file/file_unix.cpp:602
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Копирането на файла от %1 в %2 беше неуспешно. (грешка: %3)"
 
-#: kioworkers/file/file_unix.cpp:814
+#: kioworkers/file/file_unix.cpp:817
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Няма носител в устройството %1"
 
-#: kioworkers/file/file_unix.cpp:1075
+#: kioworkers/file/file_unix.cpp:1078
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ИД за потребител „%1“ не може да бъде получен"
 
-#: kioworkers/file/file_unix.cpp:1086
+#: kioworkers/file/file_unix.cpp:1089
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ИД за група „%1“ не може да бъде получен"
@@ -5394,8 +5394,7 @@ msgstr "Съдържание:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgid "Open with:"
 msgstr "Отваряне с:"
 
@@ -5473,29 +5472,25 @@ msgstr "Последен достъп:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
-#, fuzzy, kde-format
-#| msgid "File System:"
+#, kde-format
 msgid "File system:"
 msgstr "Файлова система:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
+#, kde-format
 msgid "Mounted on:"
 msgstr "Монтиран на:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
+#, kde-format
 msgid "Mounted from:"
 msgstr "Монтиран от:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, fuzzy, kde-format
-#| msgid "Free Space:"
+#, kde-format
 msgid "Free space:"
 msgstr "Свободно пространство:"
 

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-14 00:39+0000\n"
+"POT-Creation-Date: 2026-06-16 00:40+0000\n"
 "PO-Revision-Date: 2026-06-01 12:34+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -61,7 +61,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Ekki tókst að búa til KIO-vinnslu: %1"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1007
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1010
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -101,23 +101,23 @@ msgstr ""
 "Með því að velja 'Skipta ú't verður öllum ógildum stöfum (í skráarheitinu á "
 "viðtökuskráakerfinu) skipt út fyrir undirstrik \"_\"."
 
-#: core/copyjob.cpp:1426 core/job_error.cpp:588
+#: core/copyjob.cpp:1429 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Mappan er nú þegar til"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Skráin er nú þegar til"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Er nú þegar til sem mappa"
 
-#: core/copyjob.cpp:1914 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1918 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "Rusl"
@@ -4156,7 +4156,7 @@ msgstr "Skipun til að keyra"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "Slóð(-ir) eða staðbundin skrá sem 'skipun' notar."
 
-#: kioworkers/file/file.cpp:649
+#: kioworkers/file/file.cpp:684
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4165,7 +4165,7 @@ msgstr ""
 "Ekki tókst að breyta aðgangsheimildum fyrir\n"
 "%1"
 
-#: kioworkers/file/file.cpp:657
+#: kioworkers/file/file.cpp:692
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4175,37 +4175,37 @@ msgstr ""
 "Ekki tókst að breyta eiganda og hóp fyrir\n"
 "%1"
 
-#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
+#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Mistókst að opna bráðabirgðaskrá"
 
-#: kioworkers/file/file.cpp:764
+#: kioworkers/file/file.cpp:796
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Forritið \"mount\" fannst ekki"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:873
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Forritið \"umount\" fannst ekki"
 
-#: kioworkers/file/file_unix.cpp:600
+#: kioworkers/file/file_unix.cpp:602
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Ekki tókst að afrita skrá frá %1 til %2. (Villa: %3)"
 
-#: kioworkers/file/file_unix.cpp:814
+#: kioworkers/file/file_unix.cpp:817
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Engin miðill í tæki fyrir %1"
 
-#: kioworkers/file/file_unix.cpp:1075
+#: kioworkers/file/file_unix.cpp:1078
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Ekki tókst að sækja notandakenni fyrir notandanafnið %1"
 
-#: kioworkers/file/file_unix.cpp:1086
+#: kioworkers/file/file_unix.cpp:1089
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Ekki tókst að sækja hópkenni fyrir hópheitið %1"

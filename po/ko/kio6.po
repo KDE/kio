@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-14 00:39+0000\n"
+"POT-Creation-Date: 2026-06-16 00:40+0000\n"
 "PO-Revision-Date: 2026-06-06 13:00+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO 워커를 만들 수 없음: %1"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1007
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1010
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -88,23 +88,23 @@ msgstr ""
 "바꾸기를 선택하면 (대상 파일 이름에) 사용할 수 없는 글자를 밑줄(\"_\")로 대체"
 "합니다."
 
-#: core/copyjob.cpp:1426 core/job_error.cpp:588
+#: core/copyjob.cpp:1429 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "폴더가 이미 존재함"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "파일이 이미 존재함"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "이미 폴더로 존재함"
 
-#: core/copyjob.cpp:1914 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1918 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "휴지통"
@@ -4071,7 +4071,7 @@ msgstr "실행할 명령"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'command'에 사용할 URL이나 로컬 파일"
 
-#: kioworkers/file/file.cpp:649
+#: kioworkers/file/file.cpp:684
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4080,7 +4080,7 @@ msgstr ""
 "%1\n"
 "의 권한을 바꿀 수 없습니다"
 
-#: kioworkers/file/file.cpp:657
+#: kioworkers/file/file.cpp:692
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4090,37 +4090,37 @@ msgstr ""
 "%1\n"
 "의 소유자와 그룹을 변경할 수 없습니다"
 
-#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
+#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "임시 파일을 열 수 없음"
 
-#: kioworkers/file/file.cpp:764
+#: kioworkers/file/file.cpp:796
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" 프로그램을 찾을 수 없음"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:873
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" 프로그램을 찾을 수 없음"
 
-#: kioworkers/file/file_unix.cpp:600
+#: kioworkers/file/file_unix.cpp:602
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1에서 %2(으)로 파일을 복사할 수 없습니다. (오류 번호: %3)"
 
-#: kioworkers/file/file_unix.cpp:814
+#: kioworkers/file/file_unix.cpp:817
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 장치에 미디어가 없습니다"
 
-#: kioworkers/file/file_unix.cpp:1075
+#: kioworkers/file/file_unix.cpp:1078
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "주어진 사용자 이름 %1의 사용자 ID를 가져올 수 없습니다"
 
-#: kioworkers/file/file_unix.cpp:1086
+#: kioworkers/file/file_unix.cpp:1089
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "주어진 그룹 이름 %1의 그룹 ID를 가져올 수 없습니다"

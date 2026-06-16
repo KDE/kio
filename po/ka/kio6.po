@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-14 00:39+0000\n"
+"POT-Creation-Date: 2026-06-16 00:40+0000\n"
 "PO-Revision-Date: 2026-06-14 04:16+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -47,7 +47,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO დამხმარე პროცესის შექმნის შეცდომა: %1"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1007
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1010
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -89,23 +89,23 @@ msgstr ""
 "\"შეცვლის\" მონიშვნით სამიზნე ფაილის სახელებში დაუშვებელი სიმბოლოები "
 "შეიცვლება ქვედახაზით \"_\"."
 
-#: core/copyjob.cpp:1426 core/job_error.cpp:588
+#: core/copyjob.cpp:1429 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "საქაღალდე უკვე არსებობს"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "ფაილი უკვე არსებობს"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "უკვე არსებობს საქაღალდეში"
 
-#: core/copyjob.cpp:1914 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1918 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "ნაგავი"
@@ -4143,7 +4143,7 @@ msgstr "შესასრულებელი ბრძანება"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "ბრძანების URL-ები ან ადგილობრივი ფაილები"
 
-#: kioworkers/file/file.cpp:649
+#: kioworkers/file/file.cpp:684
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4152,7 +4152,7 @@ msgstr ""
 "%1-ზე\n"
 "წვდომის ცვლილების შეცდომა"
 
-#: kioworkers/file/file.cpp:657
+#: kioworkers/file/file.cpp:692
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4162,37 +4162,37 @@ msgstr ""
 "მფლობლის და ჯგუფის შეცვლა ფაილისთვის\n"
 "%1"
 
-#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
+#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "დროებითი ფაილის გახსნის შეცდომა"
 
-#: kioworkers/file/file.cpp:764
+#: kioworkers/file/file.cpp:796
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "ვერ ვიპოვე პროგრამა \"mount\""
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:873
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "ვერ ვიპოვე პროგრამა \"umount\""
 
-#: kioworkers/file/file_unix.cpp:600
+#: kioworkers/file/file_unix.cpp:602
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1-ის %2-ში კოპირების შეცდომა. (შეცდომის კოდი: %3)"
 
-#: kioworkers/file/file_unix.cpp:814
+#: kioworkers/file/file_unix.cpp:817
 #, kde-format
 msgid "No media in device for %1"
 msgstr "მოწყობილობაში მედია არ დევს %1-თვის"
 
-#: kioworkers/file/file_unix.cpp:1075
+#: kioworkers/file/file_unix.cpp:1078
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "მომხმარებლის, %1, uid-ის მოძებნის შეცდომა"
 
-#: kioworkers/file/file_unix.cpp:1086
+#: kioworkers/file/file_unix.cpp:1089
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ჯგუფის, %1, gid-ის მოძებნის შეცდომა"

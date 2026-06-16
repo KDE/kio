@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-14 00:39+0000\n"
+"POT-Creation-Date: 2026-06-16 00:40+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda\n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nnemedwa okukolawo puloguramu eyeyazikibwa eya KIO: %1"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1007
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1010
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -88,23 +88,23 @@ msgstr ""
 "Bw'olonda \"Kyusa Ekiriwo\" awali obubonero obutakkirizibwa (mu linnya lya "
 "fayiro ekolebwawo) wajja okuddawo ka \"_\"."
 
-#: core/copyjob.cpp:1426 core/job_error.cpp:588
+#: core/copyjob.cpp:1429 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Tterekero Lisangidwawo"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fayiro Esangidwawo"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Tterekero Lisangidwawo"
 
-#: core/copyjob.cpp:1914 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1918 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "Bisuulidwa"
@@ -4231,7 +4231,7 @@ msgstr ""
 "Endagiriro eya (eza) URL oba fayiro eya (eza) ku sisitemu eno 'kiragiro' mwe "
 "kinaanonebwa"
 
-#: kioworkers/file/file.cpp:649
+#: kioworkers/file/file.cpp:684
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4240,7 +4240,7 @@ msgstr ""
 "Nnemedwa okukyusa obuyinza obw'oku\n"
 "%1"
 
-#: kioworkers/file/file.cpp:657
+#: kioworkers/file/file.cpp:692
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4250,38 +4250,38 @@ msgstr ""
 "Nnemedwa okukyusa obwanannyini ne guluupu ku\n"
 "%1"
 
-#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
+#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "Nnemedwa Okukyusa Erinnya Lya Fayiro Ey'ekiseerabuseera"
 
-#: kioworkers/file/file.cpp:764
+#: kioworkers/file/file.cpp:796
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Puloguramu \"mount\" embuze"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:873
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Puloguramu \"umount\" embuze"
 
-#: kioworkers/file/file_unix.cpp:600
+#: kioworkers/file/file_unix.cpp:602
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nnemedwa okukola koppi %2 mu fayiro %1. (Nmaba ya kiremya: %3)"
 
-#: kioworkers/file/file_unix.cpp:814
+#: kioworkers/file/file_unix.cpp:817
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Mu kyuma temuli mediya ya %1"
 
-#: kioworkers/file/file_unix.cpp:1075
+#: kioworkers/file/file_unix.cpp:1078
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nnemedwa okufuna ennamba ya mukozesa egendera ku linnya %1"
 
-#: kioworkers/file/file_unix.cpp:1086
+#: kioworkers/file/file_unix.cpp:1089
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nnemedwa okufuna ennamba ya guluupu egendera ku guluupu %1"

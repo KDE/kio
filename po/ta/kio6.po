@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-14 00:39+0000\n"
+"POT-Creation-Date: 2026-06-16 00:40+0000\n"
 "PO-Revision-Date: 2026-04-12 18:17+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO பின்னணி பணியை உருவாக்க முடியவில்லை: %1"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1007
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1010
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -96,23 +96,23 @@ msgstr ""
 "'மாற்று' என்பதை தேர்ந்தெடுத்தல், சேருமிட கோப்புப்பெயரிலுள்ள செல்லுபடியாகாத எழுத்துகளை "
 "அடிக்கீறு (அதாவது \"_\") கொண்டு மாற்றும்."
 
-#: core/copyjob.cpp:1426 core/job_error.cpp:588
+#: core/copyjob.cpp:1429 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "அடைவு ஏற்கனவே உள்ளது"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "கோப்பு ஏற்கனவே உள்ளது"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "ஏற்கனவே அடைவாக உள்ளது"
 
-#: core/copyjob.cpp:1914 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1918 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "அகற்றிடம்"
@@ -4115,7 +4115,7 @@ msgstr "இயக்க வேண்டிய கட்டளை"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "கட்டளைக்கு பயன்படும் முகவரி(கள்) அல்லது உள்ளமை கோப்பு(கள்)"
 
-#: kioworkers/file/file.cpp:649
+#: kioworkers/file/file.cpp:684
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4124,7 +4124,7 @@ msgstr ""
 "%1\n"
 "என்பதற்கு அனுமதிகளை மாற்ற முடியவில்லை"
 
-#: kioworkers/file/file.cpp:657
+#: kioworkers/file/file.cpp:692
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4132,37 +4132,37 @@ msgid ""
 "%1"
 msgstr "%1 என்பதற்கான உரிமையாளரையும் குழுவையும் மாற்ற முடியவில்லை."
 
-#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
+#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "தற்காலிகக் கோப்பைத் திறக்க முடியவில்லை"
 
-#: kioworkers/file/file.cpp:764
+#: kioworkers/file/file.cpp:796
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" நிரலை கண்டுபிடிக்க முடியவில்லை"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:873
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" நிரலை கண்டுபிடிக்க முடியவில்லை"
 
-#: kioworkers/file/file_unix.cpp:600
+#: kioworkers/file/file_unix.cpp:602
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr " %1 -இலிருந்து %2 -க்கு கோப்பினை நகலெடுக்க இயலவில்லை. (சிக்கல் எண்: %3)"
 
-#: kioworkers/file/file_unix.cpp:814
+#: kioworkers/file/file_unix.cpp:817
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 -க்குரிய ஊடகம் சாதனத்தில் இல்லை"
 
-#: kioworkers/file/file_unix.cpp:1075
+#: kioworkers/file/file_unix.cpp:1078
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "%1 என்ற பயனர் பெயருக்கான பயனர் எண்ணை பெற இயலவில்லை"
 
-#: kioworkers/file/file_unix.cpp:1086
+#: kioworkers/file/file_unix.cpp:1089
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "%1 என்ற குழுப் பெயருக்கான குழு எண்ணை பெற முடியவில்லை"

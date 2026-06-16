@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-14 00:39+0000\n"
-"PO-Revision-Date: 2026-06-08 13:29+0900\n"
+"POT-Creation-Date: 2026-06-16 00:40+0000\n"
+"PO-Revision-Date: 2026-06-15 23:06+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Taiwanese Hokkien <zh-l10n@lists.slat.org>\n"
 "Language: nan_TW@latin\n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Bô-huat-tōo kiàn-li̍p KIO kang-tsok-khí: %1"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1007
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1010
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -87,23 +87,23 @@ msgstr ""
 "Suán Tshú-tāi ē kā bo̍k-ti̍k-tē tóng-miâ bô-hāu ê jī-guân lóng tshú-tāi tsò \"_"
 "\"."
 
-#: core/copyjob.cpp:1426 core/job_error.cpp:588
+#: core/copyjob.cpp:1429 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Tsu-liāu-giap-á í-king ū--ah"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Tóng-àn í-king ū--ah"
 
-#: core/copyjob.cpp:1760 core/copyjob.cpp:2476
+#: core/copyjob.cpp:1764 core/copyjob.cpp:2480
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Í-king ū iōng tsit-ê miâ ê tsu-liāu-giap-á--ah"
 
-#: core/copyjob.cpp:1914 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1918 kioworkers/trash/kio_trash.cpp:295
 #, kde-format
 msgid "Trash"
 msgstr "Pùn-sò-tháng"
@@ -1510,11 +1510,15 @@ msgid ""
 "capable of such an action. This is a rare event, and is likely to indicate a "
 "programming error."
 msgstr ""
+"KDE ē-sái tī hia̍p-tīng lāi-té thàu-kuè hia̍p-tīng lâi thong-sìn. Tsit-ê "
+"tshíng-kiû tsí-tīng--ah ài án-ne iōng ê hia̍p-tīng, m̄-koh tsit-ê hia̍p-tīng bô "
+"tsi-uān tsit-khuán tōng-tsok. Tse sī hán-iú ê tāi-tsì, ing-kai sī tîng-sik "
+"guân-sí-bé ê būn-tê."
 
 #: core/job_error.cpp:769
 #, kde-format
 msgid "Unable to Initialize Input/Output Device"
-msgstr ""
+msgstr "Bô-huat-tōo Tshoo-kî-huà Su-ji̍p/Su-tshut Tsong-tì"
 
 #: core/job_error.cpp:770
 #, kde-format
@@ -1527,6 +1531,8 @@ msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
 "error was: <strong>%1</strong>"
 msgstr ""
+"Tshíng-kiû ê tsong-tì bô-huat-tōo tshoo-kî-huà (\"kuà-tsài\"). Huê-pò ê tshò-"
+"gōo sī: <strong>%1</strong>"
 
 #: core/job_error.cpp:776
 #, kde-format
@@ -1546,6 +1552,9 @@ msgid ""
 "systems, often system administrator privileges are required to initialize a "
 "device."
 msgstr ""
+"Lí khó-lîng bô khuân-hān tshoo-kî-huà (\"kuà-tsài\") tsong-tì. Tī UNIX hē-"
+"thóng, thong-siông su-iàu ū kuán-lí-tsiá khuân-hān tsiah ē-sái tshoo-kî-huà "
+"tsong-tì."
 
 #: core/job_error.cpp:786
 #, kde-format
@@ -1560,7 +1569,7 @@ msgstr ""
 #: core/job_error.cpp:793
 #, kde-format
 msgid "Unable to Uninitialize Input/Output Device"
-msgstr ""
+msgstr "Bô-huat-tōo Kiat-sok Su-ji̍p/Su-tshut Tsong-tì"
 
 #: core/job_error.cpp:794
 #, kde-format
@@ -1573,6 +1582,8 @@ msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
 "reported error was: <strong>%1</strong>"
 msgstr ""
+"Tshíng-kiû ê tsong-tì bô-huat-tōo kiat-sok (\"sià-tsài\"). Huê-pò ê tshò-gōo "
+"sī: <strong>%1</strong>"
 
 #: core/job_error.cpp:800
 #, kde-format
@@ -1593,6 +1604,8 @@ msgid ""
 "UNIX systems, system administrator privileges are often required to "
 "uninitialize a device."
 msgstr ""
+"Lí khó-lîng bô khuân-hān kiat-sok (\"sià-tsài\") tsong-tì. Tī UNIX hē-thóng, "
+"thong-siông su-iàu ū kuán-lí-tsiá khuân-hān tsiah ē-sái kiat-sok tsong-tì."
 
 #: core/job_error.cpp:810
 #, kde-format
@@ -1612,11 +1625,13 @@ msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
 "opened, an error occurred while reading the contents of the resource."
 msgstr ""
+"Tse tāi-piáu sui-jiân tsu-guân <strong>%1</strong> ē-sái khui, tī tha̍k i ê "
+"lāi-iông ê sî-tsūn ū tshò-gōo huat-sing--ah."
 
 #: core/job_error.cpp:822
 #, kde-format
 msgid "You may not have permissions to read from the resource."
-msgstr ""
+msgstr "Lí khó-lîng bô khuân-hān tho̍k-tshú tsit-ê tsu-guân."
 
 #: core/job_error.cpp:835
 #, kde-format
@@ -1629,11 +1644,13 @@ msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
 "opened, an error occurred while writing to the resource."
 msgstr ""
+"Tse tāi-piáu sui-jiân tsu-guân <strong>%1</strong> ē-sái khui, tī siá-ji̍p "
+"tsu-guân ê sî-tsūn ū tshò-gōo huat-sing--ah."
 
 #: core/job_error.cpp:840
 #, kde-format
 msgid "You may not have permissions to write to the resource."
-msgstr ""
+msgstr "Lí khó-lîng bô khuân-hān siá-ji̍p tsit-ê tsu-guân."
 
 #: core/job_error.cpp:853 core/job_error.cpp:866
 #, kde-format
@@ -4037,14 +4054,14 @@ msgstr "Ài tsip-hîng ê tsí-līng"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""
 
-#: kioworkers/file/file.cpp:649
+#: kioworkers/file/file.cpp:684
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr ""
 
-#: kioworkers/file/file.cpp:657
+#: kioworkers/file/file.cpp:692
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4054,37 +4071,37 @@ msgstr ""
 "Bô-huat-tōo kái-piàn tsit-ê hāng-bo̍k ê sóo-iú-tsiá kah kûn-tsoo\n"
 "%1"
 
-#: kioworkers/file/file.cpp:740 kioworkers/file/file.cpp:832
+#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Bô-huat-tōo khui tsiām-sî-tóng-àn"
 
-#: kioworkers/file/file.cpp:764
+#: kioworkers/file/file.cpp:796
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Tshuē-bô \"mount\" tîng-sik"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:873
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Tshuē-bô \"umount\" tîng-sik"
 
-#: kioworkers/file/file_unix.cpp:600
+#: kioworkers/file/file_unix.cpp:602
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:814
+#: kioworkers/file/file_unix.cpp:817
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Tsong-tì bô muî-thé hōo %1"
 
-#: kioworkers/file/file_unix.cpp:1075
+#: kioworkers/file/file_unix.cpp:1078
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:1086
+#: kioworkers/file/file_unix.cpp:1089
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
@@ -5243,10 +5260,9 @@ msgstr "Lāi-iông:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgid "Open with:"
-msgstr "Iōng Tîng-sik Khui:"
+msgstr "Iōng tîng-sik khui:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:192
@@ -5322,31 +5338,27 @@ msgstr "Tsûn-tshú:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
-#, fuzzy, kde-format
-#| msgid "File System:"
+#, kde-format
 msgid "File system:"
-msgstr "Tóng-àn Hē-thóng:"
+msgstr "Tóng-àn hē-thóng:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
+#, kde-format
 msgid "Mounted on:"
 msgstr "Kuà-tsài-tiám:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
+#, kde-format
 msgid "Mounted from:"
-msgstr "Uì toh Kuà-tsài:"
+msgstr "Uì toh kuà-tsài:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, fuzzy, kde-format
-#| msgid "Free Space:"
+#, kde-format
 msgid "Free space:"
-msgstr "Ē-sái Iōng ê Khang-king:"
+msgstr "Ē-sái iōng ê khang-king:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
 #: widgets/kfilepropspluginwidget.ui:546
