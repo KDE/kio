@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-16 00:40+0000\n"
-"PO-Revision-Date: 2026-06-15 23:06+0900\n"
+"PO-Revision-Date: 2026-06-17 23:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Taiwanese Hokkien <zh-l10n@lists.slat.org>\n"
 "Language: nan_TW@latin\n"
@@ -4574,7 +4574,7 @@ msgstr "Acme Tsa̍p-bu̍t Sán-phín Kong-si"
 #: widgets/certificateparty.ui:68
 #, kde-format
 msgid "Organizational unit:"
-msgstr ""
+msgstr "Tsoo-tsit tan-uī:"
 
 #. i18n: ectx: property (text), widget (QLabel, organizationalUnit)
 #: widgets/certificateparty.ui:78
@@ -4598,13 +4598,13 @@ msgstr "Ka-ná-tāi"
 #: widgets/certificateparty.ui:108
 #, kde-format
 msgid "State:"
-msgstr ""
+msgstr "Tsiu:"
 
 #. i18n: ectx: property (text), widget (QLabel, state)
 #: widgets/certificateparty.ui:118
 #, kde-format
 msgid "Quebec"
-msgstr ""
+msgstr "Khue-bak-khik"
 
 #. i18n: ectx: property (text), widget (QLabel, cityTag)
 #: widgets/certificateparty.ui:128
@@ -4833,7 +4833,7 @@ msgstr "Ho̍k-guân: Kiàn-li̍p Tóng-àn(&O)"
 #: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Batch Rename"
-msgstr ""
+msgstr "Ho̍k-guân: Tsuân-pōo Kái-miâ(&O)"
 
 #: widgets/fileundomanager.cpp:357
 #, kde-format
@@ -4883,7 +4883,7 @@ msgstr "Tshú-siau ho̍k-guân: Kiàn-li̍p Tóng-àn(&R)"
 #: widgets/fileundomanager.cpp:379
 #, kde-format
 msgid "&Redo: Batch Rename"
-msgstr ""
+msgstr "Tshú-siau ho̍k-guân: Tsuân-pōo Kái-miâ(&R)"
 
 #: widgets/fileundomanager.cpp:906
 #, kde-format
@@ -6429,7 +6429,7 @@ msgstr "Ìng-iōng-tîng-sik(&A)"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2848
 #, kde-format
 msgid "Add File Type for %1"
-msgstr ""
+msgstr "Uī %1 Thiam Tóng-àn Luī"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2849
 #, kde-format

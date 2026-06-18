@@ -5181,7 +5181,7 @@ msgstr "内容："
 #: widgets/kfilepropspluginwidget.ui:138
 #, kde-format
 msgid "Open with:"
-msgstr ""
+msgstr "打开方式："
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:192
@@ -5259,25 +5259,25 @@ msgstr "访问时间："
 #: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
 msgid "File system:"
-msgstr ""
+msgstr "文件系统："
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
 #, kde-format
 msgid "Mounted on:"
-msgstr ""
+msgstr "挂载位置："
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
 #, kde-format
 msgid "Mounted from:"
-msgstr ""
+msgstr "挂载来源："
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
 #, kde-format
 msgid "Free space:"
-msgstr ""
+msgstr "剩余空间："
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
 #: widgets/kfilepropspluginwidget.ui:546
