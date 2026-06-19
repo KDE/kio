@@ -46,10 +46,16 @@ ecm_add_tests(
 
 ecm_add_tests(
   deletejobtest.cpp
+  deleteortrashjobtest.cpp
   LINK_LIBRARIES KF6::KIOCore KF6::I18n KF6::ConfigCore KF6::Service Qt6::Test Qt6::Network Qt6::Xml
 )
+
+target_link_libraries(deleteortrashjobtest KF6::KIOWidgets)
 if(TARGET Qt6::DBus)
   target_link_libraries(deletejobtest Qt6::DBus)
+endif()
+if(WIN32)
+  target_link_libraries(deleteortrashjobtest shell32)
 endif()
 
 # disable some tests that fail on Windows ATM
@@ -58,12 +64,10 @@ if (NOT WIN32)
     jobtest.cpp
     kfileitemtest.cpp
     mkpathjobtest.cpp
-    deleteortrashjobtest.cpp
     krecentdocumenttest.cpp
     LINK_LIBRARIES KF6::KIOCore KF6::I18n KF6::ConfigCore KF6::Service Qt6::Test Qt6::Network Qt6::Xml
   )
 
-  target_link_libraries(deleteortrashjobtest KF6::KIOWidgets)
   target_link_libraries(kfileitemtest Qt6::Concurrent)
   if(ACL_FOUND)
     target_link_libraries(jobtest ${ACL_LIBS}) # copyFilePreservesAcl()
