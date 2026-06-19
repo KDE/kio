@@ -10,11 +10,7 @@
 # endif ()
 
 if(BUILD_TESTING)
-  if(WIN32)
-    message(AUTHOR_WARNING "kio_trash unit tests are broken on Windows, disabling them")
-  else()
-    add_subdirectory(tests)
-  endif()
+  add_subdirectory(tests)
 endif()
 
 ########### next target ###############
