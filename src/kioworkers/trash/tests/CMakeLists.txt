@@ -1,5 +1,18 @@
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. )
 
+include(ECMAddTests)
+
+if(WIN32)
+    # testtrash exercises the Unix trash layout (info/ and files/) and does not build
+    # on Windows. Only the recycle-bin worker test runs here; it drives the worker
+    # against the real Windows trash, so it stops itself when the trash is not empty.
+    ecm_add_test(kiotrashwintest.cpp
+        TEST_NAME kiotrashwintest
+        LINK_LIBRARIES KF6::KIOCore KF6::I18n Qt6::Test shell32
+    )
+    return()
+endif()
+
 ########### next target ###############
 
 ecm_qt_declare_logging_category(kio_trash_PART_test_DEBUG_SRCS
@@ -15,8 +28,6 @@ set(testtrash_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/../discspaceutil.cpp
     ${kio_trash_PART_test_DEBUG_SRCS}
 )
-
-include(ECMAddTests)
 
 ecm_add_test(${testtrash_SRCS}
     TEST_NAME testtrash
