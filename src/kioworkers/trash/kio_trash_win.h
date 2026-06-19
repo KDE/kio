@@ -20,6 +20,8 @@
 
 #include <KConfig>
 
+#include <QStringList>
+
 namespace KIO
 {
 class Job;
@@ -47,26 +49,24 @@ public:
      */
     KIO::WorkerResult special(const QByteArray &data) override;
 
-    void updateRecycleBin();
-
 private:
-    typedef enum {
-        Copy,
-        Move
-    } CopyOrMove;
-    [[nodiscard]] KIO::WorkerResult copyOrMove(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action);
-    [[nodiscard]] KIO::WorkerResult listRoot();
+    // The drive roots (e.g. "C:\\") whose recycle bin can be queried without blocking:
+    // local fixed disks only. Network drives, drives of unknown type, and drive letters
+    // that do not resolve to a \Device\HarddiskVolume device (mounted volume GUIDs, SUBST
+    // mappings, virtual or stale volumes) can wedge the shell recycle-bin calls and are
+    // left out.
+    [[nodiscard]] QStringList localRecycleBinDrives() const;
+    // Refreshes the cached empty/full state of the recycle bin in trashrc.
+    void updateRecycleBin();
+    // Restores a recycle-bin item to its original location, shared by rename() (moving
+    // an item out of the trash) and special() (the restore command).
     [[nodiscard]] KIO::WorkerResult restore(const QUrl &trashURL, const QUrl &destURL);
-    [[nodiscard]] KIO::WorkerResult clearTrash();
+    // Sends a local file to the recycle bin, shared by copy() and rename().
+    [[nodiscard]] KIO::WorkerResult trashLocalFile(const QUrl &url);
 
-    [[nodiscard]] KIO::WorkerResult doFileOp(const QUrl &url, UINT wFunc, FILEOP_FLAGS fFlags);
     [[nodiscard]] KIO::WorkerResult translateError(HRESULT retValue);
 
     KConfig m_config;
-    HWND m_notificationWindow;
-    IShellFolder2 *m_isfTrashFolder;
-    LPMALLOC m_pMalloc;
-    ULONG m_hNotifyRBin;
 };
 
 #endif

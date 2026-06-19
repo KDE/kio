@@ -14,11 +14,16 @@
 #include <QCoreApplication>
 #include <QDataStream>
 #include <QDateTime>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QMimeDatabase>
+#include <QTimeZone>
 
 #include <KConfigGroup>
 #include <KLocalizedString>
 
-#include <objbase.h>
+#include <optional>
 
 // Pseudo plugin class to embed meta data
 class KIOPluginForMetaData : public QObject
@@ -30,187 +35,203 @@ class KIOPluginForMetaData : public QObject
 extern "C" {
 int Q_DECL_EXPORT kdemain(int argc, char **argv)
 {
-    bool bNeedsUninit = (CoInitializeEx(NULL, COINIT_MULTITHREADED) == S_OK);
     // necessary to use other KIO workers
     QCoreApplication app(argc, argv);
 
-    // start the worker
     TrashProtocol worker(argv[1], argv[2], argv[3]);
     worker.dispatchLoop();
 
-    if (bNeedsUninit) {
-        CoUninitialize();
-    }
     return 0;
 }
 }
 
 static const qint64 KDE_SECONDS_SINCE_1601 = 11644473600LL;
-static const qint64 KDE_USEC_IN_SEC = 1000000LL;
-static const int WM_SHELLNOTIFY = (WM_USER + 42);
-#ifndef SHCNRF_InterruptLevel
-static const int SHCNRF_InterruptLevel = 0x0001;
-static const int SHCNRF_ShellLevel = 0x0002;
-static const int SHCNRF_RecursiveInterrupt = 0x1000;
-#endif
-
-static inline time_t filetimeToTime_t(const FILETIME *time)
+namespace
 {
-    ULARGE_INTEGER i64;
-    i64.LowPart = time->dwLowDateTime;
-    i64.HighPart = time->dwHighDateTime;
-    i64.QuadPart /= KDE_USEC_IN_SEC * 10;
-    i64.QuadPart -= KDE_SECONDS_SINCE_1601;
-    return i64.QuadPart;
-}
+// One item in the recycle bin as stored on disk: a $R payload (the deleted file or
+// directory) and its $I metadata file, which records the original path, original size,
+// and deletion time.
+struct RecycledItem {
+    QString rPath;
+    QString iPath;
+    QString originalPath;
+    qint64 size = 0;
+    QDateTime deletedAt;
+    bool isDir = false;
+};
 
-LRESULT CALLBACK trash_internal_proc(HWND hwnd, UINT message, WPARAM wp, LPARAM lp)
+// Read a recycle-bin $I metadata file. Layout: an 8-byte format version, an 8-byte
+// original size, an 8-byte deletion time (Windows FILETIME, 100-nanosecond ticks since
+// 1601), then the original path. Format 1 (Vista) stores a fixed 260 UTF-16 characters;
+// format 2 (Windows 10 and later) a 4-byte character count followed by that many UTF-16
+// characters.
+bool readInfoFile(const QString &iPath, QString &originalPath, qint64 &size, QDateTime &deletedAt)
 {
-    if (message == WM_SHELLNOTIFY) {
-        TrashProtocol *that = (TrashProtocol *)GetWindowLongPtr(hwnd, GWLP_USERDATA);
-        that->updateRecycleBin();
+    QFile file(iPath);
+    if (!file.open(QIODevice::ReadOnly)) {
+        return false;
     }
-    return DefWindowProc(hwnd, message, wp, lp);
+    const QByteArray data = file.readAll();
+    if (data.size() < 24) {
+        return false;
+    }
+    const auto readU64 = [](const char *p) {
+        quint64 v = 0;
+        for (int b = 0; b < 8; ++b) {
+            v |= static_cast<quint64>(static_cast<unsigned char>(p[b])) << (8 * b);
+        }
+        return v;
+    };
+    const quint64 version = readU64(data.constData());
+    size = static_cast<qint64>(readU64(data.constData() + 8));
+    const quint64 fileTime = readU64(data.constData() + 16);
+    deletedAt = QDateTime::fromSecsSinceEpoch(static_cast<qint64>(fileTime / 10000000ULL) - KDE_SECONDS_SINCE_1601, QTimeZone::UTC);
+
+    const char *p = data.constData() + 24;
+    int remaining = static_cast<int>(data.size()) - 24;
+    int chars = remaining / 2;
+    if (version >= 2) {
+        if (remaining < 4) {
+            return false;
+        }
+        const quint32 count = static_cast<quint32>(static_cast<unsigned char>(p[0])) | (static_cast<quint32>(static_cast<unsigned char>(p[1])) << 8)
+            | (static_cast<quint32>(static_cast<unsigned char>(p[2])) << 16) | (static_cast<quint32>(static_cast<unsigned char>(p[3])) << 24);
+        p += 4;
+        remaining -= 4;
+        chars = qMin<int>(remaining / 2, static_cast<int>(count));
+    }
+    originalPath = QString::fromUtf16(reinterpret_cast<const char16_t *>(p), chars);
+    const int nul = originalPath.indexOf(QChar(QChar::Null));
+    if (nul >= 0) {
+        originalPath.truncate(nul);
+    }
+    return !originalPath.isEmpty();
 }
+
+// The $R payload that pairs with a $I file shares its random suffix: $IABCDEF.txt pairs
+// with $RABCDEF.txt.
+QString payloadPathFor(const QString &iPath)
+{
+    const QFileInfo info(iPath);
+    return info.absolutePath() + QLatin1String("/$R") + info.fileName().mid(2);
+}
+
+// All recycle-bin items found under the given drive roots. Reads the filesystem directly
+// so it never enumerates the aggregate shell folder, which can stall on a drive that is
+// not a ready local disk.
+QList<RecycledItem> recycledItems(const QStringList &drives)
+{
+    QList<RecycledItem> items;
+    for (const QString &drive : drives) {
+        QDir bin(drive + QLatin1String("$Recycle.Bin"));
+        if (!bin.exists()) {
+            continue;
+        }
+        // The bin holds one subfolder per user, named after the user's SID.
+        const QFileInfoList userBins = bin.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot | QDir::Hidden | QDir::System);
+        for (const QFileInfo &userBin : userBins) {
+            QDir dir(userBin.absoluteFilePath());
+            const QFileInfoList infoFiles = dir.entryInfoList({QStringLiteral("$I*")}, QDir::Files | QDir::Hidden | QDir::System);
+            for (const QFileInfo &infoFile : infoFiles) {
+                RecycledItem item;
+                item.iPath = infoFile.absoluteFilePath();
+                item.rPath = payloadPathFor(item.iPath);
+                const QFileInfo payload(item.rPath);
+                if (!payload.exists()) {
+                    continue; // a $I metadata file with no $R payload, skip it
+                }
+                item.isDir = payload.isDir();
+                if (!readInfoFile(item.iPath, item.originalPath, item.size, item.deletedAt)) {
+                    // Unreadable metadata: fall back to what the payload itself reports.
+                    item.originalPath = payload.fileName();
+                    item.size = payload.size();
+                    item.deletedAt = payload.lastModified();
+                }
+                items.append(item);
+            }
+        }
+    }
+    return items;
+}
+
+// The item whose $R payload has the given file name. The $R name is the item's
+// identifier in its trash: URL.
+std::optional<RecycledItem> findRecycledItem(const QStringList &drives, const QString &payloadName)
+{
+    const QList<RecycledItem> items = recycledItems(drives);
+    for (const RecycledItem &item : items) {
+        if (QFileInfo(item.rPath).fileName() == payloadName) {
+            return item;
+        }
+    }
+    return std::nullopt;
+}
+
+// Describe one recycle-bin item as a directory entry. UDS_NAME is the $R file name, the
+// identifier used in the item's trash: URL; the display name is the original file name.
+void fillEntry(const RecycledItem &item, KIO::UDSEntry &entry)
+{
+    const QString payloadName = QFileInfo(item.rPath).fileName();
+    const QString displayName = QFileInfo(item.originalPath).fileName();
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, payloadName);
+    entry.fastInsert(KIO::UDSEntry::UDS_DISPLAY_NAME, displayName.isEmpty() ? payloadName : displayName);
+    entry.fastInsert(KIO::UDSEntry::UDS_SIZE, item.size);
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, item.isDir ? S_IFDIR : S_IFREG);
+    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0700);
+    if (item.deletedAt.isValid()) {
+        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, item.deletedAt.toSecsSinceEpoch());
+    }
+    if (!item.originalPath.isEmpty()) {
+        // The original location and deletion date, like the Unix worker exposes.
+        entry.fastInsert(KIO::UDSEntry::UDS_EXTRA, item.originalPath);
+        if (item.deletedAt.isValid()) {
+            entry.fastInsert(KIO::UDSEntry::UDS_EXTRA + 1, item.deletedAt.toString(Qt::ISODate));
+        }
+    }
+    if (item.isDir) {
+        entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
+    }
+}
+} // namespace
 
 TrashProtocol::TrashProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app)
     : WorkerBase(protocol, pool, app)
     , m_config(QString::fromLatin1("trashrc"), KConfig::SimpleConfig)
 {
-    // create a hidden window to receive notifications through window messages
-    const QString className = QLatin1String("TrashProtocol_Widget") + QString::number(quintptr(trash_internal_proc));
-    HINSTANCE hi = GetModuleHandle(nullptr);
-    WNDCLASS wc;
-    memset(&wc, 0, sizeof(WNDCLASS));
-    wc.lpfnWndProc = trash_internal_proc;
-    wc.hInstance = hi;
-    wc.lpszClassName = (LPCWSTR)className.utf16();
-    RegisterClass(&wc);
-    m_notificationWindow = CreateWindow(wc.lpszClassName, // classname
-                                        wc.lpszClassName, // window name
-                                        0, // style
-                                        0,
-                                        0,
-                                        0,
-                                        0, // geometry
-                                        0, // parent
-                                        0, // menu handle
-                                        hi, // application
-                                        0); // windows creation data.
-    SetWindowLongPtr(m_notificationWindow, GWLP_USERDATA, (LONG_PTR)this);
-
-    // get trash IShellFolder object
-    LPITEMIDLIST iilTrash;
-    IShellFolder *isfDesktop;
-    // we assume that this will always work - if not we've a bigger problem than a kio_trash crash...
-    SHGetFolderLocation(NULL, CSIDL_BITBUCKET, 0, 0, &iilTrash);
-    SHGetDesktopFolder(&isfDesktop);
-    isfDesktop->BindToObject(iilTrash, NULL, IID_IShellFolder2, (void **)&m_isfTrashFolder);
-    isfDesktop->Release();
-    SHGetMalloc(&m_pMalloc);
-
-    // register for recycle bin notifications, have to do it for *every* single recycle bin
-#if 0
-    // TODO: this does not work for devices attached after this loop here...
-    DWORD dwSize = GetLogicalDriveStrings(0, NULL);
-    LPWSTR pszDrives = (LPWSTR)malloc((dwSize + 2) * sizeof(WCHAR));
-#endif
-
-    SHChangeNotifyEntry stPIDL;
-    stPIDL.pidl = iilTrash;
-    stPIDL.fRecursive = TRUE;
-    m_hNotifyRBin = SHChangeNotifyRegister(m_notificationWindow,
-                                           SHCNRF_InterruptLevel | SHCNRF_ShellLevel | SHCNRF_RecursiveInterrupt,
-                                           SHCNE_ALLEVENTS,
-                                           WM_SHELLNOTIFY,
-                                           1,
-                                           &stPIDL);
-
-    ILFree(iilTrash);
-
     updateRecycleBin();
 }
 
-TrashProtocol::~TrashProtocol()
+TrashProtocol::~TrashProtocol() = default;
+
+KIO::WorkerResult TrashProtocol::restore(const QUrl &trashURL, const QUrl & /*destURL*/)
 {
-    SHChangeNotifyDeregister(m_hNotifyRBin);
-    const QString className = QLatin1String("TrashProtocol_Widget") + QString::number(quintptr(trash_internal_proc));
-    UnregisterClass((LPCWSTR)className.utf16(), GetModuleHandle(nullptr));
-    DestroyWindow(m_notificationWindow);
-
-    if (m_pMalloc) {
-        m_pMalloc->Release();
+    // An item is restored to the original location recorded in its $I metadata, so the
+    // requested destination is ignored. Move the $R payload back to that location and
+    // drop the $I metadata.
+    const std::optional<RecycledItem> item = findRecycledItem(localRecycleBinDrives(), trashURL.path().mid(1));
+    if (!item) {
+        return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, trashURL.toDisplayString());
     }
-    if (m_isfTrashFolder) {
-        m_isfTrashFolder->Release();
-    }
-}
-
-KIO::WorkerResult TrashProtocol::restore(const QUrl &trashURL, const QUrl &destURL)
-{
-    LPITEMIDLIST pidl = NULL;
-    LPCONTEXTMENU pCtxMenu = NULL;
-
-    const QString path = trashURL.path().mid(1).replace(QLatin1Char('/'), QLatin1Char('\\'));
-    LPWSTR lpFile = (LPWSTR)path.utf16();
-    HRESULT res = m_isfTrashFolder->ParseDisplayName(0, 0, lpFile, 0, &pidl, 0);
-    if (auto result = translateError(res); !result.success()) {
-        return result;
+    if (item->originalPath.isEmpty()) {
+        return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("The trash item %1 cannot be restored.", trashURL.toDisplayString()));
     }
 
-    res = m_isfTrashFolder->GetUIObjectOf(0, 1, (LPCITEMIDLIST *)&pidl, IID_IContextMenu, NULL, (LPVOID *)&pCtxMenu);
-    if (auto result = translateError(res); !result.success()) {
-        return result;
+    const QString target = QDir::toNativeSeparators(item->originalPath);
+    // Recreate the original parent folder if it is gone, so the move has somewhere to land.
+    const QString parent = QFileInfo(target).absolutePath();
+    if (!parent.isEmpty()) {
+        QDir().mkpath(parent);
     }
 
-    // this looks hacky but it's the only solution I found so far...
-    HMENU hmenuCtx = CreatePopupMenu();
-    res = pCtxMenu->QueryContextMenu(hmenuCtx, 0, 1, 0x00007FFF, CMF_NORMAL);
-    if (auto result = translateError(res); !result.success()) {
-        return result;
+    // MoveFileExW moves a file or a whole directory in a single call when source and
+    // destination are on the same volume, which a recycle-bin item and its origin always
+    // are (the bin lives on the item's own drive).
+    const QString source = QDir::toNativeSeparators(item->rPath);
+    if (!MoveFileExW(reinterpret_cast<LPCWSTR>(source.utf16()), reinterpret_cast<LPCWSTR>(target.utf16()), 0)) {
+        return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("The trash item %1 cannot be restored.", trashURL.toDisplayString()));
     }
-
-    UINT uiCommand = ~0U;
-    char verb[MAX_PATH];
-    const int iMenuMax = GetMenuItemCount(hmenuCtx);
-    for (int i = 0; i < iMenuMax; i++) {
-        UINT uiID = GetMenuItemID(hmenuCtx, i) - 1;
-        if ((uiID == -1) || (uiID == 0)) {
-            continue;
-        }
-        res = pCtxMenu->GetCommandString(uiID, GCS_VERBA, NULL, verb, sizeof(verb));
-        if (FAILED(res)) {
-            continue;
-        }
-        if (stricmp(verb, "undelete") == 0) {
-            uiCommand = uiID;
-            break;
-        }
-    }
-
-    KIO::WorkerResult result = KIO::WorkerResult::pass();
-
-    if (uiCommand != ~0U) {
-        CMINVOKECOMMANDINFO cmi;
-
-        memset(&cmi, 0, sizeof(CMINVOKECOMMANDINFO));
-        cmi.cbSize = sizeof(CMINVOKECOMMANDINFO);
-        cmi.lpVerb = MAKEINTRESOURCEA(uiCommand);
-        cmi.fMask = CMIC_MASK_FLAG_NO_UI;
-        res = pCtxMenu->InvokeCommand((CMINVOKECOMMANDINFO *)&cmi);
-
-        result = translateError(res);
-    }
-    DestroyMenu(hmenuCtx);
-    pCtxMenu->Release();
-    ILFree(pidl);
-
-    return result;
-}
-
-KIO::WorkerResult TrashProtocol::clearTrash()
-{
-    return translateError(SHEmptyRecycleBin(0, 0, 0));
+    QFile::remove(item->iPath);
+    return KIO::WorkerResult::pass();
 }
 
 KIO::WorkerResult TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, KIO::JobFlags flags)
@@ -221,10 +242,20 @@ KIO::WorkerResult TrashProtocol::rename(const QUrl &oldURL, const QUrl &newURL, 
         return KIO::WorkerResult::fail(KIO::ERR_CANNOT_RENAME, oldURL.toDisplayString());
     }
 
-    return copyOrMove(oldURL, newURL, (flags & KIO::Overwrite), Move);
+    // Moving an item out of the trash to a local path restores it.
+    if (oldURL.scheme() == QLatin1String("trash") && newURL.isLocalFile()) {
+        return restore(oldURL, newURL);
+    }
+
+    // Moving a local file into the trash sends it to the recycle bin.
+    if (oldURL.isLocalFile() && newURL.scheme() == QLatin1String("trash")) {
+        return trashLocalFile(oldURL);
+    }
+
+    return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, i18n("Internal error in rename, should never happen"));
 }
 
-KIO::WorkerResult TrashProtocol::copy(const QUrl &src, const QUrl &dest, int /*permissions*/, KIO::JobFlags flags)
+KIO::WorkerResult TrashProtocol::copy(const QUrl &src, const QUrl &dest, int /*permissions*/, KIO::JobFlags /*flags*/)
 {
     qCDebug(KIO_TRASH) << "TrashProtocol::copy(): " << src << " " << dest;
 
@@ -232,52 +263,69 @@ KIO::WorkerResult TrashProtocol::copy(const QUrl &src, const QUrl &dest, int /*p
         return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, i18n("This file is already in the trash bin."));
     }
 
-    return copyOrMove(src, dest, (flags & KIO::Overwrite), Copy);
-}
-
-KIO::WorkerResult TrashProtocol::copyOrMove(const QUrl &src, const QUrl &dest, bool overwrite, CopyOrMove action)
-{
+    // Copying out of the trash is not supported; restoring an item is a move, see rename().
     if (src.scheme() == QLatin1String("trash") && dest.isLocalFile()) {
-        if (action == Move) {
-            return restore(src, dest);
-        } else {
-            return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, i18n("not supported"));
-        }
-    } else if (src.isLocalFile() && dest.scheme() == QLatin1String("trash")) {
-        UINT op = (action == Move) ? FO_DELETE : FO_COPY;
-        if (auto result = doFileOp(src, FO_DELETE, FOF_ALLOWUNDO); !result.success()) {
-            return result;
-        }
-        return KIO::WorkerResult::pass();
-    } else {
-        return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, i18n("Internal error in copyOrMove, should never happen"));
+        return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, i18n("not supported"));
     }
 
-    return KIO::WorkerResult::pass();
+    // Copying a local file into the trash sends it to the recycle bin.
+    if (src.isLocalFile() && dest.scheme() == QLatin1String("trash")) {
+        return trashLocalFile(src);
+    }
+
+    return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, i18n("Internal error in copy, should never happen"));
+}
+
+KIO::WorkerResult TrashProtocol::trashLocalFile(const QUrl &url)
+{
+    // QUrl::toLocalFile() gives the drive-letter path the shell accepts (QUrl::path()
+    // would prefix a slash).
+    const QString winPath = QDir::toNativeSeparators(url.toLocalFile());
+    // SHFileOperationW's pFrom must be double-null terminated.
+    QByteArray buffer((winPath.length() + 2) * 2, 0);
+    memcpy(buffer.data(), winPath.utf16(), winPath.length() * 2);
+
+    SHFILEOPSTRUCTW op;
+    memset(&op, 0, sizeof(op));
+    op.wFunc = FO_DELETE;
+    op.pFrom = (LPCWSTR)buffer.constData();
+    // FOF_ALLOWUNDO recycles the file instead of deleting it for good, with no
+    // confirmation, error or progress dialogs. SHFileOperationW is synchronous and
+    // apartment independent, unlike IFileOperation.
+    op.fFlags = FOF_NOCONFIRMATION | FOF_NOERRORUI | FOF_SILENT | FOF_ALLOWUNDO;
+    return translateError(SHFileOperationW(&op));
 }
 
 KIO::WorkerResult TrashProtocol::stat(const QUrl &url)
 {
     KIO::UDSEntry entry;
     if (url.path() == QLatin1String("/")) {
-        STRRET strret;
-        IShellFolder *isfDesktop;
-        LPITEMIDLIST iilTrash;
-
-        SHGetFolderLocation(NULL, CSIDL_BITBUCKET, 0, 0, &iilTrash);
-        SHGetDesktopFolder(&isfDesktop);
-        isfDesktop->BindToObject(iilTrash, NULL, IID_IShellFolder2, (void **)&m_isfTrashFolder);
-        isfDesktop->GetDisplayNameOf(iilTrash, SHGDN_NORMAL, &strret);
-        isfDesktop->Release();
-        ILFree(iilTrash);
-
-        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QString::fromUtf16(reinterpret_cast<const char16_t *>(strret.pOleStr)));
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
         entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
         entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0700);
         entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("inode/directory"));
-        m_pMalloc->Free(strret.pOleStr);
+
+        // The trash root is virtual; its modification time is the most recent change to
+        // any local drive's recycle bin, so the views refresh when something is added or
+        // removed. The bin folder's own timestamp tracks that, and reading it from the
+        // filesystem avoids the shell enumeration, which can stall on a drive that is not
+        // a ready local disk.
+        qint64 latest = 0;
+        const QStringList drives = localRecycleBinDrives();
+        for (const QString &drive : drives) {
+            const QFileInfo binInfo(drive + QLatin1String("$Recycle.Bin"));
+            if (binInfo.exists()) {
+                latest = qMax(latest, binInfo.lastModified().toSecsSinceEpoch());
+            }
+        }
+        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, latest);
     } else {
-        // TODO: when does this happen?
+        // A specific trashed item, addressed by its $R file name.
+        const std::optional<RecycledItem> item = findRecycledItem(localRecycleBinDrives(), url.path().mid(1));
+        if (!item) {
+            return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toDisplayString());
+        }
+        fillEntry(*item, entry);
     }
     statEntry(entry);
     return KIO::WorkerResult::pass();
@@ -285,8 +333,17 @@ KIO::WorkerResult TrashProtocol::stat(const QUrl &url)
 
 KIO::WorkerResult TrashProtocol::del(const QUrl &url, bool /*isfile*/)
 {
-    if (auto result = doFileOp(url, FO_DELETE, 0); !result.success()) {
-        return result;
+    // Permanently remove the item, addressed by its $R file name: drop both the $R
+    // payload and its $I metadata.
+    const std::optional<RecycledItem> item = findRecycledItem(localRecycleBinDrives(), url.path().mid(1));
+    if (!item) {
+        return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toDisplayString());
+    }
+
+    const bool removed = item->isDir ? QDir(item->rPath).removeRecursively() : QFile::remove(item->rPath);
+    QFile::remove(item->iPath);
+    if (!removed) {
+        return KIO::WorkerResult::fail(KIO::ERR_CANNOT_DELETE, url.toDisplayString());
     }
     return KIO::WorkerResult::pass();
 }
@@ -294,55 +351,25 @@ KIO::WorkerResult TrashProtocol::del(const QUrl &url, bool /*isfile*/)
 KIO::WorkerResult TrashProtocol::listDir(const QUrl &url)
 {
     qCDebug(KIO_TRASH) << "TrashProtocol::listDir(): " << url;
-    // There are no subfolders in Windows Trash
-    return listRoot();
-}
 
-KIO::WorkerResult TrashProtocol::listRoot()
-{
-    IEnumIDList *l;
-    HRESULT res = m_isfTrashFolder->EnumObjects(0, SHCONTF_FOLDERS | SHCONTF_NONFOLDERS | SHCONTF_INCLUDEHIDDEN, &l);
-    if (res != S_OK) {
-        return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, QStringLiteral("fixme!"));
-    }
+    // A directory listing is expected to describe the directory itself with a "." entry.
+    // The trash root is virtual and has no shell item, so describe it directly.
+    KIO::UDSEntry self;
+    self.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
+    self.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    self.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0700);
+    self.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
+    listEntry(self);
 
-    STRRET strret;
-    SFGAOF attribs;
-    KIO::UDSEntry entry;
-    LPITEMIDLIST i;
-    WIN32_FIND_DATAW findData;
-    while (l->Next(1, &i, NULL) == S_OK) {
-        m_isfTrashFolder->GetDisplayNameOf(i, SHGDN_NORMAL, &strret);
-        entry.fastInsert(KIO::UDSEntry::UDS_DISPLAY_NAME, QString::fromUtf16(reinterpret_cast<const char16_t *>(strret.pOleStr)));
-        m_pMalloc->Free(strret.pOleStr);
-        m_isfTrashFolder->GetDisplayNameOf(i, SHGDN_FORPARSING | SHGDN_INFOLDER, &strret);
-        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QString::fromUtf16(reinterpret_cast<const char16_t *>(strret.pOleStr)));
-        m_pMalloc->Free(strret.pOleStr);
-        m_isfTrashFolder->GetAttributesOf(1, (LPCITEMIDLIST *)&i, &attribs);
-        SHGetDataFromIDList(m_isfTrashFolder, i, SHGDFIL_FINDDATA, &findData, sizeof(findData));
-        entry.fastInsert(KIO::UDSEntry::UDS_SIZE, ((quint64)findData.nFileSizeLow) + (((quint64)findData.nFileSizeHigh) << 32));
-        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, filetimeToTime_t(&findData.ftLastWriteTime));
-        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, filetimeToTime_t(&findData.ftLastAccessTime));
-        entry.fastInsert(KIO::UDSEntry::UDS_CREATION_TIME, filetimeToTime_t(&findData.ftCreationTime));
-        entry.fastInsert(KIO::UDSEntry::UDS_EXTRA, QString::fromUtf16(reinterpret_cast<const char16_t *>(strret.pOleStr)));
-        entry.fastInsert(KIO::UDSEntry::UDS_EXTRA + 1, QDateTime().toString(Qt::ISODate));
-        mode_t type = QT_STAT_REG;
-        if ((attribs & SFGAO_FOLDER) == SFGAO_FOLDER) {
-            type = QT_STAT_DIR;
-        }
-        if ((attribs & SFGAO_LINK) == SFGAO_LINK) {
-            type = QT_STAT_LNK;
-        }
-        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, type);
-        mode_t access = 0700;
-        if ((findData.dwFileAttributes & FILE_ATTRIBUTE_READONLY) == FILE_ATTRIBUTE_READONLY) {
-            type = 0300;
-        }
+    // Read each local drive's recycle bin from the filesystem rather than enumerating the
+    // aggregate shell folder, whose enumeration can stall on a drive that is not a ready
+    // local disk.
+    const QList<RecycledItem> items = recycledItems(localRecycleBinDrives());
+    for (const RecycledItem &item : items) {
+        KIO::UDSEntry entry;
+        fillEntry(item, entry);
         listEntry(entry);
-
-        ILFree(i);
     }
-    l->Release();
     return KIO::WorkerResult::pass();
 }
 
@@ -353,9 +380,21 @@ KIO::WorkerResult TrashProtocol::special(const QByteArray &data)
     stream >> cmd;
 
     switch (cmd) {
-    case 1:
-        // empty trash folder
-        return clearTrash();
+    case 1: {
+        // Empty the bin by dropping the $R payload and $I metadata of every item on each
+        // local drive. A global SHEmptyRecycleBin would walk every volume and can stall on
+        // a drive that is not a ready local disk.
+        const QList<RecycledItem> items = recycledItems(localRecycleBinDrives());
+        for (const RecycledItem &item : items) {
+            if (item.isDir) {
+                QDir(item.rPath).removeRecursively();
+            } else {
+                QFile::remove(item.rPath);
+            }
+            QFile::remove(item.iPath);
+        }
+        return KIO::WorkerResult::pass();
+    }
     case 2:
         // convert old trash folder (non-windows only)
         return KIO::WorkerResult::pass();
@@ -373,24 +412,41 @@ KIO::WorkerResult TrashProtocol::special(const QByteArray &data)
     return KIO::WorkerResult::pass();
 }
 
+QStringList TrashProtocol::localRecycleBinDrives() const
+{
+    QStringList result;
+    wchar_t drives[512] = {0};
+    GetLogicalDriveStringsW(511, drives);
+    for (const wchar_t *d = drives; *d; d += wcslen(d) + 1) {
+        // A network drive or a drive of unknown type can stall the shell recycle-bin
+        // calls, so leave both out.
+        const UINT type = GetDriveTypeW(d);
+        if (type == DRIVE_REMOTE || type == DRIVE_UNKNOWN) {
+            continue;
+        }
+        // Keep only drives backed by a real local disk. QueryDosDevice is a non-blocking
+        // object-manager lookup that resolves the drive letter (given without a trailing
+        // slash) to its device. A letter resolving to anything other than
+        // \Device\HarddiskVolume..., or that fails to resolve, is one of the volumes that
+        // wedges the recycle-bin calls.
+        const wchar_t devName[3] = {d[0], d[1], L'\0'};
+        wchar_t target[1024] = {0};
+        if (!QueryDosDeviceW(devName, target, 1024) || wcsncmp(target, L"\\Device\\HarddiskVolume", 22) != 0) {
+            continue;
+        }
+        result << QString::fromWCharArray(d);
+    }
+    return result;
+}
+
 void TrashProtocol::updateRecycleBin()
 {
-    IEnumIDList *l;
-    HRESULT res = m_isfTrashFolder->EnumObjects(0, SHCONTF_FOLDERS | SHCONTF_NONFOLDERS | SHCONTF_INCLUDEHIDDEN, &l);
-    if (res != S_OK) {
-        return;
-    }
-
-    bool bEmpty = true;
-    LPITEMIDLIST i;
-    if (l->Next(1, &i, NULL) == S_OK) {
-        bEmpty = false;
-        ILFree(i);
-    }
+    // The bin is empty when no local drive holds a recycled item. Reading the items from
+    // the filesystem keeps the worker off the shell recycle-bin APIs entirely.
+    const bool bEmpty = recycledItems(localRecycleBinDrives()).isEmpty();
     KConfigGroup group = m_config.group(QStringLiteral("Status"));
     group.writeEntry("Empty", bEmpty);
     m_config.sync();
-    l->Release();
 }
 
 KIO::WorkerResult TrashProtocol::put(const QUrl &url, int /*permissions*/, KIO::JobFlags)
@@ -403,32 +459,57 @@ KIO::WorkerResult TrashProtocol::put(const QUrl &url, int /*permissions*/, KIO::
 
 KIO::WorkerResult TrashProtocol::get(const QUrl &url)
 {
-    // TODO
+    // A trash item is virtual, so resolve it to its $R payload on disk and stream that
+    // file's contents back.
+    const std::optional<RecycledItem> item = findRecycledItem(localRecycleBinDrives(), url.path().mid(1));
+    if (!item) {
+        return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toDisplayString());
+    }
+
+    if (item->isDir) {
+        return KIO::WorkerResult::fail(KIO::ERR_IS_DIRECTORY, url.toDisplayString());
+    }
+
+    QFile file(item->rPath);
+    if (!file.open(QIODevice::ReadOnly)) {
+        return KIO::WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_READING, url.toDisplayString());
+    }
+
+    // Detect the type from the original name, which carries the real extension.
+    mimeType(QMimeDatabase().mimeTypeForFile(item->originalPath.isEmpty() ? item->rPath : item->originalPath).name());
+    totalSize(file.size());
+
+    KIO::filesize_t processed = 0;
+    QByteArray buffer;
+    buffer.resize(16 * 1024);
+    while (true) {
+        const qint64 bytesRead = file.read(buffer.data(), buffer.size());
+        if (bytesRead < 0) {
+            return KIO::WorkerResult::fail(KIO::ERR_CANNOT_READ, url.toDisplayString());
+        }
+        if (bytesRead == 0) {
+            break;
+        }
+        data(QByteArray::fromRawData(buffer.constData(), bytesRead));
+        processed += bytesRead;
+        processedSize(processed);
+    }
+    // An empty data block marks the end of the transfer.
+    data(QByteArray());
     return KIO::WorkerResult::pass();
-}
-
-KIO::WorkerResult TrashProtocol::doFileOp(const QUrl &url, UINT wFunc, FILEOP_FLAGS fFlags)
-{
-    const QString path = url.path().replace(QLatin1Char('/'), QLatin1Char('\\'));
-    // must be double-null terminated.
-    QByteArray delBuf((path.length() + 2) * 2, 0);
-    memcpy(delBuf.data(), path.utf16(), path.length() * 2);
-
-    SHFILEOPSTRUCTW op;
-    memset(&op, 0, sizeof(SHFILEOPSTRUCTW));
-    op.wFunc = wFunc;
-    op.pFrom = (LPCWSTR)delBuf.constData();
-    op.fFlags = fFlags | FOF_NOCONFIRMATION | FOF_NOERRORUI;
-    return translateError(SHFileOperationW(&op));
 }
 
 KIO::WorkerResult TrashProtocol::translateError(HRESULT hRes)
 {
-    // TODO!
-    if (FAILED(hRes)) {
-        return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, QLatin1String("fixme!"));
+    // Both the shell file operations (SHFileOperation, SHEmptyRecycleBin) and the COM
+    // calls used here return 0 on success, so any non-zero value is a failure. A plain
+    // comparison is needed because SHFileOperation reports its errors as small positive
+    // codes that the FAILED() macro does not recognise.
+    if (hRes == 0) {
+        return KIO::WorkerResult::pass();
     }
-    return KIO::WorkerResult::pass();
+    return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED,
+                                   i18n("Trash operation failed with error code 0x%1.", QString::number(static_cast<quint32>(hRes), 16)));
 }
 
 #include "kio_trash_win.moc"
