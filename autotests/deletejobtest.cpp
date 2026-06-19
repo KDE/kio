@@ -10,13 +10,14 @@
 #include <QFile>
 #include <QSignalSpy>
 #include <QTemporaryDir>
-#include <QTemporaryFile>
 #include <QTest>
 #include <QUrl>
 
 #include <kio/deletejob.h>
 
+#ifndef Q_OS_WIN
 #include <unistd.h>
+#endif
 
 #if defined(WITH_QTDBUS)
 #include <QDBusConnection>
@@ -41,12 +42,16 @@ void DeleteJobTest::deleteFileTestCase()
 {
     QFETCH(QString, fileName);
 
-    QTemporaryFile tempFile;
-    tempFile.setFileTemplate(fileName + QStringLiteral("XXXXXX"));
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
 
-    QVERIFY(tempFile.open());
-    const QString path = tempFile.fileName();
-    tempFile.close();
+    // Create and fully close the file before deleting it. QTemporaryFile keeps the file
+    // open on Windows, which blocks the worker from deleting it (ERR_CANNOT_DELETE).
+    const QString path = tempDir.filePath(fileName);
+    {
+        QFile file(path);
+        QVERIFY(file.open(QIODevice::WriteOnly));
+    }
     QVERIFY(QFile::exists(path));
 
     /*QBENCHMARK*/ {
@@ -92,7 +97,9 @@ void DeleteJobTest::deleteDirectoryTestCase()
 
 void DeleteJobTest::deletePartialFailureNotifiesRemovals()
 {
-#if !defined(WITH_QTDBUS)
+#if defined(Q_OS_WIN)
+    QSKIP("Forcing a partial failure relies on POSIX directory permissions");
+#elif !defined(WITH_QTDBUS)
     QSKIP("Removal notifications are delivered over D-Bus, which is unavailable in this build");
 #else
     if (geteuid() == 0) {
