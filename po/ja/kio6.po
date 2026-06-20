@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-16 00:40+0000\n"
-"PO-Revision-Date: 2026-03-27 12:52+0900\n"
+"PO-Revision-Date: 2026-06-14 21:13+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-i18n-doc@kde.org>\n"
 "Language: ja\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -5350,10 +5350,9 @@ msgstr "内容:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgid "Open with:"
-msgstr "アプリケーションで開く:"
+msgstr "以下のアプリケーションで開く:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:192
@@ -5430,8 +5429,7 @@ msgstr "アクセス:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:455
-#, fuzzy, kde-format
-#| msgid "File System:"
+#, kde-format
 msgid "File system:"
 msgstr "ファイルシステム:"
 
@@ -5766,11 +5764,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgctxt "@title:tab File properties"
-#| msgid "&General"
+#, kde-format
 msgid "&Generic name:"
-msgstr "一般(&G)"
+msgstr "一般名(&G):"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
@@ -5794,8 +5790,7 @@ msgstr "コメント(&E):"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
 msgstr "環境変数:"
 
@@ -7332,33 +7327,19 @@ msgstr[0] ""
 "strong='true'>この操作はもとに戻せません。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"このアイテムは大きすぎるため、ごみ箱に移動できませんでした。代わりに完全に削"
-"除しますか？<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>この操作はもとに戻せません。</emphasis>"
+"このファイルはごみ箱の空き容量に収まりません。かわりに完全に削除しますか？"
+"<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>この操作は"
+"もとに戻せません。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7368,38 +7349,24 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"これら %1 個のアイテムは大きすぎるため、ごみ箱に移動できませんでした。代わり"
-"に完全に削除しますか？<nl/><nl/><emphasis strong='true'>この操作はもとに戻せ"
-"ません。</emphasis>"
+"これら %1 個のファイルはごみ箱の空き容量に収まりません。かわりに完全に削除し"
+"ますか？<nl/><nl/><emphasis strong='true'>この操作はもとに戻せません。</"
+"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"このアイテムは大きすぎるため、ごみ箱に移動できませんでした。代わりに完全に削"
-"除しますか？<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>この操作はもとに戻せません。</emphasis>"
+"このアイテムの場所ではごみ箱を使用できません。かわりに完全に削除しますか？"
+"<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>この操作は"
+"もとに戻せません。</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7410,9 +7377,9 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"これら %1 個のアイテムは大きすぎるため、ごみ箱に移動できませんでした。代わり"
-"に完全に削除しますか？<nl/><nl/><emphasis strong='true'>この操作はもとに戻せ"
-"ません。</emphasis>"
+"この %1 個のアイテムの場所ではごみ箱を使用できません。かわりに完全に削除しま"
+"すか？<nl/><nl/><emphasis strong='true'>この操作はもとに戻せません。</"
+"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
