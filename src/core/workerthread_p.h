@@ -9,6 +9,8 @@
 #include <QMutex>
 #include <QThread>
 
+class QPluginLoader;
+
 namespace KIO
 {
 
@@ -18,7 +20,7 @@ class WorkerThread : public QThread
 {
     Q_OBJECT
 public:
-    WorkerThread(QObject *parent, WorkerFactory *factory, const QByteArray &appSocket);
+    WorkerThread(QObject *parent, WorkerFactory *factory, const QByteArray &appSocket, QPluginLoader *pluginLoader = nullptr);
     ~WorkerThread() override;
 
     void abort();
@@ -31,6 +33,7 @@ private:
 
     WorkerFactory *m_factory; // set by constructor, no mutex needed
     QByteArray m_appSocket; // set by constructor, no mutex needed
+    QPluginLoader *m_pluginLoader; // set by constructor, owned, unloaded in destructor
 
     QMutex m_workerMutex; // protects m_worker, accessed by both threads
     KIO::SlaveBase *m_worker = nullptr;

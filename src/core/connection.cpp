@@ -111,6 +111,8 @@ void Connection::close()
 {
     if (d->backend) {
         d->backend->disconnect(this);
+        // Close before deleteLater so a WorkerThread blocked in waitForReadyRead() unblocks immediately.
+        d->backend->closeSocket();
         d->backend->deleteLater();
         d->backend = nullptr;
     }

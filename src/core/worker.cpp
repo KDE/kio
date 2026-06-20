@@ -10,13 +10,13 @@
 #include "worker_p.h"
 
 #include <qplatformdefs.h>
-#include <stdio.h>
 
 #include <QCoreApplication>
 #include <QDataStream>
 #include <QDir>
 #include <QFile>
 #include <QLibraryInfo>
+#include <QMutex>
 #include <QPluginLoader>
 #include <QProcess>
 #include <QStandardPaths>
@@ -116,17 +116,16 @@ void Worker::deref()
     if (!m_refCount) {
         aboutToDelete();
         if (m_workerThread) {
-            // When on a thread, delete in a thread to prevent deadlocks between the main thread and the worker thread.
-            // This most notably can happen when the worker thread uses QDBus, because traffic will generally be routed
-            // through the main loop.
-            // Generally speaking we'd want to avoid waiting in the main thread anyway, the worker stopping isn't really
-            // useful for anything but delaying deletion.
-            // https://bugs.kde.org/show_bug.cgi?id=468673
             WorkerThread *workerThread = nullptr;
             std::swap(workerThread, m_workerThread);
             workerThread->setParent(nullptr);
-            connect(workerThread, &QThread::finished, workerThread, &QThread::deleteLater);
+            // Close the socket first so dispatchLoop()'s waitForReadyRead() unblocks
+            // and the thread can exit; then ~WorkerThread() waits for it synchronously.
+            // The original QDBus deadlock (bug 468673) no longer applies because the
+            // worker makes no QDBus calls after the socket is closed.
+            m_connection->close();
             workerThread->quit();
+            delete workerThread;
         }
         delete this; // yes it reads funny, but it's too late for a deleteLater() here, no event loop anymore
     }
@@ -340,8 +339,8 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
     // find the KIO worker using QPluginLoader; kioworker would do this
     // anyway, but if it doesn't exist, we want to be able to return
     // a useful error message immediately
-    QPluginLoader loader(_name);
-    const QString lib_path = loader.fileName();
+    std::unique_ptr<QPluginLoader> loader(new QPluginLoader(_name));
+    const QString lib_path = loader->fileName();
     if (lib_path.isEmpty()) {
         error_text = i18n("Can not find a KIO worker for protocol '%1'.", protocol);
         error = KIO::ERR_CANNOT_CREATE_WORKER;
@@ -377,14 +376,20 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
     // Threads have performance benefits, but degrade robustness
     // (a worker crashing kills the app). So let's only enable the feature for kio_file, for now.
     if (protocol == QLatin1String("admin") || (bUseThreads && protocol == QLatin1String("file"))) {
-        auto *factory = qobject_cast<WorkerFactory *>(loader.instance());
+        {
+            static QMutex s_pluginLoadMutex;
+            QMutexLocker locker(&s_pluginLoadMutex);
+            loader->load();
+        }
+        auto *factory = qobject_cast<WorkerFactory *>(loader->instance());
         if (factory) {
-            auto *thread = new WorkerThread(worker, factory, workerAddress.toString().toLocal8Bit());
+            auto *thread = new WorkerThread(worker, factory, workerAddress.toString().toLocal8Bit(), loader.release());
             thread->start();
             worker->setWorkerThread(thread);
             return worker;
         } else {
             qCWarning(KIO_CORE) << lib_path << "doesn't implement WorkerFactory?";
+            loader->unload();
         }
     }
 

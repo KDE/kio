@@ -79,7 +79,6 @@ void KIO::NameFinderJobPrivate::statUrl()
                           KIO::StatJob::DestinationSide,
                           KIO::StatNoDetails, // Just checking if it exists
                           KIO::HideProgressInfo);
-    // Parent the StatJob to this so it is cleaned up if we are deleted mid-flight.
     m_statJob->setParent(q);
 
     QObject::connect(m_statJob, &KJob::result, q, [this]() {

@@ -11,19 +11,26 @@
 #include "workerfactory.h"
 #include "workerthread_p.h"
 
+#include <QPluginLoader>
+
 namespace KIO
 {
 
-WorkerThread::WorkerThread(QObject *parent, WorkerFactory *factory, const QByteArray &appSocket)
+WorkerThread::WorkerThread(QObject *parent, WorkerFactory *factory, const QByteArray &appSocket, QPluginLoader *pluginLoader)
     : QThread(parent)
     , m_factory(factory)
     , m_appSocket(appSocket)
+    , m_pluginLoader(pluginLoader)
 {
 }
 
 WorkerThread::~WorkerThread()
 {
     wait();
+    if (m_pluginLoader) {
+        m_pluginLoader->unload();
+        delete m_pluginLoader;
+    }
 }
 
 void WorkerThread::abort()

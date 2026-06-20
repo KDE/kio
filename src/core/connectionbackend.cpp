@@ -37,6 +37,13 @@ ConnectionBackend::~ConnectionBackend()
 {
 }
 
+void ConnectionBackend::closeSocket()
+{
+    if (socket) {
+        socket->close();
+    }
+}
+
 void ConnectionBackend::setSuspended(bool enable)
 {
     if (state != Connected) {

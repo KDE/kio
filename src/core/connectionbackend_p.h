@@ -62,6 +62,7 @@ public:
     };
 
     void setSuspended(bool enable);
+    void closeSocket();
     bool connectToRemote(const QUrl &url);
     ConnectionResult listenForRemote();
     bool waitForIncomingTask(int ms);
