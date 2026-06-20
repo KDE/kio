@@ -68,6 +68,8 @@ Worker::~Worker()
 {
     // qDebug() << "destructing worker object pid =" << m_pid;
     delete m_workerConnServer;
+    // Flushing here ensures the notifier is freed on the spot.
+    QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete);
 }
 
 QString Worker::protocol() const

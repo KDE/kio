@@ -27,6 +27,11 @@ WorkerThread::WorkerThread(QObject *parent, WorkerFactory *factory, const QByteA
 WorkerThread::~WorkerThread()
 {
     wait();
+#ifdef Q_OS_UNIX
+    if (m_nativeHandle) {
+        pthread_join(m_nativeHandle, nullptr);
+    }
+#endif
     if (m_pluginLoader) {
         m_pluginLoader->unload();
         delete m_pluginLoader;
@@ -43,6 +48,9 @@ void WorkerThread::abort()
 
 void WorkerThread::run()
 {
+#ifdef Q_OS_UNIX
+    m_nativeHandle = pthread_self();
+#endif
     qCDebug(KIO_CORE) << QThread::currentThreadId() << "Creating threaded worker";
 
     auto worker = m_factory->createWorker({}, m_appSocket);

@@ -41,8 +41,10 @@ void KFileItemActionsTest::testSetParentWidget()
     fileItemActions.setItemListProperties(properties);
 
     // Create the "Open With" actions and add them to a menu.
+    // Skip Plugins to avoid system plugins (e.g. compressfileitemaction) starting
+    // async KIO jobs that would be reported as leaks by LeakSanitizer.
     QMenu menu;
-    fileItemActions.addActionsTo(&menu);
+    fileItemActions.addActionsTo(&menu, KFileItemActions::MenuActionSource::Services);
 
     // Delete the widget. In KDE 4.x, this would also delete the "Open With" actions
     // because they were children of the widget. We would then get a crash in the
