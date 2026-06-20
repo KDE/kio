@@ -110,7 +110,7 @@ Query[id]=https://www.bing.com/search?q=\\{@}
 Query[ie]=https://www.bing.com/search?q=\\{@}
 Query[is]=https://www.bing.com/search?q=\\{@}
 Query[it]=https://www.bing.com/search?q=\\{@}
-Query[ja]=https://www.bing.com/search?q=\\{@}
+Query[ja]=https://www.bing.com/search?q=\\{@}&setlang=ja
 Query[ka]=https://www.bing.com/search?q=\\{@}
 Query[ko]=https://www.bing.com/search?q=\\{@}
 Query[lg]=https://www.bing.com/search?q=\\{@}
