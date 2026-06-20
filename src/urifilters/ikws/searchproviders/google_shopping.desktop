@@ -114,7 +114,7 @@ Query[id]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ie]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[is]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[it]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
-Query[ja]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
+Query[ja]=https://www.google.com/search?hl=ja&tbm=shop&q=\\{@}
 Query[ka]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[kk]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}
 Query[ko]=https://www.google.com/search?hl=en&tbm=shop&q=\\{@}

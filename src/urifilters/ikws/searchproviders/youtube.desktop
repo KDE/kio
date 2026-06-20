@@ -122,7 +122,7 @@ Query[id]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[ie]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[is]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[it]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
-Query[ja]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
+Query[ja]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f&gl=JP&hl=ja
 Query[ka]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[kk]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[ko]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f

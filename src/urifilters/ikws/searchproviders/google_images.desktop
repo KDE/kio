@@ -139,7 +139,7 @@ Query[id]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ie]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[is]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[it]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
-Query[ja]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[ja]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}&hl=ja
 Query[ka]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[kk]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ko]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

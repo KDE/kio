@@ -87,7 +87,7 @@ Query[id]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ie]=https://ie.wikipedia.org/wiki/Special:Serchar?search=\\{@}&go=Continuar
 Query[is]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[it]=https://it.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
-Query[ja]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[ja]=https://ja.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ka]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[kk]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ko]=https://ko.wikipedia.org/wiki/특수:검색?search=\\{@}&go=Go

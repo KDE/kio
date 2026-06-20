@@ -119,7 +119,7 @@ Query[id]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ie]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[is]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[it]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
-Query[ja]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
+Query[ja]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde&kl=jp-jp
 Query[ka]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[kk]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde
 Query[ko]=https://duckduckgo.com/?q=\\{@}&v=r&t=kde

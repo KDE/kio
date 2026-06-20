@@ -99,7 +99,7 @@ Query[id]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ie]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[is]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[it]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
-Query[ja]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[ja]=https://docs.microsoft.com/ja-jp/search/?terms=\\{@}&scope=C%2B%2B
 Query[ka]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[ko]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[lg]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
