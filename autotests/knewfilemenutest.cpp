@@ -12,6 +12,7 @@
 #include <KDesktopFile>
 #include <KIO/StoredTransferJob>
 #include <KMessageWidget>
+#include <KSharedConfig>
 #include <KShell>
 #include <QDialog>
 #include <QLineEdit>
@@ -480,6 +481,13 @@ private Q_SLOTS:
         QFETCH(QString, iconName);
         QFETCH(bool, expectsIcon);
 
+        // Reset persisted icon-picker state before the first row so re-runs are deterministic.
+        if (buttonIndex == 0) {
+            KSharedConfig::openStateConfig(QStringLiteral("kiostaterc"))
+                ->group(QStringLiteral("New File Menu"))
+                .deleteEntry(QStringLiteral("ShowFolderIconPicker"));
+        }
+
         QWidget parentWidget;
         KNewFileMenu menu(this);
         menu.setModal(false);
@@ -499,8 +507,7 @@ private Q_SLOTS:
         QVERIFY(chooseIconBox);
         QVERIFY(chooseIconBox->isVisibleTo(dialog));
 
-        // It should remember that it was expanded.
-        // TODO: Run test in separate home or read the current state so that repeated tests don't fail
+        // It should remember that it was expanded (state is reset above for the first row).
         if (buttonIndex == 0) {
             QVERIFY(!chooseIconBox->isExpanded());
         } else {
