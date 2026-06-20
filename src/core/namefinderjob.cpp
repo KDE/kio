@@ -25,6 +25,8 @@ public:
     {
     }
 
+    ~NameFinderJobPrivate() = default;
+
     QUrl m_baseUrl;
     QString m_name;
     QUrl m_finalUrl;
@@ -45,6 +47,15 @@ KIO::NameFinderJob::NameFinderJob(const QUrl &baseUrl, const QString &name, QObj
 
 KIO::NameFinderJob::~NameFinderJob()
 {
+}
+
+bool KIO::NameFinderJob::doKill()
+{
+    if (d->m_statJob) {
+        d->m_statJob->kill(KJob::Quietly);
+        d->m_statJob = nullptr;
+    }
+    return true;
 }
 
 void KIO::NameFinderJob::start()
@@ -68,6 +79,8 @@ void KIO::NameFinderJobPrivate::statUrl()
                           KIO::StatJob::DestinationSide,
                           KIO::StatNoDetails, // Just checking if it exists
                           KIO::HideProgressInfo);
+    // Parent the StatJob to this so it is cleaned up if we are deleted mid-flight.
+    m_statJob->setParent(q);
 
     QObject::connect(m_statJob, &KJob::result, q, [this]() {
         slotStatResult();

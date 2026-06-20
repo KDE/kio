@@ -118,6 +118,9 @@ public:
      */
     QString finalName() const;
 
+protected:
+    bool doKill() override;
+
 private:
     friend class NameFinderJobPrivate;
     std::unique_ptr<NameFinderJobPrivate> d;
