@@ -16,6 +16,21 @@
 namespace KIO
 {
 
+#ifdef BUILD_TESTING
+bool WorkerThread::s_testExitGateEnabled = false;
+QSemaphore WorkerThread::s_testExitGate;
+
+void WorkerThread::setTestExitGateEnabled(bool enabled)
+{
+    s_testExitGateEnabled = enabled;
+}
+
+void WorkerThread::releaseTestExitGate()
+{
+    s_testExitGate.release();
+}
+#endif
+
 WorkerThread::WorkerThread(QObject *parent, WorkerFactory *factory, const QByteArray &appSocket, QPluginLoader *pluginLoader)
     : QThread(parent)
     , m_factory(factory)
@@ -62,6 +77,14 @@ void WorkerThread::run()
     base->dispatchLoop();
 
     setWorker(nullptr); // before the actual deletion
+
+#ifdef BUILD_TESTING
+    if (s_testExitGateEnabled) {
+        // Block here until the main thread releases us through its event loop, so a
+        // synchronous join in Worker::deref() deadlocks deterministically (see header).
+        s_testExitGate.acquire();
+    }
+#endif
 }
 
 void WorkerThread::setWorker(SlaveBase *worker)

@@ -13,6 +13,11 @@
 #include <pthread.h>
 #endif
 
+#ifdef BUILD_TESTING
+#include "kiocore_export.h"
+#include <QSemaphore>
+#endif
+
 class QPluginLoader;
 
 namespace KIO
@@ -29,6 +34,17 @@ public:
 
     void abort();
 
+#ifdef BUILD_TESTING
+    // Test hooks to force the deterministic Worker::deref() deadlock (see
+    // KIOThreadTest::cancelJobWhileWorkerIsBlocked). When the exit gate is enabled, a worker
+    // thread blocks on its way out of run() until the main thread releases it through its
+    // event loop - mirroring a worker that is mid-transfer and can only finish once the main
+    // thread keeps draining its socket. A synchronous join in deref() never lets the main
+    // thread reach its event loop to release the gate, so both threads wedge.
+    KIOCORE_EXPORT static void setTestExitGateEnabled(bool enabled);
+    KIOCORE_EXPORT static void releaseTestExitGate();
+#endif
+
 protected:
     void run() override;
 
@@ -43,6 +59,10 @@ private:
     KIO::SlaveBase *m_worker = nullptr;
 #ifdef Q_OS_UNIX
     pthread_t m_nativeHandle = {};
+#endif
+#ifdef BUILD_TESTING
+    static bool s_testExitGateEnabled;
+    static QSemaphore s_testExitGate;
 #endif
 };
 
