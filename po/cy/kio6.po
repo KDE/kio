@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:40+0000\n"
+"POT-Creation-Date: 2026-06-21 00:39+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 "Methu newid perchnogaeth y ffeil <filename>%1</filename>. Does ganddych dim "
 "digon o hawliau i gyflawni'r newid."
 
-#: core/connectionbackend.cpp:107
+#: core/connectionbackend.cpp:114
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to create KIO worker: %1"
@@ -2438,7 +2438,7 @@ msgstr "Ni chynhelir creu plygyll efo'r protocol %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Nid yw protocol %1 yn cynnal gweithred %2."
 
-#: core/worker.cpp:297
+#: core/worker.cpp:311
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2447,18 +2447,18 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:335
+#: core/worker.cpp:349
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protocol anhysbys '%1'."
 
-#: core/worker.cpp:346
+#: core/worker.cpp:360
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Methu canfod gwas-io i brotocol '%1'."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:367
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2467,13 +2467,13 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:365
+#: core/worker.cpp:379
 #, fuzzy, kde-format
 #| msgid "Can not create socket for launching io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Methu creu pill ar gyfer lansio gwas-io am brotocol '%1'."
 
-#: core/worker.cpp:405
+#: core/worker.cpp:425
 #, fuzzy, kde-format
 #| msgid "Can not find 'kioslave5' executable at '%1'"
 msgid "Can not find 'kioworker' executable at '%1'"

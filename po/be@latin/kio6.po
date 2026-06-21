@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:40+0000\n"
+"POT-Creation-Date: 2026-06-21 00:39+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -46,7 +46,7 @@ msgstr ""
 "Nie ŭdalosia zmianić ulasnika fajla <filename>%1</filename>. Vy nie majecie "
 "pravoŭ dostupu, patrebnych dlia vykanannia hetaha dziejannia."
 
-#: core/connectionbackend.cpp:107
+#: core/connectionbackend.cpp:114
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to create KIO worker: %1"
@@ -2484,7 +2484,7 @@ msgstr "Pratakol %1 nie padtrymlivaje adkryccio fajlaŭ."
 msgid "Protocol %1 does not support action %2."
 msgstr "Pratakol %1 nie padtrymlivaje dziejannie %2."
 
-#: core/worker.cpp:297
+#: core/worker.cpp:311
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2493,19 +2493,19 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:335
+#: core/worker.cpp:349
 #, fuzzy, kde-format
 #| msgid "Unknown protocol %1."
 msgid "Unknown protocol '%1'."
 msgstr "Nieviadomy pratakol \"%1\"."
 
-#: core/worker.cpp:346
+#: core/worker.cpp:360
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol %1."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Nie ŭdalosia znajsci io-slave dlia pratakola %1."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:367
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2514,14 +2514,14 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:365
+#: core/worker.cpp:379
 #, fuzzy, kde-format
 #| msgid "Can not create socket for launching io-slave for protocol %1."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Nie ŭdalosia stvaryć sokiet dlia zapusku io-slave dlia pratakola \"%1\"."
 
-#: core/worker.cpp:405
+#: core/worker.cpp:425
 #, fuzzy, kde-format
 #| msgid "Can not find kioslave5 executable at %1"
 msgid "Can not find 'kioworker' executable at '%1'"

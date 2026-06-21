@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:40+0000\n"
+"POT-Creation-Date: 2026-06-21 00:39+0000\n"
 "PO-Revision-Date: 2017-12-17 18:00+0100\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -50,7 +50,7 @@ msgstr ""
 "<qt>Ne mogu da promenim vlasništvo nad fajlom <tt>%1</tt>. Nemate dovoljno "
 "dozvola za ovakvu promenu.</qt>"
 
-#: core/connectionbackend.cpp:107
+#: core/connectionbackend.cpp:114
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to create KIO worker: %1"
@@ -2445,7 +2445,7 @@ msgstr "Protokol %1 ne podržava otvaranje fajlova."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokol %1 ne podržava radnju %2."
 
-#: core/worker.cpp:297
+#: core/worker.cpp:311
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2454,18 +2454,18 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:335
+#: core/worker.cpp:349
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Nepoznat protokol „%1“."
 
-#: core/worker.cpp:346
+#: core/worker.cpp:360
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Ne mogu da pronađem U/I zahvat za protokol „%1“."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:367
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2474,14 +2474,14 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:365
+#: core/worker.cpp:379
 #, fuzzy, kde-format
 #| msgid "Can not create socket for launching io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Ne mogu da napravim soket za pokretanje U/I zahvat za protokol „%1“."
 
 # literal-segment: kioslave
-#: core/worker.cpp:405
+#: core/worker.cpp:425
 #, fuzzy, kde-format
 #| msgid "Can not find 'kioslave' executable at '%1'"
 msgid "Can not find 'kioworker' executable at '%1'"

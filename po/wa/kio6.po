@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:40+0000\n"
+"POT-Creation-Date: 2026-06-21 00:39+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 "<qt>Dji n' sai candjî l' prôpietaire do fitchî <b>%1</b>. Vos n' avoz nén "
 "des droets assez sol fitchî po fé on sfwait candjmint.</qt>"
 
-#: core/connectionbackend.cpp:107
+#: core/connectionbackend.cpp:114
 #, fuzzy, kde-format
 #| msgid "Unable to create io-slave: %1"
 msgid "Unable to create KIO worker: %1"
@@ -2489,7 +2489,7 @@ msgstr "Li protocole %1 ni permete nén do drovi des fitchîs."
 msgid "Protocol %1 does not support action %2."
 msgstr "Li protocole %1 ni sopoite nén l' accion %2."
 
-#: core/worker.cpp:297
+#: core/worker.cpp:311
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2498,18 +2498,18 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:335
+#: core/worker.cpp:349
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protocole nén cnoxhou «%1»."
 
-#: core/worker.cpp:346
+#: core/worker.cpp:360
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Dji n' sai trover li module d' intrêye/rexhowe « %1 »."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:367
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2518,13 +2518,13 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:365
+#: core/worker.cpp:379
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Dji n' sai trover li module d' intrêye/rexhowe « %1 »."
 
-#: core/worker.cpp:405
+#: core/worker.cpp:425
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"

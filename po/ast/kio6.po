@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:40+0000\n"
+"POT-Creation-Date: 2026-06-21 00:39+0000\n"
 "PO-Revision-Date: 2024-03-16 22:22+0100\n"
 "Last-Translator: Enol P. <enolp@softastur.org>\n"
 "Language-Team: Asturian <alministradores@softastur.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 "Nun se pudo modificar el propietariu del ficheru <filename>«%1</filename>. "
 "Nun tienes abondos permisos pa facer el cambéu."
 
-#: core/connectionbackend.cpp:107
+#: core/connectionbackend.cpp:114
 #, kde-format
 msgid "Unable to create KIO worker: %1"
 msgstr "Nun ye posible crear el trabayador de KIO: %1"
@@ -2168,7 +2168,7 @@ msgstr ""
 msgid "Protocol %1 does not support action %2."
 msgstr ""
 
-#: core/worker.cpp:297
+#: core/worker.cpp:311
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2177,17 +2177,17 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:335
+#: core/worker.cpp:349
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr ""
 
-#: core/worker.cpp:346
+#: core/worker.cpp:360
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr ""
 
-#: core/worker.cpp:353
+#: core/worker.cpp:367
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2196,12 +2196,12 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:365
+#: core/worker.cpp:379
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 
-#: core/worker.cpp:405
+#: core/worker.cpp:425
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr ""

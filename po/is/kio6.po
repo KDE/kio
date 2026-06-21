@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:40+0000\n"
+"POT-Creation-Date: 2026-06-21 00:39+0000\n"
 "PO-Revision-Date: 2026-06-01 12:34+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -56,7 +56,7 @@ msgstr ""
 "Ekki tókst að breyta eiganda skráarinnar <filename>%1</filename>. Þú hefur "
 "ekki heimild til að gera þessa breytingu."
 
-#: core/connectionbackend.cpp:107
+#: core/connectionbackend.cpp:114
 #, kde-format
 msgid "Unable to create KIO worker: %1"
 msgstr "Ekki tókst að búa til KIO-vinnslu: %1"
@@ -2403,7 +2403,7 @@ msgstr "Ekki er hægt að opna skrár með samskiptareglunni %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Samskiptareglan %1 styður ekki aðgerð %2."
 
-#: core/worker.cpp:297
+#: core/worker.cpp:311
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2415,17 +2415,17 @@ msgstr ""
 "sem venjulega krefst aukinna aðgangsheimilda, vegna þess að aðrir notendur "
 "en rót hafa heimild til að breyta honum á %2."
 
-#: core/worker.cpp:335
+#: core/worker.cpp:349
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Óþekkt samskiptaregla '%1'."
 
-#: core/worker.cpp:346
+#: core/worker.cpp:360
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "KIO-vinnsla fyrir samskiptaregluna '%1' fannst ekki."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:367
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2437,14 +2437,14 @@ msgstr ""
 "allir KIO-þrælar sem eru staðsettir utan við %3 og biðja um auknar heimildir "
 "teljast vera óöruggir."
 
-#: core/worker.cpp:365
+#: core/worker.cpp:379
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Ekki tókst að búa til sökkul til að ræsa KIO-vinnslu fyrir samskiptaregluna "
 "'%1'."
 
-#: core/worker.cpp:405
+#: core/worker.cpp:425
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Fann ekki 'kioworker' keyrsluskrá á '%1'."

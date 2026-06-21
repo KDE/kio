@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:40+0000\n"
+"POT-Creation-Date: 2026-06-21 00:39+0000\n"
 "PO-Revision-Date: 2024-11-24 09:40\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -46,7 +46,7 @@ msgstr ""
 "Не ўдалося змяніць уласніка файла <filename>%1</filename>. Вы не маеце "
 "правоў доступу, патрэбных для выканання гэтага дзеяння."
 
-#: core/connectionbackend.cpp:107
+#: core/connectionbackend.cpp:114
 #, kde-format
 msgid "Unable to create KIO worker: %1"
 msgstr "Не ўдалося стварыць KIO worker: %1"
@@ -2421,7 +2421,7 @@ msgstr "Пратакол %1 не падтрымлівае адкрыццё фа�
 msgid "Protocol %1 does not support action %2."
 msgstr "Пратакол %1 не падтрымлівае дзеянне %2."
 
-#: core/worker.cpp:297
+#: core/worker.cpp:311
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2433,17 +2433,17 @@ msgstr ""
 "патрэбныя павышаныя правы доступу, бо звычайныя карыстальнікі (не толькі "
 "суперкарыстальнік (root)) маюць правы на яго змену ў %2."
 
-#: core/worker.cpp:335
+#: core/worker.cpp:349
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Невядомы пратакол \"%1\"."
 
-#: core/worker.cpp:346
+#: core/worker.cpp:360
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Не ўдалося знайсці KIO worker для пратаколу \"%1\"."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:367
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2452,12 +2452,12 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:365
+#: core/worker.cpp:379
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Не ўдалося стварыць сокет для запуску KIO worker для пратаколу \"%1\"."
 
-#: core/worker.cpp:405
+#: core/worker.cpp:425
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Не ўдалося знайсці выканальны файл \"kioworker\" у \"%1\""

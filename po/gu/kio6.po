@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-16 00:40+0000\n"
+"POT-Creation-Date: 2026-06-21 00:39+0000\n"
 "PO-Revision-Date: 2026-03-31 23:12+0530\n"
 "Last-Translator: CrazyCourt651 <CrazyCourt651@gmail.com>\n"
 "Language-Team: Gujarati\n"
@@ -43,7 +43,7 @@ msgstr ""
 "ઇલ <filename>%1</filename> ની માલિકી સુધારી શકાતી નથી. ફેરફાર કરવા માટે તમારી "
 "પાસે ફાઇલ પર અપૂરતો પ્રવેશ (access) છે.\t\t\t\t"
 
-#: core/connectionbackend.cpp:107
+#: core/connectionbackend.cpp:114
 #, kde-format
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO કાર્યકર (worker) બનાવવામાં અસમર્થ: %1"
@@ -2375,7 +2375,7 @@ msgstr "પ્રોટોકોલ %1 સાથે ફાઇલો ખોલવ
 msgid "Protocol %1 does not support action %2."
 msgstr "પ્રોટોકોલ %1 ક્રિયા %2 ને આધાર આપતો નથી."
 
-#: core/worker.cpp:297
+#: core/worker.cpp:311
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2387,17 +2387,17 @@ msgstr ""
 "તેની ખાતરી આપી શકાતી નથી કારણ કે રૂટ સિવાયના વપરાશકર્તાઓ પાસે તેને %2 પર સંશોધિત "
 "કરવાની પરવાનગી છે."
 
-#: core/worker.cpp:335
+#: core/worker.cpp:349
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "અજાણ્યો પ્રોટોકોલ '%1'."
 
-#: core/worker.cpp:346
+#: core/worker.cpp:360
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "પ્રોટોકોલ '%1' માટે KIO વર્કર મળી શક્યું નથી."
 
-#: core/worker.cpp:353
+#: core/worker.cpp:367
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2408,12 +2408,12 @@ msgstr ""
 "%2 માં પ્રોટોકોલ “%1” માટેનો KIO વર્કર લોડ કરવામાં આવ્યો નથી કારણ કે તમામ KIO વર્કર્સ "
 "જે %3 ની બહાર સ્થિત છે અને ઉચ્ચ વિશેષાધિકારો માંગે છે તેમને અસુરક્ષિત માનવામાં આવે છે."
 
-#: core/worker.cpp:365
+#: core/worker.cpp:379
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "પ્રોટોકોલ '%1' માટે KIO વર્કર શરૂ કરવા માટે સોકેટ બનાવી શકાતું નથી."
 
-#: core/worker.cpp:405
+#: core/worker.cpp:425
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1' પર 'kioworker' એક્ઝિક્યુટેબલ શોધી શકાયું નથી"
