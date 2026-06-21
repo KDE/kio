@@ -74,6 +74,15 @@ ecm_add_test(
     LINK_LIBRARIES KF6::KIOCore Qt6::Test Qt6::Network KF6::I18n
 )
 
+ecm_add_test(
+    threadconnectionbackendtest.cpp
+    ../src/core/threadconnectionbackend.cpp
+    ../src/core/connectionbackend.cpp
+    ../src/core/kiocoreconnectiondebug.cpp
+    TEST_NAME threadconnectionbackendtest
+    LINK_LIBRARIES KF6::KIOCore Qt6::Test Qt6::Network KF6::I18n
+)
+
 # as per sysadmin request these are limited to linux only! https://invent.kde.org/frameworks/kio/-/merge_requests/1008
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND USE_FTPD_WSGIDAV_UNITTEST)
     include(FindGem)
