@@ -68,6 +68,7 @@ endif()
 ecm_add_test(
     connectionbackendtest.cpp
     ../src/core/connectionbackend.cpp
+    ../src/core/socketconnectionbackend.cpp
     ../src/core/kiocoreconnectiondebug.cpp
     TEST_NAME connectionbackendtest
     LINK_LIBRARIES KF6::KIOCore Qt6::Test Qt6::Network KF6::I18n

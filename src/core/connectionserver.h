@@ -18,6 +18,7 @@ namespace KIO
 {
 class ConnectionServerPrivate;
 class Connection;
+class SocketConnectionBackend;
 
 /*
  * This class provides a way to obtaining KIO::Connection connections.
@@ -48,7 +49,7 @@ Q_SIGNALS:
     void newConnection();
 
 private:
-    ConnectionBackend *backend = nullptr;
+    SocketConnectionBackend *backend = nullptr;
 };
 
 } // namespace KIO

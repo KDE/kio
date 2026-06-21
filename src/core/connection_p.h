@@ -129,6 +129,12 @@ public:
 
     void setReadMode(ReadMode mode);
 
+    /*!
+     * Adopts a ready-made backend (used to pair an in-process worker without a
+     * socket handshake). The backend should be parented to keep its lifetime tied.
+     */
+    void setBackend(ConnectionBackend *backend);
+
 Q_SIGNALS:
     void readyRead();
 

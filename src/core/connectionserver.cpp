@@ -9,6 +9,7 @@
 #include "connectionserver.h"
 #include "connection_p.h"
 #include "kiocoredebug.h"
+#include "socketconnectionbackend_p.h"
 
 using namespace KIO;
 
@@ -21,7 +22,7 @@ ConnectionServer::~ConnectionServer() = default;
 
 void ConnectionServer::listenForRemote()
 {
-    backend = new ConnectionBackend(this);
+    backend = new SocketConnectionBackend(this);
     if (auto result = backend->listenForRemote(); !result.success) {
         qCWarning(KIO_CORE) << "ConnectionServer::listenForRemote failed:" << result.error;
         delete backend;
@@ -29,7 +30,7 @@ void ConnectionServer::listenForRemote()
         return;
     }
 
-    connect(backend, &ConnectionBackend::newConnection, this, &ConnectionServer::newConnection);
+    connect(backend, &SocketConnectionBackend::newConnection, this, &ConnectionServer::newConnection);
     // qDebug() << "Listening on" << d->backend->address;
 }
 

@@ -11,6 +11,7 @@
 #include "connection_p.h"
 #include "connectionbackend_p.h"
 #include "kiocoredebug.h"
+#include "socketconnectionbackend_p.h"
 #include <QDebug>
 
 #include <cerrno>
@@ -141,15 +142,21 @@ void Connection::connectToRemote(const QUrl &address)
     const QString scheme = address.scheme();
 
     if (scheme == QLatin1String("local")) {
-        d->setBackend(new ConnectionBackend(this));
+        d->setBackend(new SocketConnectionBackend(this));
     } else {
         qCWarning(KIO_CORE) << "Unknown protocol requested:" << scheme << "(" << address << ")";
         Q_ASSERT(0);
         return;
     }
 
+    // connectToRemote is socket-specific, so call it on the concrete backend. setBackend first so
+    // commandReceived/disconnected are wired before the connection can deliver anything.
+    auto socketBackend = std::make_unique<SocketConnectionBackend>();
+    auto *backendPtr = socketBackend.get();
+    d->setBackend(std::move(socketBackend));
+
     // connection succeeded
-    if (!d->backend->connectToRemote(address)) {
+    if (!backendPtr->connectToRemote(address)) {
         // qCWarning(KIO_CORE) << "could not connect to" << address << "using scheme" << scheme;
         delete d->backend;
         d->backend = nullptr;
@@ -246,6 +253,11 @@ int Connection::read(int *_cmd, QByteArray &data)
 void Connection::setReadMode(ReadMode readMode)
 {
     d->readMode = readMode;
+}
+
+void Connection::setBackend(ConnectionBackend *backend)
+{
+    d->setBackend(backend);
 }
 
 #include "moc_connection_p.cpp"

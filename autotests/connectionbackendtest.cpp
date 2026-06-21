@@ -6,7 +6,7 @@
 #include <QSignalSpy>
 #include <QTest>
 
-#include <connectionbackend_p.h>
+#include <socketconnectionbackend_p.h>
 
 class ConnectionBackendTest : public QObject
 {
@@ -18,11 +18,11 @@ private Q_SLOTS:
         QSKIP("TODO testJumboPackets doesn't pass FIXME");
 #endif
 
-        KIO::ConnectionBackend server;
-        KIO::ConnectionBackend clientConnection;
+        KIO::SocketConnectionBackend server;
+        KIO::SocketConnectionBackend clientConnection;
 
         QVERIFY(server.listenForRemote().success);
-        auto spy = std::make_unique<QSignalSpy>(&server, &KIO::ConnectionBackend::newConnection);
+        auto spy = std::make_unique<QSignalSpy>(&server, &KIO::SocketConnectionBackend::newConnection);
         QVERIFY(clientConnection.connectToRemote(server.address));
         spy->wait();
         QVERIFY(!spy->isEmpty());

@@ -12,11 +12,6 @@
 #include <QObject>
 #include <QUrl>
 
-class QLocalServer;
-class QLocalSocket;
-
-class QTcpServer;
-
 namespace KIO
 {
 struct Task {
@@ -25,53 +20,42 @@ struct Task {
     QByteArray data{};
 };
 
+/*!
+ * \internal
+ *
+ * Abstract transport used by Connection to exchange Tasks (command + payload)
+ * with a peer. The peer can live in another process (SocketConnectionBackend,
+ * over a QLocalSocket) or in another thread of the same process
+ * (ThreadConnectionBackend, over direct queued signals/slots).
+ */
 class ConnectionBackend : public QObject
 {
     Q_OBJECT
 
 public:
-    enum {
+    enum State {
         Idle,
         Listening,
-        Connected
-    } state;
+        Connected,
+    };
+    State state = Idle;
     QUrl address;
     QString errorString;
 
-    static const int HeaderSize = 10;
-    static const int StandardBufferSize = 32 * 1024;
+    explicit ConnectionBackend(QObject *parent = nullptr)
+        : QObject(parent)
+    {
+    }
+    ~ConnectionBackend() override = default;
 
-private:
-    QLocalSocket *socket;
-    QLocalServer *localServer;
-    std::optional<Task> pendingTask = std::nullopt;
-    bool signalEmitted;
+    virtual void setSuspended(bool enable) = 0;
+    virtual void closeSocket() = 0;
+    virtual bool waitForIncomingTask(int ms) = 0;
+    virtual bool sendCommand(int command, const QByteArray &data) = 0;
 
 Q_SIGNALS:
     void disconnected();
     void commandReceived(const KIO::Task &task);
-    void newConnection();
-
-public:
-    explicit ConnectionBackend(QObject *parent = nullptr);
-    ~ConnectionBackend() override;
-
-    struct ConnectionResult {
-        bool success = true;
-        QString error;
-    };
-
-    void setSuspended(bool enable);
-    void closeSocket();
-    bool connectToRemote(const QUrl &url);
-    ConnectionResult listenForRemote();
-    bool waitForIncomingTask(int ms);
-    bool sendCommand(int command, const QByteArray &data) const;
-    ConnectionBackend *nextPendingConnection();
-
-public Q_SLOTS:
-    void socketReadyRead();
-    void socketDisconnected();
 };
 }
 

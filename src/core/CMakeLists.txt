@@ -17,6 +17,7 @@ set_target_properties(KF6KIOCore PROPERTIES
 
 target_sources(KF6KIOCore PRIVATE
   connectionbackend.cpp
+  socketconnectionbackend.cpp
   connection.cpp
   connectionserver.cpp
   krecentdocument.cpp
