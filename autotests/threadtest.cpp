@@ -7,15 +7,35 @@
 
 #include <QTest>
 
+#include <QElapsedTimer>
+#include <QMutex>
 #include <QPointer>
-#include <QScopeGuard>
 #include <QThread>
 #include <QTimer>
+#include <QWaitCondition>
 
 #include "kio/filecopyjob.h"
+#include "kio/listjob.h"
 #include "kio/transferjob.h"
 #include "kiotesthelper.h" // homeTmpDir, createTestFile etc.
-#include "workerthread_p.h" // KIO::WorkerThread test hooks
+#include "worker_p.h" // KIO::Worker::setTestWorkerFactory
+#include "workerbase.h"
+#include "workerfactory.h"
+
+#include <atomic>
+
+namespace
+{
+// Shared control for the mock worker used by cancelDuringSlowWorkerDoesNotBlock(): its listDir()
+// parks on this condition, standing in for a slow syscall that Connection::close() cannot interrupt.
+struct SlowWorkerControl {
+    QMutex mutex;
+    QWaitCondition cond;
+    std::atomic<bool> inListDir{false};
+    bool release = false;
+};
+SlowWorkerControl g_slowWorker;
+}
 
 class KIOThreadTest : public QObject
 {
@@ -24,7 +44,8 @@ private Q_SLOTS:
     void initTestCase();
     void asyncConcurrentCopying();
     void copyJobFromThread();
-    void cancelJobWhileWorkerIsBlocked();
+    void closeJoinsBlockedWorkerWithoutEventLoop();
+    void cancelDuringSlowWorkerDoesNotBlock();
     void cancelDoesNotFlushUnrelatedDeferredDeletes();
     void cleanupTestCase();
 
@@ -120,28 +141,17 @@ void KIOThreadTest::copyJobFromThread()
     QVERIFY(QFile::exists(dest));
 }
 
-void KIOThreadTest::cancelJobWhileWorkerIsBlocked()
+void KIOThreadTest::closeJoinsBlockedWorkerWithoutEventLoop()
 {
-    // Regression test for the Worker::deref() deadlock (bug 468673). Cancelling a running job
-    // derefs its in-process worker, and a worker thread that is mid-transfer can only finish
-    // once the main thread keeps running its event loop (a real worker blocks in
-    // waitForBytesWritten() until the main thread drains its socket). If deref() joins that
-    // thread synchronously while we are inside the event loop dispatching the worker's data,
-    // the main thread blocks on the join instead of running its event loop, and both threads
-    // wedge. This used to surface only downstream (Dolphin's concurrent directory-size
-    // listings); reproduce it here. WorkerThread's BUILD_TESTING exit gate makes the worker's
-    // "needs the main thread to make progress" dependency deterministic: without the fix this
-    // test deadlocks and is killed by the harness timeout; with it the loop drains cleanly.
-
-    KIO::WorkerThread::setTestExitGateEnabled(true);
-    auto gateGuard = qScopeGuard([] {
-        // Make sure no worker (including idle ones torn down at exit) can stay gated.
-        KIO::WorkerThread::setTestExitGateEnabled(false);
-        KIO::WorkerThread::releaseTestExitGate();
-    });
+    // At loop level 0 (no running event loop, e.g. a KCoreDirLister torn down during teardown),
+    // Worker::deref() joins the in-process worker thread synchronously. Connection::close() wakes
+    // the worker from its send back-pressure wait, so the join completes without the event loop
+    // having to drain it. The socket-backed worker deadlocked here (bug 468673): it blocked in
+    // waitForBytesWritten() for the main thread to drain the socket while the join blocked the main
+    // thread. Reaching the line after kill() proves the synchronous join did not deadlock.
 
     const QString path = homeTmpDir() + QLatin1String("bigfile");
-    const QByteArray bigData(16 * 1024 * 1024, 'a'); // big enough that data() fires mid-transfer
+    const QByteArray bigData(16 * 1024 * 1024, 'a'); // large enough to back-pressure the worker before we consume
     QFile f(path);
     QVERIFY(f.open(QIODevice::WriteOnly));
     QCOMPARE(f.write(bigData), qint64(bigData.size()));
@@ -150,28 +160,99 @@ void KIOThreadTest::cancelJobWhileWorkerIsBlocked()
     auto *job = KIO::get(QUrl::fromLocalFile(path), KIO::NoReload, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
 
+    // Run the loop only until the worker starts delivering, then return to loop level 0 with the
+    // worker still mid-transfer (back-pressured, with no event loop draining it).
     QEventLoop loop;
-    bool cancelled = false;
+    bool gotData = false;
     connect(job, &KIO::TransferJob::data, this, [&](KIO::Job *, const QByteArray &) {
-        if (cancelled) {
-            return;
-        }
-        cancelled = true;
-        // Cancel from inside the data dispatch (loopLevel > 0): this derefs the gated worker.
-        // A synchronous join here would block the main thread before it can release the gate.
-        job->kill();
-        // Release the gate and finish - but only from the event loop. With the deadlock bug,
-        // control never returns here, so the worker stays gated and the test hangs.
-        QTimer::singleShot(0, this, [] {
-            KIO::WorkerThread::releaseTestExitGate();
-        });
-        QTimer::singleShot(100, &loop, &QEventLoop::quit);
+        gotData = true;
+        loop.quit();
     });
-    // Absolute safety net; with the fix the 100ms timer above quits the loop far sooner.
-    QTimer::singleShot(std::chrono::seconds(30), &loop, &QEventLoop::quit);
+    QTimer::singleShot(std::chrono::seconds(30), &loop, &QEventLoop::quit); // safety net
+    loop.exec();
+    QVERIFY(gotData);
+
+    // Back at loop level 0: kill() takes the synchronous-join path against the blocked worker.
+    job->kill();
+    QVERIFY(true); // reached => the synchronous join did not deadlock
+}
+
+void KIOThreadTest::cancelDuringSlowWorkerDoesNotBlock()
+{
+    // Regression test: cancelling a job from inside a running event loop (loopLevel > 0) must not
+    // freeze the calling thread when the in-process worker is mid-operation between channel
+    // checkpoints. Here the mock worker parks in listDir() on a condition that close() cannot wake
+    // (a stand-in for a slow stat()/read()). deref() must reap the thread asynchronously; the old
+    // unconditional synchronous join would block in wait() until the operation returned - which in
+    // this test only happens after kill(), so the buggy path deadlocks and is killed by the timeout.
+    g_slowWorker.inListDir.store(false);
+    {
+        QMutexLocker lock(&g_slowWorker.mutex);
+        g_slowWorker.release = false;
+    }
+
+    class Factory : public KIO::WorkerFactory
+    {
+    public:
+        using KIO::WorkerFactory::WorkerFactory;
+        std::unique_ptr<KIO::WorkerBase> createWorker(const QByteArray &pool, const QByteArray &app) override
+        {
+            class SlowWorker : public KIO::WorkerBase
+            {
+            public:
+                SlowWorker(const QByteArray &pool, const QByteArray &app)
+                    : WorkerBase(QByteArrayLiteral("kio-test"), pool, app)
+                {
+                }
+                KIO::WorkerResult listDir(const QUrl &) override
+                {
+                    g_slowWorker.inListDir.store(true);
+                    QMutexLocker lock(&g_slowWorker.mutex);
+                    while (!g_slowWorker.release) {
+                        g_slowWorker.cond.wait(&g_slowWorker.mutex);
+                    }
+                    return KIO::WorkerResult::pass();
+                }
+            };
+            return std::unique_ptr<KIO::WorkerBase>(new SlowWorker(pool, app));
+        }
+    };
+    auto factory = std::make_shared<Factory>();
+    KIO::Worker::setTestWorkerFactory(factory);
+
+    auto *job = KIO::listDir(QUrl(QStringLiteral("kio-test://foo")), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+
+    QEventLoop loop;
+    bool killReturned = false;
+    QTimer::singleShot(0, this, [&]() {
+        // Inside loop.exec(): loopLevel > 0. Wait until the worker is parked in listDir().
+        QElapsedTimer waited;
+        waited.start();
+        while (!g_slowWorker.inListDir.load() && waited.elapsed() < 10000) {
+            QCoreApplication::processEvents(QEventLoop::AllEvents, 10);
+        }
+        // close() cannot wake the parked worker. With the fix kill() returns at once. With the
+        // synchronous-join bug it blocks until the worker is released below - which never runs,
+        // because control never returns from kill() - so the test deadlocks and times out.
+        job->kill(KJob::EmitResult);
+        killReturned = true;
+        {
+            QMutexLocker lock(&g_slowWorker.mutex);
+            g_slowWorker.release = true;
+        }
+        g_slowWorker.cond.wakeAll();
+        loop.quit();
+    });
+    QTimer::singleShot(std::chrono::seconds(30), &loop, &QEventLoop::quit); // safety net
     loop.exec();
 
-    QVERIFY(cancelled);
+    QVERIFY(g_slowWorker.inListDir.load()); // the worker really did reach (and park in) listDir()
+    QVERIFY(killReturned);
+
+    // The worker thread is reaped asynchronously (QThread::finished -> deleteLater). Now that it is
+    // released, spin the loop so it finishes and is deleted before teardown (no false leak report).
+    QTest::qWait(300);
 }
 
 void KIOThreadTest::cancelDoesNotFlushUnrelatedDeferredDeletes()

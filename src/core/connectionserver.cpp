@@ -22,38 +22,37 @@ ConnectionServer::~ConnectionServer() = default;
 
 void ConnectionServer::listenForRemote()
 {
-    backend = new SocketConnectionBackend(this);
-    if (auto result = backend->listenForRemote(); !result.success) {
+    m_backend = new SocketConnectionBackend(this);
+    if (auto result = m_backend->listenForRemote(); !result.success) {
         qCWarning(KIO_CORE) << "ConnectionServer::listenForRemote failed:" << result.error;
-        delete backend;
-        backend = nullptr;
+        delete m_backend;
+        m_backend = nullptr;
         return;
     }
 
-    connect(backend, &SocketConnectionBackend::newConnection, this, &ConnectionServer::newConnection);
+    connect(m_backend, &SocketConnectionBackend::newConnection, this, &ConnectionServer::newConnection);
     // qDebug() << "Listening on" << d->backend->address;
 }
 
 QUrl ConnectionServer::address() const
 {
-    if (backend) {
-        return backend->address;
+    if (m_backend) {
+        return m_backend->address;
     }
     return QUrl();
 }
 
 bool ConnectionServer::isListening() const
 {
-    return backend && backend->state == ConnectionBackend::Listening;
+    return m_backend && m_backend->state == ConnectionBackend::Listening;
 }
 
 void ConnectionServer::setNextPendingConnection(Connection *conn)
 {
-    ConnectionBackend *newBackend = backend->nextPendingConnection();
+    std::unique_ptr<ConnectionBackend> newBackend(m_backend->nextPendingConnection());
     Q_ASSERT(newBackend);
 
-    conn->d->setBackend(newBackend);
-    newBackend->setParent(conn);
+    conn->d->setBackend(std::move(newBackend));
 
     conn->d->dequeue();
 }

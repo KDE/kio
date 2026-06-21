@@ -247,7 +247,8 @@ SlaveBase::SlaveBase(const QByteArray &protocol, const QByteArray &pool_socket, 
     , d(new SlaveBasePrivate(this))
 
 {
-    Q_ASSERT(!app_socket.isEmpty());
+    // app_socket may be empty for an in-process worker: its backend is then installed
+    // later via setConnectionBackend() instead of connecting to a socket address.
     d->poolSocket = QFile::decodeName(pool_socket);
 
     if (QThread::currentThread() == qApp->thread()) {
@@ -285,7 +286,9 @@ SlaveBase::SlaveBase(const QByteArray &protocol, const QByteArray &pool_socket, 
     d->onHold = false;
     //    d->processed_size = 0;
     d->totalSize = 0;
-    connectSlave(QFile::decodeName(app_socket));
+    if (!app_socket.isEmpty()) {
+        connectSlave(QFile::decodeName(app_socket));
+    }
 
     d->remotefile = nullptr;
     d->inOpenLoop = false;
@@ -377,6 +380,12 @@ void SlaveBase::connectSlave(const QString &address)
 void SlaveBase::disconnectSlave()
 {
     d->appConnection.close();
+}
+
+void SlaveBase::setConnectionBackend(std::unique_ptr<KIO::ConnectionBackend> backend)
+{
+    d->appConnection.setBackend(std::move(backend));
+    d->inOpenLoop = false;
 }
 
 void SlaveBase::setMetaData(const QString &key, const QString &value)

@@ -6,6 +6,7 @@
 
 #include "kiocoredebug.h"
 #include "slavebase.h"
+#include "threadconnectionbackend_p.h"
 #include "workerbase.h"
 #include "workerbase_p.h"
 #include "workerfactory.h"
@@ -16,27 +17,15 @@
 namespace KIO
 {
 
-#ifdef BUILD_TESTING
-bool WorkerThread::s_testExitGateEnabled = false;
-QSemaphore WorkerThread::s_testExitGate;
-
-void WorkerThread::setTestExitGateEnabled(bool enabled)
-{
-    s_testExitGateEnabled = enabled;
-}
-
-void WorkerThread::releaseTestExitGate()
-{
-    s_testExitGate.release();
-}
-#endif
-
-WorkerThread::WorkerThread(QObject *parent, WorkerFactory *factory, const QByteArray &appSocket, QPluginLoader *pluginLoader)
+WorkerThread::WorkerThread(QObject *parent, WorkerFactory *factory, std::unique_ptr<ThreadConnectionBackend> workerBackend, QPluginLoader *pluginLoader)
     : QThread(parent)
     , m_factory(factory)
-    , m_appSocket(appSocket)
+    , m_workerBackend(std::move(workerBackend))
     , m_pluginLoader(pluginLoader)
 {
+    // Give the backend this thread's affinity before it starts, so its signals are
+    // delivered to the worker-side Connection on the worker thread.
+    m_workerBackend->moveToThread(this);
 }
 
 WorkerThread::~WorkerThread()
@@ -60,8 +49,12 @@ void WorkerThread::run()
 {
     qCDebug(KIO_CORE) << QThread::currentThreadId() << "Creating threaded worker";
 
-    auto worker = m_factory->createWorker({}, m_appSocket);
+    auto worker = m_factory->createWorker({}, {});
     SlaveBase *base = &(worker->d->bridge);
+
+    // Adopt the pre-paired thread backend instead of connecting to a socket address.
+    // Ownership passes to the worker-side Connection (which parents it).
+    base->setConnectionBackend(std::move(m_workerBackend));
 
     base->setRunInThread(true);
     setWorker(base);
@@ -69,14 +62,6 @@ void WorkerThread::run()
     base->dispatchLoop();
 
     setWorker(nullptr); // before the actual deletion
-
-#ifdef BUILD_TESTING
-    if (s_testExitGateEnabled) {
-        // Block here until the main thread releases us through its event loop, so a
-        // synchronous join in Worker::deref() deadlocks deterministically (see header).
-        s_testExitGate.acquire();
-    }
-#endif
 }
 
 void WorkerThread::setWorker(SlaveBase *worker)

@@ -42,20 +42,20 @@ void ThreadConnectionBackend::closeAllDirectionsLocked()
     }
 }
 
-std::pair<ThreadConnectionBackend *, std::unique_ptr<ThreadConnectionBackend>> ThreadConnectionBackend::createPair(QObject *appParent)
+std::pair<std::unique_ptr<ThreadConnectionBackend>, std::unique_ptr<ThreadConnectionBackend>> ThreadConnectionBackend::createPair()
 {
     auto channel = std::make_shared<Channel>();
-    auto *app = new ThreadConnectionBackend(Role::Application, appParent);
+    auto app = std::make_unique<ThreadConnectionBackend>(Role::Application, nullptr);
     auto worker = std::make_unique<ThreadConnectionBackend>(Role::Worker, nullptr); // parentless: moved to the worker thread
     app->m_channel = channel;
     worker->m_channel = channel;
 
     QMutexLocker lock(&channel->mutex);
-    channel->appBackend = app;
+    channel->appBackend = app.get();
     channel->workerBackend = worker.get();
     app->state = Connected;
     worker->state = Connected;
-    return {app, std::move(worker)};
+    return {std::move(app), std::move(worker)};
 }
 
 ThreadConnectionBackend::Direction &ThreadConnectionBackend::incoming()

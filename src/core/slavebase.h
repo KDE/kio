@@ -25,6 +25,7 @@ class QUrl;
 namespace KIO
 {
 class Connection;
+class ConnectionBackend;
 class SlaveBasePrivate;
 
 // TODO: Enable once file KIO worker is ported away and add endif, similar in the cpp file
@@ -758,6 +759,13 @@ public:
      */
     void connectSlave(const QString &path);
     void disconnectSlave();
+
+    /*
+     * Internal: adopt a ready-made connection backend instead of connecting to a
+     * socket address. Used for in-process workers paired via ThreadConnectionBackend.
+     * Takes ownership of \a backend.
+     */
+    void setConnectionBackend(std::unique_ptr<KIO::ConnectionBackend> backend);
 
     /*
      * Prompt the user for Authorization info (login & password).

@@ -131,9 +131,9 @@ public:
 
     /*!
      * Adopts a ready-made backend (used to pair an in-process worker without a
-     * socket handshake). The backend should be parented to keep its lifetime tied.
+     * socket handshake), taking ownership of it.
      */
-    void setBackend(ConnectionBackend *backend);
+    void setBackend(std::unique_ptr<ConnectionBackend> backend);
 
 Q_SIGNALS:
     void readyRead();
@@ -150,8 +150,7 @@ class ConnectionPrivate
 {
 public:
     inline ConnectionPrivate()
-        : backend(nullptr)
-        , q(nullptr)
+        : q(nullptr)
         , suspended(false)
         , readMode(Connection::ReadMode::EventDriven)
     {
@@ -160,11 +159,11 @@ public:
     void dequeue();
     void commandReceived(const Task &task);
     void disconnected();
-    void setBackend(ConnectionBackend *b);
+    void setBackend(std::unique_ptr<ConnectionBackend> b);
 
     QList<Task> outgoingTasks;
     QList<Task> incomingTasks;
-    ConnectionBackend *backend;
+    std::unique_ptr<ConnectionBackend> backend;
     Connection *q;
     bool suspended;
     Connection::ReadMode readMode;

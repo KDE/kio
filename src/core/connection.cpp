@@ -54,15 +54,14 @@ void ConnectionPrivate::disconnected()
     }
 }
 
-void ConnectionPrivate::setBackend(ConnectionBackend *b)
+void ConnectionPrivate::setBackend(std::unique_ptr<ConnectionBackend> b)
 {
-    delete backend;
-    backend = b;
+    backend = std::move(b);
     if (backend) {
-        q->connect(backend, &ConnectionBackend::commandReceived, q, [this](const Task &task) {
+        q->connect(backend.get(), &ConnectionBackend::commandReceived, q, [this](const Task &task) {
             commandReceived(task);
         });
-        q->connect(backend, &ConnectionBackend::disconnected, q, [this]() {
+        q->connect(backend.get(), &ConnectionBackend::disconnected, q, [this]() {
             disconnected();
         });
         backend->setSuspended(suspended);
@@ -112,10 +111,11 @@ void Connection::close()
 {
     if (d->backend) {
         d->backend->disconnect(this);
-        // Close before deleteLater so a WorkerThread blocked in waitForReadyRead() unblocks immediately.
+        // closeSocket() unblocks a WorkerThread parked in waitForReadyRead(). The backend itself is
+        // left owned by the unique_ptr and freed on destruction: deleting it here would either leak
+        // at teardown (deleteLater() with no event loop) or delete it from inside its own
+        // disconnected() signal.
         d->backend->closeSocket();
-        d->backend->deleteLater();
-        d->backend = nullptr;
     }
     d->outgoingTasks.clear();
     d->incomingTasks.clear();
@@ -128,7 +128,7 @@ bool Connection::isConnected() const
 
 bool Connection::inited() const
 {
-    return d->backend;
+    return d->backend != nullptr;
 }
 
 bool Connection::suspended() const
@@ -141,9 +141,7 @@ void Connection::connectToRemote(const QUrl &address)
     // qDebug() << "Connection requested to" << address;
     const QString scheme = address.scheme();
 
-    if (scheme == QLatin1String("local")) {
-        d->setBackend(new SocketConnectionBackend(this));
-    } else {
+    if (scheme != QLatin1String("local")) {
         qCWarning(KIO_CORE) << "Unknown protocol requested:" << scheme << "(" << address << ")";
         Q_ASSERT(0);
         return;
@@ -158,8 +156,7 @@ void Connection::connectToRemote(const QUrl &address)
     // connection succeeded
     if (!backendPtr->connectToRemote(address)) {
         // qCWarning(KIO_CORE) << "could not connect to" << address << "using scheme" << scheme;
-        delete d->backend;
-        d->backend = nullptr;
+        d->backend.reset();
         return;
     }
 
@@ -255,9 +252,9 @@ void Connection::setReadMode(ReadMode readMode)
     d->readMode = readMode;
 }
 
-void Connection::setBackend(ConnectionBackend *backend)
+void Connection::setBackend(std::unique_ptr<ConnectionBackend> backend)
 {
-    d->setBackend(backend);
+    d->setBackend(std::move(backend));
 }
 
 #include "moc_connection_p.cpp"

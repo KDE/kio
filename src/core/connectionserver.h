@@ -49,7 +49,7 @@ Q_SIGNALS:
     void newConnection();
 
 private:
-    SocketConnectionBackend *backend = nullptr;
+    SocketConnectionBackend *m_backend = nullptr;
 };
 
 } // namespace KIO

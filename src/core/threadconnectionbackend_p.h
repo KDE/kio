@@ -51,11 +51,11 @@ public:
     ~ThreadConnectionBackend() override;
 
     /*!
-     * Creates a cross-linked application/worker backend pair sharing one channel. The application
-     * end is parented to \a appParent and returned raw. The worker end is returned as a unique_ptr,
-     * ownerless until it is moved to the worker thread.
+     * Creates a cross-linked application/worker backend pair sharing one channel, each owned by its
+     * returned unique_ptr. The application end is handed to the application's Connection, the worker
+     * end is moved to the worker thread.
      */
-    static std::pair<ThreadConnectionBackend *, std::unique_ptr<ThreadConnectionBackend>> createPair(QObject *appParent);
+    static std::pair<std::unique_ptr<ThreadConnectionBackend>, std::unique_ptr<ThreadConnectionBackend>> createPair();
 
     void setSuspended(bool suspended) override;
     void closeSocket() override;

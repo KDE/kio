@@ -328,14 +328,16 @@ WorkerResult FileProtocol::get(const QUrl &url)
         }
     }
 
-    char buffer[s_maxIPCSize];
     QByteArray array;
 
     while (1) {
         if (wasKilled()) {
             return WorkerResult::pass();
         }
-        int n = f.read(buffer, s_maxIPCSize);
+        // Read into an owned buffer so the in-process worker connection can hand it to the
+        // application by reference, with no copy (see ThreadConnectionBackend).
+        array = QByteArray(s_maxIPCSize, Qt::Uninitialized);
+        int n = f.read(array.data(), s_maxIPCSize);
         if (n == -1) {
             if (errno == EINTR) {
                 continue;
@@ -347,9 +349,8 @@ WorkerResult FileProtocol::get(const QUrl &url)
             break; // Finished
         }
 
-        array = QByteArray::fromRawData(buffer, n);
+        array.resize(n);
         data(array);
-        array.clear();
 
         processed_size += n;
         processedSize(processed_size);
@@ -421,7 +422,9 @@ WorkerResult FileProtocol::read(KIO::filesize_t bytes)
     // qDebug() << "File::open -- read";
     Q_ASSERT(mFile && mFile->isOpen());
 
-    QVarLengthArray<char> buffer(bytes);
+    // Read into an owned buffer so the in-process worker connection can hand it to the
+    // application by reference, with no copy (see ThreadConnectionBackend).
+    QByteArray buffer(bytes, Qt::Uninitialized);
 
     qint64 bytesRead = mFile->read(buffer.data(), bytes);
 
@@ -431,8 +434,8 @@ WorkerResult FileProtocol::read(KIO::filesize_t bytes)
         closeWithoutFinish();
         return WorkerResult::fail(KIO::ERR_CANNOT_READ, fileName);
     } else {
-        const QByteArray fileData = QByteArray::fromRawData(buffer.data(), bytesRead);
-        data(fileData);
+        buffer.resize(bytesRead);
+        data(buffer);
         return WorkerResult::pass();
     }
 }

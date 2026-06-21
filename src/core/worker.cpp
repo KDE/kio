@@ -19,6 +19,7 @@
 #include <QMutex>
 #include <QPluginLoader>
 #include <QProcess>
+#include <QSet>
 #include <QStandardPaths>
 #include <QTimer>
 
@@ -34,6 +35,7 @@
 #include <kprotocolinfo.h>
 
 #include "kiocoredebug.h"
+#include "threadconnectionbackend_p.h"
 #include "workerbase.h"
 #include "workerfactory.h"
 #include "workerthread_p.h"
@@ -41,33 +43,119 @@
 using namespace Qt::StringLiterals;
 using namespace KIO;
 
+namespace
+{
+// A worker thread reaped while an event loop runs (deref()) is deleted with a queued deleteLater().
+// If the loop stops before delivering it, the thread and its QPluginLoader would leak. Track those
+// threads and, once the application is quitting (or at the latest when this is destroyed), join and
+// delete any the loop did not get to.
+class WorkerThreadReaper : public QObject
+{
+public:
+    WorkerThreadReaper()
+    {
+        if (qApp) {
+            connect(qApp, &QCoreApplication::aboutToQuit, this, &WorkerThreadReaper::reapAll, Qt::UniqueConnection);
+        }
+    }
+    ~WorkerThreadReaper() override
+    {
+        reapAll();
+    }
+    void add(WorkerThread *thread)
+    {
+        {
+            QMutexLocker lock(&m_mutex);
+            m_threads.insert(thread);
+        }
+        // Normal path: once the thread finishes the running event loop deletes it, and destroyed()
+        // drops it from the set. reapAll() is only the fallback for threads the loop never got to.
+        connect(thread, &QThread::finished, thread, &QThread::deleteLater);
+        connect(thread, &QObject::destroyed, this, [this, thread] {
+            remove(thread);
+        });
+    }
+    void remove(WorkerThread *thread)
+    {
+        QMutexLocker lock(&m_mutex);
+        m_threads.remove(thread);
+    }
+
+private:
+    // close()/quit() have already woken the worker, so it normally finishes at once. Wait only
+    // briefly: a worker wedged in a slow uninterruptible syscall must not hang shutdown. If it does
+    // not finish in time, leak it rather than delete a still-running QThread (which would crash).
+    static constexpr unsigned long s_reapTimeoutMs = 2000;
+
+    void reapAll()
+    {
+        QSet<WorkerThread *> threads;
+        {
+            QMutexLocker lock(&m_mutex);
+            threads.swap(m_threads);
+        }
+        for (WorkerThread *thread : std::as_const(threads)) {
+            if (thread->wait(s_reapTimeoutMs)) {
+                delete thread;
+            } else {
+                qCWarning(KIO_CORE) << "in-process worker thread did not finish at teardown, leaking it";
+            }
+        }
+    }
+
+    QMutex m_mutex;
+    QSet<WorkerThread *> m_threads;
+};
+Q_GLOBAL_STATIC(WorkerThreadReaper, s_workerThreadReaper)
+}
+
 void Worker::accept()
 {
-    m_workerConnServer->setNextPendingConnection(m_connection);
-    m_workerConnServer->deleteLater();
-    m_workerConnServer = nullptr;
+    auto *connServer = qobject_cast<KIO::ConnectionServer *>(sender());
+    Q_ASSERT(connServer);
+    connServer->setNextPendingConnection(m_connection);
+    connServer->deleteLater();
 
     connect(m_connection, &Connection::readyRead, this, &Worker::gotInput);
+}
+
+std::unique_ptr<ThreadConnectionBackend> Worker::wireThreadConnection(Worker *worker)
+{
+    auto pair = ThreadConnectionBackend::createPair();
+
+    worker->m_connection->setBackend(std::move(pair.first));
+    connect(worker->m_connection, &Connection::readyRead, worker, &Worker::gotInput);
+
+    return std::move(pair.second);
 }
 
 Worker::Worker(const QString &protocol, QObject *parent)
     : WorkerInterface(parent)
     , m_protocol(protocol)
-    , m_workerConnServer(new KIO::ConnectionServer)
 {
-    m_workerConnServer->setParent(this);
-    m_workerConnServer->listenForRemote();
-    if (!m_workerConnServer->isListening()) {
-        qCWarning(KIO_CORE) << "KIO Connection server not listening, could not connect";
-    }
     m_connection = new Connection(Connection::Type::Application, this);
-    connect(m_workerConnServer, &ConnectionServer::newConnection, this, &Worker::accept);
+}
+
+// Out-of-process workers connect back over a local socket. The in-process path never calls this,
+// so no socket (nor its on-disk file) is created for a threaded worker. The server is owned via
+// QObject parentage and lives until the worker connects back (accept() deletes it then) or the
+// Worker is torn down first.
+QUrl Worker::createConnectionServer()
+{
+    auto *connServer = new KIO::ConnectionServer(this);
+    connServer->listenForRemote();
+    if (!connServer->isListening()) {
+        qCWarning(KIO_CORE) << "KIO Connection server not listening, could not connect";
+        delete connServer;
+        return {};
+    }
+    connect(connServer, &ConnectionServer::newConnection, this, &Worker::accept);
+    return connServer->address();
 }
 
 Worker::~Worker()
 {
     // qDebug() << "destructing worker object pid =" << m_pid;
-    delete m_workerConnServer;
 }
 
 QString Worker::protocol() const
@@ -119,28 +207,29 @@ void Worker::deref()
             WorkerThread *workerThread = nullptr;
             std::swap(workerThread, m_workerThread);
             workerThread->setParent(nullptr);
-            // Close the socket so dispatchLoop()'s waitForReadyRead()/waitForBytesWritten()
-            // unblocks and the thread can exit on its own.
+            const bool eventLoopRunning = QThread::currentThread()->loopLevel() > 0;
+            if (eventLoopRunning) {
+                // An event loop is running, so reap the thread once it has finished instead of
+                // joining here. add() must run before close(), which is what makes the worker
+                // finish: a fast worker can emit finished() before deref() returns, and missing
+                // that signal would leak the thread. A synchronous join would instead block this
+                // thread, and freeze the UI, until a worker mid-operation between channel
+                // checkpoints (a slow stat() or read()) returns.
+                s_workerThreadReaper->add(workerThread);
+            }
+            // close() wakes the in-process worker from both its incoming-data and send
+            // back-pressure waits, so it finishes without needing this thread to make progress.
             m_connection->close();
             workerThread->quit();
-            if (QThread::currentThread()->loopLevel() > 0) {
-                // We are inside a running event loop, dispatching data: deref() routinely runs
-                // while a thread is dispatching a worker's data, because handling that data can
-                // cancel and delete another job (and thus deref its worker). A worker that is
-                // delivering data blocks in waitForBytesWritten() once its socket buffer fills,
-                // and needs this thread to keep draining the socket to make progress. Joining
-                // here would deadlock this thread against the worker (bug 468673), so delete the
-                // thread asynchronously once it has finished instead.
-                connect(workerThread, &QThread::finished, workerThread, &QThread::deleteLater);
-            } else {
-                // No event loop is running on this thread, e.g. during scheduler/thread-storage
-                // teardown at exit. No data dispatch can be in flight, so joining the worker
-                // thread cannot deadlock; delete it synchronously. A queued deleteLater() would
-                // never be processed without an event loop and would leak the thread.
+            if (!eventLoopRunning) {
+                // No event loop is running, e.g. teardown at exit. A queued deleteLater() would
+                // never be delivered and would leak the thread, and close() has woken the worker
+                // so the join cannot deadlock (bug 468673). Join and delete synchronously.
+                workerThread->wait();
                 delete workerThread;
             }
         }
-        delete this; // yes it reads funny, but it's too late for a deleteLater() here, no event loop anymore
+        delete this;
     }
 }
 
@@ -334,8 +423,7 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
 #ifdef BUILD_TESTING
     if (protocol.startsWith("kio-test"_L1)) {
         auto *worker = new Worker(protocol);
-        const QUrl workerAddress = worker->m_workerConnServer->address();
-        auto *thread = new WorkerThread(worker, s_testFactory.lock().get(), workerAddress.toString().toLocal8Bit());
+        auto *thread = new WorkerThread(worker, s_testFactory.lock().get(), wireThreadConnection(worker));
         thread->start();
         worker->setWorkerThread(thread);
         return worker;
@@ -372,13 +460,6 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
     }
 
     auto *worker = new Worker(protocol);
-    const QUrl workerAddress = worker->m_workerConnServer->address();
-    if (workerAddress.isEmpty()) {
-        error_text = i18n("Can not create a socket for launching a KIO worker for protocol '%1'.", protocol);
-        error = KIO::ERR_CANNOT_CREATE_WORKER;
-        delete worker;
-        return nullptr;
-    }
 
     // Threads are enabled by default, set KIO_ENABLE_WORKER_THREADS=0 to disable them
     const auto useThreads = []() {
@@ -396,7 +477,7 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
         }
         auto *factory = qobject_cast<WorkerFactory *>(loader->instance());
         if (factory) {
-            auto *thread = new WorkerThread(worker, factory, workerAddress.toString().toLocal8Bit(), loader.release());
+            auto *thread = new WorkerThread(worker, factory, wireThreadConnection(worker), loader.release());
             thread->start();
             worker->setWorkerThread(thread);
             return worker;
@@ -404,6 +485,15 @@ Worker *Worker::createWorker(const QString &protocol, const QUrl &url, int &erro
             qCWarning(KIO_CORE) << lib_path << "doesn't implement WorkerFactory?";
             loader->unload();
         }
+    }
+
+    // Out-of-process worker: spawn kioworker, which connects back to our local socket.
+    const QUrl workerAddress = worker->createConnectionServer();
+    if (workerAddress.isEmpty()) {
+        error_text = i18n("Can not create a socket for launching a KIO worker for protocol '%1'.", protocol);
+        error = KIO::ERR_CANNOT_CREATE_WORKER;
+        delete worker;
+        return nullptr;
     }
 
     const QStringList args = QStringList{lib_path, protocol, QString(), workerAddress.toString()};
