@@ -314,6 +314,9 @@ void CommandLauncherJobTest::runExecutableInLocalPath()
     QVERIFY(job->exec());
 
     QTRY_VERIFY2(QFileInfo::exists(destPath), qPrintable(destPath));
+
+    // Wait for KProcessRunner to be deleted
+    QTRY_COMPARE(KProcessRunner::instanceCount(), 0);
 }
 
 #include "moc_commandlauncherjobtest.cpp"
