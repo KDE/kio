@@ -9,6 +9,12 @@
 #include "../src/core/config-stat-unix.h"
 #include "mockcoredelegateextensions.h"
 
+#include <config-kiocore.h> // HAVE_POSIX_ACL
+#if HAVE_POSIX_ACL
+#include <cstring>
+#include <sys/acl.h>
+#endif
+
 #include "kio/job.h"
 #include "kiotesthelper.h" // createTestFile etc.
 #include "worker_p.h"
@@ -40,6 +46,7 @@
 #include <QHash>
 #include <QPointer>
 #include <QProcess>
+#include <QScopeGuard>
 #include <QSignalSpy>
 #include <QTemporaryFile>
 #include <QTest>
@@ -797,6 +804,73 @@ void JobTest::copyFileToSamePartition()
         setXattr(filePath);
     }
     copyLocalFile(filePath, dest);
+}
+
+void JobTest::copyFilePreservesAcl()
+{
+#if !HAVE_POSIX_ACL
+    QSKIP("POSIX ACL support not compiled in");
+#elif defined(Q_OS_FREEBSD)
+    QSKIP("The test is not adapted for FreeBSD yet");
+#else
+    const QString homeDir = homeTmpDir();
+    const QString src = homeDir + "fileWithAcl";
+    const QString dest = homeDir + "fileWithAcl_copied";
+    createTestFile(src);
+    // Remove both files however we leave this function: createTestFile() and the copy jobs run
+    // before QVERIFY/QCOMPARE checks that return early on failure, and listRecursive() lists
+    // homeTmpDir() against a fixed reference. These files exist only when the filesystem supports
+    // ACLs, so they cannot be part of that reference and must not be left behind.
+    auto cleanup = qScopeGuard([&] {
+        QFile::remove(src);
+        QFile::remove(dest);
+    });
+    const QByteArray srcEnc = QFile::encodeName(src);
+    const QByteArray destEnc = QFile::encodeName(dest);
+
+    // A named-user entry makes this an *extended* ACL (stored as the system.posix_acl_access
+    // xattr); a full-rights mask avoids acl_to_text "#effective" annotations so a plain string
+    // comparison suffices.
+    acl_t want = acl_from_text("u::rw-,u:0:rwx,g::r--,m::rwx,o::r--");
+    QVERIFY(want);
+    if (acl_valid(want) != 0 || acl_set_file(srcEnc.constData(), ACL_TYPE_ACCESS, want) != 0) {
+        acl_free(want);
+        QSKIP("Filesystem under the test home does not support POSIX ACLs");
+    }
+    acl_free(want);
+
+    auto aclText = [](const QByteArray &path) {
+        acl_t acl = acl_get_file(path.constData(), ACL_TYPE_ACCESS);
+        char *text = acl ? acl_to_text(acl, nullptr) : nullptr;
+        const QByteArray result = text ? QByteArray(text) : QByteArray();
+        if (text) {
+            acl_free(text);
+        }
+        if (acl) {
+            acl_free(acl);
+        }
+        return result;
+    };
+    const QByteArray srcAcl = aclText(srcEnc);
+    QVERIFY(!srcAcl.isEmpty());
+
+    const QUrl u = QUrl::fromLocalFile(src);
+    const QUrl d = QUrl::fromLocalFile(dest);
+
+    // file_copy preserving the source mode (-1) goes through copy()'s ACL-preservation path.
+    auto *fileCopy = KIO::file_copy(u, d, -1, KIO::HideProgressInfo);
+    fileCopy->setUiDelegate(nullptr);
+    QVERIFY2(fileCopy->exec(), qPrintable(fileCopy->errorString()));
+    QCOMPARE(aclText(destEnc), srcAcl);
+    QFile::remove(dest);
+
+    // And the high-level CopyJob path (what users actually trigger).
+    auto *copyJob = KIO::copy(u, d, KIO::HideProgressInfo);
+    copyJob->setUiDelegate(nullptr);
+    copyJob->setUiDelegateExtension(nullptr);
+    QVERIFY2(copyJob->exec(), qPrintable(copyJob->errorString()));
+    QCOMPARE(aclText(destEnc), srcAcl);
+#endif
 }
 
 void JobTest::copyDirectoryToSamePartition()
