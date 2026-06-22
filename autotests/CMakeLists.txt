@@ -56,6 +56,13 @@ if (NOT WIN32)
   )
 
   target_link_libraries(deleteortrashjobtest KF6::KIOWidgets)
+
+  if(TARGET Qt6::DBus)
+    target_link_libraries(deletejobtest Qt6::DBus)
+  endif()
+  if(ACL_FOUND)
+    target_link_libraries(jobtest ${ACL_LIBS}) # copyFilePreservesAcl()
+  endif()
 endif()
 
 ecm_add_test(
