@@ -18,6 +18,8 @@
 #include <kio/mkpathjob.h>
 #include <kio/paste.h>
 #include <kio/pastejob.h>
+
+#include <KJobUiDelegate>
 #include <kio/restorejob.h>
 #include <kioglobal_p.h>
 #include <kprotocolinfo.h>
@@ -358,6 +360,113 @@ void FileUndoManagerTest::testCopyFiles()
     QVERIFY(!QFile::exists(destLink()));
     QVERIFY(!QFileInfo(destLink()).isSymLink());
 #endif
+}
+
+void FileUndoManagerTest::testCopyManyFiles()
+{
+    // A run of plain local files copied via KIO::copy takes CopyJob's batch path. Undo relies on the
+    // per-file copyingDone() the batch synthesizes, so it must still remove every copied file.
+    const QString destdir = destDir();
+    const int n = 20;
+    QList<QUrl> lst;
+    for (int i = 0; i < n; ++i) {
+        const QString f = homeTmpDir() + QStringLiteral("manyfile%1").arg(i);
+        createTestFile(f, "batch contents");
+        lst << QUrl::fromLocalFile(f);
+    }
+
+    KIO::CopyJob *job = KIO::copy(lst, QUrl::fromLocalFile(destdir), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    FileUndoManager::self()->recordCopyJob(job);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    for (int i = 0; i < n; ++i) {
+        QVERIFY(QFile::exists(destdir + QStringLiteral("manyfile%1").arg(i)));
+    }
+    QVERIFY(FileUndoManager::self()->isUndoAvailable());
+
+    m_uiInterface->clear();
+    m_uiInterface->setNextReplyToConfirmDeletion(true);
+    doUndo();
+
+    // Undo must have removed every copied file.
+    QVERIFY(!FileUndoManager::self()->isUndoAvailable());
+    QVERIFY(FileUndoManager::self()->isRedoAvailable());
+    for (int i = 0; i < n; ++i) {
+        QVERIFY(!QFile::exists(destdir + QStringLiteral("manyfile%1").arg(i)));
+    }
+
+    m_uiInterface->clear();
+    m_uiInterface->setNextReplyToConfirmDeletion(true);
+    doRedo();
+    for (int i = 0; i < n; ++i) {
+        QVERIFY(QFile::exists(destdir + QStringLiteral("manyfile%1").arg(i)));
+    }
+
+    // Leave the destination clean for the following tests, and remove the sources.
+    m_uiInterface->clear();
+    m_uiInterface->setNextReplyToConfirmDeletion(true);
+    doUndo();
+    for (int i = 0; i < n; ++i) {
+        QFile::remove(homeTmpDir() + QStringLiteral("manyfile%1").arg(i));
+    }
+}
+
+void FileUndoManagerTest::testCopyManyFilesPartiallyDeferred()
+{
+    // A batched copy where one destination already exists: the batch defers it and the per-file path
+    // resolves it (here the user skips). Undo must remove exactly the files that were copied and
+    // leave the pre-existing, skipped file untouched - it relies on the per-file copyingDone() the
+    // batch synthesizes only for the files it actually copied.
+    const QString destdir = destDir();
+    const int n = 20;
+    QList<QUrl> lst;
+    for (int i = 0; i < n; ++i) {
+        const QString f = homeTmpDir() + QStringLiteral("deferfile%1").arg(i);
+        createTestFile(f, "batch contents");
+        lst << QUrl::fromLocalFile(f);
+    }
+    const QString conflicted = destdir + "deferfile7";
+    createTestFile(conflicted, "PRE-EXISTING"); // one destination already exists
+
+    KIO::CopyJob *job = KIO::copy(lst, QUrl::fromLocalFile(destdir), KIO::HideProgressInfo);
+    job->setUiDelegate(new KJobUiDelegate);
+    new MockAskUserInterface(job->uiDelegate()); // defaults to Skip on conflict; batching stays engaged
+    FileUndoManager::self()->recordCopyJob(job);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    // Everything but the conflicting file copied; the pre-existing file is left untouched.
+    for (int i = 0; i < n; ++i) {
+        if (i == 7) {
+            continue;
+        }
+        QVERIFY(QFile::exists(destdir + QStringLiteral("deferfile%1").arg(i)));
+    }
+    QFile pre(conflicted);
+    QVERIFY(pre.open(QIODevice::ReadOnly));
+    QCOMPARE(pre.readAll(), QByteArray("PRE-EXISTING"));
+    QVERIFY(FileUndoManager::self()->isUndoAvailable());
+
+    m_uiInterface->clear();
+    m_uiInterface->setNextReplyToConfirmDeletion(true);
+    doUndo();
+
+    // Undo removed the copied files but not the skipped pre-existing one.
+    for (int i = 0; i < n; ++i) {
+        if (i == 7) {
+            continue;
+        }
+        QVERIFY(!QFile::exists(destdir + QStringLiteral("deferfile%1").arg(i)));
+    }
+    QFile preAfter(conflicted);
+    QVERIFY(preAfter.open(QIODevice::ReadOnly));
+    QCOMPARE(preAfter.readAll(), QByteArray("PRE-EXISTING"));
+
+    // Cleanup for following tests.
+    QFile::remove(conflicted);
+    for (int i = 0; i < n; ++i) {
+        QFile::remove(homeTmpDir() + QStringLiteral("deferfile%1").arg(i));
+    }
 }
 
 void FileUndoManagerTest::testMoveFiles()
