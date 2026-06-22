@@ -46,6 +46,9 @@
 #ifdef Q_OS_LINUX
 #include <sys/sysmacros.h> // major()/minor() for the removable-device check
 #endif
+#if HAVE_CACHESTAT
+#include <sys/syscall.h> // SYS_cachestat
+#endif
 
 #endif // Q_OS_LINUX
 
@@ -158,6 +161,40 @@ static void throttleWriteback(int fd, off_t writtenSoFar, off_t &windowStart, of
     }
     prevWindowStart = windowStart;
     windowStart = writtenSoFar;
+}
+#endif
+
+#if HAVE_CACHESTAT
+// Mirror of the kernel ABI structs (own names to avoid clashing with <linux/mman.h> when present);
+// only the layout matters to the syscall. cachestat() landed in Linux 6.5.
+namespace
+{
+struct KioCachestatRange {
+    quint64 off;
+    quint64 len;
+};
+struct KioCachestat {
+    quint64 nr_cache;
+    quint64 nr_dirty;
+    quint64 nr_writeback;
+    quint64 nr_evicted;
+    quint64 nr_recently_evicted;
+};
+}
+
+// How many of the first writtenSoFar bytes are actually on the device, i.e. not still dirty or in
+// flight. This is the truthful progress figure (bug 281270): processedSize() otherwise counts bytes
+// handed to write(), which only reach the page cache. Returns -1 if cachestat is unavailable.
+static off_t bytesWrittenBack(int fd, off_t writtenSoFar)
+{
+    KioCachestatRange range{0, static_cast<quint64>(writtenSoFar)};
+    KioCachestat cs{};
+    if (::syscall(SYS_cachestat, static_cast<unsigned int>(fd), &range, &cs, 0u) != 0) {
+        return -1;
+    }
+    const off_t pageSize = ::sysconf(_SC_PAGESIZE);
+    const off_t notYetOnDisk = static_cast<off_t>(cs.nr_dirty + cs.nr_writeback) * pageSize;
+    return writtenSoFar > notYetOnDisk ? writtenSoFar - notYetOnDisk : 0;
 }
 #endif
 
@@ -619,6 +656,22 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
     off_t wbPrevWindowStart = -1; // start of the window we wait on, to cap dirty data
 #endif
 
+    // For removable/slow destinations, report bytes actually written back to the device rather than
+    // bytes handed to write() (which only reach the page cache) - the truthful progress (bug 281270).
+    // Falls back to the written count when cachestat is unavailable.
+    auto reportProgress = [&](off_t written) {
+#if HAVE_CACHESTAT
+        if (needsWriteback) {
+            const off_t onDisk = bytesWrittenBack(destFile.handle(), written);
+            if (onDisk >= 0) {
+                processedSize(onDisk);
+                return;
+            }
+        }
+#endif
+        processedSize(written);
+    };
+
     const bool slowTestMode = testMode && destFile.fileName().contains(QLatin1String("slow"));
 
 #ifdef FICLONE
@@ -679,12 +732,12 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
         }
 
         sizeProcessed += copiedBytes;
-        processedSize(sizeProcessed);
 #if HAVE_SYNC_FILE_RANGE
         if (needsWriteback) {
             throttleWriteback(destFile.handle(), sizeProcessed, wbWindowStart, wbPrevWindowStart);
         }
 #endif
+        reportProgress(sizeProcessed);
     }
 #endif
 
@@ -733,12 +786,12 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
                 return WorkerResult::fail(error, dest);
             }
             sizeProcessed += readBytes;
-            processedSize(sizeProcessed);
 #if HAVE_SYNC_FILE_RANGE
             if (needsWriteback) {
                 throttleWriteback(destFile.handle(), sizeProcessed, wbWindowStart, wbPrevWindowStart);
             }
 #endif
+            reportProgress(sizeProcessed);
         }
     }
 
