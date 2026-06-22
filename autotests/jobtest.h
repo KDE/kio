@@ -48,6 +48,10 @@ private Q_SLOTS:
     void asyncStoredPutReadyReadAfterFinish();
     void copyFileToSamePartition();
     void copyFilePreservesAcl();
+    void copyManyFilesBatched();
+    void copyManyFilesBatchedWithExistingDest();
+    void copyManyFilesBatchedWithUnreadableSource();
+    void copyLargeFilesBatched();
     void testCopyFilePermissionsToSamePartition();
     void testMkdirPermissionsAndOwnership();
     void copyDirectoryToSamePartition();
