@@ -132,6 +132,35 @@ static bool destinationNeedsExplicitWriteback(const QString &dest)
     }
 }
 
+#if HAVE_SYNC_FILE_RANGE
+// Write-behind throttle for copies to slow/removable media. Without it, write() returns as soon
+// as data is in the page cache and the kernel may let the whole file accumulate as dirty pages
+// before writing any of it back - that is what makes the progress bar reach 100% while nothing has
+// reached the device (bug 281270), and what makes a terminal fdatasync() stall for the full file.
+// Here we kick off asynchronous writeback of each freshly written window, then block until the
+// window before it is durable, capping outstanding dirty data at ~2 windows; reclaimed pages are
+// dropped from the cache. windowStart/prevWindowStart carry the sliding window across calls.
+static void throttleWriteback(int fd, off_t writtenSoFar, off_t &windowStart, off_t &prevWindowStart)
+{
+    constexpr off_t window = 16 * 1024 * 1024; // ~matches the common udev "limit USB write cache" workaround
+    if (writtenSoFar - windowStart < window) {
+        return;
+    }
+    // Start writeback of the window we just completed (non-blocking).
+    ::sync_file_range(fd, windowStart, writtenSoFar - windowStart, SYNC_FILE_RANGE_WRITE);
+    if (prevWindowStart >= 0) {
+        // Block until the previous window is on the device, bounding dirty data to ~2 windows.
+        ::sync_file_range(fd, prevWindowStart, windowStart - prevWindowStart, SYNC_FILE_RANGE_WAIT_BEFORE | SYNC_FILE_RANGE_WRITE | SYNC_FILE_RANGE_WAIT_AFTER);
+#if HAVE_FADVISE
+        // Now durable and not going to be reread - let the kernel reclaim those pages.
+        ::posix_fadvise(fd, prevWindowStart, windowStart - prevWindowStart, POSIX_FADV_DONTNEED);
+#endif
+    }
+    prevWindowStart = windowStart;
+    windowStart = writtenSoFar;
+}
+#endif
+
 #if HAVE_STATX
 // statx syscall is available
 using StatStruct = struct statx;
@@ -585,6 +614,10 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
     const bool needsWriteback = destinationNeedsExplicitWriteback(dest);
 
     off_t sizeProcessed = 0;
+#if HAVE_SYNC_FILE_RANGE
+    off_t wbWindowStart = 0; // start of the window whose writeback has been initiated
+    off_t wbPrevWindowStart = -1; // start of the window we wait on, to cap dirty data
+#endif
 
     const bool slowTestMode = testMode && destFile.fileName().contains(QLatin1String("slow"));
 
@@ -647,6 +680,11 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
 
         sizeProcessed += copiedBytes;
         processedSize(sizeProcessed);
+#if HAVE_SYNC_FILE_RANGE
+        if (needsWriteback) {
+            throttleWriteback(destFile.handle(), sizeProcessed, wbWindowStart, wbPrevWindowStart);
+        }
+#endif
     }
 #endif
 
@@ -696,6 +734,11 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
             }
             sizeProcessed += readBytes;
             processedSize(sizeProcessed);
+#if HAVE_SYNC_FILE_RANGE
+            if (needsWriteback) {
+                throttleWriteback(destFile.handle(), sizeProcessed, wbWindowStart, wbPrevWindowStart);
+            }
+#endif
         }
     }
 
