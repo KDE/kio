@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-06-21 00:39+0000\n"
-"PO-Revision-Date: 2025-11-18 11:44+0100\n"
+"PO-Revision-Date: 2026-06-21 23:22+0200\n"
 "Last-Translator: Igor Dobrača <igor.dobraca@skole.hr>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
 "Language: hr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
@@ -730,7 +730,7 @@ msgstr "Datoteka je prevelika za premještanje u smeće."
 #: core/job_error.cpp:264
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
-msgstr ""
+msgstr "Mapa za smeće nije se mogla pronaći niti stvoriti za tu lokaciju."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -3809,9 +3809,7 @@ msgid "Go to Location on Path"
 msgstr "Idi na lokaciju na putanji"
 
 #: filewidgets/kurlnavigatorplacesselector.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Places"
+#, kde-format
 msgctxt ""
 "@action:button accessible name for the places selector in the URL navigator"
 msgid "Places"
@@ -3908,6 +3906,7 @@ msgstr "Datoteka ikone prevelika, preuzimanje prekinuto"
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
+"FilePreviewJob: preskačem praznu datoteku, možda je neispravan symlink: %1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
@@ -4183,10 +4182,9 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
-#, fuzzy, kde-format
-#| msgid "Could Not Rename Temporary File"
+#, kde-format
 msgid "Could not open temporary file"
-msgstr "Ne mogu promijeniti naziv privremene datoteke"
+msgstr "Ne mogu otvoriti privremenu datoteku"
 
 #: kioworkers/file/file.cpp:796
 #, kde-format
@@ -5328,11 +5326,10 @@ msgid "&Open With…"
 msgstr "&Otvori pomoću…"
 
 #: widgets/kfileitemactions.cpp:814
-#, fuzzy, kde-format
-#| msgid "E&xecute"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
-msgstr "I&zvrši"
+msgstr "Pok&reni izvršnu datoteku"
 
 #: widgets/kfileitemactions.cpp:836
 #, kde-format
@@ -5471,26 +5468,23 @@ msgstr "Pristupljeno:"
 #: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
 msgid "File system:"
-msgstr "Datotečni sustav"
+msgstr "Datotečni sustav:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
+#, kde-format
 msgid "Mounted on:"
-msgstr "Montiran na:"
+msgstr "Montirano na:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
+#, kde-format
 msgid "Mounted from:"
-msgstr "Montiran s:"
+msgstr "Montirano iz:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, fuzzy, kde-format
-#| msgid "Free Space:"
+#, kde-format
 msgid "Free space:"
 msgstr "Slobodan prostor:"
 
@@ -6751,12 +6745,10 @@ msgid "pasted file"
 msgstr "zalijepljena datoteka"
 
 #: widgets/paste.cpp:79 widgets/paste.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "Zalijepite sadržaj međuspremnika…"
+msgstr "Zalijepite sadržaj međuspremnika"
 
 #: widgets/paste.cpp:122
 #, kde-format
@@ -6802,11 +6794,10 @@ msgid "Paste"
 msgstr "Zalijepi"
 
 #: widgets/pastedialog.cpp:57
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
-msgstr "Format datuma:"
+msgstr "Format podataka:"
 
 #: widgets/pastedialog.cpp:68
 #, kde-format
@@ -6839,12 +6830,7 @@ msgid "Appl&y to All"
 msgstr "Primijeni na &sve"
 
 #: widgets/renamedialog.cpp:280
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "folder conflicts for the remainder of the current job.\n"
-#| "Unless you press Skip you will still be prompted in case of a conflict "
-#| "with an existing file in the directory."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
@@ -6857,16 +6843,13 @@ msgstr ""
 "s postojećom datotekom u direktoriju."
 
 #: widgets/renamedialog.cpp:284
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "conflicts for the remainder of the current job."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
-"Kada se to provjeri, pritisnuta tipka primjenjuje se na sve sljedeće sukobe "
-"do kraja trenutnog posla."
+"Kada se to označi, pritisnuta tipka primjenjuje se na sve sljedeće sukobe do "
+"kraja trenutnog posla."
 
 #: widgets/renamedialog.cpp:290
 #, kde-format
@@ -7004,11 +6987,10 @@ msgstr ""
 "početku, sredini i kraju."
 
 #: widgets/renamedialog.cpp:518
-#, fuzzy, kde-format
-#| msgid "All Files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
-msgstr "Sve datoteke"
+msgstr "Usporedi datoteke"
 
 #: widgets/renamedialog.cpp:531
 #, kde-format
@@ -7406,33 +7388,19 @@ msgstr[2] ""
 "poništiti.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this file. Permanently delete it instead?"
-#| "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This "
-#| "action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Smeće je prepuno da bi se prihvatila ova datoteka. Trajno ga izbrisati "
-"umjesto toga?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-"strong='true'>Ova radnja se ne može poništiti.</emphasis>"
+"Smeće nije dostupno za lokaciju ove stavke. Trajno ga izbrisati umjesto toga?"
+"<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>Ova "
+"radnja se ne može poništiti.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The trash is too full to accept this %1 file. Permanently delete it "
-#| "instead?<nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
-#| msgid_plural ""
-#| "The trash is too full to accept these %1 files. Permanently delete them "
-#| "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
-#| "emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7443,17 +7411,14 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Smeće je prepuno da bi primilo ovu %1 datoteku. Želite li je umjesto toga "
-"trajno izbrisati?<nl/><emphasis strong='true'>Ova se radnja ne može "
-"poništiti.</emphasis>"
+"Smeće nije dostupno za lokaciju ove %1 stavke. Trajno ga izbrisati umjesto "
+"toga? <emphasis strong='true'>Ova radnja se ne može poništiti.</emphasis>"
 msgstr[1] ""
-"Smeće je prepuno da bi primilo ove %1 datoteke. Želite li ih umjesto toga "
-"trajno izbrisati?<nl/><nl/><emphasis strong='true'>Ova se radnja ne može "
-"poništiti.</emphasis>"
+"Smeće nije dostupno za lokaciju ove %1 stavke. Trajno ga izbrisati umjesto "
+"toga? <emphasis strong='true'>Ova radnja se ne može poništiti.</emphasis>"
 msgstr[2] ""
-"Smeće je prepuno da bi primilo ove %1 datoteke. Želite li ih umjesto toga "
-"trajno izbrisati?<nl/><nl/><emphasis strong='true'>Ova se radnja ne može "
-"poništiti.</emphasis>"
+"Smeće nije dostupno za lokaciju ovih %1 stavki. Trajno ga izbrisati umjesto "
+"toga? <emphasis strong='true'>Ova radnja se ne može poništiti.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
