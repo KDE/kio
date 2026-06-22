@@ -2577,6 +2577,208 @@ static void simulatePressingSkip(KJob *job)
     askUserHandler->m_skipResult = KIO::Result_Skip;
 }
 
+// The file worker copies a run of plain local files in one command (CopyJobPrivate::tryBatchCopyFiles)
+// rather than one file_copy sub-job each. These tests drive that path through KIO::copy and check the
+// result is identical to the per-file path: content, attribute preservation, the per-file
+// copyingDone() signal (undo and kpropsdlg rely on it), progress, and graceful per-file fallback for
+// conflicts and errors. They QSKIP where the batch path does not engage (e.g. the destination's
+// filesystem is not eligible), detected via the "batchDeferred" metadata the batch command always
+// sets.
+void JobTest::copyManyFilesBatched()
+{
+    const QString src = homeTmpDir() + "manybatch_src/";
+    const QString dst = homeTmpDir() + "manybatch_dst/";
+    QDir(src).removeRecursively();
+    QDir(dst).removeRecursively();
+    QDir().mkpath(src);
+    QDir().mkpath(dst);
+    ScopedCleaner cleaner([&] {
+        QDir(src).removeRecursively();
+        QDir(dst).removeRecursively();
+    });
+
+    const int n = 20;
+    QList<QUrl> sources;
+    for (int i = 0; i < n; ++i) {
+        const QString f = src + QStringLiteral("f%1").arg(i);
+        createTestFile(f, true, QByteArray("batch-") + QByteArray::number(i));
+        sources << QUrl::fromLocalFile(f);
+    }
+    // Distinctive perms + mtime on one file, to confirm attribute preservation through the batch.
+    QFile::setPermissions(src + "f0", QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ReadGroup); // 0640
+    const QDateTime when(QDate(2001, 2, 3), QTime(4, 5, 6));
+    setTimeStamp(src + "f0", when);
+
+    KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QSignalSpy spyCopyingDone(job, &KIO::CopyJob::copyingDone);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    if (!job->metaData().contains(QLatin1String("batchDeferred"))) {
+        QSKIP("CopyJob did not take the batch path on this filesystem");
+    }
+
+    // Every file copied with the right content.
+    for (int i = 0; i < n; ++i) {
+        QFile out(dst + QStringLiteral("f%1").arg(i));
+        QVERIFY2(out.open(QIODevice::ReadOnly), qPrintable(out.fileName()));
+        QCOMPARE(out.readAll(), QByteArray("batch-") + QByteArray::number(i));
+    }
+    // The per-file copyingDone() signal must fire once per file even when batched.
+    QCOMPARE(spyCopyingDone.count(), n);
+    QCOMPARE(job->totalAmount(KJob::Files), n);
+    QCOMPARE(job->processedAmount(KJob::Files), n);
+    QCOMPARE(job->percent(), 100);
+    // Attribute preservation survives the batch.
+    QCOMPARE(QFile::permissions(dst + "f0"), QFile::permissions(src + "f0"));
+    QCOMPARE(QFileInfo(dst + "f0").lastModified().toSecsSinceEpoch(), when.toSecsSinceEpoch());
+}
+
+void JobTest::copyManyFilesBatchedWithExistingDest()
+{
+    const QString src = homeTmpDir() + "manybatchc_src/";
+    const QString dst = homeTmpDir() + "manybatchc_dst/";
+    QDir(src).removeRecursively();
+    QDir(dst).removeRecursively();
+    QDir().mkpath(src);
+    QDir().mkpath(dst);
+    ScopedCleaner cleaner([&] {
+        QDir(src).removeRecursively();
+        QDir(dst).removeRecursively();
+    });
+
+    const int n = 20;
+    QList<QUrl> sources;
+    for (int i = 0; i < n; ++i) {
+        const QString f = src + QStringLiteral("f%1").arg(i);
+        createTestFile(f, true, QByteArray("new-") + QByteArray::number(i));
+        sources << QUrl::fromLocalFile(f);
+    }
+    // One destination already exists. The batch must defer it (DeferConflict) and the per-file path
+    // must resolve it (here: the user skips); the rest copy normally.
+    createTestFile(dst + "f7", true, "OLD");
+
+    KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
+    simulatePressingSkip(job); // answers Skip without setting auto-skip, so batching stays enabled
+    QSignalSpy spyCopyingDone(job, &KIO::CopyJob::copyingDone);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    if (!job->metaData().contains(QLatin1String("batchDeferred"))) {
+        QSKIP("CopyJob did not take the batch path on this filesystem");
+    }
+
+    // The conflicting file is left untouched; everything else is copied.
+    QFile conflicted(dst + "f7");
+    QVERIFY(conflicted.open(QIODevice::ReadOnly));
+    QCOMPARE(conflicted.readAll(), QByteArray("OLD"));
+    for (int i = 0; i < n; ++i) {
+        if (i == 7) {
+            continue;
+        }
+        QFile out(dst + QStringLiteral("f%1").arg(i));
+        QVERIFY2(out.open(QIODevice::ReadOnly), qPrintable(out.fileName()));
+        QCOMPARE(out.readAll(), QByteArray("new-") + QByteArray::number(i));
+    }
+    QCOMPARE(spyCopyingDone.count(), n - 1); // the skipped file emits no copyingDone
+    QCOMPARE(job->processedAmount(KJob::Files), n - 1);
+}
+
+void JobTest::copyManyFilesBatchedWithUnreadableSource()
+{
+    if (::geteuid() == 0) {
+        QSKIP("Running as root bypasses the read permission check");
+    }
+    const QString src = homeTmpDir() + "manybatche_src/";
+    const QString dst = homeTmpDir() + "manybatche_dst/";
+    QDir(src).removeRecursively();
+    QDir(dst).removeRecursively();
+    QDir().mkpath(src);
+    QDir().mkpath(dst);
+
+    const int n = 20;
+    QList<QUrl> sources;
+    for (int i = 0; i < n; ++i) {
+        const QString f = src + QStringLiteral("f%1").arg(i);
+        createTestFile(f, true, QByteArray("e-") + QByteArray::number(i));
+        sources << QUrl::fromLocalFile(f);
+    }
+    const QString bad = src + "f3";
+    QFile::setPermissions(bad, QFileDevice::Permissions{}); // 000 -> EACCES on open
+    ScopedCleaner cleaner([&] {
+        QFile::setPermissions(bad, QFileDevice::ReadOwner | QFileDevice::WriteOwner);
+        QDir(src).removeRecursively();
+        QDir(dst).removeRecursively();
+    });
+
+    KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
+    simulatePressingSkip(job); // a per-item error becomes a skip dialog the user answers
+    QSignalSpy spyCopyingDone(job, &KIO::CopyJob::copyingDone);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    if (!job->metaData().contains(QLatin1String("batchDeferred"))) {
+        QSKIP("CopyJob did not take the batch path on this filesystem");
+    }
+
+    // The unreadable source is skipped; the rest copy.
+    QVERIFY(!QFileInfo::exists(dst + "f3"));
+    for (int i = 0; i < n; ++i) {
+        if (i == 3) {
+            continue;
+        }
+        QFile out(dst + QStringLiteral("f%1").arg(i));
+        QVERIFY2(out.open(QIODevice::ReadOnly), qPrintable(out.fileName()));
+        QCOMPARE(out.readAll(), QByteArray("e-") + QByteArray::number(i));
+    }
+    QCOMPARE(spyCopyingDone.count(), n - 1);
+    QCOMPARE(job->processedAmount(KJob::Files), n - 1);
+}
+
+void JobTest::copyLargeFilesBatched()
+{
+    // Large files are not excluded from the batch: the worker copies them in page-sized chunks and
+    // polls for cancellation, so they stay interruptible. Confirm several multi-MiB files are
+    // batched (not handled per-file) and copied byte-for-byte.
+    const QString src = homeTmpDir() + "manybatchcap_src/";
+    const QString dst = homeTmpDir() + "manybatchcap_dst/";
+    QDir(src).removeRecursively();
+    QDir(dst).removeRecursively();
+    QDir().mkpath(src);
+    QDir().mkpath(dst);
+    ScopedCleaner cleaner([&] {
+        QDir(src).removeRecursively();
+        QDir(dst).removeRecursively();
+    });
+
+    const int n = 5;
+    const int sz = 5 * 1024 * 1024; // 5 files x 5 MiB: multi-chunk files that still batch
+    QList<QUrl> sources;
+    for (int i = 0; i < n; ++i) {
+        const QString f = src + QStringLiteral("f%1").arg(i);
+        createTestFile(f, true, QByteArray(sz, char('a' + i)));
+        sources << QUrl::fromLocalFile(f);
+    }
+
+    KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QSignalSpy spyCopyingDone(job, &KIO::CopyJob::copyingDone);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    if (!job->metaData().contains(QLatin1String("batchDeferred"))) {
+        QSKIP("CopyJob did not take the batch path on this filesystem");
+    }
+
+    // Every file copied with the right content across the batch boundaries.
+    for (int i = 0; i < n; ++i) {
+        QFile out(dst + QStringLiteral("f%1").arg(i));
+        QVERIFY2(out.open(QIODevice::ReadOnly), qPrintable(out.fileName()));
+        const QByteArray data = out.readAll();
+        QCOMPARE(data.size(), sz);
+        QCOMPARE(data, QByteArray(sz, char('a' + i)));
+    }
+    QCOMPARE(spyCopyingDone.count(), n);
+    QCOMPARE(job->processedAmount(KJob::Files), n);
+}
+
 void JobTest::copyFileDestAlreadyExists() // to test skipping when copying
 {
     QFETCH(bool, autoSkip);
