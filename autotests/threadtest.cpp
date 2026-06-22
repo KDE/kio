@@ -7,6 +7,7 @@
 
 #include <QTest>
 
+#include <QPointer>
 #include <QScopeGuard>
 #include <QThread>
 #include <QTimer>
@@ -24,6 +25,7 @@ private Q_SLOTS:
     void asyncConcurrentCopying();
     void copyJobFromThread();
     void cancelJobWhileWorkerIsBlocked();
+    void cancelDoesNotFlushUnrelatedDeferredDeletes();
     void cleanupTestCase();
 
 private:
@@ -40,6 +42,18 @@ void KIOThreadTest::initTestCase()
 void KIOThreadTest::cleanupTestCase()
 {
     QDir(homeTmpDir()).removeRecursively();
+
+    // A worker deref'd from inside an event loop (a job completing or being cancelled
+    // mid-dispatch) deletes its WorkerThread asynchronously through QThread::finished ->
+    // deleteLater(), rather than joining the thread under a running loop (that join is the
+    // bug 468673 deadlock). In a running application the next event-loop iteration reaps
+    // those threads; a test process exits right after its last loop, so on some Qt versions
+    // the queued DeferredDelete events are never delivered and LeakSanitizer reports the
+    // worker threads and their QPluginLoaders as leaked. Force-deliver them here.
+    // This drain used to live in ~Worker(), but flushing the global queue from a destructor
+    // re-entrantly freed unrelated objects mid-destruction; doing it once from the test
+    // teardown is the correct scope.
+    QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete);
 }
 
 bool KIOThreadTest::copyLocalFile(const QString &src, const QString &dest)
@@ -158,6 +172,57 @@ void KIOThreadTest::cancelJobWhileWorkerIsBlocked()
     loop.exec();
 
     QVERIFY(cancelled);
+}
+
+void KIOThreadTest::cancelDoesNotFlushUnrelatedDeferredDeletes()
+{
+    // Regression test: Worker::~Worker() must not flush the global deferred-delete queue
+    // (QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete)). ~Worker() runs
+    // synchronously when a running job is cancelled, and that often happens deep inside an
+    // unrelated object's destruction. Flushing every pending deleteLater() from there
+    // re-entrantly deletes objects that are merely scheduled for deletion - or, worse, already
+    // being destroyed higher up the stack - which crashed on shutdown (a
+    // new-delete-type-mismatch / use-after-free). Assert the observable behaviour: tearing a
+    // worker down must not process an unrelated, still-pending deleteLater().
+
+    const QString path = homeTmpDir() + QLatin1String("bigfile_flush");
+    const QByteArray bigData(16 * 1024 * 1024, 'a'); // big enough that data() fires mid-transfer
+    QFile f(path);
+    QVERIFY(f.open(QIODevice::WriteOnly));
+    QCOMPARE(f.write(bigData), qint64(bigData.size()));
+    f.close();
+
+    auto *job = KIO::get(QUrl::fromLocalFile(path), KIO::NoReload, KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+
+    QEventLoop loop;
+    bool checked = false;
+    QPointer<QObject> victim;
+    connect(job, &KIO::TransferJob::data, this, [&](KIO::Job *, const QByteArray &) {
+        if (checked) {
+            return;
+        }
+        checked = true;
+        // Schedule an unrelated object for deletion and immediately, in the same
+        // synchronous block (no event-loop iteration in between, so the deleteLater is
+        // still pending), cancel the running job. Cancelling derefs and destroys its
+        // worker synchronously (Worker::kill() -> deref() -> ~Worker()). Only a
+        // re-entrant flush inside ~Worker() could consume the deleteLater here.
+        victim = new QObject;
+        victim->deleteLater();
+        job->kill();
+        QVERIFY(victim); // ~Worker() must not have flushed the unrelated deleteLater()
+        loop.quit();
+    });
+    QTimer::singleShot(std::chrono::seconds(30), &loop, &QEventLoop::quit);
+    loop.exec();
+
+    QVERIFY(checked);
+    QVERIFY(victim); // still alive: the worker teardown did not flush it
+
+    // Sanity: a real deferred-delete flush still works and reclaims the victim.
+    QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete);
+    QVERIFY(!victim);
 }
 
 QTEST_MAIN(KIOThreadTest)
