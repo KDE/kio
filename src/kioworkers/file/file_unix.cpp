@@ -43,6 +43,9 @@
 #include <linux/fs.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
+#ifdef Q_OS_LINUX
+#include <sys/sysmacros.h> // major()/minor() for the removable-device check
+#endif
 
 #endif // Q_OS_LINUX
 
@@ -90,6 +93,43 @@ static bool isOnCifsMount(const QString &filePath)
         return false;
     }
     return mount->mountType() == QStringLiteral("cifs") || mount->mountType() == QStringLiteral("smb3");
+}
+
+// Whether a copy to this path should force its data out to the device before reporting
+// completion (bug 281270). Forcing writeback on every copy would needlessly stall fast fixed
+// disks at 100%, so restrict it to where premature removal actually loses data:
+//   - the backing block device is removable (USB sticks, SD cards) - the real signal, and
+//   - failing that, filesystems typical of removable media (FAT/exFAT/NTFS) as a heuristic.
+// The two are imperfect on their own (an ext4-formatted stick is missed by the heuristic; a
+// fixed exFAT partition is a false positive), so they are combined. An env override exists so
+// the behaviour can be exercised on ordinary test filesystems.
+static bool destinationNeedsExplicitWriteback(const QString &dest)
+{
+    if (qEnvironmentVariableIsSet("KIO_FILE_FORCE_WRITEBACK_SYNC")) {
+        return true;
+    }
+
+#ifdef Q_OS_LINUX
+    if (QT_STATBUF st; QT_STAT(QFile::encodeName(dest).constData(), &st) == 0) {
+        // The partition node has no "removable" attribute; its parent whole-disk device does.
+        // Try the device first (whole-disk filesystems), then walk up one level (partitions).
+        for (const auto rel : {"removable", "../removable"}) {
+            QFile f(QStringLiteral("/sys/dev/block/%1:%2/%3").arg(major(st.st_dev)).arg(minor(st.st_dev)).arg(QLatin1String(rel)));
+            if (f.open(QIODevice::ReadOnly)) {
+                return f.readAll().trimmed() == "1";
+            }
+        }
+    }
+#endif
+
+    switch (KFileSystemType::fileSystemType(dest)) {
+    case KFileSystemType::Fat:
+    case KFileSystemType::Exfat:
+    case KFileSystemType::Ntfs:
+        return true;
+    default:
+        return false;
+    }
 }
 
 #if HAVE_STATX
@@ -541,6 +581,9 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
     const auto srcSize = buffSrc.st_size;
     totalSize(srcSize);
 
+    // Whether to force the copied data onto the device before reporting completion (bug 281270).
+    const bool needsWriteback = destinationNeedsExplicitWriteback(dest);
+
     off_t sizeProcessed = 0;
 
     const bool slowTestMode = testMode && destFile.fileName().contains(QLatin1String("slow"));
@@ -708,10 +751,10 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
     // that means unplugging the device right after the copy "finishes" loses data (bug 281270).
     // fdatasync() blocks until the file's contents (and the size metadata needed to read them back)
     // are durable.
-    // NOTE (prototype 1): unconditional, so it also stalls fast local copies at 100% while flushing.
-    // Prototype 2 restricts it to removable/slow destinations.
+    // Restricted to removable/slow destinations (see destinationNeedsExplicitWriteback): forcing
+    // it on every copy would needlessly stall fast fixed disks at 100% while flushing.
 #if HAVE_FDATASYNC
-    if (!wasKilled()) {
+    if (needsWriteback && !wasKilled()) {
         infoMessage(i18n("Flushing %1 to disk…", destUrl.fileName()));
         if (::fdatasync(destFile.handle()) != 0) {
             qCWarning(KIO_FILE) << "fdatasync failed for" << dest << ":" << strerror(errno);
