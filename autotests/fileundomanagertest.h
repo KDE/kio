@@ -18,6 +18,8 @@ private Q_SLOTS:
     void initTestCase();
     void cleanupTestCase();
     void testCopyFiles();
+    void testCopyManyFiles();
+    void testCopyManyFilesPartiallyDeferred();
     void testMoveFiles();
     void testCopyDirectory();
     void testCopyEmptyDirectory();
