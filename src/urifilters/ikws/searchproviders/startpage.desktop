@@ -10,6 +10,7 @@ Name[es]=Startpage
 Name[fr]=Page de démarrage
 Name[ga]=Startpage
 Name[he]=Startpage
+Name[hr]=Početna stranica
 Name[ia]=Pagina de initio
 Name[is]=Startpage
 Name[it]=Startpage
@@ -38,6 +39,7 @@ Query[es]=https://www.startpage.com/sp/search?query=\\{@}
 Query[fr]=https://www.startpage.com/sp/search?query=\\{@}
 Query[ga]=https://www.startpage.com/sp/search?query=\\{@}
 Query[he]=https://www.startpage.com/sp/search?query=\\{@}
+Query[hr]=https://www.startpage.com/sp/search?query=\\{@}
 Query[ia]=https://www.startpage.com/sp/search?query=\\{@}
 Query[is]=https://www.startpage.com/sp/search?query=\\{@}
 Query[it]=https://www.startpage.com/sp/search?query=\\{@}
