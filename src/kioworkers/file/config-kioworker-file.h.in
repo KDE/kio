@@ -23,3 +23,12 @@
 
 /* Defined if system has the copy_file_range function. */
 #cmakedefine01 HAVE_COPY_FILE_RANGE
+
+/* Defined if system has the fdatasync function. */
+#cmakedefine01 HAVE_FDATASYNC
+
+/* Defined if system has the Linux sync_file_range function. */
+#cmakedefine01 HAVE_SYNC_FILE_RANGE
+
+/* Defined if system has the Linux cachestat syscall (kernel 6.5+). */
+#cmakedefine01 HAVE_CACHESTAT

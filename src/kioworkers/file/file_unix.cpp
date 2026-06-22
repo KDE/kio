@@ -702,6 +702,23 @@ WorkerResult FileProtocol::copy(const QUrl &srcUrl, const QUrl &destUrl, int _mo
         }
     }
 
+    // Flush the freshly written data to the physical device before reporting the copy as done.
+    // write()/copy_file_range() only populate the kernel page cache, so without this the progress
+    // bar reaches 100% and the job "succeeds" while data is still in RAM. On slow/removable media
+    // that means unplugging the device right after the copy "finishes" loses data (bug 281270).
+    // fdatasync() blocks until the file's contents (and the size metadata needed to read them back)
+    // are durable.
+    // NOTE (prototype 1): unconditional, so it also stalls fast local copies at 100% while flushing.
+    // Prototype 2 restricts it to removable/slow destinations.
+#if HAVE_FDATASYNC
+    if (!wasKilled()) {
+        infoMessage(i18n("Flushing %1 to disk…", destUrl.fileName()));
+        if (::fdatasync(destFile.handle()) != 0) {
+            qCWarning(KIO_FILE) << "fdatasync failed for" << dest << ":" << strerror(errno);
+        }
+    }
+#endif
+
     destFile.close();
 
     if (wasKilled()) {
