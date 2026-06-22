@@ -387,7 +387,12 @@ void KIO::OpenUrlJobPrivate::handleBinaries(const QMimeType &mimeType)
 
     bool isNativeBinary = true;
 #ifndef Q_OS_WIN
-    isNativeBinary = !mimeType.inherits(QStringLiteral("application/x-ms-dos-executable"));
+    if (mimeType.inherits(QStringLiteral("application/x-ms-dos-executable"))) {
+        // Treat as a native binary only if the executable bit is set, which implies 
+        // binfmt_misc or a similar kernel mechanism will handle it. Without the executable bit,
+        // fall back to association handling.
+        isNativeBinary = hasExecuteBit(localPath);
+    }
 #endif
 
     if (m_showOpenOrExecuteDialog) {
