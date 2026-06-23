@@ -12,6 +12,12 @@
 #include <QObject>
 #include <QUrl>
 
+#include <atomic>
+
+#ifdef BUILD_TESTING
+#include "kiocore_export.h"
+#endif
+
 class QLocalServer;
 class QLocalSocket;
 
@@ -46,6 +52,12 @@ private:
     QLocalServer *localServer;
     std::optional<Task> pendingTask = std::nullopt;
     bool signalEmitted;
+#ifdef Q_OS_UNIX
+    std::atomic<qintptr> m_socketFd = -1; // cached for abortConnection() to ::shutdown cross-thread
+#endif
+#ifdef BUILD_TESTING
+    static std::atomic<bool> s_testBlockSocketClose;
+#endif
 
 Q_SIGNALS:
     void disconnected();
@@ -63,7 +75,14 @@ public:
 
     void setSuspended(bool enable);
     void closeSocket();
+    // Thread-safe: ::shutdown the connected socket so a blocking waitForIncomingTask() returns.
+    void abortConnection();
     bool connectToRemote(const QUrl &url);
+
+#ifdef BUILD_TESTING
+    // Test hook: make closeSocket() a no-op, so a blocked worker can only be woken by abortConnection().
+    KIOCORE_EXPORT static void setTestBlockSocketClose(bool block);
+#endif
     ConnectionResult listenForRemote();
     bool waitForIncomingTask(int ms);
     bool sendCommand(int command, const QByteArray &data) const;

@@ -60,6 +60,12 @@ public:
     /// Closes the connection.
     void close();
 
+    /*!
+     * Thread-safe: shut the underlying socket down so a blocking waitForIncomingTask() on the
+     * connection's own thread returns. Used to wake an in-process worker that is being killed.
+     */
+    void abortConnection();
+
     bool isConnected() const;
 
     /*!

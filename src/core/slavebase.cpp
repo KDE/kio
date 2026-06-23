@@ -1470,3 +1470,9 @@ void SlaveBase::setRunInThread(bool b)
 {
     d->runInThread = b;
 }
+
+void SlaveBase::abortConnection()
+{
+    // Thread-safe (atomic fd + ::shutdown syscall); see Connection::abortConnection().
+    d->appConnection.abortConnection();
+}

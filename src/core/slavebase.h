@@ -932,6 +932,9 @@ private:
 
     void setRunInThread(bool b);
 
+    // Shut the application connection's socket down to wake a blocking dispatchLoop() read.
+    void abortConnection();
+
     // This helps catching missing tr()/i18n() calls in error().
     void error(int _errid, const QByteArray &_text);
     void send(int cmd, const QByteArray &arr = QByteArray());

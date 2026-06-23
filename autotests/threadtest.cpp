@@ -12,7 +12,9 @@
 #include <QThread>
 #include <QTimer>
 
+#include "connectionbackend_p.h" // KIO::ConnectionBackend test hook
 #include "kio/filecopyjob.h"
+#include "kio/listjob.h"
 #include "kio/transferjob.h"
 #include "kiotesthelper.h" // homeTmpDir, createTestFile etc.
 #include "workerthread_p.h" // KIO::WorkerThread test hooks
@@ -25,6 +27,7 @@ private Q_SLOTS:
     void asyncConcurrentCopying();
     void copyJobFromThread();
     void cancelJobWhileWorkerIsBlocked();
+    void killBlockedWorkerOutsideEventLoop();
     void cancelDoesNotFlushUnrelatedDeferredDeletes();
     void cleanupTestCase();
 
@@ -172,6 +175,50 @@ void KIOThreadTest::cancelJobWhileWorkerIsBlocked()
     loop.exec();
 
     QVERIFY(cancelled);
+}
+
+void KIOThreadTest::killBlockedWorkerOutsideEventLoop()
+{
+#ifdef Q_OS_WIN
+    QSKIP("abortConnection()'s socket shutdown is POSIX-only");
+#endif
+    // Cancelling a listing at loop level 0 (e.g. a KCoreDirLister destroyed during teardown) makes
+    // Worker::deref() join the worker synchronously while it is parked in waitForIncomingTask().
+    // The hook makes the peer-side close a no-op, so only WorkerThread::abort() shutting the worker's
+    // own fd down can wake it: without the fix this hangs, with it kill() returns at once (bug 468673).
+    KIO::ConnectionBackend::setTestBlockSocketClose(true);
+    auto closeGuard = qScopeGuard([] {
+        KIO::ConnectionBackend::setTestBlockSocketClose(false);
+    });
+
+    // A directory with many entries, so the listing worker is mid-list (parked in waitForReadyRead
+    // between batches) when we cancel - mirroring a KCoreDirLister torn down during a live listing.
+    const QString dir = homeTmpDir() + QLatin1String("listdir/");
+    QVERIFY(QDir().mkpath(dir));
+    for (int i = 0; i < 5000; ++i) {
+        QFile e(dir + QStringLiteral("entry%1").arg(i));
+        QVERIFY(e.open(QIODevice::WriteOnly));
+    }
+
+    auto *job = KIO::listDir(QUrl::fromLocalFile(dir), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+
+    // Run the event loop only until the worker is up and delivering entries, then stop consuming and
+    // leave the loop. The worker is now blocked on its socket with no event loop draining it.
+    QEventLoop loop;
+    bool gotEntries = false;
+    connect(job, &KIO::ListJob::entries, this, [&](KIO::Job *, const KIO::UDSEntryList &) {
+        gotEntries = true;
+        loop.quit();
+    });
+    QTimer::singleShot(std::chrono::seconds(30), &loop, &QEventLoop::quit); // safety net
+    loop.exec();
+    QVERIFY(gotEntries);
+
+    // Back at loop level 0: cancelling makes deref() take the synchronous-join path against the
+    // blocked worker. Reaching the line after kill() proves the join did not deadlock.
+    job->kill();
+    QVERIFY(true);
 }
 
 void KIOThreadTest::cancelDoesNotFlushUnrelatedDeferredDeletes()

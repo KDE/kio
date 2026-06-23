@@ -120,6 +120,13 @@ void Connection::close()
     d->incomingTasks.clear();
 }
 
+void Connection::abortConnection()
+{
+    if (d->backend) {
+        d->backend->abortConnection();
+    }
+}
+
 bool Connection::isConnected() const
 {
     return d->backend && d->backend->state == ConnectionBackend::Connected;

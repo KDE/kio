@@ -53,6 +53,7 @@ void WorkerThread::abort()
     QMutexLocker locker(&m_workerMutex);
     if (m_worker) { // not deleted yet
         m_worker->exit();
+        m_worker->abortConnection();
     }
 }
 

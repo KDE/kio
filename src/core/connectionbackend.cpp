@@ -20,6 +20,10 @@
 #include <QTemporaryFile>
 #include <cerrno>
 
+#ifdef Q_OS_UNIX
+#include <sys/socket.h> // ::shutdown()
+#endif
+
 #include "kiocoreconnectiondebug.h"
 
 using namespace KIO;
@@ -37,11 +41,40 @@ ConnectionBackend::~ConnectionBackend()
 {
 }
 
+#ifdef BUILD_TESTING
+std::atomic<bool> ConnectionBackend::s_testBlockSocketClose = false;
+
+void ConnectionBackend::setTestBlockSocketClose(bool block)
+{
+    s_testBlockSocketClose = block;
+}
+#endif
+
 void ConnectionBackend::closeSocket()
 {
+#ifdef BUILD_TESTING
+    if (s_testBlockSocketClose) { // simulate a peer-side close that does not wake a blocked worker
+        return;
+    }
+#endif
+#ifdef Q_OS_UNIX
+    m_socketFd.store(-1);
+#endif
     if (socket) {
         socket->close();
     }
+}
+
+void ConnectionBackend::abortConnection()
+{
+#ifdef Q_OS_UNIX
+    // Wake a worker blocked in waitForIncomingTask() from another thread: ::shutdown() on the raw fd
+    // is a syscall (touching the QLocalSocket cross-thread would not be safe). See bug 468673.
+    const qintptr fd = m_socketFd.load();
+    if (fd >= 0) {
+        ::shutdown(static_cast<int>(fd), SHUT_RDWR);
+    }
+#endif
 }
 
 void ConnectionBackend::setSuspended(bool enable)
@@ -89,12 +122,24 @@ bool ConnectionBackend::connectToRemote(const QUrl &url)
 
     connect(socket, &QIODevice::readyRead, this, &ConnectionBackend::socketReadyRead);
     connect(socket, &QLocalSocket::disconnected, this, &ConnectionBackend::socketDisconnected);
+#ifdef Q_OS_UNIX
+    // Cache the fd once connected so abortConnection() can shut it down from another thread.
+    connect(socket, &QLocalSocket::connected, this, [this] {
+        m_socketFd.store(socket->socketDescriptor());
+    });
+    if (socket->state() == QLocalSocket::ConnectedState) {
+        m_socketFd.store(socket->socketDescriptor());
+    }
+#endif
     state = Connected;
     return true;
 }
 
 void ConnectionBackend::socketDisconnected()
 {
+#ifdef Q_OS_UNIX
+    m_socketFd.store(-1);
+#endif
     state = Idle;
     Q_EMIT disconnected();
 }
