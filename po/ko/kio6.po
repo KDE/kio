@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-21 00:39+0000\n"
+"POT-Creation-Date: 2026-06-23 00:40+0000\n"
 "PO-Revision-Date: 2026-06-06 13:00+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2347,7 +2347,7 @@ msgstr "%1 프로토콜에서 파일 열기는 지원되지 않습니다."
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 프로토콜은 %2 작업을 지원하지 않습니다."
 
-#: core/worker.cpp:311
+#: core/worker.cpp:309
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2358,17 +2358,17 @@ msgstr ""
 "'%1' 프로토콜의 KIO 워커는 일반적으로 향상된 권한을 요구하므로, 루트가 아닌 "
 "다른 사용자가 %2을(를) 수정할 수 있기 때문에 보안을 보장할 수 없습니다."
 
-#: core/worker.cpp:349
+#: core/worker.cpp:347
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "알 수 없는 프로토콜 '%1'."
 
-#: core/worker.cpp:360
+#: core/worker.cpp:358
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' 프로토콜의 KIO 워커를 찾을 수 없습니다."
 
-#: core/worker.cpp:367
+#: core/worker.cpp:365
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2379,12 +2379,12 @@ msgstr ""
 "%2에 있는 \"%1\" 플러그인의 KIO 워커를 불러오지 않았습니다. KIO 워커가 %3 경"
 "로 외부에 있고 상승된 권한을 요청한다면 안전하지 않은 것으로 간주합니다."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:377
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "'%1' 프로토콜의 KIO 워커를 실행할 소켓을 만들 수 없습니다."
 
-#: core/worker.cpp:425
+#: core/worker.cpp:423
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'에서 'kioworker' 실행 파일을 찾을 수 없음"
@@ -3785,7 +3785,7 @@ msgstr ""
 "%1 서비스를 실행할 수 없습니다. 실행을 중단합니다.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:653
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "이 파일을 열 앱을 선택할 권한이 없습니다."
@@ -3880,20 +3880,20 @@ msgstr ""
 "실행 파일 \"%1\"이(가) 원격 파일 시스템에 있습니다. 안전을 위해 이 작업은 시"
 "작되지 않습니다."
 
-#: gui/openurljob.cpp:415
+#: gui/openurljob.cpp:420
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "보안상의 이유로 이 문맥에서 실행 파일을 실행할 수 없습니다."
 
-#: gui/openurljob.cpp:445
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "\"%1\" 프로그램을 실행하려면 실행 가능 권한이 있어야 합니다."
 
-#: gui/openurljob.cpp:456
+#: gui/openurljob.cpp:461
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3902,12 +3902,12 @@ msgstr ""
 "\"%1\" 파일을 실행 파일로 만들 수 없습니다.\n"
 "%2"
 
-#: gui/openurljob.cpp:542
+#: gui/openurljob.cpp:547
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "데스크톱 항목 파일 %1에 Type=... 항목이 없습니다."
 
-#: gui/openurljob.cpp:634
+#: gui/openurljob.cpp:639
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3917,12 +3917,12 @@ msgstr ""
 "이 파일은 완전하지 않으며 열어서는 안 됩니다.\n"
 "열린 앱과 알림 영역에서 대기 중인 작업이나 다운로드를 확인하십시오."
 
-#: gui/openurljob.cpp:660
+#: gui/openurljob.cpp:665
 #, kde-format
 msgid "Failed to open the file."
 msgstr "파일을 열 수 없습니다."
 
-#: gui/openurljob.cpp:694
+#: gui/openurljob.cpp:699
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "\"%1\" 프로그램을 실행할 수 없습니다."

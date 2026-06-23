@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-21 00:39+0000\n"
+"POT-Creation-Date: 2026-06-23 00:40+0000\n"
 "PO-Revision-Date: 2026-06-14 23:34+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -2461,7 +2461,7 @@ msgstr "No se permite la apertura de archivos con el protocolo %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "El protocolo %1 no admite la acción %2."
 
-#: core/worker.cpp:311
+#: core/worker.cpp:309
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2473,18 +2473,18 @@ msgstr ""
 "a solicitar elevación de permisos, no se puede garantizar porque otros "
 "usuarios distintos a «root» tienen permiso para modificarlo en %2."
 
-#: core/worker.cpp:349
+#: core/worker.cpp:347
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protocolo desconocido «%1»."
 
-#: core/worker.cpp:360
+#: core/worker.cpp:358
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr ""
 "No se ha podido encontrar el módulo de trabajo KIO para el protocolo «%1»."
 
-#: core/worker.cpp:367
+#: core/worker.cpp:365
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2496,14 +2496,14 @@ msgstr ""
 "porque todos los módulos de trabajo KIO situados fuera de %3 que solicitan "
 "elevación de privilegios se consideran inseguros."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:377
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "No se ha podido crear un conector para lanzar el módulo de trabajo KIO para "
 "el protocolo «%1»."
 
-#: core/worker.cpp:425
+#: core/worker.cpp:423
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "No se ha encontrado el ejecutable «kioworker» en «%1»"
@@ -3929,7 +3929,7 @@ msgstr ""
 "El servicio %1 no se puede hacer ejecutable. Interrumpiendo ejecución.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:653
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -4030,7 +4030,7 @@ msgstr ""
 "El archivo ejecutable «%1» reside en un sistema de archivos remoto. Por "
 "motivos de seguridad, no se iniciará."
 
-#: gui/openurljob.cpp:415
+#: gui/openurljob.cpp:420
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4038,7 +4038,7 @@ msgstr ""
 "Por motivos de seguridad, el lanzamiento de ejecutables no se permite en "
 "este contexto."
 
-#: gui/openurljob.cpp:445
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4047,7 +4047,7 @@ msgstr ""
 "El programa «%1» necesita tener permiso de ejecución antes de que se pueda "
 "lanzar."
 
-#: gui/openurljob.cpp:456
+#: gui/openurljob.cpp:461
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4056,12 +4056,12 @@ msgstr ""
 "No se ha podido hacer ejecutable el archivo «%1».\n"
 "%2."
 
-#: gui/openurljob.cpp:542
+#: gui/openurljob.cpp:547
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "El archivo de entradas del escritorio %1 no tiene entrada Type=…"
 
-#: gui/openurljob.cpp:634
+#: gui/openurljob.cpp:639
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4072,12 +4072,12 @@ msgstr ""
 "Compruebe las aplicaciones abiertas y el área de notificaciones para ver las "
 "tareas y descargas pendientes."
 
-#: gui/openurljob.cpp:660
+#: gui/openurljob.cpp:665
 #, kde-format
 msgid "Failed to open the file."
 msgstr "No se ha podido abrir el archivo."
 
-#: gui/openurljob.cpp:694
+#: gui/openurljob.cpp:699
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "No se puede lanzar el programa «%1»."

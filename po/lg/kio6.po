@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-21 00:39+0000\n"
+"POT-Creation-Date: 2026-06-23 00:40+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda\n"
@@ -2454,7 +2454,7 @@ msgstr "Empulizagana ey'ekika kya %1 tesobozesa okubikkula fayiro."
 msgid "Protocol %1 does not support action %2."
 msgstr "Empulizagana ey'ekika kya %1 tesobozesa ekikolwa %2."
 
-#: core/worker.cpp:311
+#: core/worker.cpp:309
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2467,18 +2467,18 @@ msgstr ""
 "kubanga abaatlina buyinza bwa muteesiteesi (root) bakkirizibwa okuyita mu "
 "kkubo %2 okukyusa ebiragiro ebigirimu."
 
-#: core/worker.cpp:349
+#: core/worker.cpp:347
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Ekika kya mpulizagana '%1' tekitegeerese."
 
-#: core/worker.cpp:360
+#: core/worker.cpp:358
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr ""
 "Puloguramu eyeyazikiba eya KIO ekola ku mpulizagana ey'ekika kya '%1' ebuze."
 
-#: core/worker.cpp:367
+#: core/worker.cpp:365
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2491,14 +2491,14 @@ msgstr ""
 "ezitali munda mu %3 nga ate z'etaaga okweyongeza bunyinza zibalibwa nga "
 "eziteesigika."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:377
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Nnemedwa okukolawo soketi enaakozesebwa okutandikayo puloguramu eyeyazikibwa "
 "eya KIO ekola ku mpulizagana ey'ekika kya '%1'."
 
-#: core/worker.cpp:425
+#: core/worker.cpp:423
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Puloguramu 'kioslave5' sisobodde okugiraba ku '%1'"
@@ -3933,7 +3933,7 @@ msgstr ""
 "Nnemedwa okusobozesa pulguramu empeereze %1 okutandika, omulimu ngusazzamu.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:653
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Tokkirizibwa okulonda puloguramu ey'obikkula fayiro eno."
@@ -4030,7 +4030,7 @@ msgstr ""
 "Fayiro eya puloguramu \"%1\" eri ku sisitemu eya fayiro ey'ebunaayira. "
 "Olw'ensonga za kwerinda tejja okutandikibwa."
 
-#: gui/openurljob.cpp:415
+#: gui/openurljob.cpp:420
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4038,14 +4038,14 @@ msgstr ""
 "Olw'ensonga za bya kwerinda, puloguramu tezikkiriziba okutandikibwa mu "
 "mbeera eriwo kakano."
 
-#: gui/openurljob.cpp:445
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "Okutandika puloguramu \"%1\" kyetaagisa okukyusa ndukusa ezigiriko."
 
-#: gui/openurljob.cpp:456
+#: gui/openurljob.cpp:461
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4054,12 +4054,12 @@ msgstr ""
 "Nnemedwa okusobozesa fayiro \"%1\" okutandikibwa nga puloguramu.\n"
 "%2."
 
-#: gui/openurljob.cpp:542
+#: gui/openurljob.cpp:547
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Fayiro ey'enyunzi ey'awakolerwa %1 ebulamu omuko gwa Type=... ."
 
-#: gui/openurljob.cpp:634
+#: gui/openurljob.cpp:639
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4070,12 +4070,12 @@ msgstr ""
 "Kebera puloguramu zo ezibumbujja n'obubaka obulabikira awakolerwa okulaba "
 "oba waliwo emirimu egya ku fayiro oba okuwanula egitannaba okuggwa."
 
-#: gui/openurljob.cpp:660
+#: gui/openurljob.cpp:665
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Nnemedwa okubikkula fayiro."
 
-#: gui/openurljob.cpp:694
+#: gui/openurljob.cpp:699
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Tekisobose okutandika puloguramu \"%1\"."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-21 00:39+0000\n"
+"POT-Creation-Date: 2026-06-23 00:40+0000\n"
 "PO-Revision-Date: 2026-02-18 10:12+0000\n"
 "Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
@@ -2441,7 +2441,7 @@ msgstr "Ní féidir comhaid a oscailt le prótacal %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Ní thacaíonn prótacal %1 le gníomh %2."
 
-#: core/worker.cpp:311
+#: core/worker.cpp:309
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2453,17 +2453,17 @@ msgstr ""
 "ardaithe de ghnáth, a ráthú mar go bhfuil cead ag úsáideoirí seachas an root "
 "é a mhodhnú ag %2."
 
-#: core/worker.cpp:349
+#: core/worker.cpp:347
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Prótacal anaithnid '%1'."
 
-#: core/worker.cpp:360
+#: core/worker.cpp:358
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Ní féidir oibrí KIO a aimsiú don phrótacal '%1'."
 
-#: core/worker.cpp:367
+#: core/worker.cpp:365
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2475,13 +2475,13 @@ msgstr ""
 "bhfuil slán aon oibrí KIO atá suite lasmuigh de %3 agus a iarrann pribhléidí "
 "ardaithe."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:377
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Ní féidir soicéad a chruthú chun oibrí KIO a sheoladh don phrótacal '%1'."
 
-#: core/worker.cpp:425
+#: core/worker.cpp:423
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ní féidir an comhad inrite 'kioworker' a aimsiú ag '%1'"
@@ -3930,7 +3930,7 @@ msgstr ""
 "bhforghníomhú.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:653
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Níl cead agat feidhmchlár a roghnú chun an comhad seo a oscailt."
@@ -4026,7 +4026,7 @@ msgstr ""
 "Tá an comhad inrite \"%1\" suite ar chóras comhad iargúlta. Ar chúiseanna "
 "sábháilteachta, ní thosófar é."
 
-#: gui/openurljob.cpp:415
+#: gui/openurljob.cpp:420
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4034,7 +4034,7 @@ msgstr ""
 "Ar chúiseanna slándála, ní cheadaítear comhaid inrite a sheoladh sa "
 "chomhthéacs seo."
 
-#: gui/openurljob.cpp:445
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4043,7 +4043,7 @@ msgstr ""
 "Caithfidh cead inrite a bheith ag an gclár \"%1\" sula bhféadfar é a "
 "sheoladh."
 
-#: gui/openurljob.cpp:456
+#: gui/openurljob.cpp:461
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4052,12 +4052,12 @@ msgstr ""
 "Ní féidir an comhad \"%1\" a dhéanamh inrite.\n"
 "%2."
 
-#: gui/openurljob.cpp:542
+#: gui/openurljob.cpp:547
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Níl iontráil `Type=...' i gcomhad na hiontrála deisce %1."
 
-#: gui/openurljob.cpp:634
+#: gui/openurljob.cpp:639
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4068,12 +4068,12 @@ msgstr ""
 "Seiceáil d’fheidhmchláir oscailte agus an limistéar fógraí le haghaidh aon "
 "tascanna nó íoslódálacha atá ar feitheamh."
 
-#: gui/openurljob.cpp:660
+#: gui/openurljob.cpp:665
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Theip ar an gcomhad a oscailt."
 
-#: gui/openurljob.cpp:694
+#: gui/openurljob.cpp:699
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Níorbh fhéidir an clár \"%1\" a sheoladh."

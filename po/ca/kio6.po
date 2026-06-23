@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-21 00:39+0000\n"
+"POT-Creation-Date: 2026-06-23 00:40+0000\n"
 "PO-Revision-Date: 2026-06-14 09:42+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2445,7 +2445,7 @@ msgstr "No s'accepta l'obertura de fitxers amb el protocol %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "El protocol %1 no accepta l'acció %2."
 
-#: core/worker.cpp:311
+#: core/worker.cpp:309
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2457,17 +2457,17 @@ msgstr ""
 "permisos elevats, no es pot garantir perquè els usuaris que no siguin "
 "administrador tenen permís per modificar-lo a %2."
 
-#: core/worker.cpp:349
+#: core/worker.cpp:347
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protocol desconegut «%1»."
 
-#: core/worker.cpp:360
+#: core/worker.cpp:358
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "No s'ha pogut trobar un procés de treball KIO per al protocol «%1»."
 
-#: core/worker.cpp:367
+#: core/worker.cpp:365
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2479,14 +2479,14 @@ msgstr ""
 "tots els processos de treball KIO que es troben fora de %3 i demanen "
 "privilegis elevats es consideren insegurs."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:377
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "No s'ha pogut crear el sòcol per a llançar un procés de treball KIO per al "
 "protocol «%1»."
 
-#: core/worker.cpp:425
+#: core/worker.cpp:423
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "No s'ha pogut trobar l'executable «kioworker» a «%1»"
@@ -3910,7 +3910,7 @@ msgstr ""
 "No s'ha pogut fer executable el servei %1, s'ha interromput l'execució.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:653
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -4009,7 +4009,7 @@ msgstr ""
 "El fitxer executable «%1» està ubicat a un sistema de fitxers remot. No "
 "s'engegarà per motius de seguretat."
 
-#: gui/openurljob.cpp:415
+#: gui/openurljob.cpp:420
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4017,7 +4017,7 @@ msgstr ""
 "Per motius de seguretat no es permet el llançament d'executables en aquest "
 "context."
 
-#: gui/openurljob.cpp:445
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4026,7 +4026,7 @@ msgstr ""
 "Cal que el programa «%1» tingui el permís d'execució abans que es pugui "
 "llançar."
 
-#: gui/openurljob.cpp:456
+#: gui/openurljob.cpp:461
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4035,12 +4035,12 @@ msgstr ""
 "No es pot fer executable el fitxer «%1».\n"
 "%2."
 
-#: gui/openurljob.cpp:542
+#: gui/openurljob.cpp:547
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "El fitxer d'entrades «desktop» %1 no té cap entrada Type=..."
 
-#: gui/openurljob.cpp:634
+#: gui/openurljob.cpp:639
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4051,12 +4051,12 @@ msgstr ""
 "Comproveu les vostres aplicacions obertes i l'àrea de notificació per a "
 "qualsevol tasca o baixada pendent."
 
-#: gui/openurljob.cpp:660
+#: gui/openurljob.cpp:665
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Ha fallat en obrir el fitxer."
 
-#: gui/openurljob.cpp:694
+#: gui/openurljob.cpp:699
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "No s'ha pogut llançar el programa «%1»."

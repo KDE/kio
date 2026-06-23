@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-21 00:39+0000\n"
+"POT-Creation-Date: 2026-06-23 00:40+0000\n"
 "PO-Revision-Date: 2026-06-17 23:21+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Taiwanese Hokkien <zh-l10n@lists.slat.org>\n"
@@ -2364,7 +2364,7 @@ msgstr "Tī hia̍p-tīng %1 bô tsi-uān khui tóng-àn."
 msgid "Protocol %1 does not support action %2."
 msgstr "Hia̍p-tīng %1 bô tsi-uān tōng-tsok %2."
 
-#: core/worker.cpp:311
+#: core/worker.cpp:309
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2376,17 +2376,17 @@ msgstr ""
 "koh i ê an-tsuân suah bô-huat-tōo pó-tsìng, in-uī root í-guā ê iōng-tsiá mā "
 "ū khuân-hān tī %2 kā i siu-kái."
 
-#: core/worker.cpp:349
+#: core/worker.cpp:347
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "M̄-tsai ê hia̍p-tīng '%1'."
 
-#: core/worker.cpp:360
+#: core/worker.cpp:358
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Tshuē-bô hia̍p-tīng '%1' iōng ê KIO kang-tsok-khì."
 
-#: core/worker.cpp:367
+#: core/worker.cpp:365
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2395,12 +2395,12 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:379
+#: core/worker.cpp:377
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 
-#: core/worker.cpp:425
+#: core/worker.cpp:423
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Tī '%1' tshuē-bô 'kioworker' tsip-hîng-tóng"
@@ -3763,7 +3763,7 @@ msgstr ""
 "Bô-huat-tōo kā ho̍k-bū %1 piàn-tsò ē-sái tsip-hîng. Tiong-tsí tsip-hîng.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:653
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -3866,32 +3866,32 @@ msgstr ""
 "Tsip-hîng-tóng \"%1\" tī-leh uán-tuan tóng-àn-hē-thóng tíng-kuân, sóo-í uī-"
 "tio̍h an-tsuân, bē kā i tsip-hîng."
 
-#: gui/openurljob.cpp:415
+#: gui/openurljob.cpp:420
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "Uī-tio̍h an-tsuân, bē-sái tī tsit-ê lāi-bûn tsip-hîng tóng-àn."
 
-#: gui/openurljob.cpp:445
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "Tîng-sik \"%1\" su-iàu ū tsip-hîng khuân-hān tsiah ē-sái khí-tōng."
 
-#: gui/openurljob.cpp:456
+#: gui/openurljob.cpp:461
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
 "%2."
 msgstr ""
 
-#: gui/openurljob.cpp:542
+#: gui/openurljob.cpp:547
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "desktop hāng-bo̍k tóng-àn %1 bô Type=... ti̍t."
 
-#: gui/openurljob.cpp:634
+#: gui/openurljob.cpp:639
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3899,12 +3899,12 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:660
+#: gui/openurljob.cpp:665
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Khui tóng-àn sit-pāi."
 
-#: gui/openurljob.cpp:694
+#: gui/openurljob.cpp:699
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Tîng-sik \"%1\" bô-huat-tōo khí-tōng."

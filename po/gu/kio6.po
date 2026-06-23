@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-21 00:39+0000\n"
+"POT-Creation-Date: 2026-06-23 00:40+0000\n"
 "PO-Revision-Date: 2026-03-31 23:12+0530\n"
 "Last-Translator: CrazyCourt651 <CrazyCourt651@gmail.com>\n"
 "Language-Team: Gujarati\n"
@@ -2375,7 +2375,7 @@ msgstr "પ્રોટોકોલ %1 સાથે ફાઇલો ખોલવ
 msgid "Protocol %1 does not support action %2."
 msgstr "પ્રોટોકોલ %1 ક્રિયા %2 ને આધાર આપતો નથી."
 
-#: core/worker.cpp:311
+#: core/worker.cpp:309
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2387,17 +2387,17 @@ msgstr ""
 "તેની ખાતરી આપી શકાતી નથી કારણ કે રૂટ સિવાયના વપરાશકર્તાઓ પાસે તેને %2 પર સંશોધિત "
 "કરવાની પરવાનગી છે."
 
-#: core/worker.cpp:349
+#: core/worker.cpp:347
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "અજાણ્યો પ્રોટોકોલ '%1'."
 
-#: core/worker.cpp:360
+#: core/worker.cpp:358
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "પ્રોટોકોલ '%1' માટે KIO વર્કર મળી શક્યું નથી."
 
-#: core/worker.cpp:367
+#: core/worker.cpp:365
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2408,12 +2408,12 @@ msgstr ""
 "%2 માં પ્રોટોકોલ “%1” માટેનો KIO વર્કર લોડ કરવામાં આવ્યો નથી કારણ કે તમામ KIO વર્કર્સ "
 "જે %3 ની બહાર સ્થિત છે અને ઉચ્ચ વિશેષાધિકારો માંગે છે તેમને અસુરક્ષિત માનવામાં આવે છે."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:377
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "પ્રોટોકોલ '%1' માટે KIO વર્કર શરૂ કરવા માટે સોકેટ બનાવી શકાતું નથી."
 
-#: core/worker.cpp:425
+#: core/worker.cpp:423
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1' પર 'kioworker' એક્ઝિક્યુટેબલ શોધી શકાયું નથી"
@@ -3827,7 +3827,7 @@ msgstr ""
 "સેવા %1 ને એક્ઝિક્યુટેબલ બનાવવામાં અસમર્થ, એક્ઝિક્યુશન અટકાવી રહ્યા છીએ. \n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:653
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "આ ફાઇલ ખોલવા માટે એપ્લિકેશન પસંદ કરવા માટે તમે અધિકૃત નથી."
@@ -3922,13 +3922,13 @@ msgstr ""
 "એક્ઝિક્યુટેબલ ફાઇલ \"%1\" રિમોટ ફાઇલસિસ્ટમ પર આવેલી છે. સુરક્ષાના કારણોસર તે શરૂ કરવામાં "
 "આવશે નહીં."
 
-#: gui/openurljob.cpp:415
+#: gui/openurljob.cpp:420
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "સુરક્ષા કારણોસર, આ સંદર્ભમાં એક્ઝિક્યુટેબલ લોન્ચ કરવાની મંજૂરી નથી."
 
-#: gui/openurljob.cpp:445
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -3937,7 +3937,7 @@ msgstr ""
 "પ્રોગ્રામ \"%1\" ને લોન્ચ કરી શકાય તે પહેલાં તેની પાસે એક્ઝેક્યુટેબલ (ચલાવી શકાય તેવી) "
 "પરવાનગી હોવી જરૂરી છે."
 
-#: gui/openurljob.cpp:456
+#: gui/openurljob.cpp:461
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3946,12 +3946,12 @@ msgstr ""
 "ફાઇલ \"%1\" ને એક્ઝિક્યુટેબલ બનાવવામાં અસમર્થ.\n"
 "%2."
 
-#: gui/openurljob.cpp:542
+#: gui/openurljob.cpp:547
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "ડેસ્કટોપ એન્ટ્રી ફાઇલ %1 માં કોઈ Type=... એન્ટ્રી નથી."
 
-#: gui/openurljob.cpp:634
+#: gui/openurljob.cpp:639
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3961,12 +3961,12 @@ msgstr ""
 "આ ફાઇલ અધૂરી છે અને ખોલવી જોઈએ નહીં. \n"
 "કોઈપણ બાકી કાર્યો અથવા ડાઉનલોડ્સ માટે તમારી ખુલ્લી એપ્લિકેશનો અને સૂચના વિસ્તાર તપાસો."
 
-#: gui/openurljob.cpp:660
+#: gui/openurljob.cpp:665
 #, kde-format
 msgid "Failed to open the file."
 msgstr "ફાઇલ ખોલવામાં નિષ્ફળ."
 
-#: gui/openurljob.cpp:694
+#: gui/openurljob.cpp:699
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "કાર્યક્રમ \"%1\" શરૂ કરી શકાયો નથી."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-21 00:39+0000\n"
+"POT-Creation-Date: 2026-06-23 00:40+0000\n"
 "PO-Revision-Date: 2026-05-31 18:45-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -2389,7 +2389,7 @@ msgstr "%1 كېلىشىم ھۆججەت ئېچىشنى قوللىمايدۇ."
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 كېلىشىم %2 مەشغۇلاتنى قوللىمايدۇ."
 
-#: core/worker.cpp:311
+#: core/worker.cpp:309
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2401,17 +2401,17 @@ msgstr ""
 "root ئىشلەتكۈچىدىن سىرت باشقا ئىشلەتكۈچىنىڭ %2 دا ئۆزگەرتىش ئىجازىتى بار، "
 "مەزكۇر كېلىشىم ئادەتتە ئىشلەتكۈچىدىن ئىجازەتكە ئېرىشىشنى تەلەپ قىلىدۇ."
 
-#: core/worker.cpp:349
+#: core/worker.cpp:347
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "نامەلۇم كېلىشىم «%1»."
 
-#: core/worker.cpp:360
+#: core/worker.cpp:358
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "«%1» كېلىشىمنىڭ  KIO worker نى تاپالمىدى."
 
-#: core/worker.cpp:367
+#: core/worker.cpp:365
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2422,13 +2422,13 @@ msgstr ""
 "%2 دىكى «%1» كېلىشىمنىڭ KIO worker يۈكلەنمىدى چۈنكى %3 دىن سىرت ھەر قانداق "
 "KIO worker نىڭ ئىجازەت ئۆرلىتىش تەلىپى بىخەتەر ئەمەس دەپ قارىلىدۇ."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:377
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "«%1» كېلىشىمنىڭ KIO worker نى قوزغىتىشقا ئىشلىتىدىغان ئۇلاقنى قۇرالمىدى."
 
-#: core/worker.cpp:425
+#: core/worker.cpp:423
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "«%1» دىكى «kioworker» ئىجراچان پىروگراممىنى تاپالمىدى."
@@ -3845,7 +3845,7 @@ msgstr ""
 "%1 مۇلازىمەتنى ئىجرا قىلالمايدۇ، ئىجرا قىلىشنى توختىتىۋاتىدۇ.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:653
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -3942,7 +3942,7 @@ msgstr ""
 "ئىجرا قىلىنىدىغان ھۆججەت «%1» يىراقتىكى ھۆججەت سىستېمىسىدا. بىخەتەرلىك "
 "سەۋەبىدىن ئۇنى قوزغاتمايدۇ."
 
-#: gui/openurljob.cpp:415
+#: gui/openurljob.cpp:420
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -3950,7 +3950,7 @@ msgstr ""
 "بىخەتەرلىك سەۋەبىدىن، بۇ ئەھۋالدا ئىجرا قىلىنىدىغان پىروگراممىنى ئىجرا "
 "قىلىشقا يول قويۇلمىغان."
 
-#: gui/openurljob.cpp:445
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -3958,7 +3958,7 @@ msgid ""
 msgstr ""
 "بۇ «%1» پىروگرامما ئىجرا قىلىش ئىجازىتىگە ئىگە بولسا ئاندىن قوزغىلالايدۇ."
 
-#: gui/openurljob.cpp:456
+#: gui/openurljob.cpp:461
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3967,12 +3967,12 @@ msgstr ""
 "«%1» ھۆججەتكە ئىجرا قىلىش ئىجازىتىنى بەرگىلى بولمىدى.\n"
 "%2."
 
-#: gui/openurljob.cpp:542
+#: gui/openurljob.cpp:547
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "ئۈستەلئۈستى تۈرى ھۆججىتى %1 نىڭ تىپى يوق=…تۈر."
 
-#: gui/openurljob.cpp:634
+#: gui/openurljob.cpp:639
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3983,12 +3983,12 @@ msgstr ""
 "ئوچۇق پىروگرامما ۋە ئۇقتۇرۇش رايونىنى تەكشۈرۈپ تېخى تاماملانمىغان ۋەزىپە "
 "ياكى چۈشۈرۈش ۋەزىپىسى بار يوقلۇقىنى تەكشۈرۈڭ."
 
-#: gui/openurljob.cpp:660
+#: gui/openurljob.cpp:665
 #, kde-format
 msgid "Failed to open the file."
 msgstr "ھۆججەتنى ئاچالمىدى."
 
-#: gui/openurljob.cpp:694
+#: gui/openurljob.cpp:699
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "«%1» پىروگراممىنى قوزغىتالمىدى."

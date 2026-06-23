@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-21 00:39+0000\n"
+"POT-Creation-Date: 2026-06-23 00:40+0000\n"
 "PO-Revision-Date: 2022-03-20 11:23+0100\n"
 "Last-Translator: irfan <irfankurtagic@outlook.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -2437,7 +2437,7 @@ msgstr "Protokol %1 ne podrÅ¾ava otvaranje datoteka."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokol %1 ne podrÅ¾ava radnju %2."
 
-#: core/worker.cpp:311
+#: core/worker.cpp:309
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2446,18 +2446,18 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:349
+#: core/worker.cpp:347
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Nepoznat protokol â€ž%1â€œ."
 
-#: core/worker.cpp:360
+#: core/worker.cpp:358
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Ne mogu da pronaÄ‘em U/I zahvat za protokol â€ž%1â€œ."
 
-#: core/worker.cpp:367
+#: core/worker.cpp:365
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2466,13 +2466,13 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:379
+#: core/worker.cpp:377
 #, fuzzy, kde-format
 #| msgid "Can not create socket for launching io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Ne mogu da kreiram utičnicu za pokretanje io-slave za protokol '%1'."
 
-#: core/worker.cpp:425
+#: core/worker.cpp:423
 #, fuzzy, kde-format
 #| msgid "Can not find 'kioslave5' executable at '%1'"
 msgid "Can not find 'kioworker' executable at '%1'"
@@ -3953,7 +3953,7 @@ msgid ""
 "%2."
 msgstr "Nije moguće učiniti uslugu %1 izvršnom, prekida se izvršavanje.\n"
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:653
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Niste ovlaÅ¡Ä‡eni da izaberete program za otvaranje ove datoteke."
@@ -4051,7 +4051,7 @@ msgstr ""
 "Izvršna datoteka „%1“ se nalazi na udaljenom sistemu datoteka. Iz "
 "bezbednosnih razloga neće se pokrenuti."
 
-#: gui/openurljob.cpp:415
+#: gui/openurljob.cpp:420
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4059,7 +4059,7 @@ msgstr ""
 "Iz sigurnosnih razloga, pokretanje izvršnih datoteka nije dozvoljeno u ovom "
 "kontekstu."
 
-#: gui/openurljob.cpp:445
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4067,7 +4067,7 @@ msgid ""
 msgstr ""
 "Program \"%1\" mora imati izvršnu dozvolu prije nego što može bitipokrenut."
 
-#: gui/openurljob.cpp:456
+#: gui/openurljob.cpp:461
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4076,14 +4076,14 @@ msgstr ""
 "Nije moguće učiniti datoteku \"%1\" izvršnom.\n"
 " %2."
 
-#: gui/openurljob.cpp:542
+#: gui/openurljob.cpp:547
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr ""
 "Datoteka s elementima radne povrÅ¡ine <filename>%1</filename> nema unos "
 "<icode>Type=...</icode>."
 
-#: gui/openurljob.cpp:634
+#: gui/openurljob.cpp:639
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4094,12 +4094,12 @@ msgstr ""
 "Provjerite svoje otvorene aplikacije i područje obavijesti da li ima "
 "zadataka na čekanjuili preuzimanja."
 
-#: gui/openurljob.cpp:660
+#: gui/openurljob.cpp:665
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Otvaranje datoteke nije uspelo."
 
-#: gui/openurljob.cpp:694
+#: gui/openurljob.cpp:699
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Program „%1“ nije mogao da se pokrene."

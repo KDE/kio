@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-21 00:39+0000\n"
+"POT-Creation-Date: 2026-06-23 00:40+0000\n"
 "PO-Revision-Date: 2026-06-14 15:38+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -2421,7 +2421,7 @@ msgstr "Відкривання файлів не підтримується пр
 msgid "Protocol %1 does not support action %2."
 msgstr "Протокол %1 не підтримує дію %2."
 
-#: core/worker.cpp:311
+#: core/worker.cpp:309
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2433,17 +2433,17 @@ msgstr ""
 "вимагає розширених прав доступу, оскільки право на внесення до нього змін у "
 "%2 мають користувачі, відмінні від root."
 
-#: core/worker.cpp:349
+#: core/worker.cpp:347
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Невідомий протокол «%1»."
 
-#: core/worker.cpp:360
+#: core/worker.cpp:358
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Неможливо знайти обробник KIO для протоколу «%1»."
 
-#: core/worker.cpp:367
+#: core/worker.cpp:365
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2455,14 +2455,14 @@ msgstr ""
 "обробники KIO, які розташовано поза %3, і яким потрібні розширені права "
 "доступу, вважаються небезпечними."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:377
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Не вдалося створити сокет для обробника KIO, що запускається, для протоколу "
 "«%1»."
 
-#: core/worker.cpp:425
+#: core/worker.cpp:423
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Не вдалося знайти виконуваний файл «kioworker» у «%1»"
@@ -3899,7 +3899,7 @@ msgstr ""
 "Не вдалося зробити службу %1 виконуваною, виконання перервано.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:653
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Вам не дозволено вибирати програму для відкривання цього файла."
@@ -3998,14 +3998,14 @@ msgstr ""
 "Виконуваний файл «%1» зберігається у віддаленій файловій системі. З "
 "міркувань безпеки його не буде запущено."
 
-#: gui/openurljob.cpp:415
+#: gui/openurljob.cpp:420
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 "З міркувань безпеки запуск виконуваних файлів у цьому контексті заборонено."
 
-#: gui/openurljob.cpp:445
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4014,7 +4014,7 @@ msgstr ""
 "Програмі «%1» має бути надано права на виконання, перш ніж її можна буде "
 "запустити."
 
-#: gui/openurljob.cpp:456
+#: gui/openurljob.cpp:461
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4023,12 +4023,12 @@ msgstr ""
 "Не вдалося зробити файл «%1» придатним до виконання.\n"
 "%2."
 
-#: gui/openurljob.cpp:542
+#: gui/openurljob.cpp:547
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Файл записів стільниці %1 не містить запису Type=..."
 
-#: gui/openurljob.cpp:634
+#: gui/openurljob.cpp:639
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4039,12 +4039,12 @@ msgstr ""
 "Перевірте відкриті програми та область сповіщень — можливо, над файлом "
 "виконуються якісь дії або отримання даних файла з інтернету не завершено."
 
-#: gui/openurljob.cpp:660
+#: gui/openurljob.cpp:665
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Не вдалося відкрити файл."
 
-#: gui/openurljob.cpp:694
+#: gui/openurljob.cpp:699
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Не вдалося запустити програму «%1»."

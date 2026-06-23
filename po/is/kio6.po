@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-21 00:39+0000\n"
+"POT-Creation-Date: 2026-06-23 00:40+0000\n"
 "PO-Revision-Date: 2026-06-01 12:34+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -2403,7 +2403,7 @@ msgstr "Ekki er hægt að opna skrár með samskiptareglunni %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Samskiptareglan %1 styður ekki aðgerð %2."
 
-#: core/worker.cpp:311
+#: core/worker.cpp:309
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2415,17 +2415,17 @@ msgstr ""
 "sem venjulega krefst aukinna aðgangsheimilda, vegna þess að aðrir notendur "
 "en rót hafa heimild til að breyta honum á %2."
 
-#: core/worker.cpp:349
+#: core/worker.cpp:347
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Óþekkt samskiptaregla '%1'."
 
-#: core/worker.cpp:360
+#: core/worker.cpp:358
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "KIO-vinnsla fyrir samskiptaregluna '%1' fannst ekki."
 
-#: core/worker.cpp:367
+#: core/worker.cpp:365
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2437,14 +2437,14 @@ msgstr ""
 "allir KIO-þrælar sem eru staðsettir utan við %3 og biðja um auknar heimildir "
 "teljast vera óöruggir."
 
-#: core/worker.cpp:379
+#: core/worker.cpp:377
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Ekki tókst að búa til sökkul til að ræsa KIO-vinnslu fyrir samskiptaregluna "
 "'%1'."
 
-#: core/worker.cpp:425
+#: core/worker.cpp:423
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Fann ekki 'kioworker' keyrsluskrá á '%1'."
@@ -3866,7 +3866,7 @@ msgstr ""
 "Tókst ekki að gera þjónustuna %1 keyranlega, hætt við keyrslu.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:653
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Þú hefur ekki heimild til að velja forrit til að opna þessa skrá."
@@ -3963,14 +3963,14 @@ msgstr ""
 "Keyrsluskráin \"%1\" er staðsett á fjartengdu skráakerfi.  Af öryggisástæðum "
 "verður hún ekki keyrð."
 
-#: gui/openurljob.cpp:415
+#: gui/openurljob.cpp:420
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 "Öryggisins vegna er ekki leyfilegt að ræsa keyrsluskrár í þessu samhengi."
 
-#: gui/openurljob.cpp:445
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -3978,7 +3978,7 @@ msgid ""
 msgstr ""
 "Forritið \"%1\" þarf að vera með keyrsluheimild til að hægt sé að ræsa það."
 
-#: gui/openurljob.cpp:456
+#: gui/openurljob.cpp:461
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3987,12 +3987,12 @@ msgstr ""
 "Tókst ekki að gera skrána \"%1\" keyranlega.\n"
 "%2."
 
-#: gui/openurljob.cpp:542
+#: gui/openurljob.cpp:547
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Skjáborðsfærsluskráin %1 er ekki með neina Type=...-færslu."
 
-#: gui/openurljob.cpp:634
+#: gui/openurljob.cpp:639
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4003,12 +4003,12 @@ msgstr ""
 "Athugaðu hvort verk í bið eða niðurhal sé að finna í forritum sem eru opin "
 "og á tilkynningasvæðinu."
 
-#: gui/openurljob.cpp:660
+#: gui/openurljob.cpp:665
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Mistókst að opna skrána."
 
-#: gui/openurljob.cpp:694
+#: gui/openurljob.cpp:699
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Ekki var hægt að ræsa forritið \"%1\"."

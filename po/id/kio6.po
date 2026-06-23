@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-21 00:39+0000\n"
+"POT-Creation-Date: 2026-06-23 00:40+0000\n"
 "PO-Revision-Date: 2024-10-03 20:40+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -2435,7 +2435,7 @@ msgstr "Pembukaan berkas tidak didukung dengan protokol %1."
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokol %1 tidaklah mendukung tindakan %2."
 
-#: core/worker.cpp:311
+#: core/worker.cpp:309
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2444,17 +2444,17 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:349
+#: core/worker.cpp:347
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Protokol '%1' tak diketahui."
 
-#: core/worker.cpp:360
+#: core/worker.cpp:358
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Tidak dapat menemukan pekerja KIO untuk protokol '%1'."
 
-#: core/worker.cpp:367
+#: core/worker.cpp:365
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2463,13 +2463,13 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:379
+#: core/worker.cpp:377
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Tidak dapat membuat soket untuk meluncurkan pekerja KIO untuk protokol '%1'."
 
-#: core/worker.cpp:425
+#: core/worker.cpp:423
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Tidak bisa menemukan eksekutabel 'kioworker' di '%1'"
@@ -3936,7 +3936,7 @@ msgstr ""
 "Tidak bisa membuat layanan %1 yang dapat dieksekusi, menggugurkan eksekusi.\n"
 "%2"
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:653
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -4033,7 +4033,7 @@ msgstr ""
 "berkas eksekutabel \"%1\" berlokasi di sistem berkas jarak jauh. Demi "
 "keamanan itu tidak akan dijalankan."
 
-#: gui/openurljob.cpp:415
+#: gui/openurljob.cpp:420
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4041,7 +4041,7 @@ msgstr ""
 "Untuk alasan keamanan, peluncuran executable tidaklah diizinkan dalam "
 "konteks ini."
 
-#: gui/openurljob.cpp:445
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4050,7 +4050,7 @@ msgstr ""
 "Program \"%1\" perlu memiliki perizinan executable sebelum ia bisa "
 "diluncurkan."
 
-#: gui/openurljob.cpp:456
+#: gui/openurljob.cpp:461
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4059,12 +4059,12 @@ msgstr ""
 "Tidak bisa membuat berkas eksekutabel \"%1\".\n"
 "%2."
 
-#: gui/openurljob.cpp:542
+#: gui/openurljob.cpp:547
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "berkas entri desktop %1 tidak memiliki entri Type=... ."
 
-#: gui/openurljob.cpp:634
+#: gui/openurljob.cpp:639
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4075,12 +4075,12 @@ msgstr ""
 "Periksalah aplikasi yang dibuka dan area notifikasi Anda untuk unduhan atau "
 "tugas-tugas yang tertunda apapun."
 
-#: gui/openurljob.cpp:660
+#: gui/openurljob.cpp:665
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Gagal membuka berkas."
 
-#: gui/openurljob.cpp:694
+#: gui/openurljob.cpp:699
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Program \"%1\" tidak bisa diluncurkan."

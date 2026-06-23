@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-21 00:39+0000\n"
+"POT-Creation-Date: 2026-06-23 00:40+0000\n"
 "PO-Revision-Date: 2024-01-30 09:25-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -2282,7 +2282,7 @@ msgstr "%1 ਪਰੋਟੋਕਾਲ ਨਾਲ ਫਾਇਲ ਖੋਲ੍ਹਣਾ
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 ਪਰੋਟੋਕਾਲ ਐਕਸ਼ਨ %2 ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/worker.cpp:311
+#: core/worker.cpp:309
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2291,17 +2291,17 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:349
+#: core/worker.cpp:347
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "ਅਣਜਾਣ ਪਰੋਟੋਕਾਲ '%1' ਹੈ।"
 
-#: core/worker.cpp:360
+#: core/worker.cpp:358
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "ਪਰੋਟੋਕਾਲ '%1' ਲਈ KIO ਵਰਕਰ ਖੋਜਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਹੈ।"
 
-#: core/worker.cpp:367
+#: core/worker.cpp:365
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2310,12 +2310,12 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:379
+#: core/worker.cpp:377
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "ਪਰੋਟੋਕਾਲ '%1' ਲਈ KIO ਵਰਕਰ ਚਲਾਉਣ ਵਾਸਤੇ ਸਾਕਟ ਬਣਾਈ ਨਹੀਂ ਜਾ ਸਕਦੀ ਹੈ।"
 
-#: core/worker.cpp:425
+#: core/worker.cpp:423
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"
@@ -3724,7 +3724,7 @@ msgid ""
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:648
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:653
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "ਤੁਸੀਂ ਇਹ ਫਾਇਲ ਖੋਲ੍ਹਣ ਲਈ ਇੱਕ ਐਪਲੀਕੇਸ਼ਨ ਚੁਣਨ ਲਈ ਪਰਮਾਣਿਤ ਨਹੀਂ ਹੋ।"
@@ -3819,20 +3819,20 @@ msgstr ""
 "ਚੱਲਣਯੋਗ ਫਾਇਲ \"%1\" ਰਿਮੋਟ ਫਾਇਲ-ਸਿਸਟਮ ਉੱਤੇ ਮੌਜੂਦ ਹੈ। ਸੁਰੱਖਿਆ ਕਾਰਨਾਂ ਕਰਕੇ ਇਸ ਨੂੰ ਚਲਾਇਆ ਨਹੀਂ "
 "ਜਾ ਸਕੇਗਾ।"
 
-#: gui/openurljob.cpp:415
+#: gui/openurljob.cpp:420
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "ਸੁਰੱਖਿਆ ਕਾਰਨਾਂ ਕਰਕੇ ਚੱਲਣਯੋਗ ਨੂੰ ਇਸ ਰੂਪ ਵਿੱਚ ਸ਼ੁਰੂ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਹੈ।"
 
-#: gui/openurljob.cpp:445
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
 
-#: gui/openurljob.cpp:456
+#: gui/openurljob.cpp:461
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3841,12 +3841,12 @@ msgstr ""
 "\"%1\" ਫਾਇਲ ਨੂੰ ਚੱਲਣਯੋਗ ਬਣਾਉਣ ਵਿੱਚ ਅਸਮਰੱਥ।\n"
 "%2"
 
-#: gui/openurljob.cpp:542
+#: gui/openurljob.cpp:547
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "ਡੈਸਕਟਾਪ ਐਂਟਰੀ ਫਾਇਲ %1 ਵਿੱਚ ਕੋਈ  Type=... ਐਂਟਰੀ ਨਹੀਂ ਹੈ।"
 
-#: gui/openurljob.cpp:634
+#: gui/openurljob.cpp:639
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3854,12 +3854,12 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:660
+#: gui/openurljob.cpp:665
 #, kde-format
 msgid "Failed to open the file."
 msgstr "ਫਾਇਲ ਖੋਲ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕਦੀ"
 
-#: gui/openurljob.cpp:694
+#: gui/openurljob.cpp:699
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "ਪਰੋਗਰਾਮ \"%1\" ਚਲਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।"
