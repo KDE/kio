@@ -121,6 +121,7 @@ public:
     std::atomic<bool> wasKilled = false;
     std::atomic<bool> exit_loop = false;
     std::atomic<bool> runInThread = false;
+    bool warnedListEntryAfterKill = false; // listEntry() logs the missing wasKilled() check only once
     MetaData configData;
     KConfig *config = nullptr;
     KConfigGroup *configGroup = nullptr;
@@ -743,6 +744,12 @@ void SlaveBase::statEntry(const UDSEntry &entry)
 
 void SlaveBase::listEntry(const UDSEntry &entry)
 {
+    if (wasKilled() && !d->warnedListEntryAfterKill) {
+        d->warnedListEntryAfterKill = true;
+        qCDebug(KIO_CORE) << "listEntry() called after the worker was killed:" << mProtocol
+                          << "should check wasKilled() in its listing loop and stop";
+    }
+
     // #366795: many slaves don't create an entry for ".", so we keep track if they do
     // and we provide a fallback in finished() otherwise.
     if (entry.stringValue(KIO::UDSEntry::UDS_NAME) == QLatin1Char('.')) {

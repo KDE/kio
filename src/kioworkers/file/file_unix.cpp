@@ -833,6 +833,11 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
 #endif
     QT_DIRENT *ep;
     while ((ep = QT_READDIR(dp)) != nullptr) {
+        if (wasKilled()) {
+            closedir(dp);
+            return WorkerResult::pass();
+        }
+
         entry.clear();
 
         const QString filename = QFile::decodeName(ep->d_name);
