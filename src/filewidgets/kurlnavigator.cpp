@@ -199,6 +199,7 @@ public:
     bool m_showPlacesSelector = false;
     bool m_showFullPath = false;
     bool m_backgroundEnabled = true;
+    bool m_contextMenuOpen = false;
 
     int m_padding = 5;
 
@@ -669,7 +670,16 @@ void KUrlNavigatorPrivate::openContextMenu(const QPoint &p)
     showFullPathAction->setCheckable(true);
     showFullPathAction->setChecked(q->showFullPath());
 
+    // We need this property and its update below so that the line edit's
+    // focus effect persists (like in KUrlComboBox) when a context menu is open
+    m_contextMenuOpen = true;
+    q->update();
+
     QAction *activatedAction = popup->exec(QCursor::pos());
+
+    m_contextMenuOpen = false;
+    q->update();
+
     if (activatedAction == copyAction) {
         QMimeData *mimeData = new QMimeData();
         mimeData->setText(q->locationUrl().toDisplayString(QUrl::PreferLocalFile));
@@ -1442,7 +1452,7 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
     if (d->m_backgroundEnabled && !d->m_editable) {
         option.palette.setColor(QPalette::Base, palette().alternateBase().color());
         option.state |= QStyle::State_Enabled;
-        if (m_showFocusIndicator && d->m_active) {
+        if ((m_showFocusIndicator && d->m_active) || d->m_contextMenuOpen) {
             option.state |= QStyle::State_HasFocus;
         }
         if (underMouse()) {
