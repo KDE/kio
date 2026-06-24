@@ -1056,6 +1056,9 @@ WorkerResult FileProtocol::del(const QUrl &url, bool isfile)
                 return result;
             }
         }
+        if (wasKilled()) {
+            return WorkerResult::pass();
+        }
         if (QT_RMDIR(_path.data()) == -1) {
             if ((errno == EACCES) || (errno == EPERM)) {
                 return WorkerResult::fail(KIO::ERR_ACCESS_DENIED, path);

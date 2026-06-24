@@ -7,14 +7,18 @@
 #include "deletejobtest.h"
 
 #include <QDir>
+#include <QDirIterator>
+#include <QElapsedTimer>
 #include <QFile>
 #include <QSignalSpy>
 #include <QTemporaryDir>
 #include <QTemporaryFile>
 #include <QTest>
+#include <QTimer>
 #include <QUrl>
 
 #include <kio/deletejob.h>
+#include <kio/simplejob.h>
 
 #include <unistd.h>
 
@@ -163,6 +167,81 @@ void DeleteJobTest::createEmptyTestFiles(const QStringList &fileNames, const QSt
     }
 
     QCOMPARE(QDir(path).entryList(QDir::Files).count(), fileNames.size());
+}
+
+static int countFiles(const QString &dir)
+{
+    int n = 0;
+    QDirIterator it(dir, QDir::Files, QDirIterator::Subdirectories);
+    while (it.hasNext()) {
+        it.next();
+        ++n;
+    }
+    return n;
+}
+
+void DeleteJobTest::killedRecursiveDeletionStopsEarly()
+{
+    // A cancelled recursive deletion must stop promptly instead of emptying the whole tree.
+    // kio_file's deleteRecursive() now polls wasKilled(). Without that poll the worker deletes
+    // everything before noticing the kill. rmdir() + the "recurse" metadata sends the deletion
+    // straight to the worker (KIO::del would enumerate the tree first, so a cancel there would not
+    // exercise deleteRecursive()). Build a tree large enough that the deletion is still running
+    // when we cancel it.
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+    const QString root = tempDir.path() + QStringLiteral("/tree");
+    QVERIFY(QDir().mkpath(root));
+
+    int created = 0;
+    for (int d = 0; d < 50; ++d) {
+        const QString sub = root + QStringLiteral("/sub%1").arg(d);
+        QVERIFY(QDir().mkpath(sub));
+        for (int f = 0; f < 300; ++f) {
+            QFile file(sub + QStringLiteral("/f%1").arg(f));
+            QVERIFY(file.open(QIODevice::WriteOnly));
+            ++created;
+        }
+    }
+
+    KIO::SimpleJob *job = KIO::rmdir(QUrl::fromLocalFile(root));
+    job->setUiDelegate(nullptr);
+    job->addMetaData(QStringLiteral("recurse"), QStringLiteral("true"));
+
+    // Cancel once the worker has actually started removing files (so the kill lands inside
+    // deleteRecursive(), not before it begins).
+    QTimer pollTimer;
+    bool killed = false;
+    connect(&pollTimer, &QTimer::timeout, job, [&] {
+        if (!killed && countFiles(root) < created) {
+            killed = true;
+            pollTimer.stop();
+            job->kill(KJob::EmitResult);
+        }
+    });
+    pollTimer.start(2);
+
+    QSignalSpy spy(job, &KJob::result);
+    // kill(EmitResult) makes the job report almost immediately. A timeout here means the deletion
+    // never started (so it was never cancelled) or the job did not finish at all.
+    QVERIFY(spy.wait(10000));
+    QVERIFY(killed); // the deletion really started, otherwise the test proves nothing
+
+    // kill(EmitResult) makes the job report at once, but the in-process worker keeps running its
+    // deleteRecursive() until it returns (it is reaped asynchronously). Wait for the file count to
+    // settle so we observe the final state: with the fix the worker bailed out and files remain.
+    // Without it the worker keeps deleting in the background until the whole tree is gone.
+    int remaining = countFiles(root);
+    int previous = -1;
+    QElapsedTimer settle;
+    settle.start();
+    while (remaining != previous && settle.elapsed() < 30000) {
+        previous = remaining;
+        QTest::qWait(200);
+        remaining = countFiles(root);
+    }
+
+    QVERIFY2(remaining > 0, qPrintable(QStringLiteral("expected files to remain after cancel, %1 of %2 left").arg(remaining).arg(created)));
 }
 
 #include "moc_deletejobtest.cpp"

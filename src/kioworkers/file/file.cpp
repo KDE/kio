@@ -911,6 +911,9 @@ WorkerResult FileProtocol::deleteRecursive(const QString &path)
     QDirIterator it(path, QDir::AllEntries | QDir::NoDotAndDotDot | QDir::System | QDir::Hidden, QDirIterator::Subdirectories);
     QStringList dirsToDelete;
     while (it.hasNext()) {
+        if (wasKilled()) {
+            return WorkerResult::pass();
+        }
         const QString itemPath = it.next();
         // qDebug() << "itemPath=" << itemPath;
         const QFileInfo info = it.fileInfo();
@@ -925,6 +928,9 @@ WorkerResult FileProtocol::deleteRecursive(const QString &path)
     }
     QDir dir;
     for (const QString &itemPath : std::as_const(dirsToDelete)) {
+        if (wasKilled()) {
+            return WorkerResult::pass();
+        }
         // qDebug() << "QDir::rmdir" << itemPath;
         if (!dir.rmdir(itemPath)) {
             return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, itemPath);
