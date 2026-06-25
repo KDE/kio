@@ -10,10 +10,15 @@
 #include <QStandardPaths>
 #include <QTest>
 
+#include <atomic>
 #include <sys/stat.h>
 
+#include "kio/filecopyjob.h"
 #include "kio/filejob.h"
 #include "kio/global.h"
+#include "kio/mimetypejob.h"
+#include "kio/mkdirjob.h"
+#include "kio/simplejob.h"
 #include "kio/statjob.h"
 #include "kio/udsentry.h"
 #include "worker_p.h" // KIO::Worker::setTestWorkerFactory
@@ -22,6 +27,11 @@
 
 namespace
 {
+// Records which operations the worker received, so a test can confirm that a move whose worker has
+// no rename() fell back to copy()+del().
+std::atomic<bool> g_copyCalled{false};
+std::atomic<bool> g_delCalled{false};
+
 // A single mock worker for the kio-test protocol. Its behaviour is keyed off the request URL host
 // rather than off which test created it, because the scheduler pools and reuses idle workers across
 // jobs (a worker created for one test serves the next): a per-test factory would hand later tests a
@@ -64,6 +74,29 @@ public:
     {
         return KIO::WorkerResult::pass(); // finalize(): finishes the job
     }
+
+    KIO::WorkerResult get(const QUrl &) override
+    {
+        mimeType(QStringLiteral("text/plain"));
+        data(QByteArray("hello"));
+        data(QByteArray()); // EOF
+        return KIO::WorkerResult::pass();
+    }
+
+    KIO::WorkerResult copy(const QUrl &, const QUrl &, int, KIO::JobFlags) override
+    {
+        g_copyCalled.store(true, std::memory_order_relaxed);
+        return KIO::WorkerResult::pass();
+    }
+
+    KIO::WorkerResult del(const QUrl &, bool) override
+    {
+        g_delCalled.store(true, std::memory_order_relaxed);
+        return KIO::WorkerResult::pass();
+    }
+
+    // mkdir(), symlink(), rename() and put() are intentionally NOT overridden: they exercise the
+    // WorkerBase defaults, which return ERR_UNSUPPORTED_ACTION.
 };
 
 class TestWorkerFactory : public KIO::WorkerFactory
@@ -142,6 +175,49 @@ private Q_SLOTS:
         QVERIFY2(resultSpy.wait(5000), "close() never finished the job");
         QCOMPARE(resultSpy.count(), 1); // close() finalizes exactly once
         QCOMPARE(job->error(), 0);
+    }
+
+    // A WorkerBase virtual the worker does not implement must fail with ERR_UNSUPPORTED_ACTION.
+    // CopyJob/FileCopyJob fallbacks (rename -> copy+del, copy -> get+put) depend on exactly this
+    // code, and a worker that "forgot" an operation must report failure rather than silent success.
+    void unimplementedOperationsReturnUnsupportedAction()
+    {
+        auto *mkdirJob = KIO::mkdir(QUrl(QStringLiteral("kio-test://ok/newdir")));
+        mkdirJob->setUiDelegate(nullptr);
+        QVERIFY2(!mkdirJob->exec(), "the mkdir default must fail");
+        QCOMPARE(mkdirJob->error(), int(KIO::ERR_UNSUPPORTED_ACTION));
+
+        auto *symlinkJob = KIO::symlink(QStringLiteral("target"), QUrl(QStringLiteral("kio-test://ok/link")), KIO::HideProgressInfo);
+        symlinkJob->setUiDelegate(nullptr);
+        QVERIFY2(!symlinkJob->exec(), "the symlink default must fail");
+        QCOMPARE(symlinkJob->error(), int(KIO::ERR_UNSUPPORTED_ACTION));
+    }
+
+    // A move whose worker does not implement rename() (default ERR_UNSUPPORTED_ACTION) must fall
+    // back to copy()+del() and still succeed.
+    void renameFallsBackToCopyAndDel()
+    {
+        g_copyCalled.store(false, std::memory_order_relaxed);
+        g_delCalled.store(false, std::memory_order_relaxed);
+
+        auto *job = KIO::file_move(QUrl(QStringLiteral("kio-test://ok/src")),
+                                   QUrl(QStringLiteral("kio-test://ok/dst")),
+                                   -1,
+                                   KIO::HideProgressInfo | KIO::Overwrite);
+        job->setUiDelegate(nullptr);
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        QVERIFY2(g_copyCalled.load(std::memory_order_relaxed), "rename should have fallen back to copy()");
+        QVERIFY2(g_delCalled.load(std::memory_order_relaxed), "the move should have deleted the source after copying");
+    }
+
+    // WorkerBase::mimetype() is the one default that delegates to get() instead of failing. A worker
+    // implementing only get() must still answer a mimetype request.
+    void mimetypeFallsBackToGet()
+    {
+        auto *job = KIO::mimetype(QUrl(QStringLiteral("kio-test://ok/file")), KIO::HideProgressInfo);
+        job->setUiDelegate(nullptr);
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        QCOMPARE(job->mimetype(), QStringLiteral("text/plain"));
     }
 
 private:
