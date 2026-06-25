@@ -74,6 +74,19 @@ ecm_add_test(
     LINK_LIBRARIES KF6::KIOCore Qt6::Test Qt6::Network KF6::I18n
 )
 
+# A minimal real KIO worker (kiotest protocol) built into the plugin dir so KProtocolInfo finds it,
+# used to exercise the out-of-process (socket) worker path that the in-process mock cannot reach.
+add_library(kio_test MODULE kiotestworker.cpp)
+set_target_properties(kio_test PROPERTIES PREFIX "" LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin/kf6/kio)
+target_link_libraries(kio_test KF6::KIOCore)
+
+ecm_add_test(
+    outofprocessworkertest.cpp
+    TEST_NAME outofprocessworkertest
+    LINK_LIBRARIES KF6::KIOCore Qt6::Test
+)
+add_dependencies(outofprocessworkertest kio_test)
+
 # as per sysadmin request these are limited to linux only! https://invent.kde.org/frameworks/kio/-/merge_requests/1008
 if(CMAKE_SYSTEM_NAME STREQUAL "Linux" AND USE_FTPD_WSGIDAV_UNITTEST)
     include(FindGem)

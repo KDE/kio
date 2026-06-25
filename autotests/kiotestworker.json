@@ -1,0 +1,17 @@
+{
+    "KDE-KIO-Protocols": {
+        "kiotest": {
+            "Class": ":internet",
+            "protocol": "kiotest",
+            "input": "none",
+            "output": "filesystem",
+            "reading": true,
+            "source": true,
+            "listing": [
+                "Name",
+                "Type"
+            ],
+            "maxInstances": 5
+        }
+    }
+}
