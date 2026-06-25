@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 00:40+0000\n"
-"PO-Revision-Date: 2026-06-01 12:34+0000\n"
+"POT-Creation-Date: 2026-06-25 00:40+0000\n"
+"PO-Revision-Date: 2026-06-24 11:19+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -61,7 +61,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Ekki tókst að búa til KIO-vinnslu: %1"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1010
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1015
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2318,87 +2318,87 @@ msgstr ""
 "<filename>%1</filename> fannst ekki; settu inn gilda slóð á keyranlegt "
 "forrit."
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Opnun tenginga er ekki studd með samskiptareglunni %1."
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Lokun tenginga er ekki studd með samskiptareglunni %1."
 
-#: core/slavebase.cpp:810
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Opnun skráa er ekki studd með samskiptareglunni %1. "
 
-#: core/slavebase.cpp:812
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Ekki er stuðningur við að skrifa í %1."
 
-#: core/slavebase.cpp:814
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Það eru engar séraðgerðir til fyrir samskiptaregluna %1."
 
-#: core/slavebase.cpp:816
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Birting innihalds í möppum er ekki studd með samskiptareglunni  %1."
 
-#: core/slavebase.cpp:818
+#: core/slavebase.cpp:825
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Ekki er hægt að sækja gögn frá %1."
 
-#: core/slavebase.cpp:820
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Það er ekki hægt að sækja MIME-gerð frá %1."
 
-#: core/slavebase.cpp:822
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Ekki hægt að endurnefna eða færa skrár innan %1."
 
-#: core/slavebase.cpp:824
+#: core/slavebase.cpp:831
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Ekki hægt að búa til tákntengla með %1 samskiptareglunni."
 
-#: core/slavebase.cpp:826
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Ekki er hægt að afrita skrár innan %1."
 
-#: core/slavebase.cpp:828
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Ekki er hægt að eyða skrám úr %1."
 
-#: core/slavebase.cpp:830
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Ekki er hægt að búa til nýjar möppur með samskiptareglunni %1."
 
-#: core/slavebase.cpp:832
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Ekki hægt að breyta eiginleikum skráa með %1 samskiptareglunni."
 
-#: core/slavebase.cpp:834
+#: core/slavebase.cpp:841
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Ekki er hægt að breyta eiganda skráa með %1 samskiptareglunni."
 
-#: core/slavebase.cpp:836
+#: core/slavebase.cpp:843
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Ekki er hægt að opna skrár með samskiptareglunni %1."
 
-#: core/slavebase.cpp:838
+#: core/slavebase.cpp:845
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Samskiptareglan %1 styður ekki aðgerð %2."
@@ -3748,7 +3748,7 @@ msgstr "Þú getur skipt um tákn seinna í eiginleikastillingum möppunnar."
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:609 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:610 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, kde-format
@@ -3756,39 +3756,39 @@ msgid "Copy"
 msgstr "Afrita"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:613 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:614 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Líma"
 
-#: filewidgets/kurlnavigator.cpp:633
+#: filewidgets/kurlnavigator.cpp:634
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Opna \"%1\" í nýjum flipa"
 
-#: filewidgets/kurlnavigator.cpp:641
+#: filewidgets/kurlnavigator.cpp:642
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Opna \"%1\" í nýjum glugga"
 
-#: filewidgets/kurlnavigator.cpp:650
+#: filewidgets/kurlnavigator.cpp:651
 #, kde-format
 msgid "Edit"
 msgstr "Breyta"
 
-#: filewidgets/kurlnavigator.cpp:653
+#: filewidgets/kurlnavigator.cpp:654
 #, kde-format
 msgid "Navigate"
 msgstr "Flakka"
 
-#: filewidgets/kurlnavigator.cpp:668
+#: filewidgets/kurlnavigator.cpp:669
 #, kde-format
 msgid "Show Full Path"
 msgstr "Sýna alla slóðina"
 
-#: filewidgets/kurlnavigator.cpp:829
+#: filewidgets/kurlnavigator.cpp:839
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -4200,12 +4200,12 @@ msgstr "Ekki tókst að afrita skrá frá %1 til %2. (Villa: %3)"
 msgid "No media in device for %1"
 msgstr "Engin miðill í tæki fyrir %1"
 
-#: kioworkers/file/file_unix.cpp:1078
+#: kioworkers/file/file_unix.cpp:1086
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Ekki tókst að sækja notandakenni fyrir notandanafnið %1"
 
-#: kioworkers/file/file_unix.cpp:1089
+#: kioworkers/file/file_unix.cpp:1097
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Ekki tókst að sækja hópkenni fyrir hópheitið %1"
@@ -5462,22 +5462,19 @@ msgstr "Skráarkerfi:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
+#, kde-format
 msgid "Mounted on:"
-msgstr "Tengt á:"
+msgstr "Tengipunktur á:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
+#, kde-format
 msgid "Mounted from:"
-msgstr "Tengipunktur:"
+msgstr "Tengipunktur af:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, fuzzy, kde-format
-#| msgid "Free Space:"
+#, kde-format
 msgid "Free space:"
 msgstr "Laust pláss:"
 

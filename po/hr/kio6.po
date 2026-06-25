@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 00:40+0000\n"
+"POT-Creation-Date: 2026-06-25 00:40+0000\n"
 "PO-Revision-Date: 2026-06-21 23:22+0200\n"
 "Last-Translator: Igor Dobrača <igor.dobraca@skole.hr>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -56,7 +56,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Nije moguće stvoriti KIO worker: %1"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1010
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1015
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2320,87 +2320,87 @@ msgstr ""
 "<filename>%1</filename> nije pronađen; molimo unesite valjanu putanju do "
 "izvršnog programa."
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Otvaranje veza nije podržano s protokolom %1."
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Zatvaranje veza nije podržano protokolom %1."
 
-#: core/slavebase.cpp:810
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Pristupanje datotekama nije podržano protokolom %1."
 
-#: core/slavebase.cpp:812
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Pisanje u %1 nije podržano."
 
-#: core/slavebase.cpp:814
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Nema dostupnih posebnih akcija za protokol %1."
 
-#: core/slavebase.cpp:816
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Listanje mapa nije podržano protokolom %1."
 
-#: core/slavebase.cpp:818
+#: core/slavebase.cpp:825
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Dohvaćanje podataka iz %1 nije podržano."
 
-#: core/slavebase.cpp:820
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Dohvaćanje informacija o MIME vrstama iz %1 nije podržano."
 
-#: core/slavebase.cpp:822
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Preimenovanje ili premještanje datoteka unutar %1 nije podržano."
 
-#: core/slavebase.cpp:824
+#: core/slavebase.cpp:831
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Stvaranje simboličkih linkove nije podržano protokolom %1."
 
-#: core/slavebase.cpp:826
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Kopiranje datoteka unutar %1 nije podržano."
 
-#: core/slavebase.cpp:828
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Brisanje datoteka iz %1 nije podržano."
 
-#: core/slavebase.cpp:830
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Stvaranje mapa nije podržano protokolom %1."
 
-#: core/slavebase.cpp:832
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Mijenjanje atributa datoteka nije podržano protokolom %1."
 
-#: core/slavebase.cpp:834
+#: core/slavebase.cpp:841
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Mijenjanje vlasništva datoteka nije podržano protokolom %1."
 
-#: core/slavebase.cpp:836
+#: core/slavebase.cpp:843
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Otvaranje datoteka nije podržano protokolom %1."
 
-#: core/slavebase.cpp:838
+#: core/slavebase.cpp:845
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokol %1 ne podržava akciju %2."
@@ -3750,7 +3750,7 @@ msgstr "Ikonu možeš promijeniti kasnije u svojstvima mape."
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:609 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:610 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, kde-format
@@ -3758,39 +3758,39 @@ msgid "Copy"
 msgstr "Kopiraj"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:613 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:614 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Zalijepi"
 
-#: filewidgets/kurlnavigator.cpp:633
+#: filewidgets/kurlnavigator.cpp:634
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Otvori \"%1\" u novoj kartici"
 
-#: filewidgets/kurlnavigator.cpp:641
+#: filewidgets/kurlnavigator.cpp:642
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Otvorite \"%1\" u novom prozoru"
 
-#: filewidgets/kurlnavigator.cpp:650
+#: filewidgets/kurlnavigator.cpp:651
 #, kde-format
 msgid "Edit"
 msgstr "Uređuj"
 
-#: filewidgets/kurlnavigator.cpp:653
+#: filewidgets/kurlnavigator.cpp:654
 #, kde-format
 msgid "Navigate"
 msgstr "Navigiraj"
 
-#: filewidgets/kurlnavigator.cpp:668
+#: filewidgets/kurlnavigator.cpp:669
 #, kde-format
 msgid "Show Full Path"
 msgstr "Prikaži cijelu putanju"
 
-#: filewidgets/kurlnavigator.cpp:829
+#: filewidgets/kurlnavigator.cpp:839
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -4206,12 +4206,12 @@ msgstr "Nije moguće kopirati datoteku sa %1 u %2. (Broj greške: %3)"
 msgid "No media in device for %1"
 msgstr "Nema medija u uređaju za %1"
 
-#: kioworkers/file/file_unix.cpp:1078
+#: kioworkers/file/file_unix.cpp:1086
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nije moguće dobiti ID korisnika za korisničko ime %1"
 
-#: kioworkers/file/file_unix.cpp:1089
+#: kioworkers/file/file_unix.cpp:1097
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nije moguće dobiti ID grupe za dan naziv grupe %1"

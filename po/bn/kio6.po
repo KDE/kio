@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 00:40+0000\n"
+"POT-Creation-Date: 2026-06-25 00:40+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "ফোল্ডারে ঢোকা যায়নি"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1010
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1015
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -2126,87 +2126,87 @@ msgid ""
 "executable program."
 msgstr ""
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "প্রোটোকল %1 কানেকশন খোলা সমর্থন করে না।"
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "প্রোটোকল %1 কানেকশন বন্ধ করা সমর্থন করে না।"
 
-#: core/slavebase.cpp:810
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:812
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1-তে লেখা সমর্থিত নয়।"
 
-#: core/slavebase.cpp:814
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "প্রোটোকল %1-এ কোন বিশেষ ক্রিয়া (special actions) নেই।"
 
-#: core/slavebase.cpp:816
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:818
+#: core/slavebase.cpp:825
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr ""
 
-#: core/slavebase.cpp:820
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr ""
 
-#: core/slavebase.cpp:822
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr ""
 
-#: core/slavebase.cpp:824
+#: core/slavebase.cpp:831
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "প্রোটোকল %1 সিমলিঙ্ক তৈরি করা সমর্থন করে না।"
 
-#: core/slavebase.cpp:826
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1-এর মধ্যে ফাইল কপি করা সমর্থিত নয়।"
 
-#: core/slavebase.cpp:828
+#: core/slavebase.cpp:835
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 থেকে ফাইল মুছে ফেলা সমর্থিত নয়।"
 
-#: core/slavebase.cpp:830
+#: core/slavebase.cpp:837
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "প্রোটোকল %1 ফোল্ডার তৈরি করা সমর্থন করে না।"
 
-#: core/slavebase.cpp:832
+#: core/slavebase.cpp:839
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "প্রোটোকল %1 ফাইলের অ্যাট্রিবিউট পরিবর্তন করা সমর্থন করে না।"
 
-#: core/slavebase.cpp:834
+#: core/slavebase.cpp:841
 #, fuzzy, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "প্রোটোকল %1 ফাইলের অ্যাট্রিবিউট পরিবর্তন করা সমর্থন করে না।"
 
-#: core/slavebase.cpp:836
+#: core/slavebase.cpp:843
 #, fuzzy, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "প্রোটোকল %1 ফোল্ডার তৈরি করা সমর্থন করে না।"
 
-#: core/slavebase.cpp:838
+#: core/slavebase.cpp:845
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "প্রোটোকল %1 ক্রিয়া %2 সমর্থন করে না।"
@@ -3543,7 +3543,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:609 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:610 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, fuzzy, kde-format
@@ -3551,41 +3551,41 @@ msgid "Copy"
 msgstr "কপি করা হচ্ছে"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:613 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:614 widgets/checksumswidget.ui:42
 #, fuzzy, kde-format
 msgid "Paste"
 msgstr "তারিখ"
 
-#: filewidgets/kurlnavigator.cpp:633
+#: filewidgets/kurlnavigator.cpp:634
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "খুলতে ব্যবহার করো"
 
-#: filewidgets/kurlnavigator.cpp:641
+#: filewidgets/kurlnavigator.cpp:642
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "খুলতে ব্যবহার করো"
 
-#: filewidgets/kurlnavigator.cpp:650
+#: filewidgets/kurlnavigator.cpp:651
 #, fuzzy, kde-format
 msgid "Edit"
 msgstr "&সম্পাদন করো..."
 
-#: filewidgets/kurlnavigator.cpp:653
+#: filewidgets/kurlnavigator.cpp:654
 #, kde-format
 msgid "Navigate"
 msgstr ""
 
-#: filewidgets/kurlnavigator.cpp:668
+#: filewidgets/kurlnavigator.cpp:669
 #, kde-format
 msgid "Show Full Path"
 msgstr ""
 
-#: filewidgets/kurlnavigator.cpp:829
+#: filewidgets/kurlnavigator.cpp:839
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -3981,12 +3981,12 @@ msgstr ""
 msgid "No media in device for %1"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:1078
+#: kioworkers/file/file_unix.cpp:1086
 #, fuzzy, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "%1 ফোল্ডারে ঢোকা যায়নি।"
 
-#: kioworkers/file/file_unix.cpp:1089
+#: kioworkers/file/file_unix.cpp:1097
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""

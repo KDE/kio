@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-23 00:40+0000\n"
+"POT-Creation-Date: 2026-06-25 00:40+0000\n"
 "PO-Revision-Date: 2004-09-19 18:24+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud.com>\n"
 "Language-Team: Brezhoneg <Suav.Icb.fr>\n"
@@ -42,7 +42,7 @@ msgstr ""
 msgid "Unable to create KIO worker: %1"
 msgstr "Divarrek da grouiñ restr gwareziñ"
 
-#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1010
+#: core/copyjob.cpp:190 kioworkers/file/file_unix.cpp:1015
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -2108,87 +2108,87 @@ msgid ""
 "executable program."
 msgstr ""
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:813
 #, fuzzy, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Ne m'eus ket gallet enrollañ an teul\n"
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:815
 #, fuzzy, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Ne m'eus ket gallet enrollañ an teul\n"
 
-#: core/slavebase.cpp:810
+#: core/slavebase.cpp:817
 #, fuzzy, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Dibaboù"
 
-#: core/slavebase.cpp:812
+#: core/slavebase.cpp:819
 #, fuzzy, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Ne m'eus ket gallet enrollañ an teul\n"
 
-#: core/slavebase.cpp:814
+#: core/slavebase.cpp:821
 #, fuzzy, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Ne m'eus ket gallet kas ar c'hemennad."
 
-#: core/slavebase.cpp:816
+#: core/slavebase.cpp:823
 #, fuzzy, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Ne m'eus ket gallet enrollañ an teul\n"
 
-#: core/slavebase.cpp:818
+#: core/slavebase.cpp:825
 #, fuzzy, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "War-nij"
 
-#: core/slavebase.cpp:820
+#: core/slavebase.cpp:827
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr ""
 
-#: core/slavebase.cpp:822
+#: core/slavebase.cpp:829
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr ""
 
-#: core/slavebase.cpp:824
+#: core/slavebase.cpp:831
 #, fuzzy, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Dibaboù"
 
-#: core/slavebase.cpp:826
+#: core/slavebase.cpp:833
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr ""
 
-#: core/slavebase.cpp:828
+#: core/slavebase.cpp:835
 #, fuzzy, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Dibaboù"
 
-#: core/slavebase.cpp:830
+#: core/slavebase.cpp:837
 #, fuzzy, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Dibaboù"
 
-#: core/slavebase.cpp:832
+#: core/slavebase.cpp:839
 #, fuzzy, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Dibaboù"
 
-#: core/slavebase.cpp:834
+#: core/slavebase.cpp:841
 #, fuzzy, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Dibaboù"
 
-#: core/slavebase.cpp:836
+#: core/slavebase.cpp:843
 #, fuzzy, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Dibaboù"
 
-#: core/slavebase.cpp:838
+#: core/slavebase.cpp:845
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr ""
@@ -3569,7 +3569,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:609 widgets/checksumswidget.ui:145
+#: filewidgets/kurlnavigator.cpp:610 widgets/checksumswidget.ui:145
 #: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
 #: widgets/checksumswidget.ui:286
 #, fuzzy, kde-format
@@ -3578,44 +3578,44 @@ msgid "Copy"
 msgstr "Emaon oc'h eilañ"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:613 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:614 widgets/checksumswidget.ui:42
 #, fuzzy, kde-format
 #| msgid "&Paste URL"
 #| msgid_plural "&Paste %1 URLs"
 msgid "Paste"
 msgstr "&Pegañ %1 URL"
 
-#: filewidgets/kurlnavigator.cpp:633
+#: filewidgets/kurlnavigator.cpp:634
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Digeriñ gant"
 
-#: filewidgets/kurlnavigator.cpp:641
+#: filewidgets/kurlnavigator.cpp:642
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Digeriñ gant"
 
-#: filewidgets/kurlnavigator.cpp:650
+#: filewidgets/kurlnavigator.cpp:651
 #, fuzzy, kde-format
 #| msgid "&Edit..."
 msgid "Edit"
 msgstr "&Aozañ ..."
 
-#: filewidgets/kurlnavigator.cpp:653
+#: filewidgets/kurlnavigator.cpp:654
 #, kde-format
 msgid "Navigate"
 msgstr ""
 
-#: filewidgets/kurlnavigator.cpp:668
+#: filewidgets/kurlnavigator.cpp:669
 #, kde-format
 msgid "Show Full Path"
 msgstr ""
 
-#: filewidgets/kurlnavigator.cpp:829
+#: filewidgets/kurlnavigator.cpp:839
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to delete this item?"
 #| msgid_plural "Do you really want to delete these %1 items?"
@@ -4024,13 +4024,13 @@ msgstr ""
 msgid "No media in device for %1"
 msgstr "N'eus media ebet en trobarzhell evit %1"
 
-#: kioworkers/file/file_unix.cpp:1078
+#: kioworkers/file/file_unix.cpp:1086
 #, fuzzy, kde-format
 #| msgid "Could not enter folder %1."
 msgid "Could not get user id for given user name %1"
 msgstr "N'hellan ket mont er renkell %1."
 
-#: kioworkers/file/file_unix.cpp:1089
+#: kioworkers/file/file_unix.cpp:1097
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
