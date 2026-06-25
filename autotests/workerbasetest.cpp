@@ -49,6 +49,9 @@ public:
         if (url.host() == QLatin1String("fail")) {
             return KIO::WorkerResult::fail(KIO::ERR_ACCESS_DENIED, QStringLiteral("mock denied"));
         }
+        // Echo an incoming metadata value back out: proves app->worker delivery (metaData) and
+        // worker->app delivery (setMetaData) in one round-trip.
+        setMetaData(QStringLiteral("pong"), metaData(QStringLiteral("ping")));
         KIO::UDSEntry entry;
         entry.reserve(2);
         entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("path"));
@@ -218,6 +221,18 @@ private Q_SLOTS:
         job->setUiDelegate(nullptr);
         QVERIFY2(job->exec(), qPrintable(job->errorString()));
         QCOMPARE(job->mimetype(), QStringLiteral("text/plain"));
+    }
+
+    // Metadata set on the job by the application must be readable by the worker via metaData(), and
+    // metadata the worker sets must reach the job. The worker echoes "ping" into "pong", so a single
+    // round-trip exercises both directions.
+    void metadataRoundTripsBetweenAppAndWorker()
+    {
+        auto *job = KIO::stat(QUrl(QStringLiteral("kio-test://ok/path")), KIO::HideProgressInfo);
+        job->setUiDelegate(nullptr);
+        job->addMetaData(QStringLiteral("ping"), QStringLiteral("hello"));
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+        QCOMPARE(job->queryMetaData(QStringLiteral("pong")), QStringLiteral("hello"));
     }
 
 private:
