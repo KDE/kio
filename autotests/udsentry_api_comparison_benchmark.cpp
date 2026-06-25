@@ -42,18 +42,21 @@ private Q_SLOTS:
     void testAnotherV2Fill();
     void testTwoVectorsFill();
     void testUDSEntryHSFill();
+    void testUnionFill();
 
     void testAnotherCompare();
     void testTwoVectorKindEntryCompare();
     void testAnotherV2Compare();
     void testTwoVectorsCompare();
     void testUDSEntryHSCompare();
+    void testUnionCompare();
 
     void testAnotherApp();
     void testTwoVectorKindEntryApp();
     void testAnotherV2App();
     void testTwoVectorsApp();
     void testUDSEntryHSApp();
+    void testUnionApp();
 
     void testspaceUsed();
 
@@ -553,6 +556,160 @@ public:
 };
 Q_DECLARE_TYPEINFO(TwoVectorKindEntry, Q_MOVABLE_TYPE);
 
+// Single vector like AnotherUDSEntry, but the value is a union discriminated by the UDS_STRING bit
+// already present in the index. This halves the per-field footprint (no unused QString next to every
+// number, no unused long long next to every string) and skips constructing a QString for number
+// fields entirely.
+class UnionUDSEntry
+{
+private:
+    struct Field {
+        uint m_index = 0;
+        union {
+            long long m_long;
+            QString m_str;
+        };
+
+        inline bool isString() const noexcept
+        {
+            return m_index & KIO::UDSEntry::UDS_STRING;
+        }
+
+        inline Field() noexcept
+            : m_long(0)
+        {
+        }
+        inline Field(const uint index, const QString &value)
+            : m_index(index)
+        {
+            new (&m_str) QString(value);
+        }
+        inline Field(const uint index, long long value) noexcept
+            : m_index(index)
+            , m_long(value)
+        {
+        }
+        inline Field(const Field &other)
+            : m_index(other.m_index)
+        {
+            if (other.isString()) {
+                new (&m_str) QString(other.m_str);
+            } else {
+                m_long = other.m_long;
+            }
+        }
+        inline Field(Field &&other) noexcept
+            : m_index(other.m_index)
+        {
+            if (other.isString()) {
+                new (&m_str) QString(std::move(other.m_str));
+            } else {
+                m_long = other.m_long;
+            }
+        }
+        inline Field &operator=(const Field &other)
+        {
+            if (this != &other) {
+                if (isString()) {
+                    m_str.~QString();
+                }
+                m_index = other.m_index;
+                if (other.isString()) {
+                    new (&m_str) QString(other.m_str);
+                } else {
+                    m_long = other.m_long;
+                }
+            }
+            return *this;
+        }
+        inline Field &operator=(Field &&other) noexcept
+        {
+            if (this != &other) {
+                if (isString()) {
+                    m_str.~QString();
+                }
+                m_index = other.m_index;
+                if (other.isString()) {
+                    new (&m_str) QString(std::move(other.m_str));
+                } else {
+                    m_long = other.m_long;
+                }
+            }
+            return *this;
+        }
+        inline ~Field()
+        {
+            if (isString()) {
+                m_str.~QString();
+            }
+        }
+    };
+    std::vector<Field> storage;
+
+public:
+    void reserve(int size)
+    {
+        storage.reserve(size);
+    }
+    void insert(uint udsField, const QString &value)
+    {
+        storage.emplace_back(udsField, value);
+    }
+    void replaceOrInsert(uint udsField, const QString &value)
+    {
+        for (Field &f : storage) {
+            if (f.m_index == udsField) {
+                f.m_str = value;
+                return;
+            }
+        }
+        storage.emplace_back(udsField, value);
+    }
+    void insert(uint udsField, long long value)
+    {
+        storage.emplace_back(udsField, value);
+    }
+    void replaceOrInsert(uint udsField, long long value)
+    {
+        for (Field &f : storage) {
+            if (f.m_index == udsField) {
+                f.m_long = value;
+                return;
+            }
+        }
+        storage.emplace_back(udsField, value);
+    }
+    int count() const
+    {
+        return storage.size();
+    }
+    QString stringValue(uint udsField) const
+    {
+        for (const Field &f : storage) {
+            if (f.m_index == udsField) {
+                return f.m_str;
+            }
+        }
+        return QString();
+    }
+    long long numberValue(uint udsField, long long defaultValue = -1) const
+    {
+        for (const Field &f : storage) {
+            if (f.m_index == udsField) {
+                return f.m_long;
+            }
+        }
+        return defaultValue;
+    }
+    QString spaceUsed()
+    {
+        return QStringLiteral("size:%1 space used:%2")
+            .arg(storage.size() * sizeof(Field) + sizeof(std::vector<Field>))
+            .arg(storage.capacity() * sizeof(Field) + sizeof(std::vector<Field>));
+    }
+};
+Q_DECLARE_TYPEINFO(UnionUDSEntry, Q_RELOCATABLE_TYPE);
+
 template<class T>
 static void fillUDSEntries(T &entry, time_t now_time_t, const QString &nameStr, const QString &groupStr)
 {
@@ -698,6 +855,19 @@ void UdsEntryBenchmark::testUDSEntryHSApp()
     testApp<UDSEntryHS>(this);
 }
 
+void UdsEntryBenchmark::testUnionFill()
+{
+    testFill<UnionUDSEntry>(this);
+}
+void UdsEntryBenchmark::testUnionCompare()
+{
+    testCompare<UnionUDSEntry>(this);
+}
+void UdsEntryBenchmark::testUnionApp()
+{
+    testApp<UnionUDSEntry>(this);
+}
+
 template<class T>
 void printSpaceUsed(UdsEntryBenchmark *bench)
 {
@@ -713,6 +883,7 @@ void UdsEntryBenchmark::testspaceUsed()
     printSpaceUsed<AnotherV2UDSEntry>(this);
     printSpaceUsed<TwoVectorKindEntry>(this);
     printSpaceUsed<UDSEntryHS>(this);
+    printSpaceUsed<UnionUDSEntry>(this);
 }
 
 QTEST_MAIN(UdsEntryBenchmark)
