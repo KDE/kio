@@ -108,6 +108,15 @@ private Q_SLOTS:
         QCOMPARE(fileEntries, 3);
     }
 
+    // A worker process that dies mid-job must surface as a clean job error, not a hang.
+    void workerDeathMidJobYieldsCleanError()
+    {
+        auto *job = KIO::get(QUrl(QStringLiteral("kiotest://die/file")), KIO::NoReload, KIO::HideProgressInfo);
+        job->setUiDelegate(nullptr);
+        QVERIFY2(!job->exec(), "a job whose worker died must fail");
+        QCOMPARE(job->error(), int(KIO::ERR_WORKER_DIED));
+    }
+
     // A worker parked with putOnHold() for a URL must be reused by a subsequent GET to the same URL
     // (Scheduler::heldWorkerForJob) and run to completion. Runs last: holding a worker mid-transfer
     // perturbs the pooled worker state, so it must not precede the other cases.

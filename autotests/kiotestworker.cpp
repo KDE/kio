@@ -14,6 +14,7 @@
 #include <QThread>
 #include <QUrl>
 
+#include <cstdlib>
 #include <sys/stat.h>
 
 #include "workerbase.h"
@@ -69,6 +70,11 @@ public:
 
     WorkerResult get(const QUrl &url) override
     {
+        if (url.host() == QLatin1String("die")) {
+            // Simulate a worker process crashing mid-job: the application must turn the lost
+            // connection into a clean job error, not hang.
+            std::_Exit(1);
+        }
         mimeType(QStringLiteral("text/plain"));
         if (url.host() == QLatin1String("slow")) {
             // Stream slowly so the test can put us on hold mid-transfer before we finish.
