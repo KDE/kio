@@ -198,14 +198,18 @@ WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
         }
     }
 
-    if (!QDir().mkdir(path)) {
+#ifdef Q_OS_UNIX
+    // Create the directory with the requested mode so it is never more permissive than asked, not
+    // even in the window before fchmod() applies the exact bits below (mkdir()'s mode is only ever
+    // narrowed by the umask, never widened).
+    if (::mkdir(pathEncoded.constData(), permissions == -1 ? 0777 : permissions) != 0) {
         return WorkerResult::fail(KIO::ERR_CANNOT_MKDIR, path);
     }
 
-#ifdef Q_OS_UNIX
-    // Apply permissions and ownership through a descriptor to the directory mkdir just created, so
-    // the changes always land on that inode. O_NOFOLLOW and O_DIRECTORY make the open fail if the
-    // entry has been replaced by a symlink or a non-directory in the meantime.
+    // Apply the exact permissions and ownership through a descriptor to the directory just created,
+    // so the changes always land on that inode; fchmod() restores any bits the umask cleared above.
+    // O_NOFOLLOW and O_DIRECTORY make the open fail if the entry has been replaced by a symlink or a
+    // non-directory in the meantime.
     const int fd = QT_OPEN(pathEncoded.constData(), O_RDONLY | O_DIRECTORY | O_NOFOLLOW | O_CLOEXEC);
     if (fd == -1) {
         return WorkerResult::fail(KIO::ERR_CANNOT_MKDIR, path);
@@ -229,6 +233,9 @@ WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
 
     QT_CLOSE(fd);
 #else
+    if (!QDir().mkdir(path)) {
+        return WorkerResult::fail(KIO::ERR_CANNOT_MKDIR, path);
+    }
     if (permissions != -1) {
         auto chmodResult = chmod(url, permissions);
         if (!chmodResult.success()) {
