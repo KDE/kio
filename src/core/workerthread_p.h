@@ -9,10 +9,6 @@
 #include <QMutex>
 #include <QThread>
 
-#ifdef Q_OS_UNIX
-#include <pthread.h>
-#endif
-
 #ifdef BUILD_TESTING
 #include "kiocore_export.h"
 #include <QSemaphore>
@@ -57,9 +53,6 @@ private:
 
     QMutex m_workerMutex; // protects m_worker, accessed by both threads
     KIO::SlaveBase *m_worker = nullptr;
-#ifdef Q_OS_UNIX
-    pthread_t m_nativeHandle = {};
-#endif
 #ifdef BUILD_TESTING
     static bool s_testExitGateEnabled;
     static QSemaphore s_testExitGate;
