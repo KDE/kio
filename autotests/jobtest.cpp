@@ -894,6 +894,32 @@ void JobTest::copyDirectoryToExistingDirectory()
     copyLocalDirectory(src, dest, AlreadyExists);
 }
 
+void JobTest::copyDirectoryWithOverwriteCreatesNewSubdirs()
+{
+    // Regression test: with the Overwrite flag, CopyJob tags every directory mkdir with
+    // overwrite=true; the file worker must still create directories that don't exist yet.
+    const QString src = homeTmpDir() + "dirOverwriteSrc";
+    const QString dest = homeTmpDir() + "dirOverwriteDest";
+    createTestDirectory(src);
+    QVERIFY(QDir().mkpath(src + "/subdir"));
+    createTestFile(src + "/subdir/subfile");
+
+    KIO::Job *job = KIO::copyAs(QUrl::fromLocalFile(src), QUrl::fromLocalFile(dest), KIO::HideProgressInfo | KIO::Overwrite);
+    job->setUiDelegate(nullptr);
+    job->setUiDelegateExtension(nullptr);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QVERIFY(QFileInfo(dest).isDir());
+    QVERIFY(QFileInfo(dest + "/testfile").isFile());
+    QVERIFY(QFileInfo(dest + "/subdir").isDir());
+    QVERIFY(QFileInfo(dest + "/subdir/subfile").isFile());
+
+    // Leave the shared home dir as we found it, so the later listRecursive()/directorySize() tests
+    // still see exactly the files they expect.
+    QVERIFY(QDir(src).removeRecursively());
+    QVERIFY(QDir(dest).removeRecursively());
+}
+
 void JobTest::copyDirectoryToExistingSymlinkedDirectory()
 {
     // qDebug();

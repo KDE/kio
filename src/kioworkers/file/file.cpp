@@ -181,65 +181,63 @@ WorkerResult FileProtocol::mkdir(const QUrl &url, int permissions)
 
     // qDebug() << path << "permission=" << permissions;
 
-    // Remove existing file or symlink, if requested (#151851)
-    if (metaData(QStringLiteral("overwrite")) == QLatin1String("true")) {
+    const QByteArray pathEncoded = QFile::encodeName(path);
+    QT_STATBUF buff;
+    if (QT_LSTAT(pathEncoded.constData(), &buff) == 0) {
+        if (Utils::isDirMask(buff.st_mode)) {
+            // qDebug() << "ERR_DIR_ALREADY_EXIST";
+            return WorkerResult::fail(KIO::ERR_DIR_ALREADY_EXIST, path);
+        }
+        // A file or symlink is in the way: replace it with the directory only if requested (#151851).
+        if (metaData(QStringLiteral("overwrite")) != QLatin1String("true")) {
+            return WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, path);
+        }
         if (!QFile::remove(path)) {
             qCWarning(KIO_FILE) << "Couldn't overwrite in mkdir. Error:" << errno;
             return WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, path);
         }
     }
 
-    QT_STATBUF buff;
-    QByteArray pathEncoded = QFile::encodeName(path);
-    if (QT_LSTAT(pathEncoded.constData(), &buff) == -1) {
-        if (!QDir().mkdir(path)) {
-            return WorkerResult::fail(KIO::ERR_CANNOT_MKDIR, path);
-        }
+    if (!QDir().mkdir(path)) {
+        return WorkerResult::fail(KIO::ERR_CANNOT_MKDIR, path);
+    }
 
 #ifdef Q_OS_UNIX
-        // Apply permissions and ownership through a descriptor to the directory
-        // mkdir just created, so the changes always land on that inode.
-        // O_NOFOLLOW and O_DIRECTORY make the open fail if the entry has been
-        // replaced by a symlink or a non-directory in the meantime.
-        const int fd = QT_OPEN(pathEncoded.constData(), O_RDONLY | O_DIRECTORY | O_NOFOLLOW | O_CLOEXEC);
-        if (fd == -1) {
-            return WorkerResult::fail(KIO::ERR_CANNOT_MKDIR, path);
-        }
+    // Apply permissions and ownership through a descriptor to the directory mkdir just created, so
+    // the changes always land on that inode. O_NOFOLLOW and O_DIRECTORY make the open fail if the
+    // entry has been replaced by a symlink or a non-directory in the meantime.
+    const int fd = QT_OPEN(pathEncoded.constData(), O_RDONLY | O_DIRECTORY | O_NOFOLLOW | O_CLOEXEC);
+    if (fd == -1) {
+        return WorkerResult::fail(KIO::ERR_CANNOT_MKDIR, path);
+    }
 
-        if (permissions != -1 && ::fchmod(fd, permissions) < 0) {
-            QT_CLOSE(fd);
-            return WorkerResult::fail(KIO::ERR_CANNOT_CHMOD, path);
-        }
-
-        // preserve ownership
-        bool uidOk;
-        auto uid = metaData(QStringLiteral("uid")).toInt(&uidOk);
-        bool gidOk;
-        auto gid = metaData(QStringLiteral("gid")).toInt(&gidOk);
-        if (uidOk || gidOk) {
-            if (::fchown(fd, uid, gid) < 0) {
-                qCWarning(KIO_FILE) << "Couldn't chown directory in mkdir, path:" << path << ". Error:" << errno;
-            }
-        }
-
+    if (permissions != -1 && ::fchmod(fd, permissions) < 0) {
         QT_CLOSE(fd);
-#else
-        if (permissions != -1) {
-            auto chmodResult = chmod(url, permissions);
-            if (!chmodResult.success()) {
-                return chmodResult;
-            }
+        return WorkerResult::fail(KIO::ERR_CANNOT_CHMOD, path);
+    }
+
+    // preserve ownership
+    bool uidOk;
+    auto uid = metaData(QStringLiteral("uid")).toInt(&uidOk);
+    bool gidOk;
+    auto gid = metaData(QStringLiteral("gid")).toInt(&gidOk);
+    if (uidOk || gidOk) {
+        if (::fchown(fd, uid, gid) < 0) {
+            qCWarning(KIO_FILE) << "Couldn't chown directory in mkdir, path:" << path << ". Error:" << errno;
         }
+    }
+
+    QT_CLOSE(fd);
+#else
+    if (permissions != -1) {
+        auto chmodResult = chmod(url, permissions);
+        if (!chmodResult.success()) {
+            return chmodResult;
+        }
+    }
 #endif
 
-        return WorkerResult::pass();
-    }
-
-    if (Utils::isDirMask(buff.st_mode)) {
-        // qDebug() << "ERR_DIR_ALREADY_EXIST";
-        return WorkerResult::fail(KIO::ERR_DIR_ALREADY_EXIST, path);
-    }
-    return WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, path);
+    return WorkerResult::pass();
 }
 
 WorkerResult FileProtocol::redirect(const QUrl &url)
