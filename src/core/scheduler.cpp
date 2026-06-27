@@ -25,8 +25,15 @@
 #include <QThread>
 #include <QThreadStorage>
 
-// Workers may be idle for a certain time (3 minutes) before they are killed.
-static const int s_idleWorkerLifetime = 3 * 60;
+// Workers may be idle for a certain time (1 minute by default) before they are killed.
+// The KIO_WORKER_IDLE_TIMEOUT environment variable overrides the value (in seconds); it is mostly
+// a testing seam to make the grim reaper observable without a long wait.
+static int idleWorkerLifetime()
+{
+    bool ok = false;
+    const int seconds = qEnvironmentVariableIntValue("KIO_WORKER_IDLE_TIMEOUT", &ok);
+    return ok ? seconds : 60;
+}
 
 using namespace KIO;
 
@@ -186,7 +193,7 @@ QList<Worker *> WorkerManager::allWorkers() const
 void WorkerManager::scheduleGrimReaper()
 {
     if (!m_grimTimer.isActive()) {
-        m_grimTimer.start((s_idleWorkerLifetime / 2) * 1000);
+        m_grimTimer.start((idleWorkerLifetime() / 2) * 1000);
     }
 }
 
@@ -196,7 +203,7 @@ void WorkerManager::grimReaper()
     QMultiHash<QString, Worker *>::Iterator it = m_idleWorkers.begin();
     while (it != m_idleWorkers.end()) {
         Worker *worker = it.value();
-        if (worker->idleTime() >= s_idleWorkerLifetime) {
+        if (worker->idleTime() >= idleWorkerLifetime()) {
             it = m_idleWorkers.erase(it);
             if (worker->job()) {
                 // qDebug() << "Idle worker" << worker << "still has job" << worker->job();
