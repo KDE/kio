@@ -33,6 +33,7 @@ Name[nan_TW]=Mozilla 開發者網路 (MDN)
 Name[nan_TW@latin]=Mozilla Khai-huat-tsiá Bāng-lōo (MDN)
 Name[nb]=Mozilla Developer Network (MDN)
 Name[nl]=Mozilla Developer Network (MDN)
+Name[nn]=Mozilla Developer Network (MDN)
 Name[pl]=Mozilla Developer Network (MDN)
 Name[pt]=Rede de Desenvolvedores Mozilla (MDN)
 Name[pt_BR]=Rede de desenvolvedores Mozilla (MDN)
@@ -81,6 +82,7 @@ Query[nan_TW]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[nan_TW@latin]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[nb]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[nl]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[nn]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[pl]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[pt]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[pt_BR]=https://developer.mozilla.org/en-US/search?q=\\{@}

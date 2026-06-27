@@ -22,6 +22,7 @@ Name[lt]=OpenStreetMap
 Name[nan_TW]=OpenStreetMap
 Name[nan_TW@latin]=OpenStreetMap
 Name[nl]=OpenStreetMap
+Name[nn]=OpenStreetMap
 Name[pt_BR]=OpenStreetMap
 Name[ru]=OpenStreetMap
 Name[sk]=OpenStreetMap
@@ -51,6 +52,7 @@ Query[lt]=https://www.openstreetmap.org/search?query=\\{@}
 Query[nan_TW]=https://www.openstreetmap.org/search?query=\\{@}
 Query[nan_TW@latin]=https://www.openstreetmap.org/search?query=\\{@}
 Query[nl]=https://www.openstreetmap.org/search?query=\\{@}
+Query[nn]=https://www.openstreetmap.org/search?query=\\{@}
 Query[pt_BR]=https://www.openstreetmap.org/search?query=\\{@}
 Query[ru]=https://www.openstreetmap.org/search?query=\\{@}
 Query[sk]=https://www.openstreetmap.org/search?query=\\{@}

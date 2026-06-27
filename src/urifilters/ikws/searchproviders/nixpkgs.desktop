@@ -33,6 +33,7 @@ Name[nan_TW]=Nix 套件
 Name[nan_TW@latin]=Nix Thò-kiānn
 Name[nb]=Nix-pakker
 Name[nl]=Nix-pakketten
+Name[nn]=Nix-pakkar
 Name[pl]=Pakiety Nix
 Name[pt]=Pesquisa de Pacotes do NixOS
 Name[pt_BR]=Pacotes nix
@@ -81,6 +82,7 @@ Query[nan_TW]=https://search.nixos.org/packages?sort=relevance&type=packages&que
 Query[nan_TW@latin]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[nb]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[nl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[nn]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[pl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[pt]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[pt_BR]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}

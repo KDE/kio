@@ -33,6 +33,7 @@ Name[nan_TW]=npm
 Name[nan_TW@latin]=npm
 Name[nb]=npm
 Name[nl]=npm
+Name[nn]=npm
 Name[pl]=npm
 Name[pt]=npm
 Name[pt_BR]=npm
@@ -81,6 +82,7 @@ Query[nan_TW]=https://www.npmjs.com/search?q=\\{@}
 Query[nan_TW@latin]=https://www.npmjs.com/search?q=\\{@}
 Query[nb]=https://www.npmjs.com/search?q=\\{@}
 Query[nl]=https://www.npmjs.com/search?q=\\{@}
+Query[nn]=https://www.npmjs.com/search?q=\\{@}
 Query[pl]=https://www.npmjs.com/search?q=\\{@}
 Query[pt]=https://www.npmjs.com/search?q=\\{@}
 Query[pt_BR]=https://www.npmjs.com/search?q=\\{@}

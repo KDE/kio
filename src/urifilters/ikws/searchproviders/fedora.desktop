@@ -32,6 +32,7 @@ Name[nan_TW]=Fedora 套件
 Name[nan_TW@latin]=Fedora Thò-kiānn
 Name[nb]=Fedora-pakker
 Name[nl]=Fedora-pakketten
+Name[nn]=Fedora-pakkar
 Name[pl]=Pakiety Fedory
 Name[pt]=Pesquisa de Pacotes do Fedora
 Name[pt_BR]=Pacotes Fedora
@@ -81,6 +82,7 @@ Query[nan_TW]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[nan_TW@latin]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[nb]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[nl]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[nn]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[pl]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[pt]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[pt_BR]=https://packages.fedoraproject.org/search?query=\\{@}
