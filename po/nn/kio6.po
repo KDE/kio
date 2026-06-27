@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-06-26 00:41+0000\n"
-"PO-Revision-Date: 2026-06-23 18:24+0200\n"
+"POT-Creation-Date: 2026-06-27 00:40+0000\n"
+"PO-Revision-Date: 2026-06-26 18:26+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -718,7 +718,7 @@ msgstr "Fila er for stor til å få plass i papirkorga."
 #: core/job_error.cpp:264
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
-msgstr ""
+msgstr "Ei papirkorgmappe vart ikkje funnen og kunne ikkje opprettast her."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -1973,6 +1973,8 @@ msgid ""
 "Although contact was made with the server, a response was not received "
 "within the amount of time allocated for the request."
 msgstr ""
+"Det vart oppnådd kontakt med tenaren, men det kom ikkje noko svar innan "
+"svarfristen."
 
 #: core/job_error.cpp:1107
 #, kde-format
@@ -2394,6 +2396,9 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"Tryggleiken til KIO-arbeidaren for protokollen «%1», som vanlegvis ber om "
+"utvida løyve, kan ikkje garanterast, sidan andre brukarar enn rotbrukaren òg "
+"er gjevne tilgang til å endra på han på %2."
 
 #: core/worker.cpp:347
 #, kde-format
@@ -2413,6 +2418,8 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"KIO-arbeidaren for protokollen «%1» i %2 vart ikkje lasta, då alle KIO-"
+"arbeidarane utanfor %3 som ber om utvida løyve, vert rekna som usikre."
 
 #: core/worker.cpp:377
 #, kde-format
@@ -3518,16 +3525,13 @@ msgstr ""
 "skal lagrast.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2970
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>Dette er filtypeveljaren. Du brukar han til å velja i kva format fila "
-"skal lagrast.</qt>"
+"<qt>Dette er filtypeveljaren. Du brukar han til å velja formatet til dei "
+"viste filene.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:235
 #, kde-format
@@ -3625,6 +3629,9 @@ msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
+"Det er ikkje mogleg å oppretta ei fil eller mappe med namnet <filename>%1</"
+"filename>, då adressa ville overlappa med adressa til heimemappa til ein "
+"brukar."
 
 #: filewidgets/knewfilemenu.cpp:1272
 #, kde-format
@@ -3762,10 +3769,10 @@ msgid "Show Full Path"
 msgstr "Vis heile adressa"
 
 #: filewidgets/kurlnavigator.cpp:839
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "Kan ikkje overføra <filename>%1</filename>"
+msgstr "Gå til ei vilkårleg mappe i adressa <filename>%1</filename>"
 
 #: filewidgets/kurlnavigatorbutton.cpp:725
 #, kde-format
@@ -3777,7 +3784,7 @@ msgstr "Fleire"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "Gå til mappa i adressa"
 
 #: filewidgets/kurlnavigatorplacesselector.cpp:49
 #, kde-format
@@ -3877,6 +3884,8 @@ msgstr "Ikonfila er for stor – avbryt nedlasting"
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
+"FilePreviewJob: Hoppar over tom fil. Det kan vera ei øydelagd symbolsk "
+"lenkje: %1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
@@ -4129,7 +4138,7 @@ msgstr "Kommando som skal køyrast"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "Nettadresser eller lokale filer som skal brukast for «kommando»"
 
-#: kioworkers/file/file.cpp:684
+#: kioworkers/file/file.cpp:689
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4138,7 +4147,7 @@ msgstr ""
 "Klarte ikkje endra løyva for\n"
 "%1"
 
-#: kioworkers/file/file.cpp:692
+#: kioworkers/file/file.cpp:697
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4148,17 +4157,17 @@ msgstr ""
 "Klarte ikkje byta eigar og gruppe for\n"
 "%1"
 
-#: kioworkers/file/file.cpp:772 kioworkers/file/file.cpp:864
+#: kioworkers/file/file.cpp:777 kioworkers/file/file.cpp:869
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Klarte ikkje opna mellombels fil"
 
-#: kioworkers/file/file.cpp:796
+#: kioworkers/file/file.cpp:801
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Fann ikkje programmet «mount»"
 
-#: kioworkers/file/file.cpp:873
+#: kioworkers/file/file.cpp:878
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Fann ikkje programmet «unmount»"
@@ -5751,16 +5760,13 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
-"Skriv inn skildringa til dette programmet, basert på bruken. Eksempel:"
-"oppringingsprogrammet (KPPP) vil vera «Oppringingsverktøy»."
+"Skriv inn eit generisk namn på programmet. Eksempel: Eit biletvisings­program "
+"kan du kalla «Biletvisar»."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
@@ -5771,16 +5777,13 @@ msgstr "&Generisk namn:"
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
-"Skriv inn skildringa til dette programmet, basert på bruken. Eksempel:"
-"oppringingsprogrammet (KPPP) vil vera «Oppringingsverktøy»."
+"Skriv inn ei skildringa av programmet basert på bruken. Eksempel: Eit "
+"biletvisings­program kan få skildringa «Visa og redigera bilete»."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -6116,7 +6119,7 @@ msgstr "Endra …"
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
-msgstr ""
+msgstr "Endra standardprogram for opning av filer av typen «%1»."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1076
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1077
@@ -6535,16 +6538,14 @@ msgid "Verifying checksum…"
 msgstr "Stadfestar sjekksum …"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2453
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
-msgstr "Filene er <b>heilt like</b>."
+msgstr "Sjekksummane av alle filene er identiske."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2458
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
-msgstr "Filene er <b>forskjellige</b>."
+msgstr "Dei valde filene er ulike sjekksummar."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2464
 #, kde-format
@@ -6706,12 +6707,10 @@ msgid "pasted file"
 msgstr "innlimt fil"
 
 #: widgets/paste.cpp:79 widgets/paste.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "&Lim inn frå utklippstavla …"
+msgstr "Lim inn frå utklippstavla"
 
 #: widgets/paste.cpp:122
 #, kde-format
@@ -7020,24 +7019,22 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"Ugyldig filnamn: Det nye namnet ei følgje med #-teikn, med mindre alle "
+"filene har ulike filetternamn."
 
 #: widgets/renamefiledialog.cpp:310
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
-msgstr[0] "Endra namn på det %1 merkte elementet til:"
-msgstr[1] "Endra namn på dei %1 merkte elementa til:"
+msgstr[0] "Endra namn på det %1 merkte elementet slik:"
+msgstr[1] "Endra namn på dei %1 merkte elementa slik:"
 
 #: widgets/renamefiledialog.cpp:314
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
-msgstr "Byt ut"
+msgstr "Byter ut:"
 
 #: widgets/renamefiledialog.cpp:316
 #, kde-format
@@ -7052,17 +7049,16 @@ msgid "With:"
 msgstr "Med:"
 
 #: widgets/renamefiledialog.cpp:322
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
-msgstr "Byt ut"
+msgstr "Nytekst"
 
 #: widgets/renamefiledialog.cpp:369
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
-msgstr ""
+msgstr "Ingen filnamn inneheld mønsteret."
 
 #: widgets/renamefiledialog.cpp:378
 #, kde-kuit-format
@@ -7071,17 +7067,16 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"Utbyting av «%1» med tom tekst ville gjort at <filename>%2</filename> fekk "
+"tomt filnamn."
 
 #: widgets/renamefiledialog.cpp:404
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] "Endra namn på det %1 merkte elementet til:"
-msgstr[1] "Endra namn på dei %1 merkte elementa til:"
+msgstr[0] "Endra namn på det %1 merkte elementet:"
+msgstr[1] "Endra namn på dei %1 merkte elementa:"
 
 #: widgets/renamefiledialog.cpp:407
 #, kde-format
@@ -7135,7 +7130,7 @@ msgstr "Korleis endra namn:"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
-msgstr ""
+msgstr "Talfølgje"
 
 #: widgets/renamefiledialog.cpp:555
 #, kde-format
@@ -7156,12 +7151,12 @@ msgid "Preview:"
 msgstr "Førehandsvising:"
 
 #: widgets/renamefiledialog.cpp:691
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "<filename>%1</filename> ser ikkje ut til å vera ei køyrbar programfil."
+msgstr ""
+"<filename>%1</filename> kan ikkje endrast namn på slik at filnamnet vert "
+"tomt."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
@@ -7313,33 +7308,19 @@ msgstr[1] ""
 "strong='true'>Du kan ikkje angra denne handlinga.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"Vil du sletta dette elementet for alltid?<nl/><nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Du kan ikkje angra denne "
-"handlinga.</emphasis>"
+"Det er ikkje plass i papirkorga til fila. Vil du heller sletta ho for alltid?"
+"<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>Du kan "
+"ikkje angra denne handlinga.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7349,42 +7330,28 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"%1 element er for stort til å flyttast til papirkorga. Vil du heller sletta "
-"det for alltid?<nl/>\n"
-"<nl/><emphasis strong='true'>Du kan ikkje angra denne handlinga.</emphasis>"
+"Det er ikkje plass i papirkorga til denne %1 fila. Vil du heller sletta ho "
+"for alltid?<nl/><emphasis strong='true'>Du kan ikkje angra denne handlinga.</"
+"emphasis>"
 msgstr[1] ""
-"%1 element er for store til å flyttast til papirkorga. Vil du heller sletta "
-"dei for alltid?<nl/>\n"
-"<nl/><emphasis strong='true'>Du kan ikkje angra denne handlinga.</emphasis>"
+"Det er ikkje plass i papirkorga til desse %1 filene. Vil du heller sletta "
+"dei for alltid?<nl/><emphasis strong='true'>Du kan ikkje angra denne "
+"handlinga.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Vil du sletta dette elementet for alltid?<nl/><nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Du kan ikkje angra denne "
-"handlinga.</emphasis>"
+"Det er ikkje noka papirkorg tilgjengeleg for mappa elementet ligg i. Vil du "
+"heller sletta det for alltid?<nl/><nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong='true'>Du kan ikkje angra denne handlinga.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7395,13 +7362,13 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"%1 element er for stort til å flyttast til papirkorga. Vil du heller sletta "
-"det for alltid?<nl/>\n"
-"<nl/><emphasis strong='true'>Du kan ikkje angra denne handlinga.</emphasis>"
+"Det er ikkje noka papirkorg tilgjengeleg for mappa dette %1 elementet ligg "
+"i. <nl/><emphasis strong='true'>Du kan ikkje angra denne handlinga.</"
+"emphasis>"
 msgstr[1] ""
-"%1 element er for store til å flyttast til papirkorga. Vil du heller sletta "
-"dei for alltid?<nl/>\n"
-"<nl/><emphasis strong='true'>Du kan ikkje angra denne handlinga.</emphasis>"
+"Det er ikkje noka papirkorg tilgjengeleg for mappa desse %1 elementa ligg i."
+"<nl/><nl/><emphasis strong='true'>Du kan ikkje angra denne handlinga.</"
+"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
