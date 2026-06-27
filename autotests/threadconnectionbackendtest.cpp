@@ -100,7 +100,7 @@ void ThreadConnectionBackendTest::testWorkerReceivesFromApplication()
 
     QTRY_COMPARE(sink.count(), 2);
 
-    appBackend->closeSocket(); // makes waitForIncomingTask() return and the worker loop exit
+    appBackend->close(); // makes waitForIncomingTask() return and the worker loop exit
     QVERIFY(workerThread->wait(5000));
     delete workerThread;
 
@@ -168,7 +168,7 @@ void ThreadConnectionBackendTest::testWorkerCloseDisconnectsApplication()
     QSignalSpy disconnectedSpy(appBackend.get(), &ConnectionBackend::disconnected);
     QVERIFY(disconnectedSpy.isValid());
 
-    workerBackend->closeSocket(); // worker end goes away -> application is notified
+    workerBackend->close(); // worker end goes away -> application is notified
 
     QTRY_COMPARE(disconnectedSpy.count(), 1);
     QCOMPARE(appBackend->state, ConnectionBackend::Idle);

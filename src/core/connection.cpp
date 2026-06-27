@@ -111,11 +111,11 @@ void Connection::close()
 {
     if (d->backend) {
         d->backend->disconnect(this);
-        // closeSocket() unblocks a WorkerThread parked in waitForReadyRead(). The backend itself is
+        // close() unblocks a WorkerThread parked in waitForReadyRead(). The backend itself is
         // left owned by the unique_ptr and freed on destruction: deleting it here would either leak
         // at teardown (deleteLater() with no event loop) or delete it from inside its own
         // disconnected() signal.
-        d->backend->closeSocket();
+        d->backend->close();
     }
     d->outgoingTasks.clear();
     d->incomingTasks.clear();

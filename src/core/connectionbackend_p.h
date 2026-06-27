@@ -49,7 +49,7 @@ public:
     ~ConnectionBackend() override = default;
 
     virtual void setSuspended(bool enable) = 0;
-    virtual void closeSocket() = 0;
+    virtual void close() = 0;
     virtual bool waitForIncomingTask(int ms) = 0;
     virtual bool sendCommand(int command, const QByteArray &data) = 0;
 

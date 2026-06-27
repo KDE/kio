@@ -41,7 +41,7 @@ public:
     ~SocketConnectionBackend() override;
 
     void setSuspended(bool enable) override;
-    void closeSocket() override;
+    void close() override;
     bool waitForIncomingTask(int ms) override;
     bool sendCommand(int command, const QByteArray &data) override;
 

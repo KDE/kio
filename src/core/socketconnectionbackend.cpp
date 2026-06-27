@@ -36,7 +36,7 @@ SocketConnectionBackend::~SocketConnectionBackend()
 {
 }
 
-void SocketConnectionBackend::closeSocket()
+void SocketConnectionBackend::close()
 {
     if (socket) {
         socket->close();

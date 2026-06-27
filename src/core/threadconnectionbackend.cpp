@@ -156,7 +156,7 @@ bool ThreadConnectionBackend::waitForIncomingTask(int ms)
     return true;
 }
 
-void ThreadConnectionBackend::closeSocket()
+void ThreadConnectionBackend::close()
 {
     if (!m_channel) {
         return;

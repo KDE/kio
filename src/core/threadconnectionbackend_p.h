@@ -58,7 +58,7 @@ public:
     static std::pair<std::unique_ptr<ThreadConnectionBackend>, std::unique_ptr<ThreadConnectionBackend>> createPair();
 
     void setSuspended(bool suspended) override;
-    void closeSocket() override;
+    void close() override;
     bool waitForIncomingTask(int ms) override;
     bool sendCommand(int command, const QByteArray &data) override;
 
