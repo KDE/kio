@@ -55,6 +55,7 @@ private:
     QLocalSocket *socket;
     QLocalServer *localServer;
     std::optional<Task> pendingTask = std::nullopt;
+    long pendingLen = 0; // expected payload size, valid while pendingTask has a value
     bool signalEmitted;
 
 Q_SIGNALS:

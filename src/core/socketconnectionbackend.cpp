@@ -259,18 +259,19 @@ void SocketConnectionBackend::socketReadyRead()
             }
             auto cmd = strtol(p, nullptr, 16);
 
-            pendingTask = Task{.cmd = static_cast<int>(cmd), .len = len};
+            pendingTask = Task{.cmd = static_cast<int>(cmd)};
+            pendingLen = len;
 
-            qCDebug(KIO_CORE_CONNECTION) << this << "Beginning of command" << pendingTask->cmd << "of size" << pendingTask->len;
+            qCDebug(KIO_CORE_CONNECTION) << this << "Beginning of command" << pendingTask->cmd << "of size" << pendingLen;
         }
 
         QPointer<ConnectionBackend> that = this;
 
-        const auto toRead = std::min<off_t>(socket->bytesAvailable(), pendingTask->len - pendingTask->data.size());
+        const auto toRead = std::min<off_t>(socket->bytesAvailable(), pendingLen - pendingTask->data.size());
         qCDebug(KIO_CORE_CONNECTION) << socket << "Want to read" << toRead << "bytes; appending to already existing bytes" << pendingTask->data.size();
         pendingTask->data += socket->read(toRead);
 
-        if (pendingTask->data.size() == pendingTask->len) { // read all data of this task -> emit it and reset
+        if (pendingTask->data.size() == pendingLen) { // read all data of this task -> emit it and reset
             signalEmitted = true;
             qCDebug(KIO_CORE_CONNECTION) << "emitting task" << pendingTask->cmd << pendingTask->data.size();
             Q_EMIT commandReceived(pendingTask.value());
