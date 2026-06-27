@@ -25,8 +25,6 @@ ThreadConnectionBackend::~ThreadConnectionBackend()
     QMutexLocker lock(&m_channel->mutex);
     if (m_role == Role::Application) {
         m_channel->appBackend = nullptr;
-    } else {
-        m_channel->workerBackend = nullptr;
     }
     closeAllDirectionsLocked();
 }
@@ -52,7 +50,6 @@ std::pair<std::unique_ptr<ThreadConnectionBackend>, std::unique_ptr<ThreadConnec
 
     QMutexLocker lock(&channel->mutex);
     channel->appBackend = app.get();
-    channel->workerBackend = worker.get();
     app->state = Connected;
     worker->state = Connected;
     return {std::move(app), std::move(worker)};

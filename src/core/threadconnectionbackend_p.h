@@ -62,11 +62,9 @@ public:
     bool waitForIncomingTask(int ms) override;
     bool sendCommand(int command, const QByteArray &data) override;
 
-public Q_SLOTS:
+private Q_SLOTS:
     /// Emit commandReceived() for every queued task (drives the event-loop side).
     void drainIncoming();
-
-private Q_SLOTS:
     /// Emit disconnected() after the peer closed its end (event-loop side).
     void handlePeerClosed();
 
@@ -86,8 +84,10 @@ private:
         QMutex mutex;
         Direction toApplication; // worker -> application
         Direction toWorker; // application -> worker
-        ThreadConnectionBackend *appBackend = nullptr; // for queued wakeups, nulled under mutex on destruction
-        ThreadConnectionBackend *workerBackend = nullptr;
+        // Only the application end is tracked: it is the one woken by a posted invocation, so it must
+        // stay reachable until torn down. The worker end is woken by a wait condition, so the channel
+        // never needs to reach it. Nulled under the mutex on destruction.
+        ThreadConnectionBackend *appBackend = nullptr;
         // Coalesces worker -> application wakeups: at most one drainIncoming() is queued at a
         // time, so a burst of sends costs one cross-thread event instead of one per message.
         std::atomic<bool> appDrainScheduled{false};
