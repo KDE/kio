@@ -49,6 +49,7 @@ ecm_add_tests(
 if (NOT WIN32)
   ecm_add_tests(
     jobtest.cpp
+    socketworkertest.cpp
     kfileitemtest.cpp
     mkpathjobtest.cpp
     deletejobtest.cpp
