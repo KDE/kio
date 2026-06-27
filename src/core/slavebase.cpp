@@ -110,7 +110,6 @@ public:
     UDSEntryList pendingListEntries;
     QElapsedTimer m_timeSinceLastBatch;
     Connection appConnection{Connection::Type::Worker};
-    QString poolSocket;
     bool isConnectedToApp;
 
     QString slaveid;
@@ -242,15 +241,11 @@ static void genericsig_handler(int sigNumber)
 
 //////////////
 
-SlaveBase::SlaveBase(const QByteArray &protocol, const QByteArray &pool_socket, const QByteArray &app_socket)
+SlaveBase::SlaveBase(const QByteArray &protocol, std::unique_ptr<KIO::ConnectionBackend> backend)
     : mProtocol(protocol)
     , d(new SlaveBasePrivate(this))
 
 {
-    // app_socket may be empty for an in-process worker: its backend is then installed
-    // later via setConnectionBackend() instead of connecting to a socket address.
-    d->poolSocket = QFile::decodeName(pool_socket);
-
     if (QThread::currentThread() == qApp->thread()) {
 #ifndef Q_OS_ANDROID
         // Setup KCrash for crash reports, but not when running the worker in-app
@@ -286,8 +281,8 @@ SlaveBase::SlaveBase(const QByteArray &protocol, const QByteArray &pool_socket, 
     d->onHold = false;
     //    d->processed_size = 0;
     d->totalSize = 0;
-    if (!app_socket.isEmpty()) {
-        connectSlave(QFile::decodeName(app_socket));
+    if (backend) {
+        setConnectionBackend(std::move(backend));
     }
 
     d->remotefile = nullptr;
@@ -339,15 +334,7 @@ void SlaveBase::dispatchLoop()
         }
 
         if (ret == -1) { // some error occurred, perhaps no more application
-            // When the app exits, should the slave be put back in the pool ?
-            if (!d->exit_loop && d->isConnectedToApp && !d->poolSocket.isEmpty()) {
-                disconnectSlave();
-                d->isConnectedToApp = false;
-                closeConnection();
-                connectSlave(d->poolSocket);
-            } else {
-                break;
-            }
+            break;
         }
 
         // I think we get here when we were killed in dispatch() and not in select()
@@ -362,24 +349,6 @@ void SlaveBase::dispatchLoop()
 
     // execute deferred deletes
     QCoreApplication::sendPostedEvents(nullptr, QEvent::DeferredDelete);
-}
-
-void SlaveBase::connectSlave(const QString &address)
-{
-    d->appConnection.connectToRemote(QUrl(address));
-
-    if (!d->appConnection.inited()) {
-        /*qDebug() << "failed to connect to" << address << endl
-                      << "Reason:" << d->appConnection.errorString();*/
-        exit();
-    }
-
-    d->inOpenLoop = false;
-}
-
-void SlaveBase::disconnectSlave()
-{
-    d->appConnection.close();
 }
 
 void SlaveBase::setConnectionBackend(std::unique_ptr<KIO::ConnectionBackend> backend)

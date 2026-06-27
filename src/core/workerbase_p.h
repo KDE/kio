@@ -14,6 +14,10 @@
 
 #include <commands_p.h>
 #include <slavebase.h>
+#include <socketconnectionbackend_p.h>
+
+#include <QFile>
+#include <QUrl>
 
 namespace KIO
 {
@@ -202,9 +206,23 @@ class WorkerBasePrivate
 {
 public:
     WorkerBasePrivate(const QByteArray &protocol, const QByteArray &poolSocket, const QByteArray &appSocket, WorkerBase *base)
-        : bridge(protocol, poolSocket, appSocket)
+        : bridge(protocol, makeConnectionBackend(appSocket))
     {
+        Q_UNUSED(poolSocket) // legacy klauncher pool socket, no longer used
         bridge.base = base;
+    }
+
+    // Out-of-process workers are launched with the application socket address: connect back to it
+    // and hand the resulting backend to the bridge. In-process workers get an empty address and
+    // receive their socket-less backend later via SlaveBase::setConnectionBackend().
+    static std::unique_ptr<ConnectionBackend> makeConnectionBackend(const QByteArray &appSocket)
+    {
+        if (appSocket.isEmpty()) {
+            return {};
+        }
+        auto backend = std::make_unique<SocketConnectionBackend>();
+        backend->connectToRemote(QUrl(QFile::decodeName(appSocket)));
+        return backend;
     }
 
     WorkerSlaveBaseBridge bridge;

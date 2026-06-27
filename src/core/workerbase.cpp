@@ -27,16 +27,6 @@ void WorkerBase::dispatchLoop()
     d->bridge.dispatchLoop();
 }
 
-void WorkerBase::connectWorker(const QString &address)
-{
-    d->bridge.connectSlave(address);
-}
-
-void WorkerBase::disconnectWorker()
-{
-    d->bridge.disconnectSlave();
-}
-
 void WorkerBase::setMetaData(const QString &key, const QString &value)
 {
     d->bridge.setMetaData(key, value);

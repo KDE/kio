@@ -57,7 +57,7 @@ class SlaveBase
 {
 public:
     KIOCORE_DEPRECATED_VERSION_BELATED(5, 101, 5, 96, "Use WorkerBase")
-    SlaveBase(const QByteArray &protocol, const QByteArray &pool_socket, const QByteArray &app_socket);
+    SlaveBase(const QByteArray &protocol, std::unique_ptr<KIO::ConnectionBackend> backend = {});
     virtual ~SlaveBase();
 
     /*
@@ -752,13 +752,6 @@ public:
      * \since 5.0
      */
     void listEntry(const UDSEntry &entry);
-
-    /*
-     * internal function to connect a slave to/ disconnect from
-     * either the slave pool or the application
-     */
-    void connectSlave(const QString &path);
-    void disconnectSlave();
 
     /*
      * Internal: adopt a ready-made connection backend instead of connecting to a

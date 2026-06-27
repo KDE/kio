@@ -840,17 +840,6 @@ public:
     void listEntry(const UDSEntry &entry);
 
     /*!
-     * internal function to connect a worker to/ disconnect from
-     * either the worker pool or the application
-     */
-    void connectWorker(const QString &path);
-
-    /*!
-     *
-     */
-    void disconnectWorker();
-
-    /*!
      * Prompt the user for Authorization info (login & password).
      *
      * Use this function to request authorization information from
