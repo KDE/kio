@@ -35,6 +35,7 @@ ecm_add_tests(
  mimetypefinderjobtest.cpp
  threadtest.cpp
  workercanceltest.cpp
+ workerreusetest.cpp
  udsentrytest.cpp
  urlutiltest.cpp
  batchrenamejobtest.cpp
