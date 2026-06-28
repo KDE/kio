@@ -1534,10 +1534,10 @@ void KFilePlacesView::dragMoveEvent(QDragMoveEvent *event)
     QListView::dragMoveEvent(event);
 
     bool autoActivate = false;
-    // update the drop indicator
+    // compute the new drop indicator
     const QPoint pos = event->position().toPoint();
     const QModelIndex index = indexAt(pos);
-    setDirtyRegion(d->m_dropRect);
+    const QRect previousDropRect = d->m_dropRect;
     if (index.isValid()) {
         d->m_dropIndex = index;
         const QRect rect = visualRect(index);
@@ -1570,7 +1570,9 @@ void KFilePlacesView::dragMoveEvent(QDragMoveEvent *event)
         }
     }
 
-    setDirtyRegion(d->m_dropRect);
+    if (d->m_dropRect != previousDropRect) {
+        setDirtyRegion(QRegion(previousDropRect).united(d->m_dropRect));
+    }
 }
 
 void KFilePlacesView::dropEvent(QDropEvent *event)
