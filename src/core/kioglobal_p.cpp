@@ -9,7 +9,31 @@
 
 #include <QStandardPaths>
 
+#include <type_traits>
+
 using LocationMap = QMap<QString, QString>;
+
+namespace
+{
+// QStandardPaths::ProjectsLocation was added in Qt 6.12. Detect the enumerator so this keeps
+// building against older Qt, where the projects directory simply gets no dedicated icon. The use of
+// ProjectsLocation must stay in a template so the discarded if-constexpr branch is not instantiated.
+template<typename T, typename = void>
+constexpr bool hasProjectsLocation = false;
+template<typename T>
+constexpr bool hasProjectsLocation<T, std::void_t<decltype(T::ProjectsLocation)>> = true;
+
+template<typename T>
+void insertProjectsLocation(LocationMap &map)
+{
+    if constexpr (hasProjectsLocation<T>) {
+        const QStringList locations = QStandardPaths::standardLocations(T::ProjectsLocation);
+        for (const QString &location : locations) {
+            map.insert(location, QStringLiteral("folder-projects"));
+        }
+    }
+}
+}
 
 static QMap<QString, QString> standardLocationsMap()
 {
@@ -42,6 +66,9 @@ static QMap<QString, QString> standardLocationsMap()
             map.insert(location, QLatin1String(row.iconName));
         }
     }
+
+    insertProjectsLocation<QStandardPaths>(map);
+
     return map;
 }
 
