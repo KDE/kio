@@ -592,9 +592,6 @@ void KFileWidgetTest::testDropFile()
     std::unique_ptr<QMimeData> mimeData(new QMimeData());
     mimeData->setUrls(QList<QUrl>() << fileUrl);
 
-    KDirLister *dirLister = fileWidget.dirOperator()->dirLister();
-    QSignalSpy spy(dirLister, qOverload<>(&KCoreDirLister::completed));
-
     QAbstractItemView *view = fileWidget.dirOperator()->view();
     QVERIFY(view);
 
@@ -605,15 +602,12 @@ void KFileWidgetTest::testDropFile()
     QDropEvent event(QPoint(), Qt::DropAction::MoveAction, mimeData.get(), Qt::MouseButton::LeftButton, Qt::KeyboardModifier::NoModifier);
     QVERIFY(qApp->sendEvent(view->viewport(), &event));
 
-    if (!dir.isEmpty()) {
-        // once we drop a file the dirlister scans the dir
-        // wait for the completed signal from the dirlister
-        QVERIFY(spy.wait());
-    }
-
-    // Verify the expected populated name.
+    // Verify the expected populated name. Dropping a file selects it through the
+    // view, which only populates the location edit once the directory listing has
+    // finished, so wait for the location edit to catch up rather than asserting
+    // synchronously.
     QCOMPARE(fileWidget.baseUrl().adjusted(QUrl::StripTrailingSlash), dirUrl);
-    QCOMPARE(fileWidget.locationEdit()->currentText(), expectedCurrentText);
+    QTRY_COMPARE(fileWidget.locationEdit()->currentText(), expectedCurrentText);
 
     // QFileDialog ends up calling KDEPlatformFileDialog::selectedFiles()
     // which calls KFileWidget::selectedUrls().
