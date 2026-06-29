@@ -835,6 +835,26 @@ void CopyJobPrivate::slotReport()
         }
         break;
 
+    case STATE_COPYING_FILES_BATCH: {
+        // A batch runs as one worker command for many seconds; without this the byte/file/percent
+        // amounts would freeze for its whole duration and jump only at batch boundaries. The worker
+        // streams bytes via processedSize (m_fileProcessedSize) and completed indices via the batch
+        // infoMessage handler (m_batchReported), so both can advance live here. The current-file
+        // copying() signal is emitted from that handler, not from here.
+        const int filesDone = m_processedFiles + int(m_batchReported.size());
+        const bool bytesTotalUnknown = (m_totalSize == 0);
+        const bool noByteProgress = ((m_processedSize + m_fileProcessedSize) == 0);
+        const int totalFiles = m_processedFiles + files.count() + m_filesHandledByDirectRename;
+        if ((bytesTotalUnknown || noByteProgress) && totalFiles > 0) {
+            q->setProgressUnit(KJob::Files);
+        } else {
+            q->setProgressUnit(KJob::Bytes);
+        }
+        q->setProcessedAmount(KJob::Files, filesDone);
+        q->setProcessedAmount(KJob::Bytes, m_processedSize + m_fileProcessedSize);
+        break;
+    }
+
     case STATE_CREATING_DIRS:
         q->setProcessedAmount(KJob::Directories, m_processedDirs);
         if (m_bURLDirty) {
@@ -2346,6 +2366,13 @@ void CopyJobPrivate::slotResultCopyingBatch(KJob *job)
     KIO::Job *kiojob = qobject_cast<KIO::Job *>(job);
 
     if (job->error()) {
+        if (job->error() == ERR_USER_CANCELED) {
+            // A cancel must abort the whole job, not silently resume copying the rest per-file.
+            // Mirror the per-file path (slotResultErrorCopyingFiles): propagate the error from the
+            // subjob, drop it and emit result().
+            q->Job::slotResult(job);
+            return;
+        }
         // The whole command failed (e.g. disk full). Fall back to the per-file path - but files the
         // worker already streamed as copied (copyingDone emitted) are done: account them and drop
         // them so only the rest is retried.
