@@ -10,6 +10,7 @@ Name[es]=Flathub
 Name[fr]=Flathub
 Name[he]=Flathub
 Name[hr]=Flathub
+Name[hu]=Flathub
 Name[ia]=Flathub
 Name[is]=Flathub
 Name[it]=Flathub
@@ -41,6 +42,7 @@ Query[es]=https://flathub.org/apps/search?q=\\{@}
 Query[fr]=https://flathub.org/apps/search?q=\\{@}
 Query[he]=https://flathub.org/he/apps/search?q=\\{@} 
 Query[hr]=https://flathub.org/apps/search?q=\\{@}
+Query[hu]=https://flathub.org/apps/search?q=\\{@}
 Query[ia]=https://flathub.org/apps/search?q=\\{@}
 Query[is]=https://flathub.org/apps/search?q=\\{@}
 Query[it]=https://flathub.org/apps/search?q=\\{@}
