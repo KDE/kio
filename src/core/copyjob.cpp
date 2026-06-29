@@ -2188,6 +2188,24 @@ void CopyJobPrivate::slotResultCopyingBatch(KJob *job)
         return;
     }
 
+    // A worker that implements the batch command always answers with the "batchDeferred" metadata
+    // (possibly empty). Its absence means the worker does not support the command (e.g. a mismatched
+    // or older kio_file): its special() returned success without copying. Treat the whole run as
+    // uncopied and fall back to the per-file path, otherwise the files would be silently skipped.
+    if (!kiojob || !kiojob->metaData().contains(QStringLiteral("batchDeferred"))) {
+        m_useBatchCopy = false;
+        if (kiojob) {
+            m_incomingMetaData += kiojob->metaData();
+        }
+        m_fileProcessedSize = 0;
+        m_batchReported.clear();
+        q->removeSubjob(job);
+        Q_ASSERT(!q->hasSubjobs());
+        state = STATE_COPYING_FILES;
+        copyNextFile(); // 'files' is untouched: the per-file path copies the whole run
+        return;
+    }
+
     // "batchDeferred" lists "index:reason:errno;" for items the worker did NOT copy (an existing
     // destination without Overwrite, or a per-item error).
     QSet<int> deferred;
