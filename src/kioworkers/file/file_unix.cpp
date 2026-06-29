@@ -36,6 +36,7 @@
 #include <kmountpoint.h>
 
 #include <QDataStream>
+#include <QElapsedTimer>
 
 #include <algorithm>
 #include <cerrno>
@@ -480,6 +481,7 @@ enum BatchDeferReason {
 };
 
 enum class ItemOutcome {
+    Begin, // about to copy this file (drives the current-file report; emitted before the copy)
     Done,
     Conflict, // destination already exists and Overwrite was not requested
     Defer, // per-item recoverable failure: skip this file, keep going
@@ -866,6 +868,8 @@ public:
                 continue;
             }
 
+            onItem(op.index, ItemOutcome::Begin, 0); // about to copy this file
+
             errno = 0;
             const CopyOutcome oc = copyOneFileAt(m_srcDirFd, srcName, m_destDirFd, destName, m_destDirCreatedGid, bytesCopied, m_preserve, m_isKilled);
             switch (oc) {
@@ -961,13 +965,41 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
         return wasKilled();
     });
 
+    // Progress + completion reporting, batched on one ~100ms gate so a large run does not flood the
+    // app. Each tick sends one infoMessage "<current>;<done1>,<done2>,..." where <current> is the
+    // index of the file about to be copied (drives copying(), so it names a not-yet-copied file) and
+    // the list is the files completed since the last tick (replayed as copyingDone()), plus the
+    // cumulative byte total via processedSize. The final flush carries the remainder and exact total.
+    // Deferred/errored items are not reported here - they come back in the batchDeferred metadata.
     KIO::filesize_t bytesDone = 0;
+    QElapsedTimer reportTimer;
+    QList<qint32> doneSinceReport;
+    qint32 inFlight = -1; // file about to be / being copied, for copying()
+    auto flushReport = [&]() {
+        processedSize(bytesDone);
+        if (inFlight < 0 && doneSinceReport.isEmpty()) {
+            return;
+        }
+        QString msg = (inFlight >= 0 ? QString::number(inFlight) : QString()) + QLatin1Char(';');
+        QStringList parts;
+        parts.reserve(doneSinceReport.size());
+        for (qint32 i : std::as_const(doneSinceReport)) {
+            parts << QString::number(i);
+        }
+        infoMessage(msg + parts.join(QLatin1Char(',')));
+        doneSinceReport.clear();
+        reportTimer.restart();
+    };
     const int abortErr = engine->copyBatch(todo, bytesDone, [&](int index, ItemOutcome outcome, int err) {
         switch (outcome) {
+        case ItemOutcome::Begin:
+            inFlight = index; // about to copy this file
+            if (!reportTimer.isValid() || reportTimer.hasExpired(100)) {
+                flushReport();
+            }
+            break;
         case ItemOutcome::Done:
-            // Report cumulative progress per file; SlaveBase::processedSize already throttles the
-            // INF_PROCESSED_SIZE messages to ~10/s, so no count-based coalescing is needed here.
-            processedSize(bytesDone);
+            doneSinceReport.append(index);
             break;
         case ItemOutcome::Conflict:
             deferrals.push_back({index, DeferConflict, 0}); // dest exists: let the app resolve it
@@ -978,7 +1010,8 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
             break;
         }
     });
-    processedSize(bytesDone);
+    inFlight = -1; // nothing in flight anymore; final flush carries the remaining completed indices
+    flushReport();
 
     // Return the deferral list as metadata (KIO::special creates a SimpleJob, which delivers
     // metadata but not data()): "index:reason:errno;" per deferred item.

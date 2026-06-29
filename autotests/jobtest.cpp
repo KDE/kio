@@ -2485,8 +2485,27 @@ void JobTest::copyManyFilesBatched()
         QVERIFY2(out.open(QIODevice::ReadOnly), qPrintable(out.fileName()));
         QCOMPARE(out.readAll(), QByteArray("batch-") + QByteArray::number(i));
     }
-    // The per-file copyingDone() signal must fire once per file even when batched.
+    // The per-file copyingDone() signal must fire once per file even when batched, and each must
+    // carry the right source/destination - i.e. the indices the worker streams map back correctly.
     QCOMPARE(spyCopyingDone.count(), n);
+    QStringList copiedFrom;
+    QStringList copiedTo;
+    for (const QList<QVariant> &args : std::as_const(spyCopyingDone)) {
+        copiedFrom << args.at(1).toUrl().toLocalFile();
+        copiedTo << args.at(2).toUrl().toLocalFile();
+    }
+    QStringList expectedFrom;
+    QStringList expectedTo;
+    for (int i = 0; i < n; ++i) {
+        expectedFrom << src + QStringLiteral("f%1").arg(i);
+        expectedTo << dst + QStringLiteral("f%1").arg(i);
+    }
+    copiedFrom.sort();
+    copiedTo.sort();
+    expectedFrom.sort();
+    expectedTo.sort();
+    QCOMPARE(copiedFrom, expectedFrom);
+    QCOMPARE(copiedTo, expectedTo);
     QCOMPARE(job->totalAmount(KJob::Files), n);
     QCOMPARE(job->processedAmount(KJob::Files), n);
     QCOMPARE(job->percent(), 100);
