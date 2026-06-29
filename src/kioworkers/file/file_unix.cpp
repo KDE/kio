@@ -1012,6 +1012,12 @@ public:
         , m_request{.existing = ExistingDest::Refuse, .permissions = NewFilePermissions::FromSource}
     {
     }
+    // Called with the running byte total as each file is copied. Set separately from the
+    // constructor, since the report gate it feeds is built after the engine.
+    void setProgressHook(std::function<void(KIO::filesize_t)> onProgress)
+    {
+        m_onProgress = std::move(onProgress);
+    }
     ~BatchCopyEngine()
     {
         if (m_srcDirFd >= 0) {
@@ -1065,6 +1071,7 @@ private:
     PreserveFn m_preserve; // applied to each successfully copied file (perms/times/owner/ACL)
     gid_t m_egid; // effective gid: the group new files get outside set-group-ID directories
     std::function<bool()> m_isKilled; // polled to abort promptly on cancellation
+    std::function<void(KIO::filesize_t)> m_onProgress; // called with the running byte total as a file is copied
     CopyRequest m_request; // the same for every file of a batch: fresh files carrying the source's own metadata
 
     int m_srcDirFd = -1;
@@ -1096,7 +1103,8 @@ int BatchCopyEngine::copyBatch(const QList<BatchCopyOp> &ops, KIO::filesize_t &b
 
         onItem(op.index, ItemOutcome::Begin, 0); // about to copy this file
 
-        const CopyReport report = copyFileAt(m_srcDirFd, srcName, m_destDirFd, destName, m_destDirGroup, m_request, bytesCopied, m_preserve, m_isKilled);
+        const CopyReport report =
+            copyFileAt(m_srcDirFd, srcName, m_destDirFd, destName, m_destDirGroup, m_request, bytesCopied, m_preserve, m_isKilled, m_onProgress);
         switch (report.outcome) {
         case CopyOutcome::Copied:
             onItem(op.index, ItemOutcome::Done, 0);
@@ -1204,6 +1212,14 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
         doneSinceReport.clear();
         reportTimer.restart();
     };
+    // Bytes as they are copied, on the same gate: a file large enough to take seconds then advances
+    // the byte total while it is being copied, instead of standing still until the next file starts.
+    engine->setProgressHook([&](KIO::filesize_t) {
+        if (!reportTimer.isValid() || reportTimer.hasExpired(100)) {
+            flushReport();
+        }
+    });
+
     const int abortErr = engine->copyBatch(todo, bytesDone, [&](int index, ItemOutcome outcome, int err) {
         switch (outcome) {
         case ItemOutcome::Begin:
