@@ -119,6 +119,8 @@ public:
 #endif
     // Copies a list of local files, the special() sub-command 4. POSIX only.
     KIO::WorkerResult batchCopy(QDataStream &stream);
+    // Stats a list of local files, the special() sub-command 5. POSIX only.
+    KIO::WorkerResult batchStat(QDataStream &stream);
 
 #if HAVE_POSIX_ACL
     static bool isExtendedACL(acl_t acl);

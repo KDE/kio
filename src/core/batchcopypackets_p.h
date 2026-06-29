@@ -20,6 +20,8 @@ namespace KIO
 {
 // The special() sub-command of the file worker that copies a list of local files.
 constexpr qint32 BatchCopyCommand = 4;
+// The special() sub-command of the file worker that stats a list of local files.
+constexpr qint32 BatchStatCommand = 5;
 
 // The most files one batch copy request may name. A larger copy takes several requests.
 constexpr int BatchCopyMaxFiles = 512;

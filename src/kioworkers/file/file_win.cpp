@@ -190,6 +190,11 @@ WorkerResult FileProtocol::batchCopy(QDataStream &)
     return WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, QString());
 }
 
+WorkerResult FileProtocol::batchStat(QDataStream &)
+{
+    return WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, QString());
+}
+
 WorkerResult FileProtocol::listDir(const QUrl &url)
 {
     // qDebug() << "========= LIST " << url << " =========";

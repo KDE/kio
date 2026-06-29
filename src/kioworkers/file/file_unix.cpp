@@ -23,6 +23,7 @@
 
 #include <QDir>
 #include <QFile>
+#include <QFileInfo>
 #include <QMimeDatabase>
 #include <QRandomGenerator>
 #include <QScopeGuard>
@@ -910,6 +911,31 @@ WorkerResult FileProtocol::chown(const QUrl &_url, const QString &owner, const Q
         }
     }
 
+    return WorkerResult::pass();
+}
+
+WorkerResult FileProtocol::batchStat(QDataStream &stream)
+{
+    // The request holds qint32 flags, qint32 count and count paths. The entries go back with
+    // listEntries() in the order of the request, an empty one for a path that cannot be stat-ed.
+    qint32 flags = 0;
+    qint32 count = 0;
+    stream >> flags >> count;
+    Q_UNUSED(flags)
+
+    const KIO::StatDetails details = getStatDetails();
+
+    UDSEntryList entries;
+    entries.reserve(count);
+    for (qint32 i = 0; i < count; ++i) {
+        QString path;
+        stream >> path;
+        UDSEntry entry;
+        const QByteArray _path = QFile::encodeName(path);
+        createUDSEntry(QFileInfo(path).fileName(), AT_FDCWD, _path.constData(), _path, entry, details, path);
+        entries.append(entry);
+    }
+    listEntries(entries);
     return WorkerResult::pass();
 }
 

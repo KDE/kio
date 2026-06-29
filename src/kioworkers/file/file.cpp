@@ -898,6 +898,8 @@ WorkerResult FileProtocol::special(const QByteArray &data)
 #endif
     case KIO::BatchCopyCommand:
         return batchCopy(stream);
+    case KIO::BatchStatCommand:
+        return batchStat(stream);
     default:
         break;
     }
