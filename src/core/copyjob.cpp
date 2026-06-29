@@ -354,6 +354,14 @@ public:
     bool m_useBatchStat = true;
     QList<QUrl> m_batchStatUrls; // sources in the in-flight batch-stat command, in request order
     QHash<QUrl, UDSEntry> m_batchStatResults; // entries prefetched by a batch, keyed by source URL
+    // The worker stats a chunk synchronously and is not killable mid-command, so a chunk is the
+    // worst-case stall. m_batchStatChunk adapts each chunk toward a ~200 ms budget (resized from the
+    // measured round-trip in slotResultStatingBatch). m_batchStatedTo is the index in m_srcList up to
+    // which a batch has been dispatched, so a source left uncached by its chunk falls back to a
+    // per-source stat instead of re-triggering the same batch.
+    int m_batchStatChunk = 128;
+    qsizetype m_batchStatedTo = 0;
+    QElapsedTimer m_batchStatTimer;
 
     enum SkipType {
         // No skip dialog is involved
@@ -1032,11 +1040,20 @@ bool CopyJobPrivate::tryBatchStatSources()
         return false;
     }
 
-    // Gather a run of consecutive local-file sources from the current position, up to a cap that
-    // bounds the request/metadata size (a longer list is handled as several successive batches).
-    static constexpr int s_maxBatchStat = 512;
+    // Loop guard: never re-dispatch a run already batched. A source still uncached after its chunk
+    // (its stat failed, or an old worker ignored the command) must fall through to per-source
+    // KIO::stat below, not trigger another identical batch.
+    const qsizetype curIdx = m_currentStatSrc - m_srcList.constBegin();
+    if (curIdx < m_batchStatedTo) {
+        return false;
+    }
+
+    // Gather a run of consecutive local-file sources from the current position. The chunk size
+    // adapts to a ~200 ms budget per worker command (see slotResultStatingBatch); the clamp bounds
+    // the request/metadata size and the worst-case stall. A longer list becomes several chunks.
+    const int chunk = qBound(16, m_batchStatChunk, 2048);
     QList<QUrl> run;
-    for (auto it = m_currentStatSrc; it != m_srcList.constEnd() && (*it).isLocalFile() && run.size() < s_maxBatchStat; ++it) {
+    for (auto it = m_currentStatSrc; it != m_srcList.constEnd() && (*it).isLocalFile() && run.size() < chunk; ++it) {
         run.append(*it);
     }
     if (run.size() < 2) {
@@ -1053,6 +1070,8 @@ bool CopyJobPrivate::tryBatchStatSources()
     KIO::SimpleJob *job = KIO::special(run.first(), payload, KIO::HideProgressInfo);
     job->setParentJob(q);
     m_batchStatUrls = run;
+    m_batchStatedTo = curIdx + run.size();
+    m_batchStatTimer.start();
     state = STATE_STATING_BATCH;
     q->addSubjob(job);
     return true;
@@ -1062,6 +1081,8 @@ void CopyJobPrivate::slotResultStatingBatch(KJob *job)
 {
     Q_Q(CopyJob);
     KIO::Job *kiojob = qobject_cast<KIO::Job *>(job);
+    const qint64 elapsedMs = m_batchStatTimer.isValid() ? m_batchStatTimer.elapsed() : -1;
+    const int sent = int(m_batchStatUrls.size());
 
     if (job->error()) {
         // The command failed (e.g. an old file worker that does not know sub-command 4, or the URL
@@ -1088,14 +1109,28 @@ void CopyJobPrivate::slotResultStatingBatch(KJob *job)
     QDataStream in(blob);
     qint32 count = 0;
     in >> count;
+    int cached = 0;
     for (int i = 0; i < count && i < m_batchStatUrls.size(); ++i) {
         UDSEntry entry;
         in >> entry;
         if (entry.count() > 0) {
             m_batchStatResults.insert(m_batchStatUrls.at(i), entry);
+            ++cached;
         }
     }
     m_batchStatUrls.clear();
+
+    if (cached == 0) {
+        // The chunk yielded nothing usable: most likely an old worker that does not implement the
+        // command (it returns pass with no metadata). Stop batching so later runs do not pay a
+        // useless round-trip; m_batchStatedTo already prevents re-batching this run.
+        m_useBatchStat = false;
+    } else if (elapsedMs <= 0) {
+        m_batchStatChunk = 2048; // too fast to measure: grow toward the cap
+    } else {
+        // Resize the next chunk toward the 200 ms budget from this command's measured wall time.
+        m_batchStatChunk = int(qBound(qint64(16), qint64(sent) * 200 / elapsedMs, qint64(2048)));
+    }
 
     q->removeSubjob(job);
     Q_ASSERT(!q->hasSubjobs());
