@@ -73,6 +73,9 @@ public:
     // Batch-copy a list of local files in one command (special() sub-command). Platform-specific:
     // the real engine is in file_unix.cpp; file_win.cpp returns ERR_UNSUPPORTED_ACTION.
     KIO::WorkerResult batchCopy(QDataStream &stream);
+    // Batch-stat a list of local files in one command (special() sub-command), returning their UDS
+    // entries via metadata. Platform-specific like batchCopy(); file_win.cpp returns ERR_UNSUPPORTED_ACTION.
+    KIO::WorkerResult batchStat(QDataStream &stream);
 
 #if HAVE_POSIX_ACL
     static bool isExtendedACL(acl_t acl);

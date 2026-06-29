@@ -755,6 +755,8 @@ WorkerResult FileProtocol::special(const QByteArray &data)
     }
     case 3: // batch copy a list of local files in one command (platform-specific: see batchCopy())
         return batchCopy(stream);
+    case 4: // batch stat a list of local files in one command (platform-specific: see batchStat())
+        return batchStat(stream);
     default:
         break;
     }

@@ -192,6 +192,13 @@ WorkerResult FileProtocol::batchCopy(QDataStream &)
     return WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, QString());
 }
 
+WorkerResult FileProtocol::batchStat(QDataStream &)
+{
+    // Batched stat is wired to the POSIX createUDSEntry() path; on Windows CopyJob keeps using the
+    // per-file stat path.
+    return WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, QString());
+}
+
 WorkerResult FileProtocol::listDir(const QUrl &url)
 {
     // qDebug() << "========= LIST " << url << " =========";
