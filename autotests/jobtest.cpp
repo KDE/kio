@@ -3714,7 +3714,7 @@ void JobTest::copyPercentExcludesTheFileInHand()
                  qPrintable(QStringLiteral("the percentage went from %1 back to %2").arg(percents.at(i - 1)).arg(percents.at(i))));
     }
     // One sample is enough: a run of local files is copied by one worker command, which names the
-    // file it is on once rather than per file.
+    // file it is on when it starts and then reports on its own gate.
     QVERIFY2(samples >= 1, "no report while copying");
 
     // The count is on the file being copied.
