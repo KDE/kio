@@ -10,6 +10,7 @@
 
 #include "copyjob.h"
 #include "../utils_p.h"
+#include "commands_p.h" // CMD_SPECIAL for the batch-stat job
 #include "deletejob.h"
 #include "filecopyjob.h"
 #include "global.h"
@@ -1033,6 +1034,60 @@ void CopyJobPrivate::statNextSrc()
     statCurrentSrc();
 }
 
+// A minimal SimpleJob for the file worker's batch-stat command. Unlike a plain KIO::special() job,
+// its private overrides start() to capture the UDS entries the worker pushes over the native
+// listEntries() channel (exactly as ListJob does), so the entries are framework-marshalled with no
+// manual (de)serialization. The collected entries are read back via entries() when the job finishes.
+namespace KIO
+{
+class BatchStatJobPrivate;
+class BatchStatJob : public SimpleJob
+{
+public:
+    explicit BatchStatJob(BatchStatJobPrivate &dd);
+    const UDSEntryList &entries() const;
+
+private:
+    Q_DECLARE_PRIVATE(BatchStatJob)
+};
+
+class BatchStatJobPrivate : public SimpleJobPrivate
+{
+public:
+    BatchStatJobPrivate(const QUrl &url, const QByteArray &packedArgs)
+        : SimpleJobPrivate(url, CMD_SPECIAL, packedArgs)
+    {
+    }
+    UDSEntryList m_entries;
+    void start(Worker *worker) override;
+
+    Q_DECLARE_PUBLIC(BatchStatJob)
+    static BatchStatJob *newJob(const QUrl &url, const QByteArray &packedArgs)
+    {
+        return new BatchStatJob(*new BatchStatJobPrivate(url, packedArgs));
+    }
+};
+
+BatchStatJob::BatchStatJob(BatchStatJobPrivate &dd)
+    : SimpleJob(dd)
+{
+}
+
+const UDSEntryList &BatchStatJob::entries() const
+{
+    return d_func()->m_entries;
+}
+
+void BatchStatJobPrivate::start(Worker *worker)
+{
+    Q_Q(BatchStatJob);
+    QObject::connect(worker, &Worker::listEntries, q, [this](const UDSEntryList &list) {
+        m_entries += list;
+    });
+    SimpleJobPrivate::start(worker);
+}
+} // namespace KIO
+
 bool CopyJobPrivate::tryBatchStatSources()
 {
     Q_Q(CopyJob);
@@ -1067,7 +1122,7 @@ bool CopyJobPrivate::tryBatchStatSources()
         stream << u.adjusted(QUrl::StripTrailingSlash).toLocalFile();
     }
 
-    KIO::SimpleJob *job = KIO::special(run.first(), payload, KIO::HideProgressInfo);
+    BatchStatJob *job = BatchStatJobPrivate::newJob(run.first(), payload);
     job->setParentJob(q);
     m_batchStatUrls = run;
     m_batchStatedTo = curIdx + run.size();
@@ -1100,19 +1155,14 @@ void CopyJobPrivate::slotResultStatingBatch(KJob *job)
         return;
     }
 
-    // The worker serialized the UDS entries (request order) into "batchStatEntries" as base64.
-    // Cache them keyed by source URL; statCurrentSrc picks them up via the fast path. A source the
-    // worker could not stat comes back as an empty entry and is left uncached, so it is re-stated
-    // individually and the proper error surfaces there.
-    const QString b64 = kiojob ? kiojob->metaData().value(QStringLiteral("batchStatEntries")) : QString();
-    const QByteArray blob = QByteArray::fromBase64(b64.toLatin1());
-    QDataStream in(blob);
-    qint32 count = 0;
-    in >> count;
+    // The worker pushed the UDS entries (request order) over the native listEntries() channel;
+    // BatchStatJob accumulated them. Cache them keyed by source URL; statCurrentSrc picks them up
+    // via the fast path. A source the worker could not stat comes back as an empty entry and is
+    // left uncached, so it is re-stated individually and the proper error surfaces there.
+    const UDSEntryList entries = static_cast<BatchStatJob *>(job)->entries();
     int cached = 0;
-    for (int i = 0; i < count && i < m_batchStatUrls.size(); ++i) {
-        UDSEntry entry;
-        in >> entry;
+    for (int i = 0; i < entries.size() && i < m_batchStatUrls.size(); ++i) {
+        const UDSEntry &entry = entries.at(i);
         if (entry.count() > 0) {
             m_batchStatResults.insert(m_batchStatUrls.at(i), entry);
             ++cached;
