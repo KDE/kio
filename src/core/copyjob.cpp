@@ -21,7 +21,7 @@
 #include "listjob.h"
 #include "mkdirjob.h"
 #include "simplejob.h"
-#include "specialjob.h" // the batch copy command, whose answer comes back on its data channel
+#include "specialjob.h" // the batch copy command, whose answer and progress come back on its data channel
 #include "statjob.h"
 #include <cerrno>
 
@@ -147,6 +147,7 @@ static bool compareUrls(const QUrl &srcUrl, const QUrl &destUrl)
 // The kinds of packet the file worker's batch copy sends back on the data channel, as written in
 // FileProtocol::batchCopy(). Each packet starts with its kind.
 enum BatchPacketKind : qint32 {
+    PacketProgress = 0, // qint32 current, QList<qint32> finished since the previous packet
     PacketAnswer = 1, // QList<qint32>: the files the worker did not copy
 };
 
@@ -361,6 +362,9 @@ public:
     int m_batchInFlight = -1; // batch index the worker is copying right now, -1 between files
     QSet<int> m_batchDeferred; // batch indices the worker left for this job to copy one by one
     bool m_batchAnswered = false; // the worker sent its answer packet, so it has the command
+
+    // Batch indices the worker has reported as copied, as its progress packets arrive. Tracked so
+    // the disk-full fallback can drop the already-copied files and retry only the rest per-file.
 
     enum SkipType {
         // No skip dialog is involved
@@ -2192,7 +2196,8 @@ bool CopyJobPrivate::tryBatchCopyFiles()
         stream << filesToCopy.at(i).uSource.toLocalFile() << filesToCopy.at(i).uDest.toLocalFile();
     }
 
-    // A SpecialJob carries the command and gives the worker's answer a data channel to come back on.
+    // A SpecialJob carries the command, so the worker's answer and its progress reports come back
+    // on the data channel.
     KIO::SpecialJob *job = new KIO::SpecialJob(m_globalDest, payload);
     job->setParentJob(q);
     m_currentSrcURL = filesToCopy.at(0).uSource;
@@ -2204,34 +2209,68 @@ bool CopyJobPrivate::tryBatchCopyFiles()
     m_batchReported.clear();
     m_batchInFlight = 0; // the worker starts on a file straight away, before its first report
     state = STATE_COPYING_FILES_BATCH;
+
     q->addSubjob(job);
     q->connect(job, &Job::processedSize, q, [this](KJob *j, qulonglong processedSize) {
         slotProcessedSize(j, processedSize);
     });
-    // The worker answers on the data channel when the batch is over, listing the files it did not
-    // copy. A packet that does not decode is dropped, and no answer at all means a worker without
-    // the command, which slotResultCopyingBatch() treats as a whole run to copy per file.
-    q->connect(job, &KIO::TransferJob::data, q, [this](KJob *, const QByteArray &payload) {
+    // Two kinds of packet come back. The answer, once the batch is over, lists the files the worker
+    // did not copy. Progress comes batched on the worker's ~100ms gate: the index of the file it is
+    // about to copy, or -1 when there is none, then the indices it finished since the previous
+    // packet, so every file gets a copyingDone, batched rather than live, emitted here rather than
+    // in slotResultCopyingBatch. A packet that does not decode is dropped: the batch result still
+    // accounts for every file.
+    q->connect(job, &KIO::TransferJob::data, q, [this, q](KJob *, const QByteArray &payload) {
         QDataStream in(payload);
         qint32 kind = -1;
         in >> kind;
-        if (in.status() != QDataStream::Ok || kind != PacketAnswer) {
-            return;
-        }
-        QList<qint32> deferred;
-        in >> deferred;
         if (in.status() != QDataStream::Ok) {
             return;
         }
-        for (const qint32 idx : std::as_const(deferred)) {
-            if (idx >= 0 && idx < m_batchCount) {
-                m_batchDeferred.insert(idx); // an index outside the batch would defer another file
+        if (kind == PacketAnswer) {
+            QList<qint32> deferred;
+            in >> deferred;
+            if (in.status() != QDataStream::Ok) {
+                return;
+            }
+            for (const qint32 idx : std::as_const(deferred)) {
+                if (idx >= 0 && idx < m_batchCount) {
+                    m_batchDeferred.insert(idx); // an index outside the batch would defer another file
+                }
+            }
+            m_batchAnswered = true;
+            // The answer is also the proof that the worker has the command, which the job says in
+            // its own metadata so a caller can tell a batched run from a per-file one.
+            m_incomingMetaData.insert(QStringLiteral("batchCopy"), QStringLiteral("1"));
+            return;
+        }
+        if (kind != PacketProgress) {
+            return; // a kind this version does not know
+        }
+        qint32 current = -1;
+        QList<qint32> done;
+        in >> current >> done;
+        if (in.status() != QDataStream::Ok) {
+            return;
+        }
+        // An index belongs to the batch in flight, so it is bounded by the number of entries the
+        // batch was given, not by the whole list: a larger one would report a file the batch is not
+        // copying, which stays on the list and is copied later, with a second copyingDone for it.
+        for (const qint32 idx : std::as_const(done)) {
+            if (idx >= 0 && idx < m_batchCount && !m_batchReported.contains(idx)) {
+                m_batchReported.insert(idx);
+                const CopyInfo &ci = filesToCopy.at(idx);
+                Q_EMIT q->copyingDone(q, ci.uSource, finalDestUrl(ci.uSource, ci.uDest), ci.mtime, false /*directory*/, false /*renamed*/);
             }
         }
-        m_batchAnswered = true;
-        // The answer is also the proof that the worker has the command, which the job says in its
-        // own metadata so a caller can tell a batched run from a per-file one.
-        m_incomingMetaData.insert(QStringLiteral("batchCopy"), QStringLiteral("1"));
+        m_batchInFlight = (current >= 0 && current < m_batchCount) ? current : -1;
+        if (m_batchInFlight >= 0) {
+            const CopyInfo &ci = filesToCopy.at(m_batchInFlight);
+            m_currentSrcURL = ci.uSource; // the file about to be copied (not yet copied)
+            m_currentDestURL = ci.uDest;
+            m_bURLDirty = true;
+            slotReport(); // the count and the current file follow the packets, not only the timer
+        }
     });
     return true;
 }
@@ -2260,6 +2299,8 @@ void CopyJobPrivate::slotResultCopyingBatch(KJob *job)
         if (kiojob) {
             m_incomingMetaData += kiojob->metaData();
         }
+        m_fileProcessedSize = 0;
+        m_batchReported.clear();
         q->removeSubjob(job);
         Q_ASSERT(!q->hasSubjobs());
         state = STATE_COPYING_FILES;
@@ -2267,9 +2308,35 @@ void CopyJobPrivate::slotResultCopyingBatch(KJob *job)
     };
 
     if (job->error()) {
-        // The whole command failed (e.g. disk full). Fall back, so the per-file path re-attempts
-        // these files and reports the error or the conflict precisely.
+        if (job->error() == ERR_USER_CANCELED) {
+            // A cancel must abort the whole job, not silently resume copying the rest per-file.
+            // Mirror the per-file path (slotResultErrorCopyingFiles): propagate the error from the
+            // subjob, drop it and emit result().
+            q->Job::slotResult(job);
+            return;
+        }
+        // The whole command failed (e.g. disk full). Fall back to the per-file path - but files the
+        // worker already streamed as copied (copyingDone emitted) are done: account them and drop
+        // them so only the rest is retried.
+        QList<CopyInfo> retry;
+        for (int i = 0; i < k && i < filesToCopy.size(); ++i) {
+            if (m_batchReported.contains(i)) {
+                accountCopied(filesToCopy.at(i));
+            } else {
+                retry.append(filesToCopy.at(i));
+            }
+        }
+        filesToCopy = retry + filesToCopy.mid(k);
         fallBackToPerFile();
+        return;
+    }
+
+    // A worker that implements the batch command always answers, with an empty list where it copied
+    // everything. No answer means no command (a mismatched or older kio_file): its special()
+    // returned success without copying. Treat the whole run as uncopied and fall back to the
+    // per-file path, otherwise the files would be silently skipped.
+    if (!kiojob || !m_batchAnswered) {
+        fallBackToPerFile(); // 'filesToCopy' is untouched: the per-file path copies the whole run
         return;
     }
 
@@ -2279,13 +2346,11 @@ void CopyJobPrivate::slotResultCopyingBatch(KJob *job)
         if (m_batchDeferred.contains(i)) {
             requeued.append(ci); // hand back to the per-file path (conflict dialog / error / skip)
         } else {
-            // Copied: emit the same per-file signal and accounting the single path would have.
-            const QUrl finalUrl = finalDestUrl(ci.uSource, ci.uDest);
-            Q_EMIT q->copyingDone(q, ci.uSource, finalUrl, ci.mtime, false /*directory*/, false /*renamed*/);
-            accountCopied(ci);
+            accountCopied(ci); // its copyingDone was already streamed by the worker's index reports
         }
     }
     m_fileProcessedSize = 0; // the live per-file estimate is superseded by the exact sizes above
+    m_batchReported.clear();
 
     if (!m_batchDeferred.isEmpty()) {
         m_useBatchCopy = false; // once anything needs individual attention, stay on the per-file path
