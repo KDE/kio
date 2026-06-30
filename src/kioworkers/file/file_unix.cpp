@@ -1005,11 +1005,11 @@ CopyReport copyFileAt(int srcDirFd,
 class BatchCopyEngine
 {
 public:
-    BatchCopyEngine(PreserveFn preserve, gid_t egid, std::function<bool()> isKilled)
+    BatchCopyEngine(PreserveFn preserve, gid_t egid, std::function<bool()> isKilled, bool tryReflink)
         : m_preserve(std::move(preserve))
         , m_egid(egid)
         , m_isKilled(std::move(isKilled))
-        , m_request{.existing = ExistingDest::Refuse, .permissions = NewFilePermissions::FromSource}
+        , m_request{.existing = ExistingDest::Refuse, .permissions = NewFilePermissions::FromSource, .tryReflink = tryReflink}
     {
     }
     // Called with the running byte total as each file is copied. Set separately from the
@@ -1144,9 +1144,10 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
     if (count < 0 || count > s_maxBatchCopyFiles) {
         return WorkerResult::fail(KIO::ERR_INTERNAL, i18n("Malformed batch copy request"));
     }
-    // flags carries nothing yet. Existing destinations are always left to the caller (the engine
-    // opens every destination O_EXCL), so overwrite is not a batch concern.
-    Q_UNUSED(flags)
+    // bit0: the destination filesystem supports reflink (FICLONE). The Job sets it from the mount
+    // it already looked up, so the worker never probes a filesystem that cannot clone. Existing
+    // destinations are still always left to the caller (O_EXCL), so overwrite is not a concern here.
+    const bool tryReflink = (flags & 0x1);
 
     struct Deferral {
         qint32 index;
@@ -1185,9 +1186,13 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
     // the group a freshly created file already has is worked out per destination directory by the
     // engine and handed in.
     const gid_t egid = ::getegid();
-    auto engine = std::make_unique<BatchCopyEngine>(makePreserveFn(this, currentUmask(), ::geteuid()), egid, [this] {
-        return wasKilled();
-    });
+    auto engine = std::make_unique<BatchCopyEngine>(
+        makePreserveFn(this, currentUmask(), ::geteuid()),
+        egid,
+        [this] {
+            return wasKilled();
+        },
+        tryReflink);
 
     // Progress + completion reporting, batched on one ~100ms gate so a large run does not flood the
     // app. Each tick sends one data packet holding "qint32 current, QList<qint32> done", where

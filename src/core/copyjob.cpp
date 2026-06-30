@@ -2174,7 +2174,12 @@ bool CopyJobPrivate::tryBatchCopyFiles()
 
     QByteArray payload;
     QDataStream stream(&payload, QIODevice::WriteOnly);
-    stream << qint32(3) /* batch-copy sub-command */ << qint32(0) /* flags: reserved, see batchCopy() */ << qint32(k);
+    // bit0 tells the worker the destination can share extents ("reflink") instead of copying the
+    // data, so it only attempts FICLONE there. destMp is the mount we already looked up above, so
+    // this costs no extra syscall. A filesystem that can clone may still turn a single file down,
+    // and the worker copies the contents when it does.
+    const qint32 flags = destMp->testFileSystemFlag(KMountPoint::SupportsFileCloning) ? 0x1 : 0x0;
+    stream << qint32(3) /* batch-copy sub-command */ << flags << qint32(k);
     for (int i = 0; i < k; ++i) {
         stream << filesToCopy.at(i).uSource.toLocalFile() << filesToCopy.at(i).uDest.toLocalFile();
     }
