@@ -16,5 +16,9 @@
         <file>URL.desktop</file>
         <file>EmptyFile</file>
     </qresource>
+    <!-- Hack so that the mimetype is reported as "inode/directory" -->
+    <qresource prefix="/kio5/newfile-templates/.source/EmptyDir">
+        <file>emptydir</file>
+    </qresource>
 </RCC>
 

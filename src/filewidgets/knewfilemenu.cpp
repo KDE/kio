@@ -117,12 +117,20 @@ public:
     std::unique_ptr<KDirWatch> dirWatch;
 
     struct Entry {
+        enum class Section {
+            Directory,
+            Home,
+            System,
+            Links,
+        };
         QUrl url; /// URL of the file read from .desktop file URL field
         QString key; /// The key used for sorting the files in the menu
         QString text; /// Text shown on the new file submenu
         QString comment; /// The prompt label asking for filename
         QFileInfo sourceFileInfo; /// URL of a file received from getTemplateFilePaths and the suggested basename for a new file
-        QString templatePath; /// Where the file is copied from, the suggested file extension and whether the menu entries have a separator around them.
+        Section section; /// Defines separator positions and reduces string matching
+
+        QString templatePath; /// Where the file is copied from and the suggested file extension.
         QMimeType mimeType; /// Mimetype that the icon and comment are derived from
         QIcon icon; /// The icon displayed in the context menu
 
@@ -208,8 +216,9 @@ bool KNewFileMenuSingleton::Entry::parseFile(QString file)
         mimeType = db.mimeTypeForFile(file);
     }
 
+    const QString fileName = sourceFileInfo.fileName();
     if (key.isEmpty()) {
-        key = sourceFileInfo.fileName();
+        key = fileName;
     }
     if (text.isEmpty()) {
         text = sourceFileInfo.baseName();
@@ -220,19 +229,34 @@ bool KNewFileMenuSingleton::Entry::parseFile(QString file)
     if (icon.isNull()) {
         icon = QIcon::fromTheme(mimeType.iconName());
     }
-
     // Put Directory first in the list (a bit hacky),
     // and TextFile before others because it's the most used one.
     // This also sorts by user-visible name.
-    // The rest of the re-ordering is done in fillMenu.
-    if (file.endsWith(QLatin1String("Directory.desktop"))) {
+    const QString homePath = QDir::homePath();
+    if (fileName == QLatin1String("Directory.desktop") && !file.startsWith(homePath)) {
         key.prepend(QLatin1Char('0'));
-    } else if (file.startsWith(QDir::homePath())) {
+        section = Section::Directory;
+    } else if (file.startsWith(homePath)) {
         key.prepend(QLatin1Char('1'));
-    } else if (file.endsWith(QLatin1String("TextFile.desktop"))) {
+        section = Section::Home;
+    } else if (fileName == QLatin1String("TextFile.desktop")) {
         key.prepend(QLatin1Char('2'));
-    } else {
+        section = Section::System;
+    } else if (fileName == QLatin1String("EmptyFile.desktop")) {
         key.prepend(QLatin1Char('3'));
+        section = Section::System;
+    } else if (fileName == QLatin1String("linkURL.desktop")) {
+        key.prepend(QLatin1Char('5'));
+        section = Section::Links;
+    } else if (fileName == QLatin1String("linkPath.desktop")) {
+        key.prepend(QLatin1Char('6'));
+        section = Section::Links;
+    } else if (fileName == QLatin1String("linkProgram.desktop")) {
+        key.prepend(QLatin1Char('7'));
+        section = Section::Links;
+    } else {
+        key.prepend(QLatin1Char('4'));
+        section = Section::System;
     }
     return true;
 }
@@ -401,7 +425,6 @@ public:
     QAction *m_newFolderShortcutAction = nullptr;
     QAction *m_newFileShortcutAction = nullptr;
 
-    KActionMenu *m_menuDev = nullptr;
     int m_menuItemsVersion = 0;
     QAction *m_newDirAction = nullptr;
     QDialog *m_fileDialog = nullptr;
@@ -770,15 +793,10 @@ void KNewFileMenuPrivate::fillMenu()
 {
     QMenu *menu = q->menu();
     menu->clear();
-    m_menuDev->menu()->clear();
     m_newDirAction = nullptr;
 
     std::set<QString> seenTexts;
-    QString lastTemplatePath;
-    // these shall be put at special positions
-    QAction *linkURL = nullptr;
-    QAction *linkApp = nullptr;
-    QAction *linkPath = nullptr;
+    KNewFileMenuSingleton::Entry *lastEntry = nullptr;
 
     KNewFileMenuSingleton *s = kNewMenuGlobals();
     int idx = 0;
@@ -792,9 +810,7 @@ void KNewFileMenuPrivate::fillMenu()
         if (isInserted) {
             // const KNewFileMenuSingleton::Entry entry = templatesList->at(i-1);
 
-            const QString templatePath = entry.templatePath;
-            // The best way to identify the "Create Directory", "Link to Location", "Link to Application" was the template
-            if (templatePath.endsWith(QLatin1String("emptydir"))) {
+            if (entry.section == KNewFileMenuSingleton::Entry::Section::Directory) {
                 QAction *act = new QAction(q);
                 m_newDirAction = act;
                 act->setIcon(entry.icon);
@@ -813,9 +829,8 @@ void KNewFileMenuPrivate::fillMenu()
                 }
 
                 menu->addAction(act);
-                menu->addSeparator();
             } else {
-                if (lastTemplatePath.startsWith(QDir::homePath()) && !templatePath.startsWith(QDir::homePath())) {
+                if (lastEntry && lastEntry->section != entry.section) {
                     menu->addSeparator();
                 }
 
@@ -827,19 +842,8 @@ void KNewFileMenuPrivate::fillMenu()
 
                 // qDebug() << templatePath << entry.sourceFileInfo;
 
-                if (templatePath.endsWith(QLatin1String("/URL.desktop"))) {
-                    linkURL = act;
-                } else if (templatePath.endsWith(QLatin1String("/Program.desktop"))) {
-                    linkApp = act;
-                } else if (entry.sourceFileInfo.fileName() == QLatin1String("linkPath.desktop")) {
-                    linkPath = act;
-                } else if (KDesktopFile::isDesktopFile(templatePath)) {
-                    KDesktopFile df(templatePath);
-                    if (df.readType() == QLatin1String("FSDevice")) {
-                        m_menuDev->menu()->addAction(act);
-                    } else {
-                        menu->addAction(act);
-                    }
+                if (KDesktopFile::isDesktopFile(entry.templatePath)) {
+                    menu->addAction(act);
                 } else {
                     if (!m_firstFileEntry) {
                         m_firstFileEntry = &entry;
@@ -858,24 +862,7 @@ void KNewFileMenuPrivate::fillMenu()
                     menu->addAction(act);
                 }
             }
-        }
-        lastTemplatePath = entry.templatePath;
-    }
-
-    if (m_supportedMimeTypes.isEmpty()) {
-        menu->addSeparator();
-        if (linkURL) {
-            menu->addAction(linkURL);
-        }
-        if (linkPath) {
-            menu->addAction(linkPath);
-        }
-        if (linkApp) {
-            menu->addAction(linkApp);
-        }
-        Q_ASSERT(m_menuDev);
-        if (!m_menuDev->menu()->isEmpty()) {
-            menu->addAction(m_menuDev);
+            lastEntry = &entry;
         }
     }
 }
@@ -1072,6 +1059,8 @@ void KNewFileMenuPrivate::slotFillTemplates()
 
     std::vector<KNewFileMenuSingleton::Entry> uniqueEntries;
 
+    QMimeDatabase db;
+    bool acceptedMimeType;
     for (const QString &file : files) {
         // qDebug() << file;
         KNewFileMenuSingleton::Entry entry;
@@ -1083,10 +1072,19 @@ void KNewFileMenuPrivate::slotFillTemplates()
         auto it = std::find_if(uniqueEntries.begin(), uniqueEntries.end(), [&entry](const KNewFileMenuSingleton::Entry &info) {
             return entry.url == info.url;
         });
-
-        if (it != uniqueEntries.cend()) {
-            *it = entry;
+        acceptedMimeType = false;
+        if (m_supportedMimeTypes.isEmpty()) {
+            acceptedMimeType = true;
         } else {
+            for (const QString &mimeString : m_supportedMimeTypes) {
+                QMimeType supportedMimeType = db.mimeTypeForName(mimeString);
+                if (supportedMimeType == entry.mimeType) {
+                    acceptedMimeType = true;
+                }
+            }
+        }
+
+        if (it == uniqueEntries.cend() && acceptedMimeType) {
             uniqueEntries.push_back(entry);
         }
     }
@@ -1444,8 +1442,6 @@ KNewFileMenu::KNewFileMenu(QObject *parent)
 
     d->m_parentWidget = qobject_cast<QWidget *>(parent);
     d->m_newDirAction = nullptr;
-
-    d->m_menuDev = new KActionMenu(QIcon::fromTheme(QStringLiteral("drive-removable-media")), i18n("Link to Device"), this);
 }
 
 KNewFileMenu::~KNewFileMenu() = default;

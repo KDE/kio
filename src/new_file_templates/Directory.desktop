@@ -195,5 +195,5 @@ Comment[wa]=Intrez on no d' ridant:
 Comment[zh_CN]=输入文件夹名称：
 Comment[zh_TW]=輸入資料夾名稱：
 Type=Link
-URL=.source/emptydir
+URL=.source/EmptyDir
 Icon=folder
