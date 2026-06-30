@@ -710,7 +710,8 @@ CopyOutcome copyOneFileAt(int srcDirFd,
                           gid_t createdGid,
                           KIO::filesize_t &bytesCopied,
                           const PreserveFn &preserve,
-                          const std::function<bool()> &isKilled)
+                          const std::function<bool()> &isKilled,
+                          bool tryReflink)
 {
     const int sourceFd = ::openat(srcDirFd, srcName.constData(), O_RDONLY | O_CLOEXEC);
     if (sourceFd < 0) {
@@ -750,7 +751,16 @@ CopyOutcome copyOneFileAt(int srcDirFd,
         ::close(destFd);
         errno = e;
     });
-    const bool ok = copyFds(sourceFd, destFd, st.st_size, bytesCopied, isKilled);
+    bool cloned = false;
+#ifdef FICLONE
+    // Reflink (share extents) when tryReflink says the destination supports it; on any failure fall
+    // through to the normal copy.
+    if (tryReflink && ::ioctl(destFd, FICLONE, sourceFd) != -1) {
+        bytesCopied += KIO::filesize_t(st.st_size);
+        cloned = true;
+    }
+#endif
+    const bool ok = cloned || copyFds(sourceFd, destFd, st.st_size, bytesCopied, isKilled);
     if (ok && preserve) {
         preserve(sourceFd, destFd, st, true /* always freshly created */, createdGid); // both fds still open; best-effort, never flips ok
     }
@@ -770,10 +780,11 @@ CopyOutcome copyOneFileAt(int srcDirFd,
 class BatchCopyEngine
 {
 public:
-    BatchCopyEngine(PreserveFn preserve, gid_t egid, std::function<bool()> isKilled)
+    BatchCopyEngine(PreserveFn preserve, gid_t egid, std::function<bool()> isKilled, bool tryReflink)
         : m_preserve(std::move(preserve))
         , m_egid(egid)
         , m_isKilled(std::move(isKilled))
+        , m_tryReflink(tryReflink)
     {
     }
     virtual ~BatchCopyEngine()
@@ -833,6 +844,7 @@ protected:
     PreserveFn m_preserve; // applied to each successfully copied file (perms/times/owner/ACL)
     gid_t m_egid; // effective gid: the group new files get outside set-group-ID directories
     std::function<bool()> m_isKilled; // polled to abort promptly on cancellation
+    bool m_tryReflink = false; // destination filesystem can reflink (FICLONE); set by the Job
 
     int m_srcDirFd = -1;
     QByteArray m_srcDirPath;
@@ -871,7 +883,8 @@ public:
             onItem(op.index, ItemOutcome::Begin, 0); // about to copy this file
 
             errno = 0;
-            const CopyOutcome oc = copyOneFileAt(m_srcDirFd, srcName, m_destDirFd, destName, m_destDirCreatedGid, bytesCopied, m_preserve, m_isKilled);
+            const CopyOutcome oc =
+                copyOneFileAt(m_srcDirFd, srcName, m_destDirFd, destName, m_destDirCreatedGid, bytesCopied, m_preserve, m_isKilled, m_tryReflink);
             switch (oc) {
             case CopyOutcome::Copied:
                 onItem(op.index, ItemOutcome::Done, 0);
@@ -912,10 +925,10 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
     qint32 flags = 0;
     qint32 count = 0;
     stream >> flags >> count;
-    // flags is currently unused: the batch only ever creates fresh files and defers every
-    // existing destination (the old bit0 "Overwrite") to the caller's per-file path, which
-    // overwrites safely.
-    Q_UNUSED(flags)
+    // bit0: the destination filesystem supports reflink (FICLONE). The Job sets it from the mount
+    // table so the worker never probes a filesystem that cannot clone. Existing destinations are
+    // still always deferred to the per-file path (O_EXCL), so overwrite is not a batch concern.
+    const bool tryReflink = (flags & 0x1);
 
     struct Deferral {
         qint32 index;
@@ -961,9 +974,13 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
         copyXattrs(sourceFd, destFd);
 #endif
     };
-    auto engine = std::make_unique<CopyFileRangeEngine>(std::move(preserve), egid, [this] {
-        return wasKilled();
-    });
+    auto engine = std::make_unique<CopyFileRangeEngine>(
+        std::move(preserve),
+        egid,
+        [this] {
+            return wasKilled();
+        },
+        tryReflink);
 
     // Progress + completion reporting, batched on one ~100ms gate so a large run does not flood the
     // app. Each tick sends one infoMessage "<current>;<done1>,<done2>,..." where <current> is the
