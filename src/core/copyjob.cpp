@@ -165,6 +165,14 @@ static bool isFatOrNtfs(KFileSystemType::Type fsType)
     return fsType == KFileSystemType::Ntfs || isFatFs(fsType);
 }
 
+// Filesystems whose FICLONE ioctl shares extents ("reflink") instead of copying data. The batch
+// worker only probes FICLONE when the destination is one of these (KFileSystemType lumps them under
+// Other, so match the mount-table type string instead), sparing a wasted ioctl per file elsewhere.
+static bool isReflinkCapableFs(const QString &mountType)
+{
+    return mountType == QLatin1String("btrfs") || mountType == QLatin1String("xfs") || mountType == QLatin1String("bcachefs");
+}
+
 // MTP storage rejects the same set of reserved characters libmtp inherits from the
 // Windows MTP API (see bug 489288), regardless of the device's actual filesystem.
 static bool isMtpScheme(const QUrl &url)
@@ -2127,7 +2135,10 @@ bool CopyJobPrivate::tryBatchCopyFiles()
 
     QByteArray payload;
     QDataStream stream(&payload, QIODevice::WriteOnly);
-    stream << qint32(3) /* batch-copy sub-command */ << qint32(0) /* flags: reserved, see batchCopy() */ << qint32(k);
+    // bit0 tells the worker the destination can reflink, so it only attempts FICLONE there. destMp is
+    // the mount we already looked up above, so this costs no extra syscall.
+    const qint32 flags = isReflinkCapableFs(destMp->mountType()) ? 0x1 : 0x0;
+    stream << qint32(3) /* batch-copy sub-command */ << flags << qint32(k);
     for (int i = 0; i < k; ++i) {
         stream << files.at(i).uSource.toLocalFile() << files.at(i).uDest.toLocalFile();
     }
