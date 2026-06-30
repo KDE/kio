@@ -24,6 +24,11 @@ constexpr qint32 BatchCopyCommand = 4;
 // The most files one batch copy request may name. A larger copy takes several requests.
 constexpr int BatchCopyMaxFiles = 512;
 
+// The flags of a batch copy request.
+enum BatchCopyFlag : qint32 {
+    BatchCopyFlagReflink = 0x1, // the destination filesystem supports reflink (FICLONE)
+};
+
 // The packets that the batch copy command of the file worker sends on the data channel. Each packet
 // starts with its kind.
 enum BatchCopyPacketKind : qint32 {

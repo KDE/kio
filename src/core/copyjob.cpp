@@ -361,6 +361,7 @@ public:
         NotEligible
     };
     BatchDestEligibility m_batchDestEligibility = BatchDestEligibility::Unknown;
+    qint32 m_batchDestFlags = 0; // BatchCopyFlagReflink when the destination filesystem can reflink
 
     enum SkipType {
         // No skip dialog is involved
@@ -2192,6 +2193,7 @@ bool CopyJobPrivate::batchDestinationEligible()
             const bool msdosQuirks = KIOPrivate::destinationDisallowsMsdosChars(m_globalDest, globalDestFsType());
             if (destMp && !destMp->isOnRemoteStorage() && !msdosQuirks) {
                 m_batchDestEligibility = BatchDestEligibility::Eligible;
+                m_batchDestFlags = destMp->testFileSystemFlag(KMountPoint::SupportsFileCloning) ? KIO::BatchCopyFlagReflink : 0;
             }
         }
     }
@@ -2247,6 +2249,7 @@ bool CopyJobPrivate::tryBatchCopyFiles()
     }
 
     KIO::BatchCopyRequest request;
+    request.flags = m_batchDestFlags;
     request.files.reserve(fileCount);
     for (const CopyInfo &ci : std::as_const(filesToCopy) | std::views::take(fileCount)) {
         request.files.append({ci.uSource.toLocalFile(), ci.uDest.toLocalFile()});

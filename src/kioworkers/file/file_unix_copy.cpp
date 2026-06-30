@@ -1211,10 +1211,11 @@ public:
     using ItemStartFn = std::function<void(int index)>;
     using ItemResultFn = std::function<void(int index, BatchItemResult result)>;
 
-    BatchCopyEngine(PreserveFn preserve, gid_t egid, KilledFn isKilled)
+    BatchCopyEngine(PreserveFn preserve, gid_t egid, KilledFn isKilled, bool tryReflink)
         : m_preserve(std::move(preserve))
         , m_egid(egid)
         , m_isKilled(std::move(isKilled))
+        , m_request{.tryReflink = tryReflink}
     {
     }
     // Called with the running byte total while a file is copied.
@@ -1431,9 +1432,13 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
         return WorkerResult::fail(KIO::ERR_INTERNAL, i18n("Malformed batch copy request"));
     }
 
-    BatchCopyEngine engine(makePreserveFn(this, ::geteuid()), ::getegid(), [this] {
-        return wasKilled();
-    });
+    BatchCopyEngine engine(
+        makePreserveFn(this, ::geteuid()),
+        ::getegid(),
+        [this] {
+            return wasKilled();
+        },
+        bool(request->flags & KIO::BatchCopyFlagReflink));
     BatchProgressReporter progress(this);
     engine.setProgressHook([&](KIO::filesize_t) {
         progress.flushIfDue();
