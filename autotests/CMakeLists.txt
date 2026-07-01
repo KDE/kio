@@ -236,6 +236,17 @@ if (NOT WIN32)
 
   set_tests_properties(kiofilewidgets-kfileplacesmodeltest PROPERTIES RUN_SERIAL TRUE)
   set_tests_properties(kiofilewidgets-kfileplacesviewtest PROPERTIES RUN_SERIAL TRUE)
+
+  ecm_add_test(
+    dropintonewfolderplugintest.cpp
+    TEST_NAME dropintonewfolderplugintest
+    NAME_PREFIX "kiofilewidgets-"
+    LINK_LIBRARIES KF6::KIOFileWidgets KF6::KIOWidgets KF6::KIOGui KF6::I18n KF6::CoreAddons Qt6::Test Qt6::Widgets
+  )
+  # Load the real built plugin by path, and make sure it is built first.
+  target_compile_definitions(dropintonewfolderplugintest PRIVATE DROPINTONEWFOLDER_PLUGIN_PATH="$<TARGET_FILE:dropintonewfolder>")
+  add_dependencies(dropintonewfolderplugintest dropintonewfolder)
+  set_tests_properties(kiofilewidgets-dropintonewfolderplugintest PROPERTIES ENVIRONMENT "QT_QPA_PLATFORM=offscreen")
 endif()
 
 # TODO: fix symbol exports for windows -> 'KSambaShare::KSambaShare': inconsistent dll linkage
