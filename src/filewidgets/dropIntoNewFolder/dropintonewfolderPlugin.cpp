@@ -15,6 +15,7 @@
 #include <knewfilemenu.h>
 
 #include <QAction>
+#include <QApplication>
 
 #include <KFileItemListProperties>
 #include <KLocalizedString>
@@ -65,22 +66,24 @@ QList<QAction *> DropIntoNewFolderPlugin::setup(const KFileItemListProperties &f
 
 void DropIntoNewFolderPlugin::slotTriggered()
 {
-    auto menu = new KNewFileMenu(this);
+    auto menu = new KNewFileMenu(QApplication::activeWindow());
     menu->setWorkingDirectory(m_dest);
     menu->setWindowTitle(i18nc("@title:window", "Create New Folder for These Items"));
 
-    connect(menu, &KNewFileMenu::directoryCreated, this, [this](const QUrl &newFolder) {
-        auto job = KIO::move(m_urls, newFolder);
+    const QList<QUrl> urls = m_urls;
+    connect(menu, &KNewFileMenu::directoryCreated, menu, [menu, urls](const QUrl &newFolder) {
+        auto job = KIO::move(urls, newFolder);
         KIO::FileUndoManager::self()->recordCopyJob(job);
-        connect(job, &KJob::result, this, [newFolder, this](KJob *job) {
+        connect(job, &KJob::result, job, [newFolder](KJob *job) {
             if (job->error() != KJob::NoError) {
                 return;
             }
-            auto openFileManagerJob = new KIO::OpenFileManagerWindowJob{this};
+            auto openFileManagerJob = new KIO::OpenFileManagerWindowJob{};
             openFileManagerJob->setHighlightUrls({newFolder});
             openFileManagerJob->start();
         });
         job->start();
+        menu->deleteLater();
     });
 
     menu->createDirectory();
