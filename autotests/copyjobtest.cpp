@@ -26,6 +26,7 @@
 #include <QSignalSpy>
 #include <QTemporaryDir>
 #include <QTest>
+#include <QTimer>
 #include <qplatformdefs.h>
 
 #include <algorithm>
@@ -55,6 +56,8 @@ private Q_SLOTS:
     void killingABatchToARemovableDeviceKeepsItsFlush();
     void copyLargeFilesBatched();
     void copyManyFilesBatchedToSetgidDirectory();
+    void copyManyFilesBatchedStatSizes();
+    void copyManyFilesBatchedSeveralDeferred();
 };
 
 void CopyJobTest::initTestCase()
@@ -728,6 +731,135 @@ void CopyJobTest::copyManyFilesBatchedToSetgidDirectory()
 #else
     QSKIP("Setgid folders are a UNIX matter");
 #endif
+}
+
+void CopyJobTest::copyManyFilesBatchedStatSizes()
+{
+    // The sizes come from one batch stat. An entry that is lost, counted twice or given to another
+    // file changes the byte total of the job.
+    const QString src = homeTmpDir() + "manybatchsz_src/";
+    const QString dst = homeTmpDir() + "manybatchsz_dst/";
+    QDir(src).removeRecursively();
+    QDir(dst).removeRecursively();
+    QDir().mkpath(src);
+    QDir().mkpath(dst);
+    auto cleaner = qScopeGuard([&] {
+        QDir(src).removeRecursively();
+        QDir(dst).removeRecursively();
+    });
+
+    const int n = 30;
+    KIO::filesize_t expectedTotal = 0;
+    QList<QUrl> sources;
+    for (int i = 0; i < n; ++i) {
+        const QString f = src + QStringLiteral("f%1").arg(i);
+        const int len = 64 + i * 17;
+        createTestFile(f, true, QByteArray(len, char('a' + (i % 26))));
+        expectedTotal += len;
+        sources << QUrl::fromLocalFile(f);
+    }
+
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
+    KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    if (KIO::TestPrivate::batchCopyCommandsSent() == batchesBefore) {
+        QSKIP("CopyJob did not take the batch path on this filesystem");
+    }
+
+    QCOMPARE(job->totalAmount(KJob::Files), KIO::filesize_t(n));
+    QCOMPARE(job->processedAmount(KJob::Files), KIO::filesize_t(n));
+    QCOMPARE(job->totalAmount(KJob::Bytes), expectedTotal);
+    QCOMPARE(job->processedAmount(KJob::Bytes), expectedTotal);
+
+    for (int i = 0; i < n; ++i) {
+        QFile out(dst + QStringLiteral("f%1").arg(i));
+        QVERIFY2(out.open(QIODevice::ReadOnly), qPrintable(out.fileName()));
+        QCOMPARE(out.readAll().size(), qsizetype(64 + i * 17));
+    }
+}
+
+void CopyJobTest::copyManyFilesBatchedSeveralDeferred()
+{
+    // The batch defers the files whose destination exists, and the user skips them. copyingDone()
+    // names exactly the other files.
+    const QString src = homeTmpDir() + "manybatchmd_src/";
+    const QString dst = homeTmpDir() + "manybatchmd_dst/";
+    QDir(src).removeRecursively();
+    QDir(dst).removeRecursively();
+    QDir().mkpath(src);
+    QDir().mkpath(dst);
+    auto cleaner = qScopeGuard([&] {
+        QDir(src).removeRecursively();
+        QDir(dst).removeRecursively();
+    });
+
+    const int n = 20;
+    QList<QUrl> sources;
+    for (int i = 0; i < n; ++i) {
+        const QString f = src + QStringLiteral("f%1").arg(i);
+        createTestFile(f, true, QByteArray("new-") + QByteArray::number(i));
+        sources << QUrl::fromLocalFile(f);
+    }
+    // Two destinations exist before the job, and two appear once it runs, before the copy starts.
+    const QList<int> conflicts = {3, 7, 13, 18};
+    const QList<int> conflictsAtStart = {7, 13};
+    for (int i : conflicts) {
+        if (!conflictsAtStart.contains(i)) {
+            createTestFile(dst + QStringLiteral("f%1").arg(i), true, "OLD");
+        }
+    }
+
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
+    KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
+    simulatePressingSkip(job);
+    QSignalSpy spyCopyingDone(job, &KIO::CopyJob::copyingDone);
+    QTimer::singleShot(0, job, [&] {
+        for (int i : conflictsAtStart) {
+            createTestFile(dst + QStringLiteral("f%1").arg(i), true, "OLD");
+        }
+    });
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    if (KIO::TestPrivate::batchCopyCommandsSent() == batchesBefore) {
+        QSKIP("CopyJob did not take the batch path on this filesystem");
+    }
+
+    for (int i = 0; i < n; ++i) {
+        QFile out(dst + QStringLiteral("f%1").arg(i));
+        QVERIFY2(out.open(QIODevice::ReadOnly), qPrintable(out.fileName()));
+        if (conflicts.contains(i)) {
+            QCOMPARE(out.readAll(), QByteArray("OLD"));
+        } else {
+            QCOMPARE(out.readAll(), QByteArray("new-") + QByteArray::number(i));
+        }
+    }
+
+    const int copied = n - int(conflicts.size());
+    QCOMPARE(spyCopyingDone.count(), copied);
+    QStringList copiedFrom;
+    QStringList copiedTo;
+    for (const QList<QVariant> &args : std::as_const(spyCopyingDone)) {
+        copiedFrom << args.at(1).toUrl().toLocalFile();
+        copiedTo << args.at(2).toUrl().toLocalFile();
+    }
+    QStringList expectedFrom;
+    QStringList expectedTo;
+    for (int i = 0; i < n; ++i) {
+        if (conflicts.contains(i)) {
+            continue;
+        }
+        expectedFrom << src + QStringLiteral("f%1").arg(i);
+        expectedTo << dst + QStringLiteral("f%1").arg(i);
+    }
+    copiedFrom.sort();
+    copiedTo.sort();
+    expectedFrom.sort();
+    expectedTo.sort();
+    QCOMPARE(copiedFrom, expectedFrom);
+    QCOMPARE(copiedTo, expectedTo);
+    QCOMPARE(job->processedAmount(KJob::Files), KIO::filesize_t(copied));
 }
 
 QTEST_MAIN(CopyJobTest)
