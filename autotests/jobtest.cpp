@@ -2702,6 +2702,51 @@ void JobTest::copyManyFilesBatchedWithExistingDest()
     QCOMPARE(job->processedAmount(KJob::Files), n - 1);
 }
 
+void JobTest::copyManyFilesBatchedOverwriteExistingDest()
+{
+    const QString src = homeTmpDir() + "manybatchov_src/";
+    const QString dst = homeTmpDir() + "manybatchov_dst/";
+    QDir(src).removeRecursively();
+    QDir(dst).removeRecursively();
+    QDir().mkpath(src);
+    QDir().mkpath(dst);
+    ScopedCleaner cleaner([&] {
+        QDir(src).removeRecursively();
+        QDir(dst).removeRecursively();
+    });
+
+    const int n = 20;
+    QList<QUrl> sources;
+    for (int i = 0; i < n; ++i) {
+        const QString f = src + QStringLiteral("f%1").arg(i);
+        createTestFile(f, true, QByteArray("new-") + QByteArray::number(i));
+        sources << QUrl::fromLocalFile(f);
+    }
+    // Two destinations already exist. Under Overwrite the batch must NOT forfeit the fast path: the
+    // gather stops the run at an existing destination (the batch never overwrites, it opens O_EXCL),
+    // and each existing file is overwritten by the per-file path. Every file ends up with the new
+    // content, and the run before/after each existing file still goes through the batch.
+    createTestFile(dst + "f7", true, "OLD-7");
+    createTestFile(dst + "f13", true, "OLD-13");
+
+    KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo | KIO::Overwrite);
+    QSignalSpy spyCopyingDone(job, &KIO::CopyJob::copyingDone);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    if (!job->metaData().contains(QLatin1String("batchDeferred"))) {
+        QSKIP("CopyJob did not take the batch path on this filesystem");
+    }
+
+    // Every destination - including the two that pre-existed - now holds the fresh source content.
+    for (int i = 0; i < n; ++i) {
+        QFile out(dst + QStringLiteral("f%1").arg(i));
+        QVERIFY2(out.open(QIODevice::ReadOnly), qPrintable(out.fileName()));
+        QCOMPARE(out.readAll(), QByteArray("new-") + QByteArray::number(i));
+    }
+    QCOMPARE(spyCopyingDone.count(), n); // all files copied (fresh via batch, existing via per-file)
+    QCOMPARE(job->processedAmount(KJob::Files), n);
+}
+
 void JobTest::copyManyFilesBatchedWithUnreadableSource()
 {
     if (::geteuid() == 0) {

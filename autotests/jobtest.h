@@ -50,6 +50,7 @@ private Q_SLOTS:
     void copyFilePreservesAcl();
     void copyManyFilesBatched();
     void copyManyFilesBatchedWithExistingDest();
+    void copyManyFilesBatchedOverwriteExistingDest();
     void copyManyFilesBatchedWithUnreadableSource();
     void copyManyFilesBatchedCancelled();
     void copyLargeFilesBatched();

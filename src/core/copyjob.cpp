@@ -2073,13 +2073,12 @@ bool CopyJobPrivate::tryBatchCopyFiles()
     if (m_bOverwriteWhenOlder || !m_overwriteList.isEmpty() || m_bAutoSkipFiles || m_bAutoRenameFiles) {
         return false;
     }
-    // The batch only ever creates fresh files (O_EXCL) and defers any existing destination, so under
-    // an overwrite-all policy it would defer every colliding file to the per-file path regardless.
-    // Skip it: the per-file path overwrites existing files atomically (via a .part backup), which the
-    // batch deliberately does not do.
-    if (m_bOverwriteAllFiles) {
-        return false;
-    }
+    // An overwrite-all policy does NOT forfeit the batch. The batch never overwrites (it opens every
+    // destination O_EXCL); under overwrite-all the gather loop below just stops the run at the first
+    // destination that already exists, so the batch covers the leading run of fresh files and each
+    // existing file is overwritten atomically by the per-file path. A defensively set Overwrite over
+    // a fresh/empty directory - the common case - thus still batches in full. (batchDeferred remains
+    // the backstop for a destination created between that check and the worker's O_EXCL open.)
     // The worker always preserves the source permissions; don't take the fast path when the job
     // asked for something else.
     if (m_defaultPermissions || m_ignoreSourcePermissions) {
@@ -2116,6 +2115,10 @@ bool CopyJobPrivate::tryBatchCopyFiles()
         }
         if (shouldSkip(ci.uDest.path())) {
             break; // let copyNextFile() drop a skipped front entry first
+        }
+        if (m_bOverwriteAllFiles && QFile::exists(ci.uDest.toLocalFile())) {
+            break; // under overwrite-all the batch takes only fresh files (it opens O_EXCL and never
+                   // overwrites); an existing destination is peeled off and overwritten per-file
         }
         if (k >= s_maxBatchFiles) {
             break;
@@ -2256,8 +2259,9 @@ void CopyJobPrivate::slotResultCopyingBatch(KJob *job)
         return;
     }
 
-    // "batchDeferred" lists "index:reason:errno;" for items the worker did NOT copy (an existing
-    // destination without Overwrite, or a per-item error).
+    // "batchDeferred" lists "index:reason:errno;" for items the worker did NOT copy: an existing
+    // destination (deferred so the per-file path resolves it - a conflict prompt normally, or an
+    // atomic overwrite under overwrite-all), or a per-item error.
     QSet<int> deferred;
     const QString meta = kiojob ? kiojob->metaData().value(QStringLiteral("batchDeferred")) : QString();
     const auto tokens = meta.split(QLatin1Char(';'), Qt::SkipEmptyParts);
