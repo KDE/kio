@@ -19,6 +19,7 @@ class KDesktopFileAction;
 namespace KIO
 {
 class ApplicationLauncherJobPrivate;
+class OpenUrlJobPrivate;
 
 /*!
  * \class KIO::ApplicationLauncherJob
@@ -172,12 +173,14 @@ public:
 
 private:
     friend class ::ApplicationLauncherJobTest;
+    friend class OpenUrlJobPrivate;
     /*!
      * Blocks until the process has started.
      */
     bool waitForStarted();
     KIOGUI_NO_EXPORT void emitUnauthorizedError();
     KIOGUI_NO_EXPORT void proceedAfterSecurityChecks();
+    KIOGUI_NO_EXPORT void setKnownMimeType(const QString &mimeType);
 
     friend class ApplicationLauncherJobPrivate;
     QScopedPointer<ApplicationLauncherJobPrivate> d;

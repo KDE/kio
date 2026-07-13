@@ -126,6 +126,11 @@ void KIO::ApplicationLauncherJob::emitUnauthorizedError()
     emitResult();
 }
 
+void KIO::ApplicationLauncherJob::setKnownMimeType(const QString &mimeType)
+{
+    d->m_mimeTypeName = mimeType;
+}
+
 void KIO::ApplicationLauncherJob::start()
 {
     if (!d->m_service) {
@@ -210,8 +215,14 @@ void KIO::ApplicationLauncherJob::proceedAfterSecurityChecks()
         d->m_numProcessesPending = 1;
     }
 
-    auto *processRunner =
-        KProcessRunner::fromApplication(d->m_service, d->m_serviceEntryPath, d->m_urls, d->m_actionName, d->m_runFlags, d->m_suggestedFileName, d->m_startupId);
+    auto *processRunner = KProcessRunner::fromApplication(d->m_service,
+                                                          d->m_serviceEntryPath,
+                                                          d->m_urls,
+                                                          d->m_actionName,
+                                                          d->m_runFlags,
+                                                          d->m_suggestedFileName,
+                                                          d->m_startupId,
+                                                          d->m_urls.size() == 1 ? d->m_mimeTypeName : QString());
     d->m_processRunners.push_back(processRunner);
     connect(processRunner, &KProcessRunner::error, this, [this](const QString &errorText) {
         setError(KJob::UserDefinedError);

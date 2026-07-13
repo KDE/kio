@@ -7,6 +7,7 @@
 */
 
 #include "krecentdocument.h"
+#include "krecentdocument_p.h"
 
 #include "kiocoredebug.h"
 
@@ -168,7 +169,12 @@ static bool removeOldestEntries(int &maxEntries)
     return false;
 }
 
-static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentDocument::RecentDocumentGroups groups, int maxEntries, bool ignoreHidden)
+static bool addToXbel(const QUrl &url,
+                      const QString &desktopEntryName,
+                      KRecentDocument::RecentDocumentGroups groups,
+                      int maxEntries,
+                      bool ignoreHidden,
+                      const QString &mimeTypeHint = {})
 {
     if (!QDir().mkpath(QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation))) {
         qCWarning(KIO_CORE) << "Could not create GenericDataLocation";
@@ -366,8 +372,11 @@ static bool addToXbel(const QUrl &url, const QString &desktopEntryName, KRecentD
         output.writeAttribute(visitedAttribute, currentTimestamp);
 
         {
-            QMimeDatabase mimeDb;
-            const auto fileMime = mimeDb.mimeTypeForUrl(url).name();
+            QString fileMime = mimeTypeHint;
+            if (fileMime.isEmpty()) {
+                QMimeDatabase mimeDb;
+                fileMime = mimeDb.mimeTypeForUrl(url).name();
+            }
 
             output.writeStartElement(infoTag);
             output.writeStartElement(metadataTag);
@@ -502,7 +511,7 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName)
     add(url, desktopEntryName, RecentDocumentGroups());
 }
 
-void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName, KRecentDocument::RecentDocumentGroups groups)
+static void addImpl(const QUrl &url, const QString &desktopEntryName, KRecentDocument::RecentDocumentGroups groups, const QString &mimeTypeHint)
 {
     if (url.isLocalFile() && url.toLocalFile().startsWith(QDir::tempPath())) {
         return; // inside tmp resource, do not save
@@ -515,16 +524,26 @@ void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName, KRec
     bool ignoreHidden = config.readEntry("IgnoreHidden"_L1, true);
 
     if (!useRecent || maxEntries == 0) {
-        clear();
+        KRecentDocument::clear();
         return;
     }
     if (ignoreHidden && url.toLocalFile().contains(QLatin1String("/."))) {
         return;
     }
 
-    if (!addToXbel(url, desktopEntryName, groups, maxEntries, ignoreHidden)) {
+    if (!addToXbel(url, desktopEntryName, groups, maxEntries, ignoreHidden, mimeTypeHint)) {
         qCWarning(KIO_CORE) << "Failed to add to recently used bookmark file";
     }
+}
+
+void KRecentDocument::add(const QUrl &url, const QString &desktopEntryName, KRecentDocument::RecentDocumentGroups groups)
+{
+    addImpl(url, desktopEntryName, groups, {});
+}
+
+void KRecentDocumentPrivate::addWithKnownMimeType(const QUrl &url, const QString &desktopEntryName, const QString &mimeType)
+{
+    addImpl(url, desktopEntryName, {}, mimeType);
 }
 
 void KRecentDocument::clear()

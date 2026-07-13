@@ -69,7 +69,8 @@ public:
                                            const QString &actionName = {},
                                            KIO::ApplicationLauncherJob::RunFlags flags = {},
                                            const QString &suggestedFileName = {},
-                                           const QByteArray &asn = {});
+                                           const QByteArray &asn = {},
+                                           const QString &knownMimeType = {});
 
     /*!
      * Run a shell command

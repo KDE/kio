@@ -15,6 +15,7 @@
 #include "config-kiogui.h"
 #include "kiogui_debug.h"
 
+#include "../core/krecentdocument_p.h"
 #include "desktopexecparser.h"
 #include "gpudetection_p.h"
 #include "krecentdocument.h"
@@ -94,7 +95,8 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
                                                 const QString &actionName,
                                                 KIO::ApplicationLauncherJob::RunFlags flags,
                                                 const QString &suggestedFileName,
-                                                const QByteArray &asn)
+                                                const QByteArray &asn,
+                                                const QString &knownMimeType)
 {
 #ifdef WITH_QTDBUS
     // special case for applicationlauncherjob
@@ -161,8 +163,12 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
 
     if ((flags & KIO::ApplicationLauncherJob::DeleteTemporaryFiles) == 0) {
         // Remember we opened those urls, for the "recent documents" menu in kicker
-        for (const QUrl &url : urls) {
-            KRecentDocument::add(url, service->desktopEntryName());
+        if (!knownMimeType.isEmpty() && urls.size() == 1) {
+            KRecentDocumentPrivate::addWithKnownMimeType(urls[0], service->desktopEntryName(), knownMimeType);
+        } else {
+            for (const QUrl &url : urls) {
+                KRecentDocument::add(url, service->desktopEntryName());
+            }
         }
     }
 

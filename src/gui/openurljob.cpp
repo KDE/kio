@@ -307,6 +307,9 @@ void KIO::OpenUrlJobPrivate::startService(const KService::Ptr &service, const QL
     job->setRunFlags(m_deleteTemporaryFile ? KIO::ApplicationLauncherJob::DeleteTemporaryFiles : KIO::ApplicationLauncherJob::RunFlags{});
     job->setSuggestedFileName(m_suggestedFileName);
     job->setStartupId(m_startupId);
+    if (urls.size() == 1 && !m_mimeTypeName.isEmpty()) {
+        job->setKnownMimeType(m_mimeTypeName);
+    }
     q->addSubjob(job);
     job->start();
 }
