@@ -73,6 +73,7 @@ private Q_SLOTS:
     void copyManyFilesBatchedMalformedRequests();
     void copyManyFilesBatched();
     void copyManyFilesBatchedWithExistingDest();
+    void copyManyFilesBatchedOverwriteExistingDest();
     void copyManyFilesBatchedWithUnreadableSource();
     void copyManyFilesBatchedCancelled();
     void copyLargeFilesBatched();
