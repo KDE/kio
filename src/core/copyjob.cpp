@@ -353,6 +353,16 @@ public:
     QSet<int> m_batchReported;
     int m_batchInFlight = -1; // batch index the worker is copying right now, -1 between files
 
+    // Destination batch-copy gate, probed once (the destination is invariant) rather than per batch,
+    // since the mount-table probe is expensive.
+    enum class BatchDestEligibility {
+        Unknown,
+        Eligible,
+        NotEligible
+    };
+    BatchDestEligibility m_batchDestEligible = BatchDestEligibility::Unknown;
+    qint32 m_batchReflinkFlag = 0; // bit0 for the worker: the destination filesystem can reflink (FICLONE)
+
     enum SkipType {
         // No skip dialog is involved
         NoSkipType = 0,
@@ -2112,13 +2122,12 @@ bool CopyJobPrivate::tryBatchCopyFiles()
     if (m_bOverwriteWhenOlder || !m_overwriteList.isEmpty() || m_bAutoSkipFiles || m_bAutoRenameFiles) {
         return false;
     }
-    // The batch only ever creates fresh files (O_EXCL) and defers any existing destination, so under
-    // an overwrite-all policy it would defer every colliding file to the per-file path regardless.
-    // Skip it: the per-file path overwrites existing files atomically (via a .part backup), which the
-    // batch deliberately does not do.
-    if (m_bOverwriteAllFiles) {
-        return false;
-    }
+    // An overwrite-all policy does NOT forfeit the batch. The batch never overwrites (it opens every
+    // destination O_EXCL); under overwrite-all the gather loop below just stops the run at the first
+    // destination that already exists, so the batch covers the leading run of fresh files and each
+    // existing file is overwritten atomically by the per-file path. A defensively set Overwrite over
+    // a fresh/empty directory - the common case - thus still batches in full. (batchDeferred remains
+    // the backstop for a destination created between that check and the worker's O_EXCL open.)
     // The worker always preserves the source permissions; don't take the fast path when the job
     // asked for something else.
     if (m_defaultPermissions || m_ignoreSourcePermissions) {
@@ -2127,15 +2136,18 @@ bool CopyJobPrivate::tryBatchCopyFiles()
     // The batch command runs synchronously in the worker and is not killable mid-flight, so reserve
     // it for a local, responsive destination. Skip FAT/NTFS, whose name/symlink quirks the per-file
     // path handles.
-    if (!m_globalDest.isLocalFile()) {
-        return false;
+    if (m_batchDestEligible == BatchDestEligibility::Unknown) {
+        m_batchDestEligible = BatchDestEligibility::NotEligible;
+        if (m_globalDest.isLocalFile()) {
+            const KMountPoint::Ptr destMp = KMountPoint::currentMountPointForPath(m_globalDest.toLocalFile());
+            // Reuse the cached fs-type probe (see 19ed9a03) for the FAT/NTFS check.
+            if (destMp && !destMp->isOnNetwork() && !destMp->probablySlow() && !isFatOrNtfs(globalDestFsType())) {
+                m_batchDestEligible = BatchDestEligibility::Eligible;
+                m_batchReflinkFlag = destMp->testFileSystemFlag(KMountPoint::SupportsFileCloning) ? 0x1 : 0x0;
+            }
+        }
     }
-    const QString destPath = m_globalDest.toLocalFile();
-    const KMountPoint::Ptr destMp = KMountPoint::currentMountPointForPath(destPath);
-    if (!destMp || destMp->isOnNetwork() || destMp->probablySlow()) {
-        return false;
-    }
-    if (isFatOrNtfs(KFileSystemType::fileSystemType(destPath))) {
+    if (m_batchDestEligible == BatchDestEligibility::NotEligible) {
         return false;
     }
 
@@ -2156,6 +2168,10 @@ bool CopyJobPrivate::tryBatchCopyFiles()
         if (shouldSkip(ci.uDest.path())) {
             break; // let copyNextFile() drop a skipped front entry first
         }
+        if (m_bOverwriteAllFiles && QFile::exists(ci.uDest.toLocalFile())) {
+            break; // under overwrite-all the batch takes only fresh files (it opens O_EXCL and never
+                   // overwrites); an existing destination is peeled off and overwritten per-file
+        }
         if (k >= s_maxBatchFiles) {
             break;
         }
@@ -2175,10 +2191,10 @@ bool CopyJobPrivate::tryBatchCopyFiles()
     QByteArray payload;
     QDataStream stream(&payload, QIODevice::WriteOnly);
     // bit0 tells the worker the destination can share extents ("reflink") instead of copying the
-    // data, so it only attempts FICLONE there. destMp is the mount we already looked up above, so
-    // this costs no extra syscall. A filesystem that can clone may still turn a single file down,
-    // and the worker copies the contents when it does.
-    const qint32 flags = destMp->testFileSystemFlag(KMountPoint::SupportsFileCloning) ? 0x1 : 0x0;
+    // data, so it only attempts FICLONE there. Settled once with the cached destination gate above,
+    // so this costs no extra syscall per batch. A filesystem that can clone may still turn a single
+    // file down, and the worker copies the contents when it does.
+    const qint32 flags = m_batchReflinkFlag;
     stream << qint32(3) /* batch-copy sub-command */ << flags << qint32(k);
     for (int i = 0; i < k; ++i) {
         stream << filesToCopy.at(i).uSource.toLocalFile() << filesToCopy.at(i).uDest.toLocalFile();
@@ -2302,8 +2318,9 @@ void CopyJobPrivate::slotResultCopyingBatch(KJob *job)
         return;
     }
 
-    // "batchDeferred" lists "index:reason:errno;" for items the worker did NOT copy (an existing
-    // destination without Overwrite, or a per-item error).
+    // "batchDeferred" lists "index:reason:errno;" for items the worker did NOT copy: an existing
+    // destination (deferred so the per-file path resolves it - a conflict prompt normally, or an
+    // atomic overwrite under overwrite-all), or a per-item error.
     QSet<int> deferred;
     const QString meta = kiojob ? kiojob->metaData().value(QStringLiteral("batchDeferred")) : QString();
     const auto tokens = meta.split(QLatin1Char(';'), Qt::SkipEmptyParts);
@@ -2342,7 +2359,13 @@ void CopyJobPrivate::slotResultCopyingBatch(KJob *job)
         m_useBatchCopy = false; // once anything needs individual attention, stay on the per-file path
     }
 
-    filesToCopy = requeued + filesToCopy.mid(k); // deferred entries stay at the front; copied ones are dropped
+    // Drop the copied front run in place. Only rebuild the list when entries were deferred back to
+    // the per-file path (requeued is non-empty only on the final batch).
+    if (requeued.isEmpty()) {
+        filesToCopy.remove(0, k);
+    } else {
+        filesToCopy = requeued + filesToCopy.mid(k); // deferred entries stay at the front, copied ones are dropped
+    }
     if (kiojob) {
         m_incomingMetaData += kiojob->metaData();
     }
