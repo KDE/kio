@@ -267,12 +267,6 @@ void FilePreviewJob::slotStatFile(KJob *job)
         m_fileItem = KFileItem(statResult, m_fileItem.url());
     }
 
-    if (!preparePluginForMimetype(m_fileItem.mimetype())) {
-        setError(KIO::ERR_INTERNAL);
-        emitResult();
-        return;
-    }
-
     if (isLocal) {
         if (const QString linkDest = statResult.stringValue(KIO::UDSEntry::UDS_LINK_DEST); !linkDest.isEmpty()) {
             m_origName = QUrl::fromLocalFile(linkDest).toEncoded(QUrl::FullyEncoded);
@@ -298,21 +292,36 @@ void FilePreviewJob::slotStatFile(KJob *job)
         return;
     }
 
-    bool skipCurrentItem = false;
     const KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
-    if ((itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !isSlow(m_fileItem, statResult)) {
-        const KIO::filesize_t maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
-        skipCurrentItem = !m_options.ignoreMaximumSize && size > maximumLocalSize && !m_plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
-    } else {
+    const bool isLocalAndFast =
+        (itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !isSlow(m_fileItem, statResult);
+
+    if (!isLocalAndFast) {
         // For remote items the "IgnoreMaximumSize" plugin property is not respected
-        // Also we need to check if remote (but locally mounted) folder preview is enabled
+        // Also we need to check if remote (but locally mounted) folder preview is enabled.
+        // Checked before preparePluginForMimetype() since it doesn't need the MIME type/plugin.
         const KIO::filesize_t maximumRemoteSize = cg.readEntry<KIO::filesize_t>("MaximumRemoteSize", 0);
         const bool enableRemoteFolderThumbnail = cg.readEntry("EnableRemoteFolderThumbnail", false);
-        skipCurrentItem = (!m_options.ignoreMaximumSize && size > maximumRemoteSize) || (m_fileItem.isDir() && !enableRemoteFolderThumbnail);
+        const bool skipCurrentItem = (!m_options.ignoreMaximumSize && size > maximumRemoteSize) || (m_fileItem.isDir() && !enableRemoteFolderThumbnail);
+        if (skipCurrentItem) {
+            emitResult();
+            return;
+        }
     }
-    if (skipCurrentItem) {
+
+    if (!preparePluginForMimetype(m_fileItem.mimetype())) {
+        setError(KIO::ERR_INTERNAL);
         emitResult();
         return;
+    }
+
+    if (isLocalAndFast) {
+        const KIO::filesize_t maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
+        const bool skipCurrentItem = !m_options.ignoreMaximumSize && size > maximumLocalSize && !m_plugin.value(QStringLiteral("IgnoreMaximumSize"), false);
+        if (skipCurrentItem) {
+            emitResult();
+            return;
+        }
     }
 
     bool pluginHandlesSequences = m_plugin.value(QStringLiteral("HandleSequences"), false);
