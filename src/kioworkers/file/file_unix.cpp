@@ -522,8 +522,16 @@ static constexpr size_t s_batchCopyChunk = 512 * 1024;
 // the cases it rejects (EXDEV, ENOSYS, ...). size (from the caller's fstat) bounds the loop so it
 // stops at EOF without an extra probing call, and skips empty files. The transfer is chunked,
 // polling isKilled() between chunks (on cancel: errno = ECANCELED, returns false). bytesCopied is
-// the caller's running batch total for progress; the loop uses a per-file counter. errno is left set on failure.
-bool copyFds(int sourceFd, int destFd, [[maybe_unused]] KIO::filesize_t size, KIO::filesize_t &bytesCopied, const std::function<bool()> &isKilled)
+// the caller's running batch total for progress; the loop uses a per-file counter. readFailed, if
+// set, distinguishes a read (true) from a write (false) error on failure and is left untouched
+// otherwise. errno is left set on failure.
+bool copyFds(int sourceFd,
+             int destFd,
+             [[maybe_unused]] KIO::filesize_t size,
+             KIO::filesize_t &bytesCopied,
+             const std::function<bool()> &isKilled,
+             const std::function<void(KIO::filesize_t)> &onProgress = {},
+             bool *readFailed = nullptr)
 {
 #if HAVE_COPY_FILE_RANGE
     const size_t chunk = s_batchCopyChunk;
@@ -542,6 +550,9 @@ bool copyFds(int sourceFd, int destFd, [[maybe_unused]] KIO::filesize_t size, KI
         }
         copied += n;
         bytesCopied += n;
+        if (onProgress) {
+            onProgress(bytesCopied);
+        }
         // Poll for cancellation only between chunks, so a single-chunk file (the common small-file
         // case) does no extra work while a large file stays promptly interruptible.
         if (copied < size && isKilled && isKilled()) {
@@ -564,6 +575,9 @@ bool copyFds(int sourceFd, int destFd, [[maybe_unused]] KIO::filesize_t size, KI
             if (errno == EINTR) {
                 continue;
             }
+            if (readFailed) {
+                *readFailed = true;
+            }
             return false; // genuine read error
         }
         if (n == 0) {
@@ -580,11 +594,17 @@ bool copyFds(int sourceFd, int destFd, [[maybe_unused]] KIO::filesize_t size, KI
                 if (errno == EINTR) {
                     continue;
                 }
+                if (readFailed) {
+                    *readFailed = false;
+                }
                 return false; // genuine write error
             }
             written += w;
         }
         bytesCopied += n;
+        if (onProgress) {
+            onProgress(bytesCopied);
+        }
     }
     return true;
 }
@@ -1139,118 +1159,57 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
     const auto srcSize = buffSrc.st_size;
     totalSize(srcSize);
 
-    off_t sizeProcessed = 0;
-
     const bool slowTestMode = testMode && destFile.fileName().contains(QLatin1String("slow"));
+
+    KIO::filesize_t sizeProcessed = 0;
+    bool existingDestDeleteAttempted = false;
 
 #ifdef FICLONE
     if (!slowTestMode) {
-        // Share data blocks ("reflink") on supporting filesystems, like brfs and XFS
-        int ret = ::ioctl(destFile.handle(), FICLONE, srcFile.handle());
-        if (ret != -1) {
+        // Share data blocks ("reflink") on supporting filesystems, like btrfs and XFS.
+        if (::ioctl(destFile.handle(), FICLONE, srcFile.handle()) != -1) {
             sizeProcessed = srcSize;
-            processedSize(srcSize);
         }
     }
-    // if fs does not support reflinking, files are on different devices...
+    // if the fs cannot reflink (different devices, unsupported, ...) fall through to the copy below
 #endif
-
-    bool existingDestDeleteAttempted = false;
 
     processedSize(sizeProcessed);
 
-#if HAVE_COPY_FILE_RANGE
-    while (!wasKilled() && sizeProcessed < srcSize) {
-        if (slowTestMode) {
-            QThread::msleep(50);
-        }
-
-        const ssize_t copiedBytes = ::copy_file_range(srcFile.handle(), nullptr, destFile.handle(), nullptr, s_maxIPCSize, 0);
-
-        if (copiedBytes == -1) {
-            // ENOENT is returned on cifs in some cases, probably a kernel bug
-            // (s.a. https://git.savannah.gnu.org/cgit/coreutils.git/commit/?id=7fc84d1c0f6b35231b0b4577b70aaa26bf548a7c)
-            if (errno == EINVAL || errno == EXDEV || errno == ENOENT) {
-                break; // will continue with next copy mechanism
-            }
-
-            if (errno == EINTR) { // Interrupted
-                continue;
-            }
-
-            if (errno == ENOSPC) { // disk full
-                // attempt to free disk space occupied by file being overwritten
-                if (!_destBackup.isEmpty() && !existingDestDeleteAttempted) {
-                    ::unlink(_destBackup.constData());
-                    existingDestDeleteAttempted = true;
-                    continue;
-                }
-
-                if (!QFile::remove(dest)) { // don't keep partly copied file
-                    qCWarning(KIO_FILE) << "Could not delete partially copied file" << dest;
-                }
-
-                return WorkerResult::fail(KIO::ERR_DISK_FULL, dest);
-            }
-
-            if (!QFile::remove(dest)) { // don't keep partly copied file
-                qCWarning(KIO_FILE) << "Could not delete partially copied file" << dest;
-            }
-
-            return WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("Cannot copy file from %1 to %2. (Errno: %3)", src, dest, errno));
-        }
-
-        sizeProcessed += copiedBytes;
-        processedSize(sizeProcessed);
-    }
-#endif
-
-    /* standard read/write fallback */
-    if (sizeProcessed < srcSize) {
-        QByteArray buffer(s_maxIPCSize, Qt::Uninitialized);
-        while (!wasKilled() && sizeProcessed < srcSize) {
-            if (testMode && destFile.fileName().contains(QLatin1String("slow"))) {
+    if (sizeProcessed < KIO::filesize_t(srcSize)) {
+        // The content transfer is the same primitive the batch path uses (copy_file_range with a
+        // read/write fallback, chunked and cancellable), via copyFds(). copy() supplies the
+        // single-file extras through its hooks: per-chunk processedSize(), the slow-test delay, and
+        // freeing the .part backup to make room on disk-full before retrying from the start.
+        const auto isKilled = [this] {
+            return wasKilled();
+        };
+        const auto onProgress = [this, slowTestMode](KIO::filesize_t copied) {
+            processedSize(copied);
+            if (slowTestMode) {
                 QThread::msleep(50);
             }
-
-            const ssize_t readBytes = ::read(srcFile.handle(), buffer.data(), s_maxIPCSize);
-
-            if (readBytes == -1) {
-                if (errno == EINTR) { // Interrupted
+        };
+        bool readFailed = false;
+        while (!copyFds(srcFile.handle(), destFile.handle(), srcSize, sizeProcessed, isKilled, onProgress, &readFailed)) {
+            if (errno == ECANCELED) {
+                break; // killed mid-copy; the wasKilled() cleanup below removes the partial file
+            }
+            const bool diskFull = (errno == ENOSPC || errno == EDQUOT);
+            if (diskFull && !readFailed && !_destBackup.isEmpty() && !existingDestDeleteAttempted) {
+                // Free the file being overwritten, then retry from the start (the descriptors advanced).
+                ::unlink(_destBackup.constData());
+                existingDestDeleteAttempted = true;
+                if (::lseek(srcFile.handle(), 0, SEEK_SET) == 0 && ::lseek(destFile.handle(), 0, SEEK_SET) == 0 && ::ftruncate(destFile.handle(), 0) == 0) {
+                    sizeProcessed = 0;
                     continue;
-                } else {
-                    qCWarning(KIO_FILE) << "Couldn't read[2]. Error:" << srcFile.errorString();
                 }
-
-                if (!QFile::remove(dest)) { // don't keep partly copied file
-                    qCWarning(KIO_FILE) << "Could not delete partially copied file" << dest;
-                }
-                return WorkerResult::fail(KIO::ERR_CANNOT_READ, src);
             }
-
-            if (destFile.write(buffer.data(), readBytes) != readBytes) {
-                int error = KIO::ERR_CANNOT_WRITE;
-                if (destFile.error() == QFileDevice::ResourceError) { // disk full
-                    // attempt to free disk space occupied by file being overwritten
-                    if (!_destBackup.isEmpty() && !existingDestDeleteAttempted) {
-                        ::unlink(_destBackup.constData());
-                        existingDestDeleteAttempted = true;
-                        if (destFile.write(buffer.data(), readBytes) == readBytes) { // retry
-                            continue;
-                        }
-                    }
-                    error = KIO::ERR_DISK_FULL;
-                } else {
-                    qCWarning(KIO_FILE) << "Couldn't write[2]. Error:" << destFile.errorString();
-                }
-
-                if (!QFile::remove(dest)) { // don't keep partly copied file
-                    qCWarning(KIO_FILE) << "Could not delete partially copied file" << dest;
-                }
-                return WorkerResult::fail(error, dest);
+            if (!QFile::remove(dest)) { // don't keep a partly copied file
+                qCWarning(KIO_FILE) << "Could not delete partially copied file" << dest;
             }
-            sizeProcessed += readBytes;
-            processedSize(sizeProcessed);
+            const int error = readFailed ? KIO::ERR_CANNOT_READ : (diskFull ? KIO::ERR_DISK_FULL : KIO::ERR_CANNOT_WRITE);
+            return WorkerResult::fail(error, readFailed ? src : dest);
         }
     }
 
