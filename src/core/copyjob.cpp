@@ -355,6 +355,16 @@ public:
     // only the rest per-file.
     QSet<int> m_batchReported;
 
+    // Destination batch-copy gate, probed once (the destination is invariant) rather than per batch,
+    // since the mount-table probe is expensive.
+    enum class BatchDestEligibility {
+        Unknown,
+        Eligible,
+        NotEligible
+    };
+    BatchDestEligibility m_batchDestEligible = BatchDestEligibility::Unknown;
+    qint32 m_batchReflinkFlag = 0; // bit0 for the worker: the destination filesystem can reflink (FICLONE)
+
     enum SkipType {
         // No skip dialog is involved
         NoSkipType = 0,
@@ -2087,15 +2097,18 @@ bool CopyJobPrivate::tryBatchCopyFiles()
     // The batch command runs synchronously in the worker and is not killable mid-flight, so reserve
     // it for a local, responsive destination. Skip FAT/NTFS, whose name/symlink quirks the per-file
     // path handles.
-    if (!m_globalDest.isLocalFile()) {
-        return false;
+    if (m_batchDestEligible == BatchDestEligibility::Unknown) {
+        m_batchDestEligible = BatchDestEligibility::NotEligible;
+        if (m_globalDest.isLocalFile()) {
+            const KMountPoint::Ptr destMp = KMountPoint::currentMountPoints().findByPath(m_globalDest.toLocalFile());
+            // Reuse the cached fs-type probe (see 19ed9a03) for the FAT/NTFS check.
+            if (destMp && !destMp->isOnNetwork() && !destMp->probablySlow() && !isFatOrNtfs(globalDestFsType())) {
+                m_batchDestEligible = BatchDestEligibility::Eligible;
+                m_batchReflinkFlag = isReflinkCapableFs(destMp->mountType()) ? 0x1 : 0x0;
+            }
+        }
     }
-    const QString destPath = m_globalDest.toLocalFile();
-    const KMountPoint::Ptr destMp = KMountPoint::currentMountPoints().findByPath(destPath);
-    if (!destMp || destMp->isOnNetwork() || destMp->probablySlow()) {
-        return false;
-    }
-    if (isFatOrNtfs(KFileSystemType::fileSystemType(destPath))) {
+    if (m_batchDestEligible == BatchDestEligibility::NotEligible) {
         return false;
     }
 
@@ -2138,9 +2151,9 @@ bool CopyJobPrivate::tryBatchCopyFiles()
 
     QByteArray payload;
     QDataStream stream(&payload, QIODevice::WriteOnly);
-    // bit0 tells the worker the destination can reflink, so it only attempts FICLONE there. destMp is
-    // the mount we already looked up above, so this costs no extra syscall.
-    const qint32 flags = isReflinkCapableFs(destMp->mountType()) ? 0x1 : 0x0;
+    // bit0 tells the worker the destination can reflink, so it only attempts FICLONE there. Computed
+    // once with the cached destination gate above, so this costs no extra syscall per batch.
+    const qint32 flags = m_batchReflinkFlag;
     stream << qint32(3) /* batch-copy sub-command */ << flags << qint32(k);
     for (int i = 0; i < k; ++i) {
         stream << files.at(i).uSource.toLocalFile() << files.at(i).uDest.toLocalFile();
@@ -2300,7 +2313,13 @@ void CopyJobPrivate::slotResultCopyingBatch(KJob *job)
         m_useBatchCopy = false; // once anything needs individual attention, stay on the per-file path
     }
 
-    files = requeued + files.mid(k); // deferred entries stay at the front; copied ones are dropped
+    // Drop the copied front run in place. Only rebuild the list when entries were deferred back to
+    // the per-file path (requeued is non-empty only on the final batch).
+    if (requeued.isEmpty()) {
+        files.remove(0, k);
+    } else {
+        files = requeued + files.mid(k); // deferred entries stay at the front, copied ones are dropped
+    }
     if (kiojob) {
         m_incomingMetaData += kiojob->metaData();
     }
