@@ -595,11 +595,15 @@ void KFileWidgetTest::testDropFile()
     QAbstractItemView *view = fileWidget.dirOperator()->view();
     QVERIFY(view);
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 12, 0)
+    QDragEnterEvent event1(QPointF(), Qt::DropAction::MoveAction, mimeData.get(), Qt::MouseButton::LeftButton, Qt::KeyboardModifier::NoModifier);
+#else
     QDragEnterEvent event1(QPoint(), Qt::DropAction::MoveAction, mimeData.get(), Qt::MouseButton::LeftButton, Qt::KeyboardModifier::NoModifier);
+#endif
     QVERIFY(qApp->sendEvent(view->viewport(), &event1));
 
     // Fake drop
-    QDropEvent event(QPoint(), Qt::DropAction::MoveAction, mimeData.get(), Qt::MouseButton::LeftButton, Qt::KeyboardModifier::NoModifier);
+    QDropEvent event(QPointF(), Qt::DropAction::MoveAction, mimeData.get(), Qt::MouseButton::LeftButton, Qt::KeyboardModifier::NoModifier);
     QVERIFY(qApp->sendEvent(view->viewport(), &event));
 
     // Verify the expected populated name. Dropping a file selects it through the
