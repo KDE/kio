@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-22 00:41+0000\n"
+"POT-Creation-Date: 2026-07-25 00:40+0000\n"
 "PO-Revision-Date: 2026-07-23 22:01+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Min Nan Chinese Latin <zh-l10n@lists.slat.org>\n"
@@ -5141,43 +5141,43 @@ msgstr "Leh King-sin Hē-thóng Siat-tīng"
 msgid "Updating system configuration…"
 msgstr "Leh king-sin hē-thóng siat-tīng…"
 
-#: widgets/kdirmodel.cpp:1263
+#: widgets/kdirmodel.cpp:1268
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Miâ"
 
-#: widgets/kdirmodel.cpp:1265
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Tuā-sè"
 
-#: widgets/kdirmodel.cpp:1267
+#: widgets/kdirmodel.cpp:1272
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Ji̍t-kî"
 
-#: widgets/kdirmodel.cpp:1269
+#: widgets/kdirmodel.cpp:1274
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Khuân-hān"
 
-#: widgets/kdirmodel.cpp:1271
+#: widgets/kdirmodel.cpp:1276
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Sóo-iú-tsiá"
 
-#: widgets/kdirmodel.cpp:1273
+#: widgets/kdirmodel.cpp:1278
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Kûn-tsoo"
 
-#: widgets/kdirmodel.cpp:1275
+#: widgets/kdirmodel.cpp:1280
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
