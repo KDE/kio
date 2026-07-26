@@ -14,10 +14,13 @@
 #include <config-kmountpoint.h>
 #include <kioglobal_p.h> // Defines QT_LSTAT on windows to kio_windows_lstat
 
+#include <QCache>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
+#include <QGlobalStatic>
+#include <QMutex>
 #include <QTextStream>
 
 #include <qplatformdefs.h>
@@ -159,7 +162,9 @@ public:
     QString m_mountType;
     QStringList m_mountOptions;
     dev_t m_deviceId = 0;
-    // the mount id seems to start at 1. 0 should be safe as a undefined default
+    // The unique mount id (STATX_MNT_ID_UNIQUE) when the kernel provides it, 0 otherwise.
+    // The reusable STATX_MNT_ID is not stored, so a non-zero value always identifies the
+    // same mount for the life of the system and is safe to cache.
     quint64 m_mountId = 0;
     bool m_isNetFs = false;
     bool m_isPseudoFs = false;
@@ -445,7 +450,10 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
 
                 uint mask_mnt_id = 0;
 #if HAVE_STATX_MNT_ID_UNIQUE
-                mask_mnt_id = STATX_MNT_ID_UNIQUE | STATX_MNT_ID;
+                // Only the unique mount id, which is never reused while the system is up and
+                // is therefore safe to cache. A non-zero m_mountId always means a unique id;
+                // on a kernel too old to provide it statx clears the bit and m_mountId stays 0.
+                mask_mnt_id = STATX_MNT_ID_UNIQUE;
 #elif HAVE_STATX_MNT_ID
                 mask_mnt_id = STATX_MNT_ID;
 #endif
@@ -608,6 +616,136 @@ KMountPoint::Ptr KMountPoint::List::findByMountId(quint64 mountId) const
     Q_UNUSED(mountId)
 #endif
     return Ptr();
+}
+
+namespace
+{
+// Small process-wide cache of unique-mount-id -> mount point. A STATX_MNT_ID_UNIQUE
+// id is never reused while the system is running and always denotes the same mount, so
+// a cached entry never points at a different mount; a miss means a mount we have not seen
+// yet and the table is re-read once. QCache bounds the size and drops the least recently
+// used entries. The cache only ever holds unique ids, so on a kernel without
+// STATX_MNT_ID_UNIQUE it stays empty and every lookup falls through to a reparse.
+//
+// A mount can, however, keep its unique id while its mountPoint()/mountOptions() change
+// under it ("mount --move", "mount -o remount"). To avoid serving a stale snapshot, a
+// libmount monitor watches the kernel mount table and the entries still in the cache are
+// refreshed from a single re-read whenever anything has changed since the last lookup.
+struct MountIdCache {
+    QMutex mutex;
+    QCache<quint64, KMountPoint::Ptr> byUniqueId;
+    // A copy touches its source and destination mount; browsing spans a few mounts.
+    MountIdCache()
+        : byUniqueId(16)
+    {
+    }
+
+// The monitor only matters when the cache can hold entries, which needs a unique
+// mount id; without STATX_MNT_ID_UNIQUE the cache stays empty and there is nothing
+// to invalidate, so do not compile or arm it.
+#if HAVE_LIB_MOUNT && HAVE_STATX_MNT_ID_UNIQUE
+    struct libmnt_monitor *monitor = nullptr;
+    bool monitorSetUp = false;
+
+    ~MountIdCache()
+    {
+        if (monitor) {
+            mnt_unref_monitor(monitor);
+        }
+    }
+
+    // Called with mutex held. When the mount table has changed since the last check,
+    // refresh the entries we currently hold from a single re-read: a mount keeps its
+    // unique id across "mount --move"/"mount -o remount", so its mountPoint()/
+    // mountOptions() may have changed, and a mount that went away is dropped. Only
+    // bothers when the cache actually stores entries.
+    void refreshCacheIfMountsChanged()
+    {
+        if (byUniqueId.maxCost() <= 1) {
+            return;
+        }
+        if (!monitorSetUp) {
+            monitorSetUp = true;
+            monitor = mnt_new_monitor();
+            if (monitor && mnt_monitor_enable_kernel(monitor, 1) < 0) {
+                mnt_unref_monitor(monitor);
+                monitor = nullptr;
+            }
+        }
+        if (!monitor) {
+            return;
+        }
+        // Non-blocking poll: has anything changed since we last drained the monitor?
+        if (mnt_monitor_wait(monitor, 0) <= 0) {
+            return;
+        }
+        // Drain the queued events so the monitor is armed for the next change.
+        const char *filename = nullptr;
+        int eventType = 0;
+        while (mnt_monitor_next_change(monitor, &filename, &eventType) == 0) { }
+        // Re-read the table once and update only the ids we still hold.
+        const QList<quint64> cachedIds = byUniqueId.keys();
+        if (cachedIds.isEmpty()) {
+            return;
+        }
+        const KMountPoint::List mounts = KMountPoint::currentMountPoints();
+        for (const quint64 id : cachedIds) {
+            if (const KMountPoint::Ptr fresh = mounts.findByMountId(id)) {
+                byUniqueId.insert(id, new KMountPoint::Ptr(fresh));
+            } else {
+                byUniqueId.remove(id);
+            }
+        }
+    }
+#else
+    void refreshCacheIfMountsChanged()
+    {
+    }
+#endif
+};
+}
+Q_GLOBAL_STATIC(MountIdCache, s_mountIdCache)
+
+KMountPoint::Ptr KMountPoint::currentMountPointForUniqueId(quint64 uniqueMountId)
+{
+    if (uniqueMountId == 0) {
+        return Ptr();
+    }
+#if HAVE_STATX_MNT_ID_UNIQUE
+    MountIdCache *cache = s_mountIdCache();
+    {
+        QMutexLocker locker(&cache->mutex);
+        cache->refreshCacheIfMountsChanged();
+        if (Ptr *hit = cache->byUniqueId.object(uniqueMountId)) {
+            return *hit;
+        }
+    }
+    // Miss: re-read the mount table once (done outside the lock) and look the id up.
+    const List mounts = currentMountPoints();
+    const Ptr mp = mounts.findByMountId(uniqueMountId);
+    if (mp) {
+        // m_mountId only ever holds a unique id (see currentMountPoints()), so a match
+        // here will keep denoting this same mount and is safe to cache.
+        QMutexLocker locker(&cache->mutex);
+        cache->byUniqueId.insert(uniqueMountId, new Ptr(mp));
+    }
+    return mp;
+#else
+    return currentMountPoints().findByMountId(uniqueMountId);
+#endif
+}
+
+KMountPoint::Ptr KMountPoint::currentMountPointForPath(const QString &path)
+{
+#if HAVE_STATX_MNT_ID_UNIQUE
+    // Resolve the path's unique mount id with a single statx and serve it from the id
+    // cache, so repeated lookups under the same mount do not re-read the mount table.
+    if (struct statx buff; statx(AT_FDCWD, QFile::encodeName(path).constData(), AT_SYMLINK_NOFOLLOW | AT_NO_AUTOMOUNT, STATX_MNT_ID_UNIQUE, &buff) == 0
+        && (buff.stx_mask & STATX_MNT_ID_UNIQUE)) {
+        return currentMountPointForUniqueId(buff.stx_mnt_id);
+    }
+#endif
+    return currentMountPoints().findByPath(path);
 }
 
 bool KMountPoint::probablySlow() const

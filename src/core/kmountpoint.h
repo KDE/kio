@@ -109,6 +109,33 @@ public:
     static List currentMountPoints(DetailsNeededFlags infoNeeded = BasicInfoNeeded);
 
     /*!
+     * Returns the current mount point that has the given unique mount id, as
+     * reported by statx() with STATX_MNT_ID_UNIQUE, or nullptr if no current mount has this id.
+     *
+     * It is guaranteed to return for any mounted mountpoint on Linux 6.8+.
+     *
+     * \sa KIO::UDSEntry::UDS_MOUNT_ID
+     *
+     * \note This is only useful on Linux; elsewhere it re-reads the mount table
+     * on every call, like currentMountPoints().
+     * \warning uniqueMountId must not be zero.
+     *
+     * \since 6.30
+     */
+    static Ptr currentMountPointForUniqueId(quint64 uniqueMountId);
+
+    /*!
+     * Returns the current mount point that \a path resides on, using the same cache
+     * as currentMountPointForUniqueId(). Falls back to currentMountPoints().findByPath()
+     * when unique mount ids are not available.
+     *
+     * Returns the mount point, or nullptr if none matches.
+     *
+     * \since 6.30
+     */
+    static Ptr currentMountPointForPath(const QString &path);
+
+    /*!
      * Where this filesystem gets mounted from.
      * This can refer to a device, a remote server or something else.
      */

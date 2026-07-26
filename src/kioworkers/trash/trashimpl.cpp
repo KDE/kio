@@ -53,7 +53,7 @@ TrashImpl::TrashImpl()
     // so better have a separate one, for faster parsing by e.g. kmimetype.cpp
     m_config(QStringLiteral("trashrc"), KConfig::SimpleConfig)
 {
-    KMountPoint::Ptr home_mp = KMountPoint::currentMountPoints().findByPath(QDir::homePath());
+    KMountPoint::Ptr home_mp = KMountPoint::currentMountPointForPath(QDir::homePath());
     if (home_mp) {
         m_homeDevice = home_mp->deviceId();
     } else {
@@ -931,7 +931,7 @@ void TrashImpl::insertTrashDir(quint64 id, const QString &trashDir, const QStrin
 
 std::optional<quint64> TrashImpl::findTrashDirectory(const QString &origPath)
 {
-    const KMountPoint::Ptr mp = KMountPoint::currentMountPoints().findByPath(origPath);
+    const KMountPoint::Ptr mp = KMountPoint::currentMountPointForPath(origPath);
     if (!mp) {
         qCWarning(KIO_TRASH) << "KMountPoint found no mountpoint for" << origPath;
         return {};
