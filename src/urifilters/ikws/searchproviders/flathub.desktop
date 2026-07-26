@@ -29,6 +29,7 @@ Name[sk]=Flathub
 Name[sl]=Flathub
 Name[sv]=Flathub
 Name[tr]=Flathub
+Name[ug]=Flathub
 Name[uk]=Flathub
 Name[zh_CN]=Flathub
 Name[zh_TW]=Flathub
@@ -62,6 +63,7 @@ Query[sk]=https://flathub.org/apps/search?q=\\{@}
 Query[sl]=https://flathub.org/apps/search?q=\\{@}
 Query[sv]=https://flathub.org/apps/search?q=\\{@}
 Query[tr]=https://flathub.org/apps/search?q=\\{@}
+Query[ug]=https://flathub.org/apps/search?q=\\{@}
 Query[uk]=https://flathub.org/apps/search?q=\\{@}
 Query[zh_CN]=https://flathub.org/apps/search?q=\\{@}
 Query[zh_TW]=https://flathub.org/apps/search?q=\\{@}

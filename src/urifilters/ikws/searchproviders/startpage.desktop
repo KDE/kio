@@ -30,6 +30,7 @@ Name[sk]=Úvodná stránka
 Name[sl]=Startpage
 Name[sv]=Startpage
 Name[tr]=Startpage
+Name[ug]=Startpage
 Name[uk]=Startpage
 Name[zh_CN]=Startpage
 Name[zh_TW]=Startpage
@@ -64,6 +65,7 @@ Query[sk]=https://www.startpage.com/sp/search?query=\\{@}
 Query[sl]=https://www.startpage.com/sp/search?query=\\{@}
 Query[sv]=https://www.startpage.com/sp/search?query=\\{@}
 Query[tr]=https://www.startpage.com/sp/search?query=\\{@}
+Query[ug]=https://www.startpage.com/sp/search?query=\\{@}
 Query[uk]=https://www.startpage.com/sp/search?query=\\{@}
 Query[zh_CN]=https://www.startpage.com/sp/search?query=\\{@}
 Query[zh_TW]=https://www.startpage.com/sp/search?query=\\{@}
