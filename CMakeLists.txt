@@ -136,8 +136,10 @@ set_package_properties(ACL PROPERTIES DESCRIPTION "LibACL"
 
 # Used by KMountPoint
 if (CMAKE_SYSTEM_NAME MATCHES "Linux")
-    find_package(LibMount REQUIRED)
+    find_package(LibMount 2.26 REQUIRED)
     set(HAVE_LIB_MOUNT ${LibMount_FOUND})
+    set_package_properties(LibMount PROPERTIES TYPE REQUIRED
+                           PURPOSE "Reading and watching the mount table in KMountPoint")
 endif()
 
 ecm_set_disabled_deprecation_versions(

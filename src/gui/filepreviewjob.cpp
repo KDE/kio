@@ -236,7 +236,7 @@ static bool isSlow(const KFileItem &fileItem, const KIO::UDSEntry &entry)
         return fileItem.isSlow();
     }
 
-    const auto mountPoint = KMountPoint::currentMountPoints().findByMountId(mountId);
+    const auto mountPoint = KMountPoint::currentMountPointForUniqueId(mountId);
     if (!mountPoint) {
         return fileItem.isSlow();
     }
