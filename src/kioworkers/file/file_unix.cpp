@@ -85,7 +85,7 @@ bool FileProtocol::isExtendedACL(acl_t acl)
 
 static bool isOnCifsMount(const QString &filePath)
 {
-    const auto mount = KMountPoint::currentMountPoints().findByPath(filePath);
+    const auto mount = KMountPoint::currentMountPointForPath(filePath);
     if (!mount) {
         return false;
     }
@@ -880,7 +880,7 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
                     // Bug 392913: NTFS root volume is always "hidden", ignore this
                     if (ep->d_type == DT_DIR || ep->d_type == DT_UNKNOWN || ep->d_type == DT_LNK) {
                         const QString fullFilePath = QDir(filename).canonicalPath();
-                        auto mountPoint = KMountPoint::currentMountPoints().findByPath(fullFilePath);
+                        auto mountPoint = KMountPoint::currentMountPointForPath(fullFilePath);
                         if (mountPoint && mountPoint->mountPoint() == fullFilePath) {
                             ntfsHidden = false;
                         }

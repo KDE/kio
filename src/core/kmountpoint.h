@@ -109,6 +109,48 @@ public:
     static List currentMountPoints(DetailsNeededFlags infoNeeded = BasicInfoNeeded);
 
     /*!
+     * Returns the current mount point that has the given unique mount id, as
+     * reported by statx() with STATX_MNT_ID_UNIQUE (for example the value stored
+     * in UDSEntry::UDS_MOUNT_ID).
+     *
+     * The result is served from a small process-wide cache. A unique mount id is
+     * never reused while the system is running and always denotes the same mount,
+     * so the id-to-mount mapping is stable and the mount table is only re-read
+     * when an id that is not yet cached is looked up. This avoids re-parsing
+     * /proc/self/mountinfo for every item when many files on the same mount are
+     * looked up in a row.
+     *
+     * The cached KMountPoint is a snapshot. "mount --move" (which changes
+     * mountPoint()) and "mount -o remount" (which changes mountOptions()) keep the
+     * same unique id, so those two fields can be out of date until the entry is
+     * evicted. Fields that do not change for the life of a mount, such as the
+     * filesystem type and probablySlow()/isOnNetwork(), stay correct.
+     *
+     * Returns the mount point, or nullptr if no current mount has this id.
+     *
+     * \note This is only useful on Linux; elsewhere it re-reads the mount table
+     * on every call, like currentMountPoints().
+     * \warning uniqueMountId must not be zero.
+     *
+     * \since 6.29
+     */
+    static Ptr currentMountPointForUniqueId(quint64 uniqueMountId);
+
+    /*!
+     * Returns the current mount point that \a path resides on, using the same cache
+     * as currentMountPointForUniqueId(): the path's unique mount id is resolved with
+     * a single statx() and looked up in the cache, so repeated lookups under the same
+     * mount do not re-read /proc/self/mountinfo. Falls back to
+     * currentMountPoints().findByPath() when the kernel does not provide a unique
+     * mount id.
+     *
+     * Returns the mount point, or nullptr if none matches.
+     *
+     * \since 6.29
+     */
+    static Ptr currentMountPointForPath(const QString &path);
+
+    /*!
      * Where this filesystem gets mounted from.
      * This can refer to a device, a remote server or something else.
      */

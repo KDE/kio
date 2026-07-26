@@ -9,6 +9,7 @@
 #include "kmountpoint.h"
 #include <QDebug>
 #include <QTest>
+#include <limits>
 #include <qplatformdefs.h>
 
 QTEST_MAIN(KMountPointTest)
@@ -186,6 +187,57 @@ void KMountPointTest::testPossibleMountPoints()
     QVERIFY(!rootMountPoint->mountOptions().contains(QLatin1String("noauto"))); // how would this work?
     QVERIFY(!rootMountPoint->probablySlow());
 #endif
+}
+
+void KMountPointTest::testCachedMountPointLookup()
+{
+#ifdef Q_OS_WIN
+    QSKIP("Skipping test on Windows, KMountPoint only has pseudo mounts for drive letters");
+#endif
+
+    const KMountPoint::List mountPoints = KMountPoint::currentMountPoints();
+    if (mountPoints.isEmpty()) { // can happen in chroot jails
+        QSKIP("mtab is empty");
+    }
+
+    const KMountPoint::Ptr root = mountPoints.findByPath(QStringLiteral("/"));
+    QVERIFY(root);
+
+    // The cached path lookup agrees with findByPath(), and a second call (served
+    // from the cache) gives the same answer.
+    const KMountPoint::Ptr byPath = KMountPoint::currentMountPointForPath(QStringLiteral("/"));
+    QVERIFY(byPath);
+    QCOMPARE(byPath->mountPoint(), QStringLiteral("/"));
+    const KMountPoint::Ptr byPathAgain = KMountPoint::currentMountPointForPath(QStringLiteral("/"));
+    QVERIFY(byPathAgain);
+    QCOMPARE(byPathAgain->mountPoint(), QStringLiteral("/"));
+
+    const quint64 rootId = root->mountId();
+    if (rootId == 0) {
+        // The kernel is older than STATX_MNT_ID_UNIQUE, so there is no unique id to
+        // look up or cache; the path lookup above still works via the fallback.
+        QSKIP("No unique mount id available on this kernel");
+    }
+
+    // Zero is never a valid id.
+    QVERIFY(!KMountPoint::currentMountPointForUniqueId(0));
+
+    // Looking up the root's unique id returns the root mount, and repeated lookups
+    // (cache hits) stay consistent.
+    for (int i = 0; i < 3; ++i) {
+        const KMountPoint::Ptr byId = KMountPoint::currentMountPointForUniqueId(rootId);
+        QVERIFY(byId);
+        QCOMPARE(byId->mountPoint(), QStringLiteral("/"));
+        QCOMPARE(byId->mountId(), rootId);
+    }
+
+    // The path and id accessors resolve to the same mount for "/".
+    const KMountPoint::Ptr byPathId = KMountPoint::currentMountPointForPath(QStringLiteral("/"));
+    QVERIFY(byPathId);
+    QCOMPARE(byPathId->mountId(), rootId);
+
+    // An id that does not belong to any current mount has no mount point.
+    QVERIFY(!KMountPoint::currentMountPointForUniqueId(std::numeric_limits<quint64>::max()));
 }
 
 #include "moc_kmountpointtest.cpp"
