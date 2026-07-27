@@ -522,11 +522,12 @@ void SlaveBase::finished()
         if (!d->m_rootEntryListed) {
             qCWarning(KIO_CORE) << "UDSEntry for '.' not found, creating a default one. Please fix the" << QCoreApplication::applicationName() << "KIO worker.";
             KIO::UDSEntry entry;
-            entry.reserve(4);
             entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
-            entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-            entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 0);
-            entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH);
+            entry.insert({
+                {KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR},
+                {KIO::UDSEntry::UDS_SIZE, 0},
+                {KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IWGRP | S_IXGRP | S_IROTH | S_IXOTH},
+            });
             d->pendingListEntries.append(entry);
         }
 

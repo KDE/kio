@@ -249,7 +249,8 @@ void KFileItemPrivate::init() const
         const QString path = m_url.adjusted(QUrl::StripTrailingSlash).path();
         const QByteArray pathBA = QFile::encodeName(path);
         if (LSTAT(pathBA.constData(), &buff, KIO::StatDefaultDetails) == 0) {
-            m_entry.reserve(9);
+            m_entry.reserveStrings(2);
+            m_entry.reserveNumbers(10);
             m_entry.replace(KIO::UDSEntry::UDS_DEVICE_ID, stat_dev(buff));
             m_entry.replace(KIO::UDSEntry::UDS_INODE, stat_ino(buff));
 

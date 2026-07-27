@@ -93,15 +93,18 @@ QUrl RemoteImpl::findBaseURL(const QString &filename) const
 void RemoteImpl::createTopLevelEntry(KIO::UDSEntry &entry) const
 {
     entry.clear();
-    entry.reserve(8);
-    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
-    entry.fastInsert(KIO::UDSEntry::UDS_DISPLAY_NAME, i18n("Network"));
-    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0500);
-    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
-    entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, QStringLiteral("folder-remote"));
-    entry.fastInsert(KIO::UDSEntry::UDS_USER, QStringLiteral("root"));
-    entry.fastInsert(KIO::UDSEntry::UDS_GROUP, QStringLiteral("root"));
+    entry.insert({
+        {KIO::UDSEntry::UDS_NAME, QStringLiteral(".")},
+        {KIO::UDSEntry::UDS_DISPLAY_NAME, i18n("Network")},
+        {KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory")},
+        {KIO::UDSEntry::UDS_ICON_NAME, QStringLiteral("folder-remote")},
+        {KIO::UDSEntry::UDS_USER, QStringLiteral("root")},
+        {KIO::UDSEntry::UDS_GROUP, QStringLiteral("root")},
+    });
+    entry.insert({
+        {KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR},
+        {KIO::UDSEntry::UDS_ACCESS, 0500},
+    });
 }
 
 bool RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory, const QString &file) const
@@ -123,18 +126,20 @@ bool RemoteImpl::createEntry(KIO::UDSEntry &entry, const QString &directory, con
     QString new_filename = file;
     new_filename.chop(8);
 
-    entry.reserve(8);
-    entry.fastInsert(KIO::UDSEntry::UDS_NAME, desktop.readName());
-    entry.fastInsert(KIO::UDSEntry::UDS_URL, QLatin1String("remote:/") + new_filename);
-
-    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-    entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0500);
-    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
-
-    const QString icon = desktop.readIcon();
-    entry.fastInsert(KIO::UDSEntry::UDS_ICON_NAME, icon);
-    entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, desktop.readUrl());
-    entry.fastInsert(KIO::UDSEntry::UDS_TARGET_URL, desktop.readUrl());
+    const QString url = desktop.readUrl();
+    const QString remoteUrl = QLatin1String("remote:/") + new_filename;
+    entry.insert({
+        {KIO::UDSEntry::UDS_NAME, desktop.readName()},
+        {KIO::UDSEntry::UDS_URL, remoteUrl},
+        {KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory")},
+        {KIO::UDSEntry::UDS_ICON_NAME, desktop.readIcon()},
+        {KIO::UDSEntry::UDS_LINK_DEST, url},
+        {KIO::UDSEntry::UDS_TARGET_URL, url},
+    });
+    entry.insert({
+        {KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR},
+        {KIO::UDSEntry::UDS_ACCESS, 0500},
+    });
     return true;
 }
 

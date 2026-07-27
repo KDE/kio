@@ -1003,7 +1003,7 @@ KIO::UDSEntry TrashImpl::trashUDSEntry(KIO::StatDetails details)
             }
         }
 
-        entry.reserve(5);
+        entry.reserveNumbers(5);
         entry.fastInsert(KIO::UDSEntry::UDS_RECURSIVE_SIZE, static_cast<long long>(size));
 
         const auto modifiedDateNsOffset = (latestModifiedDate % 1000) * 1000000;

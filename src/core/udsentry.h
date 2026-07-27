@@ -3,6 +3,7 @@
     SPDX-FileCopyrightText: 2000-2005 David Faure <faure@kde.org>
     SPDX-FileCopyrightText: 2007 Norbert Frese <nf2@scheinwelt.at>
     SPDX-FileCopyrightText: 2007 Thiago Macieira <thiago@kde.org>
+    SPDX-FileCopyrightText: 2023 Méven Car <meven@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-only
 */
@@ -57,13 +58,11 @@ KIOCORE_EXPORT bool operator!=(const UDSEntry &entry, const UDSEntry &other);
  *
  * The KIO::listDir() and KIO:stat() operations use this data structure.
  *
- * KIO defines a number of standard fields, see the UDS_XXX enums (see StandardFieldTypes).
- * at the moment UDSEntry only provides fields with numeric indexes,
- * but there might be named fields with string indexes in the future.
+ * KIO defines a number of standard fields, see UDSEntry::StandardFieldTypes enum.
  *
- * For instance, to retrieve the name of the entry, use:
+ * For instance, to retrieve the display name of the entry, use:
  * \code
- * QString displayName = entry.stringValue( KIO::UDSEntry::UDS_NAME );
+ * QString displayName = entry.stringValue( KIO::UDSEntry::UDS_DISPLAY_NAME );
  * \endcode
  *
  * To know the modification time of the file/url in seconds since UNIX epoch, use:
@@ -139,37 +138,111 @@ public:
 
     /*!
      * Calling this function before inserting items into an empty UDSEntry may save time and memory.
-     *
      * \a size number of items for which memory will be pre-allocated
+     *
+     * \deprecated[6.29] Use reserveStrings() and reserveNumbers().
      */
     void reserve(int size);
 
     /*!
-     * insert field with string value, it will assert if the field is already inserted. In that case, use replace() instead.
+     * Calling those functions before inserting items into an empty UDSEntry may save time and memory.
+     * \a size number of items for which memory will be pre-allocated
      *
+     * Use reserveStrings for UDS_STRING fields and reserveNumbers for UDS_NUMBER fields.
+     *
+     * \since 6.29
+     */
+    void reserveStrings(int size);
+    //! \sa reserveStrings
+    void reserveNumbers(int size);
+
+    /*!
+     * Pre-allocate `fields` fields in the backend storage according to their UDS_TYPE
+     *
+     * Example:
+     *
+     *     UDSEntry entry;
+     *     entry.reserve({UDS_SIZE, UDS_ACCESS, UDS_MODIFICATION_TIME, UDS_NAME});
+     *
+     * \a fields
+     * \since 6.29
+     */
+    void reserve(std::initializer_list<uint> fields);
+
+    /*!
+     * Insert the values passed as pairs {field, value} in a initializer_list
+     *
+     * This will first pre-allocates the necessary memory in the underlying storage vector.
+     *
+     * Example:
+     *
+     *     UDSEntry entry;
+     *     entry.insert({{UDS_SIZE, 0}, {UDS_ACCESS, 0}});
+     *
+     * \a fields
+     * \since 6.29
+     */
+    void insert(std::initializer_list<std::pair<uint, const QString &>> fieldValuePairs);
+
+    /*!
+     * Insert the values passed as pairs {field, value} in a initializer_list
+     *
+     * This will first pre-allocates the necessary memory in the underlying storage vector.
+     *
+     * Example:
+     *
+     *     UDSEntry entry;
+     *     entry.insert({{UDS_NAME, ""}, {UDS_USER, ""}});
+     *
+     * \a fields
+     * \since 6.29
+     */
+    void insert(std::initializer_list<std::pair<uint, long long>> fieldValuePairs);
+
+    /*!
+     * Insert field with string value, it will assert if the field is already inserted. In that case, use replace() instead.
      * \a field numeric field id
-     *
      * \a value to set
-     *
      * \since 5.48
      */
     void fastInsert(uint field, const QString &value);
 
     /*!
-     * insert field with numeric value, it will assert if the field is already inserted. In that case, use replace() instead.
-     *
+     * Insert field with numeric value, it will assert if the field is already inserted. In that case, use replace() instead.
      * \a field numeric field id
-     *
      * \a l value to set
-     *
      * \since 5.48
      */
     void fastInsert(uint field, long long l);
 
     /*!
-     * Returns the number of fields
+     * Replace or insert field with string value
+     * \a field numeric field id
+     * \a value to set
+     * \since 5.47
+     */
+    void replace(uint field, const QString &value);
+
+    /*!
+     * Replace or insert field with numeric value
+     * \a field numeric field id
+     * \a l value to set
+     * \since 5.47
+     */
+    void replace(uint field, long long l);
+
+    /*!
+     * The number of fields
      */
     int count() const;
+    /*!
+     * The number of number fields (including time fields)
+     */
+    int numbersCount() const;
+    /*!
+     * The number of string fields
+     */
+    int stringsCount() const;
 
     /*!
      * check existence of a field
@@ -311,29 +384,6 @@ private:
     friend KIOCORE_EXPORT QDataStream & ::operator<<(QDataStream &s, const KIO::UDSEntry &a);
     friend KIOCORE_EXPORT QDataStream & ::operator>>(QDataStream &s, KIO::UDSEntry &a);
     friend KIOCORE_EXPORT QDebug(::operator<<)(QDebug stream, const KIO::UDSEntry &entry);
-
-public:
-    /*!
-     * Replace or insert field with string value
-     *
-     * \a field numeric field id
-     *
-     * \a value to set
-     *
-     * \since 5.47
-     */
-    void replace(uint field, const QString &value);
-
-    /*!
-     * Replace or insert field with numeric value
-     *
-     * \a field numeric field id
-     *
-     * \a l value to set
-     *
-     * \since 5.47
-     */
-    void replace(uint field, long long l);
 };
 
 // allows operator ^ and | between UDSEntry::StandardFieldTypes and UDSEntry::ItemTypes

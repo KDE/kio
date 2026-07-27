@@ -205,10 +205,11 @@ int messageBoxType(const QUrl &url)
 KIO::UDSEntry typeDirEntry(int messageBoxType)
 {
     KIO::UDSEntry entry;
-    entry.reserve(4);
-    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QString::number(messageBoxType));
-    entry.fastInsert(KIO::UDSEntry::UDS_DISPLAY_NAME, typeNames.value(messageBoxType));
-    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
+    entry.insert({
+        {KIO::UDSEntry::UDS_NAME, QString::number(messageBoxType)},
+        {KIO::UDSEntry::UDS_DISPLAY_NAME, typeNames.value(messageBoxType)},
+        {KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory")},
+    });
     entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
     return entry;
 }
@@ -217,9 +218,10 @@ KIO::UDSEntry rootDirEntry()
 {
     KIO::UDSEntry entry;
 
-    entry.reserve(3);
-    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
-    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
+    entry.insert({
+        {KIO::UDSEntry::UDS_NAME, QStringLiteral(".")},
+        {KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory")},
+    });
     entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
 
     return entry;
