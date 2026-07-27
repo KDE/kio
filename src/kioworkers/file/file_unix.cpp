@@ -24,6 +24,7 @@
 #include <QDir>
 #include <QFile>
 #include <QMimeDatabase>
+#include <QScopeGuard>
 #include <QStandardPaths>
 #include <QThread>
 #include <qplatformdefs.h>
@@ -35,6 +36,7 @@
 #include <kmountpoint.h>
 
 #include <cerrno>
+#include <fcntl.h>
 #include <stdint.h>
 #include <utime.h>
 
@@ -67,6 +69,14 @@ using namespace KIO;
 /* 512 kB */
 static constexpr int s_maxIPCSize = 1024 * 512;
 
+// Qt maps QT_STATBUF to struct stat64 under LFS; there is no QT_FSTATAT, so mirror
+// that choice for the dirfd-relative fstatat() used in copy().
+#if defined(QT_USE_XOPEN_LFS_EXTENSIONS) && defined(QT_LARGEFILE_SUPPORT)
+#define FSTATAT ::fstatat64
+#else
+#define FSTATAT ::fstatat
+#endif
+
 static bool same_inode(const QT_STATBUF &src, const QT_STATBUF &dest)
 {
     if (src.st_ino == dest.st_ino && src.st_dev == dest.st_dev) {
@@ -83,13 +93,31 @@ bool FileProtocol::isExtendedACL(acl_t acl)
 }
 #endif
 
+static bool mountIsCifs(const KMountPoint::Ptr &mount)
+{
+    return mount && (mount->mountType() == QLatin1String("cifs") || mount->mountType() == QLatin1String("smb3"));
+}
+
 static bool isOnCifsMount(const QString &filePath)
 {
-    const auto mount = KMountPoint::currentMountPointForPath(filePath);
-    if (!mount) {
-        return false;
+    return mountIsCifs(KMountPoint::currentMountPointForPath(filePath));
+}
+
+// Whether the mount backing the pinned directory fd is CIFS/SMB. On Linux this
+// resolves the directory's unique mount id through the KMountPoint cache (no statfs
+// or mount-table parse); elsewhere and on older kernels it falls back to a path
+// lookup. Only worth calling when we are about to overwrite an existing file.
+static bool isDirFdOnCifs(int dfd, const QString &fallbackPath)
+{
+#if HAVE_STATX_MNT_ID_UNIQUE
+    struct statx dirStx;
+    if (statx(dfd, "", AT_EMPTY_PATH, STATX_MNT_ID_UNIQUE, &dirStx) == 0 && (dirStx.stx_mask & STATX_MNT_ID_UNIQUE)) {
+        return mountIsCifs(KMountPoint::currentMountPointForUniqueId(dirStx.stx_mnt_id));
     }
-    return mount->mountType() == QStringLiteral("cifs") || mount->mountType() == QStringLiteral("smb3");
+#else
+    Q_UNUSED(dfd);
+#endif
+    return isOnCifsMount(fallbackPath);
 }
 
 #if HAVE_STATX
@@ -463,10 +491,8 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
     qCDebug(KIO_FILE) << "copy()" << srcUrl << "to" << destUrl << "mode=" << _mode;
 
     const QString src = srcUrl.toLocalFile();
-    QString dest = destUrl.toLocalFile();
-    QByteArray _src(QFile::encodeName(src));
-    QByteArray _dest(QFile::encodeName(dest));
-    QByteArray _destBackup;
+    const QString dest = destUrl.toLocalFile();
+    const QByteArray _src(QFile::encodeName(src));
 
     QT_STATBUF buffSrc;
     if (QT_STAT(_src.data(), &buffSrc) == -1) {
@@ -484,35 +510,56 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
         return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_READING, src);
     }
 
+    // Pin the destination directory with an O_DIRECTORY descriptor and do every
+    // following step (filesystem-type probe, existence check, create, publish)
+    // relative to it. Combined with O_NOFOLLOW on the file itself, the copy then
+    // operates on the exact directory and name we checked, instead of re-resolving
+    // the path each time and possibly following a symlink swapped in meanwhile.
+    const QByteArray _destDir = QFile::encodeName(destUrl.adjusted(QUrl::RemoveFilename).toLocalFile());
+    const QByteArray destName = QFile::encodeName(destUrl.fileName());
+    int dfd = ::open(_destDir.isEmpty() ? "." : _destDir.constData(), O_DIRECTORY | O_CLOEXEC);
+    if (dfd < 0) {
+        return WorkerResult::fail(errno == EACCES ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
+    }
+    const auto closeDfd = qScopeGuard([&dfd] {
+        ::close(dfd);
+    });
+
+    // Look at the destination without following a final symlink.
     QT_STATBUF buffDest;
-    bool dest_exists = (QT_LSTAT(_dest.data(), &buffDest) != -1);
+    const bool dest_exists = (FSTATAT(dfd, destName.constData(), &buffDest, AT_SYMLINK_NOFOLLOW) == 0);
+    bool publishViaRename = false; // write to destName + ".part", then rename over destName
+    bool truncateInPlace = false; // overwrite destName in place (no ".part", used on CIFS)
     if (dest_exists) {
         if (same_inode(buffDest, buffSrc)) {
             return WorkerResult::fail(KIO::ERR_IDENTICAL_FILES, dest);
         }
-
         if (S_ISDIR(buffDest.st_mode)) {
             return WorkerResult::fail(KIO::ERR_DIR_ALREADY_EXIST, dest);
         }
-
-        if (_flags & KIO::Overwrite) {
-            // If the destination is a symlink and overwrite is TRUE,
-            // remove the symlink first to prevent the scenario where
-            // the symlink actually points to current source!
-            if (S_ISLNK(buffDest.st_mode)) {
-                // qDebug() << "copy(): LINK DESTINATION";
-                if (!QFile::remove(dest)) {
-                    return WorkerResult::fail(KIO::ERR_CANNOT_DELETE_ORIGINAL, dest);
-                }
-            } else if (S_ISREG(buffDest.st_mode) && !isOnCifsMount(dest)) {
-                _destBackup = _dest;
-                dest.append(QStringLiteral(".part"));
-                _dest = QFile::encodeName(dest);
-            }
-        } else {
+        if (!(_flags & KIO::Overwrite)) {
             return WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, dest);
         }
+        if (S_ISLNK(buffDest.st_mode)) {
+            // Overwriting a symlink: unlink it so we never write through it to its
+            // target. The create below refuses (O_EXCL) a symlink racing back in.
+            if (::unlinkat(dfd, destName.constData(), 0) != 0 && errno != ENOENT) {
+                return WorkerResult::fail(KIO::ERR_CANNOT_DELETE_ORIGINAL, dest);
+            }
+        } else if (S_ISREG(buffDest.st_mode)) {
+            // Write to a sibling ".part" and atomically rename it over the target so
+            // an interrupted copy never leaves the destination truncated. CIFS keeps
+            // the historical in-place overwrite. The filesystem-type probe happens
+            // only here, so a fresh copy pays nothing for it.
+            if (isDirFdOnCifs(dfd, dest)) {
+                truncateInPlace = true;
+            } else {
+                publishViaRename = true;
+            }
+        }
     }
+
+    const QByteArray outName = publishViaRename ? (destName + ".part") : destName;
 
     QFile srcFile(src);
     if (!srcFile.open(QIODevice::ReadOnly)) {
@@ -523,17 +570,46 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
     posix_fadvise(srcFile.handle(), 0, 0, POSIX_FADV_SEQUENTIAL);
 #endif
 
-    QFile destFile(dest);
-    if (!destFile.open(QIODevice::Truncate | QIODevice::WriteOnly)) {
-        if (errno == EACCES) {
-            return WorkerResult::fail(KIO::ERR_WRITE_ACCESS_DENIED, dest);
-        } else {
-            return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
-        }
+    // KIO passes -1 to keep the system default permissions. Comparing in mode_t width
+    // also matches FreeBSD, where a 16-bit mode_t delivers the sentinel as (mode_t)-1.
+    const bool defaultPermissions = mode_t(_mode) == mode_t(-1);
+
+    // O_NOFOLLOW: never write through a symlink at the final name. O_EXCL makes the
+    // ".part"/fresh create fail rather than clobber an unexpected file; the CIFS
+    // path truncates the existing regular file in place.
+    const mode_t createMode = defaultPermissions ? mode_t(0666) : mode_t(_mode);
+    const int oflags = O_WRONLY | O_CREAT | O_NOFOLLOW | O_CLOEXEC | (truncateInPlace ? O_TRUNC : O_EXCL);
+    int destFd = ::openat(dfd, outName.constData(), oflags, createMode);
+    if (destFd < 0 && errno == EEXIST && publishViaRename) {
+        // Stale ".part" from a previous interrupted copy: drop it and retry once.
+        ::unlinkat(dfd, outName.constData(), 0);
+        destFd = ::openat(dfd, outName.constData(), oflags, createMode);
+    }
+    if (destFd < 0) {
+        return WorkerResult::fail(errno == EACCES ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
     }
 
-    // _mode == -1 means don't touch dest permissions, leave it with the system default ones
-    if (_mode != -1) {
+    QFile destFile;
+    if (!destFile.open(destFd, QIODevice::WriteOnly, QFileDevice::AutoCloseHandle)) {
+        ::close(destFd);
+        // Only remove a file we created; never the original we overwrite in place.
+        if (!truncateInPlace) {
+            ::unlinkat(dfd, outName.constData(), 0);
+        }
+        return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
+    }
+
+    // Until the copy is known-good, any early return unlinks the partial output (the
+    // ".part", or the freshly created file). Dismissed once the result is committed.
+    auto cleanupOutput = qScopeGuard([dfd, &outName] {
+        if (::unlinkat(dfd, outName.constData(), 0) != 0 && errno != ENOENT) {
+            qCWarning(KIO_FILE) << "Could not delete partially copied file" << QFile::decodeName(outName);
+        }
+    });
+
+    // Default permissions: leave the create mode plus umask in place, otherwise set the
+    // requested mode below.
+    if (!defaultPermissions) {
         // Change permissions through the open descriptor so they land on the
         // file just opened, not on whatever the path resolves to now.
         if (::fchmod(destFile.handle(), _mode) == -1) {
@@ -550,7 +626,7 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
 
     off_t sizeProcessed = 0;
 
-    const bool slowTestMode = testMode && destFile.fileName().contains(QLatin1String("slow"));
+    const bool slowTestMode = testMode && dest.contains(QLatin1String("slow"));
 
 #ifdef FICLONE
     if (!slowTestMode) {
@@ -589,21 +665,13 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
 
             if (errno == ENOSPC) { // disk full
                 // attempt to free disk space occupied by file being overwritten
-                if (!_destBackup.isEmpty() && !existingDestDeleteAttempted) {
-                    ::unlink(_destBackup.constData());
+                if (publishViaRename && !existingDestDeleteAttempted) {
+                    ::unlinkat(dfd, destName.constData(), 0);
                     existingDestDeleteAttempted = true;
                     continue;
                 }
 
-                if (!QFile::remove(dest)) { // don't keep partly copied file
-                    qCWarning(KIO_FILE) << "Could not delete partially copied file" << dest;
-                }
-
                 return WorkerResult::fail(KIO::ERR_DISK_FULL, dest);
-            }
-
-            if (!QFile::remove(dest)) { // don't keep partly copied file
-                qCWarning(KIO_FILE) << "Could not delete partially copied file" << dest;
             }
 
             return WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("Cannot copy file from %1 to %2. (Errno: %3)", src, dest, errno));
@@ -618,7 +686,7 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
     if (sizeProcessed < srcSize) {
         QByteArray buffer(s_maxIPCSize, Qt::Uninitialized);
         while (!wasKilled() && sizeProcessed < srcSize) {
-            if (testMode && destFile.fileName().contains(QLatin1String("slow"))) {
+            if (testMode && dest.contains(QLatin1String("slow"))) {
                 QThread::msleep(50);
             }
 
@@ -631,9 +699,6 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
                     qCWarning(KIO_FILE) << "Couldn't read[2]. Error:" << srcFile.errorString();
                 }
 
-                if (!QFile::remove(dest)) { // don't keep partly copied file
-                    qCWarning(KIO_FILE) << "Could not delete partially copied file" << dest;
-                }
                 return WorkerResult::fail(KIO::ERR_CANNOT_READ, src);
             }
 
@@ -641,8 +706,8 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
                 int error = KIO::ERR_CANNOT_WRITE;
                 if (destFile.error() == QFileDevice::ResourceError) { // disk full
                     // attempt to free disk space occupied by file being overwritten
-                    if (!_destBackup.isEmpty() && !existingDestDeleteAttempted) {
-                        ::unlink(_destBackup.constData());
+                    if (publishViaRename && !existingDestDeleteAttempted) {
+                        ::unlinkat(dfd, destName.constData(), 0);
                         existingDestDeleteAttempted = true;
                         if (destFile.write(buffer.data(), readBytes) == readBytes) { // retry
                             continue;
@@ -653,9 +718,6 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
                     qCWarning(KIO_FILE) << "Couldn't write[2]. Error:" << destFile.errorString();
                 }
 
-                if (!QFile::remove(dest)) { // don't keep partly copied file
-                    qCWarning(KIO_FILE) << "Could not delete partially copied file" << dest;
-                }
                 return WorkerResult::fail(error, dest);
             }
             sizeProcessed += readBytes;
@@ -667,6 +729,23 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
 #if HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
     if (!copyXattrs(srcFile.handle(), destFile.handle())) {
         qCDebug(KIO_FILE) << "can't copy Extended attributes";
+    }
+#endif
+
+#if HAVE_POSIX_ACL
+    // If no explicit mode was requested, carry over an extended ACL from the source
+    // (a plain mode-only ACL is left to the create mode and umask, as before). Read
+    // it while the source is still open and set it on the destination descriptor
+    // below, so it lands on the file we just wrote rather than on the path.
+    // Gate on the literal -1 sentinel: on FreeBSD acl_equiv_mode_np() does not report a
+    // plain access ACL as mode-equivalent, so the source mode would leak onto the copy.
+    acl_t acl = nullptr;
+    if (_mode == -1) {
+        acl = acl_get_fd(srcFile.handle());
+        if (acl && !isExtendedACL(acl)) {
+            acl_free(acl);
+            acl = nullptr;
+        }
     }
 #endif
 
@@ -697,58 +776,48 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
 
     // preserve ownership through the open descriptor, so the change lands on
     // the file just written
-    if (_mode != -1) {
+    if (!defaultPermissions) {
         if (::fchown(destFile.handle(), -1 /*keep user*/, buffSrc.st_gid) == 0) {
             // as we are the owner of the new file, we can always change the group, but
             // we might not be allowed to change the owner
             if (::fchown(destFile.handle(), buffSrc.st_uid, -1 /*keep group*/) < 0) {
-                qCWarning(KIO_FILE) << "Couldn't chown destFile" << _dest << "(" << strerror(errno) << ")";
+                qCWarning(KIO_FILE) << "Couldn't chown destFile" << dest << "(" << strerror(errno) << ")";
             }
         } else {
             qCWarning(KIO_FILE) << "Couldn't preserve group for" << dest;
         }
     }
 
+#if HAVE_POSIX_ACL
+    if (acl) {
+        if (acl_set_fd(destFile.handle(), acl) != 0) {
+            qCWarning(KIO_FILE) << "Could not set ACL permissions for" << dest;
+        }
+        acl_free(acl);
+    }
+#endif
+
     destFile.close();
 
     if (wasKilled()) {
         qCDebug(KIO_FILE) << "Clean dest file after KIO worker was killed:" << dest;
-        if (!QFile::remove(dest)) { // don't keep partly copied file
-            qCWarning(KIO_FILE) << "Could not delete partially copied file" << dest;
-        }
         return WorkerResult::fail(KIO::ERR_USER_CANCELED, dest);
     }
 
     if (destFile.error() != QFile::NoError) {
         qCWarning(KIO_FILE) << "Error when closing file descriptor[2]:" << destFile.errorString();
-
-        if (!QFile::remove(dest)) { // don't keep partly copied file
-            qCWarning(KIO_FILE) << "Could not delete partially copied file" << dest;
-        }
-
         return WorkerResult::fail(KIO::ERR_CANNOT_WRITE, dest);
     }
 
-#if HAVE_POSIX_ACL
-    // If no special mode is given, preserve the ACL attributes from the source file
-    if (_mode == -1) {
-        acl_t acl = acl_get_fd(srcFile.handle());
-        if (acl && acl_set_file(_dest.data(), ACL_TYPE_ACCESS, acl) != 0) {
-            qCWarning(KIO_FILE) << "Could not set ACL permissions for" << dest;
-        }
-    }
-#endif
-
-    if (!_destBackup.isEmpty()) { // Overwrite final dest file with new file
-        if (::unlink(_destBackup.constData()) == -1) {
-            qCWarning(KIO_FILE) << "Couldn't remove original dest" << _destBackup << "(" << strerror(errno) << ")";
-        }
-
-        if (::rename(_dest.constData(), _destBackup.constData()) == -1) {
-            qCWarning(KIO_FILE) << "Couldn't rename" << _dest << "to" << _destBackup << "(" << strerror(errno) << ")";
+    if (publishViaRename) { // atomically replace the destination with the written ".part"
+        if (::renameat(dfd, outName.constData(), dfd, destName.constData()) == -1) {
+            qCWarning(KIO_FILE) << "Couldn't rename" << outName << "to" << destName << "(" << strerror(errno) << ")";
+            return WorkerResult::fail(KIO::ERR_CANNOT_WRITE, dest);
         }
     }
 
+    // The result is committed: keep the output we just wrote (or renamed into place).
+    cleanupOutput.dismiss();
     processedSize(srcSize);
     return WorkerResult::pass();
 }
