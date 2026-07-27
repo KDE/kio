@@ -1607,6 +1607,12 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
     mode_t orPermissions = 0;
     for (int row = 0; row < 3; ++row) {
         for (int col = 0; col < 4; ++col) {
+#if HAVE_POSIX_ACL
+            //Skips hidden controls
+            if (extendedACLs && theNotSpecials.contains(cba[row][col])) {
+                continue;
+            }
+#endif            
             switch (cba[row][col]->checkState()) {
             case Qt::Checked:
                 orPermissions |= fperm[row][col];
@@ -1620,14 +1626,6 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
         }
     }
 
-    const KFileItemList items = properties->items();
-    d->isIrregular = std::any_of(items.cbegin(), items.cend(), [this, andPermissions, orPermissions](const KFileItem &item) {
-        return isIrregular((item.permissions() & andPermissions) | orPermissions, item.isDir(), item.isLink());
-    });
-
-    d->permissions = orPermissions;
-    d->partialPermissions = andPermissions;
-
 #if HAVE_POSIX_ACL
     // override with the acls, if present
     if (extendedACLs) {
@@ -1636,8 +1634,23 @@ void KFilePermissionsPropsPlugin::slotShowAdvancedPermissions()
         d->hasExtendedACL = d->extendedACL.isExtended() || d->defaultACL.isValid();
         d->permissions = d->extendedACL.basePermissions();
         d->permissions |= (andPermissions | orPermissions) & (S_ISUID | S_ISGID | S_ISVTX);
-    }
+        d->partialPermissions = 0; //there is no partial state
+
+        const KFileItemList items = properties->items();
+        d->isIrregular = std::any_of(items.cbegin(), items.cend(), [this](const KFileItem &item) {
+            return isIrregular(d->permissions, item.isDir(), item.isLink());
+        });
+    } else
 #endif
+    {        
+        d->permissions = orPermissions;
+        d->partialPermissions = andPermissions;
+
+        const KFileItemList items = properties->items();
+        d->isIrregular = std::any_of(items.cbegin(), items.cend(), [this, andPermissions, orPermissions](const KFileItem &item) {
+            return isIrregular((item.permissions() & andPermissions) | orPermissions, item.isDir(), item.isLink());
+        });
+    }
 
     dlg.setMinimumSize(dlg.sizeHint());
 
