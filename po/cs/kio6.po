@@ -4,6 +4,7 @@
 # Lukáš Tinkl <ltinkl@redhat.com>, 2010, 2011, 2012, 2013.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
 # SPDX-FileCopyrightText: 2021, 2022, 2023, 2024, 2025 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 # SPDX-FileCopyrightText: 2026 Jan Papez (honyczek)
 msgid ""
@@ -11,25 +12,26 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-25 00:40+0000\n"
-"PO-Revision-Date: 2026-06-10 23:33+0200\n"
-"Last-Translator: Jan Papez (honyczek) <honyczek@centrum.cz>\n"
-"Language-Team: Czech <kde-i18n-cs@kde.org>\n"
+"PO-Revision-Date: 2026-07-26 11:45+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
+"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.04.1\n"
+"X-Generator: Lokalize 26.04.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Lukáš Tinkl, Vít Pelčák, Jan Papež (honyczek)"
+msgstr "Lukáš Tinkl,Vít Pelčák,Jan Papež,Libor Filípek"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "lukas@kde.org, vit@pelcak.org, honyczek@centrum.cz"
+msgstr ""
+"lukas@kde.org,vit@pelcak.org,honyczek@centrum.cz,libor.filipek@gmail.com"
 
 #: core/chmodjob.cpp:197
 #, kde-format
@@ -66,11 +68,11 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "folder name) with an underscore \"_\"."
 msgstr ""
-"Nelze vytvořit „%1“.\n"
+"Nelze vytvořit \"%1\".\n"
 "Cílový souborový systém (%2) neumožňuje následující znaky v názvech složek: "
 "%3\n"
 "Výběrem Nahradit dojde k nahrazení jakýchkoliv neplatných znaků (v cílovém "
-"názvu složky) podtržítkem „_“."
+"názvu složky) podtržítkem \"_\"."
 
 #: core/copyjob.cpp:211
 #, kde-format
@@ -81,11 +83,11 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "file name) with an underscore \"_\"."
 msgstr ""
-"Nelze vytvořit „%1“.\n"
+"Nelze vytvořit \"%1\".\n"
 "Cílový souborový systém (%2) neumožňuje následující znaky v názvech souborů: "
 "%3\n"
 "Výběrem Nahradit dojde k nahrazení jakýchkoliv neplatných znaků (v cílovém "
-"názvu souboru) podtržítkem „_“."
+"názvu souboru) podtržítkem \"_\"."
 
 #: core/copyjob.cpp:1441 core/job_error.cpp:588
 #, kde-format
@@ -122,12 +124,12 @@ msgstr "Nelze nalézt program '%1'"
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
-msgstr "Program ‚%1‘ byl nalezen v ‚%2‘, ale postrádá oprávnění ke spuštění."
+msgstr "Program '%1' byl nalezen v '%2', ale postrádá oprávnění ke spuštění."
 
 #: core/desktopexecparser.cpp:365
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
-msgstr "Programu ‚%1‘ chybí oprávnění ke spuštění."
+msgstr "Programu '%1' chybí oprávnění ke spuštění."
 
 #: core/desktopexecparser.cpp:379
 #, kde-format
@@ -538,7 +540,7 @@ msgstr ""
 #: core/job_error.cpp:170
 #, kde-format
 msgid "Authorization failed, %1 authentication not supported"
-msgstr "Udělení oprávnění selhalo, ověření %1 není podporováno."
+msgstr "Udělení oprávnění selhalo, ověření %1 není podporováno"
 
 #: core/job_error.cpp:176
 #, kde-format
@@ -706,7 +708,7 @@ msgid ""
 "'%1' is owned by the current user.\n"
 "Please retry after changing permissions."
 msgstr ""
-"Povýšení práv není nutné, protože ‚%1‘\n"
+"Povýšení práv není nutné, protože '%1'\n"
 "je ve vlastnictví současného uživatele.\n"
 "Zkuste to prosím znovu poté, co upravíte oprávnění."
 
@@ -1082,7 +1084,7 @@ msgstr "URL neodkazuje na prostředek."
 #: core/job_error.cpp:518
 #, kde-format
 msgid "Protocol is a Filter Protocol"
-msgstr "Protokol je filtrovacím protokolem."
+msgstr "Protokol je filtrovacím protokolem"
 
 #: core/job_error.cpp:520
 #, kde-format
@@ -1386,7 +1388,7 @@ msgstr ""
 #: core/job_error.cpp:705
 #, kde-format
 msgid "Could Not Create Network Connection"
-msgstr "Nelze vytvořit síťové spojení."
+msgstr "Nelze vytvořit síťové spojení"
 
 #: core/job_error.cpp:706
 #, kde-format
@@ -1415,7 +1417,7 @@ msgstr ""
 #: core/job_error.cpp:717
 #, kde-format
 msgid "Connection to Server Refused"
-msgstr "Spojení na server bylo odmítnuto."
+msgstr "Spojení na server bylo odmítnuto"
 
 #: core/job_error.cpp:719
 #, kde-format
@@ -1455,7 +1457,7 @@ msgstr ""
 #: core/job_error.cpp:737
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
-msgstr "Spojení k tomuto serveru neočekávaně uzavřeno."
+msgstr "Spojení k tomuto serveru neočekávaně uzavřeno"
 
 #: core/job_error.cpp:739
 #, kde-format
@@ -1483,7 +1485,7 @@ msgstr "Neplatný URL zdroj"
 #: core/job_error.cpp:752
 #, kde-format
 msgid "Protocol %1 is not a Filter Protocol"
-msgstr "Protokol %1 není filtrovacím protokolem."
+msgstr "Protokol %1 není filtrovacím protokolem"
 
 #: core/job_error.cpp:754
 #, kde-format
@@ -1626,7 +1628,7 @@ msgstr "Možná nemáte práva ke čtení z tohoto zdroje."
 #: core/job_error.cpp:835
 #, kde-format
 msgid "Cannot Write to Resource"
-msgstr "není možné zapsat do zdroje"
+msgstr "Není možné zapsat do zdroje"
 
 #: core/job_error.cpp:837
 #, kde-format
@@ -1690,7 +1692,7 @@ msgstr "Nejspíše nemáte práva k přijetí spojení."
 #: core/job_error.cpp:891
 #, kde-format
 msgid "Could Not Login: %1"
-msgstr "Nelze se přihlásit: %1."
+msgstr "Nelze se přihlásit: %1"
 
 #: core/job_error.cpp:893
 #, kde-format
@@ -1908,7 +1910,7 @@ msgstr "Znovu zkontrolujte nastavení proxy a zkuste to znovu."
 #: core/job_error.cpp:1057
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
-msgstr "Udělení oprávnění se nezdařilo: metoda %1 není podporována."
+msgstr "Udělení oprávnění se nezdařilo: metoda %1 není podporována"
 
 #: core/job_error.cpp:1059
 #, kde-format
@@ -2128,7 +2130,7 @@ msgstr ""
 #: core/job_error.cpp:1208
 #, kde-format
 msgid "Source and Destination Files Identical"
-msgstr "Zdrojový a cílový soubor jsou shodné."
+msgstr "Zdrojový a cílový soubor jsou shodné"
 
 #: core/job_error.cpp:1210
 #, kde-format
@@ -2409,6 +2411,9 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
+"Bezpečnost nástroje KIO pro protokol ‘%1’, který obvykle vyžaduje oprávnění "
+"s vyššími právy, nelze zaručit, protože kromě uživatele root mají oprávnění "
+"k jeho úpravám i další uživatelé v umístění %2."
 
 #: core/worker.cpp:435
 #, kde-format
@@ -2428,6 +2433,9 @@ msgid ""
 "workers which are located outside of %3 and ask for elevated privileges are "
 "considered insecure."
 msgstr ""
+"Nástroj KIO pro protokol \"%1\" v %2 nebyl načten, protože všechny pracovní "
+"procesy KIO, které se nacházejí mimo %3 a vyžadují zvýšená oprávnění, jsou "
+"považovány za nezabezpečené."
 
 #: core/worker.cpp:493
 #, kde-format
@@ -3026,7 +3034,7 @@ msgstr "Nastavit…"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "Uvolňování..."
+msgstr "Uvolňování…"
 
 #: filewidgets/kfileplacesmodel.cpp:1422
 #, kde-format
@@ -3038,7 +3046,7 @@ msgstr "Vy&dání"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "Bezpečně odstraňuji"
+msgstr "Bezpečné odstraňování…"
 
 #: filewidgets/kfileplacesmodel.cpp:1428
 #, kde-format
@@ -3050,7 +3058,7 @@ msgstr "Bezpečně od&stranit"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Odpojuji..."
+msgstr "Odpojování…"
 
 #: filewidgets/kfileplacesmodel.cpp:1435
 #, kde-format
@@ -3389,7 +3397,7 @@ msgstr "Ponechat filtr při změně složek"
 #: filewidgets/kfilewidget.cpp:1397
 #, kde-format
 msgid "Filter by name…"
-msgstr "Filtrovat podle názvu:"
+msgstr "Filtrovat podle názvu…"
 
 #: filewidgets/kfilewidget.cpp:1405
 #, kde-format
@@ -3531,6 +3539,8 @@ msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
+"<qt>Toto je výběr typu souboru. Slouží k výběru formátu, ve kterém bude "
+"soubor uložen.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2970
 #, kde-format
@@ -3538,6 +3548,8 @@ msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
+"<qt>Toto je výběr typu souboru. Slouží k výběru formátu zobrazených souborů."
+"</qt>"
 
 #: filewidgets/knewfilemenu.cpp:218
 #, kde-format
@@ -3612,11 +3624,12 @@ msgstr ""
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
+"Použitím lomítek v názvech složek vytvoříte podsložky, například takto:"
 
 #: filewidgets/knewfilemenu.cpp:1213
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
-msgstr ""
+msgstr "Použitím lomítek v názvech složek se vytvoří podsložky."
 
 #: filewidgets/knewfilemenu.cpp:1225
 #, kde-format
@@ -3635,6 +3648,8 @@ msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
+"Vytvoření souboru nebo složky s názvem <filename>%1</filename> není možné, "
+"protože by se překrývalo s umístěním domovské složky uživatele."
 
 #: filewidgets/knewfilemenu.cpp:1253
 #, kde-format
@@ -3642,6 +3657,8 @@ msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
+"Nedoporučuje se začínat název souboru nebo složky vlnovkou, protože to může "
+"být matoucí nebo nebezpečné při mazání položek v terminálu."
 
 #: filewidgets/knewfilemenu.cpp:1325
 #, kde-kuit-format
@@ -3773,7 +3790,7 @@ msgstr "Zobrazit celou cestu"
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr ""
+msgstr "Přejít na libovolné místo v cestě <filename>%1</filename>"
 
 #: filewidgets/kurlnavigatorbutton.cpp:726
 #, kde-format
@@ -3857,6 +3874,8 @@ msgstr "Nemáte oprávnění k výběru aplikace k otevření tohoto souboru."
 msgid ""
 "Internal error: could not prompt the user for which application to start"
 msgstr ""
+"Vnitřní chyba: nepodařilo se zobrazit výzvu, ve které by uživatel mohl "
+"vybrat aplikaci ke spuštění"
 
 #: gui/commandlauncherjob.cpp:107
 #, kde-format
@@ -3884,6 +3903,8 @@ msgstr "Soubor ikony je příliš velký. Stahování bylo přerušeno"
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
+"FilePreviewJob: přeskočení prázdného souboru, možná se jedná o nefunkční "
+"symbolický odkaz: %1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
@@ -3939,12 +3960,16 @@ msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr ""
+"Spustitelný soubor \"%1\" se nachází ve vzdáleném souborovém systému. Z "
+"bezpečnostních důvodů nebude spuštěn."
 
 #: gui/openurljob.cpp:444
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
+"Z bezpečnostních důvodů není v tomto kontextu povoleno spouštět spustitelné "
+"soubory."
 
 #: gui/openurljob.cpp:474
 #, kde-format
@@ -3952,6 +3977,7 @@ msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
+"Program \"%1\" musí mít oprávnění ke spuštění, aby bylo možné jej spustit."
 
 #: gui/openurljob.cpp:485
 #, kde-format
@@ -3974,6 +4000,9 @@ msgid ""
 "Check your open applications and the notification area for any pending tasks "
 "or downloads."
 msgstr ""
+"Tento soubor je neúplný a neměl by být otevřen.\n"
+"Zkontrolujte spuštěné aplikace a oznamovací oblast, zda neobsahují nějaké "
+"čekající úlohy nebo stahování."
 
 #: gui/openurljob.cpp:689
 #, kde-format
@@ -3983,7 +4012,7 @@ msgstr "Soubor se nepodařilo otevřít."
 #: gui/openurljob.cpp:723
 #, kde-format
 msgid "The program \"%1\" could not be launched."
-msgstr ""
+msgstr "Program \"%1\" se nepodařilo spustit."
 
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
@@ -4418,7 +4447,7 @@ msgctxt "%1: request type, %2: url"
 msgid ""
 "An error occurred while attempting to %1, %2. A summary of the reasons is "
 "below."
-msgstr "Nastala chyba při pokusu %1, %2. Shrnutí důvodů níže:"
+msgstr "Nastala chyba při pokusu %1, %2. Shrnutí důvodů níže."
 
 #: kioworkers/http/http.cpp:1488 kioworkers/http/http.cpp:1632
 #, kde-format
@@ -4706,6 +4735,8 @@ msgid ""
 "Copy and paste a checksum in the field below.<br/>A checksum is usually "
 "provided by the website you downloaded this file from."
 msgstr ""
+"Zkopírujte a vložte kontrolní součet do pole níže.<br/>Kontrolní součet "
+"obvykle uvádí webová stránka, ze které jste tento soubor stáhli."
 
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
@@ -5211,7 +5242,7 @@ msgstr "Aktualizuje se nastavení systému"
 #: widgets/kbuildsycocaprogressdialog.cpp:30
 #, kde-format
 msgid "Updating system configuration…"
-msgstr "Aktualizuje se nastavení systému..."
+msgstr "Aktualizuje se nastavení systému…"
 
 #: widgets/kdirmodel.cpp:1268
 #, kde-format
@@ -5431,22 +5462,19 @@ msgstr "Souborový systém:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
+#, kde-format
 msgid "Mounted on:"
 msgstr "Místo připojení:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
+#, kde-format
 msgid "Mounted from:"
 msgstr "Připojeno od:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, fuzzy, kde-format
-#| msgid "Free Space:"
+#, kde-format
 msgid "Free space:"
 msgstr "Volné místo:"
 
@@ -5483,16 +5511,16 @@ msgstr "Vyberte jméno programu, kterým budou otevírány zvolené soubory."
 #: widgets/kopenwithdialog.cpp:590
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
-msgstr ""
+msgstr "<qt>Vyberte program, kterým chcete soubor otevřít<br/>%1</qt>"
 
 #: widgets/kopenwithdialog.cpp:592
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "<qt>Vyberte program, kterým chcete soubor otevřít.</qt>"
+msgstr[1] "<qt>Vyberte program, kterým chcete %1 soubory otevřít.</qt>"
+msgstr[2] "<qt>Vyberte program, kterým chcete %1 souborů otevřít.</qt>"
 
 #: widgets/kopenwithdialog.cpp:597 widgets/kopenwithdialog.cpp:628
 #, kde-format
@@ -5528,6 +5556,8 @@ msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
 "Press down arrow to navigate the results."
 msgstr ""
+"Zadejte text pro filtrování aplikací níže nebo zadejte název příkazu.\n"
+"Pro procházení výsledků stiskněte šipku dolů."
 
 #: widgets/kopenwithdialog.cpp:699
 #, kde-format
@@ -5750,6 +5780,8 @@ msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
+"Zadejte sem obecný název aplikace. Příklady: aplikace pro prohlížení obrázků "
+"by se mohla jmenovat \"Prohlížeč obrázků\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
@@ -5765,6 +5797,8 @@ msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
+"Zde zadejte popis této aplikace podle jejího účelu. Příklady: u aplikace pro "
+"prohlížení obrázků by to bylo \"Prohlížení a úpravy obrázků\"."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -5983,6 +6017,8 @@ msgid ""
 "Could not save properties due to insufficient write access to:<nl/><filename>"
 "%1</filename>."
 msgstr ""
+"Vlastnosti se nepodařilo uložit kvůli nedostatečnému oprávnění k zápisu do "
+"souboru:<nl/><filename>%1</filename>."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:230
 #, kde-format
@@ -6201,7 +6237,7 @@ msgstr "Povolit sp&uštění souboru jako program"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, kde-format
 msgid "Delete or rename:"
-msgstr "Smazat nebo přejmenovat?"
+msgstr "Smazat nebo přejmenovat:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1227
 #, kde-format
@@ -6419,7 +6455,7 @@ msgid ""
 "systems"
 msgstr ""
 "Sticky příznak na souboru je v Linuxu ignorován, ale může být využíván v "
-"jiných systémech."
+"jiných systémech"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1545
 #, kde-format
@@ -6451,9 +6487,9 @@ msgstr "Různé (beze změny)"
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
-msgstr[0] "Tento soubor používá pokročilá oprávnění."
-msgstr[1] "Tyto soubory používají pokročilá oprávnění."
-msgstr[2] "Tyto soubory používají pokročilá oprávnění."
+msgstr[0] "Tento soubor používá pokročilá oprávnění"
+msgstr[1] "Tyto soubory používají pokročilá oprávnění"
+msgstr[2] "Tyto soubory používají pokročilá oprávnění"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1832
 #, kde-format
@@ -6503,6 +6539,9 @@ msgid ""
 "downloading the file.<br/>If the verification still fails, contact the "
 "source of the file."
 msgstr ""
+"<p>Kontrolní součty se neshodují.</p>Může to být způsobeno chybným stažením. "
+"Zkuste soubor stáhnout znovu.<br/>Pokud ověření i nadále selže, obraťte se "
+"na poskytovatele souboru."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2416
 #, kde-format
@@ -6771,12 +6810,7 @@ msgid "Appl&y to All"
 msgstr "Použít na všechn&y"
 
 #: widgets/renamedialog.cpp:280
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "folder conflicts for the remainder of the current job.\n"
-#| "Unless you press Skip you will still be prompted in case of a conflict "
-#| "with an existing file in the directory."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
@@ -6789,10 +6823,7 @@ msgstr ""
 "existujícím souborem v adresáři."
 
 #: widgets/renamedialog.cpp:284
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "conflicts for the remainder of the current job."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
@@ -6855,6 +6886,8 @@ msgid ""
 "Destination files which have older modification times will be overwritten by "
 "the source, skipped otherwise."
 msgstr ""
+"Cílové soubory se starším časem poslední změny budou přepsány zdrojovým "
+"souborem, v opačném případě budou přeskočeny."
 
 #: widgets/renamedialog.cpp:335
 #, kde-format
@@ -6926,6 +6959,8 @@ msgid ""
 "The files are likely to be identical: they have the same size and their "
 "contents are the same at the beginning, middle and end."
 msgstr ""
+"Soubory budou pravděpodobně identické: mají stejnou velikost a jejich obsah "
+"je stejný na začátku, uprostřed i na konci."
 
 #: widgets/renamedialog.cpp:518
 #, kde-format
@@ -6963,13 +6998,13 @@ msgstr "Přejmenovat položku <filename>%1</filename> na:"
 #, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
-msgstr ""
+msgstr "Soubor s názvem <filename>%1</filename> již existuje."
 
 #: widgets/renamefiledialog.cpp:144
 #, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr ""
+msgstr "<filename>%1</filename> není platný název souboru."
 
 #: widgets/renamefiledialog.cpp:164
 #, kde-format
@@ -7001,6 +7036,8 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
+"Neplatný název souboru: Nový název by měl obsahovat jednu sekvenci znaků #, "
+"ledaže by všechny soubory měly odlišné přípony."
 
 #: widgets/renamefiledialog.cpp:310
 #, kde-format
@@ -7048,6 +7085,8 @@ msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 msgstr ""
+"Nahrazení \"%1\" prázdnou hodnotou by vedlo k tomu, že <filename>%2</"
+"filename> by obsahoval prázdný název souboru."
 
 #: widgets/renamefiledialog.cpp:404
 #, kde-format
@@ -7134,7 +7173,7 @@ msgstr "Náhled:"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr ""
+msgstr "<filename>%1</filename> nelze přejmenovat na prázdný název souboru."
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
@@ -7207,7 +7246,7 @@ msgstr "Verze SSL:"
 #: widgets/sslinfo.ui:134
 #, kde-format
 msgid "Certificate chain:"
-msgstr "Řetězec certifikátů"
+msgstr "Řetězec certifikátů:"
 
 #. i18n: ectx: property (text), widget (QLabel, trustedTag)
 #: widgets/sslinfo.ui:163
@@ -7296,6 +7335,9 @@ msgid ""
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
+"Koš je příliš plný, aby tento soubor přijal. Chcete jej místo toho trvale "
+"smazat?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Tuto akci nelze vrátit zpět.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
 #, kde-kuit-format
@@ -7308,35 +7350,32 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
+"Koš je příliš plný, aby mohl přijmout tento %1 soubor. Chcete jej místo toho "
+"trvale smazat?<nl/><emphasis strong='true'>Tuto akci nelze vrátit zpět.</"
+"emphasis>"
 msgstr[1] ""
+"Koš je příliš plný, aby mohl přijmout tyto %1 soubory. Chcete je místo toho "
+"trvale smazat?<nl/><emphasis strong='true'>Tuto akci nelze vrátit zpět.</"
+"emphasis>"
 msgstr[2] ""
+"Koš je příliš plný, aby mohl přijmout těchto %1 souborů. Chcete je místo "
+"toho trvale smazat?<nl/><emphasis strong='true'>Tuto akci nelze vrátit zpět."
+"</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><filename>"
-#| "%1</filename><nl/><nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Opravdu si přejete natrvalo odstranit tuto položku?<nl/><filename>%1</"
-"filename><nl/><nl/><emphasis strong='true'>Tento krok nelze vrátit.</"
-"emphasis>"
+"Pro umístění této položky není k dispozici koš. Chcete ji místo toho trvale "
+"odstranit?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Tuto akci nelze vrátit zpět.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you really want to permanently delete this item?<nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
-#| msgid_plural ""
-#| "Do you really want to permanently delete these %1 items?<nl/><nl/"
-#| "><emphasis strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
@@ -7347,14 +7386,17 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Opravdu si přejete natrvalo odstranit tuto položku?<nl/><nl/><emphasis "
-"strong='true'>Tento krok nelze vrátit.</emphasis>"
+"Pro tuto %1 položku není v daném umístění k dispozici koš. Chcete ji místo "
+"toho trvale smazat?<nl/><emphasis strong='true'>Tuto akci nelze vrátit zpět."
+"</emphasis>"
 msgstr[1] ""
-"Opravdu si přejete natrvalo odstranit tyto %1 položky?<nl/><nl/><emphasis "
-"strong='true'>Tento krok nelze vrátit.</emphasis>"
+"Pro tyto %1 položky není v daném umístění k dispozici koš. Chcete je místo "
+"toho trvale smazat?<nl/><emphasis strong='true'>Tuto akci nelze vrátit zpět."
+"</emphasis>"
 msgstr[2] ""
-"Opravdu si přejete natrvalo odstranit těchto %1 položek?<nl/><nl/><emphasis "
-"strong='true'>Tento krok nelze vrátit.</emphasis>"
+"Pro těchto %1 položek není v daném umístění k dispozici koš. Chcete je místo "
+"toho trvale smazat?<nl/><emphasis strong='true'>Tuto akci nelze vrátit zpět."
+"</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
