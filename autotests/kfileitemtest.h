@@ -63,6 +63,8 @@ private Q_SLOTS:
     void testNonWritableDirectory();
 #endif
 
+    void aclRefreshedAfterAdding();
+
     // KIO global tests
     void testIconNameForUrl_data();
     void testIconNameForUrl();

@@ -21,6 +21,11 @@
 #include <KProtocolInfo>
 #include <QMimeDatabase>
 
+#include <config-kiocore.h> // HAVE_POSIX_ACL
+#if HAVE_POSIX_ACL
+#include <sys/acl.h>
+#endif
+
 QTEST_MAIN(KFileItemTest)
 
 struct CaseInsensitiveStringCompareHelper {
@@ -1080,5 +1085,42 @@ void KFileItemTest::testNonWritableDirectory()
 }
 
 #endif // Q_OS_WIN
+
+void KFileItemTest::aclRefreshedAfterAdding()
+{
+#if !HAVE_POSIX_ACL
+    QSKIP("POSIX ACL support not compiled in");
+#else
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+    const QString path = tempDir.path() + QLatin1String("/file_gaining_acl");
+    {
+        QFile f(path);
+        QVERIFY(f.open(QIODevice::WriteOnly));
+        QCOMPARE(f.write("test"), Q_INT64_C(4));
+    }
+
+    // A freshly created file has no extended ACL.
+    KFileItem item(QUrl::fromLocalFile(path));
+    QVERIFY(!item.hasExtendedACL());
+
+    // Add an extended ACL (a named-user entry) on disk, as KPropertiesDialog would.
+    acl_t acl = acl_from_text("u::rw-,u:0:rwx,g::r--,m::rwx,o::r--");
+    QVERIFY(acl);
+    const QByteArray enc = QFile::encodeName(path);
+    if (acl_valid(acl) != 0 || acl_set_file(enc.constData(), ACL_TYPE_ACCESS, acl) != 0) {
+        acl_free(acl);
+        QSKIP("Filesystem under the temp dir does not support POSIX ACLs");
+    }
+    acl_free(acl);
+
+    // Refreshing the item, as the dir lister does after a properties change, must pick
+    // up the newly added ACL. Before the fix refresh() only re-read ACLs for items that
+    // already had one, so a first-time ACL stayed invisible until a full re-listing
+    // (bug 299155).
+    item.refresh();
+    QVERIFY(item.hasExtendedACL());
+#endif
+}
 
 #include "moc_kfileitemtest.cpp"

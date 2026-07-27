@@ -62,6 +62,7 @@ if (NOT WIN32)
   endif()
   if(ACL_FOUND)
     target_link_libraries(jobtest ${ACL_LIBS}) # copyFilePreservesAcl()
+    target_link_libraries(kfileitemtest ${ACL_LIBS}) # aclRefreshedAfterAdding()
   endif()
 endif()
 

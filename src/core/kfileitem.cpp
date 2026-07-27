@@ -62,7 +62,6 @@ public:
         , m_mimeType()
         , m_fileMode(mode)
         , m_permissions(permissions)
-        , m_addACL(false)
         , m_bLink(false)
         , m_bIsLocalUrl(itemOrDirUrl.isLocalFile())
         , m_bMimeTypeKnown(false)
@@ -162,11 +161,6 @@ public:
      * The permissions
      */
     mutable mode_t m_permissions;
-
-    /*
-     * Whether the UDSEntry ACL fields should be added to m_entry.
-     */
-    mutable bool m_addACL : 1;
 
     /*
      * Whether the file is a link
@@ -291,9 +285,7 @@ void KFileItemPrivate::init() const
             }
 
 #if HAVE_POSIX_ACL
-            if (m_addACL) {
-                appendACLAtoms(pathBA, m_entry, type);
-            }
+            appendACLAtoms(pathBA, m_entry, type);
 #endif
         } else {
             if (errno != ENOENT) {
@@ -688,11 +680,6 @@ void KFileItem::refresh()
     d->m_hidden = KFileItemPrivate::Auto;
     d->m_hiddenCache = KFileItemPrivate::HiddenUncached;
     refreshMimeType();
-
-#if HAVE_POSIX_ACL
-    // If the item had ACL, re-add them in init()
-    d->m_addACL = !d->m_entry.stringValue(KIO::UDSEntry::UDS_ACL_STRING).isEmpty();
-#endif
 
     // Basically, we can't trust any information we got while listing.
     // Everything could have changed...
