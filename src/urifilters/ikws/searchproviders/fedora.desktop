@@ -6,6 +6,7 @@ Name[az]=Fedora paketləri
 Name[bg]=Пакети на Fedora
 Name[ca]=Paquets Fedora
 Name[ca@valencia]=Paquets Fedora
+Name[cs]=Metabalíčky Fedora
 Name[de]=Fedora-Pakete
 Name[eo]=Fedora-Pakoj
 Name[es]=Paquetes de Fedora
@@ -56,6 +57,7 @@ Query[az]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[bg]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ca]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ca@valencia]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[cs]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[de]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[eo]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[es]=https://packages.fedoraproject.org/search?query=\\{@}

@@ -7,6 +7,7 @@ Name[az]=npm
 Name[bg]=npm
 Name[ca]=npm
 Name[ca@valencia]=npm
+Name[cs]=npm
 Name[de]=npm
 Name[eo]=npm
 Name[es]=npm
@@ -56,6 +57,7 @@ Query[az]=https://www.npmjs.com/search?q=\\{@}
 Query[bg]=https://www.npmjs.com/search?q=\\{@}
 Query[ca]=https://www.npmjs.com/search?q=\\{@}
 Query[ca@valencia]=https://www.npmjs.com/search?q=\\{@}
+Query[cs]=https://www.npmjs.com/search?q=\\{@}
 Query[de]=https://www.npmjs.com/search?q=\\{@}
 Query[eo]=https://www.npmjs.com/search?q=\\{@}
 Query[es]=https://www.npmjs.com/search?q=\\{@}

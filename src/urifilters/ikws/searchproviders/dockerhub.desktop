@@ -7,6 +7,7 @@ Name[az]=Docker Hub repozitoriyası
 Name[bg]=Docker Hub
 Name[ca]=Docker Hub
 Name[ca@valencia]=Docker Hub
+Name[cs]=Docker Hub
 Name[de]=Docker
 Name[eo]=Doker-Nabo
 Name[es]=Docker Hub
@@ -56,6 +57,7 @@ Query[az]=https://hub.docker.com/search?q=\\{@}
 Query[bg]=https://hub.docker.com/search?q=\\{@}
 Query[ca]=https://hub.docker.com/search?q=\\{@}
 Query[ca@valencia]=https://hub.docker.com/search?q=\\{@}
+Query[cs]=https://hub.docker.com/search?q=\\{@}
 Query[de]=https://hub.docker.com/search?q=\\{@}
 Query[eo]=https://hub.docker.com/search?q=\\{@}
 Query[es]=https://hub.docker.com/search?q=\\{@}
