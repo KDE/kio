@@ -98,6 +98,7 @@ private Q_SLOTS:
     void mostLocalUrl();
     void mostLocalUrlHttp();
     void chmodFile();
+    void chmodFileSetAcl();    
 #ifdef Q_OS_UNIX
     void chmodSticky();
 #endif

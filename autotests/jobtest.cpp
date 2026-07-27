@@ -2151,6 +2151,51 @@ void JobTest::chmodFile()
     QFile::remove(filePath);
 }
 
+void JobTest::chmodFileSetAcl()
+{
+#if !HAVE_POSIX_ACL
+    QSKIP("POSIX ACL support not compiled in");
+#elif defined(Q_OS_FREEBSD)
+    QSKIP("The test is not adapted for FreeBSD yet");
+#else
+    const QString filePath = homeTmpDir() + "fileForChmodAcl";
+    createTestFile(filePath);
+    KFileItem item(QUrl::fromLocalFile(filePath));
+    KFileItemList items;
+    items << item;
+    KIO::Job *job = KIO::chmod(items, item.permissions(), S_IWGRP, QString(), QString(), false, KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+
+    // A named-user entry makes this an *extended* ACL
+    QByteArray want = "user::rw-\nuser:root:rwx\ngroup::rw-\nmask::rwx\nother::r--\n";
+    job->addMetaData(QStringLiteral("ACL_STRING"), want);
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    auto aclText = [](const QByteArray &path) {
+        acl_t acl = acl_get_file(path.constData(), ACL_TYPE_ACCESS);
+        char *text = acl ? acl_to_text(acl, nullptr) : nullptr;
+        const QByteArray result = text ? QByteArray(text) : QByteArray();
+        if (text) {
+            acl_free(text);
+        }
+        if (acl) {
+            acl_free(acl);
+        }
+        return result;
+    };
+
+    const QByteArray srcEnc = QFile::encodeName(filePath);
+
+    const QByteArray srcAcl = aclText(srcEnc);
+    QVERIFY(!srcAcl.isEmpty());
+
+    QCOMPARE(aclText(srcEnc), want);
+
+    QFile::remove(filePath);
+#endif
+}
+
 #ifdef Q_OS_UNIX
 void JobTest::chmodSticky()
 {
