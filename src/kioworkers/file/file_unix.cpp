@@ -244,10 +244,10 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
 
 #if HAVE_POSIX_ACL
         if (details & KIO::StatAcl) {
-            /* Append an atom indicating whether the file has extended acl information
+            /* Append a field indicating whether the file has extended acl information
              * and if withACL is specified also one with the acl itself. If it's a directory
              * and it has a default ACL, also append that. */
-            appendACLAtoms(targetPath, entry, type);
+            appendACLFields(targetPath, entry, type);
         }
 #endif
     }

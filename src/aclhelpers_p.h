@@ -97,10 +97,10 @@ static QString aclToText(acl_t acl)
     return ret;
 }
 
-/* Append an atom indicating whether the file has extended acl information
+/* Append a field indicating whether the file has extended acl information
  * and if withACL is specified also one with the acl itself. If it's a directory
  * and it has a default ACL, also append that. */
-__attribute__((unused)) static void appendACLAtoms(const QByteArray &path, KIO::UDSEntry &entry, mode_t type)
+__attribute__((unused)) static void appendACLFields(const QByteArray &path, KIO::UDSEntry &entry, mode_t type)
 {
     // first check for a noop
     if (KIO::ACLPortability::acl_extended_file(path.data()) == 0) {

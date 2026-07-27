@@ -285,7 +285,7 @@ void KFileItemPrivate::init() const
             }
 
 #if HAVE_POSIX_ACL
-            appendACLAtoms(pathBA, m_entry, type);
+            appendACLFields(pathBA, m_entry, type);
 #endif
         } else {
             if (errno != ENOENT) {
