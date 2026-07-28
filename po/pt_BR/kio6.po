@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-25 00:40+0000\n"
+"POT-Creation-Date: 2026-07-28 00:41+0000\n"
 "PO-Revision-Date: 2026-06-14 07:13-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -55,7 +55,7 @@ msgstr ""
 "Não foi possível modificar a propriedade do arquivo <filename>%1</filename>. "
 "Você não tem permissão para realizar essa alteração."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1010
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1014
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -113,7 +113,7 @@ msgstr "O arquivo já existe"
 msgid "Already Exists as Folder"
 msgstr "Já existe como pasta"
 
-#: core/copyjob.cpp:1930 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1930 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Lixeira"
@@ -2293,17 +2293,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Erro não documentado"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1484
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Link simbólico para %1)"
 
-#: core/kfileitem.cpp:1485
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, link para %2)"
 
-#: core/kfileitem.cpp:1488
+#: core/kfileitem.cpp:1489
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Aponta para %1)"
@@ -2348,87 +2348,87 @@ msgstr ""
 "O <filename>%1</filename> não foi encontrado; entre um caminho de programa "
 "executável válido."
 
-#: core/slavebase.cpp:791
+#: core/slavebase.cpp:792
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "O protocolo %1 não suporta a abertura de conexões."
 
-#: core/slavebase.cpp:793
+#: core/slavebase.cpp:794
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "O protocolo %1 não suporta o fechamento de conexões."
 
-#: core/slavebase.cpp:795
+#: core/slavebase.cpp:796
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "O protocolo %1 não suporta acesso a arquivos."
 
-#: core/slavebase.cpp:797
+#: core/slavebase.cpp:798
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Não é suportado escrever para %1."
 
-#: core/slavebase.cpp:799
+#: core/slavebase.cpp:800
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Não existem ações especiais disponíveis para o protocolo %1."
 
-#: core/slavebase.cpp:801
+#: core/slavebase.cpp:802
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "O protocolo %1 não suporta listagem de pastas."
 
-#: core/slavebase.cpp:803
+#: core/slavebase.cpp:804
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "A recuperação de dados de %1 não é suportada."
 
-#: core/slavebase.cpp:805
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "A recuperação de informações tipo MIME de %1 não é suportada."
 
-#: core/slavebase.cpp:807
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Não é suportado renomear ou mover arquivos dentro de %1."
 
-#: core/slavebase.cpp:809
+#: core/slavebase.cpp:810
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "O protocolo %1 não suporta a criação de links simbólicos."
 
-#: core/slavebase.cpp:811
+#: core/slavebase.cpp:812
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Não é suportado copiar arquivos dentro de %1."
 
-#: core/slavebase.cpp:813
+#: core/slavebase.cpp:814
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "A exclusão de arquivos de %1 não é suportada."
 
-#: core/slavebase.cpp:815
+#: core/slavebase.cpp:816
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "O protocolo %1 não suporta a criação de pastas."
 
-#: core/slavebase.cpp:817
+#: core/slavebase.cpp:818
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "O protocolo %1 não suporta a mudança de atributos de arquivos."
 
-#: core/slavebase.cpp:819
+#: core/slavebase.cpp:820
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "O protocolo %1 não suporta a mudança de propriedade de arquivos."
 
-#: core/slavebase.cpp:821
+#: core/slavebase.cpp:822
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "O protocolo %1 não suporta a abertura de arquivos."
 
-#: core/slavebase.cpp:823
+#: core/slavebase.cpp:824
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "O protocolo %1 não suporta a ação %2."
@@ -4233,23 +4233,23 @@ msgstr "Não foi possível encontrar o programa \"mount\""
 msgid "Could not find program \"umount\""
 msgstr "Não foi possível encontrar o programa \"umount\""
 
-#: kioworkers/file/file_unix.cpp:605
+#: kioworkers/file/file_unix.cpp:609
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Não foi possível copiar o arquivo de %1 para %2 (Erro: %3)"
 
-#: kioworkers/file/file_unix.cpp:809
+#: kioworkers/file/file_unix.cpp:813
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Sem mídia no dispositivo %1"
 
-#: kioworkers/file/file_unix.cpp:1083
+#: kioworkers/file/file_unix.cpp:1087
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 "Não foi possível obter o ID de usuário, para o nome de usuário %1 fornecido"
 
-#: kioworkers/file/file_unix.cpp:1094
+#: kioworkers/file/file_unix.cpp:1098
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Não foi possível obter o ID de grupo para o nome de grupo %1 fornecido"
@@ -4303,7 +4303,7 @@ msgstr ""
 msgid "Site:"
 msgstr "Site:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2503
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4327,7 +4327,7 @@ msgstr ""
 "\n"
 "O servidor disse: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4336,12 +4336,12 @@ msgstr ""
 "Você precisa fornecer um nome de usuário e uma senha para o servidor de "
 "proxy listado abaixo, antes que possa acessar quaisquer páginas."
 
-#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2502 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy:"
 
-#: kioworkers/ftp/ftp.cpp:2501
+#: kioworkers/ftp/ftp.cpp:2505
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "A autenticação do proxy falhou."
@@ -4592,8 +4592,8 @@ msgstr "Rede"
 
 #: kioworkers/trash/kio_trash.cpp:117 kioworkers/trash/kio_trash.cpp:161
 #: kioworkers/trash/kio_trash.cpp:221 kioworkers/trash/kio_trash.cpp:384
-#: kioworkers/trash/kio_trash.cpp:416 kioworkers/trash/kio_trash.cpp:594
-#: kioworkers/trash/kio_trash.cpp:604
+#: kioworkers/trash/kio_trash.cpp:416 kioworkers/trash/kio_trash.cpp:595
+#: kioworkers/trash/kio_trash.cpp:605
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "URL %1 inválida"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-25 00:40+0000\n"
+"POT-Creation-Date: 2026-07-28 00:41+0000\n"
 "PO-Revision-Date: 2026-07-23 22:01+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Min Nan Chinese Latin <zh-l10n@lists.slat.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 "Bô-huat-tōo siu-kái tóng-àn <filename>%1</filename> ê sóo-iú-tsiá. Lí bô "
 "khuân-hān tsò tsit-ê kái-piàn."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1010
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1014
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -98,7 +98,7 @@ msgstr "Tóng-àn í-king ū--ah"
 msgid "Already Exists as Folder"
 msgstr "Í-king ū iōng tsit-ê miâ ê tsu-liāu-giap-á--ah"
 
-#: core/copyjob.cpp:1930 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1930 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Pùn-sò-tháng"
@@ -2223,17 +2223,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Bô siá--ji̍p-khì bûn-kiānn lâi ê tshò-gōo"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1484
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Kàu %1 ê Hû-hō Liân-kiat)"
 
-#: core/kfileitem.cpp:1485
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, kàu %2 ê liân-kiat)"
 
-#: core/kfileitem.cpp:1488
+#: core/kfileitem.cpp:1489
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (liân-kiat bo̍k-piau: %1)"
@@ -2276,87 +2276,87 @@ msgstr ""
 "Tshuē-bô <filename>%1</filename>; tshiánn su-ji̍p ē-sái tsip-hîng ê tîng-sik "
 "ê iú-hāu lōo-kìng."
 
-#: core/slavebase.cpp:791
+#: core/slavebase.cpp:792
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:793
+#: core/slavebase.cpp:794
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:795
+#: core/slavebase.cpp:796
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:797
+#: core/slavebase.cpp:798
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Bô tsi-uān siá-ji̍p %1."
 
-#: core/slavebase.cpp:799
+#: core/slavebase.cpp:800
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:801
+#: core/slavebase.cpp:802
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:803
+#: core/slavebase.cpp:804
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Bô tsi-uān uì %1 tshú-tit tsu-liāu."
 
-#: core/slavebase.cpp:805
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Bô tsi-uān uì %1 tshú-tit MIME luī-pia̍t tsu-sìn."
 
-#: core/slavebase.cpp:807
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Bô tsi-uān tī %1 lāi-té kā tóng-àn kái-miâ á-sī suá-uī."
 
-#: core/slavebase.cpp:809
+#: core/slavebase.cpp:810
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Bô tsi-uān iōng hia̍p-tīng %1 ê sî-tsūn kiàn-li̍p hû-hō-liân-kiat."
 
-#: core/slavebase.cpp:811
+#: core/slavebase.cpp:812
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Bô tsi-uān tī %1 lāi-té khóo-pih tóng-àn."
 
-#: core/slavebase.cpp:813
+#: core/slavebase.cpp:814
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Bô tsi-uān uì %1 thâi-tiāu tóng-àn."
 
-#: core/slavebase.cpp:815
+#: core/slavebase.cpp:816
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Bô tsi-uān iōng hia̍p-tīng %1 ê sî-tsūn kiàn-li̍p tsu-liāu-giap-á."
 
-#: core/slavebase.cpp:817
+#: core/slavebase.cpp:818
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:819
+#: core/slavebase.cpp:820
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Tī hia̍p-tīng %1 bô tsi-uān kái-piàn tóng-àn ê sóo-iú-tsiá."
 
-#: core/slavebase.cpp:821
+#: core/slavebase.cpp:822
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Tī hia̍p-tīng %1 bô tsi-uān khui tóng-àn."
 
-#: core/slavebase.cpp:823
+#: core/slavebase.cpp:824
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Hia̍p-tīng %1 bô tsi-uān tōng-tsok %2."
@@ -4097,22 +4097,22 @@ msgstr "Tshuē-bô \"mount\" tîng-sik"
 msgid "Could not find program \"umount\""
 msgstr "Tshuē-bô \"umount\" tîng-sik"
 
-#: kioworkers/file/file_unix.cpp:605
+#: kioworkers/file/file_unix.cpp:609
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Bô-huat-tōo kā tóng-àn uì %1 khóo-pih kàu %2. (Errno: %3)"
 
-#: kioworkers/file/file_unix.cpp:809
+#: kioworkers/file/file_unix.cpp:813
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Tsong-tì bô muî-thé hōo %1"
 
-#: kioworkers/file/file_unix.cpp:1083
+#: kioworkers/file/file_unix.cpp:1087
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:1094
+#: kioworkers/file/file_unix.cpp:1098
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
@@ -4165,7 +4165,7 @@ msgstr ""
 msgid "Site:"
 msgstr "Bāng-tsām:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2503
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4189,7 +4189,7 @@ msgstr ""
 "\n"
 "Sù-ho̍k-khì huê-tap: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4198,12 +4198,12 @@ msgstr ""
 "Nā ài tsûn-tshú bāng-tsām, lí su-iàu sian thê-kiong ē-kha ê tāi-lí sù-ho̍k-"
 "khì ê iōng-tsiá-miâ kap bi̍t-bé."
 
-#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2502 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "Tāi-lí:"
 
-#: kioworkers/ftp/ftp.cpp:2501
+#: kioworkers/ftp/ftp.cpp:2505
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Tāi-lí Jīn-tsìng Sit-pāi."
@@ -4445,8 +4445,8 @@ msgstr "Bāng-lōo"
 
 #: kioworkers/trash/kio_trash.cpp:117 kioworkers/trash/kio_trash.cpp:161
 #: kioworkers/trash/kio_trash.cpp:221 kioworkers/trash/kio_trash.cpp:384
-#: kioworkers/trash/kio_trash.cpp:416 kioworkers/trash/kio_trash.cpp:594
-#: kioworkers/trash/kio_trash.cpp:604
+#: kioworkers/trash/kio_trash.cpp:416 kioworkers/trash/kio_trash.cpp:595
+#: kioworkers/trash/kio_trash.cpp:605
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "Put-tsìng ê URL %1"

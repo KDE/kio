@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-25 00:40+0000\n"
+"POT-Creation-Date: 2026-07-28 00:41+0000\n"
 "PO-Revision-Date: 2009-08-03 17:47+0200\n"
 "Last-Translator: Michôł Òstrowsczi <michol@linuxcsb.org>\n"
 "Language-Team: Kashubian <i18n-csb@linuxcsb.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 "<qt>Ni mòże zmienic miéwcë lopka <b>%1</b>. Felënk pasownëch prawów "
 "przistãpù do lopka.</qt>"
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1010
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1014
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -100,7 +100,7 @@ msgstr "Lopk ju je"
 msgid "Already Exists as Folder"
 msgstr "Ju je jakno katalog"
 
-#: core/copyjob.cpp:1930 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1930 kioworkers/trash/kio_trash.cpp:294
 #, fuzzy, kde-format
 #| msgid "Trash"
 msgid "Trash"
@@ -2251,17 +2251,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr ""
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1484
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr ""
 
-#: core/kfileitem.cpp:1485
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr ""
 
-#: core/kfileitem.cpp:1488
+#: core/kfileitem.cpp:1489
 #, kde-format
 msgid " (Points to %1)"
 msgstr ""
@@ -2302,88 +2302,88 @@ msgid ""
 "executable program."
 msgstr ""
 
-#: core/slavebase.cpp:791
+#: core/slavebase.cpp:792
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Òtmëkanié sparłączeniów nie je òbsłëgiwóné przez protokół %1."
 
-#: core/slavebase.cpp:793
+#: core/slavebase.cpp:794
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Zamëkanié sparłączeniów nie je òbsłëgiwóné przez protokół %1."
 
-#: core/slavebase.cpp:795
+#: core/slavebase.cpp:796
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Protokół %1 nie zezwôlô na przistãp do lopków."
 
-#: core/slavebase.cpp:797
+#: core/slavebase.cpp:798
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Zapisëwanié do %1 nie je òbsłëgiwóné."
 
-#: core/slavebase.cpp:799
+#: core/slavebase.cpp:800
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Felënk szpecjalnëch òperacrji przistspnëch dlô protokòłu %1."
 
-#: core/slavebase.cpp:801
+#: core/slavebase.cpp:802
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr ""
 "Wëskrzënianié zamkłosców katalogów nie je òbsłëgiwóné przez protokół %1."
 
-#: core/slavebase.cpp:803
+#: core/slavebase.cpp:804
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Ladowanié pòdôwków z %1 nie je òbsłëgiwóne."
 
-#: core/slavebase.cpp:805
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Ladowanié wëdowiédzë ò ôrce MIME z %1 nie je òbsłëgiwóné."
 
-#: core/slavebase.cpp:807
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Zmiana miona, abò przenoszenié lopków w %1 nie je òbsłëgiwóné."
 
-#: core/slavebase.cpp:809
+#: core/slavebase.cpp:810
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Ùsôdzanié symbòlicznëch lënków nie je òbsłëgiwóné przez protokół %1."
 
-#: core/slavebase.cpp:811
+#: core/slavebase.cpp:812
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Kòpérownié lopków e %1 nie je òbsłëgiwóné."
 
-#: core/slavebase.cpp:813
+#: core/slavebase.cpp:814
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Rëmanié lopków z %1 nie je òbsłëgiwóné."
 
-#: core/slavebase.cpp:815
+#: core/slavebase.cpp:816
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Ùsôdzanié katalogów nie je òbsłëgiwóné przez protokół %1."
 
-#: core/slavebase.cpp:817
+#: core/slavebase.cpp:818
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Zmianë atribùtów lopków nie są òbsłëgiwóné przez protokół %1."
 
-#: core/slavebase.cpp:819
+#: core/slavebase.cpp:820
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Zmiana miéwcë lopków nie je òbsłëgiwónô przez protokół %1."
 
-#: core/slavebase.cpp:821
+#: core/slavebase.cpp:822
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Òtmëkanié lopków nie je òbsłëgiwóné przez protokól %1."
 
-#: core/slavebase.cpp:823
+#: core/slavebase.cpp:824
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokół %1 nie òbsłëgùje dzejaniô %2."
@@ -4236,22 +4236,22 @@ msgstr ""
 msgid "Could not find program \"umount\""
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:605
+#: kioworkers/file/file_unix.cpp:609
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:809
+#: kioworkers/file/file_unix.cpp:813
 #, kde-format
 msgid "No media in device for %1"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:1083
+#: kioworkers/file/file_unix.cpp:1087
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:1094
+#: kioworkers/file/file_unix.cpp:1098
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
@@ -4298,7 +4298,7 @@ msgstr ""
 msgid "Site:"
 msgstr ""
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2503
 #, kde-format
 msgid "<b>%1</b>"
 msgstr ""
@@ -4320,19 +4320,19 @@ msgid ""
 "The server said: \"%1\""
 msgstr ""
 
-#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
 msgstr ""
 
-#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2502 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr ""
 
-#: kioworkers/ftp/ftp.cpp:2501
+#: kioworkers/ftp/ftp.cpp:2505
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr ""
@@ -4577,8 +4577,8 @@ msgstr "Séc"
 
 #: kioworkers/trash/kio_trash.cpp:117 kioworkers/trash/kio_trash.cpp:161
 #: kioworkers/trash/kio_trash.cpp:221 kioworkers/trash/kio_trash.cpp:384
-#: kioworkers/trash/kio_trash.cpp:416 kioworkers/trash/kio_trash.cpp:594
-#: kioworkers/trash/kio_trash.cpp:604
+#: kioworkers/trash/kio_trash.cpp:416 kioworkers/trash/kio_trash.cpp:595
+#: kioworkers/trash/kio_trash.cpp:605
 #, fuzzy, kde-format
 #| msgid "Malformed URL %1."
 msgid "Malformed URL %1"

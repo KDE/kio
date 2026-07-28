@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-25 00:40+0000\n"
+"POT-Creation-Date: 2026-07-28 00:41+0000\n"
 "PO-Revision-Date: 2026-03-31 23:12+0530\n"
 "Last-Translator: CrazyCourt651 <CrazyCourt651@gmail.com>\n"
 "Language-Team: Gujarati\n"
@@ -43,7 +43,7 @@ msgstr ""
 "ઇલ <filename>%1</filename> ની માલિકી સુધારી શકાતી નથી. ફેરફાર કરવા માટે તમારી "
 "પાસે ફાઇલ પર અપૂરતો પ્રવેશ (access) છે.\t\t\t\t"
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1010
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1014
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -97,7 +97,7 @@ msgstr "ફાઇલ પહેલેથી હાજર છે"
 msgid "Already Exists as Folder"
 msgstr "ફોલ્ડર તરીકે પહેલેથી હાજર છે"
 
-#: core/copyjob.cpp:1930 kioworkers/trash/kio_trash.cpp:295
+#: core/copyjob.cpp:1930 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "કચરાપેટી"
@@ -2230,17 +2230,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "દસ્તાવેજ ન કરેલ ક્ષતિ"
 
-#: core/kfileitem.cpp:1483
+#: core/kfileitem.cpp:1484
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 પર સાંકેતિક કડી)"
 
-#: core/kfileitem.cpp:1485
+#: core/kfileitem.cpp:1486
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2 ને કડી)"
 
-#: core/kfileitem.cpp:1488
+#: core/kfileitem.cpp:1489
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (%1 સાથે જોડેલ)"
@@ -2285,87 +2285,87 @@ msgstr ""
 "<filename>%1</filename> મળ્યું નથી; કૃપા કરીને એક્ઝિક્યુટેબલ પ્રોગ્રામનો માન્ય પાથ દાખલ "
 "કરો."
 
-#: core/slavebase.cpp:791
+#: core/slavebase.cpp:792
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "પ્રોટોકોલ %1 સાથે કનેક્શન ખોલવાનું સમર્થિત નથી."
 
-#: core/slavebase.cpp:793
+#: core/slavebase.cpp:794
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "પ્રોટોકોલ %1 સાથે જોડાણો બંધ કરવાનું સમર્થિત નથી."
 
-#: core/slavebase.cpp:795
+#: core/slavebase.cpp:796
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "પ્રોટોકોલ %1 સાથે ફાઇલોને એક્સેસ કરવાનું સપોર્ટેડ નથી."
 
-#: core/slavebase.cpp:797
+#: core/slavebase.cpp:798
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1 માં લખવાનું આધારિત નથી."
 
-#: core/slavebase.cpp:799
+#: core/slavebase.cpp:800
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "પ્રોટોકોલ %1 માટે કોઈ વિશેષ ક્રિયાઓ ઉપલબ્ધ નથી."
 
-#: core/slavebase.cpp:801
+#: core/slavebase.cpp:802
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "પ્રોટોકોલ %1 માટે ફોલ્ડર્સની યાદી બનાવવાનું સમર્થિત નથી."
 
-#: core/slavebase.cpp:803
+#: core/slavebase.cpp:804
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 માંથી માહિતી મેળવવાનું સમર્થિત નથી."
 
-#: core/slavebase.cpp:805
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1 માંથી માઇમ પ્રકારની માહિતી મેળવવાનું સમર્થિત નથી."
 
-#: core/slavebase.cpp:807
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 ની અંદર ફાઇલોનું નામ બદલવું અથવા ખસેડવું સમર્થિત નથી."
 
-#: core/slavebase.cpp:809
+#: core/slavebase.cpp:810
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "પ્રોટોકોલ %1 સાથે સિમલિંક્સ (symlinks) બનાવવાનું સમર્થિત નથી."
 
-#: core/slavebase.cpp:811
+#: core/slavebase.cpp:812
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 ની અંદર ફાઇલો નકલ કરવાનું સમર્થિત નથી."
 
-#: core/slavebase.cpp:813
+#: core/slavebase.cpp:814
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 માંથી ફાઇલોને કાઢી નાખવાનું સમર્થિત નથી."
 
-#: core/slavebase.cpp:815
+#: core/slavebase.cpp:816
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "પ્રોટોકોલ %1 સાથે ફોલ્ડર્સ બનાવવાનું સમર્થિત નથી."
 
-#: core/slavebase.cpp:817
+#: core/slavebase.cpp:818
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "પ્રોટોકોલ %1 સાથે ફાઇલોના ગુણધર્મો બદલવાનું સમર્થિત નથી."
 
-#: core/slavebase.cpp:819
+#: core/slavebase.cpp:820
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "પ્રોટોકોલ %1 સાથે ફાઇલોની માલિકી બદલવાનું સમર્થિત નથી."
 
-#: core/slavebase.cpp:821
+#: core/slavebase.cpp:822
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "પ્રોટોકોલ %1 સાથે ફાઇલો ખોલવાનું સમર્થિત નથી."
 
-#: core/slavebase.cpp:823
+#: core/slavebase.cpp:824
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "પ્રોટોકોલ %1 ક્રિયા %2 ને આધાર આપતો નથી."
@@ -4147,22 +4147,22 @@ msgstr "કાર્યક્રમ \"mount\" શોધી શકાતો ન�
 msgid "Could not find program \"umount\""
 msgstr "કાર્યક્રમ \"umount\" શોધી શકાતો નથી"
 
-#: kioworkers/file/file_unix.cpp:605
+#: kioworkers/file/file_unix.cpp:609
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1 માંથી %2 પર ફાઇલ નકલ કરી શકાતી નથી. (ક્ષતિક્રમ: %3)"
 
-#: kioworkers/file/file_unix.cpp:809
+#: kioworkers/file/file_unix.cpp:813
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 માટે કોઇ મીડિઆ ઉપકરણ નથી"
 
-#: kioworkers/file/file_unix.cpp:1083
+#: kioworkers/file/file_unix.cpp:1087
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "આપેલ વપરાશકર્તા નામ %1 માટે વપરાશકર્તા ઓળ મેળવી શકાતી નથી"
 
-#: kioworkers/file/file_unix.cpp:1094
+#: kioworkers/file/file_unix.cpp:1098
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "આપેલ સમૂહ નામ %1 માટે સમૂહ ઓળ મેળવી શકાતી નથી"
@@ -4214,7 +4214,7 @@ msgstr "આ સાઇટ જોવા માટે તમારે વપરા�
 msgid "Site:"
 msgstr "સાઇટ:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2499
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2503
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4238,7 +4238,7 @@ msgstr ""
 "\n"
 "સર્વરે કહ્યું: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2494 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:379
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4247,12 +4247,12 @@ msgstr ""
 "કોઈપણ સાઇટની ઍક્સેસ મેળવતા પહેલા તમારે નીચે સૂચિબદ્ધ પ્રોક્સી સર્વર માટે વપરાશકર્તા નામ "
 "(username) અને પાસવર્ડ (password) આપવો આવશ્યક છે."
 
-#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2502 kioworkers/http/http.cpp:383
 #, kde-format
 msgid "Proxy:"
 msgstr "પ્રોક્સી:"
 
-#: kioworkers/ftp/ftp.cpp:2501
+#: kioworkers/ftp/ftp.cpp:2505
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "પ્રોક્સી સત્તાધિકરણ નિષ્ફળ."
@@ -4500,8 +4500,8 @@ msgstr "નેટવર્ક"
 
 #: kioworkers/trash/kio_trash.cpp:117 kioworkers/trash/kio_trash.cpp:161
 #: kioworkers/trash/kio_trash.cpp:221 kioworkers/trash/kio_trash.cpp:384
-#: kioworkers/trash/kio_trash.cpp:416 kioworkers/trash/kio_trash.cpp:594
-#: kioworkers/trash/kio_trash.cpp:604
+#: kioworkers/trash/kio_trash.cpp:416 kioworkers/trash/kio_trash.cpp:595
+#: kioworkers/trash/kio_trash.cpp:605
 #, kde-format
 msgid "Malformed URL %1"
 msgstr "ખરાબ URL %1."
