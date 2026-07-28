@@ -8,6 +8,7 @@ Name[ca@valencia]=Flathub
 Name[cs]=Flathub
 Name[de]=Flathub
 Name[es]=Flathub
+Name[eu]=Flathub
 Name[fr]=Flathub
 Name[he]=Flathub
 Name[hr]=Flathub
@@ -44,6 +45,7 @@ Query[ca@valencia]=https://flathub.org/apps/search?q=\\{@}
 Query[cs]=https://flathub.org/apps/search?q=\\{@}
 Query[de]=https://flathub.org/apps/search?q=\\{@}
 Query[es]=https://flathub.org/apps/search?q=\\{@}
+Query[eu]=https://flathub.org/apps/search?q=\\{@}
 Query[fr]=https://flathub.org/apps/search?q=\\{@}
 Query[he]=https://flathub.org/he/apps/search?q=\\{@} 
 Query[hr]=https://flathub.org/apps/search?q=\\{@}

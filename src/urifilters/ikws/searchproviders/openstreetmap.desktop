@@ -9,6 +9,7 @@ Name[ca@valencia]=OpenStreetMap
 Name[cs]=OpenStreetMap
 Name[de]=OpenStreetMap
 Name[es]=OpenStreetMap
+Name[eu]=OpenStreetMap
 Name[fr]=OpenStreetMap
 Name[he]=OpenStreetMap
 Name[hr]=OpenStreetMap
@@ -43,6 +44,7 @@ Query[ca@valencia]=https://www.openstreetmap.org/search?query=\\{@}
 Query[cs]=https://www.openstreetmap.org/search?query=\\{@}
 Query[de]=https://www.openstreetmap.org/search?query=\\{@}
 Query[es]=https://www.openstreetmap.org/search?query=\\{@}
+Query[eu]=https://www.openstreetmap.org/search?query=\\{@}
 Query[fr]=https://www.openstreetmap.org/search?query=\\{@}
 Query[he]=https://www.openstreetmap.org/search?query=\\{@}
 Query[hr]=https://www.openstreetmap.org/search?query=\\{@}

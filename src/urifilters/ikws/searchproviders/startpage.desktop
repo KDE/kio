@@ -8,6 +8,7 @@ Name[ca@valencia]=Startpage
 Name[cs]=Startpage
 Name[de]=Startpage
 Name[es]=Startpage
+Name[eu]=Startpage
 Name[fr]=Page de démarrage
 Name[ga]=Startpage
 Name[he]=Startpage
@@ -44,6 +45,7 @@ Query[ca@valencia]=https://www.startpage.com/sp/search?query=\\{@}
 Query[cs]=https://www.startpage.com/sp/search?query=\\{@}
 Query[de]=https://www.startpage.com/sp/search?query=\\{@}
 Query[es]=https://www.startpage.com/sp/search?query=\\{@}
+Query[eu]=https://www.startpage.com/sp/search?query=\\{@}
 Query[fr]=https://www.startpage.com/sp/search?query=\\{@}
 Query[ga]=https://www.startpage.com/sp/search?query=\\{@}
 Query[he]=https://www.startpage.com/sp/search?query=\\{@}
