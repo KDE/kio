@@ -17,6 +17,8 @@ class FilePreviewJobTest : public QObject
 private Q_SLOTS:
     void initTestCase();
     void testTimeoutTimerStoppedOnFinish();
+    void testCacheSizeValidation_data();
+    void testCacheSizeValidation();
 };
 
 #endif

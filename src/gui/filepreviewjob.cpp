@@ -368,6 +368,18 @@ bool FilePreviewJob::isCacheValid(const QImage &thumb)
         return false;
     }
 
+    // Reject a cached thumbnail smaller than needed now (blurry if scaled up), but
+    // only when the original is large enough to yield a bigger one; else keep it.
+    const int neededPixels = qMax(m_options.size.width(), m_options.size.height()) * m_options.devicePixelRatio;
+    const int cachedPixels = qMax(thumb.width(), thumb.height());
+    if (cachedPixels < neededPixels) {
+        const int origWidth = thumb.text(QStringLiteral("Thumb::Image::Width")).toInt();
+        const int origHeight = thumb.text(QStringLiteral("Thumb::Image::Height")).toInt();
+        if (qMax(origWidth, origHeight) > cachedPixels) {
+            return false;
+        }
+    }
+
     QString thumbnailerVersion = m_plugin.value(QStringLiteral("ThumbnailerVersion"));
 
     if (!thumbnailerVersion.isEmpty() && thumb.text(QStringLiteral("Software")).startsWith(QLatin1String("KDE Thumbnail Generator"))) {
