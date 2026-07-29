@@ -1016,6 +1016,32 @@ KIO::UDSEntry TrashImpl::trashUDSEntry(KIO::StatDetails details)
     return entry;
 }
 
+#ifdef BUILD_TESTING
+void TrashImpl::setMountPointsForTesting(const QStringList &mountPoints)
+{
+    // The mount points of the system are left unscanned from here on, and a trash directory that was
+    // found on one of them before is dropped, so the home trash directory and the ones below are all
+    // that is left.
+    const QString homeTrashDir = m_trashDirectories.value(0);
+    m_trashDirectories.clear();
+    m_topDirectories.clear();
+    if (!homeTrashDir.isEmpty()) {
+        m_trashDirectories.insert(0, homeTrashDir);
+    }
+    m_trashDirectoriesScanned = true;
+
+    quint64 trashId = 0;
+    for (const QString &topDir : mountPoints) {
+        const QString trashDir = topDir + QLatin1String("/.Trash-") + QString::number(getuid());
+        if (!QFileInfo(trashDir).isDir() || idForTrashDirectory(trashDir)) {
+            continue;
+        }
+        // The home trash directory has the id 0, so these start at 1.
+        insertTrashDir(++trashId, trashDir, topDir);
+    }
+}
+#endif
+
 void TrashImpl::scanTrashDirectories() const
 {
     const KMountPoint::List lst = KMountPoint::currentMountPoints();

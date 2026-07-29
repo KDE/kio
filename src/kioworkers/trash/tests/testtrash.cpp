@@ -22,6 +22,7 @@
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
 #include <kio/directorysizejob.h>
+#include <kio/emptytrashjob.h>
 #include <kio/listjob.h>
 #include <kio/restorejob.h>
 #include <kio/statjob.h>
@@ -1473,37 +1474,47 @@ void TestTrash::slotEntries(KIO::Job *, const KIO::UDSEntryList &lst)
 
 void TestTrash::emptyTrash()
 {
-    // ## Even though we use a custom XDG_DATA_HOME value, emptying the
-    // trash would still empty the other trash directories in other partitions.
-    // So we can't activate this test by default.
-#if 0
+    // Emptying reaches every trash directory that is known, one per mount point, so the job is told
+    // to look for them under the directory of the test alone. The trash directories of the real
+    // partitions are left as they are.
+    // An earlier test removed the directory the files come from.
+    QVERIFY(QDir().mkpath(homeTmpDir()));
+    const QString fileName = QStringLiteral("fileToEmpty");
+    trashFile(homeTmpDir() + fileName, fileName);
+    // A file with no info file next to it (#167051).
+    createTestFile(m_trashDir + QStringLiteral("/files/testfile_nometadata"));
 
-    // To make this test standalone
-    trashFileFromHome();
+    // A trash directory of its own, on a directory stood up as a mount point for the test, so that
+    // emptying is seen to reach more than the home trash directory.
+    const QString fakeMountPoint = homeTmpDir() + QStringLiteral("fakemount");
+    const QString fakeTrashDir = fakeMountPoint + QStringLiteral("/.Trash-") + QString::number(getuid());
+    QVERIFY(QDir().mkpath(fakeTrashDir + QStringLiteral("/files")));
+    QVERIFY(QDir().mkpath(fakeTrashDir + QStringLiteral("/info")));
+    createTestFile(fakeTrashDir + QStringLiteral("/files/fileOnItsOwnMountPoint"));
+    QFile infoFile(fakeTrashDir + QStringLiteral("/info/fileOnItsOwnMountPoint.trashinfo"));
+    QVERIFY(infoFile.open(QIODevice::WriteOnly));
+    infoFile.write("[Trash Info]\nPath=");
+    infoFile.write(QFile::encodeName(fakeMountPoint + QStringLiteral("/fileOnItsOwnMountPoint")));
+    infoFile.write("\nDeletionDate=2026-04-12T11:09:46\n");
+    infoFile.close();
 
-    // #167051: orphaned files
-    createTestFile(m_trashDir + "/files/testfile_nometadata");
+    KIO::Job *job = KIO::emptyTrash();
+    job->addMetaData(QStringLiteral("trash-test-mount-points"), fakeMountPoint);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    QByteArray packedArgs;
-    QDataStream stream(&packedArgs, QIODevice::WriteOnly);
-    stream << (int)1;
-    KIO::Job *job = KIO::special(QUrl("trash:/"), packedArgs, KIO::HideProgressInfo);
-    bool ok = job->exec();
-    QVERIFY(ok);
+    const QDir infoDir(m_trashDir + QStringLiteral("/info"));
+    const QDir filesDir(m_trashDir + QStringLiteral("/files"));
+    QVERIFY(infoDir.entryList(QDir::NoDotAndDotDot | QDir::AllEntries).isEmpty());
+    QVERIFY(filesDir.entryList(QDir::NoDotAndDotDot | QDir::AllEntries).isEmpty());
 
-    KConfig cfg("trashrc", KConfig::SimpleConfig);
-    QVERIFY(cfg.hasGroup("Status"));
-    QCOMPARE(cfg.group("Status").readEntry("Empty",false), true);
+    const QDir fakeInfoDir(fakeTrashDir + QStringLiteral("/info"));
+    const QDir fakeFilesDir(fakeTrashDir + QStringLiteral("/files"));
+    QVERIFY(fakeInfoDir.entryList(QDir::NoDotAndDotDot | QDir::AllEntries).isEmpty());
+    QVERIFY(fakeFilesDir.entryList(QDir::NoDotAndDotDot | QDir::AllEntries).isEmpty());
 
-    QVERIFY(!QFile::exists(m_trashDir + "/files/fileFromHome"));
-    QVERIFY(!QFile::exists(m_trashDir + "/files/readonly"));
-    QVERIFY(!QFile::exists(m_trashDir + "/info/readonly.trashinfo"));
-    QVERIFY(QDir(m_trashDir + "/info").entryList(QDir::NoDotAndDotDot | QDir::AllEntries).isEmpty());
-    QVERIFY(QDir(m_trashDir + "/files").entryList(QDir::NoDotAndDotDot | QDir::AllEntries).isEmpty());
-
-#else
-    qDebug() << " : SKIPPED";
-#endif
+    KConfig cfg(QStringLiteral("trashrc"), KConfig::SimpleConfig);
+    QVERIFY(cfg.hasGroup(QStringLiteral("Status")));
+    QCOMPARE(cfg.group(QStringLiteral("Status")).readEntry("Empty", false), true);
 }
 
 static bool isTrashEmpty()

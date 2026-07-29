@@ -159,6 +159,17 @@ private:
 
     void scanTrashDirectories() const;
 
+#ifdef BUILD_TESTING
+    /**
+     * Sets the directories that stand in for the mount points of the system, so that a test reaches
+     * none but the trash directories it made itself. The .Trash-$uid directory of each of them is
+     * taken as it is, which a directory on the device of $HOME is not otherwise allowed to be.
+     */
+    void setMountPointsForTesting(const QStringList &mountPoints);
+
+    friend class TrashProtocol;
+#endif
+
     std::optional<quint64> idForTrashDirectory(const QString &trashDir) const;
     bool initTrashDirectory(const QByteArray &trashDir_c) const;
     bool checkTrashSubdirs(const QByteArray &trashDir_c) const;

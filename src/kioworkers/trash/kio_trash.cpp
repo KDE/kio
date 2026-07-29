@@ -541,11 +541,18 @@ KIO::WorkerResult TrashProtocol::special(const QByteArray &data)
     stream >> cmd;
 
     switch (cmd) {
-    case 1:
+    case 1: {
+#ifdef BUILD_TESTING
+        const QString testMountPoints = metaData(QStringLiteral("trash-test-mount-points"));
+        if (!testMountPoints.isEmpty()) {
+            impl.setMountPointsForTesting(testMountPoints.split(QLatin1Char(':'), Qt::SkipEmptyParts));
+        }
+#endif
         if (!impl.emptyTrash()) {
             return KIO::WorkerResult::fail(impl.lastErrorCode(), impl.lastErrorMessage());
         }
         break;
+    }
     case 2:
         impl.migrateOldTrash();
         break;
