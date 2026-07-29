@@ -273,8 +273,12 @@ void UDSEntryPrivate::load(QDataStream &s)
 
     quint32 size;
     s >> size;
-    reserveStrings(size / 3);
-    reserveNumbers(size * 2 / 3);
+    // Buffers that live as long as the thread, so both counts are known before either vector of the
+    // entry is sized and each takes exactly what it holds.
+    thread_local std::vector<StringField> stagedStrings;
+    thread_local std::vector<NumberField> stagedNumbers;
+    stagedStrings.clear();
+    stagedNumbers.clear();
 
     // We cache the loaded strings. Some of them, like, e.g., the user,
     // will often be the same for many entries in a row. Caching them
@@ -296,9 +300,6 @@ void UDSEntryPrivate::load(QDataStream &s)
         s >> uds;
 
         if (uds & KIO::UDSEntry::UDS_STRING) {
-            // If the QString is the same like the one we read for the
-            // previous UDSEntry at the i-th position, use an implicitly
-            // shared copy of the same QString to save memory.
             s >> buffer;
 
             QString &cachedString = cachedStrings[i];
@@ -306,14 +307,23 @@ void UDSEntryPrivate::load(QDataStream &s)
                 cachedString = buffer;
             }
 
-            insert(uds, cachedString);
+            stagedStrings.emplace_back(uds, cachedString);
         } else if (uds & KIO::UDSEntry::UDS_NUMBER) {
             long long value;
             s >> value;
-            insert(uds, value);
+            stagedNumbers.emplace_back(uds, value);
         } else {
             Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an unexpected type");
         }
+    }
+
+    stringStorage.reserve(stagedStrings.size());
+    for (StringField &field : stagedStrings) {
+        stringStorage.emplace_back(field.m_index, std::move(field.m_str));
+    }
+    numberStorage.reserve(stagedNumbers.size());
+    for (const NumberField &field : stagedNumbers) {
+        numberStorage.emplace_back(field.m_index, field.m_long);
     }
 }
 
