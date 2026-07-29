@@ -112,6 +112,7 @@ private Q_SLOTS:
     void testMimeFilter();
     void testBug386763();
     void testCacheEviction();
+    void testCacheExpiry();
     void testUnreadableParentDirectory();
     void testPathWithSquareBrackets();
     void testSFTPRedirect();

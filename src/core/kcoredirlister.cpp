@@ -42,12 +42,24 @@ Q_LOGGING_CATEGORY(KIO_CORE_DIRLISTER, "kf.kio.core.dirlister", QtWarningMsg)
 
 QThreadStorage<KCoreDirListerCache> s_kDirListerCache;
 
+// A directory that no lister holds any more is kept for a while, so that going back to it is listed
+// from memory. Three of them cover the way back, and one that has not been wanted for this long is
+// dropped, so that the items of a listing left behind are not held for the life of the application.
+static constexpr int s_maxCachedDirectories = 3;
+static constexpr std::chrono::minutes s_cachedDirectoryLifetime{3};
+
+// Keep the last few directories' ".hidden" files around, so revisiting one does not re-read it.
+static constexpr int s_maxCachedDotHiddenFiles = 10;
+
 KCoreDirListerCache::KCoreDirListerCache()
-    : itemsCached(10)
-    , // keep the last 10 directories around
-    m_cacheHiddenFiles(10) // keep the last 10 ".hidden" files around
+    : itemsCached(s_maxCachedDirectories)
+    , m_cacheHiddenFiles(s_maxCachedDotHiddenFiles)
 {
     qCDebug(KIO_CORE_DIRLISTER);
+
+    cachedDirectoryLifetime = s_cachedDirectoryLifetime;
+    cachePruneTimer.setInterval(cachedDirectoryLifetime);
+    connect(&cachePruneTimer, &QTimer::timeout, this, &KCoreDirListerCache::pruneCachedDirectories);
 
     connect(&pendingUpdateTimer, &QTimer::timeout, this, &KCoreDirListerCache::processPendingUpdates);
     pendingUpdateTimer.setSingleShot(true);
@@ -533,7 +545,15 @@ void KCoreDirListerCache::forgetDirs(KCoreDirLister *lister, const QUrl &_url, b
     // Inserting into QCache must be done last, since it might delete the item
     if (item && insertIntoCache) {
         qCDebug(KIO_CORE_DIRLISTER) << lister << "item moved into cache:" << url;
+        item->lastWanted = std::chrono::steady_clock::now();
         itemsCached.insert(url, item);
+#ifdef BUILD_TESTING
+        // A test cannot wait minutes for a directory to be dropped, so it says how long to keep one.
+        const int ms = qEnvironmentVariableIntValue("KIO_DIRLISTER_CACHE_LIFETIME_MS");
+        cachedDirectoryLifetime = ms > 0 ? std::chrono::milliseconds(ms) : std::chrono::milliseconds(s_cachedDirectoryLifetime);
+        cachePruneTimer.setInterval(cachedDirectoryLifetime);
+#endif
+        cachePruneTimer.start();
     }
 }
 
@@ -667,8 +687,28 @@ KCoreDirListerCache::DirItem *KCoreDirListerCache::dirItemForUrl(const QUrl &dir
     DirItem *item = itemsInUse.value(url);
     if (!item) {
         item = itemsCached[url];
+        if (item) {
+            item->lastWanted = std::chrono::steady_clock::now();
+        }
     }
     return item;
+}
+
+void KCoreDirListerCache::pruneCachedDirectories()
+{
+    const auto now = std::chrono::steady_clock::now();
+    const QList<QUrl> cached = itemsCached.keys();
+    for (const QUrl &url : cached) {
+        const DirItem *item = itemsCached.object(url);
+        if (item && now - item->lastWanted >= cachedDirectoryLifetime) {
+            qCDebug(KIO_CORE_DIRLISTER) << "dropping" << url << "from the cache";
+            itemsCached.remove(url);
+        }
+    }
+
+    if (itemsCached.isEmpty()) {
+        cachePruneTimer.stop();
+    }
 }
 
 QList<KFileItem> *KCoreDirListerCache::itemsForDir(const QUrl &dir) const

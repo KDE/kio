@@ -23,6 +23,8 @@
 #include <QTimer>
 #include <QUrl>
 
+#include <chrono>
+
 #include <KDirWatch>
 #include <kio/global.h>
 
@@ -257,6 +259,8 @@ public Q_SLOTS:
     void slotFileRenamed(const QString &srcUrl, const QString &dstUrl, const QString &dstPath);
 
 private Q_SLOTS:
+    // drops the cached directories that no lister has wanted for a while
+    void pruneCachedDirectories();
     void slotFileDirty(const QString &_file);
     void slotFileCreated(const QString &_file);
     void slotFileDeleted(const QString &_file);
@@ -393,6 +397,7 @@ private:
         DirItem(const QUrl &dir, const QString &canonicalPath)
             : url(dir)
             , m_canonicalPath(canonicalPath)
+            , lastWanted(std::chrono::steady_clock::now())
         {
             autoUpdates = 0;
             complete = false;
@@ -513,6 +518,9 @@ private:
         // the local path, with symlinks resolved, so that KDirWatch works
         QString m_canonicalPath;
 
+        // when a lister last held this directory or looked for it in the cache
+        std::chrono::steady_clock::time_point lastWanted;
+
         // KFileItem representing the root of this directory.
         // Remember that this is optional. FTP sites don't return '.' in
         // the list, so they give no root item
@@ -544,6 +552,9 @@ private:
     std::set<QString /*path*/> pendingDirectoryUpdates;
     // The timer for doing the delayed updates
     QTimer pendingUpdateTimer;
+    QTimer cachePruneTimer;
+    // how long a cached directory is kept, which a test shortens
+    std::chrono::milliseconds cachedDirectoryLifetime;
 
     // Set of remote files that have changed recently -- but we can't emit those
     // changes yet, we need to wait for the "update" directory listing.

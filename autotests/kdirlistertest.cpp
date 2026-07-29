@@ -1722,10 +1722,36 @@ void KDirListerTest::testCacheEviction()
         QVERIFY(KDirWatch::self()->contains(newDirPath));
     }
 
-    // watches were removed as the dirItem were evicted from cache
+    // watches were removed as the dirItem were evicted from cache, which keeps three directories
     QVERIFY(!KDirWatch::self()->contains(newDir.path()));
     QVERIFY(!KDirWatch::self()->contains(newDir.path() + QString("dir_0")));
-    QVERIFY(KDirWatch::self()->contains(newDir.path() + QString("dir_1")));
+    QVERIFY(!KDirWatch::self()->contains(newDir.path() + QString("dir_1")));
+    QVERIFY(KDirWatch::self()->contains(newDir.path() + QString("dir_10")));
+}
+
+void KDirListerTest::testCacheExpiry()
+{
+    qputenv("KIO_DIRLISTER_CACHE_LIFETIME_MS", "300");
+    auto restore = qScopeGuard([]() {
+        qunsetenv("KIO_DIRLISTER_CACHE_LIFETIME_MS");
+    });
+
+    QTemporaryDir newDir(homeTmpDir());
+    const QString cachedDirPath = newDir.path() + QString("cached");
+    QVERIFY(QDir().mkdir(cachedDirPath));
+
+    MyDirLister dirLister;
+    dirLister.openUrl(QUrl::fromLocalFile(cachedDirPath));
+    QVERIFY(dirLister.spyCompleted.wait(500));
+    QVERIFY(KDirWatch::self()->contains(cachedDirPath));
+
+    // Leaving the directory puts it in the cache, where it is kept for as long as the lifetime this
+    // test asked for when it set KIO_DIRLISTER_CACHE_LIFETIME_MS.
+    dirLister.openUrl(QUrl::fromLocalFile(newDir.path()));
+    QVERIFY(dirLister.spyCompleted.wait(500));
+    QVERIFY(KDirWatch::self()->contains(cachedDirPath));
+
+    QTRY_VERIFY_WITH_TIMEOUT(!KDirWatch::self()->contains(cachedDirPath), 5000);
 }
 
 void KDirListerTest::testUnreadableParentDirectory()
