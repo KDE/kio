@@ -26,7 +26,9 @@
 #include <QDirIterator>
 #include <QLocale>
 #include <QMimeDatabase>
+#include <QMutex>
 #include <QRegularExpression>
+#include <QSet>
 #include <QTimeZone>
 
 #include <KConfigGroup>
@@ -42,6 +44,23 @@
 #include <KShell>
 
 #define KFILEITEM_DEBUG 0
+
+// The mime type database hands out a new string for the same name on every query, while the items of a
+// folder carry a handful of names between them, so a name is shared by the items that carry it.
+static QString sharedMimeTypeName(const QString &name)
+{
+    static QMutex mutex;
+    static QSet<QString> names;
+
+    QMutexLocker locker(&mutex);
+    return *names.insert(name);
+}
+
+// The name of a mime type is what an item keeps. The type itself is built from it when asked for.
+static QString nameOfMimeType(const QMimeType &type)
+{
+    return type.isValid() ? sharedMimeTypeName(type.name()) : QString();
+}
 
 class KFileItemPrivate : public QSharedData
 {
@@ -59,7 +78,6 @@ public:
         , m_strText()
         , m_iconName()
         , m_strLowerCaseName()
-        , m_mimeType()
         , m_fileMode(mode)
         , m_permissions(permissions)
         , m_addACL(false)
@@ -120,6 +138,12 @@ public:
     void determineMimeTypeHelper(const QUrl &url) const;
 
     /*
+     * The type of the name this item holds, and nothing when this system does not know that name. The
+     * name is dropped then, so that the type is determined from the item as it would be without one.
+     */
+    QMimeType typeOfName() const;
+
+    /*
      * The UDSEntry that contains the data for this fileitem, if it came from a directory listing.
      */
     mutable KIO::UDSEntry m_entry;
@@ -152,7 +176,7 @@ public:
     /*
      * The MIME type of the file
      */
-    mutable QMimeType m_mimeType;
+    mutable QString m_mimeTypeName;
 
     /*
      * The file mode
@@ -330,11 +354,12 @@ void KFileItemPrivate::readUDSEntry(bool _urlIsDirectory)
             m_bIsLocalUrl = true;
         }
     }
-    QMimeDatabase db;
     const QString mimeTypeStr = m_entry.stringValue(KIO::UDSEntry::UDS_MIME_TYPE);
     m_bMimeTypeKnown = !mimeTypeStr.isEmpty();
     if (m_bMimeTypeKnown) {
-        m_mimeType = db.mimeTypeForName(mimeTypeStr);
+        // The name comes from a worker, which sends one this system knows. A name it does not know is
+        // dropped when the type is asked for, and the item is looked at instead.
+        m_mimeTypeName = sharedMimeTypeName(mimeTypeStr);
     }
 
     m_guessedMimeType = m_entry.stringValue(KIO::UDSEntry::UDS_GUESSED_MIME_TYPE);
@@ -611,20 +636,35 @@ inline QString KFileItemPrivate::parsePermissions(mode_t perm) const
     return QString::fromLatin1(buffer);
 }
 
+QMimeType KFileItemPrivate::typeOfName() const
+{
+    if (m_mimeTypeName.isEmpty()) {
+        return QMimeType();
+    }
+
+    QMimeDatabase db;
+    const QMimeType type = db.mimeTypeForName(m_mimeTypeName);
+    if (!type.isValid()) {
+        m_mimeTypeName.clear();
+        m_bMimeTypeKnown = false;
+    }
+    return type;
+}
+
 void KFileItemPrivate::determineMimeTypeHelper(const QUrl &url) const
 {
     QMimeDatabase db;
     if (m_bSkipMimeTypeFromContent || isSlow()) {
         const QString scheme = url.scheme();
         if (scheme.startsWith(QLatin1String("http")) || scheme == QLatin1String("mailto")) {
-            m_mimeType = db.mimeTypeForName(QLatin1String("application/octet-stream"));
+            m_mimeTypeName = sharedMimeTypeName(QStringLiteral("application/octet-stream"));
         } else if (url.path().isEmpty()) {
-            m_mimeType = db.mimeTypeForName(QLatin1String("inode/directory"));
+            m_mimeTypeName = sharedMimeTypeName(QStringLiteral("inode/directory"));
         } else {
-            m_mimeType = db.mimeTypeForFile(url.path(), QMimeDatabase::MatchMode::MatchExtension);
+            m_mimeTypeName = nameOfMimeType(db.mimeTypeForFile(url.path(), QMimeDatabase::MatchMode::MatchExtension));
         }
     } else {
-        m_mimeType = db.mimeTypeForUrl(url);
+        m_mimeTypeName = nameOfMimeType(db.mimeTypeForUrl(url));
     }
 }
 
@@ -653,8 +693,7 @@ KFileItem::KFileItem(const QUrl &url, const QString &mimeType, mode_t mode)
 
     d->m_bMimeTypeKnown = !mimeType.simplified().isEmpty();
     if (d->m_bMimeTypeKnown) {
-        QMimeDatabase db;
-        d->m_mimeType = db.mimeTypeForName(mimeType);
+        d->m_mimeTypeName = sharedMimeTypeName(mimeType);
     }
 }
 
@@ -708,7 +747,7 @@ void KFileItem::refreshMimeType()
         return;
     }
 
-    d->m_mimeType = QMimeType();
+    d->m_mimeTypeName.clear();
     d->m_bMimeTypeKnown = false;
     d->m_iconName.clear();
 }
@@ -1002,7 +1041,8 @@ QString KFileItem::mimetype() const
     }
 
     KFileItem *that = const_cast<KFileItem *>(this);
-    return that->determineMimeType().name();
+    that->determineMimeType();
+    return d->m_mimeTypeName;
 }
 
 QMimeType KFileItem::determineMimeType() const
@@ -1011,20 +1051,23 @@ QMimeType KFileItem::determineMimeType() const
         return QMimeType();
     }
 
-    if (!d->m_mimeType.isValid() || !d->m_bMimeTypeKnown) {
+    QMimeType known = d->typeOfName();
+
+    if (d->m_mimeTypeName.isEmpty() || !d->m_bMimeTypeKnown) {
         QMimeDatabase db;
         if (isDir()) {
-            d->m_mimeType = db.mimeTypeForName(QStringLiteral("inode/directory"));
+            d->m_mimeTypeName = sharedMimeTypeName(QStringLiteral("inode/directory"));
         } else {
             const auto [url, isLocalUrl] = isMostLocalUrl();
             d->determineMimeTypeHelper(url);
 
-            // was:  d->m_mimeType = KMimeType::findByUrl( url, d->m_fileMode, isLocalUrl );
+            // was:  the mime type came from KMimeType::findByUrl( url, d->m_fileMode, isLocalUrl );
             // => we are no longer using d->m_fileMode for remote URLs.
-            Q_ASSERT(d->m_mimeType.isValid());
-            // qDebug() << d << "finding final MIME type for" << url << ":" << d->m_mimeType.name();
+            Q_ASSERT(!d->m_mimeTypeName.isEmpty());
+            // qDebug() << d << "finding final MIME type for" << url << ":" << d->m_mimeTypeName;
         }
         d->m_bMimeTypeKnown = true;
+        known = QMimeType();
     }
 
     if (d->m_delayedMimeTypes) { // if we delayed getting the iconName up till now, this is the right point in time to do so
@@ -1033,7 +1076,12 @@ QMimeType KFileItem::determineMimeType() const
         (void)iconName();
     }
 
-    return d->m_mimeType;
+    if (known.isValid()) {
+        return known;
+    }
+
+    QMimeDatabase db;
+    return db.mimeTypeForName(d->m_mimeTypeName);
 }
 
 bool KFileItem::isMimeTypeKnown() const
@@ -1112,7 +1160,7 @@ QString KFileItem::mimeComment() const
     }
 
     const QString comment = mime.comment();
-    // qDebug() << "finding comment for " << url.url() << " : " << d->m_mimeType->name();
+    // qDebug() << "finding comment for " << url.url() << " : " << d->m_mimeTypeName;
     if (!comment.isEmpty()) {
         return comment;
     } else {
@@ -1418,10 +1466,11 @@ bool KFileItem::isDir() const
         return Utils::isDirMask(d->m_fileMode);
     }
 
-    if (d->m_bMimeTypeKnown && d->m_mimeType.isValid()) {
+    if (d->m_bMimeTypeKnown && !d->m_mimeTypeName.isEmpty()) {
         // File mode is not known but we do know the mime type, so use that to
         // avoid doing a stat.
-        return d->m_mimeType.inherits(QStringLiteral("inode/directory"));
+        QMimeDatabase db;
+        return db.mimeTypeForName(d->m_mimeTypeName).inherits(QStringLiteral("inode/directory"));
     }
 
     if (d->m_bSkipMimeTypeFromContent) {
@@ -1757,10 +1806,10 @@ QUrl KFileItem::targetUrl() const
 /*
  * MIME type handling.
  *
- * Initial state: m_mimeType = QMimeType().
+ * Initial state: m_mimeTypeName is empty.
  * When currentMimeType() is called first: fast MIME type determination,
  *   might either find an accurate MIME type (-> Final state), otherwise we
- *   set m_mimeType but not m_bMimeTypeKnown (-> Intermediate state)
+ *   set m_mimeTypeName but not m_bMimeTypeKnown (-> Intermediate state)
  * Intermediate state: determineMimeType() does the real determination -> Final state.
  *
  * If delayedMimeTypes isn't set, then we always go to the Final state directly.
@@ -1772,21 +1821,26 @@ QMimeType KFileItem::currentMimeType() const
         return QMimeType();
     }
 
-    if (!d->m_mimeType.isValid()) {
+    QMimeDatabase db;
+    const QMimeType known = d->typeOfName();
+    if (known.isValid()) {
+        return known;
+    }
+
+    if (d->m_mimeTypeName.isEmpty()) {
         // On-demand fast (but not always accurate) MIME type determination
-        QMimeDatabase db;
         if (isDir()) {
-            d->m_mimeType = db.mimeTypeForName(QStringLiteral("inode/directory"));
-            return d->m_mimeType;
+            d->m_mimeTypeName = sharedMimeTypeName(QStringLiteral("inode/directory"));
+            return db.mimeTypeForName(d->m_mimeTypeName);
         }
         const QUrl url = mostLocalUrl();
         if (d->m_delayedMimeTypes) {
             const QList<QMimeType> mimeTypes = db.mimeTypesForFileName(url.path());
             if (mimeTypes.isEmpty()) {
-                d->m_mimeType = db.mimeTypeForName(QStringLiteral("application/octet-stream"));
+                d->m_mimeTypeName = sharedMimeTypeName(QStringLiteral("application/octet-stream"));
                 d->m_bMimeTypeKnown = false;
             } else {
-                d->m_mimeType = mimeTypes.first();
+                d->m_mimeTypeName = nameOfMimeType(mimeTypes.first());
                 // If there were conflicting globs. determineMimeType will be able to do better.
                 d->m_bMimeTypeKnown = (mimeTypes.count() == 1);
             }
@@ -1796,7 +1850,7 @@ QMimeType KFileItem::currentMimeType() const
             d->m_bMimeTypeKnown = true;
         }
     }
-    return d->m_mimeType;
+    return db.mimeTypeForName(d->m_mimeTypeName);
 }
 
 KIO::UDSEntry KFileItem::entry() const
