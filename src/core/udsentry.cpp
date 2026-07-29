@@ -267,6 +267,20 @@ void UDSEntryPrivate::save(QDataStream &s) const
     }
 }
 
+// The value of these fields names the item, so no two entries of a listing carry the same one. The
+// target of a link and the name an item is displayed under can be the same for several items.
+static bool namesTheItem(uint udsField)
+{
+    switch (udsField) {
+    case UDSEntry::UDS_NAME:
+    case UDSEntry::UDS_URL:
+    case UDSEntry::UDS_LOCAL_PATH:
+        return true;
+    default:
+        return false;
+    }
+}
+
 void UDSEntryPrivate::load(QDataStream &s)
 {
     clear();
@@ -302,12 +316,18 @@ void UDSEntryPrivate::load(QDataStream &s)
         if (uds & KIO::UDSEntry::UDS_STRING) {
             s >> buffer;
 
-            QString &cachedString = cachedStrings[i];
-            if (buffer != cachedString) {
-                cachedString = buffer;
-            }
+            if (namesTheItem(uds)) {
+                stagedStrings.emplace_back(uds, buffer);
+            } else {
+                // Values repeat from one entry to the next often enough that sharing one is worth
+                // a comparison.
+                QString &cachedString = cachedStrings[i];
+                if (buffer != cachedString) {
+                    cachedString = buffer;
+                }
 
-            stagedStrings.emplace_back(uds, cachedString);
+                stagedStrings.emplace_back(uds, cachedString);
+            }
         } else if (uds & KIO::UDSEntry::UDS_NUMBER) {
             long long value;
             s >> value;
