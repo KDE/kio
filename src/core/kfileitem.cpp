@@ -236,8 +236,6 @@ public:
      */
     mutable bool m_bInitCalled : 1;
 
-    // For special case like link to dirs over FTP
-    QString m_guessedMimeType;
     mutable QString m_access;
 };
 
@@ -362,7 +360,6 @@ void KFileItemPrivate::readUDSEntry(bool _urlIsDirectory)
         m_mimeTypeName = sharedMimeTypeName(mimeTypeStr);
     }
 
-    m_guessedMimeType = m_entry.stringValue(KIO::UDSEntry::UDS_GUESSED_MIME_TYPE);
     m_bLink = !m_entry.stringValue(KIO::UDSEntry::UDS_LINK_DEST).isEmpty(); // we don't store the link dest
 
     const int hiddenVal = m_entry.numberValue(KIO::UDSEntry::UDS_HIDDEN, -1);
@@ -1093,7 +1090,7 @@ bool KFileItem::isMimeTypeKnown() const
     // The MIME type isn't known if determineMimeType was never called (on-demand determination)
     // or if this fileitem has a guessed MIME type (e.g. ftp symlink) - in which case
     // it always remains "not fully determined"
-    return d->m_bMimeTypeKnown && d->m_guessedMimeType.isEmpty();
+    return d->m_bMimeTypeKnown && d->m_entry.stringValue(KIO::UDSEntry::UDS_GUESSED_MIME_TYPE).isEmpty();
 }
 
 static bool isDirectoryMounted(const QUrl &url)
@@ -1246,8 +1243,9 @@ QString KFileItem::iconName() const
     QMimeDatabase db;
     QMimeType mime;
     // Use guessed MIME type for the icon
-    if (!d->m_guessedMimeType.isEmpty()) {
-        mime = db.mimeTypeForName(d->m_guessedMimeType);
+    const QString guessedMimeType = d->m_entry.stringValue(KIO::UDSEntry::UDS_GUESSED_MIME_TYPE);
+    if (!guessedMimeType.isEmpty()) {
+        mime = db.mimeTypeForName(guessedMimeType);
     } else {
         mime = currentMimeType();
     }
