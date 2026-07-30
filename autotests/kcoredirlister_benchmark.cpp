@@ -7,11 +7,20 @@
 
 #include <QTest>
 
+#include <kcoredirlister.h>
 #include <kfileitem.h>
 
+#include <QDir>
+#include <QEventLoop>
+#include <QFile>
 #include <QHash>
 #include <QList>
 #include <QMap>
+#include <QTemporaryDir>
+
+#if defined(__GLIBC__)
+#include <malloc.h>
+#endif
 
 #include <algorithm>
 #include <random>
@@ -59,6 +68,9 @@ public:
         }
     }
 private Q_SLOTS:
+    void memoryOfOneThousandFiles();
+    void memoryOfDeterminedMimeTypes();
+
     void testCreateFiles_List_data();
     void testCreateFiles_List();
     void testFindByNameFiles_List_data();
@@ -543,6 +555,101 @@ void kcoreDirListerEntryBenchmark::testFindByUrlAllFiles_Binary()
 }
 
 // END tests
+
+// A listing of a folder of text and image files, the shape an application shows most of. The files are
+// written with enough content for the type of one to be found the way a listing finds it.
+static bool createFilesToList(const QString &path, int count)
+{
+    static const char pngSignature[] = "\x89PNG\r\n\x1a\n";
+    for (int i = 0; i < count; ++i) {
+        const bool isText = (i % 2) == 0;
+        QFile file(path + QStringLiteral("/file-name-number-%1.%2").arg(i).arg(isText ? QStringLiteral("txt") : QStringLiteral("png")));
+        if (!file.open(QIODevice::WriteOnly)) {
+            return false;
+        }
+        if (isText) {
+            file.write("some text in a file of the listing\n");
+        } else {
+            file.write(pngSignature, 8);
+            file.write(QByteArray(64, '\0'));
+        }
+    }
+    return true;
+}
+
+// QTest runs a benchmark function more than once, and the lister keeps a directory it has listed for a
+// while, so every run gets a directory of its own and they all stay until the process ends. A directory
+// that went away would be dropped from the cache of the lister while the next run is being measured.
+static QString makeDirectoryToList(int count)
+{
+    static QTemporaryDir dir;
+    static int run = 0;
+    if (!dir.isValid()) {
+        return QString();
+    }
+    dir.setAutoRemove(true);
+
+    const QString path = dir.path() + QStringLiteral("/run-%1").arg(++run);
+    if (!QDir().mkpath(path) || !createFilesToList(path, count)) {
+        return QString();
+    }
+    return path;
+}
+
+static void listDirectory(KCoreDirLister &lister, const QString &path)
+{
+    QEventLoop loop;
+    QObject::connect(&lister, &KCoreDirLister::listingDirCompleted, &loop, [&loop](const QUrl &) {
+        loop.quit();
+    });
+    lister.openUrl(QUrl::fromLocalFile(path));
+    loop.exec();
+}
+
+// What the items of such a listing cost the application that keeps them.
+void kcoreDirListerEntryBenchmark::memoryOfOneThousandFiles()
+{
+#if !defined(__GLIBC__)
+    QSKIP("the allocated memory is read from mallinfo2");
+#else
+    const QString path = makeDirectoryToList(1000);
+    QVERIFY(!path.isEmpty());
+
+    KCoreDirLister lister;
+    const size_t before = mallinfo2().uordblks;
+    listDirectory(lister, path);
+    const size_t after = mallinfo2().uordblks;
+
+    const KFileItemList items = lister.items();
+    QCOMPARE(items.count(), 1000);
+    QTest::setBenchmarkResult(double(after - before) / items.count(), QTest::BytesAllocated);
+#endif
+}
+
+// And what determining the type of every one of them adds, which is what an application does for its
+// icons.
+void kcoreDirListerEntryBenchmark::memoryOfDeterminedMimeTypes()
+{
+#if !defined(__GLIBC__)
+    QSKIP("the allocated memory is read from mallinfo2");
+#else
+    const QString path = makeDirectoryToList(1000);
+    QVERIFY(!path.isEmpty());
+
+    KCoreDirLister lister;
+    listDirectory(lister, path);
+    const KFileItemList items = lister.items();
+    QCOMPARE(items.count(), 1000);
+
+    const size_t before = mallinfo2().uordblks;
+    for (const KFileItem &item : items) {
+        item.determineMimeType();
+    }
+    const size_t after = mallinfo2().uordblks;
+
+    QTest::setBenchmarkResult(double(after - before) / items.count(), QTest::BytesAllocated);
+#endif
+}
 
 QTEST_MAIN(kcoreDirListerEntryBenchmark)
 
