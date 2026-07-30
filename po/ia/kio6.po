@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-28 00:41+0000\n"
-"PO-Revision-Date: 2026-07-16 16:51+0200\n"
+"PO-Revision-Date: 2026-07-29 11:47+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -1021,7 +1021,7 @@ msgstr ""
 #: core/job_error.cpp:487
 #, kde-format
 msgid "Improperly Formatted URL"
-msgstr "URL Fnormatate de modo Improprie"
+msgstr "URL Formatate de modo Improprie"
 
 #: core/job_error.cpp:489
 #, kde-format
@@ -2290,7 +2290,7 @@ msgid ""
 "Reformat the destination drive to use a filesystem that supports files that "
 "large."
 msgstr ""
-"Re-fnormata le drive de destination pro usar un systema de file que supporta "
+"Re-formata le drive de destination pro usar un systema de file que supporta "
 "files assi grande."
 
 #: core/job_error.cpp:1270
@@ -3158,7 +3158,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr "Re-Fnormata o modifica con Partition Manager (Gerente de partition)"
+msgstr "Re-Formata o modifica con Partition Manager (Gerente de partition)"
 
 #: filewidgets/kfileplacesview.cpp:344
 #, kde-format
