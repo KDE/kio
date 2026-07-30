@@ -708,9 +708,8 @@ KFileItem KCoreDirListerCache::findByUrl(const KCoreDirLister *lister, const QUr
     if (dirItem) {
         // If lister is set, check that it contains this dir
         if (!lister || lister->d->lstDirs.contains(parentDir)) {
-            // Binary search
-            auto it = std::lower_bound(dirItem->lstItems.begin(), dirItem->lstItems.end(), url);
-            if (it != dirItem->lstItems.end() && it->url() == url) {
+            const auto it = dirItem->find(url);
+            if (it != dirItem->lstItems.end()) {
                 return *it;
             }
         }
@@ -1165,7 +1164,7 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
             // entry twice if the directory changed between reads, and a later
             // batch of the same job can repeat an entry from an earlier batch.
             // Adopting the duplicate would permanently corrupt the cache.
-            if (newItemNames.contains(name) || std::binary_search(dir->lstItems.cbegin(), dir->lstItems.cend(), item)) {
+            if (newItemNames.contains(name) || std::binary_search(dir->lstItems.cbegin(), dir->lstItems.cend(), name, ByName{})) {
                 qCDebug(KIO_CORE_DIRLISTER) << "Skipping duplicated entry" << item.url();
                 continue;
             }
@@ -1191,10 +1190,9 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
         }
     }
 
-    // sort by url using KFileItem::operator<
-    std::sort(newItems.begin(), newItems.end());
+    std::sort(newItems.begin(), newItems.end(), ByName{});
 
-    // Add the items sorted by url, needed by findByUrl
+    // Add the items sorted by name, needed by findByUrl
     dir->insertSortedItems(newItems);
 
     for (KCoreDirLister *lister : listers) {
@@ -1807,10 +1805,9 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         }
     }
 
-    // sort by url using KFileItem::operator<
-    std::sort(newItems.begin(), newItems.end());
+    std::sort(newItems.begin(), newItems.end(), ByName{});
 
-    // Add the items sorted by url, needed by findByUrl
+    // Add the items sorted by name, needed by findByUrl
     dir->insertSortedItems(newItems);
 
     for (KCoreDirLister *lister : listers) {

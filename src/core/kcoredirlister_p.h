@@ -38,6 +38,23 @@ class ListJob;
 class OrgKdeKDirNotifyInterface;
 struct KCoreDirListerCacheDirectoryData;
 
+// The items of a folder are kept in the order of their names, which tell them apart there and are
+// cheaper to compare than the urls built from them.
+struct ByName {
+    bool operator()(const KFileItem &item, const QString &name) const
+    {
+        return item.name() < name;
+    }
+    bool operator()(const QString &name, const KFileItem &item) const
+    {
+        return name < item.name();
+    }
+    bool operator()(const KFileItem &item, const KFileItem &other) const
+    {
+        return item.name() < other.name();
+    }
+};
+
 class KCoreDirListerPrivate
 {
 public:
@@ -326,7 +343,7 @@ private:
         const QUrl parentDir = oldUrl.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
         DirItem *dirItem = dirItemForUrl(parentDir);
         if (dirItem) {
-            auto it = std::lower_bound(dirItem->lstItems.begin(), dirItem->lstItems.end(), oldUrl);
+            auto it = dirItem->find(oldUrl);
             if (it != dirItem->lstItems.end()) {
                 dirItem->lstItems.erase(it);
                 dirItem->insert(item);
@@ -339,7 +356,7 @@ private:
         const QUrl parentDir = oldUrl.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
         DirItem *dirItem = dirItemForUrl(parentDir);
         if (dirItem) {
-            auto it = std::lower_bound(dirItem->lstItems.begin(), dirItem->lstItems.end(), oldUrl);
+            auto it = dirItem->find(oldUrl);
             if (it != dirItem->lstItems.end()) {
                 dirItem->lstItems.erase(it);
             }
@@ -477,10 +494,28 @@ private:
             }
         }
 
+        // The name of an url says where to look for it, and the url itself tells the item apart from
+        // the others of that name, which a listing of search results can hold.
+        QList<KFileItem>::iterator find(const QUrl &url)
+        {
+            const QString name = url.fileName();
+            for (auto it = std::lower_bound(lstItems.begin(), lstItems.end(), name, ByName{}); it != lstItems.end() && it->name() == name; ++it) {
+                if (it->url() == url) {
+                    return it;
+                }
+            }
+
+            // A worker is free to hand an item an url that is not its name under the url of the folder,
+            // as the file name search does, and the order of the names says nothing about those.
+            return std::find_if(lstItems.begin(), lstItems.end(), [&url](const KFileItem &item) {
+                return item.url() == url;
+            });
+        }
+
         // Insert the item in the sorted list
         void insert(const KFileItem &item)
         {
-            auto it = std::lower_bound(lstItems.begin(), lstItems.end(), item.url());
+            auto it = std::lower_bound(lstItems.begin(), lstItems.end(), item.name(), ByName{});
             lstItems.insert(it, item);
         }
 
@@ -493,7 +528,7 @@ private:
             lstItems.reserve(lstItems.size() + items.size());
             auto it = lstItems.begin();
             for (const auto &item : items) {
-                it = std::lower_bound(it, lstItems.end(), item.url());
+                it = std::lower_bound(it, lstItems.end(), item.name(), ByName{});
                 it = lstItems.insert(it, item);
             }
         }
