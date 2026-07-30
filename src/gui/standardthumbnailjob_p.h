@@ -6,15 +6,27 @@
 
 #include <kio/job.h>
 
+#include <QSize>
+
 namespace KIO
 {
+
+inline qreal supportedDevicePixelRatio(const QSize &imageSize, const QSize &logicalSize, qreal maxDevicePixelRatio)
+{
+    const int longerLogical = qMax(logicalSize.width(), logicalSize.height());
+    if (longerLogical <= 0) {
+        return maxDevicePixelRatio;
+    }
+    const int longerActual = qMax(imageSize.width(), imageSize.height());
+    return qBound(qreal(1), qreal(longerActual) / longerLogical, maxDevicePixelRatio);
+}
 
 class StandardThumbnailJob : public KIO::Job
 {
     Q_OBJECT
 
 public:
-    StandardThumbnailJob(const QString &execString, int width, const QString &inputFile, const QString &outputFile);
+    StandardThumbnailJob(const QString &execString, int logicalWidth, qreal devicePixelRatio, const QString &inputFile, const QString &outputFile);
     ~StandardThumbnailJob() override;
 
     void start() override;

@@ -74,9 +74,10 @@ int ThumbnailerExpander::expandEscapedMacro(const QString &str, int pos, QString
 class Q_DECL_HIDDEN KIO::StandardThumbnailJob::Private
 {
 public:
-    explicit Private(const QString &execString, int width, const QString &inputFile, const QString &outputFolder)
+    explicit Private(const QString &execString, int logicalWidth, qreal devicePixelRatio, const QString &inputFile, const QString &outputFolder)
         : m_execString(execString)
-        , m_width(width)
+        , m_logicalWidth(logicalWidth)
+        , m_devicePixelRatio(devicePixelRatio)
         , m_inputFile(inputFile)
         , m_outputFolder(outputFolder)
     {
@@ -86,15 +87,20 @@ public:
     }
 
     QString m_execString;
-    int m_width;
+    int m_logicalWidth;
+    qreal m_devicePixelRatio;
     QString m_inputFile;
     QString m_outputFolder;
     QProcess *m_proc;
     QTemporaryFile *m_tempFile;
 };
 
-KIO::StandardThumbnailJob::StandardThumbnailJob(const QString &execString, int width, const QString &inputFile, const QString &outputFolder)
-    : d(new Private(execString, width, inputFile, outputFolder))
+KIO::StandardThumbnailJob::StandardThumbnailJob(const QString &execString,
+                                                int logicalWidth,
+                                                qreal devicePixelRatio,
+                                                const QString &inputFile,
+                                                const QString &outputFolder)
+    : d(new Private(execString, logicalWidth, devicePixelRatio, inputFile, outputFolder))
 {
     setAutoDelete(true);
 }
@@ -118,7 +124,7 @@ void KIO::StandardThumbnailJob::StandardThumbnailJob::start()
     }
     d->m_tempFile->setAutoRemove(false);
 
-    ThumbnailerExpander thumbnailer(d->m_execString, d->m_width, d->m_inputFile, d->m_tempFile->fileName());
+    ThumbnailerExpander thumbnailer(d->m_execString, d->m_logicalWidth * d->m_devicePixelRatio, d->m_inputFile, d->m_tempFile->fileName());
     // Emit data on command exit
     d->m_proc = new QProcess();
     connect(d->m_proc, &QProcess::finished, this, [=, this](const int exitCode, const QProcess::ExitStatus /* exitStatus */) {
@@ -132,7 +138,9 @@ void KIO::StandardThumbnailJob::StandardThumbnailJob::start()
             d->m_tempFile->remove();
             return;
         }
-        Q_EMIT data(this, QImage(d->m_tempFile->fileName()));
+        QImage thumb(d->m_tempFile->fileName());
+        thumb.setDevicePixelRatio(supportedDevicePixelRatio(thumb.size(), QSize(d->m_logicalWidth, d->m_logicalWidth), d->m_devicePixelRatio));
+        Q_EMIT data(this, thumb);
         emitResult();
 
         // clean temp file

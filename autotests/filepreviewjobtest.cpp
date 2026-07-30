@@ -8,12 +8,14 @@
 #include "filepreviewjobtest.h"
 
 #include "../src/gui/filepreviewjob.h"
+#include "../src/gui/standardthumbnailjob_p.h"
 
 #include <KFileItem>
 
 #include <QDateTime>
 #include <QImage>
 #include <QSignalSpy>
+#include <QSize>
 #include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QTemporaryFile>
@@ -207,4 +209,27 @@ void FilePreviewJobTest::testGeneratedImageDevicePixelRatio()
     QCOMPARE(job->previewImage().size(), expectedSize);
 
     delete job;
+}
+
+void FilePreviewJobTest::testSupportedDevicePixelRatio_data()
+{
+    QTest::addColumn<QSize>("imageSize");
+    QTest::addColumn<qreal>("expectedDpr");
+
+    // Shown at logical size 128 with a max ratio of 1.75, so the full-resolution target is
+    // 224 px. The claimed ratio must be what the image resolution supports, floored at 1
+    // and capped at 1.75.
+    QTest::newRow("sufficient") << QSize(224, 224) << qreal(1.75);
+    QTest::newRow("more than max") << QSize(300, 300) << qreal(1.75);
+    QTest::newRow("insufficient") << QSize(150, 150) << (qreal(150) / 128);
+    QTest::newRow("below 1x") << QSize(100, 100) << qreal(1.0);
+    QTest::newRow("non-square uses longer edge") << QSize(224, 90) << qreal(1.75);
+}
+
+void FilePreviewJobTest::testSupportedDevicePixelRatio()
+{
+    QFETCH(QSize, imageSize);
+    QFETCH(qreal, expectedDpr);
+
+    QCOMPARE(KIO::supportedDevicePixelRatio(imageSize, QSize(128, 128), 1.75), expectedDpr);
 }

@@ -587,10 +587,8 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
         }
 
         m_standardThumbnailJob =
-            new KIO::StandardThumbnailJob(m_plugin.value(u"Exec"), m_options.size.width() * m_options.devicePixelRatio, pixPath, m_tempDirPath);
-        connect(m_standardThumbnailJob, &KIO::StandardThumbnailJob::data, this, [=, this](KIO::Job *job, const QImage &thumb) {
-            slotStandardThumbData(job, thumb);
-        });
+            new KIO::StandardThumbnailJob(m_plugin.value(u"Exec"), m_options.size.width(), m_options.devicePixelRatio, pixPath, m_tempDirPath);
+        connect(m_standardThumbnailJob, &KIO::StandardThumbnailJob::data, this, &FilePreviewJob::slotStandardThumbData);
         connect(m_standardThumbnailJob, &KIO::StandardThumbnailJob::result, this, &FilePreviewJob::emitResult);
         m_standardThumbnailJob->start();
         return;
