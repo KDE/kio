@@ -159,3 +159,52 @@ void FilePreviewJobTest::testCacheSizeValidation()
 
     delete job;
 }
+
+void FilePreviewJobTest::testGeneratedImageDevicePixelRatio_data()
+{
+    QTest::addColumn<qreal>("dpr");
+    QTest::addColumn<QSize>("thumbSize"); // source thumbnail, in device pixels
+    QTest::addColumn<QSize>("requestSize"); // PreviewOptions::size, in logical pixels
+    QTest::addColumn<QSize>("expectedSize"); // emitted image, in device pixels
+
+    // Source larger than requestSize * dpr, so emitPreview() scales it down to that.
+    QTest::newRow("scaled down, 1.75x") << 1.75 << QSize(448, 448) << QSize(128, 128) << QSize(224, 224);
+    QTest::newRow("scaled down, 2x") << 2.0 << QSize(512, 512) << QSize(128, 128) << QSize(256, 256);
+    // Source already fits within requestSize * dpr, so it is passed through unscaled.
+    QTest::newRow("not scaled, 1.75x") << 1.75 << QSize(100, 100) << QSize(256, 256) << QSize(100, 100);
+}
+
+void FilePreviewJobTest::testGeneratedImageDevicePixelRatio()
+{
+    QFETCH(qreal, dpr);
+    QFETCH(QSize, thumbSize);
+    QFETCH(QSize, requestSize);
+    QFETCH(QSize, expectedSize);
+
+    QTemporaryDir thumbRoot;
+    QVERIFY(thumbRoot.isValid());
+
+    const KFileItem item(QUrl::fromLocalFile(QStringLiteral("/tmp/does-not-matter.png")));
+
+    PreviewOptions options;
+    options.size = requestSize;
+    options.devicePixelRatio = dpr;
+
+    PreviewSetupData setupData;
+    setupData.thumbRoot = thumbRoot.path();
+
+    auto *job = new FilePreviewJob(item, FilePreviewJob::UnknownDeviceId, options, setupData);
+    job->setAutoDelete(false);
+
+    QImage thumb(thumbSize, QImage::Format_ARGB32);
+    thumb.fill(Qt::black);
+    thumb.setDevicePixelRatio(dpr);
+
+    // emitPreview() produces the image delivered by PreviewJob::generated(); it must
+    // carry the device pixel ratio and be scaled to the requested device-pixel size.
+    job->emitPreview(thumb);
+    QCOMPARE(job->previewImage().devicePixelRatio(), dpr);
+    QCOMPARE(job->previewImage().size(), expectedSize);
+
+    delete job;
+}

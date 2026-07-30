@@ -19,6 +19,8 @@ private Q_SLOTS:
     void testTimeoutTimerStoppedOnFinish();
     void testCacheSizeValidation_data();
     void testCacheSizeValidation();
+    void testGeneratedImageDevicePixelRatio_data();
+    void testGeneratedImageDevicePixelRatio();
 };
 
 #endif
