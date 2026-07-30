@@ -83,6 +83,7 @@ public:
         , m_addACL(false)
         , m_bLink(false)
         , m_bIsLocalUrl(itemOrDirUrl.isLocalFile())
+        , m_urlIsOfFolder(false)
         , m_bMimeTypeKnown(false)
         , m_delayedMimeTypes(delayedMimeTypes)
         , m_useIconNameCache(false)
@@ -144,11 +145,59 @@ public:
     QMimeType typeOfName() const;
 
     /*
+     * The name of the item under the given path of its folder.
+     */
+    QString pathInFolder(QString folderPath) const
+    {
+        if (folderPath.isEmpty()) {
+            // an empty path means the root dir, useful for protocols that redirect their root / to an
+            // empty dir, nfs for one
+            folderPath = QStringLiteral("/");
+        }
+        return Utils::concatPaths(std::move(folderPath), m_strName);
+    }
+
+    /*
+     * The url of the item, built from the url of the folder and the name when that is what is held.
+     */
+    QUrl itemUrl() const
+    {
+        if (!m_urlIsOfFolder) {
+            return m_url;
+        }
+
+        QUrl url = m_url;
+        url.setPath(pathInFolder(m_url.path()));
+        return url;
+    }
+
+    /*
+     * The path of the item on this machine, which says nothing unless the url is a local one.
+     */
+    QString itemLocalFile() const
+    {
+        return m_urlIsOfFolder ? pathInFolder(m_url.toLocalFile()) : m_url.toLocalFile();
+    }
+
+    /*
+     * Makes the item hold an url of its own, for the callers that give it one.
+     */
+    void takeUrlOfItem()
+    {
+        if (m_urlIsOfFolder) {
+            m_url = itemUrl();
+            m_urlIsOfFolder = false;
+        }
+    }
+
+    /*
      * The UDSEntry that contains the data for this fileitem, if it came from a directory listing.
      */
     mutable KIO::UDSEntry m_entry;
     /*
-     * The url of the file
+     * The url of the folder the item is in while m_urlIsOfFolder holds, and the url of the item itself
+     * otherwise. Every item of a listing shares the one url of their folder, where an url of their own
+     * would be a copy of that path per item.
      */
     QUrl m_url;
 
@@ -200,6 +249,11 @@ public:
      * True if local file
      */
     bool m_bIsLocalUrl : 1;
+
+    /*
+     * True while m_url holds the url of the folder the item is in
+     */
+    bool m_urlIsOfFolder : 1;
 
     mutable bool m_bMimeTypeKnown : 1;
     mutable bool m_delayedMimeTypes : 1;
@@ -268,7 +322,7 @@ void KFileItemPrivate::init() const
 #else
         QT_STATBUF buff;
 #endif
-        const QString path = m_url.adjusted(QUrl::StripTrailingSlash).path();
+        const QString path = itemUrl().adjusted(QUrl::StripTrailingSlash).path();
         const QByteArray pathBA = QFile::encodeName(path);
         if (LSTAT(pathBA.constData(), &buff, KIO::StatDefaultDetails) == 0) {
             m_entry.reserveStrings(2);
@@ -321,7 +375,7 @@ void KFileItemPrivate::init() const
             if (errno != ENOENT) {
                 // another error
                 qCDebug(KIO_CORE) << QStringLiteral("KFileItem: error %1: %2").arg(errno).arg(QString::fromLatin1(strerror(errno))) << "when refreshing"
-                                  << m_url;
+                                  << itemUrl();
             }
         }
     }
@@ -366,14 +420,7 @@ void KFileItemPrivate::readUDSEntry(bool _urlIsDirectory)
     m_hidden = hiddenVal == 1 ? Hidden : (hiddenVal == 0 ? Shown : Auto);
     m_hiddenCache = HiddenUncached;
 
-    if (_urlIsDirectory && !UDS_URL_seen && !m_strName.isEmpty() && m_strName != QLatin1String(".")) {
-        auto path = m_url.path();
-        if (path.isEmpty()) {
-            // empty path means root dir, useful for protocols than redirect their root / to empty dir, i.e nfs
-            path = QStringLiteral("/");
-        }
-        m_url.setPath(Utils::concatPaths(path, m_strName));
-    }
+    m_urlIsOfFolder = _urlIsDirectory && !UDS_URL_seen && !m_strName.isEmpty() && m_strName != QLatin1String(".");
 
     m_iconName.clear();
 
@@ -396,7 +443,7 @@ inline KIO::filesize_t KFileItemPrivate::size() const
 
     // If not in the KIO::UDSEntry, or if UDSEntry empty, use stat() [if local URL]
     if (m_bIsLocalUrl) {
-        return QFileInfo(m_url.toLocalFile()).size();
+        return QFileInfo(itemLocalFile()).size();
     }
     return 0;
 }
@@ -482,7 +529,7 @@ void KFileItemPrivate::printCompareDebug(const KFileItemPrivate &item) const
 #if KFILEITEM_DEBUG
     const KIO::UDSEntry &otherEntry = item.m_entry;
 
-    qDebug() << "Comparing" << m_url << "and" << item.m_url;
+    qDebug() << "Comparing" << itemUrl() << "and" << item.itemUrl();
     qDebug() << " name" << (m_strName == item.m_strName);
     qDebug() << " local" << (m_bIsLocalUrl == item.m_bIsLocalUrl);
 
@@ -765,6 +812,7 @@ void KFileItem::setUrl(const QUrl &url)
     }
 
     d->m_url = url;
+    d->m_urlIsOfFolder = false;
     setName(url.fileName());
 }
 
@@ -786,6 +834,10 @@ void KFileItem::setName(const QString &name)
     }
 
     d->ensureInitialized();
+
+    // The url of the item is what it was, as it has always been here, so it can no longer be built
+    // from the name.
+    d->takeUrlOfItem();
 
     d->m_strName = name;
     if (!d->m_strName.isEmpty()) {
@@ -822,7 +874,7 @@ QString KFileItem::linkDest() const
         // Use readlink on Unix because symLinkTarget turns relative targets into absolute (#456198)
         // implementation following file_unix.cpp readlinkToBuffer()
         size_t linkSize = size();
-        const QString path = d->m_url.adjusted(QUrl::StripTrailingSlash).toLocalFile();
+        const QString path = d->itemUrl().adjusted(QUrl::StripTrailingSlash).toLocalFile();
         if (linkSize > SIZE_MAX) {
             qCWarning(KIO_CORE) << "file size bigger than SIZE_MAX, too big for readlink use!" << path;
             return {};
@@ -847,7 +899,7 @@ QString KFileItem::linkDest() const
         }
         return QString::fromUtf8(linkTargetBuffer);
 #else
-        return QFile::symLinkTarget(d->m_url.adjusted(QUrl::StripTrailingSlash).toLocalFile());
+        return QFile::symLinkTarget(d->itemUrl().adjusted(QUrl::StripTrailingSlash).toLocalFile());
 #endif
     }
 
@@ -857,7 +909,7 @@ QString KFileItem::linkDest() const
 QString KFileItemPrivate::localPath() const
 {
     if (m_bIsLocalUrl) {
-        return m_url.toLocalFile();
+        return itemLocalFile();
     }
 
     ensureInitialized();
@@ -1379,7 +1431,7 @@ bool KFileItem::isReadable() const
 
     // Or if we can't read it - not network transparent
     if (d->m_bIsLocalUrl) {
-        return QFileInfo(d->m_url.toLocalFile()).isReadable();
+        return QFileInfo(d->itemLocalFile()).isReadable();
     }
 
     if (d->m_permissions != KFileItem::Unknown) {
@@ -1408,7 +1460,7 @@ bool KFileItem::isWritable() const
 
     // Or if we can't write it - not network transparent
     if (d->m_bIsLocalUrl) {
-        return QFileInfo(d->m_url.toLocalFile()).isWritable();
+        return QFileInfo(d->itemLocalFile()).isWritable();
     }
 
     if (d->m_permissions != KFileItem::Unknown) {
@@ -1436,7 +1488,7 @@ bool KFileItem::isHidden() const
     }
 
     // Prefer the filename that is part of the URL, in case the display name is different.
-    QString fileName = d->m_url.fileName();
+    QString fileName = d->m_urlIsOfFolder ? d->m_strName : d->m_url.fileName();
     if (fileName.isEmpty()) { // e.g. "trash:/"
         fileName = d->m_strName;
     }
@@ -1522,7 +1574,7 @@ QString KFileItem::getStatusBarInfo() const
                     url.setScheme(QStringLiteral("file"));
                 }
             } else {
-                url = d->m_url.resolved(url);
+                url = d->itemUrl().resolved(url);
             }
             linkText = toDisplayUrl(url);
         }
@@ -1565,7 +1617,10 @@ bool KFileItem::operator==(const KFileItem &other) const
         return false;
     }
 
-    return d->m_url == other.d->m_url;
+    if (d->m_urlIsOfFolder && other.d->m_urlIsOfFolder && d->m_url == other.d->m_url) {
+        return d->m_strName == other.d->m_strName;
+    }
+    return d->itemUrl() == other.d->itemUrl();
 }
 
 bool KFileItem::operator!=(const KFileItem &other) const
@@ -1581,7 +1636,7 @@ bool KFileItem::operator<(const KFileItem &other) const
     if (!d) {
         return other.d->m_url.isValid();
     }
-    return d->m_url < other.d->m_url;
+    return d->itemUrl() < other.d->itemUrl();
 }
 
 bool KFileItem::operator<(const QUrl &other) const
@@ -1589,7 +1644,7 @@ bool KFileItem::operator<(const QUrl &other) const
     if (!d) {
         return other.isValid();
     }
-    return d->m_url < other;
+    return d->itemUrl() < other;
 }
 
 KFileItem::operator QVariant() const
@@ -1662,7 +1717,7 @@ KFileItem::MostLocalUrlResult KFileItem::isMostLocalUrl() const
     if (!local_path.isEmpty()) {
         return {QUrl::fromLocalFile(local_path), true};
     } else {
-        return {d->m_url, d->m_bIsLocalUrl};
+        return {d->itemUrl(), d->m_bIsLocalUrl};
     }
 }
 
@@ -1671,7 +1726,7 @@ QDataStream &operator<<(QDataStream &s, const KFileItem &a)
     if (a.d) {
         // We don't need to save/restore anything that refresh() invalidates,
         // since that means we can re-determine those by ourselves.
-        s << a.d->m_url;
+        s << a.d->itemUrl();
         s << a.d->m_strName;
         s << a.d->m_strText;
     } else {
@@ -1704,6 +1759,7 @@ QDataStream &operator>>(QDataStream &s, KFileItem &a)
     }
 
     a.d->m_url = url;
+    a.d->m_urlIsOfFolder = false;
     a.d->m_strName = strName;
     a.d->m_strText = strText;
     a.d->m_bIsLocalUrl = a.d->m_url.isLocalFile();
@@ -1719,7 +1775,7 @@ QUrl KFileItem::url() const
         return QUrl();
     }
 
-    return d->m_url;
+    return d->itemUrl();
 }
 
 mode_t KFileItem::permissions() const
@@ -1873,7 +1929,7 @@ bool KFileItem::exists() const
         return false;
     }
     if (!d->m_bInitCalled) {
-        qCWarning(KIO_CORE) << "KFileItem: exists called when not initialised" << d->m_url;
+        qCWarning(KIO_CORE) << "KFileItem: exists called when not initialised" << d->itemUrl();
         return false;
     }
     return d->m_fileMode != KFileItem::Unknown;
@@ -1892,7 +1948,7 @@ bool KFileItem::isExecutable() const
     }
 
     if (d->m_bIsLocalUrl) {
-        return QFileInfo(d->m_url.toLocalFile()).isExecutable();
+        return QFileInfo(d->itemLocalFile()).isExecutable();
     }
 
     return false;
