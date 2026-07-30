@@ -41,7 +41,7 @@ namespace KIO
 KIOWIDGETS_EXPORT void confirmRenameWarning(const KFileItem &item,
                                             const QString &newName,
                                             QWidget *parent,
-                                            std::function<void(bool proceed)> callback,
+                                            std::function<void(bool accepted)> callback,
                                             bool hiddenFilesVisible = false);
 
 } // namespace KIO

@@ -20,7 +20,7 @@
 namespace KIO
 {
 
-void confirmRenameWarning(const KFileItem &item, const QString &newName, QWidget *parent, std::function<void(bool proceed)> callback, bool hiddenFilesVisible)
+void confirmRenameWarning(const KFileItem &item, const QString &newName, QWidget *parent, std::function<void(bool accepted)> callback, bool hiddenFilesVisible)
 {
     const bool becomesHidden = newName.startsWith(QLatin1Char('.')) && !item.name().startsWith(QLatin1Char('.'));
 
