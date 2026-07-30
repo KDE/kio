@@ -30,7 +30,6 @@
 #include <KCollapsibleGroupBox>
 #include <KConfigGroup>
 #include <KDesktopFile>
-#include <KDirOperator>
 #include <KDirWatch>
 #include <KFileUtils>
 #include <KIconDialog>
@@ -51,14 +50,12 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QList>
-#include <QLoggingCategory>
 #include <QMenu>
 #include <QMimeDatabase>
 #include <QPushButton>
 #include <QStandardPaths>
 #include <QTemporaryFile>
 #include <QTimer>
-#include <QVBoxLayout>
 
 #ifdef Q_OS_WIN
 #include <sys/utime.h>
@@ -135,7 +132,7 @@ public:
         QMimeType mimeType; /// Mimetype that the icon and comment are derived from
         QIcon icon; /// The icon displayed in the context menu
 
-        bool parseFile(QString file);
+        bool parseFile(const QString &file);
     };
 
     /*
@@ -159,16 +156,16 @@ QDebug operator<<(QDebug debug, const KNewFileMenuSingleton::Entry &Entry)
     debug.nospace() << "url\t\t" << Entry.url << "\n";
     debug.nospace() << "key\t\t" << Entry.key << "\n";
     debug.nospace() << "text\t\t" << Entry.text << "\n";
-    debug.nospace() << "filepath\t" << Entry.sourceFileInfo << "\n";
-    debug.nospace() << "templatepath\t" << Entry.templatePath << "\n";
+    debug.nospace() << "sourceFileInfo\t" << Entry.sourceFileInfo << "\n";
+    debug.nospace() << "templatePath\t" << Entry.templatePath << "\n";
     debug.nospace() << "comment\t\t" << Entry.comment << "\n";
-    debug.nospace() << "mimetype\t" << Entry.mimeType << "\n";
+    debug.nospace() << "mimeType\t" << Entry.mimeType << "\n";
     debug.nospace() << "icon\t\t" << Entry.icon << "\n";
 
     return debug;
 }
 
-bool KNewFileMenuSingleton::Entry::parseFile(QString file)
+bool KNewFileMenuSingleton::Entry::parseFile(const QString &file)
 {
     QMimeDatabase db;
     sourceFileInfo = QFileInfo(file);
@@ -205,7 +202,6 @@ bool KNewFileMenuSingleton::Entry::parseFile(QString file)
         if (!QFileInfo(templatePath).isReadable() && QFileInfo(sourceFileInfo).isNativePath()) {
             return false;
         }
-        mimeType = db.mimeTypeForFile(templatePath);
     }
     // Parse non-.desktop files
     else {
@@ -214,9 +210,10 @@ bool KNewFileMenuSingleton::Entry::parseFile(QString file)
         }
         url = QUrl(file);
         templatePath = file;
-        mimeType = db.mimeTypeForFile(file);
     }
 
+    // fallbacks
+    mimeType = db.mimeTypeForFile(templatePath);
     const QString fileName = sourceFileInfo.fileName();
     if (key.isEmpty()) {
         key = fileName;
@@ -747,8 +744,6 @@ void KNewFileMenuPrivate::executeStrategy()
         QUrl dest = u;
         dest.setPath(Utils::concatPaths(dest.path(), KIO::encodeFileName(chosenFileName)));
 
-        QList<QUrl> lstSrc;
-        lstSrc.append(uSrc);
         KIO::Job *kjob;
         if (m_copyData.m_isSymlink) {
             KIO::CopyJob *linkJob = KIO::linkAs(uSrc, dest);
@@ -903,7 +898,7 @@ void KNewFileMenuPrivate::slotActionTriggered(QAction *action)
     Q_ASSERT(id > 0);
 
     KNewFileMenuSingleton *s = kNewMenuGlobals();
-    const KNewFileMenuSingleton::Entry entry = s->templatesList->at(id - 1);
+    const KNewFileMenuSingleton::Entry &entry = s->templatesList->at(id - 1);
 
     const bool createSymlink = entry.templatePath == QLatin1String("__CREATE_SYMLINK__");
 
