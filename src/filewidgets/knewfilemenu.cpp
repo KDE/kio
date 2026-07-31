@@ -453,9 +453,8 @@ public:
      * is displayed. The URL belonging to this popup menu is stored here.
      * For all intents and purposes this is the current directory where the menu is
      * opened.
-     * TODO KF6 make it a single QUrl.
      */
-    QList<QUrl> m_popupFiles;
+    QUrl m_menuWorkingDirectory;
 
     QStringList m_supportedMimeTypes;
     QString m_tempFileToDelete; // set when a tempfile was created for a Type=URL desktop file
@@ -578,52 +577,50 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
         return;
     }
 
-    for (const auto &url : std::as_const(m_popupFiles)) {
-        QString text = entry.text;
-        text.remove(QStringLiteral("...")); // the ... is fine for the menu item but not for the default filename
-        text.remove(QStringLiteral("…")); // actual ellipsis.
-        text = text.trimmed(); // In some languages, there is a space in front of "...", see bug 268895
-        // KDE5 TODO: remove the "..." from link*.desktop files and use i18n("%1...") when making
-        // the action.
-        QString name = text;
-        text.append(QStringLiteral(".desktop"));
+    QString text = entry.text;
+    text.remove(QStringLiteral("...")); // the ... is fine for the menu item but not for the default filename
+    text.remove(QStringLiteral("…")); // actual ellipsis.
+    text = text.trimmed(); // In some languages, there is a space in front of "...", see bug 268895
+    // KDE5 TODO: remove the "..." from link*.desktop files and use i18n("%1...") when making
+    // the action.
+    QString name = text;
+    text.append(QStringLiteral(".desktop"));
 
-        const QUrl directory = mostLocalUrl(url);
-        const QUrl defaultFile = QUrl::fromLocalFile(directory.toLocalFile() + QLatin1Char('/') + KIO::encodeFileName(text));
-        if (defaultFile.isLocalFile() && QFile::exists(defaultFile.toLocalFile())) {
-            text = KFileUtils::suggestName(directory, text);
-        }
-
-        QUrl templateUrl;
-        bool usingTemplate = false;
-        if (entry.templatePath.startsWith(QLatin1String(":/"))) {
-            std::unique_ptr<QTemporaryFile> tmpFile(QTemporaryFile::createNativeFile(entry.templatePath));
-            tmpFile->setAutoRemove(false);
-            QString tempFileName = tmpFile->fileName();
-            tmpFile->close();
-
-            KDesktopFile df(tempFileName);
-            KConfigGroup group = df.desktopGroup();
-            group.writeEntry("Name", name);
-            templateUrl = QUrl::fromLocalFile(tempFileName);
-            m_tempFileToDelete = tempFileName;
-            usingTemplate = true;
-        } else {
-            templateUrl = QUrl::fromLocalFile(entry.templatePath);
-        }
-        KPropertiesDialog *dlg = new KPropertiesDialog(templateUrl, directory, text, m_parentWidget);
-        dlg->setModal(q->isModal());
-        dlg->setAttribute(Qt::WA_DeleteOnClose);
-        QObject::connect(dlg, &KPropertiesDialog::applied, q, [this, dlg]() {
-            _k_slotOtherDesktopFile(dlg);
-        });
-        if (usingTemplate) {
-            QObject::connect(dlg, &KPropertiesDialog::propertiesClosed, q, [this]() {
-                slotOtherDesktopFileClosed();
-            });
-        }
-        dlg->show();
+    const QUrl directory = mostLocalUrl(m_menuWorkingDirectory);
+    const QUrl defaultFile = QUrl::fromLocalFile(directory.toLocalFile() + QLatin1Char('/') + KIO::encodeFileName(text));
+    if (defaultFile.isLocalFile() && QFile::exists(defaultFile.toLocalFile())) {
+        text = KFileUtils::suggestName(directory, text);
     }
+
+    QUrl templateUrl;
+    bool usingTemplate = false;
+    if (entry.templatePath.startsWith(QLatin1String(":/"))) {
+        std::unique_ptr<QTemporaryFile> tmpFile(QTemporaryFile::createNativeFile(entry.templatePath));
+        tmpFile->setAutoRemove(false);
+        QString tempFileName = tmpFile->fileName();
+        tmpFile->close();
+
+        KDesktopFile df(tempFileName);
+        KConfigGroup group = df.desktopGroup();
+        group.writeEntry("Name", name);
+        templateUrl = QUrl::fromLocalFile(tempFileName);
+        m_tempFileToDelete = tempFileName;
+        usingTemplate = true;
+    } else {
+        templateUrl = QUrl::fromLocalFile(entry.templatePath);
+    }
+    KPropertiesDialog *dlg = new KPropertiesDialog(templateUrl, directory, text, m_parentWidget);
+    dlg->setModal(q->isModal());
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    QObject::connect(dlg, &KPropertiesDialog::applied, q, [this, dlg]() {
+        _k_slotOtherDesktopFile(dlg);
+    });
+    if (usingTemplate) {
+        QObject::connect(dlg, &KPropertiesDialog::propertiesClosed, q, [this]() {
+            slotOtherDesktopFileClosed();
+        });
+    }
+    dlg->show();
     // We don't set m_src here -> there will be no copy, we are done.
 }
 
@@ -667,7 +664,7 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
 
     m_copyData.m_src = entry.templatePath;
 
-    const QUrl directory = mostLocalUrl(m_popupFiles.first());
+    const QUrl directory = mostLocalUrl(m_menuWorkingDirectory);
     m_baseUrl = directory;
     const QUrl defaultFile = QUrl::fromLocalFile(directory.toLocalFile() + QLatin1Char('/') + KIO::encodeFileName(text));
     if (defaultFile.isLocalFile() && QFile::exists(defaultFile.toLocalFile())) {
@@ -705,7 +702,7 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
 
 void KNewFileMenuPrivate::executeSymLink(const KNewFileMenuSingleton::Entry &entry)
 {
-    auto targetUrl = m_popupFiles.first();
+    auto targetUrl = m_menuWorkingDirectory;
     if (!targetUrl.isLocalFile()) {
         targetUrl = mostLocalUrl(targetUrl);
     }
@@ -740,40 +737,38 @@ void KNewFileMenuPrivate::executeStrategy()
     }
 
     // The template is not a desktop file [or it's a URL one] >>> Copy it
-    for (const auto &u : std::as_const(m_popupFiles)) {
-        QUrl dest = u;
-        dest.setPath(Utils::concatPaths(dest.path(), KIO::encodeFileName(chosenFileName)));
+    QUrl dest = m_menuWorkingDirectory;
+    dest.setPath(Utils::concatPaths(dest.path(), KIO::encodeFileName(chosenFileName)));
 
-        KIO::Job *kjob;
-        if (m_copyData.m_isSymlink) {
-            KIO::CopyJob *linkJob = KIO::linkAs(uSrc, dest);
-            kjob = linkJob;
-            KIO::FileUndoManager::self()->recordCopyJob(linkJob);
-        } else if (src.startsWith(QLatin1String(":/"))) {
-            QFile srcFile(src);
-            if (!srcFile.open(QIODevice::ReadOnly)) {
-                return;
-            }
-            // The QFile won't live long enough for the job, so let's buffer the contents
-            const QByteArray srcBuf(srcFile.readAll());
-            KIO::StoredTransferJob *putJob = KIO::storedPut(srcBuf, dest, -1);
-            kjob = putJob;
-            KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Put, QList<QUrl>(), dest, putJob);
-        } else {
-            // qDebug() << "KIO::copyAs(" << uSrc.url() << "," << dest.url() << ")";
-            KIO::CopyJob *job = KIO::copyAs(uSrc, dest);
-            job->setDefaultPermissions(true);
-            kjob = job;
-            KIO::FileUndoManager::self()->recordCopyJob(job);
+    KIO::Job *kjob;
+    if (m_copyData.m_isSymlink) {
+        KIO::CopyJob *linkJob = KIO::linkAs(uSrc, dest);
+        kjob = linkJob;
+        KIO::FileUndoManager::self()->recordCopyJob(linkJob);
+    } else if (src.startsWith(QLatin1String(":/"))) {
+        QFile srcFile(src);
+        if (!srcFile.open(QIODevice::ReadOnly)) {
+            return;
         }
-        KJobWidgets::setWindow(kjob, m_parentWidget);
-        QObject::connect(kjob, &KJob::result, q, &KNewFileMenu::slotResult);
+        // The QFile won't live long enough for the job, so let's buffer the contents
+        const QByteArray srcBuf(srcFile.readAll());
+        KIO::StoredTransferJob *putJob = KIO::storedPut(srcBuf, dest, -1);
+        kjob = putJob;
+        KIO::FileUndoManager::self()->recordJob(KIO::FileUndoManager::Put, QList<QUrl>(), dest, putJob);
+    } else {
+        // qDebug() << "KIO::copyAs(" << uSrc.url() << "," << dest.url() << ")";
+        KIO::CopyJob *job = KIO::copyAs(uSrc, dest);
+        job->setDefaultPermissions(true);
+        kjob = job;
+        KIO::FileUndoManager::self()->recordCopyJob(job);
     }
+    KJobWidgets::setWindow(kjob, m_parentWidget);
+    QObject::connect(kjob, &KJob::result, q, &KNewFileMenu::slotResult);
 }
 
 void KNewFileMenuPrivate::executeUrlDesktopFile(const KNewFileMenuSingleton::Entry &entry)
 {
-    KNameAndUrlInputDialog *dlg = new KNameAndUrlInputDialog(i18n("Name for new link:"), entry.comment, m_popupFiles.first(), m_parentWidget);
+    KNameAndUrlInputDialog *dlg = new KNameAndUrlInputDialog(i18n("Name for new link:"), entry.comment, m_menuWorkingDirectory, m_parentWidget);
     m_copyData.m_templatePath = entry.templatePath;
     dlg->setModal(q->isModal());
     dlg->setAttribute(Qt::WA_DeleteOnClose);
@@ -926,7 +921,7 @@ void KNewFileMenuPrivate::slotCreateDirectory()
     }
 
     QUrl url;
-    QUrl baseUrl = m_popupFiles.first();
+    QUrl baseUrl = m_menuWorkingDirectory;
 
     QString name = expandTilde(m_text);
 
@@ -1462,11 +1457,11 @@ void KNewFileMenu::checkUpToDate()
 
 void KNewFileMenu::createDirectory()
 {
-    if (d->m_popupFiles.isEmpty()) {
+    if (d->m_menuWorkingDirectory.isEmpty()) {
         return;
     }
 
-    d->m_baseUrl = d->m_popupFiles.first();
+    d->m_baseUrl = d->m_menuWorkingDirectory;
 
     if (d->m_isCreateDirectoryRunning) {
         qCWarning(KFILEWIDGETS_LOG) << "Directory creation is already running for " << d->m_baseUrl;
@@ -1644,7 +1639,7 @@ void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
 
 void KNewFileMenu::createFile()
 {
-    if (d->m_popupFiles.isEmpty()) {
+    if (d->m_menuWorkingDirectory.isEmpty()) {
         Q_EMIT fileCreationRejected(QUrl());
         return;
     }
@@ -1749,7 +1744,7 @@ QStringList KNewFileMenu::supportedMimeTypes() const
 
 void KNewFileMenu::setWorkingDirectory(const QUrl &directory)
 {
-    d->m_popupFiles = {directory};
+    d->m_menuWorkingDirectory = directory;
 
     if (directory.isEmpty()) {
         d->m_newMenuGroup->setEnabled(false);
@@ -1767,7 +1762,7 @@ void KNewFileMenu::setWorkingDirectory(const QUrl &directory)
 
 QUrl KNewFileMenu::workingDirectory() const
 {
-    return d->m_popupFiles.isEmpty() ? QUrl() : d->m_popupFiles.first();
+    return d->m_menuWorkingDirectory;
 }
 
 void KNewFileMenu::setNewFolderShortcutAction(QAction *action)
