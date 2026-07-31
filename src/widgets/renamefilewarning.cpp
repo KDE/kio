@@ -59,11 +59,10 @@ void RenameFileWarning::exec()
         dialog->setAttribute(Qt::WA_DeleteOnClose);
         dialog->setWindowModality(Qt::WindowModal);
 
-        connect(dialog, &QDialog::finished, this, [this, dialog, kioConfig, confirmGroup](int dialogResult) mutable {
+        connect(dialog, &QDialog::finished, this, [this, dialog, confirmGroup](int dialogResult) mutable {
             if (dialogResult == KMessageDialog::PrimaryAction) {
                 if (dialog->isDontAskAgainChecked()) {
                     confirmGroup.writeEntry("ConfirmHide", false);
-                    kioConfig->sync();
                 }
                 Q_EMIT result(true);
             } else {
@@ -110,11 +109,10 @@ void RenameFileWarning::exec()
             dialog->setAttribute(Qt::WA_DeleteOnClose);
             dialog->setWindowModality(Qt::WindowModal);
 
-            connect(dialog, &QDialog::finished, this, [this, dialog, kioConfig, confirmGroup](int dialogResult) mutable {
+            connect(dialog, &QDialog::finished, this, [this, dialog, confirmGroup](int dialogResult) mutable {
                 if (dialogResult == KMessageDialog::PrimaryAction) {
                     if (dialog->isDontAskAgainChecked()) {
                         confirmGroup.writeEntry("ConfirmRenameFileType", false);
-                        kioConfig->sync();
                     }
                     Q_EMIT result(true);
                 } else {
