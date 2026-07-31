@@ -57,7 +57,7 @@ void RenameFileWarning::exec()
         dialog->setIcon(QIcon::fromTheme(QStringLiteral("dialog-question")));
         dialog->setDontAskAgainText(i18nc("@option:check", "Do not ask again"));
         dialog->setAttribute(Qt::WA_DeleteOnClose);
-        dialog->setModal(false);
+        dialog->setWindowModality(Qt::WindowModal);
 
         connect(dialog, &QDialog::finished, this, [this, dialog, kioConfig, confirmGroup](int dialogResult) mutable {
             if (dialogResult == KMessageDialog::PrimaryAction) {
@@ -71,7 +71,7 @@ void RenameFileWarning::exec()
             }
             deleteLater();
         });
-        dialog->open();
+        dialog->show();
         return;
     }
 
@@ -108,7 +108,7 @@ void RenameFileWarning::exec()
             dialog->setIcon(messageBoxIcon);
             dialog->setDontAskAgainText(i18nc("@option:check", "Do not ask again"));
             dialog->setAttribute(Qt::WA_DeleteOnClose);
-            dialog->setModal(false);
+            dialog->setWindowModality(Qt::WindowModal);
 
             connect(dialog, &QDialog::finished, this, [this, dialog, kioConfig, confirmGroup](int dialogResult) mutable {
                 if (dialogResult == KMessageDialog::PrimaryAction) {
@@ -122,7 +122,7 @@ void RenameFileWarning::exec()
                 }
                 deleteLater();
             });
-            dialog->open();
+            dialog->show();
             return;
         }
     }
