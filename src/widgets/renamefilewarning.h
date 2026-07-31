@@ -12,7 +12,7 @@
 
 #include <KFileItem>
 
-#include <functional>
+#include <QObject>
 
 class QWidget;
 
@@ -20,29 +20,45 @@ namespace KIO
 {
 
 /*!
- * \since 6.27
+ * \class KIO::RenameFileWarning
+ * \inheaderfile KIO/RenameFileWarning
+ * \inmodule KIOWidgets
  *
- * Checks whether renaming \a item to \a newName requires user confirmation
+ * \brief Checks whether renaming a file/folder requires user confirmation
  * and shows the appropriate dialog if so.
  *
- * The \a callback is called with \c true if the rename should proceed,
- * or \c false if the user cancelled. If no confirmation is needed, the
- * callback is called immediately with \c true.
- *
- * \param item      The file item being renamed.
- * \param newName   The proposed new name.
- * \param parent    Parent widget for any dialog that may be shown.
- * \param callback  Called with the user's decision.
- * \param hiddenFilesVisible  Pass \c true when the view already shows hidden
- *                  files. In that case the warning about renaming a file to a
- *                  hidden name is suppressed, because the file will remain
- *                  visible after the rename.
+ * \since 6.27
  */
-KIOWIDGETS_EXPORT void confirmRenameWarning(const KFileItem &item,
-                                            const QString &newName,
-                                            QWidget *parent,
-                                            std::function<void(bool accepted)> callback,
-                                            bool hiddenFilesVisible = false);
+class KIOWIDGETS_EXPORT RenameFileWarning : public QObject
+{
+    Q_OBJECT
+
+public:
+    /*!
+     * \a hiddenFilesVisible suppresses the hidden-file warning when the view
+     * already shows hidden files.
+     */
+    explicit RenameFileWarning(const KFileItem &item, const QString &newName, QWidget *parent = nullptr, bool hiddenFilesVisible = false);
+
+    ~RenameFileWarning() override;
+
+    /*!
+     * Connect to result() before calling this: it may be emitted synchronously.
+     */
+    void exec();
+
+Q_SIGNALS:
+    /*!
+     * \a accepted is \c true if the rename should proceed.
+     */
+    void result(bool accepted);
+
+private:
+    const KFileItem m_item;
+    const QString m_newName;
+    QWidget *const m_parent;
+    const bool m_hiddenFilesVisible;
+};
 
 } // namespace KIO
 
