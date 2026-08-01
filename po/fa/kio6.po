@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-28 00:41+0000\n"
+"POT-Creation-Date: 2026-08-01 00:42+0000\n"
 "PO-Revision-Date: 2023-06-08 11:57+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -3590,19 +3590,19 @@ msgstr ""
 "<qt>این گزینشگر گونهٔ پرونده است که برای گزینش قالبی استفاده می‌شود که پرونده "
 "به عنوان آن ذخیره خواهد شد.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:218
+#: filewidgets/knewfilemenu.cpp:225
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "&اجرا به عنوان یک کار‌بر متفاوت‌"
 
-#: filewidgets/knewfilemenu.cpp:530
+#: filewidgets/knewfilemenu.cpp:551
 #, kde-format
 msgid "Sorry"
 msgstr "پوزش"
 
-#: filewidgets/knewfilemenu.cpp:541
+#: filewidgets/knewfilemenu.cpp:562
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
@@ -3612,28 +3612,28 @@ msgstr ""
 "<qt>قادر به اجرای فرمان مشخص‌شده نیست. پرونده یا پوشه <b>%1</b> موجود نمی‌باشد."
 "</qt>"
 
-#: filewidgets/knewfilemenu.cpp:692 filewidgets/knewfilemenu.cpp:757
+#: filewidgets/knewfilemenu.cpp:713 filewidgets/knewfilemenu.cpp:776
 #, kde-format
 msgid "Name for new link:"
 msgstr "نام برای پیوند جدید:"
 
-#: filewidgets/knewfilemenu.cpp:695
+#: filewidgets/knewfilemenu.cpp:716
 #, kde-format
 msgid "Create Symlink"
 msgstr "ایجاد پیوند نمادین"
 
-#: filewidgets/knewfilemenu.cpp:761
+#: filewidgets/knewfilemenu.cpp:780
 #, kde-format
 msgid "Create link to URL"
 msgstr "ایجاد‌ پیوند به نشانی‌وب"
 
-#: filewidgets/knewfilemenu.cpp:801 filewidgets/knewfilemenu.cpp:825
+#: filewidgets/knewfilemenu.cpp:813 filewidgets/knewfilemenu.cpp:836
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1165
+#: filewidgets/knewfilemenu.cpp:1159
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3643,7 +3643,7 @@ msgstr ""
 "نام <filename>%1</filename> قابل استفاده نیست؛ چون توسط سیستم‌عامل رزرو شده "
 "است."
 
-#: filewidgets/knewfilemenu.cpp:1173
+#: filewidgets/knewfilemenu.cpp:1167
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3653,7 +3653,7 @@ msgstr ""
 "نام <filename>%1</filename> با نقطه شروع می‌شود، پس به طور پیش‌گزیده نهفته "
 "خواهد شد."
 
-#: filewidgets/knewfilemenu.cpp:1181
+#: filewidgets/knewfilemenu.cpp:1175
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3665,27 +3665,27 @@ msgstr ""
 "بر اساس حروف الفبا، پیش از موارد دیگر، در کنار موارد عجیب و غریب، نمایش داده "
 "خواهد شد."
 
-#: filewidgets/knewfilemenu.cpp:1199
+#: filewidgets/knewfilemenu.cpp:1193
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1213
+#: filewidgets/knewfilemenu.cpp:1207
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1225
+#: filewidgets/knewfilemenu.cpp:1219
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "کج‌خط نمی‌تواند برای نام پرونده یا پوشه استفاده شود."
 
-#: filewidgets/knewfilemenu.cpp:1230
+#: filewidgets/knewfilemenu.cpp:1224
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "واکج‌خط نمی‌تواند در نام پرونده‌ها و پوشه‌ها استفاده شود."
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1238
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3693,61 +3693,56 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1253
+#: filewidgets/knewfilemenu.cpp:1247
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1325
+#: filewidgets/knewfilemenu.cpp:1319
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "هم‌اکنون شاخه‌ای با نام <filename>%1</filename> وجود دارد."
 
-#: filewidgets/knewfilemenu.cpp:1327
+#: filewidgets/knewfilemenu.cpp:1321
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "هم‌اکنون پرونده‌ای با نام <filename>%1</filename> وجود دارد."
 
-#: filewidgets/knewfilemenu.cpp:1413
+#: filewidgets/knewfilemenu.cpp:1407
 #, kde-format
 msgid "Create New"
 msgstr "ایجاد‌ جدید"
 
-#: filewidgets/knewfilemenu.cpp:1448
-#, kde-format
-msgid "Link to Device"
-msgstr "پیوند به دستگاه"
-
-#: filewidgets/knewfilemenu.cpp:1487
+#: filewidgets/knewfilemenu.cpp:1479
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "پوشهٔ جدید"
 
-#: filewidgets/knewfilemenu.cpp:1510
+#: filewidgets/knewfilemenu.cpp:1502
 #, fuzzy, kde-format
 #| msgid "Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "ایجاد پوشه"
 
-#: filewidgets/knewfilemenu.cpp:1512
+#: filewidgets/knewfilemenu.cpp:1504
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "ایجاد پوشهٔ جدید در %1‏:"
 
-#: filewidgets/knewfilemenu.cpp:1515 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1507 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "&اجرا به عنوان یک کار‌بر متفاوت‌"
 
-#: filewidgets/knewfilemenu.cpp:1572
+#: filewidgets/knewfilemenu.cpp:1564
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox The default character set"
 #| msgid "Default"
@@ -7564,6 +7559,9 @@ msgstr "این برنامه را اجرا خواهد کرد:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
+
+#~ msgid "Link to Device"
+#~ msgstr "پیوند به دستگاه"
 
 #~ msgid "Open With:"
 #~ msgstr "گشودن با:"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-28 00:41+0000\n"
+"POT-Creation-Date: 2026-08-01 00:42+0000\n"
 "PO-Revision-Date: 2026-07-03 22:06+0100\n"
 "Last-Translator: deck <altronic25@protonmail.com>\n"
 "Language-Team: English <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -3612,44 +3612,44 @@ msgstr ""
 "<qt>Seo é an roghnóir cineál comhaid. Úsáidtear é chun formáid na gcomhad a "
 "thaispeántar a roghnú.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:218
+#: filewidgets/knewfilemenu.cpp:225
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Cuir isteach ainm comhaid %1:"
 
-#: filewidgets/knewfilemenu.cpp:530
+#: filewidgets/knewfilemenu.cpp:551
 #, kde-format
 msgid "Sorry"
 msgstr "Tá brón orm"
 
-#: filewidgets/knewfilemenu.cpp:541
+#: filewidgets/knewfilemenu.cpp:562
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Níl creatchomhad <b>%1</b> ann.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:692 filewidgets/knewfilemenu.cpp:757
+#: filewidgets/knewfilemenu.cpp:713 filewidgets/knewfilemenu.cpp:776
 #, kde-format
 msgid "Name for new link:"
 msgstr "Ainm don nasc nua:"
 
-#: filewidgets/knewfilemenu.cpp:695
+#: filewidgets/knewfilemenu.cpp:716
 #, kde-format
 msgid "Create Symlink"
 msgstr "Cruthaigh Nasc Siombalach"
 
-#: filewidgets/knewfilemenu.cpp:761
+#: filewidgets/knewfilemenu.cpp:780
 #, kde-format
 msgid "Create link to URL"
 msgstr "Cruthaigh nasc le URL"
 
-#: filewidgets/knewfilemenu.cpp:801 filewidgets/knewfilemenu.cpp:825
+#: filewidgets/knewfilemenu.cpp:813 filewidgets/knewfilemenu.cpp:836
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1165
+#: filewidgets/knewfilemenu.cpp:1159
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3659,7 +3659,7 @@ msgstr ""
 "Ní féidir an t-ainm <filename>%1</filename> a úsáid mar go bhfuil sé curtha "
 "in áirithe lena úsáid ag an gcóras oibriúcháin."
 
-#: filewidgets/knewfilemenu.cpp:1173
+#: filewidgets/knewfilemenu.cpp:1167
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3669,7 +3669,7 @@ msgstr ""
 "Tosaíonn an t-ainm <filename>%1</filename> le ponc, mar sin beidh sé i "
 "bhfolach de réir réamhshocraithe."
 
-#: filewidgets/knewfilemenu.cpp:1181
+#: filewidgets/knewfilemenu.cpp:1175
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3681,29 +3681,29 @@ msgstr ""
 "mhíreanna eile é agus tú ag sórtáil in ord aibítre, i measc rudaí aisteacha "
 "eile a d'fhéadfadh a bheith ann."
 
-#: filewidgets/knewfilemenu.cpp:1199
+#: filewidgets/knewfilemenu.cpp:1193
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Trí úsáid a bhaint as slaiseanna in ainmneacha fillteán, cruthófar fo-"
 "fhillteáin, mar seo a leanas:"
 
-#: filewidgets/knewfilemenu.cpp:1213
+#: filewidgets/knewfilemenu.cpp:1207
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Cruthófar fo-fhillteáin trí slaiseanna a úsáid in ainmneacha fillteán."
 
-#: filewidgets/knewfilemenu.cpp:1225
+#: filewidgets/knewfilemenu.cpp:1219
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Ní féidir slaiseanna a úsáid in ainmneacha comhad agus fillteán."
 
-#: filewidgets/knewfilemenu.cpp:1230
+#: filewidgets/knewfilemenu.cpp:1224
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Ní féidir slaiseanna cúil a úsáid in ainmneacha comhad agus fillteán."
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1238
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3713,7 +3713,7 @@ msgstr ""
 "Ní féidir comhad nó fillteán a chruthú leis an ainm <filename>%1</filename> "
 "mar go mbeadh sé ag forluí le suíomh fillteán baile úsáideora."
 
-#: filewidgets/knewfilemenu.cpp:1253
+#: filewidgets/knewfilemenu.cpp:1247
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3723,52 +3723,47 @@ msgstr ""
 "bheith mearbhall nó contúirteach agus an críochfort á úsáid chun rudaí a "
 "scriosadh."
 
-#: filewidgets/knewfilemenu.cpp:1325
+#: filewidgets/knewfilemenu.cpp:1319
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Tá eolaire darb ainm <filename>%1</filename> ann cheana féin."
 
-#: filewidgets/knewfilemenu.cpp:1327
+#: filewidgets/knewfilemenu.cpp:1321
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Tá comhad darb ainm <filename>%1</filename> ann cheana féin."
 
-#: filewidgets/knewfilemenu.cpp:1413
+#: filewidgets/knewfilemenu.cpp:1407
 #, kde-format
 msgid "Create New"
 msgstr "Cruthaigh Ceann Nua"
 
-#: filewidgets/knewfilemenu.cpp:1448
-#, kde-format
-msgid "Link to Device"
-msgstr "Nasc le Gléas"
-
-#: filewidgets/knewfilemenu.cpp:1487
+#: filewidgets/knewfilemenu.cpp:1479
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Fillteán Nua"
 
-#: filewidgets/knewfilemenu.cpp:1510
+#: filewidgets/knewfilemenu.cpp:1502
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Cruthaigh Fillteán Nua"
 
-#: filewidgets/knewfilemenu.cpp:1512
+#: filewidgets/knewfilemenu.cpp:1504
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Cruthaigh fillteán nua i %1:"
 
-#: filewidgets/knewfilemenu.cpp:1515 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1507 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Cuir isteach ainm an fhillteáin"
 
-#: filewidgets/knewfilemenu.cpp:1572
+#: filewidgets/knewfilemenu.cpp:1564
 #, kde-format
 msgid "Default"
 msgstr "Réamhshocrú"
@@ -7716,6 +7711,9 @@ msgstr "Tosóidh sé seo an ríomhchlár:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Mura bhfuil muinín agat as an ríomhchlár seo, cliceáil 'Cealaigh'"
+
+#~ msgid "Link to Device"
+#~ msgstr "Nasc le Gléas"
 
 #~ msgctxt "@option:check"
 #~ msgid "Launch executable files without asking"

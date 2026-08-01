@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-28 00:41+0000\n"
+"POT-Creation-Date: 2026-08-01 00:42+0000\n"
 "PO-Revision-Date: 2026-01-27 20:13+0000\n"
 "Last-Translator: César A. P. Cláudio <cesarapclaudio@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
@@ -3646,46 +3646,46 @@ msgstr ""
 "<qt>Este é o seletor do tipo de ficheiro. É utilizado para selecionar o "
 "formato dos ficheiros apresentados.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:218
+#: filewidgets/knewfilemenu.cpp:225
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Introduza nome do ficheiro %1 "
 
-#: filewidgets/knewfilemenu.cpp:530
+#: filewidgets/knewfilemenu.cpp:551
 #, kde-format
 msgid "Sorry"
 msgstr "Desculpe"
 
-#: filewidgets/knewfilemenu.cpp:541
+#: filewidgets/knewfilemenu.cpp:562
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>O ficheiro de modelo <b>%1</b> não existe.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:692 filewidgets/knewfilemenu.cpp:757
+#: filewidgets/knewfilemenu.cpp:713 filewidgets/knewfilemenu.cpp:776
 #, kde-format
 msgid "Name for new link:"
 msgstr "Nome para a nova ligação:"
 
-#: filewidgets/knewfilemenu.cpp:695
+#: filewidgets/knewfilemenu.cpp:716
 #, kde-format
 msgid "Create Symlink"
 msgstr "Criar Ligação Simbólica"
 
 # Está relacionado com a entrada 566? Realmente "Criar uma ligação para o URL" soa redundante. Será mesmo atalho? Onde é que aparece?
 # Se está relacionado com o de cima, fica inconsistente traduzir "link" para ligação e depois logo a seguir para "atalho".
-#: filewidgets/knewfilemenu.cpp:761
+#: filewidgets/knewfilemenu.cpp:780
 #, kde-format
 msgid "Create link to URL"
 msgstr "Criar atalho para o URL"
 
-#: filewidgets/knewfilemenu.cpp:801 filewidgets/knewfilemenu.cpp:825
+#: filewidgets/knewfilemenu.cpp:813 filewidgets/knewfilemenu.cpp:836
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1165
+#: filewidgets/knewfilemenu.cpp:1159
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3695,7 +3695,7 @@ msgstr ""
 "Não foi possível utilizar o nome <filename>%1</filename> por estar reservado "
 "para utilização do sistema operativo."
 
-#: filewidgets/knewfilemenu.cpp:1173
+#: filewidgets/knewfilemenu.cpp:1167
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3705,7 +3705,7 @@ msgstr ""
 "O nome <filename>%1</filename> começa por um ponto; como tal, ficará oculto "
 "por defeito."
 
-#: filewidgets/knewfilemenu.cpp:1181
+#: filewidgets/knewfilemenu.cpp:1175
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3717,30 +3717,30 @@ msgstr ""
 "seja apresentado antes dos outros itens quando ordenado alfabeticamente, "
 "entre outras potenciais peculiaridades."
 
-#: filewidgets/knewfilemenu.cpp:1199
+#: filewidgets/knewfilemenu.cpp:1193
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "A utilização da barra no nome das pastas irá criar sub-pastas, como por "
 "exemplo:"
 
-#: filewidgets/knewfilemenu.cpp:1213
+#: filewidgets/knewfilemenu.cpp:1207
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "A utilização da barra no nome das pastas irá criar sub-pastas."
 
-#: filewidgets/knewfilemenu.cpp:1225
+#: filewidgets/knewfilemenu.cpp:1219
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Barras não podem ser utilizadas nos nomes de ficheiros e pastas."
 
-#: filewidgets/knewfilemenu.cpp:1230
+#: filewidgets/knewfilemenu.cpp:1224
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 "Barras invertidas não podem ser utilizadas nos nomes de ficheiros e pastas."
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1238
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3751,7 +3751,7 @@ msgstr ""
 "possível, uma vez que se iria sobrepôr com a localização da pasta pessoal de "
 "um utilizador."
 
-#: filewidgets/knewfilemenu.cpp:1253
+#: filewidgets/knewfilemenu.cpp:1247
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3760,52 +3760,47 @@ msgstr ""
 "Começar o nome de um ficheiro ou pasta com um til não é recomendado, porque "
 "poderá ser confuso ou perigoso ao utilizar o terminal para eliminar coisas."
 
-#: filewidgets/knewfilemenu.cpp:1325
+#: filewidgets/knewfilemenu.cpp:1319
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Já existe uma pasta com o nome <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1327
+#: filewidgets/knewfilemenu.cpp:1321
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Já existe um ficheiro com o nome <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1413
+#: filewidgets/knewfilemenu.cpp:1407
 #, kde-format
 msgid "Create New"
 msgstr "Criar Novo"
 
-#: filewidgets/knewfilemenu.cpp:1448
-#, kde-format
-msgid "Link to Device"
-msgstr "Atalho para Dispositivo"
-
-#: filewidgets/knewfilemenu.cpp:1487
+#: filewidgets/knewfilemenu.cpp:1479
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nova Pasta"
 
-#: filewidgets/knewfilemenu.cpp:1510
+#: filewidgets/knewfilemenu.cpp:1502
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Criar Nova Pasta"
 
-#: filewidgets/knewfilemenu.cpp:1512
+#: filewidgets/knewfilemenu.cpp:1504
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Criar nova pasta em %1:"
 
-#: filewidgets/knewfilemenu.cpp:1515 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1507 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Introduza nome da pasta"
 
-#: filewidgets/knewfilemenu.cpp:1572
+#: filewidgets/knewfilemenu.cpp:1564
 #, kde-format
 msgid "Default"
 msgstr "Predefinição"
@@ -7578,6 +7573,9 @@ msgstr "Isto irá iniciar o programa:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Se não confiar neste programa, carregue em Cancelar"
+
+#~ msgid "Link to Device"
+#~ msgstr "Atalho para Dispositivo"
 
 #~ msgctxt "@option:check"
 #~ msgid "Launch executable files without asking"

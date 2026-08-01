@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-28 00:41+0000\n"
+"POT-Creation-Date: 2026-08-01 00:42+0000\n"
 "PO-Revision-Date: 2026-05-04 17:15+0300\n"
 "Last-Translator: Wesenseged <kde-i18n-de@kde.org>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -3433,44 +3433,44 @@ msgid ""
 "files shown.</qt>"
 msgstr "<qt>ይህ የፋይል አይነት መራጭ ነው። የሚታዩትን ፋይሎች ቅርጸት ለመምረጥ ይጠቅማል።</qt>"
 
-#: filewidgets/knewfilemenu.cpp:218
+#: filewidgets/knewfilemenu.cpp:225
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "%1 የፋይል ስም አስገባ፦"
 
-#: filewidgets/knewfilemenu.cpp:530
+#: filewidgets/knewfilemenu.cpp:551
 #, kde-format
 msgid "Sorry"
 msgstr "ይቅርታ"
 
-#: filewidgets/knewfilemenu.cpp:541
+#: filewidgets/knewfilemenu.cpp:562
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>የአብነት ፋይሉ <b>%1</b> የለም።</qt>"
 
-#: filewidgets/knewfilemenu.cpp:692 filewidgets/knewfilemenu.cpp:757
+#: filewidgets/knewfilemenu.cpp:713 filewidgets/knewfilemenu.cpp:776
 #, kde-format
 msgid "Name for new link:"
 msgstr "ለአዲስ ማገናኛ ስም፦"
 
-#: filewidgets/knewfilemenu.cpp:695
+#: filewidgets/knewfilemenu.cpp:716
 #, kde-format
 msgid "Create Symlink"
 msgstr "ሲምሊንክ ፍጠር"
 
-#: filewidgets/knewfilemenu.cpp:761
+#: filewidgets/knewfilemenu.cpp:780
 #, kde-format
 msgid "Create link to URL"
 msgstr "ወደ URL አገናኝ ፍጠር"
 
-#: filewidgets/knewfilemenu.cpp:801 filewidgets/knewfilemenu.cpp:825
+#: filewidgets/knewfilemenu.cpp:813 filewidgets/knewfilemenu.cpp:836
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1165
+#: filewidgets/knewfilemenu.cpp:1159
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3480,7 +3480,7 @@ msgstr ""
 "<filename>%1</filename> የሚለው ስም በኦፕሬቲንግ ሲስተሙ ጥቅም ላይ እንዲውል የተያዘ ስለሆነ ጥቅም ላይ "
 "ሊውል አይችልም።"
 
-#: filewidgets/knewfilemenu.cpp:1173
+#: filewidgets/knewfilemenu.cpp:1167
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3488,7 +3488,7 @@ msgid ""
 "default."
 msgstr "<filename>%1</filename> የሚለው ስም በነጥብ ይጀምራል፣ ስለዚህ የተደበቀ ነው።"
 
-#: filewidgets/knewfilemenu.cpp:1181
+#: filewidgets/knewfilemenu.cpp:1175
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3499,27 +3499,27 @@ msgstr ""
 "<filename>%1</filename> የሚለው ስም የሚጀምረው በክፍት ቦታ ሲሆን ይህም በፊደል ቅደም ተከተል ሲደረደሩ "
 "ከሌሎች ነገሮች በፊት እንዲታይ ያደርጋል፣ ይህም ከሌሎች ሊሆኑ ከሚችሉ እንግዳ ነገሮች ጋር።"
 
-#: filewidgets/knewfilemenu.cpp:1199
+#: filewidgets/knewfilemenu.cpp:1193
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "በአቃፊ ስሞች ውስጥ አግድም ሰረዝን መጠቀም ንዑስ አቃፊዎችን ይፈጥራል፣ እንደዚህ ያሉ፦"
 
-#: filewidgets/knewfilemenu.cpp:1213
+#: filewidgets/knewfilemenu.cpp:1207
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "በአቃፊ ስሞች ውስጥ አግድም ሰረዝን መጠቀም ንዑስ አቃፊዎችን ይፈጥራል።"
 
-#: filewidgets/knewfilemenu.cpp:1225
+#: filewidgets/knewfilemenu.cpp:1219
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "አግድም ሰረዝን በፋይል እና በአቃፊ ስሞች ውስጥ መጠቀም አይቻልም።"
 
-#: filewidgets/knewfilemenu.cpp:1230
+#: filewidgets/knewfilemenu.cpp:1224
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "የኋላ አግድም ሰረዝን በፋይል እና በአቃፊ ስሞች ውስጥ መጠቀም አይቻልም።"
 
-#: filewidgets/knewfilemenu.cpp:1244
+#: filewidgets/knewfilemenu.cpp:1238
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3529,7 +3529,7 @@ msgstr ""
 "<filename>%1</filename> የሚል ፋይል ወይም አቃፊ መፍጠር ከተጠቃሚው የመነሻ አቃፊ ቦታ ጋር ስለሚደራረብ "
 "አይቻልም።"
 
-#: filewidgets/knewfilemenu.cpp:1253
+#: filewidgets/knewfilemenu.cpp:1247
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3538,52 +3538,47 @@ msgstr ""
 "የፋይል ወይም የአቃፊ ስም በቲልዴ መጀመር አይመከርም ምክንያቱም ነገሮችን ለመሰረዝ ተርሚናል ሲጠቀሙ ግራ የሚያጋባ ወይም "
 "አደገኛ ሊሆን ይችላል።"
 
-#: filewidgets/knewfilemenu.cpp:1325
+#: filewidgets/knewfilemenu.cpp:1319
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "ይሄ ስም <filename>%1</filename> ያለው ማውጫ አስቀድሞ አለ።"
 
-#: filewidgets/knewfilemenu.cpp:1327
+#: filewidgets/knewfilemenu.cpp:1321
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "ስም <filename>%1</filename> ያለው ፋይል አስቀድሞ አለ።"
 
-#: filewidgets/knewfilemenu.cpp:1413
+#: filewidgets/knewfilemenu.cpp:1407
 #, kde-format
 msgid "Create New"
 msgstr "አዲስ ፍጠር"
 
-#: filewidgets/knewfilemenu.cpp:1448
-#, kde-format
-msgid "Link to Device"
-msgstr "ወደ መሣሪያ አገናኝ"
-
-#: filewidgets/knewfilemenu.cpp:1487
+#: filewidgets/knewfilemenu.cpp:1479
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "አዲስ አቃፊ"
 
-#: filewidgets/knewfilemenu.cpp:1510
+#: filewidgets/knewfilemenu.cpp:1502
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "አዲስ አቃፊ ይፍጠሩ"
 
-#: filewidgets/knewfilemenu.cpp:1512
+#: filewidgets/knewfilemenu.cpp:1504
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "በ%1 ውስጥ አዲስ አቃፊ ይፍጠሩ፦"
 
-#: filewidgets/knewfilemenu.cpp:1515 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1507 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "የአቃፊ ስም አስገባ"
 
-#: filewidgets/knewfilemenu.cpp:1572
+#: filewidgets/knewfilemenu.cpp:1564
 #, kde-format
 msgid "Default"
 msgstr "ነባሪ"
@@ -7240,6 +7235,9 @@ msgstr "ይህ ፕሮግራሙን ያስጀምራል፦"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "ይህን ፕሮግራም የማታምኑት ከሆነ ሰርዝን ንኩ።"
+
+#~ msgid "Link to Device"
+#~ msgstr "ወደ መሣሪያ አገናኝ"
 
 #~ msgctxt "@option:check"
 #~ msgid "Launch executable files without asking"
