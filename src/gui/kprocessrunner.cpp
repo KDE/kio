@@ -151,7 +151,10 @@ KProcessRunner *KProcessRunner::fromApplication(const KService::Ptr &service,
         const QFileInfo fileInfo(urls.first().toLocalFile());
         // canonicalPath returns "." despite documentation claiming to return an empty string.
         if (fileInfo.exists()) {
-            workingDir = fileInfo.canonicalPath();
+            // realpath() doesn't work properly in /proc and we can get bogus values.
+            if (const QString canonicalPath = fileInfo.canonicalPath(); QDir::isAbsolutePath(canonicalPath)) {
+                workingDir = canonicalPath;
+            }
         }
     }
     instance->m_process->setWorkingDirectory(workingDir);
