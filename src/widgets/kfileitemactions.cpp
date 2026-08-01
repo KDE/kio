@@ -309,20 +309,41 @@ void KFileItemActions::setItemListProperties(const KFileItemListProperties &item
     }
 }
 
-void KFileItemActions::addActionsTo(QMenu *menu, MenuActionSources sources, const QList<QAction *> &additionalActions, const QStringList &excludeList)
+void KFileItemActions::addActionsTo(QMenu *mainMenu, MenuActionSources sources, const QList<QAction *> &additionalActions, const QStringList &excludeList)
 {
-    QMenu *actionsMenu = menu;
+    QMenu *mainMenuHolder = new QMenu();
+    QMenu *actionsMenuHolder = new QMenu();
     if (sources & MenuActionSource::Services) {
-        actionsMenu = d->addServiceActionsTo(menu, additionalActions, excludeList).menu;
+        d->addServiceActionsTo(mainMenuHolder, actionsMenuHolder, additionalActions, excludeList);
     } else {
         // Since we didn't call addServiceActionsTo(), we have to add additional actions manually
         for (QAction *action : additionalActions) {
-            actionsMenu->addAction(action);
+            actionsMenuHolder->addAction(action);
         }
     }
     if (sources & MenuActionSource::Plugins) {
-        d->addPluginActionsTo(menu, actionsMenu, excludeList);
+        d->addPluginActionsTo(mainMenuHolder, actionsMenuHolder, excludeList);
     }
+
+    QMenu *actionsMenu;
+    if (actionsMenuHolder->actions().size() > 4) {
+        actionsMenu = new QMenu(i18nc("@title:menu", "&Actions"), mainMenu);
+        actionsMenu->setIcon(QIcon::fromTheme(QStringLiteral("view-more-symbolic")));
+        actionsMenu->menuAction()->setObjectName(QStringLiteral("actions_submenu")); // for the unittest
+        mainMenu->addMenu(actionsMenu);
+    } else {
+        actionsMenu = mainMenu;
+    }
+
+    for (QAction *action : actionsMenuHolder->actions()) {
+        actionsMenu->addAction(action);
+    }
+    for (QAction *action : mainMenuHolder->actions()) {
+        mainMenu->addAction(action);
+    }
+
+    delete mainMenuHolder;
+    delete actionsMenuHolder;
 }
 
 // static
@@ -524,8 +545,10 @@ bool KFileItemActionsPrivate::checkTypesMatch(const KConfigGroup &cfg) const
     });
 }
 
-KFileItemActionsPrivate::ServiceActionInfo
-KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QAction *> &additionalActions, const QStringList &excludeList)
+void KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenuHolder,
+                                                  QMenu *actionsMenuHolder,
+                                                  const QList<QAction *> &additionalActions,
+                                                  const QStringList &excludeList)
 {
     const KFileItemList items = m_props.items();
     const KFileItem &firstItem = items.first();
@@ -579,32 +602,23 @@ KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenu, const QList<QActio
         }
     }
 
-    QMenu *actionMenu = mainMenu;
     int userItemCount = 0;
-    if (s.user.count() + s.userSubmenus.count() + s.userPriority.count() + s.userPrioritySubmenus.count() + additionalActions.count() > 3) {
-        // we have more than three items, so let's make a submenu
-        actionMenu = new QMenu(i18nc("@title:menu", "&Actions"), mainMenu);
-        actionMenu->setIcon(QIcon::fromTheme(QStringLiteral("view-more-symbolic")));
-        actionMenu->menuAction()->setObjectName(QStringLiteral("actions_submenu")); // for the unittest
-        mainMenu->addMenu(actionMenu);
-    }
-
     userItemCount += additionalActions.count();
     for (QAction *action : additionalActions) {
-        actionMenu->addAction(action);
+        actionsMenuHolder->addAction(action);
     }
-    userItemCount += insertServicesSubmenus(s.userPrioritySubmenus, actionMenu);
-    userItemCount += insertServices(s.userPriority, actionMenu);
-    userItemCount += insertServicesSubmenus(s.userSubmenus, actionMenu);
-    userItemCount += insertServices(s.user, actionMenu);
+    userItemCount += insertServicesSubmenus(s.userPrioritySubmenus, actionsMenuHolder);
+    userItemCount += insertServices(s.userPriority, actionsMenuHolder);
+    userItemCount += insertServicesSubmenus(s.userSubmenus, actionsMenuHolder);
+    userItemCount += insertServices(s.user, actionsMenuHolder);
 
-    userItemCount += insertServicesSubmenus(s.userToplevelSubmenus, mainMenu);
-    userItemCount += insertServices(s.userToplevel, mainMenu);
+    userItemCount += insertServicesSubmenus(s.userToplevelSubmenus, mainMenuHolder);
+    userItemCount += insertServices(s.userToplevel, mainMenuHolder);
 
-    return {userItemCount, actionMenu};
+    // return {userItemCount, actionMenu};
 }
 
-int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsMenu, const QStringList &excludeList)
+void KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenuHolder, QMenu *actionsMenuHolder, const QStringList &excludeList)
 {
     QString commonMimeType = m_props.mimeType();
     if (commonMimeType.isEmpty() && m_props.isFile()) {
@@ -624,6 +638,7 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
         });
     });
 
+    QList<QAction *> iconAction;
     for (const auto &jsonMetadata : jsonPlugins) {
         // The plugin has been disabled
         const QString pluginId = jsonMetadata.pluginId();
@@ -646,14 +661,18 @@ int KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenu, QMenu *actionsM
             const QList<QAction *> actions = abstractPlugin->actions(m_props, m_parentWidget);
             itemCount += actions.count();
             if (jsonMetadata.value(QStringLiteral("X-KDE-Show-In-Submenu"), false)) {
-                actionsMenu->addActions(actions);
+                if (pluginId == QLatin1String("setfoldericonitemaction")) {
+                    iconAction = actions;
+                } else {
+                    actionsMenuHolder->addActions(actions);
+                }
             } else {
-                mainMenu->addActions(actions);
+                mainMenuHolder->addActions(actions);
             }
         }
     }
-
-    return itemCount;
+    actionsMenuHolder->addActions(iconAction);
+    // return itemCount;
 }
 
 KService::List KFileItemActionsPrivate::associatedApplications(const QStringList &mimeTypeList, const QStringList &excludedDesktopEntryNames)
