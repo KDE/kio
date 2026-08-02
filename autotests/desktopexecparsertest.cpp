@@ -6,6 +6,7 @@
 */
 
 #include "desktopexecparsertest.h"
+#include "ksycocatestmenu.h"
 
 #include <QTest>
 
@@ -27,7 +28,7 @@ void DesktopExecParserTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
 
-    KSycoca::setupTestMenu();
+    KSycocaTestMenu::setup();
 
     qputenv("PATH", QByteArray(qgetenv("PATH") + QFile::encodeName(QDir::listSeparator() + QCoreApplication::applicationDirPath())));
 
