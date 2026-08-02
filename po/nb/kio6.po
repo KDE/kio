@@ -11,6 +11,7 @@
 # Nils Kristian Tomren <slx@nilsk.net>, 2005, 2007.
 # Alexander Nicolaysen Sørnes <alex@thehandofagony.com>, 2006.
 # Øyvind A. Holm <sunny@sunbase.org>, 2009.
+# Martin Hansen <mh306602@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
@@ -7512,6 +7513,3 @@ msgstr "Dette vil starte programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Hvis du ikke stoler på dette programmet, trykk «Avbryt»."
-
-#~ msgid "Link to Device"
-#~ msgstr "Lenke til enhet"

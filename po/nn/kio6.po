@@ -2,6 +2,7 @@
 #
 # Gaute Hvoslef Kvalnes <gaute@verdsveven.com>, 2003, 2004, 2005, 2006.
 # Håvard Korsvoll <korsvoll@skulelinux.no>, 2003.
+# Karl Ove Hufthammer <karl@huftis.org>, 2004, 2005, 2007, 2008, 2009, 2010, 2011, 2015, 2016, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2026.
 # Eirik U. Birkeland <eirbir@gmail.com>, 2008, 2009, 2010.
 # Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2018, 2019, 2022.
 msgid ""
@@ -7418,6 +7419,3 @@ msgstr "Dette vil starta programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Viss du ikkje stolar på programmet, trykk «Avbryt»."
-
-#~ msgid "Link to Device"
-#~ msgstr "Lenkje til eining"
