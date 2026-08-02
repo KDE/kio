@@ -711,9 +711,9 @@ void KNewFileMenuPrivate::executeStrategy()
 
     // In case the templates/.source directory contains symlinks, resolve
     // them to the target files. Fixes bug #149628.
-    KFileItem item(uSrc, QString(), KFileItem::Unknown);
-    if (item.isLink()) {
-        uSrc.setPath(item.linkDest());
+    QFileInfo info(src);
+    if (info.isSymLink()) {
+        uSrc = QUrl::fromLocalFile(info.symLinkTarget());
     }
 
     // The template is not a desktop file [or it's a URL one] >>> Copy it
