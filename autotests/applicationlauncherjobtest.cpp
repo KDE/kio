@@ -7,6 +7,7 @@
 
 #include "applicationlauncherjobtest.h"
 #include "applicationlauncherjob.h"
+#include "ksycocatestmenu.h"
 #include <kprocessrunner_p.h>
 
 #include "kiotesthelper.h" // createTestFile etc.
@@ -33,7 +34,7 @@ QTEST_GUILESS_MAIN(ApplicationLauncherJobTest)
 void ApplicationLauncherJobTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
-    KSycoca::setupTestMenu();
+    KSycocaTestMenu::setup();
     m_tempService = createTempService();
 }
 

@@ -6,6 +6,7 @@
 */
 
 #include "kfileitemtest.h"
+#include "ksycocatestmenu.h"
 #include <QTest>
 #include <kfileitem.h>
 #include <kfileitemlistproperties.h>
@@ -43,7 +44,7 @@ char *toString(const CaseInsensitiveStringCompareHelper &h)
 void KFileItemTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
-    KSycoca::setupTestMenu();
+    KSycocaTestMenu::setup();
 }
 
 void KFileItemTest::testPermissionsString()

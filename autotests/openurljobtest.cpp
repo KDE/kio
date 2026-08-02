@@ -6,6 +6,7 @@
 */
 
 #include "openurljobtest.h"
+#include "ksycocatestmenu.h"
 #include "openurljob.h"
 #include <KApplicationTrader>
 #include <kprocessrunner_p.h>
@@ -43,7 +44,7 @@ void OpenUrlJobTest::initTestCase()
 #endif
 
     QStandardPaths::setTestModeEnabled(true);
-    KSycoca::setupTestMenu();
+    KSycocaTestMenu::setup();
 
     // Ensure no leftovers from other tests
     QDir(QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation)).removeRecursively();
