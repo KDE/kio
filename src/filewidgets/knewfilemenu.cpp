@@ -836,8 +836,6 @@ void KNewFileMenuPrivate::fillMenu()
                 act->setText(i18nc("@item:inmenu Create New", "%1", entry.text));
                 act->setActionGroup(m_newMenuGroup);
 
-                // qDebug() << templatePath << entry.sourceFileInfo;
-
                 if (KDesktopFile::isDesktopFile(entry.templatePath)) {
                     menu->addAction(act);
                 } else {
@@ -1014,7 +1012,6 @@ static QStringList getTemplateFilePaths(const QStringList &templates)
 void KNewFileMenuPrivate::slotFillTemplates()
 {
     KNewFileMenuSingleton *instance = kNewMenuGlobals();
-    // qDebug();
 
     const QStringList installedTemplates = getInstalledTemplates();
     const QStringList qrcTemplates{QStringLiteral(":/kio5/newfile-templates")};
@@ -1058,7 +1055,6 @@ void KNewFileMenuPrivate::slotFillTemplates()
     QMimeDatabase db;
     bool acceptedMimeType;
     for (const QString &file : files) {
-        // qDebug() << file;
         KNewFileMenuSingleton::Entry entry;
         if (!entry.parseFile(file)) {
             qCInfo(KFILEWIDGETS_LOG) << "KNewFileMenu: invalid template file:" << file;
