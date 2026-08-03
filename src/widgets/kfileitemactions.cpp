@@ -602,20 +602,16 @@ void KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenuHolder,
         }
     }
 
-    int userItemCount = 0;
-    userItemCount += additionalActions.count();
     for (QAction *action : additionalActions) {
         actionsMenuHolder->addAction(action);
     }
-    userItemCount += insertServicesSubmenus(s.userPrioritySubmenus, actionsMenuHolder);
-    userItemCount += insertServices(s.userPriority, actionsMenuHolder);
-    userItemCount += insertServicesSubmenus(s.userSubmenus, actionsMenuHolder);
-    userItemCount += insertServices(s.user, actionsMenuHolder);
+    insertServicesSubmenus(s.userPrioritySubmenus, actionsMenuHolder);
+    insertServices(s.userPriority, actionsMenuHolder);
+    insertServicesSubmenus(s.userSubmenus, actionsMenuHolder);
+    insertServices(s.user, actionsMenuHolder);
 
-    userItemCount += insertServicesSubmenus(s.userToplevelSubmenus, mainMenuHolder);
-    userItemCount += insertServices(s.userToplevel, mainMenuHolder);
-
-    // return {userItemCount, actionMenu};
+    insertServicesSubmenus(s.userToplevelSubmenus, mainMenuHolder);
+    insertServices(s.userToplevel, mainMenuHolder);
 }
 
 void KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenuHolder, QMenu *actionsMenuHolder, const QStringList &excludeList)
@@ -624,8 +620,6 @@ void KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenuHolder, QMenu *a
     if (commonMimeType.isEmpty() && m_props.isFile()) {
         commonMimeType = QStringLiteral("application/octet-stream");
     }
-
-    int itemCount = 0;
 
     const KConfigGroup showGroup = m_config.group(QStringLiteral("Show"));
 
@@ -659,7 +653,6 @@ void KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenuHolder, QMenu *a
         if (abstractPlugin) {
             connect(abstractPlugin, &KAbstractFileItemActionPlugin::error, q, &KFileItemActions::error);
             const QList<QAction *> actions = abstractPlugin->actions(m_props, m_parentWidget);
-            itemCount += actions.count();
             if (jsonMetadata.value(QStringLiteral("X-KDE-Show-In-Submenu"), false)) {
                 if (pluginId == QLatin1String("setfoldericonitemaction")) {
                     iconAction = actions;
@@ -672,7 +665,6 @@ void KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenuHolder, QMenu *a
         }
     }
     actionsMenuHolder->addActions(iconAction);
-    // return itemCount;
 }
 
 KService::List KFileItemActionsPrivate::associatedApplications(const QStringList &mimeTypeList, const QStringList &excludedDesktopEntryNames)
