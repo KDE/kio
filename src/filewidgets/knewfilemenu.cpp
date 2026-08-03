@@ -63,8 +63,6 @@
 #include <utime.h>
 #endif
 
-#include <set>
-
 static QString expandTilde(const QString &name, bool isfile = false)
 {
     if (name.isEmpty() || name == QLatin1Char('~')) {
@@ -134,10 +132,11 @@ public:
         QString key; /// The key used for sorting the files in the menu
         QString text; /// Text shown on the new file submenu
         QString comment; /// The prompt label asking for filename
-        QFileInfo sourceFileInfo; /// URL of a file received from getTemplateFilePaths and the suggested basename for a new file
+        QFileInfo sourceFileInfo; /// URL of a file received from getTemplateFilePaths and the suggested basename for a new file. Duplicate filenames in
+                                  /// sourceFileInfo allows overriding system templates (but not QRS templates)
         Section section; /// Defines separator positions and reduces string matching
-
-        QString templatePath; /// Where the file is copied from and the suggested file extension.
+        QString templatePath; /// Where the file is copied from and the suggested file extension. Duplicate filepaths in templatePath allows overriding system
+                              /// templates (but not QRS templates)
         QMimeType mimeType; /// Mimetype that the icon and comment are derived from
         QIcon icon; /// The icon displayed in the context menu
 
@@ -767,73 +766,62 @@ void KNewFileMenuPrivate::fillMenu()
     menu->clear();
     m_newDirAction = nullptr;
 
-    std::set<QString> seenTexts;
     KNewFileMenuSingleton::Entry *lastEntry = nullptr;
 
     KNewFileMenuSingleton *s = kNewMenuGlobals();
     int idx = 0;
     for (auto &entry : *s->templatesList) {
         ++idx;
-        // There might be a .desktop for that one already.
+        if (entry.section == KNewFileMenuSingleton::Entry::Section::Directory) {
+            QAction *act = new QAction(q);
+            m_newDirAction = act;
+            act->setIcon(entry.icon);
+            act->setText(i18nc("@item:inmenu Create New", "%1", entry.text));
+            act->setActionGroup(m_newMenuGroup);
 
-        // In fact, we skip any second item that has the same text as another one.
-        // Duplicates in a menu look bad in any case.
-        const auto [it, isInserted] = seenTexts.insert(entry.text);
-        if (isInserted) {
-            // const KNewFileMenuSingleton::Entry entry = templatesList->at(i-1);
-
-            if (entry.section == KNewFileMenuSingleton::Entry::Section::Directory) {
-                QAction *act = new QAction(q);
-                m_newDirAction = act;
-                act->setIcon(entry.icon);
-                act->setText(i18nc("@item:inmenu Create New", "%1", entry.text));
-                act->setActionGroup(m_newMenuGroup);
-
-                // If there is a shortcut action copy its shortcut
-                if (m_newFolderShortcutAction) {
+            // If there is a shortcut action copy its shortcut
+            if (m_newFolderShortcutAction) {
+                act->setShortcuts(m_newFolderShortcutAction->shortcuts());
+                // Both actions have now the same shortcut, so this will prevent the "Ambiguous shortcut detected" dialog.
+                act->setShortcutContext(Qt::WidgetShortcut);
+                // We also need to react to shortcut changes.
+                QObject::connect(m_newFolderShortcutAction, &QAction::changed, act, [act, this]() {
                     act->setShortcuts(m_newFolderShortcutAction->shortcuts());
-                    // Both actions have now the same shortcut, so this will prevent the "Ambiguous shortcut detected" dialog.
-                    act->setShortcutContext(Qt::WidgetShortcut);
-                    // We also need to react to shortcut changes.
-                    QObject::connect(m_newFolderShortcutAction, &QAction::changed, act, [act, this]() {
-                        act->setShortcuts(m_newFolderShortcutAction->shortcuts());
-                    });
-                }
+                });
+            }
+            menu->addAction(act);
+        } else {
+            if (lastEntry && lastEntry->section != entry.section) {
+                menu->addSeparator();
+            }
 
+            QAction *act = new QAction(q);
+            act->setData(idx);
+            act->setIcon(entry.icon);
+            act->setText(i18nc("@item:inmenu Create New", "%1", entry.text));
+            act->setActionGroup(m_newMenuGroup);
+
+            if (KDesktopFile::isDesktopFile(entry.templatePath)) {
                 menu->addAction(act);
             } else {
-                if (lastEntry && lastEntry->section != entry.section) {
-                    menu->addSeparator();
-                }
+                if (!m_firstFileEntry) {
+                    m_firstFileEntry = &entry;
 
-                QAction *act = new QAction(q);
-                act->setData(idx);
-                act->setIcon(entry.icon);
-                act->setText(i18nc("@item:inmenu Create New", "%1", entry.text));
-                act->setActionGroup(m_newMenuGroup);
-
-                if (KDesktopFile::isDesktopFile(entry.templatePath)) {
-                    menu->addAction(act);
-                } else {
-                    if (!m_firstFileEntry) {
-                        m_firstFileEntry = &entry;
-
-                        // If there is a shortcut action copy its shortcut
-                        if (m_newFileShortcutAction) {
+                    // If there is a shortcut action copy its shortcut
+                    if (m_newFileShortcutAction) {
+                        act->setShortcuts(m_newFileShortcutAction->shortcuts());
+                        // Both actions have now the same shortcut, so this will prevent the "Ambiguous shortcut detected" dialog.
+                        act->setShortcutContext(Qt::WidgetShortcut);
+                        // We also need to react to shortcut changes.
+                        QObject::connect(m_newFileShortcutAction, &QAction::changed, act, [act, this]() {
                             act->setShortcuts(m_newFileShortcutAction->shortcuts());
-                            // Both actions have now the same shortcut, so this will prevent the "Ambiguous shortcut detected" dialog.
-                            act->setShortcutContext(Qt::WidgetShortcut);
-                            // We also need to react to shortcut changes.
-                            QObject::connect(m_newFileShortcutAction, &QAction::changed, act, [act, this]() {
-                                act->setShortcuts(m_newFileShortcutAction->shortcuts());
-                            });
-                        }
+                        });
                     }
-                    menu->addAction(act);
                 }
+                menu->addAction(act);
             }
-            lastEntry = &entry;
         }
+        lastEntry = &entry;
     }
 }
 
@@ -1020,10 +1008,14 @@ void KNewFileMenuPrivate::slotFillTemplates()
     };
     files.erase(std::remove_if(files.begin(), files.end(), removeFunc), files.end());
 
-    // Ensure desktop files are always after template files
-    // This ensures consistent behavior and overrides plain entries with ones generated from desktop files
+    // Ensure files in home directory are before system files and desktop files are always before template files
+    // This ensures consistent behavior.
+    // Local files will take precedence over system files and .desktop files will take precedence over template files
     std::partition(files.begin(), files.end(), [](const QString &a) {
-        return !a.endsWith(QStringLiteral(".desktop"));
+        return a.startsWith(QDir::homePath());
+    });
+    std::partition(files.begin(), files.end(), [](const QString &a) {
+        return a.endsWith(QStringLiteral(".desktop"));
     });
 
     std::vector<KNewFileMenuSingleton::Entry> uniqueEntries;
@@ -1038,8 +1030,10 @@ void KNewFileMenuPrivate::slotFillTemplates()
         }
 
         auto it = std::find_if(uniqueEntries.begin(), uniqueEntries.end(), [&entry](const KNewFileMenuSingleton::Entry &info) {
-            return entry.url == info.url;
+            return ((entry.templatePath == info.templatePath || entry.sourceFileInfo.fileName() == info.sourceFileInfo.fileName())
+                    && !entry.templatePath.startsWith(QStringLiteral(":/")));
         });
+
         acceptedMimeType = false;
         if (m_supportedMimeTypes.isEmpty()) {
             acceptedMimeType = true;
@@ -1048,6 +1042,7 @@ void KNewFileMenuPrivate::slotFillTemplates()
                 QMimeType supportedMimeType = db.mimeTypeForName(mimeString);
                 if (supportedMimeType == entry.mimeType) {
                     acceptedMimeType = true;
+                    break;
                 }
             }
         }
