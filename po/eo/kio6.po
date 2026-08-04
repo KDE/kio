@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-01 00:42+0000\n"
+"POT-Creation-Date: 2026-08-04 00:39+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -3600,7 +3600,7 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1159
+#: filewidgets/knewfilemenu.cpp:1155
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3610,7 +3610,7 @@ msgstr ""
 "La nomo <filename>%1</filename> ne povas esti uzata ĉar ĝi estas rezervita "
 "por uzo de la operaciumo."
 
-#: filewidgets/knewfilemenu.cpp:1167
+#: filewidgets/knewfilemenu.cpp:1163
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3620,7 +3620,7 @@ msgstr ""
 "La nomo <filename>%1</filename> komenciĝas per punkto, do ĝi estos kaŝita "
 "defaŭlte."
 
-#: filewidgets/knewfilemenu.cpp:1175
+#: filewidgets/knewfilemenu.cpp:1171
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3632,28 +3632,28 @@ msgstr ""
 "montrita antaŭ aliaj eroj dum ordigo alfabete, inter aliaj eventualaj "
 "strangaĵoj."
 
-#: filewidgets/knewfilemenu.cpp:1193
+#: filewidgets/knewfilemenu.cpp:1189
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Uzi oblikvojn en dosierujoj kreos subdosierujojn, jene:"
 
-#: filewidgets/knewfilemenu.cpp:1207
+#: filewidgets/knewfilemenu.cpp:1203
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Uzado de oblikvoj en dosierujoj kreos subdosierujojn."
 
-#: filewidgets/knewfilemenu.cpp:1219
+#: filewidgets/knewfilemenu.cpp:1215
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Oblikvoj ne povas esti uzataj en nomoj de dosieroj kaj dosierujoj."
 
-#: filewidgets/knewfilemenu.cpp:1224
+#: filewidgets/knewfilemenu.cpp:1220
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 "Malantaŭoblikvoj ne povas esti uzataj en nomoj de dosieroj kaj dosierujoj."
 
-#: filewidgets/knewfilemenu.cpp:1238
+#: filewidgets/knewfilemenu.cpp:1234
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3661,7 +3661,7 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1247
+#: filewidgets/knewfilemenu.cpp:1243
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3670,41 +3670,41 @@ msgstr ""
 "Komenci dosieron aŭ dosierujon per tildo ne estas rekomendita ĉar ĝi povas "
 "esti konfuza aŭ danĝera kiam oni uzas la terminalon por forigi aferojn."
 
-#: filewidgets/knewfilemenu.cpp:1319
+#: filewidgets/knewfilemenu.cpp:1315
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Dosierujo kun nomo <filename>%1</filename> jam ekzistas."
 
-#: filewidgets/knewfilemenu.cpp:1321
+#: filewidgets/knewfilemenu.cpp:1317
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Dosiero kun nomo <filename>%1</filename> jam ekzistas."
 
-#: filewidgets/knewfilemenu.cpp:1407
+#: filewidgets/knewfilemenu.cpp:1403
 #, kde-format
 msgid "Create New"
 msgstr "Krei Novan"
 
-#: filewidgets/knewfilemenu.cpp:1479
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nova Dosierujo"
 
-#: filewidgets/knewfilemenu.cpp:1502
+#: filewidgets/knewfilemenu.cpp:1498
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Krei Novan Dosierujon"
 
-#: filewidgets/knewfilemenu.cpp:1504
+#: filewidgets/knewfilemenu.cpp:1500
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Krei novan dosierujon en %1:"
 
-#: filewidgets/knewfilemenu.cpp:1507 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1503 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox Prompt for new file of type"
 #| msgid "Enter %1 filename:"
@@ -3712,7 +3712,7 @@ msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Enigu %1-dosiernomon:"
 
-#: filewidgets/knewfilemenu.cpp:1564
+#: filewidgets/knewfilemenu.cpp:1560
 #, fuzzy, kde-format
 #| msgid "Owner (Default)"
 msgid "Default"

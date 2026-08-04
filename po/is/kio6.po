@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-01 00:42+0000\n"
+"POT-Creation-Date: 2026-08-04 00:39+0000\n"
 "PO-Revision-Date: 2026-06-24 11:19+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -3589,7 +3589,7 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1159
+#: filewidgets/knewfilemenu.cpp:1155
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3599,7 +3599,7 @@ msgstr ""
 "Ekki er hægt að nota heitið <filename>%1</filename> því það er frátekið til "
 "notkunar af stýrikerfinu."
 
-#: filewidgets/knewfilemenu.cpp:1167
+#: filewidgets/knewfilemenu.cpp:1163
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3609,7 +3609,7 @@ msgstr ""
 "Heitið <filename>%1</filename> byrjar á punkti og skráin því sjálfgefið "
 "falin."
 
-#: filewidgets/knewfilemenu.cpp:1175
+#: filewidgets/knewfilemenu.cpp:1171
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3620,29 +3620,29 @@ msgstr ""
 "Heitið <filename>%1</filename> byrjar með bili sem þýðir að það mun birtast "
 "á undan öðrum atriðum í stafrófsröðun, auk annarra undarlegheita."
 
-#: filewidgets/knewfilemenu.cpp:1193
+#: filewidgets/knewfilemenu.cpp:1189
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Sé skástrik notað í nöfnum á skrám og möppum verða til undirmöppur, eins og "
 "hér:"
 
-#: filewidgets/knewfilemenu.cpp:1207
+#: filewidgets/knewfilemenu.cpp:1203
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Sé skástrik notað í nöfnum á skrám og möppum verða til undirmöppur."
 
-#: filewidgets/knewfilemenu.cpp:1219
+#: filewidgets/knewfilemenu.cpp:1215
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Skástrik er ekki hægt að nota í nöfnum á skrám og möppum."
 
-#: filewidgets/knewfilemenu.cpp:1224
+#: filewidgets/knewfilemenu.cpp:1220
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Öfug skástrik er ekki hægt að nota í nöfnum skráa og mappa."
 
-#: filewidgets/knewfilemenu.cpp:1238
+#: filewidgets/knewfilemenu.cpp:1234
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3652,7 +3652,7 @@ msgstr ""
 "Ekki er hægt að búa til skrá eða möppu með heitinu <filename>%1</filename> "
 "þar sem það myndi skarast við staðsetninguna á heimamöppu notandans."
 
-#: filewidgets/knewfilemenu.cpp:1247
+#: filewidgets/knewfilemenu.cpp:1243
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3662,47 +3662,47 @@ msgstr ""
 "slíkt getur verið ruglandi og haft ýmsar hættur í för með sér þegar hlutum "
 "er eytt á skipanalínu."
 
-#: filewidgets/knewfilemenu.cpp:1319
+#: filewidgets/knewfilemenu.cpp:1315
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Mappa með heitinu <filename>%1</filename> er þegar til staðar."
 
-#: filewidgets/knewfilemenu.cpp:1321
+#: filewidgets/knewfilemenu.cpp:1317
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Skrá með heitinu <filename>%1</filename> er þegar til staðar."
 
-#: filewidgets/knewfilemenu.cpp:1407
+#: filewidgets/knewfilemenu.cpp:1403
 #, kde-format
 msgid "Create New"
 msgstr "Búa til nýtt"
 
-#: filewidgets/knewfilemenu.cpp:1479
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Ný mappa"
 
-#: filewidgets/knewfilemenu.cpp:1502
+#: filewidgets/knewfilemenu.cpp:1498
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Búa til nýja möppu"
 
-#: filewidgets/knewfilemenu.cpp:1504
+#: filewidgets/knewfilemenu.cpp:1500
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Búa til nýja möppu í: %1"
 
-#: filewidgets/knewfilemenu.cpp:1507 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1503 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Settu inn nafn möppu"
 
-#: filewidgets/knewfilemenu.cpp:1564
+#: filewidgets/knewfilemenu.cpp:1560
 #, kde-format
 msgid "Default"
 msgstr "Sjálfgefið"

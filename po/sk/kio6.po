@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-01 00:42+0000\n"
+"POT-Creation-Date: 2026-08-04 00:39+0000\n"
 "PO-Revision-Date: 2024-08-11 20:21+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -3580,7 +3580,7 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1159
+#: filewidgets/knewfilemenu.cpp:1155
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3590,7 +3590,7 @@ msgstr ""
 "Názov <filename>%1</filename> nie je možné použiť, pretože je vyhradený na "
 "použitie operačným systémom."
 
-#: filewidgets/knewfilemenu.cpp:1167
+#: filewidgets/knewfilemenu.cpp:1163
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3600,7 +3600,7 @@ msgstr ""
 "Názov <filename>%1</filename> začína bodkou, preto bude adresár štandardne "
 "skrytý."
 
-#: filewidgets/knewfilemenu.cpp:1175
+#: filewidgets/knewfilemenu.cpp:1171
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3612,27 +3612,27 @@ msgstr ""
 "zobrazený pred ostatnými položkami pri abecednom zoraďovaní, okrem iných "
 "možných zvláštností."
 
-#: filewidgets/knewfilemenu.cpp:1193
+#: filewidgets/knewfilemenu.cpp:1189
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Použitie lomiek v názvoch priečinkov vytvorí podpriečinky, napríklad:"
 
-#: filewidgets/knewfilemenu.cpp:1207
+#: filewidgets/knewfilemenu.cpp:1203
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Použitie lomiek v názvoch priečinkov vytvorí podpriečinky."
 
-#: filewidgets/knewfilemenu.cpp:1219
+#: filewidgets/knewfilemenu.cpp:1215
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Lomky nemôžu byť použité v názvoch súborov a priečinkov."
 
-#: filewidgets/knewfilemenu.cpp:1224
+#: filewidgets/knewfilemenu.cpp:1220
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Spätné lomky nemôžu byť použité v názvoch súborov a priečinkov."
 
-#: filewidgets/knewfilemenu.cpp:1238
+#: filewidgets/knewfilemenu.cpp:1234
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3642,7 +3642,7 @@ msgstr ""
 "Nepodarilo sa vytvoriť priečinok s názvom <filename>%1</filename><nl/>, "
 "pretože je vyhradený na použitie operačným systémom."
 
-#: filewidgets/knewfilemenu.cpp:1247
+#: filewidgets/knewfilemenu.cpp:1243
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3652,47 +3652,47 @@ msgstr ""
 "pretože pri odstraňovaní vecí pomocou terminálu to môže byť mätúce alebo "
 "nebezpečné."
 
-#: filewidgets/knewfilemenu.cpp:1319
+#: filewidgets/knewfilemenu.cpp:1315
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Adresár s názvom <filename>%1</filename> už existuje."
 
-#: filewidgets/knewfilemenu.cpp:1321
+#: filewidgets/knewfilemenu.cpp:1317
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Súbor s názvom <filename>%1</filename> už existuje."
 
-#: filewidgets/knewfilemenu.cpp:1407
+#: filewidgets/knewfilemenu.cpp:1403
 #, kde-format
 msgid "Create New"
 msgstr "Vytvoriť nový"
 
-#: filewidgets/knewfilemenu.cpp:1479
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nový priečinok"
 
-#: filewidgets/knewfilemenu.cpp:1502
+#: filewidgets/knewfilemenu.cpp:1498
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Vytvoriť priečinok"
 
-#: filewidgets/knewfilemenu.cpp:1504
+#: filewidgets/knewfilemenu.cpp:1500
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Vytvoriť nový priečinok v %1:"
 
-#: filewidgets/knewfilemenu.cpp:1507 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1503 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Zadať názov priečinka"
 
-#: filewidgets/knewfilemenu.cpp:1564
+#: filewidgets/knewfilemenu.cpp:1560
 #, kde-format
 msgid "Default"
 msgstr "Predvolené"

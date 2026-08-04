@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-01 00:42+0000\n"
+"POT-Creation-Date: 2026-08-04 00:39+0000\n"
 "PO-Revision-Date: 2023-06-08 11:57+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -3633,7 +3633,7 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1159
+#: filewidgets/knewfilemenu.cpp:1155
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3643,7 +3643,7 @@ msgstr ""
 "نام <filename>%1</filename> قابل استفاده نیست؛ چون توسط سیستم‌عامل رزرو شده "
 "است."
 
-#: filewidgets/knewfilemenu.cpp:1167
+#: filewidgets/knewfilemenu.cpp:1163
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3653,7 +3653,7 @@ msgstr ""
 "نام <filename>%1</filename> با نقطه شروع می‌شود، پس به طور پیش‌گزیده نهفته "
 "خواهد شد."
 
-#: filewidgets/knewfilemenu.cpp:1175
+#: filewidgets/knewfilemenu.cpp:1171
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3665,27 +3665,27 @@ msgstr ""
 "بر اساس حروف الفبا، پیش از موارد دیگر، در کنار موارد عجیب و غریب، نمایش داده "
 "خواهد شد."
 
-#: filewidgets/knewfilemenu.cpp:1193
+#: filewidgets/knewfilemenu.cpp:1189
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1207
+#: filewidgets/knewfilemenu.cpp:1203
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1219
+#: filewidgets/knewfilemenu.cpp:1215
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "کج‌خط نمی‌تواند برای نام پرونده یا پوشه استفاده شود."
 
-#: filewidgets/knewfilemenu.cpp:1224
+#: filewidgets/knewfilemenu.cpp:1220
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "واکج‌خط نمی‌تواند در نام پرونده‌ها و پوشه‌ها استفاده شود."
 
-#: filewidgets/knewfilemenu.cpp:1238
+#: filewidgets/knewfilemenu.cpp:1234
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3693,56 +3693,56 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1247
+#: filewidgets/knewfilemenu.cpp:1243
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1319
+#: filewidgets/knewfilemenu.cpp:1315
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "هم‌اکنون شاخه‌ای با نام <filename>%1</filename> وجود دارد."
 
-#: filewidgets/knewfilemenu.cpp:1321
+#: filewidgets/knewfilemenu.cpp:1317
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "هم‌اکنون پرونده‌ای با نام <filename>%1</filename> وجود دارد."
 
-#: filewidgets/knewfilemenu.cpp:1407
+#: filewidgets/knewfilemenu.cpp:1403
 #, kde-format
 msgid "Create New"
 msgstr "ایجاد‌ جدید"
 
-#: filewidgets/knewfilemenu.cpp:1479
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "پوشهٔ جدید"
 
-#: filewidgets/knewfilemenu.cpp:1502
+#: filewidgets/knewfilemenu.cpp:1498
 #, fuzzy, kde-format
 #| msgid "Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "ایجاد پوشه"
 
-#: filewidgets/knewfilemenu.cpp:1504
+#: filewidgets/knewfilemenu.cpp:1500
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "ایجاد پوشهٔ جدید در %1‏:"
 
-#: filewidgets/knewfilemenu.cpp:1507 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1503 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "&اجرا به عنوان یک کار‌بر متفاوت‌"
 
-#: filewidgets/knewfilemenu.cpp:1564
+#: filewidgets/knewfilemenu.cpp:1560
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox The default character set"
 #| msgid "Default"

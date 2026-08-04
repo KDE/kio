@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-01 00:42+0000\n"
+"POT-Creation-Date: 2026-08-04 00:39+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -3500,7 +3500,7 @@ msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1159
+#: filewidgets/knewfilemenu.cpp:1155
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3509,7 +3509,7 @@ msgid ""
 msgstr ""
 "ไม่สามารถใช้ชื่อ <filename>%1</filename> ได้เนื่องจากมีการสงวนไว้สำหรับใช้โดยระบบปฏิบัติการ"
 
-#: filewidgets/knewfilemenu.cpp:1167
+#: filewidgets/knewfilemenu.cpp:1163
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3517,7 +3517,7 @@ msgid ""
 "default."
 msgstr "ชื่อ <filename>%1</filename> ขึ้นต้นด้วยจุด ซึ่งจะทำให้ถูกซ่อนไปโดยปกติ"
 
-#: filewidgets/knewfilemenu.cpp:1175
+#: filewidgets/knewfilemenu.cpp:1171
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3529,27 +3529,27 @@ msgstr ""
 "ซึ่งจะทำให้ชื่อนั้นปรากฏก่อนรายการอื่นเมื่อจัดเรียงตามตัวอักษร นอกเหนือจากความแปลกประหลาดอื่นๆ "
 "ที่อาจเกิดขึ้น"
 
-#: filewidgets/knewfilemenu.cpp:1193
+#: filewidgets/knewfilemenu.cpp:1189
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "การใช้เครื่องหมายทับในชื่อโฟลเดอร์จะสร้างโฟลเดอร์ย่อยดังนี้:"
 
-#: filewidgets/knewfilemenu.cpp:1207
+#: filewidgets/knewfilemenu.cpp:1203
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "การใช้เครื่องหมายทับในชื่อโฟลเดอร์จะสร้างโฟลเดอร์ย่อย"
 
-#: filewidgets/knewfilemenu.cpp:1219
+#: filewidgets/knewfilemenu.cpp:1215
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "ไม่สามารถใช้เครื่องหมายทับในชื่อไฟล์และโฟลเดอร์ได้"
 
-#: filewidgets/knewfilemenu.cpp:1224
+#: filewidgets/knewfilemenu.cpp:1220
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "ไม่สามารถใช้แบ็กสแลชในชื่อไฟล์และโฟลเดอร์ได้"
 
-#: filewidgets/knewfilemenu.cpp:1238
+#: filewidgets/knewfilemenu.cpp:1234
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3559,7 +3559,7 @@ msgstr ""
 "การสร้างไฟล์หรือโฟลเดอร์ที่ชื่อ <filename>%1</filename> เป็นไปไม่ได้ "
 "เนื่องจากจะทับซ้อนกับตำแหน่งของโฟลเดอร์โฮมของผู้ใช้"
 
-#: filewidgets/knewfilemenu.cpp:1247
+#: filewidgets/knewfilemenu.cpp:1243
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3568,41 +3568,41 @@ msgstr ""
 "ไม่แนะนำให้เริ่มชื่อไฟล์หรือโฟลเดอร์ด้วยเครื่องหมายติลเดอ (~) "
 "เพราะอาจสร้างความสับสนหรืออันตรายได้เมื่อใช้เทอร์มินัลเพื่อลบข้อมูล"
 
-#: filewidgets/knewfilemenu.cpp:1319
+#: filewidgets/knewfilemenu.cpp:1315
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "มีรายการที่ชื่อ <filename>%1</filename> อยู่แล้ว"
 
-#: filewidgets/knewfilemenu.cpp:1321
+#: filewidgets/knewfilemenu.cpp:1317
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "มีไฟล์ชื่อ <filename>%1</filename> อยู่แล้ว"
 
-#: filewidgets/knewfilemenu.cpp:1407
+#: filewidgets/knewfilemenu.cpp:1403
 #, kde-format
 msgid "Create New"
 msgstr "สร้างใหม่"
 
-#: filewidgets/knewfilemenu.cpp:1479
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "โฟลเดอร์ใหม่"
 
-#: filewidgets/knewfilemenu.cpp:1502
+#: filewidgets/knewfilemenu.cpp:1498
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "สร้างโฟลเดอร์ใหม่"
 
-#: filewidgets/knewfilemenu.cpp:1504
+#: filewidgets/knewfilemenu.cpp:1500
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "สร้างโฟลเดอร์ใหม่ใน %1:"
 
-#: filewidgets/knewfilemenu.cpp:1507 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1503 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox Prompt for new file of type"
 #| msgid "Enter %1 filename:"
@@ -3610,7 +3610,7 @@ msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "ใส่ชื่อไฟล์ %1:"
 
-#: filewidgets/knewfilemenu.cpp:1564
+#: filewidgets/knewfilemenu.cpp:1560
 #, fuzzy, kde-format
 #| msgid "Default"
 msgid "Default"
