@@ -508,6 +508,8 @@ inline bool KFileItemPrivate::cmp(const KFileItemPrivate &item) const
             && m_permissions == item.m_permissions
             && m_entry.stringValue(KIO::UDSEntry::UDS_GROUP) == item.m_entry.stringValue(KIO::UDSEntry::UDS_GROUP)
             && m_entry.stringValue(KIO::UDSEntry::UDS_USER) == item.m_entry.stringValue(KIO::UDSEntry::UDS_USER)
+            && m_entry.numberValue(KIO::UDSEntry::UDS_LOCAL_GROUP_ID, -1) == item.m_entry.numberValue(KIO::UDSEntry::UDS_LOCAL_GROUP_ID, -1)
+            && m_entry.numberValue(KIO::UDSEntry::UDS_LOCAL_USER_ID, -1) == item.m_entry.numberValue(KIO::UDSEntry::UDS_LOCAL_USER_ID, -1)
             && m_entry.stringValue(KIO::UDSEntry::UDS_EXTENDED_ACL) == item.m_entry.stringValue(KIO::UDSEntry::UDS_EXTENDED_ACL)
             && m_entry.stringValue(KIO::UDSEntry::UDS_ACL_STRING) == item.m_entry.stringValue(KIO::UDSEntry::UDS_ACL_STRING)
             && m_entry.stringValue(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING) == item.m_entry.stringValue(KIO::UDSEntry::UDS_DEFAULT_ACL_STRING)
