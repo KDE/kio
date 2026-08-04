@@ -27,7 +27,7 @@ namespace KIO
  * \brief Checks whether renaming a file/folder requires user confirmation
  * and shows the appropriate dialog if so.
  *
- * \since 6.27
+ * \since 6.30
  */
 class KIOWIDGETS_EXPORT RenameFileWarningDialog : public QObject
 {
