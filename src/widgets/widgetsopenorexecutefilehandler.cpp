@@ -74,7 +74,7 @@ void KIO::WidgetsOpenOrExecuteFileHandler::promptUserOpenOrExecute(KJob *job, co
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setModal(true);
 
-    connect(dialog, &QDialog::finished, this, [this, dialog, mime](const int result) {
+    connect(dialog, &QDialog::finished, this, [this](const int result) {
         if (result == ExecutableFileOpenDialog::Rejected) {
             Q_EMIT canceled();
             return;

@@ -2276,7 +2276,7 @@ void KFileWidgetPrivate::slotDirOpIconSizeChanged(int size)
 {
     int sliderValue = m_iconSizeSlider->value();
     short currentIconSliderSize = m_stdIconSizes[sliderValue];
-    Q_ASSERT(sliderValue < m_stdIconSizes.size());
+    Q_ASSERT(sliderValue < static_cast<int>(m_stdIconSizes.size()));
     if (size == currentIconSliderSize)
         return;
     if (std::abs(size - currentIconSliderSize) != 1) {

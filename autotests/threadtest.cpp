@@ -106,7 +106,7 @@ void KIOThreadTest::asyncConcurrentCopying()
     for (int i = 0; i < numFiles; ++i) {
         auto *job = KIO::file_copy(QUrl::fromLocalFile(srcs.at(i)), QUrl::fromLocalFile(dests.at(i)), -1, KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);
-        connect(job, &KJob::result, this, [&completedJobs, numFiles, &loop](KJob *j) {
+        connect(job, &KJob::result, this, [&completedJobs, &loop](KJob *j) {
             QVERIFY(!j->error());
             if (++completedJobs == numFiles) {
                 loop.quit();

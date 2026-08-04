@@ -321,7 +321,7 @@ static void createTestFile(const QString &path)
     QVERIFY(QFile::exists(path));
 }
 
-static bool dirListerContainsDisplayName(const KCoreDirLister &lister, const QString &displayName)
+[[maybe_unused]] static bool dirListerContainsDisplayName(const KCoreDirLister &lister, const QString &displayName)
 {
     const KFileItemList items = lister.items();
     for (const KFileItem &item : items) {

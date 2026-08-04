@@ -288,7 +288,6 @@ void ListJob::setUnrestricted(bool unrestricted)
 
 void ListJob::setDetails(KIO::StatDetails details)
 {
-    Q_D(ListJob);
     addMetaData(QStringLiteral("details"), QString::number(details));
 }
 

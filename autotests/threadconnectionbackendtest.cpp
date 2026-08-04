@@ -176,7 +176,7 @@ void ThreadConnectionBackendTest::testManyTasksPreserveOrderUnderBackPressure()
     // Produce far more than HighWaterMark from a separate thread so the producer actually
     // blocks on back-pressure and resumes as the application drains. Order must be preserved.
     const int total = 2000;
-    QThread *workerThread = QThread::create([worker = workerBackend.get(), total] {
+    QThread *workerThread = QThread::create([worker = workerBackend.get()] {
         for (int i = 0; i < total; ++i) {
             worker->sendCommand(i, QByteArray::number(i));
         }

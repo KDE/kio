@@ -251,7 +251,6 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
 
             const int radius = capacityBarHeight / 2;
             QRect capacityBgRect(rectText.x(), rectText.bottom(), rectText.width(), capacityBarHeight);
-            capacityBgRect.adjust(0.5, 0.5, -0.5, -0.5);
             QRect capacityFillRect = capacityBgRect;
             capacityFillRect.setWidth(capacityFillRect.width() * usedSpace);
 
