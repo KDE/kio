@@ -5,8 +5,8 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#ifndef KIO_RENAMEFILEWARNING_H
-#define KIO_RENAMEFILEWARNING_H
+#ifndef KIO_RENAMEFILEWARNINGDIALOG_H
+#define KIO_RENAMEFILEWARNINGDIALOG_H
 
 #include "kiowidgets_export.h"
 
@@ -20,8 +20,8 @@ namespace KIO
 {
 
 /*!
- * \class KIO::RenameFileWarning
- * \inheaderfile KIO/RenameFileWarning
+ * \class KIO::RenameFileWarningDialog
+ * \inheaderfile KIO/RenameFileWarningDialog
  * \inmodule KIOWidgets
  *
  * \brief Checks whether renaming a file/folder requires user confirmation
@@ -29,7 +29,7 @@ namespace KIO
  *
  * \since 6.27
  */
-class KIOWIDGETS_EXPORT RenameFileWarning : public QObject
+class KIOWIDGETS_EXPORT RenameFileWarningDialog : public QObject
 {
     Q_OBJECT
 
@@ -38,9 +38,9 @@ public:
      * \a hiddenFilesVisible suppresses the hidden-file warning when the view
      * already shows hidden files.
      */
-    explicit RenameFileWarning(const KFileItem &item, const QString &newName, QWidget *parent = nullptr, bool hiddenFilesVisible = false);
+    explicit RenameFileWarningDialog(const KFileItem &item, const QString &newName, QWidget *parent = nullptr, bool hiddenFilesVisible = false);
 
-    ~RenameFileWarning() override;
+    ~RenameFileWarningDialog() override;
 
     /*!
      * Connect to result() before calling this: it may be emitted synchronously.
@@ -62,4 +62,4 @@ private:
 
 } // namespace KIO
 
-#endif // KIO_RENAMEFILEWARNING_H
+#endif // KIO_RENAMEFILEWARNINGDIALOG_H

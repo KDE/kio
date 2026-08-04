@@ -5,7 +5,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
-#include "renamefilewarning.h"
+#include "renamefilewarningdialog.h"
 
 #include <KConfigGroup>
 #include <KGuiItem>
@@ -20,7 +20,7 @@
 namespace KIO
 {
 
-RenameFileWarning::RenameFileWarning(const KFileItem &item, const QString &newName, QWidget *parent, bool hiddenFilesVisible)
+RenameFileWarningDialog::RenameFileWarningDialog(const KFileItem &item, const QString &newName, QWidget *parent, bool hiddenFilesVisible)
     : QObject(parent)
     , m_item(item)
     , m_newName(newName)
@@ -29,9 +29,9 @@ RenameFileWarning::RenameFileWarning(const KFileItem &item, const QString &newNa
 {
 }
 
-RenameFileWarning::~RenameFileWarning() = default;
+RenameFileWarningDialog::~RenameFileWarningDialog() = default;
 
-void RenameFileWarning::exec()
+void RenameFileWarningDialog::exec()
 {
     const bool becomesHidden = m_newName.startsWith(QLatin1Char('.')) && !m_item.name().startsWith(QLatin1Char('.'));
 
