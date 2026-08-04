@@ -20,6 +20,7 @@ private Q_SLOTS:
     void initTestCase();
     void cleanupTestCase();
     void init();
+    void cleanup();
 
     void startProcess_data();
     void startProcess();
