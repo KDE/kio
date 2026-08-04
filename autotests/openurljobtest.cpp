@@ -91,6 +91,13 @@ void OpenUrlJobTest::init()
     QFile::remove(m_tempDir.path() + "/dest");
 }
 
+void OpenUrlJobTest::cleanup()
+{
+    // A launched process is watched by a runner that deletes itself once the process is gone. A test that
+    // ends before that leaves the runner behind, which the leak checker of the CI reports.
+    QTRY_COMPARE(KProcessRunner::instanceCount(), 0);
+}
+
 static void createSrcFile(const QString &path)
 {
     QFile srcFile(path);
