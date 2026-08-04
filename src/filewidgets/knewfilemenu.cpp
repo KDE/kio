@@ -80,6 +80,15 @@ static QString expandTilde(const QString &name, bool isfile = false)
     return !expandedName.isEmpty() ? expandedName : name;
 }
 
+static QString stripEllipsis(const QString &text)
+{
+    QString result = text;
+    result.remove(QStringLiteral("...")); // the ... is fine for the menu item but not for the default filename
+    result.remove(QStringLiteral("…")); // actual ellipsis.
+    result = result.trimmed(); // In some languages, there is a space in front of "...", see bug 268895
+    return result;
+}
+
 static bool isDefaultFolderIcon(const QString &iconName)
 {
     return iconName.isEmpty() || iconName == QLatin1String("folder") || iconName == QLatin1String("inode-directory");
@@ -190,7 +199,7 @@ bool KNewFileMenuSingleton::Entry::parseFile(const QString &file)
                 templatePath = url.toLocalFile();
             } else if (!url.toString().startsWith(QLatin1Char('/')) && !url.toString().startsWith(QLatin1String("__"))) {
                 // A relative path, then (that's the default in the files we ship)
-                templatePath = QDir(sourceFileInfo.path()).filePath(url.toString());
+                templatePath = sourceFileInfo.path() + QLatin1Char('/') + url.toString();
             } else {
                 templatePath = url.toString();
             }
@@ -577,10 +586,7 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
         return;
     }
 
-    QString text = entry.text;
-    text.remove(QStringLiteral("...")); // the ... is fine for the menu item but not for the default filename
-    text.remove(QStringLiteral("…")); // actual ellipsis.
-    text = text.trimmed(); // In some languages, there is a space in front of "...", see bug 268895
+    QString text = stripEllipsis(entry.text);
     // KDE5 TODO: remove the "..." from link*.desktop files and use i18n("%1...") when making
     // the action.
     QString name = text;
@@ -630,37 +636,12 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
 
     initDialog();
 
-    const auto getSelectionLength = [](const QString &text) {
-        // Select the text without MIME-type extension
-        int selectionLength = text.length();
-
-        QMimeDatabase db;
-        const QString extension = db.suffixForFileName(text);
-        if (extension.isEmpty()) {
-            selectionLength = text.indexOf(QLatin1Char('.'));
-
-            // If no point could be found, use whole text length for selection.
-            if (selectionLength < 1) {
-                selectionLength = text.length();
-            }
-
-        } else {
-            selectionLength -= extension.length() + 1;
-        }
-
-        return selectionLength;
-    };
-
     // The template is not a desktop file
     // Prompt the user to set the destination filename
-    QString text = entry.text;
-    text.remove(QStringLiteral("...")); // the ... is fine for the menu item but not for the default filename
-    text.remove(QStringLiteral("…")); // actual ellipsis.
-    text = text.trimmed(); // In some languages, there is a space in front of "...", see bug 268895
-    // add the extension (from the templatePath), should work with .txt, .html and with ".tar.gz"... etc
-    const QString fileName = entry.templatePath.mid(entry.templatePath.lastIndexOf(QLatin1Char('/')));
-    const int dotIndex = getSelectionLength(fileName);
-    text += dotIndex > 0 ? fileName.mid(dotIndex) : QString();
+    QString text = stripEllipsis(entry.text);
+    // add the full extension from the templatePath
+    const QString suffix(QFileInfo(entry.templatePath).completeSuffix());
+    text += suffix.isEmpty() ? QString() : QLatin1Char('.') + suffix;
 
     m_copyData.m_src = entry.templatePath;
 
@@ -694,8 +675,7 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
 
     m_fileDialog->show();
 
-    const int firstDotInBaseName = getSelectionLength(text);
-    m_lineEdit->setSelection(0, firstDotInBaseName > 0 ? firstDotInBaseName : text.size());
+    m_lineEdit->setSelection(0, QFileInfo(text).baseName().size());
 
     m_lineEdit->setFocus();
 }
