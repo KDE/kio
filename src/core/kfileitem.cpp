@@ -1221,10 +1221,14 @@ QString KFileItem::iconName() const
         }
 
         if (isDir()) {
-            // Only read the .directory file when the user has specified
-            // remote directory previews
-            const KConfigGroup previewConfig(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
-            if (isDirectoryMounted(url) && (!d->isSlow() || (d->isSlow() && previewConfig.readEntry("EnableRemoteFolderThumbnail", false)))) {
+            bool readDotDirectoryFile = isDirectoryMounted(url) && !d->isSlow();
+            if (!readDotDirectoryFile && d->isSlow()) {
+                // Only read the .directory file when the user has specified
+                // remote directory previews
+                const KConfigGroup previewConfig(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
+                readDotDirectoryFile = previewConfig.readEntry("EnableRemoteFolderThumbnail", false);
+            }
+            if (readDotDirectoryFile) {
                 d->m_iconName = iconFromDirectoryFile(localFile);
                 if (!d->m_iconName.isEmpty()) {
                     d->m_useIconNameCache = d->m_bMimeTypeKnown;
