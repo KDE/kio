@@ -616,6 +616,7 @@ void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::E
         templateUrl = QUrl::fromLocalFile(entry.templatePath);
     }
     KPropertiesDialog *dlg = new KPropertiesDialog(templateUrl, directory, text, m_parentWidget);
+    dlg->setWindowTitle(i18nc("@title:window New link to a program", "Create New %1", stripEllipsis(entry.text)));
     dlg->setModal(q->isModal());
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     QObject::connect(dlg, &KPropertiesDialog::applied, q, [this, dlg]() {
