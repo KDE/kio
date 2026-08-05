@@ -32,6 +32,7 @@
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KLocalizedString>
+#include <KSharedConfig>
 #include <kmountpoint.h>
 #ifndef Q_OS_WIN
 #include <knfsshare.h>
@@ -1220,9 +1221,10 @@ QString KFileItem::iconName() const
         }
 
         if (isDir()) {
-            // Reading the .directory file opens it synchronously, which can block
-            // for a long time on a slow filesystem, so skip it for those.
-            if (!d->isSlow() && isDirectoryMounted(url)) {
+            // Only read the .directory file when the user has specified
+            // remote directory previews
+            const KConfigGroup previewConfig(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
+            if (isDirectoryMounted(url) && (!d->isSlow() || (d->isSlow() && previewConfig.readEntry("EnableRemoteFolderThumbnail", false)))) {
                 d->m_iconName = iconFromDirectoryFile(localFile);
                 if (!d->m_iconName.isEmpty()) {
                     d->m_useIconNameCache = d->m_bMimeTypeKnown;
