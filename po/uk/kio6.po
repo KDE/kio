@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-04 00:39+0000\n"
+"POT-Creation-Date: 2026-08-05 00:41+0000\n"
 "PO-Revision-Date: 2026-06-14 15:38+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -2703,7 +2703,7 @@ msgstr "Показати перегляд"
 msgid "Open Containing Folder"
 msgstr "Відкрити теку об'єкта"
 
-#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1270
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1269
 #, kde-format
 msgid "Properties"
 msgstr "Властивості"
@@ -3146,96 +3146,96 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "Переформатувати або редагувати за допомогою «Керування розділами»"
 
-#: filewidgets/kfileplacesview.cpp:344
+#: filewidgets/kfileplacesview.cpp:343
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:361
+#: filewidgets/kfileplacesview.cpp:360
 #: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "Вільно %1 з %2 (використано %3%)"
 
-#: filewidgets/kfileplacesview.cpp:674
+#: filewidgets/kfileplacesview.cpp:673
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (приховано)"
 
-#: filewidgets/kfileplacesview.cpp:1228
+#: filewidgets/kfileplacesview.cpp:1227
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Спорожнити Смітник"
 
-#: filewidgets/kfileplacesview.cpp:1253
+#: filewidgets/kfileplacesview.cpp:1252
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Змонтувати"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Відкрити у новій вкладці"
 
-#: filewidgets/kfileplacesview.cpp:1266
+#: filewidgets/kfileplacesview.cpp:1265
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Відкрити у новому вікні"
 
-#: filewidgets/kfileplacesview.cpp:1275
+#: filewidgets/kfileplacesview.cpp:1274
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Додати запис…"
 
-#: filewidgets/kfileplacesview.cpp:1281
+#: filewidgets/kfileplacesview.cpp:1280
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "З&мінити…"
 
-#: filewidgets/kfileplacesview.cpp:1286
+#: filewidgets/kfileplacesview.cpp:1285
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Вилучити з «Місць»"
 
-#: filewidgets/kfileplacesview.cpp:1290
+#: filewidgets/kfileplacesview.cpp:1289
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "При&ховати"
 
-#: filewidgets/kfileplacesview.cpp:1298
+#: filewidgets/kfileplacesview.cpp:1297
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Приховати розділ «%1»"
 
-#: filewidgets/kfileplacesview.cpp:1298
+#: filewidgets/kfileplacesview.cpp:1297
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Приховати розділ"
 
-#: filewidgets/kfileplacesview.cpp:1306
+#: filewidgets/kfileplacesview.cpp:1305
 #, kde-format
 msgid "&Show All Entries"
 msgstr "По&казати всі записи"
 
-#: filewidgets/kfileplacesview.cpp:1311
+#: filewidgets/kfileplacesview.cpp:1310
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Розмір піктограм"
 
-#: filewidgets/kfileplacesview.cpp:1432
+#: filewidgets/kfileplacesview.cpp:1431
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3243,25 +3243,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Автоматична зміна"
 
-#: filewidgets/kfileplacesview.cpp:1452
+#: filewidgets/kfileplacesview.cpp:1451
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Малий (%1⨯%1)"
 
-#: filewidgets/kfileplacesview.cpp:1455
+#: filewidgets/kfileplacesview.cpp:1454
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Середній (%1⨯%1)"
 
-#: filewidgets/kfileplacesview.cpp:1458
+#: filewidgets/kfileplacesview.cpp:1457
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Великий (%1⨯%1)"
 
-#: filewidgets/kfileplacesview.cpp:1461
+#: filewidgets/kfileplacesview.cpp:1460
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -3587,38 +3587,38 @@ msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Введіть назву файла %1:"
 
-#: filewidgets/knewfilemenu.cpp:551
+#: filewidgets/knewfilemenu.cpp:550
 #, kde-format
 msgid "Sorry"
 msgstr "Вибачте"
 
-#: filewidgets/knewfilemenu.cpp:562
+#: filewidgets/knewfilemenu.cpp:561
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Файла шаблону <b>%1</b> не існує.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:713 filewidgets/knewfilemenu.cpp:776
+#: filewidgets/knewfilemenu.cpp:710 filewidgets/knewfilemenu.cpp:771
 #, kde-format
 msgid "Name for new link:"
 msgstr "Назва нового посилання:"
 
-#: filewidgets/knewfilemenu.cpp:716
+#: filewidgets/knewfilemenu.cpp:713
 #, kde-format
 msgid "Create Symlink"
 msgstr "Створити символічне посилання"
 
-#: filewidgets/knewfilemenu.cpp:780
+#: filewidgets/knewfilemenu.cpp:775
 #, kde-format
 msgid "Create link to URL"
 msgstr "Створити посилання на URL"
 
-#: filewidgets/knewfilemenu.cpp:813 filewidgets/knewfilemenu.cpp:836
+#: filewidgets/knewfilemenu.cpp:808 filewidgets/knewfilemenu.cpp:831
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1155
+#: filewidgets/knewfilemenu.cpp:1150
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3628,7 +3628,7 @@ msgstr ""
 "Не можна скористатися назвою <filename>%1</filename>, оскільки таку назву "
 "зарезервовано операційною системою."
 
-#: filewidgets/knewfilemenu.cpp:1163
+#: filewidgets/knewfilemenu.cpp:1158
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3638,7 +3638,7 @@ msgstr ""
 "Назва файла <filename>%1</filename> починається з крапки. Типово, такі файли "
 "вважаються прихованими."
 
-#: filewidgets/knewfilemenu.cpp:1171
+#: filewidgets/knewfilemenu.cpp:1166
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3650,32 +3650,32 @@ msgstr ""
 "проблем, це призведе до того, що її буде показано перед іншими записами при "
 "упорядковуванні за абеткою."
 
-#: filewidgets/knewfilemenu.cpp:1189
+#: filewidgets/knewfilemenu.cpp:1184
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Додавання символів похилих рисок до назв тек призведе до створення підтек, "
 "ось так:"
 
-#: filewidgets/knewfilemenu.cpp:1203
+#: filewidgets/knewfilemenu.cpp:1198
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 "Додавання символів похилих рисок до назв тек призведе до створення підтек."
 
-#: filewidgets/knewfilemenu.cpp:1215
+#: filewidgets/knewfilemenu.cpp:1210
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Не можна використовувати символи похилої риски у назва файлів і тек"
 
-#: filewidgets/knewfilemenu.cpp:1220
+#: filewidgets/knewfilemenu.cpp:1215
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 "Не можна використовувати символи зворотної похилої риски у назвах файлів і "
 "тек."
 
-#: filewidgets/knewfilemenu.cpp:1234
+#: filewidgets/knewfilemenu.cpp:1229
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3685,7 +3685,7 @@ msgstr ""
 "Створення файла або теки з назвою <filename>%1</filename> неможливе, "
 "оскільки призведе до конфлікту з розміщенням домашньої теки користувача."
 
-#: filewidgets/knewfilemenu.cpp:1243
+#: filewidgets/knewfilemenu.cpp:1238
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3695,47 +3695,47 @@ msgstr ""
 "такі назви можуть призводити до помилок або введення небезпечних команд у "
 "терміналі, коли ви захочете щось вилучити."
 
-#: filewidgets/knewfilemenu.cpp:1315
+#: filewidgets/knewfilemenu.cpp:1310
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Каталог із назвою <filename>%1</filename> вже існує."
 
-#: filewidgets/knewfilemenu.cpp:1317
+#: filewidgets/knewfilemenu.cpp:1312
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Файл із назвою <filename>%1</filename> вже існує."
 
-#: filewidgets/knewfilemenu.cpp:1403
+#: filewidgets/knewfilemenu.cpp:1398
 #, kde-format
 msgid "Create New"
 msgstr "Створити"
 
-#: filewidgets/knewfilemenu.cpp:1475
+#: filewidgets/knewfilemenu.cpp:1470
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Нова тека"
 
-#: filewidgets/knewfilemenu.cpp:1498
+#: filewidgets/knewfilemenu.cpp:1493
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Створення теки"
 
-#: filewidgets/knewfilemenu.cpp:1500
+#: filewidgets/knewfilemenu.cpp:1495
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Створити теку у %1:"
 
-#: filewidgets/knewfilemenu.cpp:1503 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1498 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Введіть назву теки"
 
-#: filewidgets/knewfilemenu.cpp:1560
+#: filewidgets/knewfilemenu.cpp:1555
 #, kde-format
 msgid "Default"
 msgstr "Типове"

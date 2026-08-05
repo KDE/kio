@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmsocks\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-04 00:39+0000\n"
+"POT-Creation-Date: 2026-08-05 00:41+0000\n"
 "PO-Revision-Date: 2021-11-08 14:26+0100\n"
 "Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
 "Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
@@ -2664,7 +2664,7 @@ msgstr "Pokaž přehladku"
 msgid "Open Containing Folder"
 msgstr ""
 
-#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1270
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1269
 #, kde-format
 msgid "Properties"
 msgstr "Swójstwa"
@@ -3152,7 +3152,7 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:344
+#: filewidgets/kfileplacesview.cpp:343
 #, fuzzy, kde-format
 #| msgctxt "items: folders, files (size)"
 #| msgid "%1: %2"
@@ -3160,100 +3160,100 @@ msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:361
+#: filewidgets/kfileplacesview.cpp:360
 #: widgets/kpropertiesdialogbuiltin_p.cpp:676
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 swobodne z %2 (%3% so wužiwa)"
 
-#: filewidgets/kfileplacesview.cpp:674
+#: filewidgets/kfileplacesview.cpp:673
 #, kde-format
 msgid "%1 (hidden)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1228
+#: filewidgets/kfileplacesview.cpp:1227
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Papjernik wuprózdnić"
 
-#: filewidgets/kfileplacesview.cpp:1253
+#: filewidgets/kfileplacesview.cpp:1252
 #, fuzzy, kde-format
 #| msgid "Mount"
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "montować"
 
-#: filewidgets/kfileplacesview.cpp:1263
+#: filewidgets/kfileplacesview.cpp:1262
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Wočinić z"
 
-#: filewidgets/kfileplacesview.cpp:1266
+#: filewidgets/kfileplacesview.cpp:1265
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1275
+#: filewidgets/kfileplacesview.cpp:1274
 #, fuzzy, kde-format
 #| msgid "Add Entry..."
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Zapis dodać ..."
 
-#: filewidgets/kfileplacesview.cpp:1281
+#: filewidgets/kfileplacesview.cpp:1280
 #, fuzzy, kde-format
 #| msgid "&Edit..."
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Wobdźěłać"
 
-#: filewidgets/kfileplacesview.cpp:1286
+#: filewidgets/kfileplacesview.cpp:1285
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Zničić"
 
-#: filewidgets/kfileplacesview.cpp:1290
+#: filewidgets/kfileplacesview.cpp:1289
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1298
+#: filewidgets/kfileplacesview.cpp:1297
 #, fuzzy, kde-format
 #| msgid "&Hide '%1'"
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "'%1' &schować"
 
-#: filewidgets/kfileplacesview.cpp:1298
+#: filewidgets/kfileplacesview.cpp:1297
 #, fuzzy, kde-format
 #| msgid "&Hide '%1'"
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "'%1' &schować"
 
-#: filewidgets/kfileplacesview.cpp:1306
+#: filewidgets/kfileplacesview.cpp:1305
 #, fuzzy, kde-format
 msgid "&Show All Entries"
 msgstr ""
 "Pokaž\n"
 "zapisy"
 
-#: filewidgets/kfileplacesview.cpp:1311
+#: filewidgets/kfileplacesview.cpp:1310
 #, fuzzy, kde-format
 #| msgid "Short View"
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Krótki napohlad"
 
-#: filewidgets/kfileplacesview.cpp:1432
+#: filewidgets/kfileplacesview.cpp:1431
 #, fuzzy, kde-format
 #| msgid "Auto &Detect"
 msgctxt ""
@@ -3262,25 +3262,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Awtomatisce &namakać"
 
-#: filewidgets/kfileplacesview.cpp:1452
+#: filewidgets/kfileplacesview.cpp:1451
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1455
+#: filewidgets/kfileplacesview.cpp:1454
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:1458
+#: filewidgets/kfileplacesview.cpp:1457
 #, fuzzy, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "wulkosć %1"
 
-#: filewidgets/kfileplacesview.cpp:1461
+#: filewidgets/kfileplacesview.cpp:1460
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -3617,13 +3617,13 @@ msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Jako &hinaši wužiwar startować"
 
-#: filewidgets/knewfilemenu.cpp:551
+#: filewidgets/knewfilemenu.cpp:550
 #, fuzzy, kde-format
 #| msgid "Store"
 msgid "Sorry"
 msgstr "Zawěsćić"
 
-#: filewidgets/knewfilemenu.cpp:562
+#: filewidgets/knewfilemenu.cpp:561
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
@@ -3633,29 +3633,29 @@ msgstr ""
 "<qt>Njemóžu komando wuwjesć. Dataja abo zapisk <b>%1</b> njeeksistujetej.</"
 "qt>"
 
-#: filewidgets/knewfilemenu.cpp:713 filewidgets/knewfilemenu.cpp:776
+#: filewidgets/knewfilemenu.cpp:710 filewidgets/knewfilemenu.cpp:771
 #, kde-format
 msgid "Name for new link:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:716
+#: filewidgets/knewfilemenu.cpp:713
 #, kde-format
 msgid "Create Symlink"
 msgstr "Symboliski wotkaz (symlink) stworić"
 
-#: filewidgets/knewfilemenu.cpp:780
+#: filewidgets/knewfilemenu.cpp:775
 #, fuzzy, kde-format
 #| msgid "Created:"
 msgid "Create link to URL"
 msgstr "Stworjene:"
 
-#: filewidgets/knewfilemenu.cpp:813 filewidgets/knewfilemenu.cpp:836
+#: filewidgets/knewfilemenu.cpp:808 filewidgets/knewfilemenu.cpp:831
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1155
+#: filewidgets/knewfilemenu.cpp:1150
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3663,7 +3663,7 @@ msgid ""
 "use by the operating system."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1163
+#: filewidgets/knewfilemenu.cpp:1158
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3671,7 +3671,7 @@ msgid ""
 "default."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1171
+#: filewidgets/knewfilemenu.cpp:1166
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3680,27 +3680,27 @@ msgid ""
 "potential oddities."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1189
+#: filewidgets/knewfilemenu.cpp:1184
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1203
+#: filewidgets/knewfilemenu.cpp:1198
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1215
+#: filewidgets/knewfilemenu.cpp:1210
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1220
+#: filewidgets/knewfilemenu.cpp:1215
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1234
+#: filewidgets/knewfilemenu.cpp:1229
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3708,59 +3708,59 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1243
+#: filewidgets/knewfilemenu.cpp:1238
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1315
+#: filewidgets/knewfilemenu.cpp:1310
 #, fuzzy, kde-kuit-format
 #| msgid "An older item named '%1' already exists."
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Něšto tajke starše z mjenom '%1' hižo eksistuje."
 
-#: filewidgets/knewfilemenu.cpp:1317
+#: filewidgets/knewfilemenu.cpp:1312
 #, fuzzy, kde-kuit-format
 #| msgid "A file named %1 already exists."
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Dataja %1 hižo eksistuje."
 
-#: filewidgets/knewfilemenu.cpp:1403
+#: filewidgets/knewfilemenu.cpp:1398
 #, fuzzy, kde-format
 #| msgid "Created:"
 msgid "Create New"
 msgstr "Stworjene:"
 
-#: filewidgets/knewfilemenu.cpp:1475
+#: filewidgets/knewfilemenu.cpp:1470
 #, fuzzy, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nowy zapisk..."
 
-#: filewidgets/knewfilemenu.cpp:1498
+#: filewidgets/knewfilemenu.cpp:1493
 #, fuzzy, kde-format
 #| msgid "Create Folder"
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Zapisk stworić"
 
-#: filewidgets/knewfilemenu.cpp:1500
+#: filewidgets/knewfilemenu.cpp:1495
 #, fuzzy, kde-format
 msgid "Create new folder in %1:"
 msgstr "Nowy zapisk stworić w:"
 
-#: filewidgets/knewfilemenu.cpp:1503 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1498 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Jako &hinaši wužiwar startować"
 
-#: filewidgets/knewfilemenu.cpp:1560
+#: filewidgets/knewfilemenu.cpp:1555
 #, fuzzy, kde-format
 #| msgid "Default"
 msgid "Default"
