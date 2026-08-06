@@ -280,7 +280,7 @@ void FtpInternal::closeConnection()
     }
 
     if (m_bLoggedOn) { // send quit
-        if (!ftpSendCmd(QByteArrayLiteral("quit"), 0) || (m_iRespType != 2)) {
+        if (!ftpSendCmd(QByteArrayLiteral("QUIT"), 0) || (m_iRespType != 2)) {
             qCWarning(KIO_FTP) << "QUIT returned error: " << m_iRespCode;
         }
     }
@@ -1017,7 +1017,7 @@ Result FtpInternal::ftpOpenCommand(const char *_command, const QString &_path, c
     if (_offset > 0) {
         // send rest command if offset > 0, this applies to retr and stor commands
         char buf[100];
-        sprintf(buf, "rest %lld", _offset);
+        sprintf(buf, "REST %lld", _offset);
         if (!ftpSendCmd(buf)) {
             return Result::fail();
         }
@@ -1034,10 +1034,10 @@ Result FtpInternal::ftpOpenCommand(const char *_command, const QString &_path, c
     }
 
     if (!ftpSendCmd(tmp) || (m_iRespType != 1)) {
-        if (_offset > 0 && qstrcmp(_command, "retr") == 0 && (m_iRespType == 4)) {
+        if (_offset > 0 && qstrcmp(_command, "RETR") == 0 && (m_iRespType == 4)) {
             errorcode = ERR_CANNOT_RESUME;
         }
-        if (qstrcmp(_command, "stor") == 0 && m_iRespCode == 550) {
+        if (qstrcmp(_command, "STOR") == 0 && m_iRespCode == 550) {
             errorcode = ERR_WRITE_ACCESS_DENIED;
             errormessage = _path;
         } else {
@@ -1048,7 +1048,7 @@ Result FtpInternal::ftpOpenCommand(const char *_command, const QString &_path, c
 
     else {
         // Only now we know for sure that we can resume
-        if (_offset > 0 && qstrcmp(_command, "retr") == 0) {
+        if (_offset > 0 && qstrcmp(_command, "RETR") == 0) {
             q->canResume();
         }
 
@@ -1105,7 +1105,7 @@ Result FtpInternal::mkdir(const QUrl &url, int permissions)
     const QByteArray encodedPath(q->remoteEncoding()->encode(url));
     const QString path = QString::fromLatin1(encodedPath.constData(), encodedPath.size());
 
-    if (!ftpSendCmd((QByteArrayLiteral("mkd ") + encodedPath)) || (m_iRespType != 2)) {
+    if (!ftpSendCmd((QByteArrayLiteral("MKD ") + encodedPath)) || (m_iRespType != 2)) {
         QString currentPath(m_currentPath);
 
         // Check whether or not mkdir failed because
@@ -1393,7 +1393,7 @@ Result FtpInternal::stat(const QUrl &url)
         return Result::fail(ERR_CANNOT_ENTER_DIRECTORY, parentDir);
     }
 
-    result = ftpOpenCommand("list", listarg, 'I', ERR_DOES_NOT_EXIST);
+    result = ftpOpenCommand("LIST", listarg, 'I', ERR_DOES_NOT_EXIST);
     if (!result.success()) {
         qCritical() << "COULD NOT LIST";
         return result;
@@ -1553,14 +1553,9 @@ Result FtpInternal::ftpOpenDir(const QString &path)
     // In fact we have to use -la otherwise -a removes the default -l (e.g. ftp.trolltech.com)
     // Pass KJob::NoError first because we don't want to emit error before we
     // have tried all commands.
-    auto result = ftpOpenCommand("list -la", QString(), 'I', KJob::NoError);
+    auto result = ftpOpenCommand("LIST -la", QString(), 'I', KJob::NoError);
     if (!result.success()) {
-        result = ftpOpenCommand("list", QString(), 'I', KJob::NoError);
-    }
-    if (!result.success()) {
-        // Servers running with Turkish locale having problems converting 'i' letter to upper case.
-        // So we send correct upper case command as last resort.
-        result = ftpOpenCommand("LIST -la", QString(), 'I', ERR_CANNOT_ENTER_DIRECTORY);
+        result = ftpOpenCommand("LIST", QString(), 'I', ERR_CANNOT_ENTER_DIRECTORY);
     }
 
     if (!result.success()) {
@@ -1850,7 +1845,7 @@ Result FtpInternal::ftpGet(int iCopyFile, const QString &sCopyFile, const QUrl &
         qCDebug(KIO_FTP) << "got offset from metadata : " << llOffset;
     }
 
-    result = ftpOpenCommand("retr", url.path(), '?', ERR_CANNOT_OPEN_FOR_READING, llOffset);
+    result = ftpOpenCommand("RETR", url.path(), '?', ERR_CANNOT_OPEN_FOR_READING, llOffset);
     if (!result.success()) {
         qCWarning(KIO_FTP) << "Can't open for reading";
         return result;
@@ -2040,7 +2035,7 @@ Result FtpInternal::ftpPut(int iCopyFile, const QUrl &dest_url, int permissions,
         }
     }
 
-    const auto storResult = ftpOpenCommand("stor", dest, '?', ERR_CANNOT_WRITE, offset);
+    const auto storResult = ftpOpenCommand("STOR", dest, '?', ERR_CANNOT_WRITE, offset);
     if (!storResult.success()) {
         return storResult;
     }
@@ -2203,7 +2198,7 @@ bool FtpInternal::ftpFolder(const QString &path)
         return true;
     }
 
-    const QByteArray tmp = "cwd " + q->remoteEncoding()->encode(newPath);
+    const QByteArray tmp = "CWD " + q->remoteEncoding()->encode(newPath);
     if (!ftpSendCmd(tmp)) {
         return false; // connection failure
     }
