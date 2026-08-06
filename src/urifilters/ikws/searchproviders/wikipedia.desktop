@@ -125,6 +125,7 @@ Query[gd]=https://gd.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[gl]=http://gl.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[he]=https://he.wikipedia.org/wiki/מיוחד:חיפוש?search=\\{@}&go=Go
 Query[hi]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[hr]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[hu]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ia]=http://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[id]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

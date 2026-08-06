@@ -24,6 +24,7 @@ Name[fr]=Base de données de WineHQ
 Name[ga]=Bunachar Sonraí WineHQ
 Name[gl]=Base de datos de WineHQ
 Name[he]=מסד הנתונים של WineHQ
+Name[hr]=Baza podataka WineHQ
 Name[ia]=Base de Datos de WineHQ
 Name[id]=Database WineHQ
 Name[ie]=WineHQ Database
@@ -77,6 +78,7 @@ Query[fi]=https://www.winehq.org/search?q=\\{@}
 Query[fr]=https://www.winehq.org/search?q=\\{@}
 Query[ga]=https://www.winehq.org/search?q=\\{@}
 Query[gl]=https://www.winehq.org/search?q=\\{@}
+Query[hr]=https://www.winehq.org/search?q=\\{@}
 Query[ia]=https://www.winehq.org/search?q=\\{@}
 Query[id]=https://www.winehq.org/search?q=\\{@}
 Query[ie]=https://www.winehq.org/search?q=\\{@}

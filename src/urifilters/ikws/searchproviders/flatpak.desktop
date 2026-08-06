@@ -24,6 +24,7 @@ Name[fr]=Documentation de Flatpak
 Name[ga]=Doiciméadú Flatpak
 Name[gl]=Documentación de Flatpak
 Name[he]=תיעוד Flatpak
+Name[hr]=Flatpak dokumentacija
 Name[ia]=Documentation de Flatpak
 Name[id]=Dokumentasi Flatpak
 Name[ie]=Documentation de Flatpak
@@ -78,6 +79,7 @@ Query[fr]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[ga]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[gl]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[he]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[hr]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ia]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[id]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[ie]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

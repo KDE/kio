@@ -24,6 +24,7 @@ Name[fr]=ProtonDB
 Name[ga]=ProtonDB
 Name[gl]=ProtonDB
 Name[he]=ProtonDB
+Name[hr]=ProtonDB
 Name[ia]=ProtonDB
 Name[id]=ProtonDB
 Name[ie]=ProtonDB
@@ -77,6 +78,7 @@ Query[fi]=https://www.protondb.com/search?q=\\{@}
 Query[fr]=https://www.protondb.com/search?q=\\{@}
 Query[ga]=https://www.protondb.com/search?q=\\{@}
 Query[gl]=https://www.protondb.com/search?q=\\{@}
+Query[hr]=https://www.protondb.com/search?q=\\{@}
 Query[ia]=https://www.protondb.com/search?q=\\{@}
 Query[id]=https://www.protondb.com/search?q=\\{@}
 Query[ie]=https://www.protondb.com/search?q=\\{@}
