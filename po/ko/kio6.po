@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-05 00:41+0000\n"
+"POT-Creation-Date: 2026-08-06 00:40+0000\n"
 "PO-Revision-Date: 2026-06-06 13:00+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -2202,17 +2202,17 @@ msgstr "대상 드라이브를 큰 파일을 지원하는 파일 시스템으로
 msgid "Undocumented Error"
 msgstr "문서화되지 않은 오류"
 
-#: core/kfileitem.cpp:1484
+#: core/kfileitem.cpp:1488
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1(으)로 향한 심볼릭 링크)"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1490
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2(으)로 향한 링크)"
 
-#: core/kfileitem.cpp:1489
+#: core/kfileitem.cpp:1493
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (%1을(를) 가리킴)|/| (%1$[을를 %1] 가리킴)"
@@ -3398,7 +3398,7 @@ msgstr "모든 폴더"
 msgid "Current Directory: %1"
 msgstr "현재 디렉터리: %1"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:847
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:858
 #, kde-format
 msgid "&Open"
 msgstr "열기(&O)"
@@ -3760,7 +3760,7 @@ msgstr "위치를 탐색하려면 클릭하십시오"
 msgid "Click to Edit Location"
 msgstr "주소를 편집하려면 클릭하십시오"
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:247
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:250
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "이 파일을 실행할 권한이 없습니다."
@@ -3834,12 +3834,12 @@ msgstr ""
 "데스크톱 항목 파일이\n"
 "잘못되었습니다."
 
-#: gui/kprocessrunner.cpp:294
+#: gui/kprocessrunner.cpp:297
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 실행 중"
 
-#: gui/kprocessrunner.cpp:478
+#: gui/kprocessrunner.cpp:481
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -5186,64 +5186,64 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "종류"
 
-#: widgets/kfileitemactions.cpp:448
-#, kde-format
-msgid "Open &with %1"
-msgstr "%1(으)로 열기(&W)|/|%1$[으 %1]로 열기(&W)"
-
-#: widgets/kfileitemactions.cpp:450
-#, kde-format
-msgctxt "@item:inmenu Open With, %1 is application name"
-msgid "%1"
-msgstr "%1"
-
-#: widgets/kfileitemactions.cpp:586
+#: widgets/kfileitemactions.cpp:330
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "작업(&A)"
 
-#: widgets/kfileitemactions.cpp:756
+#: widgets/kfileitemactions.cpp:469
+#, kde-format
+msgid "Open &with %1"
+msgstr "%1(으)로 열기(&W)|/|%1$[으 %1]로 열기(&W)"
+
+#: widgets/kfileitemactions.cpp:471
+#, kde-format
+msgctxt "@item:inmenu Open With, %1 is application name"
+msgid "%1"
+msgstr "%1"
+
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "다음으로 폴더 열기(&O)…"
 
-#: widgets/kfileitemactions.cpp:756
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "다음으로 열기(&O)…"
 
-#: widgets/kfileitemactions.cpp:814
+#: widgets/kfileitemactions.cpp:825
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "파일 실행(&R)"
 
-#: widgets/kfileitemactions.cpp:836
+#: widgets/kfileitemactions.cpp:847
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "%1(으)로 폴더 열기(&O)|/|%1$[으 %1]로 폴더 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:836
+#: widgets/kfileitemactions.cpp:847
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1(으)로 열기(&O)|/|%1$[으 %1]로 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:868
+#: widgets/kfileitemactions.cpp:879
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "다음으로 폴더 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:868
+#: widgets/kfileitemactions.cpp:879
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "다음으로 열기(&O)"
 
-#: widgets/kfileitemactions.cpp:879
+#: widgets/kfileitemactions.cpp:890
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-05 00:41+0000\n"
+"POT-Creation-Date: 2026-08-06 00:40+0000\n"
 "PO-Revision-Date: 2026-07-04 21:41+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -2211,17 +2211,17 @@ msgstr "أعد تهيئة قرص المقصد ليستخدم نظام ملفات
 msgid "Undocumented Error"
 msgstr "خطأ غير موثّق"
 
-#: core/kfileitem.cpp:1484
+#: core/kfileitem.cpp:1488
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(رابط رمزيّ إلى %1)"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1490
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1، رابط إلى %2)"
 
-#: core/kfileitem.cpp:1489
+#: core/kfileitem.cpp:1493
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (يشير إلى %1)"
@@ -3430,7 +3430,7 @@ msgstr "كلّ المجلّدات"
 msgid "Current Directory: %1"
 msgstr "الدليل الحالي: %1"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:847
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:858
 #, kde-format
 msgid "&Open"
 msgstr "ا&فتح"
@@ -3792,7 +3792,7 @@ msgstr "انقر لتصفح الموقع "
 msgid "Click to Edit Location"
 msgstr "انقر لتحرير المكان"
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:247
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:250
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "ليس مصّرحًا لك تنفيذ هذا الملفّ."
@@ -3866,12 +3866,12 @@ msgstr ""
 "%1\n"
 "غير صالحة."
 
-#: gui/kprocessrunner.cpp:294
+#: gui/kprocessrunner.cpp:297
 #, kde-format
 msgid "Launching %1"
 msgstr "يُطلق %1"
 
-#: gui/kprocessrunner.cpp:478
+#: gui/kprocessrunner.cpp:481
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -5248,64 +5248,64 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "النّوع"
 
-#: widgets/kfileitemactions.cpp:448
-#, kde-format
-msgid "Open &with %1"
-msgstr "ا&فتح في %1"
-
-#: widgets/kfileitemactions.cpp:450
-#, kde-format
-msgctxt "@item:inmenu Open With, %1 is application name"
-msgid "%1"
-msgstr "‏%1"
-
-#: widgets/kfileitemactions.cpp:586
+#: widgets/kfileitemactions.cpp:330
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "إ&جراءات"
 
-#: widgets/kfileitemactions.cpp:756
+#: widgets/kfileitemactions.cpp:469
+#, kde-format
+msgid "Open &with %1"
+msgstr "ا&فتح في %1"
+
+#: widgets/kfileitemactions.cpp:471
+#, kde-format
+msgctxt "@item:inmenu Open With, %1 is application name"
+msgid "%1"
+msgstr "‏%1"
+
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "ا&فتح المجلد بـ…"
 
-#: widgets/kfileitemactions.cpp:756
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "اف&تح ب‍…"
 
-#: widgets/kfileitemactions.cpp:814
+#: widgets/kfileitemactions.cpp:825
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&شغّل الملف التنفيذي"
 
-#: widgets/kfileitemactions.cpp:836
+#: widgets/kfileitemactions.cpp:847
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "ا&فتح المجلد بـ %1"
 
-#: widgets/kfileitemactions.cpp:836
+#: widgets/kfileitemactions.cpp:847
 #, kde-format
 msgid "&Open with %1"
 msgstr "ا&فتح في %1"
 
-#: widgets/kfileitemactions.cpp:868
+#: widgets/kfileitemactions.cpp:879
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "ا&فتح المجلد بـ"
 
-#: widgets/kfileitemactions.cpp:868
+#: widgets/kfileitemactions.cpp:879
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "ا&فتح في"
 
-#: widgets/kfileitemactions.cpp:879
+#: widgets/kfileitemactions.cpp:890
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

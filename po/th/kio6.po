@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-05 00:41+0000\n"
+"POT-Creation-Date: 2026-08-06 00:40+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -2191,17 +2191,17 @@ msgstr "ฟอร์แมตไดรฟ์ปลายทางเพื่อ
 msgid "Undocumented Error"
 msgstr "ข้อผิดพลาดที่ยังไม่มีในเอกสาร"
 
-#: core/kfileitem.cpp:1484
+#: core/kfileitem.cpp:1488
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(เชื่อมโยงแบบสัญลักษณ์ไปยัง %1)"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1490
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, เชื่อมโยงไปยัง %2)"
 
-#: core/kfileitem.cpp:1489
+#: core/kfileitem.cpp:1493
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (ชี้ไปยัง %1)"
@@ -3385,7 +3385,7 @@ msgstr "ทุกโฟลเดอร์"
 msgid "Current Directory: %1"
 msgstr "สร้างไดเรกทอรี"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:847
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:858
 #, kde-format
 msgid "&Open"
 msgstr "เ&ปิด"
@@ -3756,7 +3756,7 @@ msgstr "คลิกเพื่อไปยังที่อยู่"
 msgid "Click to Edit Location"
 msgstr "คลิกเพื่อแก้ไขที่อยู่"
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:247
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:250
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "คุณยังไม่ได้รับอนุญาตให้ประมวลผลแฟ้มนี้"
@@ -3830,12 +3830,12 @@ msgstr ""
 "%1\n"
 "ไม่ถูกต้อง"
 
-#: gui/kprocessrunner.cpp:294
+#: gui/kprocessrunner.cpp:297
 #, kde-format
 msgid "Launching %1"
 msgstr "ทำการเรียก %1"
 
-#: gui/kprocessrunner.cpp:478
+#: gui/kprocessrunner.cpp:481
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -5191,65 +5191,65 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "ประเภท"
 
-#: widgets/kfileitemactions.cpp:448
-#, kde-format
-msgid "Open &with %1"
-msgstr "เ&ปิดใช้ด้วย %1"
-
-#: widgets/kfileitemactions.cpp:450
-#, kde-format
-msgctxt "@item:inmenu Open With, %1 is application name"
-msgid "%1"
-msgstr "%1"
-
-#: widgets/kfileitemactions.cpp:586
+#: widgets/kfileitemactions.cpp:330
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&การกระทำ"
 
-#: widgets/kfileitemactions.cpp:756
+#: widgets/kfileitemactions.cpp:469
+#, kde-format
+msgid "Open &with %1"
+msgstr "เ&ปิดใช้ด้วย %1"
+
+#: widgets/kfileitemactions.cpp:471
+#, kde-format
+msgctxt "@item:inmenu Open With, %1 is application name"
+msgid "%1"
+msgstr "%1"
+
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&เปิดโฟลเดอร์ด้วย…"
 
-#: widgets/kfileitemactions.cpp:756
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&เปิดใช้ด้วย..."
 
-#: widgets/kfileitemactions.cpp:814
+#: widgets/kfileitemactions.cpp:825
 #, fuzzy, kde-format
 #| msgid "&Execute"
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&ประมวลผล"
 
-#: widgets/kfileitemactions.cpp:836
+#: widgets/kfileitemactions.cpp:847
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&เปิดด้วย %1"
 
-#: widgets/kfileitemactions.cpp:836
+#: widgets/kfileitemactions.cpp:847
 #, kde-format
 msgid "&Open with %1"
 msgstr "เ&ปิดด้วย %1"
 
-#: widgets/kfileitemactions.cpp:868
+#: widgets/kfileitemactions.cpp:879
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&เปิดใช้ด้วย"
 
-#: widgets/kfileitemactions.cpp:868
+#: widgets/kfileitemactions.cpp:879
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "เปิดใช้&ด้วย"
 
-#: widgets/kfileitemactions.cpp:879
+#: widgets/kfileitemactions.cpp:890
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

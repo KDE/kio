@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-05 00:41+0000\n"
+"POT-Creation-Date: 2026-08-06 00:40+0000\n"
 "PO-Revision-Date: 2026-07-27 03:52+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -2276,17 +2276,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Dokumentatu gabeko errorea"
 
-#: core/kfileitem.cpp:1484
+#: core/kfileitem.cpp:1488
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1(e)ra esteka sinbolikoa)"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1490
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2(r)ako esteka)"
 
-#: core/kfileitem.cpp:1489
+#: core/kfileitem.cpp:1493
 #, kde-format
 msgid " (Points to %1)"
 msgstr "(%1(e)ra apuntatzen du)"
@@ -3491,7 +3491,7 @@ msgstr "Karpeta guztiak"
 msgid "Current Directory: %1"
 msgstr "Uneko direktorioa: %1"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:847
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:858
 #, kde-format
 msgid "&Open"
 msgstr "&Ireki"
@@ -3863,7 +3863,7 @@ msgstr "Egin klik kokalekuetan nabigatzeko"
 msgid "Click to Edit Location"
 msgstr "Egin klik kokaleku editatzeko"
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:247
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:250
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Ez duzu fitxategi hau exekutatzeko baimenik."
@@ -3941,12 +3941,12 @@ msgstr ""
 "%1\n"
 "baliogabea."
 
-#: gui/kprocessrunner.cpp:294
+#: gui/kprocessrunner.cpp:297
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 abiarazten"
 
-#: gui/kprocessrunner.cpp:478
+#: gui/kprocessrunner.cpp:481
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -5313,64 +5313,64 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Mota"
 
-#: widgets/kfileitemactions.cpp:448
-#, kde-format
-msgid "Open &with %1"
-msgstr "&Ireki %1(r)ekin"
-
-#: widgets/kfileitemactions.cpp:450
-#, kde-format
-msgctxt "@item:inmenu Open With, %1 is application name"
-msgid "%1"
-msgstr "%1"
-
-#: widgets/kfileitemactions.cpp:586
+#: widgets/kfileitemactions.cpp:330
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Ekintzak"
 
-#: widgets/kfileitemactions.cpp:756
+#: widgets/kfileitemactions.cpp:469
+#, kde-format
+msgid "Open &with %1"
+msgstr "&Ireki %1(r)ekin"
+
+#: widgets/kfileitemactions.cpp:471
+#, kde-format
+msgctxt "@item:inmenu Open With, %1 is application name"
+msgid "%1"
+msgstr "%1"
+
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&Ireki karpeta honekin…"
 
-#: widgets/kfileitemactions.cpp:756
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Ireki &honekin…"
 
-#: widgets/kfileitemactions.cpp:814
+#: widgets/kfileitemactions.cpp:825
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "E&xekutatu exekutagarria"
 
-#: widgets/kfileitemactions.cpp:836
+#: widgets/kfileitemactions.cpp:847
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Ireki karpeta %1(r)ekin"
 
-#: widgets/kfileitemactions.cpp:836
+#: widgets/kfileitemactions.cpp:847
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Ireki %1(r)ekin"
 
-#: widgets/kfileitemactions.cpp:868
+#: widgets/kfileitemactions.cpp:879
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Ireki karpeta honekin"
 
-#: widgets/kfileitemactions.cpp:868
+#: widgets/kfileitemactions.cpp:879
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Ireki &honekin"
 
-#: widgets/kfileitemactions.cpp:879
+#: widgets/kfileitemactions.cpp:890
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

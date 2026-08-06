@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-05 00:41+0000\n"
+"POT-Creation-Date: 2026-08-06 00:40+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -2270,17 +2270,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nedokumentita Eraro"
 
-#: core/kfileitem.cpp:1484
+#: core/kfileitem.cpp:1488
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Simbola Ligo al %1)"
 
-#: core/kfileitem.cpp:1486
+#: core/kfileitem.cpp:1490
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Ligo al %2)"
 
-#: core/kfileitem.cpp:1489
+#: core/kfileitem.cpp:1493
 #, kde-format
 msgid " (Points to %1)"
 msgstr "(montras al %1)"
@@ -3480,7 +3480,7 @@ msgstr "Ĉiuj Dosierujoj"
 msgid "Current Directory: %1"
 msgstr "Krei Dosierujon"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:847
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:858
 #, kde-format
 msgid "&Open"
 msgstr "&Malfermi"
@@ -3858,7 +3858,7 @@ msgstr "Klaku por Loka Navigado"
 msgid "Click to Edit Location"
 msgstr "Klaku por Redakti Lokon"
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:247
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:250
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Vi ne rajtas plenumi ĉi tiun dosieron."
@@ -3932,12 +3932,12 @@ msgstr ""
 "%1\n"
 "e validas."
 
-#: gui/kprocessrunner.cpp:294
+#: gui/kprocessrunner.cpp:297
 #, kde-format
 msgid "Launching %1"
 msgstr "Lanĉante %1"
 
-#: gui/kprocessrunner.cpp:478
+#: gui/kprocessrunner.cpp:481
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -5314,65 +5314,65 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Tipo"
 
-#: widgets/kfileitemactions.cpp:448
-#, kde-format
-msgid "Open &with %1"
-msgstr "Malfermi &kun %1"
-
-#: widgets/kfileitemactions.cpp:450
-#, kde-format
-msgctxt "@item:inmenu Open With, %1 is application name"
-msgid "%1"
-msgstr "%1"
-
-#: widgets/kfileitemactions.cpp:586
+#: widgets/kfileitemactions.cpp:330
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Agoj"
 
-#: widgets/kfileitemactions.cpp:756
+#: widgets/kfileitemactions.cpp:469
+#, kde-format
+msgid "Open &with %1"
+msgstr "Malfermi &kun %1"
+
+#: widgets/kfileitemactions.cpp:471
+#, kde-format
+msgctxt "@item:inmenu Open With, %1 is application name"
+msgid "%1"
+msgstr "%1"
+
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&Malfermi Dosierujon Per…"
 
-#: widgets/kfileitemactions.cpp:756
+#: widgets/kfileitemactions.cpp:767
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Malfermi Per…"
 
-#: widgets/kfileitemactions.cpp:814
+#: widgets/kfileitemactions.cpp:825
 #, fuzzy, kde-format
 #| msgid "&Execute"
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Efektivigi"
 
-#: widgets/kfileitemactions.cpp:836
+#: widgets/kfileitemactions.cpp:847
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Malfermi dosierujon per %1"
 
-#: widgets/kfileitemactions.cpp:836
+#: widgets/kfileitemactions.cpp:847
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Malfermi per %1"
 
-#: widgets/kfileitemactions.cpp:868
+#: widgets/kfileitemactions.cpp:879
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Malfermi Dosierujon Per"
 
-#: widgets/kfileitemactions.cpp:868
+#: widgets/kfileitemactions.cpp:879
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Malfermi Per"
 
-#: widgets/kfileitemactions.cpp:879
+#: widgets/kfileitemactions.cpp:890
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
