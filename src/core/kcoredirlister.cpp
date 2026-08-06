@@ -64,6 +64,9 @@ KCoreDirListerCache::KCoreDirListerCache()
     connect(&pendingUpdateTimer, &QTimer::timeout, this, &KCoreDirListerCache::processPendingUpdates);
     pendingUpdateTimer.setSingleShot(true);
 
+    connect(&contentChangeTimer, &QTimer::timeout, this, &KCoreDirListerCache::processPendingContentChanges);
+    contentChangeTimer.setSingleShot(true);
+
     connect(KDirWatch::self(), &KDirWatch::dirty, this, &KCoreDirListerCache::slotFileDirty);
     connect(KDirWatch::self(), &KDirWatch::created, this, &KCoreDirListerCache::slotFileCreated);
     connect(KDirWatch::self(), &KDirWatch::deleted, this, &KCoreDirListerCache::slotFileDeleted);
@@ -996,6 +999,22 @@ std::set<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem 
         } else {
             directoryUrl = cleanUpTrailingSlash(directoryUrl.adjusted(QUrl::RemoveFilename));
             lister->d->addRefreshItem(directoryUrl, oldItem, fileitem);
+        }
+    }
+    return listers;
+}
+
+std::set<KCoreDirLister *> KCoreDirListerCache::emitContentChangedItem(const KFileItem &item)
+{
+    const QUrl parentDir = cleanUpTrailingSlash(item.url().adjusted(QUrl::RemoveFilename));
+    std::set<KCoreDirLister *> listers;
+    const auto dit = directoryData.find(parentDir);
+    if (dit != directoryData.end()) {
+        for (auto *lister : (*dit).allListers()) {
+            if (lister->d->m_contentChangeNotificationsEnabled) {
+                lister->d->addContentChangedItem(item);
+                listers.insert(lister);
+            }
         }
     }
     return listers;
@@ -2039,6 +2058,12 @@ void KCoreDirListerCache::processPendingUpdates()
                     reinsert(item, oldItem.url());
                 }
                 listers.merge(emitRefreshItem(oldItem, item));
+            } else if (m_contentChangeListenerCount > 0) {
+                // The file was touched on disk but its metadata is unchanged. Listers that
+                // opted in still want to refresh content-derived data such as thumbnails,
+                // so queue it for a debounced itemsContentChanged() notification.
+                pendingContentChanges.insert(file);
+                contentChangeTimer.start(100);
             }
         }
     }
@@ -2057,6 +2082,22 @@ void KCoreDirListerCache::processPendingUpdates()
         updateDirectory(QUrl::fromLocalFile(dir));
     }
     pendingDirectoryUpdates.clear();
+}
+
+// delayed, debounced notification of content changes for files whose metadata did not change
+void KCoreDirListerCache::processPendingContentChanges()
+{
+    std::set<KCoreDirLister *> listers;
+    for (const QString &file : pendingContentChanges) {
+        const KFileItem item = findByUrl(nullptr, QUrl::fromLocalFile(file));
+        if (!item.isNull()) {
+            listers.merge(emitContentChangedItem(item));
+        }
+    }
+    pendingContentChanges.clear();
+    for (KCoreDirLister *lister : listers) {
+        lister->d->emitItems();
+    }
 }
 
 #ifndef NDEBUG
@@ -2143,8 +2184,25 @@ KCoreDirLister::~KCoreDirLister()
     // Stop all running jobs, remove lister from lists
     if (!qApp->closingDown()) {
         stop();
+        if (d->m_contentChangeNotificationsEnabled) {
+            s_kDirListerCache.localData().changeContentChangeListenerCount(-1);
+        }
         s_kDirListerCache.localData().forgetDirs(this);
     }
+}
+
+void KCoreDirLister::setContentChangeNotificationsEnabled(bool enable)
+{
+    if (d->m_contentChangeNotificationsEnabled == enable) {
+        return;
+    }
+    d->m_contentChangeNotificationsEnabled = enable;
+    s_kDirListerCache.localData().changeContentChangeListenerCount(enable ? 1 : -1);
+}
+
+bool KCoreDirLister::contentChangeNotificationsEnabled() const
+{
+    return d->m_contentChangeNotificationsEnabled;
 }
 
 // TODO KF6: remove bool ret val, it's always true
@@ -2567,6 +2625,13 @@ void KCoreDirListerPrivate::addRefreshItem(const QUrl &directoryUrl, const KFile
     }
 }
 
+void KCoreDirListerPrivate::addContentChangedItem(const KFileItem &item)
+{
+    if (isItemVisible(item) && matchesMimeFilter(item)) {
+        lstContentChangedItems.append(item);
+    }
+}
+
 void KCoreDirListerPrivate::emitItems()
 {
     if (!lstNewItems.empty()) {
@@ -2586,6 +2651,11 @@ void KCoreDirListerPrivate::emitItems()
     if (!lstRefreshItems.empty()) {
         Q_EMIT q->refreshItems(lstRefreshItems);
         lstRefreshItems.clear();
+    }
+
+    if (!lstContentChangedItems.empty()) {
+        Q_EMIT q->itemsContentChanged(lstContentChangedItems);
+        lstContentChangedItems.clear();
     }
 
     if (!lstRemoveItems.empty()) {

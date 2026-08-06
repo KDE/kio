@@ -26,6 +26,8 @@
 
 #include <KDirWatch>
 
+#include <utime.h>
+
 #include <QDebug>
 #include <QTest>
 
@@ -1991,6 +1993,52 @@ void KDirListerTest::testDuplicatedEntries()
                              })
             > 1;
     }));
+}
+
+void KDirListerTest::testContentChangeNotification()
+{
+    // A file rewritten in place with the same size and modification time is reported
+    // through itemsContentChanged() when the lister opted in, even though refreshItems()
+    // stays silent because the metadata compares equal.
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+    const QString dir = tempDir.path() + QLatin1Char('/');
+    const QString path = dir + QLatin1String("content_change");
+
+    {
+        QFile file(path);
+        QVERIFY(file.open(QIODevice::WriteOnly));
+        QCOMPARE(file.write("AAAA"), 4);
+    }
+    // Pin the modification time so the later same-size rewrite leaves the metadata unchanged.
+    const utimbuf times{time_t(1000000), time_t(1000000)};
+    QCOMPARE(::utime(QFile::encodeName(path).constData(), &times), 0);
+
+    KDirLister lister;
+    lister.setContentChangeNotificationsEnabled(true);
+    QSignalSpy contentSpy(&lister, &KCoreDirLister::itemsContentChanged);
+    QSignalSpy refreshSpy(&lister, &KCoreDirLister::refreshItems);
+    lister.openUrl(QUrl::fromLocalFile(dir), KDirLister::NoFlags);
+    QTRY_VERIFY(lister.isFinished());
+
+    // Rewrite the content with the same length, then restore the modification time so the
+    // KFileItem compares equal and refreshItems() does not fire.
+    {
+        QFile file(path);
+        QVERIFY(file.open(QIODevice::WriteOnly | QIODevice::Truncate));
+        QCOMPARE(file.write("BBBB"), 4);
+    }
+    QCOMPARE(::utime(QFile::encodeName(path).constData(), &times), 0);
+
+    // Report the change the way an external in-place write would, without waiting for KDirWatch.
+    org::kde::KDirNotify::emitFilesChanged(QList<QUrl>{QUrl::fromLocalFile(path)});
+
+    // The notification is debounced, so allow for the trailing timer.
+    QVERIFY(contentSpy.wait(5000));
+    QCOMPARE(refreshSpy.count(), 0);
+    const KFileItemList changed = contentSpy.first().first().value<KFileItemList>();
+    QCOMPARE(changed.count(), 1);
+    QCOMPARE(changed.first().url().toLocalFile(), path);
 }
 
 #include "moc_kdirlistertest.cpp"

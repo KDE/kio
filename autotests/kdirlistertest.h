@@ -86,6 +86,7 @@ private Q_SLOTS:
     void testNewItemsInSymlink();
     void testRefreshItems();
     void testRefreshRootItem();
+    void testContentChangeNotification();
     void testDeleteItem();
     void testDeleteItems();
     void testRenameItem();

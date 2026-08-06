@@ -67,6 +67,7 @@ public:
     void addNewItem(const QUrl &directoryUrl, const KFileItem &item);
     void addNewItems(const QUrl &directoryUrl, const QList<KFileItem> &items);
     void addRefreshItem(const QUrl &directoryUrl, const KFileItem &oldItem, const KFileItem &item);
+    void addContentChangedItem(const KFileItem &item);
     void emitItems();
     void emitItemsDeleted(const KFileItemList &items);
 
@@ -154,7 +155,11 @@ public:
     typedef QHash<QUrl, KFileItemList> NewItemsHash;
     NewItemsHash lstNewItems;
     QList<QPair<KFileItem, KFileItem>> lstRefreshItems;
+    KFileItemList lstContentChangedItems;
     KFileItemList lstMimeFilteredItems, lstRemoveItems;
+
+    // Opt-in: emit itemsContentChanged() for content changes with unchanged metadata
+    bool m_contentChangeNotificationsEnabled = false;
 
     QList<CachedItemsJob *> m_cachedItemsJobs;
 
@@ -203,6 +208,12 @@ public:
     ~KCoreDirListerCache() override;
 
     void updateDirectory(const QUrl &dir);
+
+    // Adjusts the number of listers that requested content-change notifications.
+    void changeContentChangeListenerCount(int delta)
+    {
+        m_contentChangeListenerCount += delta;
+    }
 
     KFileItem itemForUrl(const QUrl &url) const;
     QList<KFileItem> *itemsForDir(const QUrl &dir) const;
@@ -272,6 +283,7 @@ private Q_SLOTS:
     void slotUpdateEntries(KIO::Job *job, const KIO::UDSEntryList &entries);
     void slotUpdateResult(KJob *job);
     void processPendingUpdates();
+    void processPendingContentChanges();
 
 private:
     void itemsAddedInDirectory(const QUrl &url);
@@ -318,6 +330,12 @@ private:
      * (but this allows to buffer change notifications)
      */
     std::set<KCoreDirLister *> emitRefreshItem(const KFileItem &oldItem, const KFileItem &fileitem);
+
+    /*!
+     * Emits itemsContentChanged() to the listers that opted in for the directory
+     * holding \a item. The caller has to call emitItems() on the returned listers.
+     */
+    std::set<KCoreDirLister *> emitContentChangedItem(const KFileItem &item);
 
     /*!
      * Remove the item from the sorted by url list matching @p oldUrl,
@@ -550,8 +568,15 @@ private:
     // We temporize the notifications by keeping them 500ms in this list.
     std::set<QString /*path*/> pendingUpdates;
     std::set<QString /*path*/> pendingDirectoryUpdates;
+    // Local files touched on disk without a metadata change, for listers that opted in.
+    // Debounced (trailing edge) via contentChangeTimer so bursts of writes coalesce.
+    std::set<QString /*path*/> pendingContentChanges;
+    // Number of listers with content-change notifications enabled, keeps the feature
+    // zero-overhead when nobody opted in.
+    int m_contentChangeListenerCount = 0;
     // The timer for doing the delayed updates
     QTimer pendingUpdateTimer;
+    QTimer contentChangeTimer;
     QTimer cachePruneTimer;
     // how long a cached directory is kept, which a test shortens
     std::chrono::milliseconds cachedDirectoryLifetime;

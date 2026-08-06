@@ -524,6 +524,26 @@ public:
      */
     void setAutoErrorHandlingEnabled(bool enable);
 
+    /*!
+     * Enables or disables content-change notifications for this lister.
+     *
+     * When enabled, itemsContentChanged() is emitted for a listed file that was
+     * modified on disk even when its metadata (such as modification time and size)
+     * did not change, so that content-derived data like thumbnails can be refreshed.
+     * Disabled by default. The notifications are debounced.
+     *
+     * \sa contentChangeNotificationsEnabled(), itemsContentChanged()
+     * \since 6.30
+     */
+    void setContentChangeNotificationsEnabled(bool enable);
+
+    /*!
+     * Returns \c true if content-change notifications are enabled for this lister.
+     * \sa setContentChangeNotificationsEnabled()
+     * \since 6.30
+     */
+    bool contentChangeNotificationsEnabled() const;
+
 Q_SIGNALS:
     /*!
      * Tell the view that this KCoreDirLister has started to list \a dirUrl. Note that this
@@ -635,6 +655,19 @@ Q_SIGNALS:
      * a renaming.
      */
     void refreshItems(const QList<QPair<KFileItem, KFileItem>> &items);
+
+    /*!
+     * Emitted for listed files that were modified on disk while their metadata
+     * (modification time, size, ...) stayed the same, and only when
+     * setContentChangeNotificationsEnabled(true) was called on this lister.
+     *
+     * Use it to refresh content-derived data such as thumbnails. The signal is
+     * debounced, so it is emitted once writing to a file appears to have settled.
+     *
+     * \a items the items whose content may have changed
+     * \since 6.30
+     */
+    void itemsContentChanged(const KFileItemList &items);
 
     /*!
      * Emitted to display information about running jobs.
