@@ -40,6 +40,8 @@ struct PreviewOptions {
     int sequenceIndex = 0;
     // Whether the thumbnail should be scaled and/or saved
     PreviewJob::ScaleType scaleType = PreviewJob::ScaleType::ScaledAndCached;
+    // Regenerate even if a cached thumbnail looks up to date, overwriting the cache entry
+    bool forceCacheRefresh = false;
 };
 
 struct PreviewSetupData {

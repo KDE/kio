@@ -233,3 +233,38 @@ void FilePreviewJobTest::testSupportedDevicePixelRatio()
 
     QCOMPARE(KIO::supportedDevicePixelRatio(imageSize, QSize(128, 128), 1.75), expectedDpr);
 }
+
+void FilePreviewJobTest::testForceCacheRefresh()
+{
+    // A cached thumbnail that is up to date by URI, modification time and size is
+    // accepted normally, but rejected once a forced refresh is requested, so the
+    // thumbnail is regenerated even though nothing in the file metadata changed.
+    QTemporaryDir thumbRoot;
+    QVERIFY(thumbRoot.isValid());
+
+    const KFileItem item(QUrl::fromLocalFile(QStringLiteral("/tmp/does-not-matter.png")));
+    const QByteArray origName = "file:///tmp/does-not-matter.png";
+    const qint64 mtime = 1000000;
+    const QImage thumb = makeCachedThumb(256, 256, origName, mtime, 256, 256);
+
+    const auto makeJob = [&](bool forceCacheRefresh) {
+        PreviewOptions options;
+        options.size = QSize(256, 256);
+        options.forceCacheRefresh = forceCacheRefresh;
+        PreviewSetupData setupData;
+        setupData.thumbRoot = thumbRoot.path();
+        auto *job = new FilePreviewJob(item, FilePreviewJob::UnknownDeviceId, options, setupData);
+        job->setAutoDelete(false);
+        job->m_origName = origName;
+        job->m_tOrig = QDateTime::fromSecsSinceEpoch(mtime);
+        return job;
+    };
+
+    auto *normalJob = makeJob(false);
+    QVERIFY(normalJob->isCacheValid(thumb));
+    delete normalJob;
+
+    auto *forcedJob = makeJob(true);
+    QVERIFY(!forcedJob->isCacheValid(thumb));
+    delete forcedJob;
+}

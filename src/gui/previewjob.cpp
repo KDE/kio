@@ -272,6 +272,11 @@ void PreviewJob::setIgnoreMaximumSize(bool ignoreSize)
     d_func()->options.ignoreMaximumSize = ignoreSize;
 }
 
+void PreviewJob::setForceCacheRefresh(bool forceRefresh)
+{
+    d_func()->options.forceCacheRefresh = forceRefresh;
+}
+
 int PreviewJobPrivate::deviceIdForLocalPath(const QString &localPath) const
 {
     if (localPath.isEmpty()) {

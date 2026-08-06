@@ -354,6 +354,11 @@ QImage FilePreviewJob::loadThumbnailFromCache(const QString &path, qreal dpr)
 
 bool FilePreviewJob::isCacheValid(const QImage &thumb)
 {
+    if (m_options.forceCacheRefresh) {
+        // A forced refresh treats every cached thumbnail as out of date so it is
+        // regenerated and the cache entry is overwritten.
+        return false;
+    }
     if (thumb.isNull()) {
         return false;
     }

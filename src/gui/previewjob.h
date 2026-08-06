@@ -93,6 +93,16 @@ public:
     void setIgnoreMaximumSize(bool ignoreSize = true);
 
     /*!
+     * If \a forceRefresh is true, any cached thumbnail is ignored and the
+     * preview is regenerated, overwriting the cache entry. Use this when the
+     * file content is known to have changed even though its modification time
+     * and size may not have, so that the mtime based cache is bypassed.
+     *
+     * \since 6.30
+     **/
+    void setForceCacheRefresh(bool forceRefresh = true);
+
+    /*!
      * Sets the sequence \a index given to the thumb creators.
      * Use the sequence index, it is possible to create alternative
      * icons for the same item. For example it may allow iterating through

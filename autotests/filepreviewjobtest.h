@@ -23,6 +23,7 @@ private Q_SLOTS:
     void testGeneratedImageDevicePixelRatio();
     void testSupportedDevicePixelRatio_data();
     void testSupportedDevicePixelRatio();
+    void testForceCacheRefresh();
 };
 
 #endif
