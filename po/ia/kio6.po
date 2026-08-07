@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:40+0000\n"
+"POT-Creation-Date: 2026-08-07 00:41+0000\n"
 "PO-Revision-Date: 2026-07-29 11:47+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -2298,17 +2298,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Error non documentate"
 
-#: core/kfileitem.cpp:1488
+#: core/kfileitem.cpp:1492
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Ligamine symbolic a %1)"
 
-#: core/kfileitem.cpp:1490
+#: core/kfileitem.cpp:1494
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Attacca a %2)"
 
-#: core/kfileitem.cpp:1493
+#: core/kfileitem.cpp:1497
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Il puncta a %1)"
@@ -3591,44 +3591,44 @@ msgstr ""
 "<qt>Isto es le selector de typo de file. Il es usate per seliger le formato "
 "del file monstrate.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:225
+#: filewidgets/knewfilemenu.cpp:234
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Entra nomine de file %1:"
 
-#: filewidgets/knewfilemenu.cpp:550
+#: filewidgets/knewfilemenu.cpp:559
 #, kde-format
 msgid "Sorry"
 msgstr "Desolate"
 
-#: filewidgets/knewfilemenu.cpp:561
+#: filewidgets/knewfilemenu.cpp:570
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Le file patrono <b>%1</b> non existe. </qt>"
 
-#: filewidgets/knewfilemenu.cpp:710 filewidgets/knewfilemenu.cpp:771
+#: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
 #, kde-format
 msgid "Name for new link:"
 msgstr "Nomine per nove ligamine:"
 
-#: filewidgets/knewfilemenu.cpp:713
+#: filewidgets/knewfilemenu.cpp:693
 #, kde-format
 msgid "Create Symlink"
 msgstr "Crea  symlink (ligamine symbolic)"
 
-#: filewidgets/knewfilemenu.cpp:775
+#: filewidgets/knewfilemenu.cpp:755
 #, kde-format
 msgid "Create link to URL"
 msgstr "Crea ligamine a URL"
 
-#: filewidgets/knewfilemenu.cpp:808 filewidgets/knewfilemenu.cpp:831
+#: filewidgets/knewfilemenu.cpp:788 filewidgets/knewfilemenu.cpp:811
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1150
+#: filewidgets/knewfilemenu.cpp:1130
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3638,7 +3638,7 @@ msgstr ""
 "Le nomine <filename>%1</filename> non pote esser usate proque illo es "
 "reservate per uso per le systema operational (o operative)"
 
-#: filewidgets/knewfilemenu.cpp:1158
+#: filewidgets/knewfilemenu.cpp:1138
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3648,7 +3648,7 @@ msgstr ""
 "Le nomine <filename>%1\"</filename> initia con un puncto, assi illo essera "
 "celate per definition."
 
-#: filewidgets/knewfilemenu.cpp:1166
+#: filewidgets/knewfilemenu.cpp:1146
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3660,27 +3660,27 @@ msgstr ""
 "esser monstrate ante alteres elementos quando ordinate alfabeticamente, "
 "inter alteres bizarrias potential."
 
-#: filewidgets/knewfilemenu.cpp:1184
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Usar slashes in nomines de dossieres creara sub-dossieres, assi como:"
 
-#: filewidgets/knewfilemenu.cpp:1198
+#: filewidgets/knewfilemenu.cpp:1178
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Usar slashes in nomines de dossieres creara sub-dossieres."
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1190
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Slashes non pote esser usate in nomine de file e dossier."
 
-#: filewidgets/knewfilemenu.cpp:1215
+#: filewidgets/knewfilemenu.cpp:1195
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Backslashes non pote esser usate in nomines de file de dossier."
 
-#: filewidgets/knewfilemenu.cpp:1229
+#: filewidgets/knewfilemenu.cpp:1209
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3691,7 +3691,7 @@ msgstr ""
 "possibile proque illo imbrica con le location del dossier initial (domo o "
 "principal) del usator."
 
-#: filewidgets/knewfilemenu.cpp:1238
+#: filewidgets/knewfilemenu.cpp:1218
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3701,47 +3701,47 @@ msgstr ""
 "poterea esser confundente o periculose quando on usa le terminal per deler "
 "cosas."
 
-#: filewidgets/knewfilemenu.cpp:1310
+#: filewidgets/knewfilemenu.cpp:1290
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Un directorio con nomine <filename>%1</filename> ja existe."
 
-#: filewidgets/knewfilemenu.cpp:1312
+#: filewidgets/knewfilemenu.cpp:1292
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Un file con nomine <filename>%1</filename> ja existe."
 
-#: filewidgets/knewfilemenu.cpp:1398
+#: filewidgets/knewfilemenu.cpp:1378
 #, kde-format
 msgid "Create New"
 msgstr "Crea nove"
 
-#: filewidgets/knewfilemenu.cpp:1470
+#: filewidgets/knewfilemenu.cpp:1450
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nove dossier"
 
-#: filewidgets/knewfilemenu.cpp:1493
+#: filewidgets/knewfilemenu.cpp:1473
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Crea nove dossier"
 
-#: filewidgets/knewfilemenu.cpp:1495
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Crea nove dossier in %1:"
 
-#: filewidgets/knewfilemenu.cpp:1498 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1478 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Inserta nomine de dossier"
 
-#: filewidgets/knewfilemenu.cpp:1555
+#: filewidgets/knewfilemenu.cpp:1535
 #, kde-format
 msgid "Default"
 msgstr "Predefinite"

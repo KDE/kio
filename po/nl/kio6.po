@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:40+0000\n"
+"POT-Creation-Date: 2026-08-07 00:41+0000\n"
 "PO-Revision-Date: 2026-06-15 15:37+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -2312,17 +2312,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Ongedocumenteerde fout"
 
-#: core/kfileitem.cpp:1488
+#: core/kfileitem.cpp:1492
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symbolische koppeling naar %1)"
 
-#: core/kfileitem.cpp:1490
+#: core/kfileitem.cpp:1494
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, koppeling naar %2)"
 
-#: core/kfileitem.cpp:1493
+#: core/kfileitem.cpp:1497
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Verwijst naar %1)"
@@ -3620,44 +3620,44 @@ msgstr ""
 "<qt>Dit is de selector van het bestandstype. Het wordt gebruikt om het "
 "formaat te selecteren van de te tonen bestanden.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:225
+#: filewidgets/knewfilemenu.cpp:234
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Voer %1 bestandsnaam in:"
 
-#: filewidgets/knewfilemenu.cpp:550
+#: filewidgets/knewfilemenu.cpp:559
 #, kde-format
 msgid "Sorry"
 msgstr "Helaas"
 
-#: filewidgets/knewfilemenu.cpp:561
+#: filewidgets/knewfilemenu.cpp:570
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Het sjabloonbestand <b>%1</b> bestaat niet.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:710 filewidgets/knewfilemenu.cpp:771
+#: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
 #, kde-format
 msgid "Name for new link:"
 msgstr "Naam voor nieuwe koppeling:"
 
-#: filewidgets/knewfilemenu.cpp:713
+#: filewidgets/knewfilemenu.cpp:693
 #, kde-format
 msgid "Create Symlink"
 msgstr "Symbolische koppeling aanmaken"
 
-#: filewidgets/knewfilemenu.cpp:775
+#: filewidgets/knewfilemenu.cpp:755
 #, kde-format
 msgid "Create link to URL"
 msgstr "Koppeling naar URL aanmaken"
 
-#: filewidgets/knewfilemenu.cpp:808 filewidgets/knewfilemenu.cpp:831
+#: filewidgets/knewfilemenu.cpp:788 filewidgets/knewfilemenu.cpp:811
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1150
+#: filewidgets/knewfilemenu.cpp:1130
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3667,7 +3667,7 @@ msgstr ""
 "De naam <filename>%1</filename> kan niet worden gebruikt, omdat het is "
 "gereserveerd voor gebruik door het besturingssysteem."
 
-#: filewidgets/knewfilemenu.cpp:1158
+#: filewidgets/knewfilemenu.cpp:1138
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3677,7 +3677,7 @@ msgstr ""
 "De naam <filename>%1</filename> begint met een punt, dus wordt deze "
 "standaard verborgen."
 
-#: filewidgets/knewfilemenu.cpp:1166
+#: filewidgets/knewfilemenu.cpp:1146
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3689,28 +3689,28 @@ msgstr ""
 "in  tonen aan het begin vóór andere items bij alfabetische sortering, naast "
 "andere rare zaken."
 
-#: filewidgets/knewfilemenu.cpp:1184
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Slashes in mapnamen gebruiken zal submappen maken, zoals:"
 
-#: filewidgets/knewfilemenu.cpp:1198
+#: filewidgets/knewfilemenu.cpp:1178
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Slashes in mapnamen gebruiken zal submappen maken."
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1190
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Slashes kunnen niet gebruikt worden in de naam van een bestand of map."
 
-#: filewidgets/knewfilemenu.cpp:1215
+#: filewidgets/knewfilemenu.cpp:1195
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 "Backslashes kunnen niet gebruikt worden in de naam van een bestand of map."
 
-#: filewidgets/knewfilemenu.cpp:1229
+#: filewidgets/knewfilemenu.cpp:1209
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3721,7 +3721,7 @@ msgstr ""
 "omdat het zou overlappen met de locatie van een persoonlijke map van een "
 "gebruiker."
 
-#: filewidgets/knewfilemenu.cpp:1238
+#: filewidgets/knewfilemenu.cpp:1218
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3731,47 +3731,47 @@ msgstr ""
 "aanbevolen omdat het verwarrend of gevaarlijk kan zijn bij gebruik van de "
 "terminal om zaken te verwijderen."
 
-#: filewidgets/knewfilemenu.cpp:1310
+#: filewidgets/knewfilemenu.cpp:1290
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Een map met naam <filename>%1</filename> bestaat reeds."
 
-#: filewidgets/knewfilemenu.cpp:1312
+#: filewidgets/knewfilemenu.cpp:1292
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Een bestand met naam <filename>%1</filename> bestaat reeds."
 
-#: filewidgets/knewfilemenu.cpp:1398
+#: filewidgets/knewfilemenu.cpp:1378
 #, kde-format
 msgid "Create New"
 msgstr "Nieuwe aanmaken"
 
-#: filewidgets/knewfilemenu.cpp:1470
+#: filewidgets/knewfilemenu.cpp:1450
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nieuwe map"
 
-#: filewidgets/knewfilemenu.cpp:1493
+#: filewidgets/knewfilemenu.cpp:1473
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Nieuwe map aanmaken"
 
-#: filewidgets/knewfilemenu.cpp:1495
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Nieuwe map aanmaken in %1:"
 
-#: filewidgets/knewfilemenu.cpp:1498 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1478 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Mapnaam invoeren"
 
-#: filewidgets/knewfilemenu.cpp:1555
+#: filewidgets/knewfilemenu.cpp:1535
 #, kde-format
 msgid "Default"
 msgstr "Standaard"

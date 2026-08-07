@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:40+0000\n"
+"POT-Creation-Date: 2026-08-07 00:41+0000\n"
 "PO-Revision-Date: 2026-06-15 20:27+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -2257,17 +2257,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Недокументирана грешка"
 
-#: core/kfileitem.cpp:1488
+#: core/kfileitem.cpp:1492
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Символна връзка към %1)"
 
-#: core/kfileitem.cpp:1490
+#: core/kfileitem.cpp:1494
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(Връзка към %1 (%2)"
 
-#: core/kfileitem.cpp:1493
+#: core/kfileitem.cpp:1497
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Сочи към %1)"
@@ -3554,44 +3554,44 @@ msgstr ""
 "<qt>Това е инструментът за избор на тип файл. Използва се за избор на "
 "формата напоказаните файлове.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:225
+#: filewidgets/knewfilemenu.cpp:234
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Въведете %1 име на файл:"
 
-#: filewidgets/knewfilemenu.cpp:550
+#: filewidgets/knewfilemenu.cpp:559
 #, kde-format
 msgid "Sorry"
 msgstr "Съжалявам"
 
-#: filewidgets/knewfilemenu.cpp:561
+#: filewidgets/knewfilemenu.cpp:570
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Файлът на шаблона <b>%1</b> не съществува.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:710 filewidgets/knewfilemenu.cpp:771
+#: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
 #, kde-format
 msgid "Name for new link:"
 msgstr "Име на новата връзка:"
 
-#: filewidgets/knewfilemenu.cpp:713
+#: filewidgets/knewfilemenu.cpp:693
 #, kde-format
 msgid "Create Symlink"
 msgstr "Създаване на символна връзка"
 
-#: filewidgets/knewfilemenu.cpp:775
+#: filewidgets/knewfilemenu.cpp:755
 #, kde-format
 msgid "Create link to URL"
 msgstr "Създаване на връзка към URL"
 
-#: filewidgets/knewfilemenu.cpp:808 filewidgets/knewfilemenu.cpp:831
+#: filewidgets/knewfilemenu.cpp:788 filewidgets/knewfilemenu.cpp:811
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1150
+#: filewidgets/knewfilemenu.cpp:1130
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3601,7 +3601,7 @@ msgstr ""
 "Името <filename> %1 </filename> не може да се използва, защото е запазено за "
 "използване от операционната система."
 
-#: filewidgets/knewfilemenu.cpp:1158
+#: filewidgets/knewfilemenu.cpp:1138
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3611,7 +3611,7 @@ msgstr ""
 "Името <filename> %1 </filename> започва с точка, така че ще бъде скрито по "
 "подразбиране."
 
-#: filewidgets/knewfilemenu.cpp:1166
+#: filewidgets/knewfilemenu.cpp:1146
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3623,32 +3623,32 @@ msgstr ""
 "показване преди другите елементи при сортиране по азбучен ред и до други "
 "потенциални отклонения."
 
-#: filewidgets/knewfilemenu.cpp:1184
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "Използването на наклонени черти в имената на папки ще създаде подпапки по "
 "следния начин:"
 
-#: filewidgets/knewfilemenu.cpp:1198
+#: filewidgets/knewfilemenu.cpp:1178
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 "Използването на наклонени черти в имената на папки ще създаде подпапки."
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1190
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Наклонените черти не могат да се използват в имена на файлове и папки."
 
-#: filewidgets/knewfilemenu.cpp:1215
+#: filewidgets/knewfilemenu.cpp:1195
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 "Обратните наклонени черти не могат да се използват в имената на файлове и "
 "папки."
 
-#: filewidgets/knewfilemenu.cpp:1229
+#: filewidgets/knewfilemenu.cpp:1209
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3659,7 +3659,7 @@ msgstr ""
 "тъй като би се припокрило с местоположението на домашната папка на "
 "потребителя."
 
-#: filewidgets/knewfilemenu.cpp:1238
+#: filewidgets/knewfilemenu.cpp:1218
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3669,47 +3669,47 @@ msgstr ""
 "може да е объркващо или опасно, когато използвате терминала за изтриване на "
 "неща."
 
-#: filewidgets/knewfilemenu.cpp:1310
+#: filewidgets/knewfilemenu.cpp:1290
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Вече съществува директория с име <filename> %1 </filename>."
 
-#: filewidgets/knewfilemenu.cpp:1312
+#: filewidgets/knewfilemenu.cpp:1292
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Вече съществува файл с име <filename> %1 </filename>."
 
-#: filewidgets/knewfilemenu.cpp:1398
+#: filewidgets/knewfilemenu.cpp:1378
 #, kde-format
 msgid "Create New"
 msgstr "Създаване на"
 
-#: filewidgets/knewfilemenu.cpp:1470
+#: filewidgets/knewfilemenu.cpp:1450
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Нова папка"
 
-#: filewidgets/knewfilemenu.cpp:1493
+#: filewidgets/knewfilemenu.cpp:1473
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Създаване на нова папка"
 
-#: filewidgets/knewfilemenu.cpp:1495
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Създаване на нова папка в %1:"
 
-#: filewidgets/knewfilemenu.cpp:1498 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1478 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Въведете името на директорията"
 
-#: filewidgets/knewfilemenu.cpp:1555
+#: filewidgets/knewfilemenu.cpp:1535
 #, kde-format
 msgid "Default"
 msgstr "По подразбиране"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:40+0000\n"
+"POT-Creation-Date: 2026-08-07 00:41+0000\n"
 "PO-Revision-Date: 2026-08-01 17:53+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -2225,17 +2225,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "தெரியாத பிழை"
 
-#: core/kfileitem.cpp:1488
+#: core/kfileitem.cpp:1492
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 -க்கான குறியிணைப்பு)"
 
-#: core/kfileitem.cpp:1490
+#: core/kfileitem.cpp:1494
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2 -க்கு இணைப்பு)"
 
-#: core/kfileitem.cpp:1493
+#: core/kfileitem.cpp:1497
 #, kde-format
 msgid " (Points to %1)"
 msgstr "(%1 -ஐ சுட்டுகிறது)"
@@ -3509,44 +3509,44 @@ msgid ""
 msgstr ""
 "<qt>இது கோப்பு வகை தேர்வி. காட்டவேண்டிய கோப்புகளின் படிவத்தை தேர்ந்தெடுக்க உதவும்.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:225
+#: filewidgets/knewfilemenu.cpp:234
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "%1 கோப்பிற்கான பெயரை உள்ளிடவும்:"
 
-#: filewidgets/knewfilemenu.cpp:550
+#: filewidgets/knewfilemenu.cpp:559
 #, kde-format
 msgid "Sorry"
 msgstr "மன்னிக்கவும்"
 
-#: filewidgets/knewfilemenu.cpp:561
+#: filewidgets/knewfilemenu.cpp:570
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt><b>%1</b> எனும் வார்ப்புரு (template) கோப்பு இல்லை.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:710 filewidgets/knewfilemenu.cpp:771
+#: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
 #, kde-format
 msgid "Name for new link:"
 msgstr "புதிய இணைப்பிற்கான பெயர்:"
 
-#: filewidgets/knewfilemenu.cpp:713
+#: filewidgets/knewfilemenu.cpp:693
 #, kde-format
 msgid "Create Symlink"
 msgstr "குறியிணைப்பை உருவாக்கு"
 
-#: filewidgets/knewfilemenu.cpp:775
+#: filewidgets/knewfilemenu.cpp:755
 #, kde-format
 msgid "Create link to URL"
 msgstr "முகவரிக்கு இணைப்பை உருவாக்கு"
 
-#: filewidgets/knewfilemenu.cpp:808 filewidgets/knewfilemenu.cpp:831
+#: filewidgets/knewfilemenu.cpp:788 filewidgets/knewfilemenu.cpp:811
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1150
+#: filewidgets/knewfilemenu.cpp:1130
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3556,7 +3556,7 @@ msgstr ""
 "<filename>%1</filename> என்கிற பெயர் இயக்குதளத்தின் பயன்பாட்டிற்கு ஒதுக்கி "
 "வைக்கப்பட்டதால் அதனை நீங்கள் பயன்படுத்த முடியாது."
 
-#: filewidgets/knewfilemenu.cpp:1158
+#: filewidgets/knewfilemenu.cpp:1138
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3566,7 +3566,7 @@ msgstr ""
 "<filename>%1</filename> என்கிற பெயர் புள்ளியில் தொடங்குவதால், அது இயல்பாக "
 "மறைந்திருக்கும்."
 
-#: filewidgets/knewfilemenu.cpp:1166
+#: filewidgets/knewfilemenu.cpp:1146
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3578,28 +3578,28 @@ msgstr ""
 "வரிசைப்படுத்தும்போது மற்ற உருப்படிகளுக்கு முன்பு காட்டப்படுவதுடன், வேறு "
 "விசித்திரங்களையும் இது கோண்டிருக்கலாம்."
 
-#: filewidgets/knewfilemenu.cpp:1184
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "அடைவுகளின் பெயர்களில் சாய்வுக்கோட்டை பயன்படுத்தல், இப்படி துணை அடைவுகளை உருவாக்கும்:"
 
-#: filewidgets/knewfilemenu.cpp:1198
+#: filewidgets/knewfilemenu.cpp:1178
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "அடைவுகளின் பெயர்களில் சாய்வுக்கோடுகளை பயன்படுத்தல் துணை அடைவுகளை உருவாக்கும்."
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1190
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "கோப்புகள் மற்றும் அடைவுகளின் பெயர்களில் சாய்வுக்கோடுகளை பயன்படுத்த முடியாது."
 
-#: filewidgets/knewfilemenu.cpp:1215
+#: filewidgets/knewfilemenu.cpp:1195
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "பின்சாய்க்கோடுகளை கோப்புகள் மற்றும் அடைவுகளின் பெயர்களில் பயன்படுத்த முடியாது."
 
-#: filewidgets/knewfilemenu.cpp:1229
+#: filewidgets/knewfilemenu.cpp:1209
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3609,7 +3609,7 @@ msgstr ""
 "<filename>%1</filename> என்கிற பெயர் ஓர் பயனரின் முகப்பு அடைவின் இருப்பிடமாக உள்ளதால் "
 "அப்பெயரைக் கொண்ட கோப்பையோ அடைவையோ உருவாக்க முடியாது."
 
-#: filewidgets/knewfilemenu.cpp:1238
+#: filewidgets/knewfilemenu.cpp:1218
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3618,47 +3618,47 @@ msgstr ""
 "டில்டெ (~) தனைக் கொண்டு கோப்பு அல்லது அடைவின் பெயரைத் தொடங்குதல் பரிந்துரைக்கப்படாதது. "
 "ஏனென்றால் முனையத்தில் அதை அகற்றும்போது குழப்பம் உண்டாகலாம்."
 
-#: filewidgets/knewfilemenu.cpp:1310
+#: filewidgets/knewfilemenu.cpp:1290
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> என்ற பெயரில் ஏற்கனவே ஒரு அடைவு உள்ளது."
 
-#: filewidgets/knewfilemenu.cpp:1312
+#: filewidgets/knewfilemenu.cpp:1292
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> என்ற பெயரில் ஏற்கனவே ஒரு கோப்பு உள்ளது."
 
-#: filewidgets/knewfilemenu.cpp:1398
+#: filewidgets/knewfilemenu.cpp:1378
 #, kde-format
 msgid "Create New"
 msgstr "புதியதை உருவாக்கு"
 
-#: filewidgets/knewfilemenu.cpp:1470
+#: filewidgets/knewfilemenu.cpp:1450
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "புதிய அடைவு"
 
-#: filewidgets/knewfilemenu.cpp:1493
+#: filewidgets/knewfilemenu.cpp:1473
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "புதிய அடைவை உருவாக்குவது"
 
-#: filewidgets/knewfilemenu.cpp:1495
+#: filewidgets/knewfilemenu.cpp:1475
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "%1 -இல் புதிய அடைவை உருவாக்கு: "
 
-#: filewidgets/knewfilemenu.cpp:1498 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1478 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "அடைவிற்கான பெயரை உள்ளிடவும்:"
 
-#: filewidgets/knewfilemenu.cpp:1555
+#: filewidgets/knewfilemenu.cpp:1535
 #, kde-format
 msgid "Default"
 msgstr "இயல்பிருப்பு"
