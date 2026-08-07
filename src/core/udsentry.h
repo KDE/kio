@@ -136,35 +136,52 @@ public:
      */
     bool isLink() const;
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 29)
     /*!
      * Calling this function before inserting items into an empty UDSEntry may save time and memory.
+     *
      * \a size number of items for which memory will be pre-allocated
      *
      * \deprecated[6.29] Use reserveStrings() and reserveNumbers().
      */
+    KIOCORE_DEPRECATED_VERSION(6, 29, "Use reserveStrings() and reserveNumbers()")
     void reserve(int size);
+#endif
 
     /*!
-     * Calling those functions before inserting items into an empty UDSEntry may save time and memory.
-     * \a size number of items for which memory will be pre-allocated
+     * Calling this function before inserting items into an empty UDSEntry may save time and memory.
      *
-     * Use reserveStrings for UDS_STRING fields and reserveNumbers for UDS_NUMBER fields.
+     * \a size number of UDS_STRING fields for which memory will be pre-allocated
+     *
+     * \sa reserveNumbers()
      *
      * \since 6.29
      */
     void reserveStrings(int size);
-    //! \sa reserveStrings
+
+    /*!
+     * Calling this function before inserting items into an empty UDSEntry may save time and memory.
+     *
+     * \a size number of UDS_NUMBER fields for which memory will be pre-allocated
+     *
+     * \sa reserveStrings()
+     *
+     * \since 6.29
+     */
     void reserveNumbers(int size);
 
     /*!
-     * Pre-allocate `fields` fields in the backend storage according to their UDS_TYPE
+     * Pre-allocate \a fields fields in the backend storage according to their UDS_TYPE
      *
      * Example:
      *
-     *     UDSEntry entry;
-     *     entry.reserve({UDS_SIZE, UDS_ACCESS, UDS_MODIFICATION_TIME, UDS_NAME});
+     * \code
+     * UDSEntry entry;
+     * entry.reserve({UDS_SIZE, UDS_ACCESS, UDS_MODIFICATION_TIME, UDS_NAME});
+     * \endcode
      *
-     * \a fields
+     * \a fields the fields to pre-allocate for
+     *
      * \since 6.29
      */
     void reserve(std::initializer_list<uint> fields);
@@ -172,14 +189,17 @@ public:
     /*!
      * Insert the values passed as pairs {field, value} in a initializer_list
      *
-     * This will first pre-allocates the necessary memory in the underlying storage vector.
+     * This will first pre-allocate the necessary memory in the underlying storage vector.
      *
      * Example:
      *
-     *     UDSEntry entry;
-     *     entry.insert({{UDS_SIZE, 0}, {UDS_ACCESS, 0}});
+     * \code
+     * UDSEntry entry;
+     * entry.insert({{UDS_SIZE, 0}, {UDS_ACCESS, 0}});
+     * \endcode
      *
-     * \a fields
+     * \a fieldValuePairs the fields and the values to insert
+     *
      * \since 6.29
      */
     void insert(std::initializer_list<std::pair<uint, const QString &>> fieldValuePairs);
@@ -187,14 +207,17 @@ public:
     /*!
      * Insert the values passed as pairs {field, value} in a initializer_list
      *
-     * This will first pre-allocates the necessary memory in the underlying storage vector.
+     * This will first pre-allocate the necessary memory in the underlying storage vector.
      *
      * Example:
      *
-     *     UDSEntry entry;
-     *     entry.insert({{UDS_NAME, ""}, {UDS_USER, ""}});
+     * \code
+     * UDSEntry entry;
+     * entry.insert({{UDS_NAME, ""}, {UDS_USER, ""}});
+     * \endcode
      *
-     * \a fields
+     * \a fieldValuePairs the fields and the values to insert
+     *
      * \since 6.29
      */
     void insert(std::initializer_list<std::pair<uint, long long>> fieldValuePairs);
@@ -237,10 +260,15 @@ public:
     int count() const;
     /*!
      * The number of number fields (including time fields)
+     *
+     * \since 6.29
      */
     int numbersCount() const;
+
     /*!
      * The number of string fields
+     *
+     * \since 6.29
      */
     int stringsCount() const;
 

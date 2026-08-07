@@ -573,11 +573,13 @@ void UDSEntry::clear()
     d->clear();
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 29)
 void UDSEntry::reserve(int size)
 {
     d->reserveStrings(size / 3);
     d->reserveNumbers(size * 2 / 3);
 }
+#endif
 
 void UDSEntry::reserve(std::initializer_list<uint> fields)
 {

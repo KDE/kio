@@ -1165,7 +1165,8 @@ KIO::WorkerResult HTTPProtocol::stat(const QUrl &url)
 
         // When downloading we assume it exists
         KIO::UDSEntry entry;
-        entry.reserve(3);
+        entry.reserveStrings(1);
+        entry.reserveNumbers(2);
         entry.fastInsert(KIO::UDSEntry::UDS_NAME, url.fileName());
         entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG); // a file
         entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, S_IRUSR | S_IRGRP | S_IROTH); // readable by everybody
