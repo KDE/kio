@@ -27,12 +27,17 @@
 
 #if HAVE_STATX
 // statx syscall is available
-inline int LSTAT(const char *path, struct statx *buff, KIO::StatDetails details)
+inline uint32_t statxMask(KIO::StatDetails details)
 {
     uint32_t mask = 0;
-    if (details & KIO::StatBasic) {
-        // filename, access, type, size, linkdest
-        mask |= STATX_SIZE | STATX_TYPE;
+    // KIO::StatAcl needs type
+    if (details & (KIO::StatBasic | KIO::StatAcl | KIO::StatResolveSymlink)) {
+        // filename, access, type
+        mask |= STATX_TYPE;
+    }
+    if (details & (KIO::StatBasic | KIO::StatResolveSymlink)) {
+        // size, linkdest
+        mask |= STATX_SIZE;
     }
     if (details & KIO::StatUser) {
         // uid, gid
@@ -58,43 +63,26 @@ inline int LSTAT(const char *path, struct statx *buff, KIO::StatDetails details)
         mask |= STATX_MNT_ID_UNIQUE;
     }
 #endif
-    return statx(AT_FDCWD, path, AT_SYMLINK_NOFOLLOW, mask, buff);
+    return mask;
 }
+
+inline int LSTAT(const char *path, struct statx *buff, KIO::StatDetails details)
+{
+    return statx(AT_FDCWD, path, AT_SYMLINK_NOFOLLOW, statxMask(details), buff);
+}
+
+// LSTAT of a name in the directory a descriptor is held on, so that what is looked at is the name in that
+// very directory rather than whatever the path resolves to now.
+inline int LSTATAT(int dfd, const char *path, struct statx *buff, KIO::StatDetails details)
+{
+    return statx(dfd, path, AT_SYMLINK_NOFOLLOW, statxMask(details), buff);
+}
+
 inline int STAT(const char *path, struct statx *buff, const KIO::StatDetails &details)
 {
-    uint32_t mask = 0;
-    // KIO::StatAcl needs type
-    if (details & (KIO::StatBasic | KIO::StatAcl | KIO::StatResolveSymlink)) {
-        // filename, access, type
-        mask |= STATX_TYPE;
-    }
-    if (details & (KIO::StatBasic | KIO::StatResolveSymlink)) {
-        // size, linkdest
-        mask |= STATX_SIZE;
-    }
-    if (details & KIO::StatUser) {
-        // uid, gid
-        mask |= STATX_UID | STATX_GID;
-    }
-    if (details & KIO::StatTime) {
-        // atime, mtime, btime
-        mask |= STATX_ATIME | STATX_MTIME | STATX_BTIME;
-    }
-#if HAVE_STATX_SUBVOL
-    if (details & KIO::StatSubVolId) {
-        // subvol id
-        mask |= STATX_SUBVOL;
-    }
-#endif
-#if HAVE_STATX_MNT_ID_UNIQUE
-    if (details & KIO::StatMountId) {
-        // mount unique id
-        mask |= STATX_MNT_ID_UNIQUE;
-    }
-#endif
-    // KIO::Inode is ignored as when STAT is called, the entry inode field has already been filled
-    return statx(AT_FDCWD, path, AT_STATX_SYNC_AS_STAT, mask, buff);
+    return statx(AT_FDCWD, path, AT_STATX_SYNC_AS_STAT, statxMask(details), buff);
 }
+
 inline static uint16_t stat_mode(const struct statx &buf)
 {
     return buf.stx_mode;
@@ -149,6 +137,12 @@ inline static uint64_t stat_mnt_id(const struct statx &buf)
 #endif
 #else
 // regular stat struct (no statx)
+inline int LSTATAT(int dfd, const char *path, QT_STATBUF *buff, KIO::StatDetails details)
+{
+    Q_UNUSED(details)
+    return fstatat(dfd, path, buff, AT_SYMLINK_NOFOLLOW);
+}
+
 inline int LSTAT(const char *path, QT_STATBUF *buff, KIO::StatDetails details)
 {
     Q_UNUSED(details)

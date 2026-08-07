@@ -69,14 +69,6 @@ using namespace KIO;
 /* 512 kB */
 static constexpr int s_maxIPCSize = 1024 * 512;
 
-// Qt maps QT_STATBUF to struct stat64 under LFS; there is no QT_FSTATAT, so mirror
-// that choice for the dirfd-relative fstatat() used in copy().
-#if defined(QT_USE_XOPEN_LFS_EXTENSIONS) && defined(QT_LARGEFILE_SUPPORT)
-#define FSTATAT ::fstatat64
-#else
-#define FSTATAT ::fstatat
-#endif
-
 static bool same_inode(const QT_STATBUF &src, const QT_STATBUF &dest)
 {
     if (src.st_ino == dest.st_ino && src.st_dev == dest.st_dev) {
@@ -103,29 +95,27 @@ static bool isOnCifsMount(const QString &filePath)
     return mountIsCifs(KMountPoint::currentMountPointForPath(filePath));
 }
 
-// Whether the mount backing the pinned directory fd is CIFS/SMB. On Linux this
-// resolves the directory's unique mount id through the KMountPoint cache (no statfs
-// or mount-table parse); elsewhere and on older kernels it falls back to a path
-// lookup. Only worth calling when we are about to overwrite an existing file.
-static bool isDirFdOnCifs(int dfd, const QString &fallbackPath)
-{
-#if HAVE_STATX_MNT_ID_UNIQUE
-    struct statx dirStx;
-    if (statx(dfd, "", AT_EMPTY_PATH, STATX_MNT_ID_UNIQUE, &dirStx) == 0 && (dirStx.stx_mask & STATX_MNT_ID_UNIQUE)) {
-        return mountIsCifs(KMountPoint::currentMountPointForUniqueId(dirStx.stx_mnt_id));
-    }
-#else
-    Q_UNUSED(dfd);
-#endif
-    return isOnCifsMount(fallbackPath);
-}
-
 #if HAVE_STATX
 // statx syscall is available
 using StatStruct = struct statx;
 #else
 using StatStruct = QT_STATBUF;
 #endif
+
+// Whether the file that was looked at sits on a CIFS/SMB mount. On Linux the unique mount id comes from
+// the stat that was made of it anyway, and is resolved through the KMountPoint cache, so neither a statfs
+// nor a parse of the mount table is needed. Elsewhere and on older kernels the mount is looked up by path.
+static bool isOnCifs(const StatStruct &buf, const QString &fallbackPath)
+{
+#if HAVE_STATX_MNT_ID_UNIQUE
+    if (buf.stx_mask & STATX_MNT_ID_UNIQUE) {
+        return mountIsCifs(KMountPoint::currentMountPointForUniqueId(stat_mnt_id(buf)));
+    }
+#else
+    Q_UNUSED(buf);
+#endif
+    return isOnCifsMount(fallbackPath);
+}
 
 static QByteArray readlinkToBuffer(const StatStruct &buf, const QByteArray &path)
 {
@@ -525,33 +515,33 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
         ::close(dfd);
     });
 
-    // Look at the destination without following a final symlink.
-    QT_STATBUF buffDest;
-    const bool dest_exists = (FSTATAT(dfd, destName.constData(), &buffDest, AT_SYMLINK_NOFOLLOW) == 0);
+    // Look at the destination without following a final symlink. The mount it is on is asked for at the
+    // same time, so that the filesystem-type probe below costs nothing of its own.
+    StatStruct buffDest;
+    const bool dest_exists = (LSTATAT(dfd, destName.constData(), &buffDest, KIO::StatBasic | KIO::StatInode | KIO::StatMountId) == 0);
     bool publishViaRename = false; // write to destName + ".part", then rename over destName
     bool truncateInPlace = false; // overwrite destName in place (no ".part", used on CIFS)
     if (dest_exists) {
-        if (same_inode(buffDest, buffSrc)) {
+        if (stat_ino(buffDest) == buffSrc.st_ino && stat_dev(buffDest) == buffSrc.st_dev) {
             return WorkerResult::fail(KIO::ERR_IDENTICAL_FILES, dest);
         }
-        if (S_ISDIR(buffDest.st_mode)) {
+        if (S_ISDIR(stat_mode(buffDest))) {
             return WorkerResult::fail(KIO::ERR_DIR_ALREADY_EXIST, dest);
         }
         if (!(_flags & KIO::Overwrite)) {
             return WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, dest);
         }
-        if (S_ISLNK(buffDest.st_mode)) {
+        if (S_ISLNK(stat_mode(buffDest))) {
             // Overwriting a symlink: unlink it so we never write through it to its
             // target. The create below refuses (O_EXCL) a symlink racing back in.
             if (::unlinkat(dfd, destName.constData(), 0) != 0 && errno != ENOENT) {
                 return WorkerResult::fail(KIO::ERR_CANNOT_DELETE_ORIGINAL, dest);
             }
-        } else if (S_ISREG(buffDest.st_mode)) {
+        } else if (S_ISREG(stat_mode(buffDest))) {
             // Write to a sibling ".part" and atomically rename it over the target so
             // an interrupted copy never leaves the destination truncated. CIFS keeps
-            // the historical in-place overwrite. The filesystem-type probe happens
-            // only here, so a fresh copy pays nothing for it.
-            if (isDirFdOnCifs(dfd, dest)) {
+            // the historical in-place overwrite.
+            if (isOnCifs(buffDest, dest)) {
                 truncateInPlace = true;
             } else {
                 publishViaRename = true;
