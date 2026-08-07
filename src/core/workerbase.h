@@ -839,6 +839,26 @@ public:
      */
     void listEntry(const UDSEntry &entry);
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 29)
+    /*!
+     * Internal function to connect a worker to either the worker pool or the application.
+     *
+     * \deprecated[6.29]
+     */
+    KIOCORE_DEPRECATED_VERSION(6, 29, "Internal, do not use")
+    void connectWorker(const QString &path);
+#endif
+
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 29)
+    /*!
+     * Internal function to disconnect a worker from either the worker pool or the application.
+     *
+     * \deprecated[6.29]
+     */
+    KIOCORE_DEPRECATED_VERSION(6, 29, "Internal, do not use")
+    void disconnectWorker();
+#endif
+
     /*!
      * Prompt the user for Authorization info (login & password).
      *
