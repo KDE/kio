@@ -16,6 +16,7 @@
 
 #include <KConfigGroup>
 #include <KSharedConfig>
+#include <QDateTime>
 #include <QMetaMethod>
 #include <QMimeDatabase>
 #include <QPixmap>
@@ -127,6 +128,21 @@ private:
 void PreviewJob::setDefaultDevicePixelRatio(qreal defaultDevicePixelRatio)
 {
     s_defaultDevicePixelRatio = defaultDevicePixelRatio;
+}
+
+QImage PreviewJob::cachedPreview(const KFileItem &item, const QSize &size, qreal devicePixelRatio)
+{
+    return FilePreviewJob::cachedThumbnail(item, size, devicePixelRatio);
+}
+
+bool PreviewJob::cachedPreviewMatchesFile(const QImage &preview, const KFileItem &item)
+{
+    const QDateTime mtime = item.time(KFileItem::ModificationTime);
+    if (!mtime.isValid()) {
+        return false;
+    }
+
+    return FilePreviewJob::thumbnailIsCurrent(preview, mtime.toSecsSinceEpoch(), item.size());
 }
 
 PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStringList *enabledPlugins)

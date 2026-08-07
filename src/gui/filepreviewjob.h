@@ -117,6 +117,15 @@ public:
     static QList<KPluginMetaData> loadAvailablePlugins();
     static QList<KPluginMetaData> standardThumbnailers();
 
+    // Synchronously loads the freedesktop cached thumbnail for item at the given size and device
+    // pixel ratio, whether or not it was made from the file as it stands now, which
+    // thumbnailIsCurrent() tells. Returns a null QImage on a cache miss. Does no I/O beyond
+    // reading the cached PNG.
+    static QImage cachedThumbnail(const KFileItem &item, const QSize &size, qreal devicePixelRatio);
+
+    // Whether thumb was made from a file of this modification time and size.
+    static bool thumbnailIsCurrent(const QImage &thumb, qint64 sourceMTimeSecs, KIO::filesize_t sourceSize);
+
 private Q_SLOTS:
     void slotStatFile(KJob *job);
     void slotGetOrCreateThumbnail(KJob *job);
