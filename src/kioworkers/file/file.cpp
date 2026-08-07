@@ -950,40 +950,6 @@ static QString readLogFile(const QByteArray &_filename)
 
 // We could port this to KTempDir::removeDir but then we wouldn't be able to tell the user
 // where exactly the deletion failed, in case of errors.
-WorkerResult FileProtocol::deleteRecursive(const QString &path)
-{
-    // qDebug() << path;
-    QDirIterator it(path, QDir::AllEntries | QDir::NoDotAndDotDot | QDir::System | QDir::Hidden, QDirIterator::Subdirectories);
-    QStringList dirsToDelete;
-    while (it.hasNext()) {
-        if (wasKilled()) {
-            return WorkerResult::pass();
-        }
-        const QString itemPath = it.next();
-        // qDebug() << "itemPath=" << itemPath;
-        const QFileInfo info = it.fileInfo();
-        if (info.isDir() && !info.isSymLink()) {
-            dirsToDelete.prepend(itemPath);
-        } else {
-            // qDebug() << "QFile::remove" << itemPath;
-            if (!QFile::remove(itemPath)) {
-                return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, itemPath);
-            }
-        }
-    }
-    QDir dir;
-    for (const QString &itemPath : std::as_const(dirsToDelete)) {
-        if (wasKilled()) {
-            return WorkerResult::pass();
-        }
-        // qDebug() << "QDir::rmdir" << itemPath;
-        if (!dir.rmdir(itemPath)) {
-            return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, itemPath);
-        }
-    }
-    return WorkerResult::pass();
-}
-
 WorkerResult FileProtocol::fileSystemFreeSpace(const QUrl &_url)
 {
     if (isLocalFileSameHost(_url)) {

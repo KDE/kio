@@ -14,7 +14,6 @@
 #include <QTemporaryDir>
 #include <QTemporaryFile>
 #include <QTest>
-#include <QTimer>
 #include <QUrl>
 
 #include <kio/deletejob.h>
@@ -200,6 +199,8 @@ void DeleteJobTest::killedRecursiveDeletionStopsEarly()
         for (int f = 0; f < 300; ++f) {
             QFile file(sub + QStringLiteral("/f%1").arg(f));
             QVERIFY(file.open(QIODevice::WriteOnly));
+            // A byte apiece, so that the worker has something to count as it removes them.
+            QCOMPARE(file.write("x", 1), 1);
             ++created;
         }
     }
@@ -208,18 +209,16 @@ void DeleteJobTest::killedRecursiveDeletionStopsEarly()
     job->setUiDelegate(nullptr);
     job->addMetaData(QStringLiteral("recurse"), QStringLiteral("true"));
 
-    // Cancel once the worker has actually started removing files (so the kill lands inside
-    // deleteRecursive(), not before it begins).
-    QTimer pollTimer;
+    // Cancel once the worker says it has removed something, so the kill lands inside
+    // deleteRecursive() rather than before it begins. The worker is what is asked, rather than the
+    // tree, because reading the tree takes longer than emptying it and the cancel would come too late.
     bool killed = false;
-    connect(&pollTimer, &QTimer::timeout, job, [&] {
-        if (!killed && countFiles(root) < created) {
+    connect(job, &KJob::processedAmountChanged, job, [&](KJob *, KJob::Unit unit, qulonglong amount) {
+        if (!killed && unit == KJob::Bytes && amount > 0) {
             killed = true;
-            pollTimer.stop();
             job->kill(KJob::EmitResult);
         }
     });
-    pollTimer.start(2);
 
     QSignalSpy spy(job, &KJob::result);
     // kill(EmitResult) makes the job report almost immediately. A timeout here means the deletion

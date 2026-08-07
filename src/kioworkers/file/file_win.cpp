@@ -290,6 +290,52 @@ WorkerResult FileProtocol::symlink(const QString &target, const QUrl &dest, KIO:
     return WorkerResult::pass();
 }
 
+WorkerResult FileProtocol::deleteRecursive(const QString &path)
+{
+    // qDebug() << path;
+    QDirIterator it(path, QDir::AllEntries | QDir::NoDotAndDotDot | QDir::System | QDir::Hidden, QDirIterator::Subdirectories);
+    QStringList dirsToDelete;
+    KIO::filesize_t removed = 0;
+    while (it.hasNext()) {
+        if (wasKilled()) {
+            return WorkerResult::pass();
+        }
+        const QString itemPath = it.next();
+        // qDebug() << "itemPath=" << itemPath;
+        const QFileInfo info = it.fileInfo();
+        if (info.isDir() && !info.isSymLink()) {
+            dirsToDelete.prepend(itemPath);
+        } else {
+            const KIO::filesize_t size = info.isSymLink() ? 0 : KIO::filesize_t(info.size());
+            // qDebug() << "QFile::remove" << itemPath;
+            if (!QFile::remove(itemPath)) {
+                return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, itemPath);
+            }
+            if (size > 0) {
+                // SlaveBase says this at most ten times a second, holding back the rest.
+                removed += size;
+                processedSize(removed);
+            }
+        }
+    }
+    QDir dir;
+    for (const QString &itemPath : std::as_const(dirsToDelete)) {
+        if (wasKilled()) {
+            return WorkerResult::pass();
+        }
+        const KIO::filesize_t size = KIO::filesize_t(QFileInfo(itemPath).size());
+        // qDebug() << "QDir::rmdir" << itemPath;
+        if (!dir.rmdir(itemPath)) {
+            return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, itemPath);
+        }
+        if (size > 0) {
+            removed += size;
+            processedSize(removed);
+        }
+    }
+    return WorkerResult::pass();
+}
+
 WorkerResult FileProtocol::del(const QUrl &url, bool isfile)
 {
     QString _path(url.toLocalFile());

@@ -40,6 +40,7 @@
 
 #ifdef Q_OS_LINUX
 
+#include <dirent.h>
 #include <linux/fs.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
@@ -1021,6 +1022,91 @@ WorkerResult FileProtocol::symlink(const QString &target, const QUrl &_destUrl, 
     }
 
     return WorkerResult::fail(KIO::ERR_CANNOT_SYMLINK, dest);
+}
+
+// Qt maps QT_STATBUF to struct stat64 under large file support, and there is no QT_FSTATAT, so the
+// same choice is made here for the directory-relative fstatat().
+#if defined(QT_USE_XOPEN_LFS_EXTENSIONS) && defined(QT_LARGEFILE_SUPPORT)
+#define FSTATAT ::fstatat64
+#else
+#define FSTATAT ::fstatat
+#endif
+
+WorkerResult FileProtocol::deleteUnder(int dfd, KIO::filesize_t &removed)
+{
+    // fdopendir takes the descriptor over, so closedir is what closes it.
+    DIR *dir = fdopendir(dfd);
+    if (!dir) {
+        ::close(dfd);
+        return WorkerResult::fail(KIO::ERR_CANNOT_ENTER_DIRECTORY, QString());
+    }
+    const auto closeDir = qScopeGuard([dir] {
+        closedir(dir);
+    });
+
+    while (struct dirent *entry = readdir(dir)) {
+        if (wasKilled()) {
+            return WorkerResult::pass();
+        }
+        const QByteArrayView name(entry->d_name);
+        if (name == "." || name == "..") {
+            continue;
+        }
+
+        // Reading the directory says what kind of entry it is, so only the size is asked for, and it is
+        // asked of the name in this very directory rather than of a path resolved from the root again.
+        unsigned char type = entry->d_type;
+        KIO::filesize_t size = 0;
+        if (type != DT_DIR) {
+            QT_STATBUF buf;
+            if (FSTATAT(dirfd(dir), entry->d_name, &buf, AT_SYMLINK_NOFOLLOW) == 0) {
+                if (type == DT_UNKNOWN) {
+                    type = S_ISDIR(buf.st_mode) ? DT_DIR : (S_ISLNK(buf.st_mode) ? DT_LNK : DT_REG);
+                }
+                if (type != DT_LNK && type != DT_DIR) {
+                    size = KIO::filesize_t(buf.st_size);
+                }
+            }
+        }
+
+        if (type == DT_DIR) {
+            const int sub = ::openat(dirfd(dir), entry->d_name, O_DIRECTORY | O_NOFOLLOW | O_CLOEXEC);
+            if (sub < 0) {
+                return WorkerResult::fail(KIO::ERR_CANNOT_ENTER_DIRECTORY, QFile::decodeName(entry->d_name));
+            }
+            auto result = deleteUnder(sub, removed);
+            if (!result.success()) {
+                return result;
+            }
+            if (wasKilled()) {
+                return WorkerResult::pass();
+            }
+            if (::unlinkat(dirfd(dir), entry->d_name, AT_REMOVEDIR) != 0) {
+                return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, QFile::decodeName(entry->d_name));
+            }
+            continue;
+        }
+
+        if (::unlinkat(dirfd(dir), entry->d_name, 0) != 0) {
+            return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, QFile::decodeName(entry->d_name));
+        }
+        if (size > 0) {
+            // SlaveBase says this at most ten times a second, holding back the rest.
+            removed += size;
+            processedSize(removed);
+        }
+    }
+    return WorkerResult::pass();
+}
+
+WorkerResult FileProtocol::deleteRecursive(const QString &path)
+{
+    const int dfd = ::open(QFile::encodeName(path).constData(), O_DIRECTORY | O_NOFOLLOW | O_CLOEXEC);
+    if (dfd < 0) {
+        return WorkerResult::fail(KIO::ERR_CANNOT_ENTER_DIRECTORY, path);
+    }
+    KIO::filesize_t removed = 0;
+    return deleteUnder(dfd, removed);
 }
 
 WorkerResult FileProtocol::del(const QUrl &_url, bool isfile)

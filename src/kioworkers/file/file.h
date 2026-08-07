@@ -77,6 +77,12 @@ private:
     int setACL(const char *path, mode_t perm, bool _directoryDefault);
     KIO::WorkerResult deleteRecursive(const QString &path);
 
+#ifndef Q_OS_WIN
+    // Removes what is under the directory the descriptor is on, deepest first, and adds up the size of
+    // what it removed. The descriptor is closed on the way out.
+    KIO::WorkerResult deleteUnder(int dfd, KIO::filesize_t &removed);
+#endif
+
 #ifdef Q_OS_WIN
     // Set the modification time of path, leaving the creation and access times
     // unchanged. Returns false on failure.
