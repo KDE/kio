@@ -21,7 +21,7 @@ private Q_SLOTS:
     void killedRecursiveDeletionStopsEarly();
 
 private:
-    void createEmptyTestFiles(const QStringList &fileNames, const QString &path) const;
+    void createTestFiles(const QStringList &fileNames, const QString &path, qint64 bytesEach = 0) const;
 };
 
 #endif

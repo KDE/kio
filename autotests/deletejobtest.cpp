@@ -79,17 +79,27 @@ void DeleteJobTest::deleteDirectoryTestCase()
 
     QFETCH(QStringList, fileNames);
 
-    createEmptyTestFiles(fileNames, tempDir.path());
+    createTestFiles(fileNames, tempDir.path(), 8);
 
     /*QBENCHMARK*/ {
         KIO::DeleteJob *job = KIO::del(QUrl::fromLocalFile(tempDir.path()), KIO::HideProgressInfo);
         job->setUiDelegate(nullptr);
+
+        qulonglong reportedBytes = 0;
+        connect(job, &KJob::processedAmountChanged, job, [&](KJob *, KJob::Unit unit, qulonglong amount) {
+            if (unit == KJob::Bytes) {
+                reportedBytes = amount;
+            }
+        });
 
         QSignalSpy spy(job, &KJob::result);
         QVERIFY(spy.isValid());
         QVERIFY(spy.wait(100000));
         QCOMPARE(job->error(), KJOB_NO_ERROR);
         QVERIFY(!QDir(tempDir.path()).exists());
+        // What the worker deleted is what it said it deleted, the directory itself besides the files.
+        QVERIFY2(reportedBytes >= qulonglong(8 * fileNames.size()),
+                 qPrintable(QStringLiteral("reported %1 bytes for %2 files").arg(reportedBytes).arg(fileNames.size())));
     }
 }
 
@@ -156,13 +166,16 @@ void DeleteJobTest::deletePartialFailureNotifiesRemovals()
 #endif
 }
 
-void DeleteJobTest::createEmptyTestFiles(const QStringList &fileNames, const QString &path) const
+void DeleteJobTest::createTestFiles(const QStringList &fileNames, const QString &path, qint64 bytesEach) const
 {
     QStringListIterator iterator(fileNames);
     while (iterator.hasNext()) {
         const QString filename = path + QDir::separator() + iterator.next();
         QFile file(filename);
         QVERIFY(file.open(QIODevice::WriteOnly));
+        if (bytesEach > 0) {
+            QCOMPARE(file.write(QByteArray(bytesEach, 'x')), bytesEach);
+        }
     }
 
     QCOMPARE(QDir(path).entryList(QDir::Files).count(), fileNames.size());

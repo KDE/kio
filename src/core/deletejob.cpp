@@ -82,6 +82,7 @@ public:
         : state(DELETEJOB_STATE_STATING)
         , m_processedFiles(0)
         , m_processedDirs(0)
+        , m_processedBytes(0)
         , m_totalFilesDirs(0)
         , m_srcList(src)
         , m_currentStat(m_srcList.begin())
@@ -91,6 +92,7 @@ public:
     DeleteJobState state;
     int m_processedFiles;
     int m_processedDirs;
+    KIO::filesize_t m_processedBytes;
     int m_totalFilesDirs;
     QUrl m_currentURL;
     QList<QUrl> files;
@@ -429,6 +431,13 @@ void DeleteJobPrivate::deleteDirUsingJob(const QUrl &url)
     SimpleJob *job = KIO::rmdir(url);
     job->setParentJob(q);
     job->addMetaData(QStringLiteral("recurse"), QStringLiteral("true"));
+    // The worker empties the directory itself, so what it says it deleted is all the progress there is
+    // to be had of it.
+    const KIO::filesize_t before = m_processedBytes;
+    q->connect(job, &Job::processedSize, q, [this, q, before](KJob *, qulonglong bytes) {
+        m_processedBytes = before + bytes;
+        q->setProcessedAmount(KJob::Bytes, m_processedBytes);
+    });
     dirs.removeLast();
     q->addSubjob(job);
 }
