@@ -34,6 +34,7 @@ Options:
  enable-lsan: True
  require-passing-tests-on: ['@all']
  cmake-options: -DUSE_FTPD_WSGIDAV_UNITTEST=ON
+ commit-checks: ['bug-links', 'gitlab-references', 'missing-since', 'since-version']
  cppcheck-arguments: '--enable=warning,style,performance --suppress-xml=cppcheck-suppressions.xml'
  cppcheck-ignore-files:
   - autotests
