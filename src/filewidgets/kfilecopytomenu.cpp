@@ -16,6 +16,7 @@
 
 #include "../utils_p.h"
 
+#include <KFileSystemType>
 #include <KIO/CopyJob>
 #include <KIO/FileUndoManager>
 #include <KIO/JobUiDelegate>
@@ -29,7 +30,23 @@
 #include "windows.h"
 #endif
 
-static constexpr int s_maxRecentDirs = 10; // Hardcoded max size
+static constexpr int s_maxRecentDirs = 5; // Hardcoded max size
+
+static QStringList pruneRecentDirs(const QStringList &dirs)
+{
+    QStringList cleaned;
+    cleaned.reserve(dirs.count());
+    for (const QString &dir : dirs) {
+        const KFileSystemType::Type fsType = KFileSystemType::fileSystemType(dir);
+        if (fsType == KFileSystemType::Nfs || fsType == KFileSystemType::Smb || QFileInfo::exists(dir)) {
+            cleaned.append(dir);
+        }
+    }
+    if (cleaned.size() > s_maxRecentDirs) {
+        cleaned.erase(cleaned.begin() + s_maxRecentDirs, cleaned.end());
+    }
+    return cleaned;
+}
 
 KFileCopyToMenuPrivate::KFileCopyToMenuPrivate(KFileCopyToMenu *qq, QWidget *parentWidget)
     : q(qq)
@@ -152,7 +169,11 @@ void KFileCopyToMainMenu::slotAboutToShow()
 
     // Recent Destinations
     const QStringList recentDirs = m_recentDirsGroup.readPathEntry("Paths", QStringList());
-    for (const QString &recentDir : recentDirs) {
+    const QStringList cleanedDirs = pruneRecentDirs(recentDirs);
+    if (cleanedDirs != recentDirs) {
+        m_recentDirsGroup.writePathEntry("Paths", cleanedDirs);
+    }
+    for (const QString &recentDir : cleanedDirs) {
         const QUrl url = QUrl::fromLocalFile(recentDir);
         const QString text = KStringHandler::csqueeze(url.toDisplayString(QUrl::PreferLocalFile), 60); // shorten very long paths (#61386)
         QAction *act = new QAction(text, this);
@@ -185,9 +206,7 @@ void KFileCopyToMainMenu::copyOrMoveTo(const QUrl &dest)
     const QString niceDest = dest.toDisplayString(QUrl::PreferLocalFile);
     if (!recentDirs.contains(niceDest)) { // don't change position if already there, moving stuff is bad usability
         recentDirs.prepend(niceDest);
-        if (recentDirs.size() > s_maxRecentDirs) {
-            recentDirs.erase(recentDirs.begin() + s_maxRecentDirs, recentDirs.end());
-        }
+        recentDirs = pruneRecentDirs(recentDirs);
         m_recentDirsGroup.writePathEntry("Paths", recentDirs);
     }
 
