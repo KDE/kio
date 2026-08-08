@@ -312,6 +312,16 @@ public:
     bool checkSourceExists(const QString &src);
 
     /*
+     * The strategy used when creating a symlink
+     */
+    void executeSymLink(const KNewFileMenuSingleton::Entry &entry);
+
+    /*
+     * The strategy used for "url" desktop files
+     */
+    void executeUrlDesktopFile(const KNewFileMenuSingleton::Entry &entry);
+
+    /*
      * The strategy used for other desktop files than Type=Link. Example: Application, Device.
      */
     void executeOtherDesktopFile(const KNewFileMenuSingleton::Entry &entry);
@@ -325,16 +335,6 @@ public:
      * Actually performs file handling. Reads in m_copyData for needed data, that has been collected by execute*() before
      */
     void executeStrategy();
-
-    /*
-     * The strategy used when creating a symlink
-     */
-    void executeSymLink(const KNewFileMenuSingleton::Entry &entry);
-
-    /*
-     * The strategy used for "url" desktop files
-     */
-    void executeUrlDesktopFile(const KNewFileMenuSingleton::Entry &entry);
 
     /*
      * Fills the menu from the templates list.
@@ -579,6 +579,38 @@ bool KNewFileMenuPrivate::checkSourceExists(const QString &src)
     return true;
 }
 
+void KNewFileMenuPrivate::executeSymLink(const KNewFileMenuSingleton::Entry &entry)
+{
+    auto targetUrl = m_menuWorkingDirectory;
+    if (!targetUrl.isLocalFile()) {
+        targetUrl = mostLocalUrl(targetUrl);
+    }
+
+    KNameAndUrlInputDialog *dlg = new KNameAndUrlInputDialog(i18n("Name for new link:"), entry.comment, targetUrl, m_parentWidget);
+    dlg->setModal(q->isModal());
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    dlg->setWindowTitle(i18n("Create Symlink"));
+    m_fileDialog = dlg;
+    QObject::connect(dlg, &QDialog::accepted, q, [this]() {
+        slotSymLink();
+    });
+    dlg->show();
+}
+
+void KNewFileMenuPrivate::executeUrlDesktopFile(const KNewFileMenuSingleton::Entry &entry)
+{
+    KNameAndUrlInputDialog *dlg = new KNameAndUrlInputDialog(i18n("Name for new link:"), entry.comment, m_menuWorkingDirectory, m_parentWidget);
+    m_copyData.m_templatePath = entry.templatePath;
+    dlg->setModal(q->isModal());
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    dlg->setWindowTitle(i18n("Create link to URL"));
+    m_fileDialog = dlg;
+    QObject::connect(dlg, &QDialog::accepted, q, [this]() {
+        slotUrlDesktopFile();
+    });
+    dlg->show();
+}
+
 void KNewFileMenuPrivate::executeOtherDesktopFile(const KNewFileMenuSingleton::Entry &entry)
 {
     if (!checkSourceExists(entry.templatePath)) {
@@ -680,24 +712,6 @@ void KNewFileMenuPrivate::executeRealFileOrDir(const KNewFileMenuSingleton::Entr
     m_lineEdit->setFocus();
 }
 
-void KNewFileMenuPrivate::executeSymLink(const KNewFileMenuSingleton::Entry &entry)
-{
-    auto targetUrl = m_menuWorkingDirectory;
-    if (!targetUrl.isLocalFile()) {
-        targetUrl = mostLocalUrl(targetUrl);
-    }
-
-    KNameAndUrlInputDialog *dlg = new KNameAndUrlInputDialog(i18n("Name for new link:"), entry.comment, targetUrl, m_parentWidget);
-    dlg->setModal(q->isModal());
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    dlg->setWindowTitle(i18n("Create Symlink"));
-    m_fileDialog = dlg;
-    QObject::connect(dlg, &QDialog::accepted, q, [this]() {
-        slotSymLink();
-    });
-    dlg->show();
-}
-
 void KNewFileMenuPrivate::executeStrategy()
 {
     m_tempFileToDelete = m_copyData.tempFileToDelete();
@@ -744,20 +758,6 @@ void KNewFileMenuPrivate::executeStrategy()
     }
     KJobWidgets::setWindow(kjob, m_parentWidget);
     QObject::connect(kjob, &KJob::result, q, &KNewFileMenu::slotResult);
-}
-
-void KNewFileMenuPrivate::executeUrlDesktopFile(const KNewFileMenuSingleton::Entry &entry)
-{
-    KNameAndUrlInputDialog *dlg = new KNameAndUrlInputDialog(i18n("Name for new link:"), entry.comment, m_menuWorkingDirectory, m_parentWidget);
-    m_copyData.m_templatePath = entry.templatePath;
-    dlg->setModal(q->isModal());
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    dlg->setWindowTitle(i18n("Create link to URL"));
-    m_fileDialog = dlg;
-    QObject::connect(dlg, &QDialog::accepted, q, [this]() {
-        slotUrlDesktopFile();
-    });
-    dlg->show();
 }
 
 void KNewFileMenuPrivate::fillMenu()
