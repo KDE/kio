@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-07 00:41+0000\n"
+"POT-Creation-Date: 2026-08-08 00:41+0000\n"
 "PO-Revision-Date: 2026-07-29 11:47+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -2314,7 +2314,7 @@ msgid " (Points to %1)"
 msgstr " (Il puncta a %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:174
-#: widgets/renamedialog.cpp:677
+#: widgets/renamedialog.cpp:679
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4402,90 +4402,90 @@ msgstr "Authentication de servitor"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> a <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1397
+#: kioworkers/http/http.cpp:1398
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Alteremente, le requesta haberea habite successo."
 
-#: kioworkers/http/http.cpp:1400
+#: kioworkers/http/http.cpp:1401
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "recupera valores de proprietate"
 
-#: kioworkers/http/http.cpp:1402
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "fixa valores de proprietate"
 
-#: kioworkers/http/http.cpp:1404
+#: kioworkers/http/http.cpp:1405
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "crea le requirite dossier"
 
-#: kioworkers/http/http.cpp:1406
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "copia le specificate file o dossier"
 
-#: kioworkers/http/http.cpp:1408
+#: kioworkers/http/http.cpp:1409
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "move le specificate file o dossier"
 
-#: kioworkers/http/http.cpp:1410
+#: kioworkers/http/http.cpp:1411
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "cerca in le specificate dossier"
 
-#: kioworkers/http/http.cpp:1412
+#: kioworkers/http/http.cpp:1413
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "bloca le specificate file o dossier"
 
-#: kioworkers/http/http.cpp:1414
+#: kioworkers/http/http.cpp:1415
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "disbloca le specificate file o dossier"
 
-#: kioworkers/http/http.cpp:1416
+#: kioworkers/http/http.cpp:1417
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "dele le specificate file o dossier"
 
-#: kioworkers/http/http.cpp:1418
+#: kioworkers/http/http.cpp:1419
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "demanda le capacitate del servitor"
 
-#: kioworkers/http/http.cpp:1420
+#: kioworkers/http/http.cpp:1421
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "recupera le contentos del specificate file o dossier"
 
-#: kioworkers/http/http.cpp:1422
+#: kioworkers/http/http.cpp:1423
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "executa un reporto in le specificate dossier"
 
-#: kioworkers/http/http.cpp:1430
+#: kioworkers/http/http.cpp:1431
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Un error inexpectate (%1) occurreva durante que on tentava  %2"
 
-#: kioworkers/http/http.cpp:1470
+#: kioworkers/http/http.cpp:1471
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4495,13 +4495,13 @@ msgstr ""
 "Un error occurreva durante que on essayava  %1,%2. Un summario de "
 "motivationes es a basso."
 
-#: kioworkers/http/http.cpp:1488 kioworkers/http/http.cpp:1632
+#: kioworkers/http/http.cpp:1489 kioworkers/http/http.cpp:1633
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Accesso esseva refusate durante que on essayava  %1."
 
-#: kioworkers/http/http.cpp:1502 kioworkers/http/http.cpp:1639
+#: kioworkers/http/http.cpp:1503 kioworkers/http/http.cpp:1640
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4510,7 +4510,7 @@ msgstr ""
 "Un ressource non pote esser create al destination usque un o plure "
 "collectiones intermedie (dossieres) ha essite create."
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1512
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4526,28 +4526,28 @@ msgstr ""
 "de file de non esser super scribite.\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1519
+#: kioworkers/http/http.cpp:1520
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Le bloco requirite non pote esser garantite. %1"
 
-#: kioworkers/http/http.cpp:1525
+#: kioworkers/http/http.cpp:1526
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Le servitor non supporta le requirite typo del corpore."
 
-#: kioworkers/http/http.cpp:1530 kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1531 kioworkers/http/http.cpp:1648
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Il non pote %1 proque le ressource es blocate."
 
-#: kioworkers/http/http.cpp:1534
+#: kioworkers/http/http.cpp:1535
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Iste action esseva impedite per un altere error."
 
-#: kioworkers/http/http.cpp:1541 kioworkers/http/http.cpp:1654
+#: kioworkers/http/http.cpp:1542 kioworkers/http/http.cpp:1655
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4557,7 +4557,7 @@ msgstr ""
 "Il non pote %1 proque le servitor de destination refusa de dar acceptation "
 "al file o dossier."
 
-#: kioworkers/http/http.cpp:1550 kioworkers/http/http.cpp:1663
+#: kioworkers/http/http.cpp:1551 kioworkers/http/http.cpp:1664
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4566,18 +4566,18 @@ msgstr ""
 "Le ressource de destination non ha spatio sufficiente pro registrar le stato "
 "del ressource postea le execution de iste methodo."
 
-#: kioworkers/http/http.cpp:1603
+#: kioworkers/http/http.cpp:1604
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Le ressource non pote esser delite."
 
-#: kioworkers/http/http.cpp:1623
+#: kioworkers/http/http.cpp:1624
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "carga %1"
 
-#: kioworkers/http/http.cpp:1674
+#: kioworkers/http/http.cpp:1675
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4912,12 +4912,12 @@ msgstr "Tu volerea lancear iste file?"
 msgid "Creating directory"
 msgstr "Crear directorio"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:427
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:429
 #, kde-format
 msgid "Source"
 msgstr "Fonte"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:429
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:431
 #, kde-format
 msgid "Destination"
 msgstr "Destination"
@@ -6962,52 +6962,52 @@ msgstr ""
 msgid "C&ontinue"
 msgstr "C&ontinua"
 
-#: widgets/renamedialog.cpp:416
+#: widgets/renamedialog.cpp:418
 #, kde-format
 msgid "Would you like to overwrite the destination?"
 msgstr "Tu volerea  superscriber le destination?"
 
-#: widgets/renamedialog.cpp:418
+#: widgets/renamedialog.cpp:420
 #, kde-format
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "Tu volerea fusionar le contentos de '%1' in '%2'?"
 
-#: widgets/renamedialog.cpp:461
+#: widgets/renamedialog.cpp:463
 #, kde-format
 msgid "The source is <b>more recent</b>."
 msgstr "Le fonte es <b>plus recente</b>."
 
-#: widgets/renamedialog.cpp:463
+#: widgets/renamedialog.cpp:465
 #, kde-format
 msgid "The source is <b>older</b>."
 msgstr "Le fonte es <b>plus vetere</b>."
 
-#: widgets/renamedialog.cpp:472
+#: widgets/renamedialog.cpp:474
 #, kde-format
 msgid "The source is <b>smaller by %1</b>."
 msgstr "Le fonte es <b>plus parve per %1</b>."
 
-#: widgets/renamedialog.cpp:475
+#: widgets/renamedialog.cpp:477
 #, kde-format
 msgid "The source is <b>bigger by %1</b>."
 msgstr "Le fonte es <b>plus grande per %1</b>."
 
-#: widgets/renamedialog.cpp:489
+#: widgets/renamedialog.cpp:491
 #, kde-format
 msgid "The files are <b>identical</b>."
 msgstr "Le files es <b>identic</b>."
 
-#: widgets/renamedialog.cpp:492
+#: widgets/renamedialog.cpp:494
 #, kde-format
 msgid "The files <b>seem identical</b>."
 msgstr "Le files  <b>sembla identic</b>."
 
-#: widgets/renamedialog.cpp:496
+#: widgets/renamedialog.cpp:498
 #, kde-format
 msgid "The files are <b>different</b>."
 msgstr "Le files es <b>differente</b>."
 
-#: widgets/renamedialog.cpp:504
+#: widgets/renamedialog.cpp:506
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -7016,28 +7016,28 @@ msgstr ""
 "Le files probabilemente es identic: illos ha le mesme grandor e lor "
 "contentos es le mesme al initio, in le medie e al fin."
 
-#: widgets/renamedialog.cpp:518
+#: widgets/renamedialog.cpp:520
 #, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "Compara files"
 
-#: widgets/renamedialog.cpp:531
+#: widgets/renamedialog.cpp:533
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Un elemento plus vetere appellate '%1' ja existe."
 
-#: widgets/renamedialog.cpp:533
+#: widgets/renamedialog.cpp:535
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Un file similar appellate '%1' ja existe."
 
-#: widgets/renamedialog.cpp:535
+#: widgets/renamedialog.cpp:537
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Un elemento plus recente appellate '%1' ja existe."
 
-#: widgets/renamedialog.cpp:548
+#: widgets/renamedialog.cpp:550
 #, kde-format
 msgid "Rename:"
 msgstr "Renomina:"

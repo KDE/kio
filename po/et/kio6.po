@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-07 00:41+0000\n"
+"POT-Creation-Date: 2026-08-08 00:41+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -2278,7 +2278,7 @@ msgid " (Points to %1)"
 msgstr " (Viitab asukohale %1)"
 
 #: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:174
-#: widgets/renamedialog.cpp:677
+#: widgets/renamedialog.cpp:679
 #, kde-format
 msgid ""
 "Malformed URL\n"
@@ -4390,90 +4390,90 @@ msgstr "Serveri autentimine"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b>, <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1397
+#: kioworkers/http/http.cpp:1398
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Muidu oleks pidanud nõue rahuldatama."
 
-#: kioworkers/http/http.cpp:1400
+#: kioworkers/http/http.cpp:1401
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "omaduse väärtuste hankimine"
 
-#: kioworkers/http/http.cpp:1402
+#: kioworkers/http/http.cpp:1403
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "omaduse väärtuste seadmine"
 
-#: kioworkers/http/http.cpp:1404
+#: kioworkers/http/http.cpp:1405
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "soovitud kataloogi loomine"
 
-#: kioworkers/http/http.cpp:1406
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "määratud faili või kataloogi kopeerimine"
 
-#: kioworkers/http/http.cpp:1408
+#: kioworkers/http/http.cpp:1409
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "määratud faili või kataloogi liigutamine"
 
-#: kioworkers/http/http.cpp:1410
+#: kioworkers/http/http.cpp:1411
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "otsing määratud kataloogis"
 
-#: kioworkers/http/http.cpp:1412
+#: kioworkers/http/http.cpp:1413
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "määratud faili või kataloogi lukustamine"
 
-#: kioworkers/http/http.cpp:1414
+#: kioworkers/http/http.cpp:1415
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "määratud faili või kataloogi lahtilukustamine"
 
-#: kioworkers/http/http.cpp:1416
+#: kioworkers/http/http.cpp:1417
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "määratud faili või kataloogi kustutamine"
 
-#: kioworkers/http/http.cpp:1418
+#: kioworkers/http/http.cpp:1419
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "serveri võimaluste päring"
 
-#: kioworkers/http/http.cpp:1420
+#: kioworkers/http/http.cpp:1421
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "määratud faili või kataloogi sisu hankimine"
 
-#: kioworkers/http/http.cpp:1422
+#: kioworkers/http/http.cpp:1423
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "aruande käivitamine määratud kataloogis"
 
-#: kioworkers/http/http.cpp:1430
+#: kioworkers/http/http.cpp:1431
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Tekkis ootamatu viga (%1), kui võeti ette järgmine toiming: %2."
 
-#: kioworkers/http/http.cpp:1470
+#: kioworkers/http/http.cpp:1471
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4483,13 +4483,13 @@ msgstr ""
 "Tekkis viga, kui võeti ette järgmine toiming: %1, %2. Põhjuste kokkuvõte on "
 "ära toodud allpool."
 
-#: kioworkers/http/http.cpp:1488 kioworkers/http/http.cpp:1632
+#: kioworkers/http/http.cpp:1489 kioworkers/http/http.cpp:1633
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Ligipääs keelati, kui võeti ette järgmine toiming: %1."
 
-#: kioworkers/http/http.cpp:1502 kioworkers/http/http.cpp:1639
+#: kioworkers/http/http.cpp:1503 kioworkers/http/http.cpp:1640
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4498,7 +4498,7 @@ msgstr ""
 "Ressurssi ei saa sihtkohas luua, enne kui ei ole loodud üks või enam "
 "vahekataloogi."
 
-#: kioworkers/http/http.cpp:1511
+#: kioworkers/http/http.cpp:1512
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4513,28 +4513,28 @@ msgstr ""
 "et faile üle ei kirjutataks.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1519
+#: kioworkers/http/http.cpp:1520
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Soovitud lukku pole võimalik luua. %1"
 
-#: kioworkers/http/http.cpp:1525
+#: kioworkers/http/http.cpp:1526
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Server ei toeta soovitud põhiosa tüüpi."
 
-#: kioworkers/http/http.cpp:1530 kioworkers/http/http.cpp:1647
+#: kioworkers/http/http.cpp:1531 kioworkers/http/http.cpp:1648
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Toimingut ''%1' ei saa sooritada, sest ressurss on lukus."
 
-#: kioworkers/http/http.cpp:1534
+#: kioworkers/http/http.cpp:1535
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Seda toimingut takistas mingi muu viga."
 
-#: kioworkers/http/http.cpp:1541 kioworkers/http/http.cpp:1654
+#: kioworkers/http/http.cpp:1542 kioworkers/http/http.cpp:1655
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4544,7 +4544,7 @@ msgstr ""
 "Toimingut ''%1' ei saa sooritada, sest sihtserver keeldub vastu võtmast "
 "faili või kataloogi."
 
-#: kioworkers/http/http.cpp:1550 kioworkers/http/http.cpp:1663
+#: kioworkers/http/http.cpp:1551 kioworkers/http/http.cpp:1664
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4553,18 +4553,18 @@ msgstr ""
 "Sihtressursil napib ruumi ressursi oleku salvestamiseks pärast selle meetodi "
 "rakendamist."
 
-#: kioworkers/http/http.cpp:1603
+#: kioworkers/http/http.cpp:1604
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Ressurssi ei saa kustutada."
 
-#: kioworkers/http/http.cpp:1623
+#: kioworkers/http/http.cpp:1624
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 üleslaadimine"
 
-#: kioworkers/http/http.cpp:1674
+#: kioworkers/http/http.cpp:1675
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4904,12 +4904,12 @@ msgstr "Mida selle failiga ette võtta?"
 msgid "Creating directory"
 msgstr "Kataloogi loomine"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:427
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:429
 #, kde-format
 msgid "Source"
 msgstr "Lähtefail"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:429
+#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:431
 #, kde-format
 msgid "Destination"
 msgstr "Sihtfail"
@@ -7009,61 +7009,61 @@ msgstr ""
 msgid "C&ontinue"
 msgstr "&Jätka"
 
-#: widgets/renamedialog.cpp:416
+#: widgets/renamedialog.cpp:418
 #, fuzzy, kde-format
 #| msgid "This action will overwrite the destination."
 msgid "Would you like to overwrite the destination?"
 msgstr "See tegevus kirjutab sihtfaili üle."
 
-#: widgets/renamedialog.cpp:418
+#: widgets/renamedialog.cpp:420
 #, fuzzy, kde-format
 #| msgid "This action will overwrite the destination."
 msgid "Would you like to merge the contents of '%1' into '%2'?"
 msgstr "See tegevus kirjutab sihtfaili üle."
 
-#: widgets/renamedialog.cpp:461
+#: widgets/renamedialog.cpp:463
 #, fuzzy, kde-format
 #| msgid "The destination is <b>smaller by %1</b>"
 msgid "The source is <b>more recent</b>."
 msgstr "Sihtfail on <b>%1 võrra väiksem</b>."
 
-#: widgets/renamedialog.cpp:463
+#: widgets/renamedialog.cpp:465
 #, fuzzy, kde-format
 #| msgid "The destination is <b>smaller by %1</b>"
 msgid "The source is <b>older</b>."
 msgstr "Sihtfail on <b>%1 võrra väiksem</b>."
 
-#: widgets/renamedialog.cpp:472
+#: widgets/renamedialog.cpp:474
 #, fuzzy, kde-format
 #| msgid "The destination is <b>smaller by %1</b>"
 msgid "The source is <b>smaller by %1</b>."
 msgstr "Sihtfail on <b>%1 võrra väiksem</b>."
 
-#: widgets/renamedialog.cpp:475
+#: widgets/renamedialog.cpp:477
 #, fuzzy, kde-format
 #| msgid "The destination is <b>bigger by %1</b>"
 msgid "The source is <b>bigger by %1</b>."
 msgstr "Sihtfail on <b>%1 võrra suurem</b>."
 
-#: widgets/renamedialog.cpp:489
+#: widgets/renamedialog.cpp:491
 #, fuzzy, kde-format
 #| msgid "The files are identical."
 msgid "The files are <b>identical</b>."
 msgstr "Failid on identsed."
 
-#: widgets/renamedialog.cpp:492
+#: widgets/renamedialog.cpp:494
 #, fuzzy, kde-format
 #| msgid "The files seem identical."
 msgid "The files <b>seem identical</b>."
 msgstr "Failid näivad identsed."
 
-#: widgets/renamedialog.cpp:496
+#: widgets/renamedialog.cpp:498
 #, fuzzy, kde-format
 #| msgid "The files are different."
 msgid "The files are <b>different</b>."
 msgstr "Failid on erinevad."
 
-#: widgets/renamedialog.cpp:504
+#: widgets/renamedialog.cpp:506
 #, kde-format
 msgid ""
 "The files are likely to be identical: they have the same size and their "
@@ -7072,29 +7072,29 @@ msgstr ""
 "Failid on tõenäoliselt identsed: nad on sama suured ja nende sisu on nii "
 "alguses, keskel kui ka lõpus ühesugune."
 
-#: widgets/renamedialog.cpp:518
+#: widgets/renamedialog.cpp:520
 #, fuzzy, kde-format
 #| msgid "Copy Files"
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "Failide kopeerimine"
 
-#: widgets/renamedialog.cpp:531
+#: widgets/renamedialog.cpp:533
 #, kde-format
 msgid "An older item named '%1' already exists."
 msgstr "Vanem element nimega '%1' on juba olemas."
 
-#: widgets/renamedialog.cpp:533
+#: widgets/renamedialog.cpp:535
 #, kde-format
 msgid "A similar file named '%1' already exists."
 msgstr "Samasuguse nimega fail '%1' on juba olemas."
 
-#: widgets/renamedialog.cpp:535
+#: widgets/renamedialog.cpp:537
 #, kde-format
 msgid "A more recent item named '%1' already exists."
 msgstr "Uuem element nimega '%1' on juba olemas."
 
-#: widgets/renamedialog.cpp:548
+#: widgets/renamedialog.cpp:550
 #, kde-format
 msgid "Rename:"
 msgstr "Uus nimi:"
