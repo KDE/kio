@@ -161,6 +161,7 @@ ecm_add_tests(
  clipboardupdatertest.cpp
  kfileitemactionstest.cpp
  pastetest.cpp
+ renamefiledialogtest.cpp
  kurifiltersearchprovideractionstest.cpp
  ENVIRONMENT QT_QPA_PLATFORM=offscreen
  LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB}

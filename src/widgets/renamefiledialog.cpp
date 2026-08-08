@@ -8,6 +8,7 @@
 
 #include "renamefiledialog.h"
 
+#include <KConfigGroup>
 #include <KGuiItem>
 #include <KIO/BatchRenameJob>
 #include <KIO/CopyJob>
@@ -16,6 +17,7 @@
 #include <KJobWidgets>
 #include <KLocalizedString>
 #include <KMessageWidget>
+#include <KSharedConfig>
 
 #include <QComboBox>
 #include <QDialogButtonBox>
@@ -28,6 +30,8 @@
 #include <QSpinBox>
 #include <QTimer>
 
+#include <algorithm>
+#include <ranges>
 #include <set>
 
 namespace
@@ -72,6 +76,42 @@ enum RenameStrategy {
     AddText,
     // Regex
 };
+
+// What each rename operation is called in the state config. The name is stored rather
+// than the place in the list, so the list can be reordered without an old config meaning
+// something else.
+struct RenameStrategyName {
+    QLatin1StringView name;
+    RenameStrategy strategy;
+};
+constexpr RenameStrategyName renameStrategyNames[] = {
+    {QLatin1StringView("Enumerate"), RenameStrategy::Enumerate},
+    {QLatin1StringView("Replace"), RenameStrategy::Replace},
+    {QLatin1StringView("AddText"), RenameStrategy::AddText},
+};
+
+KConfigGroup renameStateConfig()
+{
+    return KConfigGroup(KSharedConfig::openStateConfig(QStringLiteral("kiostaterc")), QStringLiteral("Rename dialog"));
+}
+
+int lastRenameStrategy()
+{
+    const QString name = renameStateConfig().readEntry("RenameOperation", QString());
+    const auto found = std::ranges::find(renameStrategyNames, name, &RenameStrategyName::name);
+    return found == std::ranges::end(renameStrategyNames) ? RenameStrategy::Enumerate : found->strategy;
+}
+
+void saveRenameStrategy(int strategy)
+{
+    const auto found = std::ranges::find(renameStrategyNames, strategy, &RenameStrategyName::strategy);
+    if (found == std::ranges::end(renameStrategyNames)) {
+        return;
+    }
+    KConfigGroup group = renameStateConfig();
+    group.writeEntry("RenameOperation", QString(found->name));
+    group.sync();
+}
 
 class SingleFileRenameStrategy : public RenameOperationAbstractStrategy
 {
@@ -551,6 +591,7 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
     if (!d->renameOneItem) {
         QLabel *renameTypeChoiceLabel = new QLabel(i18nc("@info", "How to rename:"), page);
         d->comboRenameType = new QComboBox(page);
+        d->comboRenameType->setObjectName(QStringLiteral("renameOperation"));
         d->comboRenameType->addItems(
             {i18nc("@info renaming operation", "Enumerate"), i18nc("@info renaming operation", "Replace text"), i18nc("@info renaming operation", "Add text")});
         renameTypeChoiceLabel->setBuddy(d->comboRenameType);
@@ -562,7 +603,12 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
         renameTypeChoice->addWidget(d->comboRenameType);
         d->m_topLayout->addLayout(renameTypeChoice);
 
+        d->comboRenameType->setCurrentIndex(lastRenameStrategy());
+
         connect(d->comboRenameType, &QComboBox::currentIndexChanged, this, &RenameFileDialog::slotOperationChanged);
+        connect(this, &QDialog::accepted, this, [this]() {
+            saveRenameStrategy(d->comboRenameType->currentIndex());
+        });
 
         d->previewLabel = new QLabel(i18nc("@info As in filename renaming preview", "Preview:"), page);
         d->preview = new QLineEdit(page);
@@ -584,7 +630,7 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
     }
 
     // initialize UI
-    slotOperationChanged(RenameStrategy::Enumerate);
+    slotOperationChanged(d->renameOneItem ? RenameStrategy::Enumerate : d->comboRenameType->currentIndex());
 
     setFixedWidth(sizeHint().width());
 }
