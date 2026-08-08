@@ -589,9 +589,7 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
     setFixedWidth(sizeHint().width());
 }
 
-RenameFileDialog::~RenameFileDialog()
-{
-}
+RenameFileDialog::~RenameFileDialog() = default;
 
 void RenameFileDialog::slotAccepted()
 {
@@ -655,7 +653,8 @@ void RenameFileDialog::slotOperationChanged(int index)
     std::function<void()> updateCallback = std::bind(&RenameFileDialog::slotStateChanged, this);
 
     auto newWidget = d->renameStrategy->init(d->items, this, updateCallback);
-    d->m_topLayout->replaceWidget(d->m_contentWidget, newWidget);
+    // replaceWidget hands back the item that held the old widget, and it belongs to us.
+    delete d->m_topLayout->replaceWidget(d->m_contentWidget, newWidget);
     newWidget->setFocus();
     newWidget->setFocusPolicy(Qt::FocusPolicy::StrongFocus);
 

@@ -16,6 +16,8 @@
 #include <QDialog>
 #include <QString>
 
+#include <memory>
+
 class QLineEdit;
 class QSpinBox;
 class QPushButton;
@@ -72,7 +74,7 @@ private Q_SLOTS:
 
 private:
     class RenameFileDialogPrivate;
-    RenameFileDialogPrivate *const d;
+    std::unique_ptr<RenameFileDialogPrivate> const d;
 };
 } // namespace KIO
 
