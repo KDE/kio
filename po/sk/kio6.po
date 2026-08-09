@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-08 00:41+0000\n"
+"POT-Creation-Date: 2026-08-09 00:41+0000\n"
 "PO-Revision-Date: 2024-08-11 20:21+0200\n"
 "Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -43,7 +43,7 @@ msgstr ""
 "Nepodarilo sa zmeniť vlastníctvo súboru <filename>%1</filename>. Nemáte "
 "dostatočné prístupové práva k súboru na vykonanie tejto zmeny."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1014
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1015
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3543,21 +3543,28 @@ msgstr ""
 "<qt>Toto je výber typu súboru. Používa sa na výber formátu zobrazených "
 "súborov.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:234
+#: filewidgets/knewfilemenu.cpp:233
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Zadajte názov súboru %1:"
 
-#: filewidgets/knewfilemenu.cpp:559
+#: filewidgets/knewfilemenu.cpp:558
 #, kde-format
 msgid "Sorry"
 msgstr "Ľutujem"
 
-#: filewidgets/knewfilemenu.cpp:570
+#: filewidgets/knewfilemenu.cpp:569
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Súbor so šablónou <b>%1</b> neexistuje.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:618
+#, fuzzy, kde-format
+#| msgid "Create New"
+msgctxt "@title:window New link to a program"
+msgid "Create New %1"
+msgstr "Vytvoriť nový"
 
 #: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
 #, kde-format
@@ -3574,13 +3581,13 @@ msgstr "Vytvoriť symbolický odkaz"
 msgid "Create link to URL"
 msgstr "Vytvoriť odkaz na URL"
 
-#: filewidgets/knewfilemenu.cpp:788 filewidgets/knewfilemenu.cpp:811
+#: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1130
+#: filewidgets/knewfilemenu.cpp:1126
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3590,7 +3597,7 @@ msgstr ""
 "Názov <filename>%1</filename> nie je možné použiť, pretože je vyhradený na "
 "použitie operačným systémom."
 
-#: filewidgets/knewfilemenu.cpp:1138
+#: filewidgets/knewfilemenu.cpp:1134
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3600,7 +3607,7 @@ msgstr ""
 "Názov <filename>%1</filename> začína bodkou, preto bude adresár štandardne "
 "skrytý."
 
-#: filewidgets/knewfilemenu.cpp:1146
+#: filewidgets/knewfilemenu.cpp:1142
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3612,27 +3619,27 @@ msgstr ""
 "zobrazený pred ostatnými položkami pri abecednom zoraďovaní, okrem iných "
 "možných zvláštností."
 
-#: filewidgets/knewfilemenu.cpp:1164
+#: filewidgets/knewfilemenu.cpp:1160
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Použitie lomiek v názvoch priečinkov vytvorí podpriečinky, napríklad:"
 
-#: filewidgets/knewfilemenu.cpp:1178
+#: filewidgets/knewfilemenu.cpp:1174
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Použitie lomiek v názvoch priečinkov vytvorí podpriečinky."
 
-#: filewidgets/knewfilemenu.cpp:1190
+#: filewidgets/knewfilemenu.cpp:1186
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Lomky nemôžu byť použité v názvoch súborov a priečinkov."
 
-#: filewidgets/knewfilemenu.cpp:1195
+#: filewidgets/knewfilemenu.cpp:1191
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Spätné lomky nemôžu byť použité v názvoch súborov a priečinkov."
 
-#: filewidgets/knewfilemenu.cpp:1209
+#: filewidgets/knewfilemenu.cpp:1205
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3642,7 +3649,7 @@ msgstr ""
 "Nepodarilo sa vytvoriť priečinok s názvom <filename>%1</filename><nl/>, "
 "pretože je vyhradený na použitie operačným systémom."
 
-#: filewidgets/knewfilemenu.cpp:1218
+#: filewidgets/knewfilemenu.cpp:1214
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3652,47 +3659,47 @@ msgstr ""
 "pretože pri odstraňovaní vecí pomocou terminálu to môže byť mätúce alebo "
 "nebezpečné."
 
-#: filewidgets/knewfilemenu.cpp:1290
+#: filewidgets/knewfilemenu.cpp:1286
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Adresár s názvom <filename>%1</filename> už existuje."
 
-#: filewidgets/knewfilemenu.cpp:1292
+#: filewidgets/knewfilemenu.cpp:1288
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Súbor s názvom <filename>%1</filename> už existuje."
 
-#: filewidgets/knewfilemenu.cpp:1378
+#: filewidgets/knewfilemenu.cpp:1374
 #, kde-format
 msgid "Create New"
 msgstr "Vytvoriť nový"
 
-#: filewidgets/knewfilemenu.cpp:1450
+#: filewidgets/knewfilemenu.cpp:1446
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nový priečinok"
 
-#: filewidgets/knewfilemenu.cpp:1473
+#: filewidgets/knewfilemenu.cpp:1469
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Vytvoriť priečinok"
 
-#: filewidgets/knewfilemenu.cpp:1475
+#: filewidgets/knewfilemenu.cpp:1471
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Vytvoriť nový priečinok v %1:"
 
-#: filewidgets/knewfilemenu.cpp:1478 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Zadať názov priečinka"
 
-#: filewidgets/knewfilemenu.cpp:1535
+#: filewidgets/knewfilemenu.cpp:1531
 #, kde-format
 msgid "Default"
 msgstr "Predvolené"
@@ -4176,22 +4183,22 @@ msgstr "Nepodarilo sa nájsť program \"mount\""
 msgid "Could not find program \"umount\""
 msgstr "Nepodarilo sa nájsť program \"umount\""
 
-#: kioworkers/file/file_unix.cpp:609
+#: kioworkers/file/file_unix.cpp:610
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nie je možné skopírovať súbor z %1 do %2. (Číslo chyby: %3)"
 
-#: kioworkers/file/file_unix.cpp:813
+#: kioworkers/file/file_unix.cpp:814
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Chýba médium v zariadení pre %1"
 
-#: kioworkers/file/file_unix.cpp:1087
+#: kioworkers/file/file_unix.cpp:1173
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nepodarilo sa získať ID užívateľa pre užívateľa %1"
 
-#: kioworkers/file/file_unix.cpp:1098
+#: kioworkers/file/file_unix.cpp:1184
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nepodarilo sa získať ID skupiny pre skupinu %1"
@@ -6989,25 +6996,25 @@ msgstr "Novšia položka s názvom '%1' už existuje."
 msgid "Rename:"
 msgstr "Premenovať:"
 
-#: widgets/renamefiledialog.cpp:91
+#: widgets/renamefiledialog.cpp:131
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Premenovať položku <filename>%1</filename> na:"
 
-#: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
+#: widgets/renamefiledialog.cpp:181 widgets/renamefiledialog.cpp:523
 #, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "Súbor s názvom <filename>%1</filename> už existuje."
 
-#: widgets/renamefiledialog.cpp:144
+#: widgets/renamefiledialog.cpp:184
 #, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
 msgstr "Súbor <filename>%1</filename> nie je platný názov súboru."
 
-#: widgets/renamefiledialog.cpp:164
+#: widgets/renamefiledialog.cpp:204
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
@@ -7016,13 +7023,13 @@ msgstr[0] "Premenovať %1 vybratú položku na:"
 msgstr[1] "Premenovať %1 vybraté položky na:"
 msgstr[2] "Premenovať %1 vybratých položiek na:"
 
-#: widgets/renamefiledialog.cpp:167
+#: widgets/renamefiledialog.cpp:207
 #, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
 msgstr "# bude nahradené rastúcimi číslami začínajúcimi od:"
 
-#: widgets/renamefiledialog.cpp:176
+#: widgets/renamefiledialog.cpp:216
 #, kde-format
 msgctxt ""
 "This a template for new filenames, # is replaced by a number later, must be "
@@ -7030,7 +7037,7 @@ msgctxt ""
 msgid "New name #"
 msgstr "Nový názov #"
 
-#: widgets/renamefiledialog.cpp:283
+#: widgets/renamefiledialog.cpp:323
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7040,7 +7047,7 @@ msgstr ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 
-#: widgets/renamefiledialog.cpp:310
+#: widgets/renamefiledialog.cpp:350
 #, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
@@ -7049,37 +7056,37 @@ msgstr[0] "Premenovať %1 vybratú položku na:"
 msgstr[1] "Premenovať %1 vybraté položky na:"
 msgstr[2] "Premenovať %1 vybratých položiek na:"
 
-#: widgets/renamefiledialog.cpp:314
+#: widgets/renamefiledialog.cpp:354
 #, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
 msgstr "Nahradzujem:"
 
-#: widgets/renamefiledialog.cpp:316
+#: widgets/renamefiledialog.cpp:356
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
 msgstr "Vzor"
 
-#: widgets/renamefiledialog.cpp:320
+#: widgets/renamefiledialog.cpp:360
 #, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
 msgstr "S:"
 
-#: widgets/renamefiledialog.cpp:322
+#: widgets/renamefiledialog.cpp:362
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
 msgstr "Náhrada"
 
-#: widgets/renamefiledialog.cpp:369
+#: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
 msgstr "No file name contains the pattern."
 
-#: widgets/renamefiledialog.cpp:378
+#: widgets/renamefiledialog.cpp:418
 #, kde-kuit-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid ""
@@ -7089,7 +7096,7 @@ msgstr ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
 "to have an empty file name."
 
-#: widgets/renamefiledialog.cpp:404
+#: widgets/renamefiledialog.cpp:444
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
@@ -7098,79 +7105,79 @@ msgstr[0] "Premenovať %1 vybratú položku na:"
 msgstr[1] "Premenovať %1 vybraté položky na:"
 msgstr[2] "Premenovať %1 vybratých položiek na:"
 
-#: widgets/renamefiledialog.cpp:407
+#: widgets/renamefiledialog.cpp:447
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
 msgstr "Pridať Text:"
 
-#: widgets/renamefiledialog.cpp:409
+#: widgets/renamefiledialog.cpp:449
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
 msgstr "Text na pridanie"
 
-#: widgets/renamefiledialog.cpp:414
+#: widgets/renamefiledialog.cpp:454
 #, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
 msgstr "Pred názvom súboru"
 
-#: widgets/renamefiledialog.cpp:415
+#: widgets/renamefiledialog.cpp:455
 #, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
 msgstr "Za názvom súboru"
 
-#: widgets/renamefiledialog.cpp:532
+#: widgets/renamefiledialog.cpp:572
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Item"
 msgstr "Premenovať položku"
 
-#: widgets/renamefiledialog.cpp:532
+#: widgets/renamefiledialog.cpp:572
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Items"
 msgstr "Premenovať položky"
 
-#: widgets/renamefiledialog.cpp:543
+#: widgets/renamefiledialog.cpp:583
 #, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
 msgstr "Premenovať"
 
-#: widgets/renamefiledialog.cpp:552
+#: widgets/renamefiledialog.cpp:592
 #, kde-format
 msgctxt "@info"
 msgid "How to rename:"
 msgstr "Ako premenovať:"
 
-#: widgets/renamefiledialog.cpp:555
+#: widgets/renamefiledialog.cpp:596
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
 msgstr "Enumerate"
 
-#: widgets/renamefiledialog.cpp:555
+#: widgets/renamefiledialog.cpp:596
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
 msgstr "Nahradiť text"
 
-#: widgets/renamefiledialog.cpp:555
+#: widgets/renamefiledialog.cpp:596
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
 msgstr "Pridať text"
 
-#: widgets/renamefiledialog.cpp:567
+#: widgets/renamefiledialog.cpp:613
 #, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
 msgstr "Náhľad:"
 
-#: widgets/renamefiledialog.cpp:691
+#: widgets/renamefiledialog.cpp:736
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."

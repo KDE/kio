@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-08 00:41+0000\n"
+"POT-Creation-Date: 2026-08-09 00:41+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -45,7 +45,7 @@ msgid ""
 msgstr ""
 "无法修改文件 <filename>%1</filename> 的所有者。您没有足够的权限执行此操作。"
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1014
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1015
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3387,21 +3387,28 @@ msgid ""
 "files shown.</qt>"
 msgstr "<qt>这是文件类型选择器。它用于选择所显示文件的格式。</qt>"
 
-#: filewidgets/knewfilemenu.cpp:234
+#: filewidgets/knewfilemenu.cpp:233
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "输入 %1 文件名："
 
-#: filewidgets/knewfilemenu.cpp:559
+#: filewidgets/knewfilemenu.cpp:558
 #, kde-format
 msgid "Sorry"
 msgstr "对不起"
 
-#: filewidgets/knewfilemenu.cpp:570
+#: filewidgets/knewfilemenu.cpp:569
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>模板文件 <b>%1</b> 不存在。</qt>"
+
+#: filewidgets/knewfilemenu.cpp:618
+#, fuzzy, kde-format
+#| msgid "Create New"
+msgctxt "@title:window New link to a program"
+msgid "Create New %1"
+msgstr "新建"
 
 #: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
 #, kde-format
@@ -3418,13 +3425,13 @@ msgstr "创建符号链接"
 msgid "Create link to URL"
 msgstr "创建到 URL 的链接"
 
-#: filewidgets/knewfilemenu.cpp:788 filewidgets/knewfilemenu.cpp:811
+#: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1130
+#: filewidgets/knewfilemenu.cpp:1126
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3432,7 +3439,7 @@ msgid ""
 "use by the operating system."
 msgstr "名称 <filename>%1</filename> 不能使用，因为它是操作系统的保留名称。"
 
-#: filewidgets/knewfilemenu.cpp:1138
+#: filewidgets/knewfilemenu.cpp:1134
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3441,7 +3448,7 @@ msgid ""
 msgstr ""
 "名称 <filename>%1</filename> 以半角句点开始，在默认情况下该文件将被隐藏。"
 
-#: filewidgets/knewfilemenu.cpp:1146
+#: filewidgets/knewfilemenu.cpp:1142
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3452,27 +3459,27 @@ msgstr ""
 "名称 <filename>%1</filename> 以空格开头，这将导致它在按字母顺序排序时显示在其"
 "他项目之前，还有可能导致其他意外状况。"
 
-#: filewidgets/knewfilemenu.cpp:1164
+#: filewidgets/knewfilemenu.cpp:1160
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "在文件夹名中使用斜线将创建子文件夹，例如："
 
-#: filewidgets/knewfilemenu.cpp:1178
+#: filewidgets/knewfilemenu.cpp:1174
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "在文件夹名中使用斜线将创建子文件夹。"
 
-#: filewidgets/knewfilemenu.cpp:1190
+#: filewidgets/knewfilemenu.cpp:1186
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "文件和文件夹的名称不能包含斜线。"
 
-#: filewidgets/knewfilemenu.cpp:1195
+#: filewidgets/knewfilemenu.cpp:1191
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "文件和文件夹的名称不能包含反斜线。"
 
-#: filewidgets/knewfilemenu.cpp:1209
+#: filewidgets/knewfilemenu.cpp:1205
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3482,7 +3489,7 @@ msgstr ""
 "无法创建名为 <filename>%1</filename> 的文件或文件夹，因为它会与用户的主文件夹"
 "的位置重叠。"
 
-#: filewidgets/knewfilemenu.cpp:1218
+#: filewidgets/knewfilemenu.cpp:1214
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3491,47 +3498,47 @@ msgstr ""
 "不建议在文件或文件夹的名称开头使用波浪线，因为在终端中删除内容时，它可能会导"
 "致混淆或危险。"
 
-#: filewidgets/knewfilemenu.cpp:1290
+#: filewidgets/knewfilemenu.cpp:1286
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "名为 <filename>%1</filename> 的目录已经存在。"
 
-#: filewidgets/knewfilemenu.cpp:1292
+#: filewidgets/knewfilemenu.cpp:1288
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "名为 <filename>%1</filename> 的文件已经存在。"
 
-#: filewidgets/knewfilemenu.cpp:1378
+#: filewidgets/knewfilemenu.cpp:1374
 #, kde-format
 msgid "Create New"
 msgstr "新建"
 
-#: filewidgets/knewfilemenu.cpp:1450
+#: filewidgets/knewfilemenu.cpp:1446
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "新建文件夹"
 
-#: filewidgets/knewfilemenu.cpp:1473
+#: filewidgets/knewfilemenu.cpp:1469
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "创建新文件夹"
 
-#: filewidgets/knewfilemenu.cpp:1475
+#: filewidgets/knewfilemenu.cpp:1471
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "新建文件夹到 %1："
 
-#: filewidgets/knewfilemenu.cpp:1478 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "输入文件夹名称"
 
-#: filewidgets/knewfilemenu.cpp:1535
+#: filewidgets/knewfilemenu.cpp:1531
 #, kde-format
 msgid "Default"
 msgstr "默认"
@@ -4007,22 +4014,22 @@ msgstr "找不到程序“mount”"
 msgid "Could not find program \"umount\""
 msgstr "找不到程序“umount”"
 
-#: kioworkers/file/file_unix.cpp:609
+#: kioworkers/file/file_unix.cpp:610
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "无法将文件从 %1 复制到 %2。(错误号码：%3)"
 
-#: kioworkers/file/file_unix.cpp:813
+#: kioworkers/file/file_unix.cpp:814
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 设备中没有媒体"
 
-#: kioworkers/file/file_unix.cpp:1087
+#: kioworkers/file/file_unix.cpp:1173
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "无法获取给定的用户名 %1 的用户 ID"
 
-#: kioworkers/file/file_unix.cpp:1098
+#: kioworkers/file/file_unix.cpp:1184
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "无法获取给定的用户组名 %1 的用户组 ID"
@@ -6719,38 +6726,38 @@ msgstr "已存在名为“%1”的较新项目。"
 msgid "Rename:"
 msgstr "重命名："
 
-#: widgets/renamefiledialog.cpp:91
+#: widgets/renamefiledialog.cpp:131
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
 msgstr "重命名项目 <filename>%1</filename> 为："
 
-#: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
+#: widgets/renamefiledialog.cpp:181 widgets/renamefiledialog.cpp:523
 #, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "名为 <filename>%1</filename> 的文件已存在。"
 
-#: widgets/renamefiledialog.cpp:144
+#: widgets/renamefiledialog.cpp:184
 #, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> 不是有效的文件名。"
 
-#: widgets/renamefiledialog.cpp:164
+#: widgets/renamefiledialog.cpp:204
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
 msgstr[0] "重命名 %1 个选中项目为："
 
-#: widgets/renamefiledialog.cpp:167
+#: widgets/renamefiledialog.cpp:207
 #, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
 msgstr "# 会被替换为升序数字，起始数字为："
 
-#: widgets/renamefiledialog.cpp:176
+#: widgets/renamefiledialog.cpp:216
 #, kde-format
 msgctxt ""
 "This a template for new filenames, # is replaced by a number later, must be "
@@ -6758,7 +6765,7 @@ msgctxt ""
 msgid "New name #"
 msgstr "新文件名 #"
 
-#: widgets/renamefiledialog.cpp:283
+#: widgets/renamefiledialog.cpp:323
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6766,44 +6773,44 @@ msgid ""
 "the files have different file extensions."
 msgstr "无效的文件名：新文件名应包含一组“#”，除非所有文件的扩展名都不同。"
 
-#: widgets/renamefiledialog.cpp:310
+#: widgets/renamefiledialog.cpp:350
 #, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
 msgstr[0] "重命名 %1 个选中项目为："
 
-#: widgets/renamefiledialog.cpp:314
+#: widgets/renamefiledialog.cpp:354
 #, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
 msgstr "使用："
 
-#: widgets/renamefiledialog.cpp:316
+#: widgets/renamefiledialog.cpp:356
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
 msgstr "命名模式"
 
-#: widgets/renamefiledialog.cpp:320
+#: widgets/renamefiledialog.cpp:360
 #, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
 msgstr "替换："
 
-#: widgets/renamefiledialog.cpp:322
+#: widgets/renamefiledialog.cpp:362
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
 msgstr "替换"
 
-#: widgets/renamefiledialog.cpp:369
+#: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
 msgstr "没有包含该命名模式的文件名。"
 
-#: widgets/renamefiledialog.cpp:378
+#: widgets/renamefiledialog.cpp:418
 #, kde-kuit-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid ""
@@ -6811,86 +6818,86 @@ msgid ""
 "to have an empty file name."
 msgstr "将“%1”替换为空白将导致 <filename>%2</filename> 文件名为空。"
 
-#: widgets/renamefiledialog.cpp:404
+#: widgets/renamefiledialog.cpp:444
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
 msgstr[0] "重命名 %1 个选中项目："
 
-#: widgets/renamefiledialog.cpp:407
+#: widgets/renamefiledialog.cpp:447
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
 msgstr "添加文本："
 
-#: widgets/renamefiledialog.cpp:409
+#: widgets/renamefiledialog.cpp:449
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
 msgstr "要添加的文本"
 
-#: widgets/renamefiledialog.cpp:414
+#: widgets/renamefiledialog.cpp:454
 #, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
 msgstr "在文件名前"
 
-#: widgets/renamefiledialog.cpp:415
+#: widgets/renamefiledialog.cpp:455
 #, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
 msgstr "在文件名后"
 
-#: widgets/renamefiledialog.cpp:532
+#: widgets/renamefiledialog.cpp:572
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Item"
 msgstr "重命名项目"
 
-#: widgets/renamefiledialog.cpp:532
+#: widgets/renamefiledialog.cpp:572
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Items"
 msgstr "重命名项目"
 
-#: widgets/renamefiledialog.cpp:543
+#: widgets/renamefiledialog.cpp:583
 #, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
 msgstr "重命名(&R)"
 
-#: widgets/renamefiledialog.cpp:552
+#: widgets/renamefiledialog.cpp:592
 #, kde-format
 msgctxt "@info"
 msgid "How to rename:"
 msgstr "如何重命名："
 
-#: widgets/renamefiledialog.cpp:555
+#: widgets/renamefiledialog.cpp:596
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
 msgstr "枚举"
 
-#: widgets/renamefiledialog.cpp:555
+#: widgets/renamefiledialog.cpp:596
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
 msgstr "替换文本"
 
-#: widgets/renamefiledialog.cpp:555
+#: widgets/renamefiledialog.cpp:596
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
 msgstr "添加文本"
 
-#: widgets/renamefiledialog.cpp:567
+#: widgets/renamefiledialog.cpp:613
 #, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
 msgstr "预览："
 
-#: widgets/renamefiledialog.cpp:691
+#: widgets/renamefiledialog.cpp:736
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."

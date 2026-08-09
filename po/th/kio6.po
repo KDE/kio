@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-08 00:41+0000\n"
+"POT-Creation-Date: 2026-08-09 00:41+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -42,7 +42,7 @@ msgid ""
 "insufficient access to the file to perform the change."
 msgstr "ไม่สามารถแก้ไขเจ้าของ ของไฟล์ <b>%1</b> ได้ คุณมีสิทธิ์ไม่เพียงพอในการจะแก้ไขไฟล์"
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1014
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1015
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3463,21 +3463,28 @@ msgid ""
 "files shown.</qt>"
 msgstr "<qt>นี่คือตัวเลือกประเภทไฟล์ ใช้เพื่อเลือกรูปแบบที่จะบันทึกไฟล์</qt>"
 
-#: filewidgets/knewfilemenu.cpp:234
+#: filewidgets/knewfilemenu.cpp:233
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "ใส่ชื่อไฟล์ %1:"
 
-#: filewidgets/knewfilemenu.cpp:559
+#: filewidgets/knewfilemenu.cpp:558
 #, kde-format
 msgid "Sorry"
 msgstr "ขออภัย"
 
-#: filewidgets/knewfilemenu.cpp:570
+#: filewidgets/knewfilemenu.cpp:569
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>ยังไม่มีแฟ้มแม่แบบ <b>%1</b> อยู่</qt>"
+
+#: filewidgets/knewfilemenu.cpp:618
+#, fuzzy, kde-format
+#| msgid "Create New"
+msgctxt "@title:window New link to a program"
+msgid "Create New %1"
+msgstr "สร้างใหม่"
 
 #: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
 #, kde-format
@@ -3494,13 +3501,13 @@ msgstr "สร้างการเชื่อมโยงแบบสัญล
 msgid "Create link to URL"
 msgstr "สร้างลิงก์ไปยัง URL"
 
-#: filewidgets/knewfilemenu.cpp:788 filewidgets/knewfilemenu.cpp:811
+#: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1130
+#: filewidgets/knewfilemenu.cpp:1126
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3509,7 +3516,7 @@ msgid ""
 msgstr ""
 "ไม่สามารถใช้ชื่อ <filename>%1</filename> ได้เนื่องจากมีการสงวนไว้สำหรับใช้โดยระบบปฏิบัติการ"
 
-#: filewidgets/knewfilemenu.cpp:1138
+#: filewidgets/knewfilemenu.cpp:1134
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3517,7 +3524,7 @@ msgid ""
 "default."
 msgstr "ชื่อ <filename>%1</filename> ขึ้นต้นด้วยจุด ซึ่งจะทำให้ถูกซ่อนไปโดยปกติ"
 
-#: filewidgets/knewfilemenu.cpp:1146
+#: filewidgets/knewfilemenu.cpp:1142
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3529,27 +3536,27 @@ msgstr ""
 "ซึ่งจะทำให้ชื่อนั้นปรากฏก่อนรายการอื่นเมื่อจัดเรียงตามตัวอักษร นอกเหนือจากความแปลกประหลาดอื่นๆ "
 "ที่อาจเกิดขึ้น"
 
-#: filewidgets/knewfilemenu.cpp:1164
+#: filewidgets/knewfilemenu.cpp:1160
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "การใช้เครื่องหมายทับในชื่อโฟลเดอร์จะสร้างโฟลเดอร์ย่อยดังนี้:"
 
-#: filewidgets/knewfilemenu.cpp:1178
+#: filewidgets/knewfilemenu.cpp:1174
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "การใช้เครื่องหมายทับในชื่อโฟลเดอร์จะสร้างโฟลเดอร์ย่อย"
 
-#: filewidgets/knewfilemenu.cpp:1190
+#: filewidgets/knewfilemenu.cpp:1186
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "ไม่สามารถใช้เครื่องหมายทับในชื่อไฟล์และโฟลเดอร์ได้"
 
-#: filewidgets/knewfilemenu.cpp:1195
+#: filewidgets/knewfilemenu.cpp:1191
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "ไม่สามารถใช้แบ็กสแลชในชื่อไฟล์และโฟลเดอร์ได้"
 
-#: filewidgets/knewfilemenu.cpp:1209
+#: filewidgets/knewfilemenu.cpp:1205
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3559,7 +3566,7 @@ msgstr ""
 "การสร้างไฟล์หรือโฟลเดอร์ที่ชื่อ <filename>%1</filename> เป็นไปไม่ได้ "
 "เนื่องจากจะทับซ้อนกับตำแหน่งของโฟลเดอร์โฮมของผู้ใช้"
 
-#: filewidgets/knewfilemenu.cpp:1218
+#: filewidgets/knewfilemenu.cpp:1214
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3568,41 +3575,41 @@ msgstr ""
 "ไม่แนะนำให้เริ่มชื่อไฟล์หรือโฟลเดอร์ด้วยเครื่องหมายติลเดอ (~) "
 "เพราะอาจสร้างความสับสนหรืออันตรายได้เมื่อใช้เทอร์มินัลเพื่อลบข้อมูล"
 
-#: filewidgets/knewfilemenu.cpp:1290
+#: filewidgets/knewfilemenu.cpp:1286
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "มีรายการที่ชื่อ <filename>%1</filename> อยู่แล้ว"
 
-#: filewidgets/knewfilemenu.cpp:1292
+#: filewidgets/knewfilemenu.cpp:1288
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "มีไฟล์ชื่อ <filename>%1</filename> อยู่แล้ว"
 
-#: filewidgets/knewfilemenu.cpp:1378
+#: filewidgets/knewfilemenu.cpp:1374
 #, kde-format
 msgid "Create New"
 msgstr "สร้างใหม่"
 
-#: filewidgets/knewfilemenu.cpp:1450
+#: filewidgets/knewfilemenu.cpp:1446
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "โฟลเดอร์ใหม่"
 
-#: filewidgets/knewfilemenu.cpp:1473
+#: filewidgets/knewfilemenu.cpp:1469
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "สร้างโฟลเดอร์ใหม่"
 
-#: filewidgets/knewfilemenu.cpp:1475
+#: filewidgets/knewfilemenu.cpp:1471
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "สร้างโฟลเดอร์ใหม่ใน %1:"
 
-#: filewidgets/knewfilemenu.cpp:1478 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox Prompt for new file of type"
 #| msgid "Enter %1 filename:"
@@ -3610,7 +3617,7 @@ msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "ใส่ชื่อไฟล์ %1:"
 
-#: filewidgets/knewfilemenu.cpp:1535
+#: filewidgets/knewfilemenu.cpp:1531
 #, fuzzy, kde-format
 #| msgid "Default"
 msgid "Default"
@@ -4094,22 +4101,22 @@ msgstr "ไม่สามารถค้นหาโปรแกรม \"mount\
 msgid "Could not find program \"umount\""
 msgstr "ไม่สามารถค้นหาโปรแกรม \"umount\" ได้"
 
-#: kioworkers/file/file_unix.cpp:609
+#: kioworkers/file/file_unix.cpp:610
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "ไม่สามารถคัดลอกแฟ้มจาก %1 ไปยัง %2 ได้ (หมายเลขข้อผิดพลาด: %3)"
 
-#: kioworkers/file/file_unix.cpp:813
+#: kioworkers/file/file_unix.cpp:814
 #, kde-format
 msgid "No media in device for %1"
 msgstr "ไม่พบสื่อในอุปกรณ์ %1"
 
-#: kioworkers/file/file_unix.cpp:1087
+#: kioworkers/file/file_unix.cpp:1173
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ไม่สามารถรับเอาหมายเลขผู้ใช้ (user id) ของชื่อผู้ใช้ %1 ได้"
 
-#: kioworkers/file/file_unix.cpp:1098
+#: kioworkers/file/file_unix.cpp:1184
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ไม่สามารถรับเอาหมายเลขกลุ่ม (group id) ของชื่อกลุ่ม %1 ได้"
@@ -6883,13 +6890,13 @@ msgstr "รายการที่ใหม่กว่าชื่อ '%1' ม
 msgid "Rename:"
 msgstr "เปลี่ยนชื่อ:"
 
-#: widgets/renamefiledialog.cpp:91
+#: widgets/renamefiledialog.cpp:131
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
 msgstr "เปลี่ยนชื่อรายการ <filename>%1</filename> เป็น:"
 
-#: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
+#: widgets/renamefiledialog.cpp:181 widgets/renamefiledialog.cpp:523
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "A file with name <filename>%1</filename> already exists."
@@ -6897,7 +6904,7 @@ msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "มีไฟล์ชื่อ <filename>%1</filename> อยู่แล้ว"
 
-#: widgets/renamefiledialog.cpp:144
+#: widgets/renamefiledialog.cpp:184
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "<filename>%1</filename> does not appear to be an executable program."
@@ -6905,20 +6912,20 @@ msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> ไม่ปรากฏว่าเป็นโปรแกรมที่สามารถปฏิบัติการได้"
 
-#: widgets/renamefiledialog.cpp:164
+#: widgets/renamefiledialog.cpp:204
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
 msgstr[0] "เปลี่ยนชื่อ %1 รายการที่เลือกเป็น:"
 
-#: widgets/renamefiledialog.cpp:167
+#: widgets/renamefiledialog.cpp:207
 #, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
 msgstr "# จะถูกแทนที่ด้วยตัวเลขที่เพิ่มขึ้นเริ่มต้นด้วย:"
 
-#: widgets/renamefiledialog.cpp:176
+#: widgets/renamefiledialog.cpp:216
 #, kde-format
 msgctxt ""
 "This a template for new filenames, # is replaced by a number later, must be "
@@ -6926,7 +6933,7 @@ msgctxt ""
 msgid "New name #"
 msgstr "ชื่อใหม่ #"
 
-#: widgets/renamefiledialog.cpp:283
+#: widgets/renamefiledialog.cpp:323
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6934,7 +6941,7 @@ msgid ""
 "the files have different file extensions."
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:310
+#: widgets/renamefiledialog.cpp:350
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox"
 #| msgid "Rename the %1 selected item to:"
@@ -6944,40 +6951,40 @@ msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
 msgstr[0] "เปลี่ยนชื่อ %1 รายการที่เลือกเป็น:"
 
-#: widgets/renamefiledialog.cpp:314
+#: widgets/renamefiledialog.cpp:354
 #, fuzzy, kde-format
 #| msgid "Replace"
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
 msgstr "แทนที่"
 
-#: widgets/renamefiledialog.cpp:316
+#: widgets/renamefiledialog.cpp:356
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:320
+#: widgets/renamefiledialog.cpp:360
 #, fuzzy, kde-format
 #| msgid "Open With:"
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
 msgstr "เปิดด้วย:"
 
-#: widgets/renamefiledialog.cpp:322
+#: widgets/renamefiledialog.cpp:362
 #, fuzzy, kde-format
 #| msgid "Replace"
 msgctxt "@info placeholder text"
 msgid "Replacement"
 msgstr "แทนที่"
 
-#: widgets/renamefiledialog.cpp:369
+#: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:378
+#: widgets/renamefiledialog.cpp:418
 #, kde-kuit-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid ""
@@ -6985,7 +6992,7 @@ msgid ""
 "to have an empty file name."
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:404
+#: widgets/renamefiledialog.cpp:444
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox"
 #| msgid "Rename the %1 selected item to:"
@@ -6995,19 +7002,19 @@ msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
 msgstr[0] "เปลี่ยนชื่อ %1 รายการที่เลือกเป็น:"
 
-#: widgets/renamefiledialog.cpp:407
+#: widgets/renamefiledialog.cpp:447
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:409
+#: widgets/renamefiledialog.cpp:449
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:414
+#: widgets/renamefiledialog.cpp:454
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox Prompt for new file of type"
 #| msgid "Enter %1 filename:"
@@ -7015,7 +7022,7 @@ msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
 msgstr "ใส่ชื่อไฟล์ %1:"
 
-#: widgets/renamefiledialog.cpp:415
+#: widgets/renamefiledialog.cpp:455
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox Prompt for new file of type"
 #| msgid "Enter %1 filename:"
@@ -7023,58 +7030,58 @@ msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
 msgstr "ใส่ชื่อไฟล์ %1:"
 
-#: widgets/renamefiledialog.cpp:532
+#: widgets/renamefiledialog.cpp:572
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Item"
 msgstr "เปลี่ยนชื่อรายการ"
 
-#: widgets/renamefiledialog.cpp:532
+#: widgets/renamefiledialog.cpp:572
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Items"
 msgstr "เปลี่ยนชื่อรายการ"
 
-#: widgets/renamefiledialog.cpp:543
+#: widgets/renamefiledialog.cpp:583
 #, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
 msgstr "&เปลี่ยนชื่อ"
 
-#: widgets/renamefiledialog.cpp:552
+#: widgets/renamefiledialog.cpp:592
 #, fuzzy, kde-format
 #| msgid "Delete or rename:"
 msgctxt "@info"
 msgid "How to rename:"
 msgstr "ลบหรือเปลี่ยนชื่อ:"
 
-#: widgets/renamefiledialog.cpp:555
+#: widgets/renamefiledialog.cpp:596
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:555
+#: widgets/renamefiledialog.cpp:596
 #, fuzzy, kde-format
 #| msgid "Replace"
 msgctxt "@info renaming operation"
 msgid "Replace text"
 msgstr "แทนที่"
 
-#: widgets/renamefiledialog.cpp:555
+#: widgets/renamefiledialog.cpp:596
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:567
+#: widgets/renamefiledialog.cpp:613
 #, fuzzy, kde-format
 #| msgid "Show Preview"
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
 msgstr "แสดงตัวอย่าง"
 
-#: widgets/renamefiledialog.cpp:691
+#: widgets/renamefiledialog.cpp:736
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "<filename>%1</filename> does not appear to be an executable program."

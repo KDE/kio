@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-08 00:41+0000\n"
+"POT-Creation-Date: 2026-08-09 00:41+0000\n"
 "PO-Revision-Date: 2026-03-31 23:12+0530\n"
 "Last-Translator: CrazyCourt651 <CrazyCourt651@gmail.com>\n"
 "Language-Team: Gujarati\n"
@@ -43,7 +43,7 @@ msgstr ""
 "ઇલ <filename>%1</filename> ની માલિકી સુધારી શકાતી નથી. ફેરફાર કરવા માટે તમારી "
 "પાસે ફાઇલ પર અપૂરતો પ્રવેશ (access) છે.\t\t\t\t"
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1014
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1015
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3514,21 +3514,28 @@ msgstr ""
 "<qt>આ ફાઇલ પ્રકાર પસંદગીકાર છે. તેનો ઉપયોગ બતાવેલી ફાઇલોનું ફોર્મેટ પસંદ કરવા માટે થાય "
 "છે.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:234
+#: filewidgets/knewfilemenu.cpp:233
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "%1 નુ ફાઇલનામ દાખલ કરો:"
 
-#: filewidgets/knewfilemenu.cpp:559
+#: filewidgets/knewfilemenu.cpp:558
 #, kde-format
 msgid "Sorry"
 msgstr "માફ કરશો"
 
-#: filewidgets/knewfilemenu.cpp:570
+#: filewidgets/knewfilemenu.cpp:569
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>ટેમ્પલેટ ફાઇલ <b>%1</b> અસ્તિત્વમાં નથી.</qt>"
+
+#: filewidgets/knewfilemenu.cpp:618
+#, fuzzy, kde-format
+#| msgid "Create New"
+msgctxt "@title:window New link to a program"
+msgid "Create New %1"
+msgstr "નવું બનાવો"
 
 #: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
 #, kde-format
@@ -3545,13 +3552,13 @@ msgstr "સંજ્ઞા કડી  બનાવો"
 msgid "Create link to URL"
 msgstr "URL માટે લિંક બનાવો"
 
-#: filewidgets/knewfilemenu.cpp:788 filewidgets/knewfilemenu.cpp:811
+#: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1130
+#: filewidgets/knewfilemenu.cpp:1126
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3561,7 +3568,7 @@ msgstr ""
 "<filename>%1</filename> નામ વાપરી શકાતું નથી કારણ કે તે ઓપરેટિંગ સિસ્ટમ દ્વારા ઉપયોગ "
 "માટે અનામત રાખવામાં આવ્યું છે."
 
-#: filewidgets/knewfilemenu.cpp:1138
+#: filewidgets/knewfilemenu.cpp:1134
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3569,7 +3576,7 @@ msgid ""
 "default."
 msgstr "નામ <filename>%1</filename> ટપકાથી શરૂ થાય છે, તેથી તે મૂળભૂત રીતે છુપાયેલું રહેશે."
 
-#: filewidgets/knewfilemenu.cpp:1146
+#: filewidgets/knewfilemenu.cpp:1142
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3581,27 +3588,27 @@ msgstr ""
 "મૂળાક્ષરો પ્રમાણે ગોઠવવામાં આવશે ત્યારે તે અન્ય વસ્તુઓ પહેલાં બતાવવામાં આવશે, અન્ય સંભવિત "
 "વિચિત્રતાઓ વચ્ચે."
 
-#: filewidgets/knewfilemenu.cpp:1164
+#: filewidgets/knewfilemenu.cpp:1160
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "ફોલ્ડરના નામમાં સ્લેશનો ઉપયોગ કરવાથી આ રીતે પેટા-ફોલ્ડર્સ બનશે:"
 
-#: filewidgets/knewfilemenu.cpp:1178
+#: filewidgets/knewfilemenu.cpp:1174
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "ફોલ્ડરના નામમાં સ્લેશ (/) વાપરવાથી સબ-ફોલ્ડર્સ બનશે."
 
-#: filewidgets/knewfilemenu.cpp:1190
+#: filewidgets/knewfilemenu.cpp:1186
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "ફાઇલ અને ફોલ્ડરના નામોમાં સ્લેશનો ઉપયોગ કરી શકાતો નથી."
 
-#: filewidgets/knewfilemenu.cpp:1195
+#: filewidgets/knewfilemenu.cpp:1191
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "બેકસ્લેશનો ઉપયોગ ફાઇલ અને ફોલ્ડરના નામોમાં કરી શકાતો નથી."
 
-#: filewidgets/knewfilemenu.cpp:1209
+#: filewidgets/knewfilemenu.cpp:1205
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3611,7 +3618,7 @@ msgstr ""
 "<filename>%1</filename> નામ સાથે ફાઇલ અથવા ફોલ્ડર બનાવવું શક્ય નથી કારણ કે તે "
 "વપરાશકર્તાના હોમ ફોલ્ડરના સ્થાન સાથે ઓવરલેપ થશે."
 
-#: filewidgets/knewfilemenu.cpp:1218
+#: filewidgets/knewfilemenu.cpp:1214
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3621,47 +3628,47 @@ msgstr ""
 "વસ્તુઓ કાઢી નાખવા માટે ટર્મિનલનો ઉપયોગ કરવામાં આવે ત્યારે તે મૂંઝવણભર્યું અથવા જોખમી હોઈ "
 "શકે છે."
 
-#: filewidgets/knewfilemenu.cpp:1290
+#: filewidgets/knewfilemenu.cpp:1286
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> નામની ડિરેક્ટરી પહેલેથી જ અસ્તિત્વમાં છે."
 
-#: filewidgets/knewfilemenu.cpp:1292
+#: filewidgets/knewfilemenu.cpp:1288
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> નામની ફાઇલ પહેલેથી જ અસ્તિત્વમાં છે."
 
-#: filewidgets/knewfilemenu.cpp:1378
+#: filewidgets/knewfilemenu.cpp:1374
 #, kde-format
 msgid "Create New"
 msgstr "નવું બનાવો"
 
-#: filewidgets/knewfilemenu.cpp:1450
+#: filewidgets/knewfilemenu.cpp:1446
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "નવું ફોલ્ડર"
 
-#: filewidgets/knewfilemenu.cpp:1473
+#: filewidgets/knewfilemenu.cpp:1469
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "નવું ફોલ્ડર બનાવો"
 
-#: filewidgets/knewfilemenu.cpp:1475
+#: filewidgets/knewfilemenu.cpp:1471
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "અહીં નવું ફોલ્ડર બનાવો:%1:"
 
-#: filewidgets/knewfilemenu.cpp:1478 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "ફોલ્ડર નામ દાખલ કરો"
 
-#: filewidgets/knewfilemenu.cpp:1535
+#: filewidgets/knewfilemenu.cpp:1531
 #, kde-format
 msgid "Default"
 msgstr "મૂળભૂત"
@@ -4142,22 +4149,22 @@ msgstr "કાર્યક્રમ \"mount\" શોધી શકાતો ન�
 msgid "Could not find program \"umount\""
 msgstr "કાર્યક્રમ \"umount\" શોધી શકાતો નથી"
 
-#: kioworkers/file/file_unix.cpp:609
+#: kioworkers/file/file_unix.cpp:610
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1 માંથી %2 પર ફાઇલ નકલ કરી શકાતી નથી. (ક્ષતિક્રમ: %3)"
 
-#: kioworkers/file/file_unix.cpp:813
+#: kioworkers/file/file_unix.cpp:814
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 માટે કોઇ મીડિઆ ઉપકરણ નથી"
 
-#: kioworkers/file/file_unix.cpp:1087
+#: kioworkers/file/file_unix.cpp:1173
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "આપેલ વપરાશકર્તા નામ %1 માટે વપરાશકર્તા ઓળ મેળવી શકાતી નથી"
 
-#: kioworkers/file/file_unix.cpp:1098
+#: kioworkers/file/file_unix.cpp:1184
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "આપેલ સમૂહ નામ %1 માટે સમૂહ ઓળ મેળવી શકાતી નથી"
@@ -6923,25 +6930,25 @@ msgstr "'%1' નામની જૂની વસ્તુ પહેલેથી 
 msgid "Rename:"
 msgstr "નામ બદલો:"
 
-#: widgets/renamefiledialog.cpp:91
+#: widgets/renamefiledialog.cpp:131
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
 msgstr "વસ્તુ <filename>%1</filename> નું નામ બદલીને આ કરો:"
 
-#: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
+#: widgets/renamefiledialog.cpp:181 widgets/renamefiledialog.cpp:523
 #, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> નામની ફાઇલ પહેલેથી જ અસ્તિત્વમાં છે."
 
-#: widgets/renamefiledialog.cpp:144
+#: widgets/renamefiledialog.cpp:184
 #, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> એ માન્ય ફાઇલ નામ નથી."
 
-#: widgets/renamefiledialog.cpp:164
+#: widgets/renamefiledialog.cpp:204
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
@@ -6949,13 +6956,13 @@ msgid_plural "Rename the %1 selected items to:"
 msgstr[0] "પસંદ કરેલી %1 વસ્તુનું નામ બદલીને આ કરો:"
 msgstr[1] "પસંદ કરેલી %1 વસ્તુઓનું નામ બદલીને આ કરો:"
 
-#: widgets/renamefiledialog.cpp:167
+#: widgets/renamefiledialog.cpp:207
 #, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
 msgstr "# આનાથી શરૂ થતી ચડતા ક્રમની સંખ્યાઓ દ્વારા બદલવામાં આવશે:"
 
-#: widgets/renamefiledialog.cpp:176
+#: widgets/renamefiledialog.cpp:216
 #, kde-format
 msgctxt ""
 "This a template for new filenames, # is replaced by a number later, must be "
@@ -6963,7 +6970,7 @@ msgctxt ""
 msgid "New name #"
 msgstr "નવું નામ"
 
-#: widgets/renamefiledialog.cpp:283
+#: widgets/renamefiledialog.cpp:323
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6973,7 +6980,7 @@ msgstr ""
 "અમાન્ય ફાઇલનામ: નવા નામમાં # નો એક ક્રમ હોવો જોઈએ, સિવાય કે બધી ફાઇલોના ફાઇલ "
 "એક્સટેન્શન અલગ-અલગ હોય."
 
-#: widgets/renamefiledialog.cpp:310
+#: widgets/renamefiledialog.cpp:350
 #, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
@@ -6981,37 +6988,37 @@ msgid_plural "Rename the %1 selected items by:"
 msgstr[0] "પસંદ કરેલ %1 વસ્તુનું નામ આના દ્વારા બદલો:"
 msgstr[1] "પસંદ કરેલ %1 વસ્તુઓનું નામ આના દ્વારા બદલો:"
 
-#: widgets/renamefiledialog.cpp:314
+#: widgets/renamefiledialog.cpp:354
 #, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
 msgstr "બદલે છે:"
 
-#: widgets/renamefiledialog.cpp:316
+#: widgets/renamefiledialog.cpp:356
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
 msgstr "પેટર્ન"
 
-#: widgets/renamefiledialog.cpp:320
+#: widgets/renamefiledialog.cpp:360
 #, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
 msgstr "વડે"
 
-#: widgets/renamefiledialog.cpp:322
+#: widgets/renamefiledialog.cpp:362
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
 msgstr "બદલો"
 
-#: widgets/renamefiledialog.cpp:369
+#: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
 msgstr "કોઈ પણ ફાઇલ નામમાં આ પેટર્ન નથી."
 
-#: widgets/renamefiledialog.cpp:378
+#: widgets/renamefiledialog.cpp:418
 #, kde-kuit-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid ""
@@ -7020,7 +7027,7 @@ msgid ""
 msgstr ""
 "“%1” ને ખાલી બદલી સાથે બદલવાથી <filename>%2</filename> નું ફાઇલ નામ ખાલી થઈ જશે."
 
-#: widgets/renamefiledialog.cpp:404
+#: widgets/renamefiledialog.cpp:444
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
@@ -7028,79 +7035,79 @@ msgid_plural "Rename the %1 selected items:"
 msgstr[0] "પસંદ કરેલી %1 વસ્તુનું નામ બદલો:[zero]"
 msgstr[1] "પસંદ કરેલી %1 વસ્તુઓનું નામ બદલો:[zero]"
 
-#: widgets/renamefiledialog.cpp:407
+#: widgets/renamefiledialog.cpp:447
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
 msgstr "લખાણ ઉમેરો:"
 
-#: widgets/renamefiledialog.cpp:409
+#: widgets/renamefiledialog.cpp:449
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
 msgstr "ઉમેરવા માટેનું લખાણ"
 
-#: widgets/renamefiledialog.cpp:414
+#: widgets/renamefiledialog.cpp:454
 #, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
 msgstr "ફાઇલનામ પહેલાં"
 
-#: widgets/renamefiledialog.cpp:415
+#: widgets/renamefiledialog.cpp:455
 #, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
 msgstr "ફાઇલનામ પછી"
 
-#: widgets/renamefiledialog.cpp:532
+#: widgets/renamefiledialog.cpp:572
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Item"
 msgstr "વસ્તુનું નામ બદલો"
 
-#: widgets/renamefiledialog.cpp:532
+#: widgets/renamefiledialog.cpp:572
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Items"
 msgstr "વસ્તુઓનું નામ બદલો"
 
-#: widgets/renamefiledialog.cpp:543
+#: widgets/renamefiledialog.cpp:583
 #, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
 msgstr "નામ બદલો (&R)"
 
-#: widgets/renamefiledialog.cpp:552
+#: widgets/renamefiledialog.cpp:592
 #, kde-format
 msgctxt "@info"
 msgid "How to rename:"
 msgstr "નામ કેવી રીતે બદલવું:"
 
-#: widgets/renamefiledialog.cpp:555
+#: widgets/renamefiledialog.cpp:596
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
 msgstr "ગણતરી કરો"
 
-#: widgets/renamefiledialog.cpp:555
+#: widgets/renamefiledialog.cpp:596
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
 msgstr "લખાણ બદલો"
 
-#: widgets/renamefiledialog.cpp:555
+#: widgets/renamefiledialog.cpp:596
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
 msgstr "લખાણ ઉમેરો"
 
-#: widgets/renamefiledialog.cpp:567
+#: widgets/renamefiledialog.cpp:613
 #, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
 msgstr "પૂર્વદર્શન:"
 
-#: widgets/renamefiledialog.cpp:691
+#: widgets/renamefiledialog.cpp:736
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-08 00:41+0000\n"
-"PO-Revision-Date: 2026-07-18 01:31+0900\n"
+"POT-Creation-Date: 2026-08-09 00:41+0000\n"
+"PO-Revision-Date: 2026-08-08 14:41+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Min Nan Chinese <zh-l10n@lists.slat.org>\n"
 "Language: nan_TW\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 26.07.70\n"
+"X-Generator: Lokalize 26.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -39,7 +39,7 @@ msgid ""
 "insufficient access to the file to perform the change."
 msgstr "無法度修改檔案 <filename>%1</filename> ê 所有者。你無權限做這个改變。"
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1014
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1015
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -806,17 +806,17 @@ msgstr "檔案可能因為佇予別个用者猶是程式使用所以予鎖定。
 msgid ""
 "Check to make sure that no other application or user is using the file or "
 "has locked the file."
-msgstr ""
+msgstr "請檢查無其他程式猶是用者 tī-leh 用這个檔案猶是已鎖定--ah。"
 
 #: core/job_error.cpp:395
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
-msgstr ""
+msgstr "雖然應該毋是 án-ne，毋過猶是有可能是硬體佇出問題。"
 
 #: core/job_error.cpp:397
 #, kde-format
 msgid "You may have encountered a bug in the program."
-msgstr ""
+msgstr "你可能是拄著程式 ê 問題。"
 
 #: core/job_error.cpp:399
 #, kde-format
@@ -824,6 +824,8 @@ msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
 "submitting a full bug report as detailed below."
 msgstr ""
+"這誠可能是程式內底 ê 問題所造成 ê。請考慮照以下 ê 詳細資訊來回報完整 ê bug "
+"report。"
 
 #: core/job_error.cpp:402
 #, kde-format
@@ -847,7 +849,7 @@ msgstr ""
 #: core/job_error.cpp:414
 #, kde-format
 msgid "There may have been a problem with your network connection."
-msgstr ""
+msgstr "可能是網路連線有問題。"
 
 #: core/job_error.cpp:418
 #, kde-format
@@ -855,48 +857,49 @@ msgid ""
 "There may have been a problem with your network configuration. If you have "
 "been accessing the Internet with no problems recently, this is unlikely."
 msgstr ""
+"你 ê 網路設定可能有問題。毋過若你近來用網路無拄著問題，可能 tio̍h 毋是 án-ne。"
 
 #: core/job_error.cpp:422
 #, kde-format
 msgid ""
 "There may have been a problem at some point along the network path between "
 "the server and this computer."
-msgstr ""
+msgstr "可能佇伺服器到這个電腦 ê 網路線路有問題。"
 
 #: core/job_error.cpp:424
 #, kde-format
 msgid "Try again, either now or at a later time."
-msgstr ""
+msgstr "請重試，毋管是這馬猶是別个時陣。"
 
 #: core/job_error.cpp:425
 #, kde-format
 msgid "A protocol error or incompatibility may have occurred."
-msgstr ""
+msgstr "可能有發生協定錯誤猶是無相容 ê 問題。"
 
 #: core/job_error.cpp:426
 #, kde-format
 msgid "Ensure that the resource exists, and try again."
-msgstr ""
+msgstr "請確定資源存在，然後閣試一擺。"
 
 #: core/job_error.cpp:427
 #, kde-format
 msgid "The specified resource may not exist."
-msgstr ""
+msgstr "指定 ê 資源可能無存在。"
 
 #: core/job_error.cpp:429
 #, kde-format
 msgid "Double-check that you have entered the correct location and try again."
-msgstr ""
+msgstr "請仔細檢查你有輸入 tio̍h ê 位置，然後閣試一擺。"
 
 #: core/job_error.cpp:431
 #, kde-format
 msgid "Check your network connection status."
-msgstr ""
+msgstr "請檢查你 ê 網路連線狀態。"
 
 #: core/job_error.cpp:435
 #, kde-format
 msgid "Cannot Open Resource For Reading"
-msgstr ""
+msgstr "無法度拍開資源予讀取"
 
 #: core/job_error.cpp:437
 #, kde-format
@@ -904,16 +907,18 @@ msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
 "strong> could not be retrieved, as read access could not be obtained."
 msgstr ""
+"這代表無法度取得要求 ê 檔案猶是資料鋏仔 <strong>%1</strong> ê 內容，因為無法"
+"度取得讀取權限。"
 
 #: core/job_error.cpp:442
 #, kde-format
 msgid "You may not have permissions to read the file or open the folder."
-msgstr ""
+msgstr "你可能無讀取檔案猶是開資料鋏仔 ê 權限。"
 
 #: core/job_error.cpp:449
 #, kde-format
 msgid "Cannot Open Resource For Writing"
-msgstr ""
+msgstr "無法度拍開資源予寫入"
 
 #: core/job_error.cpp:451
 #, kde-format
@@ -921,16 +926,17 @@ msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
 "requested, because access with permission to write could not be obtained."
 msgstr ""
+"這代表檔案 <strong>%1</strong> 無法度照要求寫入，因為無法度取得寫入 ê 權限。"
 
 #: core/job_error.cpp:460
 #, kde-format
 msgid "Cannot Launch Process required by the %1 Protocol"
-msgstr ""
+msgstr "無法度起動 %1 協定需要 ê 程序"
 
 #: core/job_error.cpp:461
 #, kde-format
 msgid "Unable to Launch Process"
-msgstr ""
+msgstr "無法度起動程序"
 
 #: core/job_error.cpp:463
 #, kde-format
@@ -939,6 +945,8 @@ msgid ""
 "strong> protocol could not be found or started. This is usually due to "
 "technical reasons."
 msgstr ""
+"佇你 ê 電腦提供 <strong>%1</strong> 協定存取 ê 程式揣無猶是無法度起動。這通常"
+"是因為技術上 ê 原因。"
 
 #: core/job_error.cpp:468
 #, kde-format
@@ -953,19 +961,19 @@ msgstr ""
 #: core/job_error.cpp:477
 #, kde-format
 msgid "Internal Error"
-msgstr ""
+msgstr "內部錯誤"
 
 #: core/job_error.cpp:479
 #, kde-format
 msgid ""
 "The program on your computer which provides access to the <strong>%1</"
 "strong> protocol has reported an internal error."
-msgstr ""
+msgstr "佇你 ê 電腦提供 <strong>%1</strong> 協定存取 ê 程式回報--ah 內部錯誤。"
 
 #: core/job_error.cpp:487
 #, kde-format
 msgid "Improperly Formatted URL"
-msgstr ""
+msgstr "格式無正確 ê URL"
 
 #: core/job_error.cpp:489
 #, kde-format
@@ -976,30 +984,34 @@ msgid ""
 "password@www.example.org:port/folder/filename.extension?query=value</"
 "strong></blockquote>"
 msgstr ""
+"你輸入 ê URL（英語：<strong>U</strong>niform <strong>R</strong>esource "
+"<strong>L</strong>ocator）ê 格式毋著。URL ê 格式基本上是 án-ne："
+"<blockquote><strong>協定://用者:密碼@www.example.org:埠頭/資料鋏仔/檔名.副檔"
+"名?query=value</strong></blockquote>"
 
 #: core/job_error.cpp:498
 #, kde-format
 msgid "Unsupported Protocol %1"
-msgstr ""
+msgstr "無支援 ê 協定 %1"
 
 #: core/job_error.cpp:500
 #, kde-format
 msgid ""
 "The protocol <strong>%1</strong> is not supported by the KDE programs "
 "currently installed on this computer."
-msgstr ""
+msgstr "這个電腦有裝 ê KDE 程式攏無支援 <strong>%1</strong> 協定。"
 
 #: core/job_error.cpp:503
 #, kde-format
 msgid "The requested protocol may not be supported."
-msgstr ""
+msgstr "請求 ê 協定可能無支援。"
 
 #: core/job_error.cpp:505
 #, kde-format
 msgid ""
 "The versions of the %1 protocol supported by this computer and the server "
 "may be incompatible."
-msgstr ""
+msgstr "這个電腦 kap 伺服器支援 ê %1 協定版本可能無相容。"
 
 #: core/job_error.cpp:509
 #, kde-format
@@ -1008,6 +1020,9 @@ msgid ""
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
+"你會使佇網路頂揣支援這个協定 ê 軟體外掛程式（叫做 \"KIO worker\"，mā 叫做 "
+"KIO 工作器）。會使去揣 ê 所在包括 <a href=\"https://store.kde.org/\">https://"
+"store.kde.org</a>。"
 
 #: core/job_error.cpp:517
 #, kde-format
@@ -1038,14 +1053,14 @@ msgstr ""
 #: core/job_error.cpp:532
 #, kde-format
 msgid "Unsupported Action: %1"
-msgstr ""
+msgstr "無支援 ê 動作：%1"
 
 #: core/job_error.cpp:534
 #, kde-format
 msgid ""
 "The requested action is not supported by the KDE program which is "
 "implementing the <strong>%1</strong> protocol."
-msgstr ""
+msgstr "請求 ê 動作是實作 <strong>%1</strong> 協定 ê KDE 程式猶未支援 ê。"
 
 #: core/job_error.cpp:538
 #, kde-format
@@ -1054,33 +1069,35 @@ msgid ""
 "information should give you more information than is available to the KDE "
 "input/output architecture."
 msgstr ""
+"這个錯誤 kap 彼个 KDE 程式誠有關係。一寡追加 ê 資訊應該會予你比 KDE 輸入/輸出"
+"架構會用 ê 閣較濟 ê 資訊。"
 
 #: core/job_error.cpp:542
 #, kde-format
 msgid "Attempt to find another way to accomplish the same outcome."
-msgstr ""
+msgstr "請揣別个方法來達成仝款 ê 結果。"
 
 #: core/job_error.cpp:547
 #, kde-format
 msgid "File Expected"
-msgstr ""
+msgstr "期待 ê 是檔案"
 
 #: core/job_error.cpp:549
 #, kde-format
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
 "found instead."
-msgstr ""
+msgstr "請求期待 ê 是檔案，毋過揣著 ê 是資料鋏仔 <strong>%1</strong>。"
 
 #: core/job_error.cpp:552
 #, kde-format
 msgid "This may be an error on the server side."
-msgstr ""
+msgstr "這可能是伺服器彼爿 ê 問題。"
 
 #: core/job_error.cpp:557
 #, kde-format
 msgid "Folder Expected"
-msgstr ""
+msgstr "期待 ê 是資料鋏仔"
 
 #: core/job_error.cpp:559
 #, kde-format
@@ -1914,17 +1931,17 @@ msgstr ""
 #: core/job_error.cpp:1182
 #, kde-format
 msgid "Could Not Create Link"
-msgstr ""
+msgstr "無法度建立連結"
 
 #: core/job_error.cpp:1183
 #, kde-format
 msgid "Could Not Create Symbolic Link"
-msgstr ""
+msgstr "無法度建立符號連結"
 
 #: core/job_error.cpp:1184
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
-msgstr ""
+msgstr "要求 ê 符號連結 %1 無法度建立。"
 
 #: core/job_error.cpp:1190
 #, kde-format
@@ -1990,31 +2007,31 @@ msgstr ""
 #: core/job_error.cpp:1230
 #, kde-format
 msgid "Folder moved into itself"
-msgstr ""
+msgstr "Kā 資料鋏仔徙到家己內底--ah"
 
 #: core/job_error.cpp:1232
 #, kde-format
 msgid ""
 "The operation could not be completed because the source can not be moved "
 "into itself."
-msgstr ""
+msgstr "無法度完成這个操作，因為來源袂當徙入去家己內底。"
 
 #: core/job_error.cpp:1234
 #, kde-format
 msgid "Move the item into a different folder."
-msgstr ""
+msgstr "Kā 項目徙入去別个資料鋏仔，"
 
 #: core/job_error.cpp:1238
 #, kde-format
 msgid "Could not communicate with password server"
-msgstr ""
+msgstr "無法度 kap 密碼伺服器通訊"
 
 #: core/job_error.cpp:1240
 #, kde-format
 msgid ""
 "The operation could not be completed because the service for requesting "
 "passwords (kpasswdserver) couldn't be contacted"
-msgstr ""
+msgstr "操作無法度完成，因為無法度 kap 請求密碼用 ê 服務 (kpasswdserver) 聯絡"
 
 #: core/job_error.cpp:1242
 #, kde-format
@@ -3216,17 +3233,17 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:1764
 #, kde-format
 msgid "Overwrite File?"
-msgstr ""
+msgstr "取代檔案？"
 
 #: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "You can only select local files."
-msgstr ""
+msgstr "只會使選本地檔案。"
 
 #: filewidgets/kfilewidget.cpp:1961
 #, kde-format
 msgid "Remote Files Not Accepted"
-msgstr ""
+msgstr "無接受遠端檔案"
 
 #: filewidgets/kfilewidget.cpp:2055
 #, kde-format
@@ -3236,7 +3253,7 @@ msgstr "所有 ê 資料鋏仔"
 #: filewidgets/kfilewidget.cpp:2079
 #, kde-format
 msgid "Current Directory: %1"
-msgstr ""
+msgstr "這馬 ê 目錄：%1"
 
 #: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -3246,7 +3263,7 @@ msgstr "Phah-khui(&O)"
 #: filewidgets/kfilewidget.cpp:2315
 #, kde-format
 msgid "Icon size: %1 pixels"
-msgstr ""
+msgstr "圖示大細：%1 畫素"
 
 #: filewidgets/kfilewidget.cpp:2482
 #, kde-format
@@ -3303,21 +3320,28 @@ msgid ""
 "files shown.</qt>"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:234
+#: filewidgets/knewfilemenu.cpp:233
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "輸入 %1 檔名："
 
-#: filewidgets/knewfilemenu.cpp:559
+#: filewidgets/knewfilemenu.cpp:558
 #, kde-format
 msgid "Sorry"
 msgstr "歹勢"
 
-#: filewidgets/knewfilemenu.cpp:570
+#: filewidgets/knewfilemenu.cpp:569
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr ""
+
+#: filewidgets/knewfilemenu.cpp:618
+#, fuzzy, kde-format
+#| msgid "Create New"
+msgctxt "@title:window New link to a program"
+msgid "Create New %1"
+msgstr "建立"
 
 #: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
 #, kde-format
@@ -3334,13 +3358,13 @@ msgstr "建立符號連結"
 msgid "Create link to URL"
 msgstr "建立網址的連結"
 
-#: filewidgets/knewfilemenu.cpp:788 filewidgets/knewfilemenu.cpp:811
+#: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1130
+#: filewidgets/knewfilemenu.cpp:1126
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3348,7 +3372,7 @@ msgid ""
 "use by the operating system."
 msgstr "檔名 <filename>%1</filename> 袂使用，因為這是操作系統保留的名。"
 
-#: filewidgets/knewfilemenu.cpp:1138
+#: filewidgets/knewfilemenu.cpp:1134
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3356,7 +3380,7 @@ msgid ""
 "default."
 msgstr "檔名 <filename>%1</filename> 以點開始，所以伊會預設予隱藏。"
 
-#: filewidgets/knewfilemenu.cpp:1146
+#: filewidgets/knewfilemenu.cpp:1142
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3365,27 +3389,27 @@ msgid ""
 "potential oddities."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1164
+#: filewidgets/knewfilemenu.cpp:1160
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1178
+#: filewidgets/knewfilemenu.cpp:1174
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1190
+#: filewidgets/knewfilemenu.cpp:1186
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1195
+#: filewidgets/knewfilemenu.cpp:1191
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1209
+#: filewidgets/knewfilemenu.cpp:1205
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3393,54 +3417,54 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1218
+#: filewidgets/knewfilemenu.cpp:1214
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1290
+#: filewidgets/knewfilemenu.cpp:1286
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1292
+#: filewidgets/knewfilemenu.cpp:1288
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1378
+#: filewidgets/knewfilemenu.cpp:1374
 #, kde-format
 msgid "Create New"
 msgstr "建立"
 
-#: filewidgets/knewfilemenu.cpp:1450
+#: filewidgets/knewfilemenu.cpp:1446
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "建立資料鋏仔"
 
-#: filewidgets/knewfilemenu.cpp:1473
+#: filewidgets/knewfilemenu.cpp:1469
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "建立新 ê 資料鋏仔"
 
-#: filewidgets/knewfilemenu.cpp:1475
+#: filewidgets/knewfilemenu.cpp:1471
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "佇 %1 建立新 ê 資料鋏仔："
 
-#: filewidgets/knewfilemenu.cpp:1478 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:363
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "輸入資料鋏仔 ê 名"
 
-#: filewidgets/knewfilemenu.cpp:1535
+#: filewidgets/knewfilemenu.cpp:1531
 #, kde-format
 msgid "Default"
 msgstr "預設"
@@ -3907,22 +3931,22 @@ msgstr ""
 msgid "Could not find program \"umount\""
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:609
+#: kioworkers/file/file_unix.cpp:610
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:813
+#: kioworkers/file/file_unix.cpp:814
 #, kde-format
 msgid "No media in device for %1"
-msgstr ""
+msgstr "裝置無媒體予 %1"
 
-#: kioworkers/file/file_unix.cpp:1087
+#: kioworkers/file/file_unix.cpp:1173
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:1098
+#: kioworkers/file/file_unix.cpp:1184
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
@@ -5155,7 +5179,7 @@ msgstr "掛載點"
 #: widgets/kfilepropspluginwidget.ui:507
 #, kde-format
 msgid "Mounted from:"
-msgstr ""
+msgstr "Uì 佗位掛載："
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
@@ -6464,7 +6488,7 @@ msgstr ""
 #: widgets/renamedialog.cpp:335
 #, kde-format
 msgid "&Resume"
-msgstr ""
+msgstr "繼續(&R)"
 
 #: widgets/renamedialog.cpp:344
 #, kde-format
@@ -6556,38 +6580,38 @@ msgstr ""
 msgid "Rename:"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:91
+#: widgets/renamefiledialog.cpp:131
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:141 widgets/renamefiledialog.cpp:483
+#: widgets/renamefiledialog.cpp:181 widgets/renamefiledialog.cpp:523
 #, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:144
+#: widgets/renamefiledialog.cpp:184
 #, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:164
+#: widgets/renamefiledialog.cpp:204
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
 msgstr[0] ""
 
-#: widgets/renamefiledialog.cpp:167
+#: widgets/renamefiledialog.cpp:207
 #, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:176
+#: widgets/renamefiledialog.cpp:216
 #, kde-format
 msgctxt ""
 "This a template for new filenames, # is replaced by a number later, must be "
@@ -6595,7 +6619,7 @@ msgctxt ""
 msgid "New name #"
 msgstr "新 ê 名 #"
 
-#: widgets/renamefiledialog.cpp:283
+#: widgets/renamefiledialog.cpp:323
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -6603,44 +6627,44 @@ msgid ""
 "the files have different file extensions."
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:310
+#: widgets/renamefiledialog.cpp:350
 #, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
 msgstr[0] ""
 
-#: widgets/renamefiledialog.cpp:314
+#: widgets/renamefiledialog.cpp:354
 #, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:316
+#: widgets/renamefiledialog.cpp:356
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:320
+#: widgets/renamefiledialog.cpp:360
 #, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:322
+#: widgets/renamefiledialog.cpp:362
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:369
+#: widgets/renamefiledialog.cpp:409
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:378
+#: widgets/renamefiledialog.cpp:418
 #, kde-kuit-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid ""
@@ -6648,86 +6672,86 @@ msgid ""
 "to have an empty file name."
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:404
+#: widgets/renamefiledialog.cpp:444
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
 msgstr[0] ""
 
-#: widgets/renamefiledialog.cpp:407
+#: widgets/renamefiledialog.cpp:447
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
 msgstr "添文字："
 
-#: widgets/renamefiledialog.cpp:409
+#: widgets/renamefiledialog.cpp:449
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
 msgstr "Ài 添 ê 文字"
 
-#: widgets/renamefiledialog.cpp:414
+#: widgets/renamefiledialog.cpp:454
 #, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
 msgstr "檔名進前"
 
-#: widgets/renamefiledialog.cpp:415
+#: widgets/renamefiledialog.cpp:455
 #, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
 msgstr "檔名後壁"
 
-#: widgets/renamefiledialog.cpp:532
+#: widgets/renamefiledialog.cpp:572
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Item"
 msgstr "改項目 ê 名"
 
-#: widgets/renamefiledialog.cpp:532
+#: widgets/renamefiledialog.cpp:572
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Items"
 msgstr "改項目 ê 名"
 
-#: widgets/renamefiledialog.cpp:543
+#: widgets/renamefiledialog.cpp:583
 #, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
 msgstr "改名(&R)"
 
-#: widgets/renamefiledialog.cpp:552
+#: widgets/renamefiledialog.cpp:592
 #, kde-format
 msgctxt "@info"
 msgid "How to rename:"
 msgstr "Ài 按怎改名："
 
-#: widgets/renamefiledialog.cpp:555
+#: widgets/renamefiledialog.cpp:596
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:555
+#: widgets/renamefiledialog.cpp:596
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
 msgstr "取代文字"
 
-#: widgets/renamefiledialog.cpp:555
+#: widgets/renamefiledialog.cpp:596
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
 msgstr "添文字"
 
-#: widgets/renamefiledialog.cpp:567
+#: widgets/renamefiledialog.cpp:613
 #, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
 msgstr "預覽："
 
-#: widgets/renamefiledialog.cpp:691
+#: widgets/renamefiledialog.cpp:736
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
