@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-09 00:41+0000\n"
+"POT-Creation-Date: 2026-08-10 00:41+0000\n"
 "PO-Revision-Date: 2026-08-01 17:53+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -3525,27 +3525,27 @@ msgstr "மன்னிக்கவும்"
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt><b>%1</b> எனும் வார்ப்புரு (template) கோப்பு இல்லை.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:618
+#: filewidgets/knewfilemenu.cpp:589 filewidgets/knewfilemenu.cpp:602
+#, kde-format
+msgid "Name for new link:"
+msgstr "புதிய இணைப்பிற்கான பெயர்:"
+
+#: filewidgets/knewfilemenu.cpp:592
+#, kde-format
+msgid "Create Symlink"
+msgstr "குறியிணைப்பை உருவாக்கு"
+
+#: filewidgets/knewfilemenu.cpp:606
+#, kde-format
+msgid "Create link to URL"
+msgstr "முகவரிக்கு இணைப்பை உருவாக்கு"
+
+#: filewidgets/knewfilemenu.cpp:650
 #, fuzzy, kde-format
 #| msgid "Create New"
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
 msgstr "புதியதை உருவாக்கு"
-
-#: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
-#, kde-format
-msgid "Name for new link:"
-msgstr "புதிய இணைப்பிற்கான பெயர்:"
-
-#: filewidgets/knewfilemenu.cpp:693
-#, kde-format
-msgid "Create Symlink"
-msgstr "குறியிணைப்பை உருவாக்கு"
-
-#: filewidgets/knewfilemenu.cpp:755
-#, kde-format
-msgid "Create link to URL"
-msgstr "முகவரிக்கு இணைப்பை உருவாக்கு"
 
 #: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, kde-format

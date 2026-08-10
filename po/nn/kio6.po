@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-09 00:41+0000\n"
+"POT-Creation-Date: 2026-08-10 00:41+0000\n"
 "PO-Revision-Date: 2026-07-05 17:17+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -3550,27 +3550,27 @@ msgstr "Beklagar"
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Malfila <b>%1</b> finst ikkje.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:618
+#: filewidgets/knewfilemenu.cpp:589 filewidgets/knewfilemenu.cpp:602
+#, kde-format
+msgid "Name for new link:"
+msgstr "Namn på ny lenkje:"
+
+#: filewidgets/knewfilemenu.cpp:592
+#, kde-format
+msgid "Create Symlink"
+msgstr "Lag symbolsk lenkje"
+
+#: filewidgets/knewfilemenu.cpp:606
+#, kde-format
+msgid "Create link to URL"
+msgstr "Lag lenkje til adresse"
+
+#: filewidgets/knewfilemenu.cpp:650
 #, fuzzy, kde-format
 #| msgid "Create New"
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
 msgstr "Lag ny"
-
-#: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
-#, kde-format
-msgid "Name for new link:"
-msgstr "Namn på ny lenkje:"
-
-#: filewidgets/knewfilemenu.cpp:693
-#, kde-format
-msgid "Create Symlink"
-msgstr "Lag symbolsk lenkje"
-
-#: filewidgets/knewfilemenu.cpp:755
-#, kde-format
-msgid "Create link to URL"
-msgstr "Lag lenkje til adresse"
 
 #: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, kde-format

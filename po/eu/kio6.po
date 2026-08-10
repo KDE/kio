@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-09 00:41+0000\n"
+"POT-Creation-Date: 2026-08-10 00:41+0000\n"
 "PO-Revision-Date: 2026-07-27 03:52+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -3587,27 +3587,27 @@ msgstr "Barkatu"
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt><b>%1</b> txantiloi fitxategia ez da existitzen.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:618
+#: filewidgets/knewfilemenu.cpp:589 filewidgets/knewfilemenu.cpp:602
+#, kde-format
+msgid "Name for new link:"
+msgstr "Esteka berriaren izena:"
+
+#: filewidgets/knewfilemenu.cpp:592
+#, kde-format
+msgid "Create Symlink"
+msgstr "Sortu esteka sinbolikoa"
+
+#: filewidgets/knewfilemenu.cpp:606
+#, kde-format
+msgid "Create link to URL"
+msgstr "Sortu URLari esteka"
+
+#: filewidgets/knewfilemenu.cpp:650
 #, fuzzy, kde-format
 #| msgid "Create New"
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
 msgstr "Sortu berria"
-
-#: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
-#, kde-format
-msgid "Name for new link:"
-msgstr "Esteka berriaren izena:"
-
-#: filewidgets/knewfilemenu.cpp:693
-#, kde-format
-msgid "Create Symlink"
-msgstr "Sortu esteka sinbolikoa"
-
-#: filewidgets/knewfilemenu.cpp:755
-#, kde-format
-msgid "Create link to URL"
-msgstr "Sortu URLari esteka"
 
 #: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, kde-format

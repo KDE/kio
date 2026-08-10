@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-09 00:41+0000\n"
+"POT-Creation-Date: 2026-08-10 00:41+0000\n"
 "PO-Revision-Date: 2026-06-22 12:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -3606,28 +3606,28 @@ msgstr "Ошибка"
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Файл шаблона <b>%1</b> отсутствует.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:618
-#, fuzzy, kde-format
-#| msgid "Create New"
-msgctxt "@title:window New link to a program"
-msgid "Create New %1"
-msgstr "Создать"
-
-#: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
+#: filewidgets/knewfilemenu.cpp:589 filewidgets/knewfilemenu.cpp:602
 #, kde-format
 msgid "Name for new link:"
 msgstr "Имя новой ссылки:"
 
 # BUGME: please split @title:window and action --aspotashev
-#: filewidgets/knewfilemenu.cpp:693
+#: filewidgets/knewfilemenu.cpp:592
 #, kde-format
 msgid "Create Symlink"
 msgstr "Создать ссылку"
 
-#: filewidgets/knewfilemenu.cpp:755
+#: filewidgets/knewfilemenu.cpp:606
 #, kde-format
 msgid "Create link to URL"
 msgstr "Создать ярлык на адрес"
+
+#: filewidgets/knewfilemenu.cpp:650
+#, fuzzy, kde-format
+#| msgid "Create New"
+msgctxt "@title:window New link to a program"
+msgid "Create New %1"
+msgstr "Создать"
 
 #: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, kde-format

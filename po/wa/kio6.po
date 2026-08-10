@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-09 00:41+0000\n"
+"POT-Creation-Date: 2026-08-10 00:41+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -3741,28 +3741,28 @@ msgstr ""
 "<qt>Nén moyén d' enonder li cmande ki vos djhoz. Motoit ki l' fitchî ou "
 "l' ridant <b>%1</b> n' egzistêye nén.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:618
-#, fuzzy, kde-format
-#| msgid "C&reate"
-msgctxt "@title:window New link to a program"
-msgid "Create New %1"
-msgstr "A&hiver"
-
-#: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
+#: filewidgets/knewfilemenu.cpp:589 filewidgets/knewfilemenu.cpp:602
 #, kde-format
 msgid "Name for new link:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:693
+#: filewidgets/knewfilemenu.cpp:592
 #, fuzzy, kde-format
 #| msgid "Could Not Create Symbolic Link"
 msgid "Create Symlink"
 msgstr "Dji n' sai fé on loyén simbolike"
 
-#: filewidgets/knewfilemenu.cpp:755
+#: filewidgets/knewfilemenu.cpp:606
 #, fuzzy, kde-format
 #| msgid "C&reate"
 msgid "Create link to URL"
+msgstr "A&hiver"
+
+#: filewidgets/knewfilemenu.cpp:650
+#, fuzzy, kde-format
+#| msgid "C&reate"
+msgctxt "@title:window New link to a program"
+msgid "Create New %1"
 msgstr "A&hiver"
 
 #: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801

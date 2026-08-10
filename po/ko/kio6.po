@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-09 00:41+0000\n"
+"POT-Creation-Date: 2026-08-10 00:41+0000\n"
 "PO-Revision-Date: 2026-06-06 13:00+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3490,27 +3490,27 @@ msgstr "죄송합니다"
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>서식 파일 <b>%1</b>이(가) 없습니다.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:618
+#: filewidgets/knewfilemenu.cpp:589 filewidgets/knewfilemenu.cpp:602
+#, kde-format
+msgid "Name for new link:"
+msgstr "새 링크 이름:"
+
+#: filewidgets/knewfilemenu.cpp:592
+#, kde-format
+msgid "Create Symlink"
+msgstr "심볼릭 링크 만들기"
+
+#: filewidgets/knewfilemenu.cpp:606
+#, kde-format
+msgid "Create link to URL"
+msgstr "URL로 향한 링크 만들기"
+
+#: filewidgets/knewfilemenu.cpp:650
 #, fuzzy, kde-format
 #| msgid "Create New"
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
 msgstr "새로 만들기"
-
-#: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
-#, kde-format
-msgid "Name for new link:"
-msgstr "새 링크 이름:"
-
-#: filewidgets/knewfilemenu.cpp:693
-#, kde-format
-msgid "Create Symlink"
-msgstr "심볼릭 링크 만들기"
-
-#: filewidgets/knewfilemenu.cpp:755
-#, kde-format
-msgid "Create link to URL"
-msgstr "URL로 향한 링크 만들기"
 
 #: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, kde-format

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-09 00:41+0000\n"
+"POT-Creation-Date: 2026-08-10 00:41+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -3595,27 +3595,27 @@ msgstr "សូម​ទោស"
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>មិន​ទាន់​មាន​ឯកសារ​ពុម្ព <b>%1</b> នៅ​ឡើយទេ ។</qt>"
 
-#: filewidgets/knewfilemenu.cpp:618
+#: filewidgets/knewfilemenu.cpp:589 filewidgets/knewfilemenu.cpp:602
+#, kde-format
+msgid "Name for new link:"
+msgstr ""
+
+#: filewidgets/knewfilemenu.cpp:592
+#, kde-format
+msgid "Create Symlink"
+msgstr "​បង្កើត​តំណ​និមិត្ត​សញ្ញា"
+
+#: filewidgets/knewfilemenu.cpp:606
+#, kde-format
+msgid "Create link to URL"
+msgstr "បង្កើត​តំណ​ទៅ​កាន់ URL"
+
+#: filewidgets/knewfilemenu.cpp:650
 #, fuzzy, kde-format
 #| msgid "Create New"
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
 msgstr "បង្កើត​ថ្មី"
-
-#: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
-#, kde-format
-msgid "Name for new link:"
-msgstr ""
-
-#: filewidgets/knewfilemenu.cpp:693
-#, kde-format
-msgid "Create Symlink"
-msgstr "​បង្កើត​តំណ​និមិត្ត​សញ្ញា"
-
-#: filewidgets/knewfilemenu.cpp:755
-#, kde-format
-msgid "Create link to URL"
-msgstr "បង្កើត​តំណ​ទៅ​កាន់ URL"
 
 #: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, kde-format

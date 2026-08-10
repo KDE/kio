@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-09 00:41+0000\n"
+"POT-Creation-Date: 2026-08-10 00:41+0000\n"
 "PO-Revision-Date: 2004-09-19 18:24+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud.com>\n"
 "Language-Team: Brezhoneg <Suav.Icb.fr>\n"
@@ -3383,29 +3383,29 @@ msgstr "Enrollit"
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "Ar restr goulennet n'eus ket anezhañ"
 
-#: filewidgets/knewfilemenu.cpp:618
-#, fuzzy, kde-format
-#| msgid "C&reate"
-msgctxt "@title:window New link to a program"
-msgid "Create New %1"
-msgstr "K&rouiñ"
-
-#: filewidgets/knewfilemenu.cpp:690 filewidgets/knewfilemenu.cpp:751
+#: filewidgets/knewfilemenu.cpp:589 filewidgets/knewfilemenu.cpp:602
 #, kde-format
 msgid "Name for new link:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:693
+#: filewidgets/knewfilemenu.cpp:592
 #, fuzzy, kde-format
 #| msgid "Could Not Create Symbolic Link"
 msgid "Create Symlink"
 msgstr "Ne m'eus ket gallet oberiañ un arouezere"
 
-#: filewidgets/knewfilemenu.cpp:755
+#: filewidgets/knewfilemenu.cpp:606
 #, fuzzy, kde-format
 #| msgid "Destination"
 msgid "Create link to URL"
 msgstr "Dehaezadur"
+
+#: filewidgets/knewfilemenu.cpp:650
+#, fuzzy, kde-format
+#| msgid "C&reate"
+msgctxt "@title:window New link to a program"
+msgid "Create New %1"
+msgstr "K&rouiñ"
 
 #: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, fuzzy, kde-format
