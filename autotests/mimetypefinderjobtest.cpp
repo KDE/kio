@@ -12,6 +12,7 @@
 
 #include <KConfigGroup>
 #include <KSharedConfig>
+#include <QMimeDatabase>
 #include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QTest>
@@ -74,7 +75,11 @@ void MimeTypeFinderJobTest::determineMimeType()
     // When running a MimeTypeFinderJob
     KIO::MimeTypeFinderJob *job = new KIO::MimeTypeFinderJob(url, this);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
-    QCOMPARE(job->mimeType(), mimeType);
+    // The database gives a type one name of its own and knows it under others as well, so
+    // both sides are asked which type they mean rather than compared as they are spelled.
+    QMimeDatabase db;
+    const QString expected = db.mimeTypeForName(mimeType).name();
+    QCOMPARE(db.mimeTypeForName(job->mimeType()).name(), expected);
 
     // Check that the result is the same when accessing the source, skip on Windows
 #ifndef Q_OS_WIN
@@ -86,7 +91,7 @@ void MimeTypeFinderJobTest::determineMimeType()
 
     job = new KIO::MimeTypeFinderJob(linkUrl, this);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
-    QCOMPARE(job->mimeType(), mimeType);
+    QCOMPARE(db.mimeTypeForName(job->mimeType()).name(), expected);
 #endif
 }
 

@@ -1536,7 +1536,9 @@ void KDirListerTest::testMimeFilter_data()
 
     const QStringList files = {"bla.txt", "main.cpp", "main.c", "image.jpeg", "picture.png"};
 
-    QTest::newRow("single_file_exact_mimetype") << files << QStringList{"text/x-c++src"} << QStringList{"main.cpp"};
+    // Not a C or C++ source: shared-mime-info made C source a kind of C++ source, so a
+    // filter on one of them takes both and says nothing about matching a type exactly.
+    QTest::newRow("single_file_exact_mimetype") << files << QStringList{"image/png"} << QStringList{"picture.png"};
     QTest::newRow("inherited_mimetype") << files << QStringList{"text/plain"} << QStringList{"bla.txt", "main.cpp", "main.c"};
     QTest::newRow("no_match") << files << QStringList{"audio/flac"} << QStringList{};
     QTest::newRow("glob") << files << QStringList{"image/*"} << QStringList{"image.jpeg", "picture.png"};
