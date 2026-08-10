@@ -41,7 +41,7 @@ private Q_SLOTS:
 
         // Set a recent dir
         KConfigGroup recentDirsGroup(KSharedConfig::openConfig(), QStringLiteral("kuick-copy"));
-        m_recentDirs << m_nonWritableTempDir.path() // will be action number count-2
+        m_recentDirs << m_destDir + QStringLiteral("/nonexistentsubdir") << m_nonWritableTempDir.path() // will be action number count-2
                      << m_destDir; // will be action number count-1
         recentDirsGroup.writeEntry("Paths", m_recentDirs);
 
@@ -95,6 +95,12 @@ private Q_SLOTS:
         QVERIFY(actionNames.contains(QLatin1String("browse")));
         QCOMPARE(actionNames.at(actionNames.count() - 2), m_nonWritableTempDir.path());
         QCOMPARE(actionNames.last(), m_destDir);
+
+        const QString missingPath = m_destDir + QStringLiteral("/nonexistentsubdir");
+        QVERIFY(!actionNames.contains(missingPath));
+
+        KConfigGroup group(KSharedConfig::openConfig(), QStringLiteral("kuick-copy"));
+        QCOMPARE(group.readPathEntry("Paths", QStringList{}), QStringList() << m_nonWritableTempDir.path() << m_destDir);
     }
 
     void shouldTryCopyingToRecentPath_data()
