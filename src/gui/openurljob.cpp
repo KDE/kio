@@ -367,7 +367,13 @@ static bool isBinary(const QMimeType &mimeType)
 // e.g. ".sh", ".csh", ".py", ".js"
 static bool isTextScript(const QMimeType &mimeType)
 {
-    return (mimeType.inherits(QStringLiteral("application/x-executable")) && mimeType.inherits(QStringLiteral("text/plain")));
+    if (!mimeType.inherits(QStringLiteral("application/x-executable"))) {
+        return false;
+    }
+
+    // A type under text/ holds text whether or not the database spells out that it is a
+    // kind of text/plain, and shared-mime-info stopped saying so for shell scripts.
+    return mimeType.inherits(QStringLiteral("text/plain")) || mimeType.name().startsWith(QLatin1String("text/"));
 }
 
 // Helper function that returns whether a file has the execute bit set or not.
@@ -645,6 +651,16 @@ void KIO::OpenUrlJobPrivate::handleScripts()
 void KIO::OpenUrlJobPrivate::openInPreferredApp()
 {
     KService::Ptr service = KApplicationTrader::preferredService(m_mimeTypeName);
+    if (!service) {
+        // A script is text, and the program someone picked for text is the one to show it
+        // to them in. The MIME database used to say a script is a kind of text/plain and
+        // no longer does for every script, so the text program is asked for by name.
+        const QMimeType mimeType = QMimeDatabase().mimeTypeForName(m_mimeTypeName);
+        if (isTextScript(mimeType)) {
+            service = KApplicationTrader::preferredService(QStringLiteral("text/plain"));
+        }
+    }
+
     if (service) {
         // If file mimetype is set to xdg-open or kde-open, the file will be opened in endless loop
         // In these cases, showOpenWithDialog instead
