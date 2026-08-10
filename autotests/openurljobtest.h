@@ -41,7 +41,6 @@ private Q_SLOTS:
     void openOrExecuteScript();
     void openOrExecuteDesktop_data();
     void openOrExecuteDesktop();
-    void launchExternalBrowser_data();
     void launchExternalBrowser();
     void nonExistingFile();
 

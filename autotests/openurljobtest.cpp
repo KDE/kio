@@ -32,7 +32,6 @@
 QTEST_GUILESS_MAIN(OpenUrlJobTest)
 
 extern KSERVICE_EXPORT int ksycoca_ms_between_checks;
-extern bool openurljob_force_use_browserapp_kdeglobals; // From openurljob.cpp
 
 static const char s_tempServiceName[] = "openurljobtest_service.desktop";
 
@@ -507,21 +506,9 @@ void OpenUrlJobTest::openOrExecuteDesktop()
 #endif
 }
 
-void OpenUrlJobTest::launchExternalBrowser_data()
-{
-    QTest::addColumn<bool>("useBrowserApp");
-    QTest::addColumn<bool>("useSchemeHandler");
-
-    QTest::newRow("browserapp") << true << false;
-    QTest::newRow("scheme_handler") << false << true;
-}
-
 void OpenUrlJobTest::launchExternalBrowser()
 {
 #ifdef Q_OS_UNIX
-    QFETCH(bool, useBrowserApp);
-    QFETCH(bool, useSchemeHandler);
-
     QTemporaryDir tempDir;
     const QString dir = tempDir.path();
     createSrcFile(dir + QLatin1String("/src"));
@@ -533,25 +520,14 @@ void OpenUrlJobTest::launchExternalBrowser()
     QVERIFY(file.setPermissions(QFile::ExeUser | file.permissions()));
 
     QUrl remoteImage("http://example.org/image.jpg");
-    if (useBrowserApp) {
-        openurljob_force_use_browserapp_kdeglobals = true;
-        KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("General")).writeEntry("BrowserApplication", QString(QLatin1Char('!') + scriptFile));
-    } else if (useSchemeHandler) {
-        openurljob_force_use_browserapp_kdeglobals = false;
-        remoteImage.setScheme("scheme");
-    }
+    remoteImage.setScheme("scheme");
 
     // When using OpenUrlJob to run the script
     KIO::OpenUrlJob *job = new KIO::OpenUrlJob(remoteImage, this);
 
     // Then it works :-)
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
-    QString dest;
-    if (useBrowserApp) {
-        dest = dir + QLatin1String("/destbrowser");
-    } else if (useSchemeHandler) {
-        dest = m_tempDir.path() + QLatin1String("/dest"); // see the .desktop file in writeApplicationDesktopFile
-    }
+    QString dest = m_tempDir.path() + QLatin1String("/dest"); // see the .desktop file in writeApplicationDesktopFile
     QTRY_VERIFY(QFileInfo::exists(dest)); // TRY because CommandLineLauncherJob finishes immediately
     QTRY_COMPARE(readFile(dest), remoteImage.toString());
 

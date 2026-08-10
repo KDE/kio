@@ -34,9 +34,6 @@
 #include <QOperatingSystemVersion>
 #include <mimetypefinderjob.h>
 
-// For unit test purposes, to test both code paths in externalBrowser()
-KIOGUI_EXPORT bool openurljob_force_use_browserapp_kdeglobals = false;
-
 // A file:// URL may carry a host that names the local machine (RFC 8089), e.g.
 // those produced by `ls --hyperlink` or Midnight Commander's OSC 8 sequences.
 // Strip such a host so the URL becomes a plain local path: QUrl::toLocalFile()
@@ -253,18 +250,14 @@ QString KIO::OpenUrlJobPrivate::externalBrowser() const
         return QString();
     }
 
-    if (!openurljob_force_use_browserapp_kdeglobals) {
-        KService::Ptr externalBrowser = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/https"));
-        if (!externalBrowser) {
-            externalBrowser = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/http"));
-        }
-        if (externalBrowser) {
-            return externalBrowser->storageId();
-        }
+    KService::Ptr externalBrowser = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/https"));
+    if (!externalBrowser) {
+        externalBrowser = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/http"));
     }
-
-    const QString browserApp = KConfigGroup(KSharedConfig::openConfig(), QStringLiteral("General")).readEntry("BrowserApplication");
-    return browserApp;
+    if (externalBrowser) {
+        return externalBrowser->storageId();
+    }
+    return QString();
 }
 
 bool KIO::OpenUrlJobPrivate::runExternalBrowser(const QString &exec)
