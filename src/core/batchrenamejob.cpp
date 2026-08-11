@@ -10,6 +10,7 @@
 #include "copyjob.h"
 #include "job_p.h"
 
+#include <QFileInfo>
 #include <QMimeDatabase>
 #include <QRegularExpression>
 #include <QTimer>
@@ -84,6 +85,23 @@ BatchRenameJob::~BatchRenameJob()
 {
 }
 
+static QString fileExtension(const QUrl &url)
+{
+    if (url.isLocalFile() && QFileInfo(url.toLocalFile()).isDir()) {
+        return QString();
+    }
+
+    const QString fileName = url.fileName();
+    QMimeDatabase db;
+    const QString suffix = db.suffixForFileName(fileName);
+    if (!suffix.isEmpty()) {
+        return suffix;
+    }
+
+    const int lastPoint = fileName.lastIndexOf(QLatin1Char('.'));
+    return lastPoint > 0 ? fileName.mid(lastPoint + 1) : QString();
+}
+
 void BatchRenameJobPrivate::slotStart()
 {
     Q_Q(BatchRenameJob);
@@ -99,12 +117,10 @@ void BatchRenameJobPrivate::slotStart()
         return;
     }
 
-    QMimeDatabase db;
     const QUrl oldUrl = *m_listIterator;
     const QString oldFileName = oldUrl.fileName();
-    const QString extension = db.suffixForFileName(oldFileName);
-    int lastPoint = oldFileName.lastIndexOf(QLatin1Char('.'));
-    QString fileNameNoExt = oldFileName.left(lastPoint);
+    const QString extension = fileExtension(oldUrl);
+    const QString fileNameNoExt = extension.isEmpty() ? oldFileName : oldFileName.chopped(extension.size() + 1);
 
     QString newName = m_renamefunction(fileNameNoExt);
 
@@ -168,9 +184,8 @@ BatchRenameJob *KIO::batchRename(const QList<QUrl> &srcList, const QString &newN
     bool allExtensionsDifferent = true;
     // Check for extensions.
     std::set<QString> extensions;
-    QMimeDatabase db;
     for (const QUrl &url : std::as_const(srcList)) {
-        const QString extension = db.suffixForFileName(url.path());
+        const QString extension = fileExtension(url);
         const auto [it, isInserted] = extensions.insert(extension);
         if (!isInserted) {
             allExtensionsDifferent = false;

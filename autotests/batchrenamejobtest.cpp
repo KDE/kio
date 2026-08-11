@@ -94,6 +94,27 @@ private Q_SLOTS:
                                                              << 4
                                                              << QChar('#')
                                                              << QStringList{"##file#4.h", "##file#5.h", "##file#6.c"};
+
+        // The MIME database knows nothing of a .nessus file, which is no reason to rename
+        // it into a file of no kind at all.
+        QTest::newRow("extension-of-an-unknown-kind") << (QStringList{"report.nessus", "scan_notes.txt"})
+                                                      << "#-scan"
+                                                      << 1
+                                                      << QChar('#')
+                                                      << QStringList{"1-scan.nessus", "2-scan.txt"};
+
+        QTest::newRow("extension-of-two-parts") << (QStringList{"backup.tar.gz", "backup_notes.txt"})
+                                                << "#-backup"
+                                                << 1
+                                                << QChar('#')
+                                                << QStringList{"1-backup.tar.gz", "2-backup.txt"};
+
+        // A dot in the middle of a name that ends in no extension at all.
+        QTest::newRow("name-with-a-dot-and-no-extension") << (QStringList{"version.1.2.final", "version_notes.txt"})
+                                                          << "#-version"
+                                                          << 1
+                                                          << QChar('#')
+                                                          << QStringList{"1-version.final", "2-version.txt"};
         /* clang-format on */
     }
 
@@ -121,6 +142,30 @@ private Q_SLOTS:
         QCOMPARE(job->totalAmount(KJob::Items), oldFilenames.count());
         QVERIFY(!checkFileExistence(oldFilenames));
         QVERIFY(checkFileExistence(newFilenames));
+    }
+
+    void addingTextKeepsTheWholeName()
+    {
+        // Adding text in front of a name hands the rest of it back untouched, so nothing
+        // of a folder is lost, and the extension of a file the MIME database knows
+        // nothing about is still its extension.
+        const QStringList folders{QStringLiteral("2026.01.holiday"), QStringLiteral("2026.02.work")};
+        for (const QString &folder : folders) {
+            QVERIFY(QDir().mkpath(m_homeDir + folder));
+        }
+        const QStringList files{QStringLiteral("scan_of_a_host.nessus")};
+        createTestFiles(files);
+
+        auto addText = [](const QStringView name) {
+            return QStringLiteral("H ") + name.toString();
+        };
+        KIO::BatchRenameJob *job = KIO::batchRenameWithFunction(createUrlList(folders + files), addText);
+        job->setUiDelegate(nullptr);
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+        const QStringList renamed{QStringLiteral("H 2026.01.holiday"), QStringLiteral("H 2026.02.work"), QStringLiteral("H scan_of_a_host.nessus")};
+        QVERIFY(checkFileExistence(renamed));
+        QVERIFY(!checkFileExistence(folders + files));
     }
 
 private:
