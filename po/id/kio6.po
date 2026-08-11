@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-10 00:41+0000\n"
+"POT-Creation-Date: 2026-08-11 00:41+0000\n"
 "PO-Revision-Date: 2024-10-03 20:40+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -3938,7 +3938,7 @@ msgstr ""
 "Tidak bisa membuat layanan %1 yang dapat dieksekusi, menggugurkan eksekusi.\n"
 "%2"
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:677
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -4026,7 +4026,7 @@ msgstr ""
 "%1\n"
 "adalah bertipe Link tapi tidak memiliki entri URL=..."
 
-#: gui/openurljob.cpp:403
+#: gui/openurljob.cpp:409
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4035,7 +4035,7 @@ msgstr ""
 "berkas eksekutabel \"%1\" berlokasi di sistem berkas jarak jauh. Demi "
 "keamanan itu tidak akan dijalankan."
 
-#: gui/openurljob.cpp:444
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4043,7 +4043,7 @@ msgstr ""
 "Untuk alasan keamanan, peluncuran executable tidaklah diizinkan dalam "
 "konteks ini."
 
-#: gui/openurljob.cpp:474
+#: gui/openurljob.cpp:480
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4052,7 +4052,7 @@ msgstr ""
 "Program \"%1\" perlu memiliki perizinan executable sebelum ia bisa "
 "diluncurkan."
 
-#: gui/openurljob.cpp:485
+#: gui/openurljob.cpp:491
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4061,12 +4061,12 @@ msgstr ""
 "Tidak bisa membuat berkas eksekutabel \"%1\".\n"
 "%2."
 
-#: gui/openurljob.cpp:571
+#: gui/openurljob.cpp:577
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "berkas entri desktop %1 tidak memiliki entri Type=... ."
 
-#: gui/openurljob.cpp:663
+#: gui/openurljob.cpp:679
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4077,12 +4077,12 @@ msgstr ""
 "Periksalah aplikasi yang dibuka dan area notifikasi Anda untuk unduhan atau "
 "tugas-tugas yang tertunda apapun."
 
-#: gui/openurljob.cpp:689
+#: gui/openurljob.cpp:705
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Gagal membuka berkas."
 
-#: gui/openurljob.cpp:723
+#: gui/openurljob.cpp:739
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Program \"%1\" tidak bisa diluncurkan."
@@ -5401,12 +5401,12 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Aksi"
 
-#: widgets/kfileitemactions.cpp:469
+#: widgets/kfileitemactions.cpp:591
 #, kde-format
 msgid "Open &with %1"
 msgstr "Buka &dengan %1"
 
-#: widgets/kfileitemactions.cpp:471
+#: widgets/kfileitemactions.cpp:593
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"

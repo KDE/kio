@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-10 00:41+0000\n"
+"POT-Creation-Date: 2026-08-11 00:41+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda\n"
@@ -3935,7 +3935,7 @@ msgstr ""
 "Nnemedwa okusobozesa pulguramu empeereze %1 okutandika, omulimu ngusazzamu.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:677
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Tokkirizibwa okulonda puloguramu ey'obikkula fayiro eno."
@@ -4023,7 +4023,7 @@ msgstr ""
 "%1\n"
 "ya kika kya Link naye w'eraga URL eggukirwako wereere."
 
-#: gui/openurljob.cpp:403
+#: gui/openurljob.cpp:409
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4032,7 +4032,7 @@ msgstr ""
 "Fayiro eya puloguramu \"%1\" eri ku sisitemu eya fayiro ey'ebunaayira. "
 "Olw'ensonga za kwerinda tejja okutandikibwa."
 
-#: gui/openurljob.cpp:444
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4040,14 +4040,14 @@ msgstr ""
 "Olw'ensonga za bya kwerinda, puloguramu tezikkiriziba okutandikibwa mu "
 "mbeera eriwo kakano."
 
-#: gui/openurljob.cpp:474
+#: gui/openurljob.cpp:480
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "Okutandika puloguramu \"%1\" kyetaagisa okukyusa ndukusa ezigiriko."
 
-#: gui/openurljob.cpp:485
+#: gui/openurljob.cpp:491
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4056,12 +4056,12 @@ msgstr ""
 "Nnemedwa okusobozesa fayiro \"%1\" okutandikibwa nga puloguramu.\n"
 "%2."
 
-#: gui/openurljob.cpp:571
+#: gui/openurljob.cpp:577
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Fayiro ey'enyunzi ey'awakolerwa %1 ebulamu omuko gwa Type=... ."
 
-#: gui/openurljob.cpp:663
+#: gui/openurljob.cpp:679
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4072,12 +4072,12 @@ msgstr ""
 "Kebera puloguramu zo ezibumbujja n'obubaka obulabikira awakolerwa okulaba "
 "oba waliwo emirimu egya ku fayiro oba okuwanula egitannaba okuggwa."
 
-#: gui/openurljob.cpp:689
+#: gui/openurljob.cpp:705
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Nnemedwa okubikkula fayiro."
 
-#: gui/openurljob.cpp:723
+#: gui/openurljob.cpp:739
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Tekisobose okutandika puloguramu \"%1\"."
@@ -5387,12 +5387,12 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Ebikolwa"
 
-#: widgets/kfileitemactions.cpp:469
+#: widgets/kfileitemactions.cpp:591
 #, kde-format
 msgid "Open &with %1"
 msgstr "&Bikkuza %1"
 
-#: widgets/kfileitemactions.cpp:471
+#: widgets/kfileitemactions.cpp:593
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"

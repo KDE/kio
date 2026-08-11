@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-10 00:41+0000\n"
+"POT-Creation-Date: 2026-08-11 00:41+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -4052,7 +4052,7 @@ msgid ""
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:677
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -4146,7 +4146,7 @@ msgstr ""
 "%1\n"
 "est del sôre «Link» (hårdêye) mins n' a nole roye «URL=...»."
 
-#: gui/openurljob.cpp:403
+#: gui/openurljob.cpp:409
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>The file <b>%1</b> is an executable program. For safety it will not "
@@ -4158,20 +4158,20 @@ msgstr ""
 "<qt>Li fitchî <b>%1</b> est on programe enondåve. Po-z esse e såvrité i "
 "n' serè enondé.</qt>"
 
-#: gui/openurljob.cpp:444
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 
-#: gui/openurljob.cpp:474
+#: gui/openurljob.cpp:480
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
 
-#: gui/openurljob.cpp:485
+#: gui/openurljob.cpp:491
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
@@ -4183,12 +4183,12 @@ msgstr ""
 "<qt>Nén moyén d' enonder li cmande ki vos djhoz. Motoit ki l' fitchî ou "
 "l' ridant <b>%1</b> n' egzistêye nén.</qt>"
 
-#: gui/openurljob.cpp:571
+#: gui/openurljob.cpp:577
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Li fitchî d' apontiaedje do scribanne %1 n' a nole roye « Sôre=... »."
 
-#: gui/openurljob.cpp:663
+#: gui/openurljob.cpp:679
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4196,13 +4196,13 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:689
+#: gui/openurljob.cpp:705
 #, fuzzy, kde-format
 #| msgid "Cannot open file"
 msgid "Failed to open the file."
 msgstr "Dji n' sai drovi li fitchî"
 
-#: gui/openurljob.cpp:723
+#: gui/openurljob.cpp:739
 #, fuzzy, kde-format
 #| msgid "The file %1 could not be found"
 msgid "The program \"%1\" could not be launched."
@@ -5541,13 +5541,13 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "Accions"
 
-#: widgets/kfileitemactions.cpp:469
+#: widgets/kfileitemactions.cpp:591
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "Open &with %1"
 msgstr "Drovi avou:"
 
-#: widgets/kfileitemactions.cpp:471
+#: widgets/kfileitemactions.cpp:593
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"

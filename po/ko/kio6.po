@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-10 00:41+0000\n"
+"POT-Creation-Date: 2026-08-11 00:41+0000\n"
 "PO-Revision-Date: 2026-06-06 13:00+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3787,7 +3787,7 @@ msgstr ""
 "%1 서비스를 실행할 수 없습니다. 실행을 중단합니다.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:677
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "이 파일을 열 앱을 선택할 권한이 없습니다."
@@ -3873,7 +3873,7 @@ msgstr ""
 "데스크톱 항목 파일이\n"
 "링크 형식이지만, URL=... 항목이 없습니다."
 
-#: gui/openurljob.cpp:403
+#: gui/openurljob.cpp:409
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3882,20 +3882,20 @@ msgstr ""
 "실행 파일 \"%1\"이(가) 원격 파일 시스템에 있습니다. 안전을 위해 이 작업은 시"
 "작되지 않습니다."
 
-#: gui/openurljob.cpp:444
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "보안상의 이유로 이 문맥에서 실행 파일을 실행할 수 없습니다."
 
-#: gui/openurljob.cpp:474
+#: gui/openurljob.cpp:480
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "\"%1\" 프로그램을 실행하려면 실행 가능 권한이 있어야 합니다."
 
-#: gui/openurljob.cpp:485
+#: gui/openurljob.cpp:491
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3904,12 +3904,12 @@ msgstr ""
 "\"%1\" 파일을 실행 파일로 만들 수 없습니다.\n"
 "%2"
 
-#: gui/openurljob.cpp:571
+#: gui/openurljob.cpp:577
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "데스크톱 항목 파일 %1에 Type=... 항목이 없습니다."
 
-#: gui/openurljob.cpp:663
+#: gui/openurljob.cpp:679
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3919,12 +3919,12 @@ msgstr ""
 "이 파일은 완전하지 않으며 열어서는 안 됩니다.\n"
 "열린 앱과 알림 영역에서 대기 중인 작업이나 다운로드를 확인하십시오."
 
-#: gui/openurljob.cpp:689
+#: gui/openurljob.cpp:705
 #, kde-format
 msgid "Failed to open the file."
 msgstr "파일을 열 수 없습니다."
 
-#: gui/openurljob.cpp:723
+#: gui/openurljob.cpp:739
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "\"%1\" 프로그램을 실행할 수 없습니다."
@@ -5199,12 +5199,12 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "작업(&A)"
 
-#: widgets/kfileitemactions.cpp:469
+#: widgets/kfileitemactions.cpp:591
 #, kde-format
 msgid "Open &with %1"
 msgstr "%1(으)로 열기(&W)|/|%1$[으 %1]로 열기(&W)"
 
-#: widgets/kfileitemactions.cpp:471
+#: widgets/kfileitemactions.cpp:593
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"

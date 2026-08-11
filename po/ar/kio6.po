@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-10 00:41+0000\n"
-"PO-Revision-Date: 2026-07-04 21:41+0400\n"
+"POT-Creation-Date: 2026-08-11 00:41+0000\n"
+"PO-Revision-Date: 2026-08-10 18:01+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -126,12 +126,12 @@ msgstr "تعذّر العثور على البرنامج ’%1‘"
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
-msgstr "يوجد البرنامج '%1' في '%2' لكن ينقصه صلاحيات التنفيذ."
+msgstr "يوجد البرنامج '%1' في '%2' لكن ينقصه أذون التنفيذ."
 
 #: core/desktopexecparser.cpp:365
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
-msgstr "يفتقر البرنامج '%1' إلى صلاحيات التنفيذ."
+msgstr "يفتقر البرنامج '%1' إلى أذون التنفيذ."
 
 #: core/desktopexecparser.cpp:379
 #, kde-format
@@ -519,7 +519,7 @@ msgstr "تعذّر تغيير اسم الملفّ %1."
 #: core/job_error.cpp:152
 #, kde-format
 msgid "Could not change permissions for %1."
-msgstr "تعذّر تغيير أذونات %1."
+msgstr "تعذّر تغيير أذون %1."
 
 #: core/job_error.cpp:155
 #, kde-format
@@ -611,7 +611,7 @@ msgid ""
 "Please check permissions."
 msgstr ""
 "تعذّر حذف الملفّ %1 الأصليّ.\n"
-"رجاءً افحص الأذونات."
+"رجاءً افحص الأذون."
 
 #: core/job_error.cpp:202
 #, kde-format
@@ -620,7 +620,7 @@ msgid ""
 "Please check permissions."
 msgstr ""
 "تعذّر حذف الملفّ %1 الجزئيّ.\n"
-"رجاءً افحص الأذونات."
+"رجاءً افحص الأذون."
 
 #: core/job_error.cpp:205
 #, kde-format
@@ -629,7 +629,7 @@ msgid ""
 "Please check permissions."
 msgstr ""
 "تعذّر تغيير اسم الملفّ %1 الأصليّ.\n"
-"رجاءً افحص الأذونات."
+"رجاءً افحص الأذون."
 
 #: core/job_error.cpp:208
 #, kde-format
@@ -638,7 +638,7 @@ msgid ""
 "Please check permissions."
 msgstr ""
 "تعذّر تغيير اسم الملفّ %1 الجزئيّ.\n"
-"رجاءً افحص الأذونات."
+"رجاءً افحص الأذون."
 
 #: core/job_error.cpp:211
 #, kde-format
@@ -647,7 +647,7 @@ msgid ""
 "Please check permissions."
 msgstr ""
 "تعذّر إنشاء الرّابط الرّمزيّ %1.\n"
-"رجاءً افحص الأذونات."
+"رجاءً افحص الأذون."
 
 #: core/job_error.cpp:214
 #, kde-format
@@ -725,9 +725,9 @@ msgid ""
 "'%1' is owned by the current user.\n"
 "Please retry after changing permissions."
 msgstr ""
-"لا يحتاج إلى تصعيد في الصلاحيات بسبب \n"
-"أن '%1' مملوك للمستخدم الحالي. \n"
-"الرجاء إعادة المحاولة بعد تغيير الصلاحيات."
+"ليس من الضروري رفع مستوى الامتيازات لأن \n"
+"’%1‘ مملوك للمستخدم الحالي.\n"
+"يرجى إعادة المحاولة بعد تغيير الأذون."
 
 #: core/job_error.cpp:261
 #, kde-format
@@ -825,7 +825,7 @@ msgstr "راسل مدير الخادم لمساعدة إضافيّة."
 #: core/job_error.cpp:384
 #, kde-format
 msgid "Check your access permissions on this resource."
-msgstr "افحص أذونات النّفاذ إلى هذا المورد لديك."
+msgstr "افحص أذون النّفاذ إلى هذا المورد لديك."
 
 #: core/job_error.cpp:386
 #, kde-format
@@ -833,7 +833,7 @@ msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
 "on this resource."
 msgstr ""
-"قد لا تكون أذونات النّفاذ لديك كافية لإجراء العمليّة المطلوبة على هذا المورد."
+"قد لا تكون أذون النّفاذ لديك كافية لإجراء العمليّة المطلوبة على هذا المورد."
 
 #: core/job_error.cpp:389
 #, kde-format
@@ -1256,7 +1256,7 @@ msgstr "ربما قدمت تفاصيل استيثاق غير صحيحة أو ل�
 #: core/job_error.cpp:623 core/job_error.cpp:899
 #, kde-format
 msgid "Your account may not have permission to access the specified resource."
-msgstr "قد لا يملك حسابك أذونات النّفاذ إلى المورد المحدّد."
+msgstr "قد لا يملك حسابك أذون النّفاذ إلى المورد المحدّد."
 
 #: core/job_error.cpp:626 core/job_error.cpp:903 core/job_error.cpp:921
 #, kde-format
@@ -1522,7 +1522,7 @@ msgid ""
 "systems, often system administrator privileges are required to initialize a "
 "device."
 msgstr ""
-"قد لا تكون لديك أذونات لتمهيد (”وصل“) الجهاز. على أنظمة يونكس، غالبًا ما تكون "
+"قد لا تكون لديك أذون لتمهيد (”وصل“) الجهاز. على أنظمة يونكس، غالبًا ما تكون "
 "امتيازات مدير النّظام مطلوبة لتمهيد الأجهزة."
 
 #: core/job_error.cpp:786
@@ -1571,7 +1571,7 @@ msgid ""
 "UNIX systems, system administrator privileges are often required to "
 "uninitialize a device."
 msgstr ""
-"قد لا تكون لديك أذونات لإلغاء تمهيد (”إزالة وصل“) الجهاز. على أنظمة يونكس، "
+"قد لا تكون لديك أذون لإلغاء تمهيد (”إزالة وصل“) الجهاز. على أنظمة يونكس، "
 "غالبًا ما تكون امتيازات مدير النّظام مطلوبة لتمهيد الأجهزة."
 
 #: core/job_error.cpp:810
@@ -1659,7 +1659,7 @@ msgstr ""
 #: core/job_error.cpp:886
 #, kde-format
 msgid "You may not have permissions to accept the connection."
-msgstr "لا تملك الأذونات الكافية لقبول الوصلة."
+msgstr "لا تملك الأذون الكافية لقبول الوصلة."
 
 #: core/job_error.cpp:891
 #, kde-format
@@ -1784,14 +1784,14 @@ msgstr "فشلت محاولة تغيير المورد <strong>%1</strong> الم
 #: core/job_error.cpp:990
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
-msgstr "تعذّر تغيير أذونات المورد"
+msgstr "تعذّر تغيير أذون المورد"
 
 #: core/job_error.cpp:992
 #, kde-format
 msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
 "strong> failed."
-msgstr "فشلت محاولة تغيير أذونات المورد <strong>%1</strong> المحدّد."
+msgstr "فشلت محاولة تغيير أذون المورد <strong>%1</strong> المحدّد."
 
 #: core/job_error.cpp:1000
 #, kde-format
@@ -2361,7 +2361,7 @@ msgid ""
 "elevated permissions, can not be guaranteed because users other than root "
 "have permission to modify it at %2."
 msgstr ""
-"لا يمكن ضمان أمان عامل KIO للميفاق '%1'، والذي يطلب عادةً أذونات مرتفعة، لأن "
+"لا يمكن ضمان أمان عامل KIO للميفاق '%1'، والذي يطلب عادةً أذون مرتفعة، لأن "
 "المستخدمين بخلاف الجذر لديهم الإذن بتعديله عند %2."
 
 #: core/worker.cpp:435
@@ -3539,11 +3539,10 @@ msgid "Create link to URL"
 msgstr "أنشئ رابط إلى عنوان "
 
 #: filewidgets/knewfilemenu.cpp:650
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
-msgstr "أنشئ جديدًا"
+msgstr "أنشئ %1جديدًا"
 
 #: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, kde-format
@@ -3819,7 +3818,7 @@ msgstr ""
 "تعذّر جعل الخدمة %1 تنفيذيّة، أُبطل التّنفيذ.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:677
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "ليس مصرّحًا لك اختيار تطبيق لفتح هذا الملفّ."
@@ -3905,7 +3904,7 @@ msgstr ""
 "%1\n"
 "هو من النوع رابط ولكن ليس له مدخلة URL=... "
 
-#: gui/openurljob.cpp:403
+#: gui/openurljob.cpp:409
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3913,20 +3912,20 @@ msgid ""
 msgstr ""
 "الملف \"%1\" عبارة عن برنامج تنفيذي في نظام ملفات بعيد. للأمان لن تبدأ ."
 
-#: gui/openurljob.cpp:444
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "لأسباب أمنية، لا يُسمح بتشغيل الملفات التنفيذية في هذا السياق. "
 
-#: gui/openurljob.cpp:474
+#: gui/openurljob.cpp:480
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
-msgstr "يحتاج البرنامج \"%1\" إلى صلاحيات التنفيذ حتى يمكن تشغيله."
+msgstr "يحتاج البرنامج \"%1\" إلى أذن التنفيذ حتى يمكن تشغيله."
 
-#: gui/openurljob.cpp:485
+#: gui/openurljob.cpp:491
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3935,12 +3934,12 @@ msgstr ""
 "تعذّر جعل الملف \"%1\"  تنفيذيّ.\n"
 "%2."
 
-#: gui/openurljob.cpp:571
+#: gui/openurljob.cpp:577
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "ليس لملفّ مدخلة سطح المكتب %1 مدخلة Type=...‎."
 
-#: gui/openurljob.cpp:663
+#: gui/openurljob.cpp:679
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3951,12 +3950,12 @@ msgstr ""
 "تحقق من التطبيقات المفتوحة ومنطقة الإشعارات بحثًا عن أي مهام أو تنزيلات غير "
 "منتهية."
 
-#: gui/openurljob.cpp:689
+#: gui/openurljob.cpp:705
 #, kde-format
 msgid "Failed to open the file."
 msgstr "فشل في فتح الملفّ"
 
-#: gui/openurljob.cpp:723
+#: gui/openurljob.cpp:739
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "تعذّر تشغيل البرنامج ”%1“."
@@ -4108,7 +4107,7 @@ msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr ""
-"تعذّر تغيير أذونات\n"
+"تعذّر تغيير أذون\n"
 "%1"
 
 #: kioworkers/file/file.cpp:737
@@ -5235,7 +5234,7 @@ msgstr "التّاريخ"
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
-msgstr "الأذونات"
+msgstr "الأذون"
 
 #: widgets/kdirmodel.cpp:1276
 #, kde-format
@@ -5261,12 +5260,12 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "إ&جراءات"
 
-#: widgets/kfileitemactions.cpp:469
+#: widgets/kfileitemactions.cpp:591
 #, kde-format
 msgid "Open &with %1"
 msgstr "ا&فتح في %1"
 
-#: widgets/kfileitemactions.cpp:471
+#: widgets/kfileitemactions.cpp:593
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
@@ -5668,7 +5667,7 @@ msgid ""
 "required to use this option."
 msgstr ""
 "أشر هنا إذا كنت تريد تشغيل التطبيق باسم مستخدم مختلف. كل عملية لها هوية "
-"مستخدم مرتبطة بها. شفرة الهوية تستخدم كمعرف عند دخول الملفات و الأذونات "
+"مستخدم مرتبطة بها. شفرة الهوية تستخدم كمعرف عند دخول الملفات و الأذون "
 "الأخرى. كلمة سر المستخدم مطلوبة لفعل هذا."
 
 #. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
@@ -6146,29 +6145,29 @@ msgstr "إمكانية القراءة/العرض والتّعديل/الكتاب
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1178
 #, kde-format
 msgid "&Permissions"
-msgstr "التّ&صاريح"
+msgstr "الأذ&ونات"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1189
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1377
 #, kde-format
 msgid "Access Permissions"
-msgstr "أذونات النّفاذ"
+msgstr "أذون النّفاذ"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1199
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "لا ملفّات."
-msgstr[1] "هذا الملفّ عبارة عن رابط ولا أذونات له."
-msgstr[2] "هذان الملفّان عبارة عن روابط ولا أذونات لهما."
-msgstr[3] "كلّ الملفّات عبارة عن روابط ولا أذونات لها."
-msgstr[4] "كلّ الملفّات عبارة عن روابط ولا أذونات لها."
-msgstr[5] "كلّ الملفّات عبارة عن روابط ولا أذونات لها."
+msgstr[1] "هذا الملفّ عبارة عن رابط ولا أذون له."
+msgstr[2] "هذان الملفّان عبارة عن روابط ولا أذون لهما."
+msgstr[3] "كلّ الملفّات عبارة عن روابط ولا أذون لها."
+msgstr[4] "كلّ الملفّات عبارة عن روابط ولا أذون لها."
+msgstr[5] "كلّ الملفّات عبارة عن روابط ولا أذون لها."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1201
 #, kde-format
 msgid "Only the owner can change permissions."
-msgstr "يمكن للمالك فقط تغيير الأذونات."
+msgstr "يمكن للمالك فقط تغيير الأذون."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1208
 #, kde-format
@@ -6247,7 +6246,7 @@ msgstr ""
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1236
 #, kde-format
 msgid "A&dvanced Permissions"
-msgstr "أذونات &متقدّمة"
+msgstr "أذون &متقدّمة"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1244
 #, kde-format
@@ -6272,7 +6271,7 @@ msgstr "طبق التغييرات على جميع المجلدات الفرعي�
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1367
 #, kde-format
 msgid "Advanced Permissions"
-msgstr "أذونات متقدّمة"
+msgstr "أذون متقدّمة"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1387
 #, kde-format
@@ -6397,7 +6396,8 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the owner."
 msgstr ""
-"إذا كان هذا الملف تنفيذي و وُضع عليه إشارة، ستكون تنفيذية مع صلاحيات المالك."
+"إذا كان هذا الملف تنفيذي و وُضع عليه إشارة،  فسينفذ الأمر باستخدام أذون "
+"المالك."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1468
 #, kde-format
@@ -6412,7 +6412,7 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the group."
 msgstr ""
-"إذا كان هذا الملف تنفيذي ووضعت الإشارة، فستكون تنفيذية مع الصلاحيات المجموعة."
+"إذا كان هذا الملف ملفًا قابلاً للتنفيذ ووضعت العلامة، سيُنفذ بأذون المجموعة."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1479
 #, kde-format
@@ -6420,8 +6420,8 @@ msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
 "rename files. Otherwise everybody with write permissions can do this."
 msgstr ""
-"إذا وضع العلم اللاصق على مجلد، يكون للمالك والجذر فقط صلاحية الحذف أو إعادة "
-"التسمية. وإلا فإن لأي شخص ذو صلاحية الكتابة يستطيع القيام بذلك."
+"إذا وضع العلم اللاصق على مجلد، يكون للمالك والجذر فقط القدرة على الحذف أو "
+"إعادة التسمية. وإلا فإن لأي شخص معه أذن الكتابة يستطيع القيام بذلك."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1484
 #, kde-format
@@ -6463,27 +6463,27 @@ msgstr "التفاوت (لا تغيير)"
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "لا ملفّات."
-msgstr[1] "يستخدم هذا الملفّ أذونات متقدّمة."
-msgstr[2] "يستخدم هذين الملفّين أذونات متقدّمة."
-msgstr[3] "تستخدم هذه الملفّات أذونات متقدّمة."
-msgstr[4] "تستخدم هذه الملفّات أذونات متقدّمة."
-msgstr[5] "تستخدم هذه الملفّات أذونات متقدّمة."
+msgstr[1] "يستخدم هذا الملفّ أذون متقدّمة."
+msgstr[2] "يستخدم هذين الملفّين أذون متقدّمة."
+msgstr[3] "تستخدم هذه الملفّات أذون متقدّمة."
+msgstr[4] "تستخدم هذه الملفّات أذون متقدّمة."
+msgstr[5] "تستخدم هذه الملفّات أذون متقدّمة."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1832
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "لا مجلّدات."
-msgstr[1] "يستخدم هذا المجلّد أذونات متقدّمة."
-msgstr[2] "يستخدم هذين المجلّدين أذونات متقدّمة."
-msgstr[3] "تستخدم هذه المجلّدات أذونات متقدّمة."
-msgstr[4] "تستخدم هذه المجلّدات أذونات متقدّمة."
-msgstr[5] "تستخدم هذه المجلّدات أذونات متقدّمة."
+msgstr[1] "يستخدم هذا المجلّد أذون متقدّمة."
+msgstr[2] "يستخدم هذين المجلّدين أذون متقدّمة."
+msgstr[3] "تستخدم هذه المجلّدات أذون متقدّمة."
+msgstr[4] "تستخدم هذه المجلّدات أذون متقدّمة."
+msgstr[5] "تستخدم هذه المجلّدات أذون متقدّمة."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1846
 #, kde-format
 msgid "These files use advanced permissions."
-msgstr "تستخدم هذه الملفّات أذونات متقدّمة."
+msgstr "تستخدم هذه الملفّات أذون متقدّمة."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2090
 #, kde-format
@@ -7400,23 +7400,23 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"سلة المهملات غير متوفرة لموقع هذا العنصر %1. هل يمكن حذفه نهائياً بدلاً من ذلك؟"
-"<nl/> <nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
+"سلة المهملات غير متوفرة لموقع هذا العنصر %1. هل يمكن حذفه نهائيًا بدلًا من ذلك؟"
+"<nl/><nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 msgstr[1] ""
-"سلة المهملات غير متوفرة لموقع هذا العنصر . هل يمكن حذفه نهائياً بدلاً من ذلك؟"
-"<nl/> <nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
+"سلة المهملات غير متوفرة لموقع هذا العنصر. هل يمكن حذفه نهائيًا بدلًا من ذلك؟"
+"<nl/><nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 msgstr[2] ""
-"سلة المهملات غير متوفرة لموقع هذا العنصرين. هل يمكن حذفه نهائياً بدلاً من ذلك؟"
-"<nl/> <nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
+"سلة المهملات غير متوفرة لموقع هذين العنصرين. هل يمكن حذفهما نهائيًا بدلًا من "
+"ذلك؟<nl/><nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 msgstr[3] ""
-"سلة المهملات غير متوفرة لموقع لهذا %1 العناصر . هل يمكن حذفه نهائياً بدلاً من "
-"ذلك؟<nl/> <nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
+"سلة المهملات غير متوفرة لموقع لهذه %1 العناصر. هل يمكن حذفه نهائيًا بدلًا من "
+"ذلك؟<nl/><nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 msgstr[4] ""
-"سلة المهملات غير متوفرة لموقع لهذا %1 عنصرًا . هل يمكن حذفه نهائياً بدلاً من "
-"ذلك؟<nl/> <nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
+"سلة المهملات غير متوفرة لموقع لهذه %1 عنصرًا. هل يمكن حذفه نهائيًا بدلًا من ذلك؟"
+"<nl/><nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 msgstr[5] ""
-"سلة المهملات غير متوفرة لموقع لهذا %1 عنصر . هل يمكن حذفه نهائياً بدلاً من ذلك؟"
-"<nl/> <nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
+"سلة المهملات غير متوفرة لموقع لهذه %1 عنصر. هل يمكن حذفه نهائيًا بدلًا من ذلك؟"
+"<nl/><nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format

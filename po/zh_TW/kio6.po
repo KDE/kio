@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-10 00:41+0000\n"
+"POT-Creation-Date: 2026-08-11 00:41+0000\n"
 "PO-Revision-Date: 2026-06-17 13:01+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3717,7 +3717,7 @@ msgstr ""
 "無法使 %1 服務可被執行，取消執行。\n"
 "%2。"
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:677
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "您未獲授權去選取應用程式以開啟此檔案。"
@@ -3803,27 +3803,27 @@ msgstr ""
 "%1\n"
 "為 Link 類型，但沒有 URL=... 項目。"
 
-#: gui/openurljob.cpp:403
+#: gui/openurljob.cpp:409
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr "可執行檔「%1」位於遠端檔案系統。因安全性考量，將不啟動。"
 
-#: gui/openurljob.cpp:444
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "為了安全，這個環境下不允許啟動執行檔。"
 
-#: gui/openurljob.cpp:474
+#: gui/openurljob.cpp:480
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "「%1」程式需要有執行權限才可執行。"
 
-#: gui/openurljob.cpp:485
+#: gui/openurljob.cpp:491
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3832,12 +3832,12 @@ msgstr ""
 "無法使「%1」檔案能夠執行。\n"
 "%2。"
 
-#: gui/openurljob.cpp:571
+#: gui/openurljob.cpp:577
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "桌面項目檔案 %1 中沒有 Type=... 項目。"
 
-#: gui/openurljob.cpp:663
+#: gui/openurljob.cpp:679
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3847,12 +3847,12 @@ msgstr ""
 "此檔案不完全而不應被開啟。\n"
 "請檢查開啟的應用程式與通知區域是否有進行中的工作或下載。"
 
-#: gui/openurljob.cpp:689
+#: gui/openurljob.cpp:705
 #, kde-format
 msgid "Failed to open the file."
 msgstr "無法開啟檔案。"
 
-#: gui/openurljob.cpp:723
+#: gui/openurljob.cpp:739
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "程式「%1」無法啟動。"
@@ -5115,12 +5115,12 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "動作(&A)"
 
-#: widgets/kfileitemactions.cpp:469
+#: widgets/kfileitemactions.cpp:591
 #, kde-format
 msgid "Open &with %1"
 msgstr "用 %1 開啟(&W)"
 
-#: widgets/kfileitemactions.cpp:471
+#: widgets/kfileitemactions.cpp:593
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"

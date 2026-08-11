@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-10 00:41+0000\n"
+"POT-Creation-Date: 2026-08-11 00:41+0000\n"
 "PO-Revision-Date: 2025-10-31 23:33+0100\n"
 "Last-Translator: Rasmus Rosendahl-Kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -3909,7 +3909,7 @@ msgstr ""
 "Kan ikke gøre tjenesten %1 kørbar, afbryder kørsel.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:677
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -3997,7 +3997,7 @@ msgstr ""
 "%1\n"
 "er af typen Link, men har ingen \"URL=...\"-linje."
 
-#: gui/openurljob.cpp:403
+#: gui/openurljob.cpp:409
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4006,7 +4006,7 @@ msgstr ""
 "Den kørbare fil \"%1\" er placeret på et eksternt filsystem. Af "
 "sikkerhedsmæssige årsager vil den ikke blive kørt."
 
-#: gui/openurljob.cpp:444
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4014,14 +4014,14 @@ msgstr ""
 "Af sikkerhedsmæssige årsager er det ikke tilladt at eksekvere kørbare filer "
 "i denne kontekst."
 
-#: gui/openurljob.cpp:474
+#: gui/openurljob.cpp:480
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "Programmet \"%1\" kræver kørselsrettigheder før det kan startes."
 
-#: gui/openurljob.cpp:485
+#: gui/openurljob.cpp:491
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4030,12 +4030,12 @@ msgstr ""
 "Kan ikke gøre filen \"%1\" kørbar.\n"
 "%2."
 
-#: gui/openurljob.cpp:571
+#: gui/openurljob.cpp:577
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr ".desktop-filen %1 har ingen \"Type=...\"-linje."
 
-#: gui/openurljob.cpp:663
+#: gui/openurljob.cpp:679
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4046,12 +4046,12 @@ msgstr ""
 "Tjek dine åbne applikationer og notifikationsområdet for eventuelle ventende "
 "opgaver eller downloads."
 
-#: gui/openurljob.cpp:689
+#: gui/openurljob.cpp:705
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Kunne ikke åbne filen."
 
-#: gui/openurljob.cpp:723
+#: gui/openurljob.cpp:739
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Programmet \"%1\" kunne ikke startes."
@@ -5353,12 +5353,12 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "H&andlinger"
 
-#: widgets/kfileitemactions.cpp:469
+#: widgets/kfileitemactions.cpp:591
 #, kde-format
 msgid "Open &with %1"
 msgstr "Åbn &med %1"
 
-#: widgets/kfileitemactions.cpp:471
+#: widgets/kfileitemactions.cpp:593
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"

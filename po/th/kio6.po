@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-10 00:41+0000\n"
+"POT-Creation-Date: 2026-08-11 00:41+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -3783,7 +3783,7 @@ msgstr ""
 "ไม่สามารถทำให้บริการ %1 ประมวลผลได้ จึงทำการยุติการประมวลผล\n"
 "%2"
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:677
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "คุณไม่ได้รับการอนุญาตให้เลือกโปรแกรมที่จะเปิดใช้แฟ้มนี้"
@@ -3869,27 +3869,27 @@ msgstr ""
 "%1\n"
 "เป็นประเภทการเชื่อมโยง แต่ไม่มีส่วน URL=... อยู่"
 
-#: gui/openurljob.cpp:403
+#: gui/openurljob.cpp:409
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr "ไฟล์ปฏิบัติการ \"%1\" อยู่บนระบบไฟล์ระยะไกล ด้วยเหตุผลด้านความปลอดภัยจึงไม่เริ่ม"
 
-#: gui/openurljob.cpp:444
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "ด้วยเหตุผลด้านความปลอดภัย การเปิดใช้ไฟล์ปฏิบัติการไม่ได้รับอนุญาตในบริบทนี้"
 
-#: gui/openurljob.cpp:474
+#: gui/openurljob.cpp:480
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "โปรแกรม \"%1\" ต้องได้รับอนุญาตก่อนจึงจะเปิดใช้งานได้"
 
-#: gui/openurljob.cpp:485
+#: gui/openurljob.cpp:491
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3898,12 +3898,12 @@ msgstr ""
 "ไม่สามารถสร้างไฟล์ \"%1\" ให้สามารถเรียกทำงานได้\n"
 "%2."
 
-#: gui/openurljob.cpp:571
+#: gui/openurljob.cpp:577
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "ภายในแฟ้มพื้นที่ทำงาน %1 ไม่มีส่วน Type=... อยู่"
 
-#: gui/openurljob.cpp:663
+#: gui/openurljob.cpp:679
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3913,12 +3913,12 @@ msgstr ""
 "ไฟล์นี้ยังไม่สมบูรณ์และไม่ควรเปิด\n"
 "ตรวจสอบแอปพลิเคชันที่เปิดอยู่และพื้นที่การแจ้งเตือนว่ามีงานหรือการดาวน์โหลดใด ๆ ที่กำลังรออยู่หรือไม่"
 
-#: gui/openurljob.cpp:689
+#: gui/openurljob.cpp:705
 #, kde-format
 msgid "Failed to open the file."
 msgstr "ไม่สามารถเปิดไฟล์ได้"
 
-#: gui/openurljob.cpp:723
+#: gui/openurljob.cpp:739
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "ไม่สามารถเปิดโปรแกรม \"%1\" ได้"
@@ -5204,12 +5204,12 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&การกระทำ"
 
-#: widgets/kfileitemactions.cpp:469
+#: widgets/kfileitemactions.cpp:591
 #, kde-format
 msgid "Open &with %1"
 msgstr "เ&ปิดใช้ด้วย %1"
 
-#: widgets/kfileitemactions.cpp:471
+#: widgets/kfileitemactions.cpp:593
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"

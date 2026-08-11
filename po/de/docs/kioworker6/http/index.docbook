@@ -43,11 +43,11 @@
 >rotocol.</para>
 
 <para
->Das http-Modul wird von allen &kde;-Anwendungen genutzt, um Verbindungen zu &HTTP;-Servern, also Webservern, zu verwalten. Die am weitesten verbreitete Anwendung ist das Betrachten von Webseiten im Webbrowser &konqueror;.</para>
+>Das Ein-/Ausgabemodul für „http“ wird von allen &kde;-Anwendungen genutzt, um Verbindungen zu &HTTP;-Servern, also Webservern, zu verwalten. Die am weitesten verbreitete Verwendung ist das Betrachten von Webseiten im Webbrowser &konqueror;.</para>
 
 <para
->Sie können das https-Modul im &konqueror; nutzen, indem Sie ihm eine &URL; übergeben: <userinput
->http://<replaceable
+>Sie können das Ein-/Ausgabemodul für „https“ im &konqueror; nutzen, indem Sie ihm eine &URL; übergeben: <userinput
+>https://<replaceable
 >www.kde.org</replaceable
 ></userinput
 >.</para>

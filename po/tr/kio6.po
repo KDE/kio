@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-10 00:41+0000\n"
+"POT-Creation-Date: 2026-08-11 00:41+0000\n"
 "PO-Revision-Date: 2026-08-09 18:43+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -3840,7 +3840,7 @@ msgstr ""
 "%1 hizmeti yürütülebilir yapılamıyor, yürütme iptal edilecek.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:677
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -3929,7 +3929,7 @@ msgstr ""
 "bir masaüstü girdisi dosyası\n"
 "Bağlantı türünden; ancak URL=… girdisi yok."
 
-#: gui/openurljob.cpp:403
+#: gui/openurljob.cpp:409
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3938,7 +3938,7 @@ msgstr ""
 "“%1” yürütülebilir dosyası uzak bir dosya sisteminde bulunuyor. Güvenlik "
 "nedenlerinden dolayı başlatılmayacak."
 
-#: gui/openurljob.cpp:444
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -3946,7 +3946,7 @@ msgstr ""
 "Güvenlik nedeniyle, yürütülebilir dosyaların başlatılmasına bu bağlamda izin "
 "verilmez."
 
-#: gui/openurljob.cpp:474
+#: gui/openurljob.cpp:480
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -3954,7 +3954,7 @@ msgid ""
 msgstr ""
 "“%1” programının başlatılmadan önce yürütme iznine sahip olması gerekir."
 
-#: gui/openurljob.cpp:485
+#: gui/openurljob.cpp:491
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3963,12 +3963,12 @@ msgstr ""
 "“%1” dosyası yürütülebilir yapılamıyor.\n"
 "%2."
 
-#: gui/openurljob.cpp:571
+#: gui/openurljob.cpp:577
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Masaüstü girdi dosyası %1 için Type=… girdisi yok."
 
-#: gui/openurljob.cpp:663
+#: gui/openurljob.cpp:679
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3979,12 +3979,12 @@ msgstr ""
 "Açık uygulamalarınızı ve bildirim ekranınızı bekleyen görevler veya "
 "indirmeler için denetleyin."
 
-#: gui/openurljob.cpp:689
+#: gui/openurljob.cpp:705
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Dosya açılamadı."
 
-#: gui/openurljob.cpp:723
+#: gui/openurljob.cpp:739
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "“%1” programı başlatılamadı."
@@ -5272,12 +5272,12 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Eylemler"
 
-#: widgets/kfileitemactions.cpp:469
+#: widgets/kfileitemactions.cpp:591
 #, kde-format
 msgid "Open &with %1"
 msgstr "%1 &ile Aç"
 
-#: widgets/kfileitemactions.cpp:471
+#: widgets/kfileitemactions.cpp:593
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"

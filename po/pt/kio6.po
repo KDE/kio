@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-10 00:41+0000\n"
+"POT-Creation-Date: 2026-08-11 00:41+0000\n"
 "PO-Revision-Date: 2026-01-27 20:13+0000\n"
 "Last-Translator: César A. P. Cláudio <cesarapclaudio@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
@@ -3968,7 +3968,7 @@ msgstr ""
 "Não é possível tornar o serviço %1 executável; a interromper a execução.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:677
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -4057,7 +4057,7 @@ msgstr ""
 "%1\n"
 "é do tipo Ligação mas não tem entrada \"URL=...\"."
 
-#: gui/openurljob.cpp:403
+#: gui/openurljob.cpp:409
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4066,14 +4066,14 @@ msgstr ""
 "O ficheiro executável \"%1\" encontra-se num sistema de ficheiros remoto. "
 "Por motivos de segurança, não será iniciado."
 
-#: gui/openurljob.cpp:444
+#: gui/openurljob.cpp:450
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 "Por motivos de segurança, iniciar executáveis não é permitido neste contexto."
 
-#: gui/openurljob.cpp:474
+#: gui/openurljob.cpp:480
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4082,7 +4082,7 @@ msgstr ""
 "O programa \"%1\" precisa de ter permissões de execução para poder ser "
 "iniciado."
 
-#: gui/openurljob.cpp:485
+#: gui/openurljob.cpp:491
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4091,14 +4091,14 @@ msgstr ""
 "Não é possível tornar o ficheiro \"%1\" executÃ¡vel.\n"
 "%2."
 
-#: gui/openurljob.cpp:571
+#: gui/openurljob.cpp:577
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr ""
 "O ficheiro de atalho de ambiente de trabalho %1 não tem uma entrada "
 "\"Type=...\"."
 
-#: gui/openurljob.cpp:663
+#: gui/openurljob.cpp:679
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4109,12 +4109,12 @@ msgstr ""
 "Procure nas suas aplicações abertas e na área de notificações por tarefas ou "
 "transferências pendentes."
 
-#: gui/openurljob.cpp:689
+#: gui/openurljob.cpp:705
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Não foi possível abrir o ficheiro."
 
-#: gui/openurljob.cpp:723
+#: gui/openurljob.cpp:739
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Não foi possível iniciar o programa \"%1\"."
@@ -5406,12 +5406,12 @@ msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Ações"
 
-#: widgets/kfileitemactions.cpp:469
+#: widgets/kfileitemactions.cpp:591
 #, kde-format
 msgid "Open &with %1"
 msgstr "Abrir &com %1"
 
-#: widgets/kfileitemactions.cpp:471
+#: widgets/kfileitemactions.cpp:593
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
