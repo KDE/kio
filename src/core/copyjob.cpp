@@ -175,6 +175,19 @@ static bool destDisallowsMsdosChars(const QUrl &url, KFileSystemType::Type fsTyp
     return isMtpScheme(url);
 }
 
+// A local disk reports the number of bytes it will really accept. A network server reports a
+// number that stands for whatever it decides to count, and one that has nothing to report says so
+// by reporting zero, which is the same answer a full disk gives.
+static bool reportsExactFreeSpace(const QUrl &url)
+{
+    if (!url.isLocalFile()) {
+        return false;
+    }
+
+    const KFileSystemType::Type fsType = KFileSystemType::fileSystemType(url.toLocalFile());
+    return fsType != KFileSystemType::Nfs && fsType != KFileSystemType::Smb;
+}
+
 static QString destFilesystemDisplayName(const QUrl &url, KFileSystemType::Type fsType)
 {
     if (isMtpScheme(url)) {
@@ -628,10 +641,14 @@ void CopyJobPrivate::slotResultStating(KJob *job)
         const QUrl existingDest = m_asMethod ? m_dest.adjusted(QUrl::RemoveFilename) : m_dest;
         KIO::FileSystemFreeSpaceJob *spaceJob = KIO::fileSystemFreeSpace(existingDest);
         q->connect(spaceJob, &KJob::result, q, [this, existingDest, spaceJob]() {
-            if (!spaceJob->error()) {
-                m_freeSpace = spaceJob->availableSize();
-            } else {
+            if (spaceJob->error()) {
                 qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't determine free space information for" << existingDest;
+            } else if (spaceJob->availableSize() == 0 && !reportsExactFreeSpace(existingDest)) {
+                // The destination has no free space figure to give, so the copy goes ahead and the
+                // write itself is what decides whether the space is there. See bug 431050.
+                qCDebug(KIO_COPYJOB_DEBUG) << "Treating the reported free space of zero as unknown for" << existingDest;
+            } else {
+                m_freeSpace = spaceJob->availableSize();
             }
             // After knowing what the dest is, we can start stat'ing the first src.
             statCurrentSrc();
