@@ -38,7 +38,6 @@
 #include <knfsshare.h>
 #include <ksambashare.h>
 #endif
-#include <KFileSystemType>
 #include <KProtocolManager>
 #include <KShell>
 
@@ -979,11 +978,23 @@ bool KFileItemPrivate::isSlow() const
 {
     if (m_slow == SlowUnknown) {
         const QString path = localPath();
-        if (!path.isEmpty()) {
-            const KFileSystemType::Type fsType = KFileSystemType::fileSystemType(path);
-            m_slow = (fsType == KFileSystemType::Nfs || fsType == KFileSystemType::Smb) ? Slow : Fast;
-        } else {
+        if (path.isEmpty()) {
+            // No local path means a remote worker URL, which is always slow.
             m_slow = Slow;
+        } else {
+            // Ask the mount this item lives on. probablySlow() is backed by libmount's own
+            // network-filesystem detection plus autofs/subfs/kio-fuse, so it recognizes remote
+            // filesystems (nfs, cifs, sshfs, ftpfs, kio-fuse, ...) even when they are mounted
+            // locally. Prefer the unique mount id from the stat when present (a cache lookup),
+            // otherwise resolve by path.
+            KMountPoint::Ptr mountPoint;
+            if (const auto mountId = m_entry.numberValue(KIO::UDSEntry::UDS_MOUNT_ID, 0)) {
+                mountPoint = KMountPoint::currentMountPointForUniqueId(mountId);
+            }
+            if (!mountPoint) {
+                mountPoint = KMountPoint::currentMountPointForPath(path);
+            }
+            m_slow = (mountPoint && mountPoint->probablySlow()) ? Slow : Fast;
         }
     }
     return m_slow == Slow;

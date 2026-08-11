@@ -31,7 +31,6 @@
 #include <KConfigGroup>
 #include <KFileUtils>
 #include <KLocalizedString>
-#include <KMountPoint>
 #include <KProtocolInfo>
 #include <KSharedConfig>
 #include <Solid/Device>
@@ -212,22 +211,6 @@ bool FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
     }
 }
 
-static bool isSlow(const KFileItem &fileItem, const KIO::UDSEntry &entry)
-{
-    const auto mountId = entry.numberValue(KIO::UDSEntry::UDS_MOUNT_ID, 0);
-    // No Mount ID, fall back to blocking KFileItem::isSlow.
-    if (!mountId) {
-        return fileItem.isSlow();
-    }
-
-    const auto mountPoint = KMountPoint::currentMountPointForUniqueId(mountId);
-    if (!mountPoint) {
-        return fileItem.isSlow();
-    }
-
-    return mountPoint->probablySlow();
-}
-
 void FilePreviewJob::slotStatFile(KJob *job)
 {
     if (job->error()) {
@@ -278,7 +261,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
 
     const KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
     const bool isLocalAndFast =
-        (itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !isSlow(m_fileItem, statResult);
+        (itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !m_fileItem.isSlow();
 
     if (!isLocalAndFast) {
         // For remote items the "IgnoreMaximumSize" plugin property is not respected
