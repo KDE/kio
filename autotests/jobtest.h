@@ -47,6 +47,8 @@ private Q_SLOTS:
     void storedPutIODeviceSlowDeviceBigChunk();
     void asyncStoredPutReadyReadAfterFinish();
     void copyFileToSamePartition();
+    void copyFileToSetgidDirectory_data();
+    void copyFileToSetgidDirectory();
     void copyFilePreservesAcl();
     void testCopyFilePermissionsToSamePartition();
     void testMkdirPermissionsAndOwnership();

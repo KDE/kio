@@ -768,7 +768,14 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
     // preserve ownership through the open descriptor, so the change lands on
     // the file just written
     if (!defaultPermissions) {
-        if (::fchown(destFile.handle(), -1 /*keep user*/, buffSrc.st_gid) == 0) {
+        // A folder with the setgid bit gives its group to whatever is made in it, and that group
+        // is the one the new file is meant to carry, so it is left alone. The folder is asked
+        // through the descriptor the copy holds on it, which is the folder the file was written
+        // to whatever happened to the path meanwhile.
+        QT_STATBUF buffDestDir;
+        const bool destDirIsSetgid = QT_FSTAT(dfd, &buffDestDir) == 0 && (buffDestDir.st_mode & S_ISGID);
+
+        if (destDirIsSetgid || ::fchown(destFile.handle(), -1 /*keep user*/, buffSrc.st_gid) == 0) {
             // as we are the owner of the new file, we can always change the group, but
             // we might not be allowed to change the owner
             if (::fchown(destFile.handle(), buffSrc.st_uid, -1 /*keep group*/) < 0) {

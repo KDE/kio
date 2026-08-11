@@ -51,9 +51,11 @@
 #include <QSignalSpy>
 #include <QTemporaryFile>
 #include <QTest>
+
 #include <QTimer>
 #include <QUrl>
 #include <QVariant>
+#include <ranges>
 
 #ifndef Q_OS_WIN
 #include <unistd.h> // for readlink
@@ -805,6 +807,71 @@ void JobTest::copyFileToSamePartition()
         setXattr(filePath);
     }
     copyLocalFile(filePath, dest);
+}
+
+void JobTest::copyFileToSetgidDirectory_data()
+{
+    QTest::addColumn<int>("permissions");
+
+    // Whichever way the copy is asked to handle the permissions, the group the folder gives has
+    // to survive. With the permissions of the source the worker sets the ownership of the new
+    // file, which is where the group of the folder was being overwritten.
+    QTest::newRow("default permissions") << -1;
+    QTest::newRow("permissions of the source") << 0644;
+}
+
+void JobTest::copyFileToSetgidDirectory()
+{
+    QFETCH(int, permissions);
+
+#ifdef Q_OS_UNIX
+    // A folder with the setgid bit gives its own group to what is created in it. Finding a
+    // second group to give the folder is what makes the difference visible.
+    QList<gid_t> groups(getgroups(0, nullptr));
+    QVERIFY(getgroups(groups.size(), groups.data()) != -1);
+    QList<gid_t> candidates;
+    std::ranges::copy_if(groups, std::back_inserter(candidates), [](gid_t group) {
+        return group != getegid();
+    });
+    // The groups of the user come before the system groups, which a folder is less likely to be
+    // given, and each is tried in turn since being a member of one says little about that.
+    std::ranges::stable_partition(candidates, [](gid_t group) {
+        return group >= 1000;
+    });
+    if (candidates.isEmpty()) {
+        QSKIP("The user this runs as belongs to a single group");
+    }
+
+    // A sandbox of its own, so that what is made here is gone again before the tests that walk
+    // the test directory and count what they find.
+    QTemporaryDir sandbox(homeTmpDir() + "setgidXXXXXX");
+    QVERIFY(sandbox.isValid());
+
+    const QString filePath = sandbox.filePath(QStringLiteral("fileForTheSharedFolder"));
+    createTestFile(filePath);
+    QVERIFY(QFile::setPermissions(filePath, QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ReadGroup | QFileDevice::ReadOther));
+
+    const QString sharedDir = sandbox.filePath(QStringLiteral("sharedFolder"));
+    QVERIFY(QDir().mkpath(sharedDir));
+    const QByteArray sharedDirPath = QFile::encodeName(sharedDir);
+    const auto otherGroup = std::ranges::find_if(candidates, [&sharedDirPath](gid_t group) {
+        return ::chown(sharedDirPath.constData(), -1, group) == 0;
+    });
+    if (otherGroup == candidates.cend()) {
+        QSKIP("Giving a folder another group is not allowed here");
+    }
+    QVERIFY(::chmod(sharedDirPath.constData(), 0755 | S_ISGID) == 0);
+
+    const QString dest = sharedDir + "/fileForTheSharedFolder";
+    KIO::Job *job = KIO::file_copy(QUrl::fromLocalFile(filePath), QUrl::fromLocalFile(dest), permissions, KIO::HideProgressInfo);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QT_STATBUF buff;
+    QVERIFY(QT_STAT(QFile::encodeName(dest).constData(), &buff) == 0);
+    QCOMPARE(buff.st_gid, *otherGroup);
+#else
+    QSKIP("Setgid folders are a UNIX matter");
+#endif
 }
 
 void JobTest::copyFilePreservesAcl()
