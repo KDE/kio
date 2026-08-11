@@ -1995,4 +1995,103 @@ void KDirListerTest::testDuplicatedEntries()
     }));
 }
 
+void KDirListerTest::testUpdateSearchResultOnDeleteAndRename()
+{
+    // Bug 392456: a file deleted or renamed in a search result view stayed as-is. Search results
+    // (baloosearch:/, filenamesearch:/) list items whose url() points at the real file (via
+    // UDS_URL) while the listing itself is keyed by the search url, so the change notification
+    // - which carries the real file url - never reached the search listing. Reproduce that shape
+    // with a worker that returns UDS_URL entries and check the view follows deletes and renames.
+    const QString fileA = tempPath() + QStringLiteral("search_hit_a");
+    const QString fileB = tempPath() + QStringLiteral("search_hit_b");
+    createTestFile(fileA);
+    createTestFile(fileB);
+    const QUrl urlA = QUrl::fromLocalFile(fileA);
+    const QUrl urlB = QUrl::fromLocalFile(fileB);
+
+    class Factory : public KIO::WorkerFactory
+    {
+    public:
+        using KIO::WorkerFactory::WorkerFactory;
+        std::unique_ptr<KIO::WorkerBase> createWorker(const QByteArray &pool, const QByteArray &app) override
+        {
+            class SearchWorker : public KIO::WorkerBase
+            {
+            public:
+                SearchWorker(const QByteArray &pool, const QByteArray &app, const QList<QUrl> &hits)
+                    : WorkerBase(QByteArrayLiteral("kio-test-search"), pool, app)
+                    , m_hits(hits)
+                {
+                }
+
+                Q_REQUIRED_RESULT KIO::WorkerResult listDir(const QUrl &url) override
+                {
+                    Q_UNUSED(url)
+                    KIO::UDSEntry root;
+                    root.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
+                    listEntry(root);
+                    // A search result: the display name is the file, but UDS_URL points at the
+                    // real file the item stands for, which lives outside the search listing.
+                    for (const QUrl &hit : std::as_const(m_hits)) {
+                        KIO::UDSEntry entry;
+                        entry.fastInsert(KIO::UDSEntry::UDS_NAME, hit.fileName());
+                        entry.fastInsert(KIO::UDSEntry::UDS_URL, hit.toString());
+                        entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 0);
+                        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456);
+                        listEntry(entry);
+                    }
+                    return KIO::WorkerResult::pass();
+                }
+
+            private:
+                QList<QUrl> m_hits;
+            };
+
+            return std::unique_ptr<KIO::WorkerBase>(new SearchWorker(pool, app, m_hits));
+        }
+
+        QList<QUrl> m_hits;
+    };
+    auto factory = std::make_shared<Factory>();
+    factory->m_hits = {urlA, urlB};
+    KIO::Worker::setTestWorkerFactory(factory);
+
+    const QUrl searchUrl(u"kio-test-search://search/?query=hit"_s);
+    MyDirLister dirLister;
+    dirLister.openUrl(searchUrl);
+    QVERIFY(dirLister.spyCompleted.wait(1000));
+
+    // findByUrl() is keyed by the parent directory, which for a search result is not the listing,
+    // so match against the listed items directly.
+    auto listsUrl = [&dirLister](const QUrl &url) {
+        const KFileItemList items = dirLister.items();
+        return std::any_of(items.cbegin(), items.cend(), [&url](const KFileItem &item) {
+            return item.url() == url;
+        });
+    };
+
+    QCOMPARE(dirLister.items().count(), 2);
+    QVERIFY(listsUrl(urlA));
+    QVERIFY(listsUrl(urlB));
+
+    // Deleting one of the found files must drop it from the search view.
+    dirLister.clearSpies();
+    org::kde::KDirNotify::emitFilesRemoved(QList<QUrl>{urlA});
+    QVERIFY(dirLister.spyItemsDeleted.wait(1000));
+    QCOMPARE(dirLister.items().count(), 1);
+    QVERIFY(!listsUrl(urlA));
+    QVERIFY(listsUrl(urlB));
+
+    // Renaming the other found file must update its entry in the search view.
+    const QString fileBRenamed = tempPath() + QStringLiteral("search_hit_b_renamed");
+    const QUrl urlBRenamed = QUrl::fromLocalFile(fileBRenamed);
+    QVERIFY(QFile::rename(fileB, fileBRenamed));
+    QSignalSpy spyRefreshItems(&dirLister, &KCoreDirLister::refreshItems);
+    org::kde::KDirNotify::emitFileRenamed(urlB, urlBRenamed);
+    QVERIFY(spyRefreshItems.wait(1000));
+    QCOMPARE(dirLister.items().count(), 1);
+    QVERIFY(!listsUrl(urlB));
+    QVERIFY(listsUrl(urlBRenamed));
+}
+
 #include "moc_kdirlistertest.cpp"

@@ -303,6 +303,10 @@ private:
     // Helper method called when we know that a list of items was deleted
     void itemsDeleted(const QList<KCoreDirLister *> &listers, const KFileItemList &deletedItems);
     void slotFilesRemoved(const QList<QUrl> &urls);
+    // Update copies of a renamed file that live in search-result listings (whose items carry a
+    // url() outside the listing directory), which slotFileRenamed's normal lookup cannot reach.
+    // Returns true if at least one such copy was found and refreshed.
+    bool renameItemInForeignUrlListings(const QUrl &oldUrl, const QUrl &dst, const QString &dstPath);
     // common for slotRedirection and slotFileRenamed
     void renameDir(const QUrl &oldUrl, const QUrl &url);
     // common for deleteUnmarkedItems and slotFilesRemoved
@@ -485,6 +489,7 @@ private:
         // Insert the item in the sorted list
         void insert(const KFileItem &item)
         {
+            noteForeignUrl(item);
             auto it = std::lower_bound(lstItems.begin(), lstItems.end(), item.url());
             lstItems.insert(it, item);
         }
@@ -498,8 +503,21 @@ private:
             lstItems.reserve(lstItems.size() + items.size());
             auto it = lstItems.begin();
             for (const auto &item : items) {
+                noteForeignUrl(item);
                 it = std::lower_bound(it, lstItems.end(), item.url());
                 it = lstItems.insert(it, item);
+            }
+        }
+
+        // Remember whether this listing holds items whose url() lives outside it, as search
+        // results (baloosearch:/, filenamesearch:/, ...) do via UDS_URL. Only such listings need
+        // the by-url change-notification scan in KCoreDirListerCache, so ordinary directories,
+        // whose items share the listing's scheme, skip it. Comparing the scheme is enough: a
+        // remote listing (ftp://, ...) holds items of its own scheme, a search listing does not.
+        void noteForeignUrl(const KFileItem &item)
+        {
+            if (!hasForeignUrlItems && item.url().scheme() != url.scheme()) {
+                hasForeignUrlItems = true;
             }
         }
 
@@ -527,6 +545,8 @@ private:
         KFileItem rootItem;
         // The fileitems contained in the directory. Empty when directory is not readable.
         QList<KFileItem> lstItems;
+        // Whether any item's url() lives outside this listing (search results); see noteForeignUrl().
+        bool hasForeignUrlItems = false;
     };
 
     QMap<KIO::ListJob *, KIO::UDSEntryList> runningListJobs;
