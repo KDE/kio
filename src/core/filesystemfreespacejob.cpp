@@ -69,14 +69,17 @@ void FileSystemFreeSpaceJobPrivate::start(Worker *worker)
 void FileSystemFreeSpaceJob::slotFinished()
 {
     Q_D(FileSystemFreeSpaceJob);
-    const QString totalStr = queryMetaData(QStringLiteral("total"));
-    const QString availableStr = queryMetaData(QStringLiteral("available"));
+    if (!error()) {
+        const QString totalStr = queryMetaData(QStringLiteral("total"));
+        const QString availableStr = queryMetaData(QStringLiteral("available"));
 
-    if (availableStr.isEmpty()) { // CopyJob only cares for available. "total" is optional
-        setError(KIO::ERR_UNSUPPORTED_ACTION);
+        if (availableStr.isEmpty()) { // CopyJob only cares for available. "total" is optional
+            setError(KIO::ERR_UNSUPPORTED_ACTION);
+        } else {
+            d->size = totalStr.toULongLong();
+            d->availableSize = availableStr.toULongLong();
+        }
     }
-    d->size = totalStr.toULongLong();
-    d->availableSize = availableStr.toULongLong();
 
     // Return worker to the scheduler
     SimpleJob::slotFinished();
