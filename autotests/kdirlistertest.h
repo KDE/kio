@@ -118,6 +118,7 @@ private Q_SLOTS:
     void testSFTPRedirect();
     void testDuplicatedEntries();
     void testEntriesOfOneNameFromSeveralFolders();
+    void testUpdateSearchResultOnDeleteAndRename();
     void testDeleteCurrentDir(); // must be just before last!
     void testForgetDir(); // must be last!
 

@@ -838,6 +838,19 @@ void KCoreDirListerCache::slotFilesRemoved(const QList<QUrl> &fileList)
             }
         }
 
+        // A search result holds items that live outside the listing, so the lookup above misses
+        // them. Drop the file from those listings too.
+        for (DirItem *searchDirItem : std::as_const(itemsInUse)) {
+            if (!searchDirItem->hasForeignUrlItems) {
+                continue;
+            }
+            const auto it = std::lower_bound(searchDirItem->lstItems.begin(), searchDirItem->lstItems.end(), url);
+            if (it != searchDirItem->lstItems.end() && it->url() == url) {
+                removedItemsByDir[searchDirItem->url].append(*it);
+                searchDirItem->lstItems.erase(it);
+            }
+        }
+
         // Add only parentDirs of dirs that have not been deleted to the pendingUpdates list
         if (!deletedSubdirs.contains(url)) {
             for (const auto &dir : parentDirUrls) {
@@ -895,6 +908,50 @@ void KCoreDirListerCache::slotFilesChanged(const QStringList &fileList) // from 
     processPendingUpdates();
 }
 
+bool KCoreDirListerCache::renameItemInForeignUrlListings(const QUrl &oldUrl, const QUrl &dst, const QString &dstPath)
+{
+    bool found = false;
+    std::set<KCoreDirLister *> listers;
+    for (DirItem *dirItem : std::as_const(itemsInUse)) {
+        if (!dirItem->hasForeignUrlItems) {
+            continue;
+        }
+        const auto it = std::lower_bound(dirItem->lstItems.begin(), dirItem->lstItems.end(), oldUrl);
+        if (it == dirItem->lstItems.end() || it->url() != oldUrl) {
+            continue;
+        }
+
+        const KFileItem oldItem = *it;
+        KFileItem newItem = oldItem;
+        newItem.setUrl(dst);
+        if (!dstPath.isEmpty()) {
+            newItem.setLocalPath(dstPath);
+        }
+        // A rename leaves the content alone, so the mime type only changes with the name, and
+        // dropping the cached one lets whoever needs it determine it again.
+        if (oldUrl.fileName() != dst.fileName()) {
+            newItem.refreshMimeType();
+        }
+
+        dirItem->lstItems.erase(it);
+        dirItem->insert(newItem);
+        found = true;
+
+        const auto ddit = directoryData.find(dirItem->url);
+        if (ddit != directoryData.end()) {
+            for (KCoreDirLister *lister : (*ddit).allListers()) {
+                lister->d->addRefreshItem(dirItem->url, oldItem, newItem);
+                listers.insert(lister);
+            }
+        }
+    }
+
+    for (KCoreDirLister *lister : listers) {
+        lister->d->emitItems();
+    }
+    return found;
+}
+
 void KCoreDirListerCache::slotFileRenamed(const QString &_src, const QString &_dst, const QString &dstPath) // from KDirNotify signals
 {
     QUrl src(_src);
@@ -907,7 +964,10 @@ void KCoreDirListerCache::slotFileRenamed(const QString &_src, const QString &_d
     QUrl oldurl = cleanUpTrailingSlash(src);
     KFileItem fileitem = findByUrl(nullptr, oldurl);
     if (fileitem.isNull()) {
-        qCDebug(KIO_CORE_DIRLISTER) << "Item not found:" << oldurl;
+        // findByUrl() looks in the parent directory alone, which a search result is not.
+        if (!renameItemInForeignUrlListings(oldurl, dst, dstPath)) {
+            qCDebug(KIO_CORE_DIRLISTER) << "Item not found:" << oldurl;
+        }
         return;
     }
 
