@@ -44,9 +44,7 @@
 >uthoring and <emphasis
 >V</emphasis
 >ersioning</quote
->-Protokoll für das Internet. Mit Hilfe dieses Protokolls kann man Dokumente und Skripte auf einem <ulink url="help:/kioslave/webdav.html"
->&HTTP;</ulink
->-Server verwalten. Es bietet einige zusätzliche Funktionen, um die Koordinierung von verschiedenen Versionen zwischen mehreren Autoren zu vereinfachen.</para>
+>-Protokoll für das Internet. Mit Hilfe dieses Protokolls kann man Dokumente und Skripte auf einem &HTTP;-Server verwalten. Es bietet zusätzliche Funktionen, um die Versionsverwaltung zwischen mehreren Autoren zu vereinfachen.</para>
 
 <para
 >Die Verwendung des Protokolls ist einfach. Geben Sie die Adresse ein, die Sie betrachten möchten, ähnlich einer &HTTP;-Adresse, außer das Sie für den Protokollnamen webdav:// einsetzen. Ein Beispiel ist <userinput

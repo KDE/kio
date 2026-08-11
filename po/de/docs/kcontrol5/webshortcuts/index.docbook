@@ -82,7 +82,7 @@
 ></para>
 
 <para
->Web-Kürzel sind benutzerdefinierte Pseudo-&URL;s, die &eg; als Abkürzung für das Abfragen bestimmter Suchmaschinen dienen können und den Umgang mit den verschiedenen Suchparametern dieser viel benutzten Suchmaschinen vereinfachen. Wenn man zum Beispiel die Google-Suchmaschine benutzen will, kann man &kde; so einrichten, dass die Eingabe einer Pseudo-&URL; wie <emphasis
+>Web-Kürzel sind benutzerdefinierte Pseudo-&URL;s, die &eg; als Abkürzung für das Abfragen bestimmter Suchmaschinen dienen können und den Umgang mit den verschiedenen Suchparametern dieser viel benutzten Suchmaschinen vereinfachen. Wenn man zum Beispiel die Google-Suchmaschine verwenden will, kann man &kde; so einrichten, dass die Eingabe einer Pseudo-&URL; wie <emphasis
 >gg</emphasis
 > eine Suche bei Google auslöst. So wird durch die Eingabe <userinput
 >gg:<replaceable
@@ -94,7 +94,7 @@
 
 <note
 ><para
->Es ist leicht ersichtlich, warum diese Eingaben Pseudo-&URL; genannt werden. Sie werden zwar wie eine &URL; benutzt, aber die Eingabe ist nicht im korrekten &URL;-Format gehalten, man gibt zum Beispiel <userinput
+>Es ist leicht ersichtlich, warum diese Eingaben Pseudo-&URL; genannt werden. Sie werden zwar wie eine &URL; verwendet, aber die Eingabe ist nicht im korrekten &URL;-Format gehalten, man gibt zum Beispiel <userinput
 >google:kde apps</userinput
 > und nicht <userinput
 >google:kde+apps</userinput
@@ -117,12 +117,12 @@
 <para
 >Die Einstellung <guilabel
 >Web-Kürzel aktivieren</guilabel
-> muss ausgewählt werden, um diese Funktion zu benutzen. Mit den Knöpfen rechts neben der Listen können Web-Kürzel erstellt, geändert und gelöscht werden.</para>
+> muss ausgewählt werden, um diese Funktion zu verwenden. Mit den Knöpfen rechts neben der Listen können Web-Kürzel erstellt, geändert und gelöscht werden.</para>
 
 <para
 >Wenn <guilabel
 >Nur bevorzugte Web-Kürzel verwenden</guilabel
-> markiert ist, werden nur Web-Kürzel benutzt, die in der dritten Spalte der Liste als „bevorzugt“ aktiviert sind, wenn nur einige ausgewählte Web-Kürzel gleichzeitig angezeigt werden können. </para>
+> markiert ist, werden nur Web-Kürzel verwendet, die in der dritten Spalte der Liste als „bevorzugt“ aktiviert sind, wenn nur einige ausgewählte Web-Kürzel gleichzeitig angezeigt werden können. </para>
  
 <para
 >Unter der Liste werden zwei weitere Einstellungen angezeigt:</para>
@@ -175,7 +175,7 @@
 >Adresse des Web-Kürzels</guilabel
 > fällt auf, dass die meisten (wenn nicht sogar alle) Einträge den Parameter <option
 >\{@}</option
-> enthalten. Diese Folge von vier Zeichen ist ein Platzhalter, und wird durch dasjenige ersetzt, was bei einer Suchanfrage hinter dem Doppelpunkt steht. Um diesen Platzhalter in eine Web-Kürzel-Adresse einzufügen, drücken Sie den Knopf rechts neben dem Eingabefeld. Damit die Benutzung von Web-Kürzeln etwas klarer wird, sollte man sich die folgenden Beispiele ansehen.</para>
+> enthalten. Diese Folge von vier Zeichen ist ein Platzhalter, und wird durch dasjenige ersetzt, was bei einer Suchanfrage hinter dem Doppelpunkt steht. Um diesen Platzhalter in eine Web-Kürzel-Adresse einzufügen, drücken Sie den Knopf rechts neben dem Eingabefeld. Damit die Verwendung von Web-Kürzeln etwas klarer wird, sollte man sich die folgenden Beispiele ansehen.</para>
 
 <para
 >Angenommen, dass bei Such-&URI; steht: <userinput
@@ -208,7 +208,7 @@
 > zum selben Ergebnis wie die komplette &URI;. Es ist zu beachten, dass man zwar nichts hinter dem Doppelpunkt eingeben muss, dieser aber trotzdem notwendig ist, damit die Eingabe als Kurzbefehl akzeptiert wird.</para>
 
 <para
->Spätestens jetzt sollte klar sein, dass die Kurzbefehle nicht nur für Suchmaschinen, sondern für alle Arten von parametrisierten &URI;s verwendet werden können. Diese können nicht nur auf Internetseiten sondern auf alles verweisen, worauf man mit einer &URI; verweisen kann. Das macht diese Kurzbefehle zu einem sehr nützlichen Werkzeug in &kde;.</para>
+>Spätestens jetzt sollte klar sein, dass die Kurzbefehle nicht nur für Suchmaschinen, sondern für alle Arten von parametrisierten &URI;s verwendet werden können. Diese können nicht nur auf Internetseiten, sondern auf alles verweisen, worauf man mit einer &URI; verweisen kann. Das macht diese Kurzbefehle zu einem sehr nützlichen Werkzeug in &kde;.</para>
 
 </sect2>
 

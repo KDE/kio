@@ -63,10 +63,10 @@
 <para
 >Handelt es sich um ein &kde;-Programm, dann suchen Sie zuerst im &khelpcenter;. Manchmal hat die Dokumentation einen anderen Namen als die Anwendung. Wenn das nicht funktioniert, suchen Sie auf der <ulink url="https://docs.kde.org/"
 >&kde;-Dokumentationsseite</ulink
-> nach der gewünschten Dokumentation. Ist die Dokumentation dort vorhanden, hat Ihre Distribution möglicherweise ein eigenes Paket für diese Dokumentation, &eg; plasma-doc für Dokumentation zu &plasma;. Benutzen Sie bitte die Paketverwaltung Ihrer Distribution, um die fehlende Dokumentation zu finden und zu installieren.</para>
+> nach der gewünschten Dokumentation. Ist die Dokumentation dort vorhanden, hat Ihre Distribution möglicherweise ein eigenes Paket für diese Dokumentation, &eg; plasma-doc für Dokumentation zu &plasma;. Verwenden Sie bitte die Paketverwaltung Ihrer Distribution, um die fehlende Dokumentation zu finden und zu installieren.</para>
 
 <para
->Wenn Sie eine Quelltext-basierte Distribution wie zum Beispiel Gentoo benutzen, überprüfen Sie, ob die Einstellung (USE flags in Gentoo) auch die Installation der Dokumentation mit einschließt. </para>
+>Wenn Sie eine Quelltext-basierte Distribution wie zum Beispiel Gentoo verwenden, überprüfen Sie, ob die Einstellung (USE flags in Gentoo) auch die Installation der Dokumentation mit einschließt. </para>
 
 <para
 >Wird immer noch diese Seite statt der angeforderten Dokumentation angezeigt, obwohl die fehlende Dokumentation installiert wurde, haben Sie wahrscheinlich einen Fehler im Hilfesystem gefunden. Bitte berichten Sie diesen Fehler auf der Seite  <ulink url="https://bugs.kde.org/"

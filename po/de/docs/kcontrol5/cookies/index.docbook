@@ -84,10 +84,10 @@
 <para
 >Oben auf der Karteikarte befindet sich das Ankreuzfeld <guilabel
 >Cookies zulassen</guilabel
->. Wenn man dieses Feld nicht markiert, werden Cookies vollständig abgeschaltet. Das kann aber das Browsen im Internet sehr unkomfortabel machen, da es einige Internetseiten gibt, die die Benutzung eines Browsers mit eingeschalteten Cookies erfordern.</para>
+>. Wenn man dieses Feld nicht markiert, werden Cookies vollständig deaktiviert. Das kann aber das Browsen im Internet sehr unkomfortabel machen, da es einige Internetseiten gibt, die die Verwendung eines Browsers mit eingeschalteten Cookies erfordern.</para>
 
 <para
->Daher werden Sie in der Regel Cookies einschalten und dann spezifische Regelungen für den Umgang mit ihnen treffen.</para>
+>Daher werden Sie in der Regel Cookies aktivieren und dann spezifische Regelungen für den Umgang mit ihnen festlegen.</para>
 
 <para
 >Die erste Gruppe von Einstellungen betrifft Optionen, die auf alle Cookies anzuwenden sind.</para>
@@ -121,7 +121,7 @@
 > müssten Sie Ihr Passwort jedesmal neu eingeben, wenn Sie eine andere E-Mail lesen möchten. Es gibt andere Wege, dies zu erreichen, aber Cookies sind eine einfache und weit verbreitete Möglichkeit.</para>
 
 <para
->Schalten Sie diese Option ein, dann werden Sitzungs-Cookies immer akzeptiert, selbst dann, wenn Sie keine anderen Cookies zulassen. Sogar wenn Sie Cookies von einer bestimmten Domain nicht annehmen, dann werden die Sitzungs-Cookies von dieser Seite trotzdem akzeptiert.</para>
+>Durch das Aktivieren dieser Option werden Sitzungs-Cookies immer akzeptiert, selbst dann, wenn Sie keine anderen Cookies zulassen. Sogar wenn Sie Cookies von einer bestimmten Domain nicht annehmen, werden die Sitzungs-Cookies von dieser Seite trotzdem akzeptiert.</para>
 </listitem>
 </varlistentry>
 </variablelist>
@@ -163,7 +163,7 @@
 ></term>
 <listitem>
 <para
->Wenn diese Option ausgewählt ist, wird für jeden einzelnen Cookie um Bestätigung gebeten. Sie können jeden einzelnen Cookie entweder annehmen oder ablehnen. Der Bestätigungsdialog enthält außerdem die Möglichkeit, eine Domain-spezifische Regelung zu treffen, falls Sie für eine Domain nicht jeden Cookie einzeln bestätigen wollen.</para>
+>Wenn diese Option ausgewählt ist, wird für jeden einzelnen Cookie um Bestätigung gebeten. Sie können jeden einzelnen Cookie entweder annehmen oder ablehnen. Der Bestätigungsdialog enthält außerdem die Möglichkeit, eine Domain-spezifische Regelung zu treffen, falls Sie für eine Domain nicht jeden Cookie einzeln bestätigen möchten.</para>
 </listitem>
 </varlistentry>
 <varlistentry>
@@ -184,15 +184,15 @@
 > festlegen. Diese Regelungen gelten für einzelne Rechner oder einzelne Domains.</para>
 
 <para
->Sie können eine der Regelungen Nachfragen, Annehmen, Annehmen bis zum Sitzungsende oder Ablehnen auf eine bestimmte Domain anwenden, indem Sie auf den Knopf <guibutton
->Neu ...</guibutton
-> klicken. Im angezeigten Dialogfenster tragen Sie den Namen der Domain (mit einem führenden Punkt) ein und wählen die gewünschte Regelung für diese Domain aus. Beachten Sie, dass auch während des Browsens Einträge hinzufügen werden können. Wenn die Standardregelung eine Bestätigung verlangt, kann man im Bestätigungsdialog eine generelle Regelung für einen bestimmten Rechner festlegen (zum Beispiel, indem man dort <guilabel
+>Sie können eine der Regelungen „Nachfragen“, „Annehmen“, „Annehmen bis zum Sitzungsende“ oder „Ablehnen“ auf eine bestimmte Domain anwenden, indem Sie auf den Knopf <guibutton
+>Neu …</guibutton
+> klicken. Im angezeigten Dialogfenster tragen Sie den Namen der Domain (mit einem führenden Punkt) ein und wählen die gewünschte Regelung für diese Domain aus. Beachten Sie, dass auch während des Browsens Einträge hinzufügen werden können, wenn die Standardregelung „Nachfragen“ (um eine Bestätigung bitten) ist und Sie eine generelle Regelung für einen bestimmten Rechner festlegen (zum Beispiel bei der Auswahl von <guilabel
 >Ablehnen</guilabel
-> auswählt).</para>
+>-Option während der Nachfrage beim neuen Cookie).</para>
 
 <para
 >Um für eine aufgelistete Domain die Regelung zu ändern, wählen Sie diese in der Liste aus und klicken auf <guibutton
->Ändern</guibutton
+>Ändern …</guibutton
 >.</para>
 
 <para
@@ -226,9 +226,9 @@
 > werden alle gespeicherten Cookies gelöscht.</para>
 
 <para
->Wenn Domäne ausgewählt ist, können Sie mit <guibutton
->Regelung einrichten</guibutton
-> eine spezielle Regel für diese Domäne eingeben.</para>
+>Wenn eine Domain ausgewählt ist, können Sie mit <guibutton
+>Regelung einrichten …</guibutton
+> eine spezielle Regel für diese Domain festlegen.</para>
 
 <para
 >Klickt man auf <guibutton

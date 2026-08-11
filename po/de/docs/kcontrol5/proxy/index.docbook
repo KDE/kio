@@ -60,12 +60,12 @@
 >Proxies sind Programme, die auf einem Rechner laufen, der in Ihrem Netz als Internetserver fungiert. Diese Programme empfangen die &HTTP;- und &FTP;-Anfragen aus dem eigenen Netz, holen die angeforderten Seiten aus dem Internet und geben sie an den Rechner weiter, von dem die Anfrage kam.</para>
 
 <para
->Wenn Sie einen Proxy eingerichtet haben, werden &HTTP;- und/oder &FTP;-Anfragen durch den Rechner weitergeleitet, der als Proxy-Server fungiert. Allerdings ist es meist zweckmäßig, bestimmte Rechner anzugeben, mit denen eine direkte Verbindung (also ohne Proxy-Server) hergestellt werden soll. Wenn Sie sich zum Beispiel innerhalb eines lokalen Netzes befinden, brauchen Anfragen an lokale Rechner normalerweise nicht über einen Proxy-Server zu laufen.</para>
+>Wenn Sie einen Proxy eingerichtet haben, werden &HTTP;- und/oder &FTP;-Anfragen durch den Rechner weitergeleitet, der als Proxy-Server fungiert. Allerdings ist es meist zweckmäßig, bestimmte Rechner anzugeben, mit denen eine direkte Verbindung (also ohne Proxy-Server) hergestellt werden soll. Wenn Sie sich zum Beispiel innerhalb eines lokalen Netzes befinden, benötigen Anfragen an lokale Rechner normalerweise nicht über einen Proxy-Server zu laufen.</para>
 
 <para
 >Sie müssen nur dann einen Proxy-Server einzurichten, wenn Ihr Netzwerkadministrator es verlangt (wenn Sie sich über Modem einwählen, wäre das zum Beispiel Ihr Internet Service Provider [<acronym
 >ISP</acronym
->]). Wenn Sie nicht wissen, worum es bei Proxy-Konfiguration geht und wenn Ihre Internet-Verbindung in Ordnung ist, dann brauchen Sie nichts an der Konfiguration ändern.</para>
+>]). Wenn Sie nicht wissen, worum es bei Proxy-Konfiguration geht und wenn Ihre Internet-Verbindung in Ordnung ist, dann benötigen Sie nichts an der Konfiguration ändern.</para>
 
 <para
 >Die Verwendung von Proxy-Servern ist optional, hat aber den Vorteil, dass der Zugriff auf Daten aus dem Internet beschleunigt wird.</para>
@@ -78,7 +78,7 @@
 <sect2 id="proxies-use">
 
 <title
->Benutzung</title>
+>Verwendung</title>
 
 <variablelist>
 <varlistentry>
@@ -190,7 +190,7 @@ How to enable Auto Detect button?
 >*</userinput
 > oder <userinput
 >?</userinput
-> werden nicht unterstützt und bleiben unwirksam. Zusätzlich können auch IP-Adressen wie &eg; 127.0.0.1 und IP-Adressen mit einer Subnetzmaske wie 192.168.0.1/24 benutzt werden.</para>
+> werden nicht unterstützt und bleiben unwirksam. Zusätzlich können auch IP-Adressen wie &eg; 127.0.0.1 und IP-Adressen mit einer Subnetzmaske wie 192.168.0.1/24 verwendet werden.</para>
 </listitem>
 </varlistentry>
 </variablelist>
@@ -201,7 +201,7 @@ How to enable Auto Detect button?
 > auswählen.</para>
 
 <para
->Markiert man dieses Ankreuzfeld, so wird die Verwendung der Ausnahmeliste umgekehrt, d.h. der Proxy-Server wird nur verwendet, wenn die angeforderte &URL; in der Adressliste aufgeführt ist.</para>
+>Markiert man dieses Ankreuzfeld, so wird die Verwendung der Ausnahmeliste umgekehrt, d. h. der Proxy-Server wird nur verwendet, wenn die angeforderte &URL; in der Adressliste aufgeführt ist.</para>
 
 <para
 >Diese Option ist sehr nützlich, falls man den Proxy nur für den Zugriff auf wenige Seiten, &eg; für ein internes Intranet, benötigt. Benötigen Sie eine noch komplexere Konfiguration, sollte Sie ein Konfigurationsskript verwenden.</para>

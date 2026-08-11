@@ -55,13 +55,13 @@
 >Einleitung</title>
 
 <para
->In vielen kleinen lokalen Netzen wird das &SMB;-Protokoll benutzt, um das Netzwerkdienste bereitzustellen. Bezeichnungen wie <quote
+>In vielen kleinen lokalen Netzen wird das &SMB;-Protokoll verwendet, um das Netzwerkdienste bereitzustellen. Bezeichnungen wie <quote
 >&Windows;-Netzwerk</quote
 > oder <quote
 >&Windows; for Workgroups</quote
 > oder <quote
 >Lan-Manager</quote
-> werden ebenfalls häufig benutzt. Mit Hilfe von &SMB; können <quote
+> werden ebenfalls häufig verwendet. Mit Hilfe von &SMB; können <quote
 >Ressourcen</quote
 > (also freigegebene Ordner und Drucker) im Netz zur Verfügung gestellt werden.</para>
 
@@ -91,7 +91,7 @@ or file dialog manual -->
 
 <sect2 id="windows-shares-use">
 <title
->Benutzung</title>
+>Verwendung</title>
 
 <para
 >Obwohl es sehr viele ungesicherte &SMB;-Netzwerke gibt, die jedem Zugriff auf alles erlauben, muss man sich prinzipiell bei einem &SMB;-Netz authentifizieren, bevor man auf Daten zugreifen kann. Standardmäßig verwendet &kde; zur Anmeldung auf dem &SMB;-Server die Daten, die Sie unter <guilabel
