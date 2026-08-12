@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-11 00:41+0000\n"
+"POT-Creation-Date: 2026-08-12 00:41+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -2867,28 +2867,28 @@ msgstr "Iepenje"
 msgid "Save As"
 msgstr "Bewarje as"
 
-#: filewidgets/kfilecopytomenu.cpp:71
+#: filewidgets/kfilecopytomenu.cpp:88
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@title:menu"
 msgid "Copy To"
 msgstr "Kopiearje"
 
-#: filewidgets/kfilecopytomenu.cpp:77
+#: filewidgets/kfilecopytomenu.cpp:94
 #, fuzzy, kde-format
 #| msgid "Move to Trash"
 msgctxt "@title:menu"
 msgid "Move To"
 msgstr "Nei it Jiskefet"
 
-#: filewidgets/kfilecopytomenu.cpp:102
+#: filewidgets/kfilecopytomenu.cpp:119
 #, fuzzy, kde-format
 #| msgid "Home Folder"
 msgctxt "@title:menu"
 msgid "Home Folder"
 msgstr "Thúsmap"
 
-#: filewidgets/kfilecopytomenu.cpp:110
+#: filewidgets/kfilecopytomenu.cpp:127
 #, fuzzy, kde-format
 #| msgid "1 Folder"
 #| msgid_plural "%1 Folders"
@@ -2897,21 +2897,21 @@ msgid "Root Folder"
 msgstr "1 Map"
 
 #  i18n: file ./kfile/kpropertiesdesktopbase.ui line 213
-#: filewidgets/kfilecopytomenu.cpp:146
+#: filewidgets/kfilecopytomenu.cpp:163
 #, fuzzy, kde-format
 #| msgid "&Browse..."
 msgctxt "@action:inmenu in Copy To or Move To submenu"
 msgid "Browse…"
 msgstr "S&neupe..."
 
-#: filewidgets/kfilecopytomenu.cpp:225
+#: filewidgets/kfilecopytomenu.cpp:244
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@title:menu"
 msgid "Copy Here"
 msgstr "Kopiearje"
 
-#: filewidgets/kfilecopytomenu.cpp:225
+#: filewidgets/kfilecopytomenu.cpp:244
 #, kde-format
 msgctxt "@title:menu"
 msgid "Move Here"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-11 00:41+0000\n"
+"POT-Creation-Date: 2026-08-12 00:41+0000\n"
 "PO-Revision-Date: 2024-12-15 19:32+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2686,49 +2686,49 @@ msgstr "खोलें"
 msgid "Save As"
 msgstr "ऐसे सहेजें"
 
-#: filewidgets/kfilecopytomenu.cpp:71
+#: filewidgets/kfilecopytomenu.cpp:88
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@title:menu"
 msgid "Copy To"
 msgstr "नक़ल"
 
-#: filewidgets/kfilecopytomenu.cpp:77
+#: filewidgets/kfilecopytomenu.cpp:94
 #, fuzzy, kde-format
 #| msgid "Move to Trash"
 msgctxt "@title:menu"
 msgid "Move To"
 msgstr "रद्दी पर ले जाएँ"
 
-#: filewidgets/kfilecopytomenu.cpp:102
+#: filewidgets/kfilecopytomenu.cpp:119
 #, fuzzy, kde-format
 #| msgid "Home Folder"
 msgctxt "@title:menu"
 msgid "Home Folder"
 msgstr "घर फ़ोल्डर"
 
-#: filewidgets/kfilecopytomenu.cpp:110
+#: filewidgets/kfilecopytomenu.cpp:127
 #, fuzzy, kde-format
 #| msgid "No Folders"
 msgctxt "@title:menu"
 msgid "Root Folder"
 msgstr "कोई फ़ोल्डर नहीं."
 
-#: filewidgets/kfilecopytomenu.cpp:146
+#: filewidgets/kfilecopytomenu.cpp:163
 #, fuzzy, kde-format
 #| msgid "&Browse..."
 msgctxt "@action:inmenu in Copy To or Move To submenu"
 msgid "Browse…"
 msgstr "ब्राउज… (&B)"
 
-#: filewidgets/kfilecopytomenu.cpp:225
+#: filewidgets/kfilecopytomenu.cpp:244
 #, fuzzy, kde-format
 #| msgid "Copy"
 msgctxt "@title:menu"
 msgid "Copy Here"
 msgstr "नक़ल"
 
-#: filewidgets/kfilecopytomenu.cpp:225
+#: filewidgets/kfilecopytomenu.cpp:244
 #, kde-format
 msgctxt "@title:menu"
 msgid "Move Here"

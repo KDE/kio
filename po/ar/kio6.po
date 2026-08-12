@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-11 00:41+0000\n"
-"PO-Revision-Date: 2026-08-10 18:01+0400\n"
+"POT-Creation-Date: 2026-08-12 00:41+0000\n"
+"PO-Revision-Date: 2026-08-11 09:28+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -887,7 +887,7 @@ msgid ""
 msgstr ""
 "عندما يفشل كل شيء آخر، رجاءً ساعد فريق كِيدِي أو المشرف الخارجي لهذا البرنامج "
 "من خلال إرسال تقرير خطأ عالي الجودة. إذا وفر البرنامج من قبل طرف ثالث، يرجى "
-"الاتصال بهم مباشرة.بخلاف ذلك، انظر أولاً لمعرفة ما إذا كان قد أُرسل الخطأ نفسه "
+"الاتصال بهم مباشرة.بخلاف ذلك، انظر أولًا لمعرفة ما إذا كان قد أُرسل الخطأ نفسه "
 "بواسطة شخص آخر من خلال البحث في <a href=\"https://bugs.kde.org/\">موقع علل "
 "كِيدِي</a>.إذا لم يكن الأمر كذلك، فقم بتدوين التفاصيل الواردة أعلاه، وقم "
 "بتضمينها في تقرير الخطأ، بالإضافة إلى العديد من التفاصيل الأخرى التي تعتقد "
@@ -1522,7 +1522,7 @@ msgid ""
 "systems, often system administrator privileges are required to initialize a "
 "device."
 msgstr ""
-"قد لا تكون لديك أذون لتمهيد (”وصل“) الجهاز. على أنظمة يونكس، غالبًا ما تكون "
+"قد لا تكون لديك أذون لبدء (”وصل“) الجهاز. على أنظمة يونكس، غالبًا ما تكون "
 "امتيازات مدير النّظام مطلوبة لتمهيد الأجهزة."
 
 #: core/job_error.cpp:786
@@ -2657,13 +2657,13 @@ msgstr "أ-ي"
 #, kde-format
 msgctxt "Sort ascending"
 msgid "Oldest First"
-msgstr "الأقدم أولاً"
+msgstr "الأقدم أولًا"
 
 #: filewidgets/kdiroperator.cpp:2394
 #, kde-format
 msgctxt "Sort descending"
 msgid "Newest First"
-msgstr "الأحدث أولاً"
+msgstr "الأحدث أولًا"
 
 #: filewidgets/kdiroperator.cpp:2397
 #, kde-format
@@ -2696,43 +2696,43 @@ msgstr "افتح"
 msgid "Save As"
 msgstr "احفظ كَ‍"
 
-#: filewidgets/kfilecopytomenu.cpp:71
+#: filewidgets/kfilecopytomenu.cpp:88
 #, kde-format
 msgctxt "@title:menu"
 msgid "Copy To"
 msgstr "انسخ إلى"
 
-#: filewidgets/kfilecopytomenu.cpp:77
+#: filewidgets/kfilecopytomenu.cpp:94
 #, kde-format
 msgctxt "@title:menu"
 msgid "Move To"
 msgstr "انقل إلى"
 
-#: filewidgets/kfilecopytomenu.cpp:102
+#: filewidgets/kfilecopytomenu.cpp:119
 #, kde-format
 msgctxt "@title:menu"
 msgid "Home Folder"
 msgstr "مجلّد المنزل"
 
-#: filewidgets/kfilecopytomenu.cpp:110
+#: filewidgets/kfilecopytomenu.cpp:127
 #, kde-format
 msgctxt "@title:menu"
 msgid "Root Folder"
 msgstr "مجلّد الجذر"
 
-#: filewidgets/kfilecopytomenu.cpp:146
+#: filewidgets/kfilecopytomenu.cpp:163
 #, kde-format
 msgctxt "@action:inmenu in Copy To or Move To submenu"
 msgid "Browse…"
 msgstr "تصفّح…"
 
-#: filewidgets/kfilecopytomenu.cpp:225
+#: filewidgets/kfilecopytomenu.cpp:244
 #, kde-format
 msgctxt "@title:menu"
 msgid "Copy Here"
 msgstr "انسخ هنا"
 
-#: filewidgets/kfilecopytomenu.cpp:225
+#: filewidgets/kfilecopytomenu.cpp:244
 #, kde-format
 msgctxt "@title:menu"
 msgid "Move Here"
@@ -3854,7 +3854,7 @@ msgstr "ملفّ الأيقونة كبير جدًّا، أُجهض التّنز�
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
-msgstr "مهمة معاينة الملف: تخطي ملف فارغ، قد يكون رابطًا رمزيًا معطلاً: %1"
+msgstr "مهمة معاينة الملف: تخطي ملف فارغ، قد يكون رابطًا رمزيًا معطّلًا: %1"
 
 #: gui/kemailclientlauncherjob.cpp:92
 #, kde-format
@@ -5008,22 +5008,22 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
-"أتريد حقاً حذف هذا الملف للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا إجراء "
+"أتريد حقًا حذف هذا الملف للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا إجراء "
 "لا عودة فيه.</emphasis>"
 msgstr[1] ""
-"أتريد حقاً حذف هذا الملف للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا إجراء "
+"أتريد حقًا حذف هذا الملف للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا إجراء "
 "لا عودة فيه.</emphasis>"
 msgstr[2] ""
-"أتريد حقاً حذف هذين الملفين للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
+"أتريد حقًا حذف هذين الملفين للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
 "إجراء لا عودة فيه.</emphasis>"
 msgstr[3] ""
-"أتريد حقاً حذف %1 ملفات هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
+"أتريد حقًا حذف %1 ملفات هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
 "إجراء لا عودة فيه.</emphasis>"
 msgstr[4] ""
-"أتريد حقاً حذف %1 ملفا هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
+"أتريد حقًا حذف %1 ملفا هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
 "إجراء لا عودة فيه.</emphasis>"
 msgstr[5] ""
-"أتريد حقاً حذف %1 ملف هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
+"أتريد حقًا حذف %1 ملف هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
 "إجراء لا عودة فيه.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:297
@@ -5033,7 +5033,7 @@ msgid ""
 "Do you want to permanently delete all items from the Trash?<nl/><nl/"
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"أتريد حقاً حذف جميع العناصر من سلة المهلات للأبد؟ <nl/><nl/> <emphasis "
+"أتريد حقًا حذف جميع العناصر من سلة المهلات للأبد؟ <nl/><nl/> <emphasis "
 "strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:299
@@ -5666,7 +5666,7 @@ msgid ""
 "determines file access and other permissions. The password of the user is "
 "required to use this option."
 msgstr ""
-"أشر هنا إذا كنت تريد تشغيل التطبيق باسم مستخدم مختلف. كل عملية لها هوية "
+"أشِّر هنا إذا كنت تريد تشغيل التطبيق باسم مستخدم مختلف. كل عملية لها هوية "
 "مستخدم مرتبطة بها. شفرة الهوية تستخدم كمعرف عند دخول الملفات و الأذون "
 "الأخرى. كلمة سر المستخدم مطلوبة لفعل هذا."
 
@@ -5749,7 +5749,7 @@ msgstr ""
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
-msgstr "اكتب اسماً عاماً للتطبيق هنا. مثال: تطبيق عرض الصور سيكون ”عارض الصور“."
+msgstr "اكتب اسمًا عامًا للتطبيق هنا. مثال: تطبيق عرض الصور سيكون ”عارض الصور“."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
@@ -6412,7 +6412,7 @@ msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
 "the permissions of the group."
 msgstr ""
-"إذا كان هذا الملف ملفًا قابلاً للتنفيذ ووضعت العلامة، سيُنفذ بأذون المجموعة."
+"إذا كان هذا الملف ملفًا قابلًا للتنفيذ ووضعت العلامة، سيُنفذ بأذون المجموعة."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1479
 #, kde-format
@@ -6981,19 +6981,19 @@ msgstr "غيّر الاسم:"
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
-msgstr "غير العنصر <filename>%1</filename>إلى :"
+msgstr "غيّر العنصر <filename>%1</filename> إلى:"
 
 #: widgets/renamefiledialog.cpp:181 widgets/renamefiledialog.cpp:523
 #, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
-msgstr "الملف المسمى <filename>%1</filename> موجود مسبقاً."
+msgstr "الملف المُسمى <filename>%1</filename> موجود مسبقًا."
 
 #: widgets/renamefiledialog.cpp:184
 #, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
-msgstr "لا يبدو الملف <filename>%1</filename> اسم ملف صحيحا."
+msgstr "لا يبدو الملف <filename>%1</filename> اسم ملف صحيحًا."
 
 #: widgets/renamefiledialog.cpp:204
 #, kde-format
@@ -7141,7 +7141,7 @@ msgstr "&غيّر الاسم"
 #, kde-format
 msgctxt "@info"
 msgid "How to rename:"
-msgstr "طريقة تغير الاسم:"
+msgstr "كيفية تغيير الاسم:"
 
 #: widgets/renamefiledialog.cpp:596
 #, kde-format
@@ -7315,22 +7315,22 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
-"أتريد حقاً حذف هذا الملف للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا إجراء "
+"أتريد حقًا حذف هذا الملف للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا إجراء "
 "لا عودة فيه.</emphasis>"
 msgstr[1] ""
-"أتريد حقاً حذف هذا الملف للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا إجراء "
+"أتريد حقًا حذف هذا الملف للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا إجراء "
 "لا عودة فيه.</emphasis>"
 msgstr[2] ""
-"أتريد حقاً حذف هذين الملفين للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
+"أتريد حقًا حذف هذين الملفين للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
 "إجراء لا عودة فيه.</emphasis>"
 msgstr[3] ""
-"أتريد حقاً حذف %1 ملفات هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
+"أتريد حقًا حذف %1 ملفات هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
 "إجراء لا عودة فيه.</emphasis>"
 msgstr[4] ""
-"أتريد حقاً حذف %1 ملفا هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
+"أتريد حقًا حذف %1 ملفا هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
 "إجراء لا عودة فيه.</emphasis>"
 msgstr[5] ""
-"أتريد حقاً حذف %1 ملف هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
+"أتريد حقًا حذف %1 ملف هذه للأبد؟ <nl/><nl/> <emphasis strong='true'> هذا "
 "إجراء لا عودة فيه.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
@@ -7341,8 +7341,8 @@ msgid ""
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
-"سلة المهملات ممتلئة تماماً بحيث لا يمكن قبول هذا الملف. هل يمكن حذفه نهائياً "
-"بدلاً من ذلك؟<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"سلة المهملات ممتلئة تمامًا بحيث لا يمكن قبول هذا الملف. هل يمكن حذفه نهائيًا "
+"بدلًا من ذلك؟<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
@@ -7356,25 +7356,25 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"سلة المهملات ممتلئة تماماً بحيث لا يمكن قبول هذا الملف. هل يمكن حذفه نهائياً "
-"بدلاً من ذلك؟<nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
+"سلة المهملات ممتلئة تمامًا بحيث لا يمكن قبول هذا الملف. هل يمكن حذفه نهائيًا "
+"بدلًا من ذلك؟<nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 msgstr[1] ""
-"سلة المهملات ممتلئة تماماً بحيث لا يمكن قبول هذا الملف. هل يمكن حذفه نهائياً "
-"بدلاً من ذلك؟<nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
+"سلة المهملات ممتلئة تمامًا بحيث لا يمكن قبول هذا الملف. هل يمكن حذفه نهائيًا "
+"بدلًا من ذلك؟<nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 msgstr[2] ""
-"سلة المهملات ممتلئة تماماً بحيث لا يمكن قبول هذين الملفين. هل يمكن حذفه "
-"نهائياً بدلاً من ذلك؟<nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</"
+"سلة المهملات ممتلئة تمامًا بحيث لا يمكن قبول هذين الملفين. هل يمكن حذفه "
+"نهائيًا بدلًا من ذلك؟<nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</"
 "emphasis>"
 msgstr[3] ""
-"سلة المهملات ممتلئة تماماً بحيث لا يمكن قبول هذه %1 الملفات. هل يمكن حذفه "
-"نهائياً بدلاً من ذلك؟<nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</"
+"سلة المهملات ممتلئة تمامًا بحيث لا يمكن قبول هذه %1 الملفات. هل يمكن حذفه "
+"نهائيًا بدلًا من ذلك؟<nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</"
 "emphasis>"
 msgstr[4] ""
-"سلة المهملات ممتلئة تماماً بحيث لا يمكن قبول هذه %1 ملفًا. هل يمكن حذفه نهائياً "
-"بدلاً من ذلك؟<nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
+"سلة المهملات ممتلئة تمامًا بحيث لا يمكن قبول هذه %1 ملفًا. هل يمكن حذفه نهائيًا "
+"بدلًا من ذلك؟<nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 msgstr[5] ""
-"سلة المهملات ممتلئة تماماً بحيث لا يمكن قبول هذه %1 ملف. هل يمكن حذفه نهائياً "
-"بدلاً من ذلك؟<nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
+"سلة المهملات ممتلئة تمامًا بحيث لا يمكن قبول هذه %1 ملف. هل يمكن حذفه نهائيًا "
+"بدلًا من ذلك؟<nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
 #, kde-kuit-format
@@ -7384,7 +7384,7 @@ msgid ""
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"السلة غير متاحة لموقع هذا العنصر. هل تريد حذفه نهائياً بدلاً من ذلك؟<nl/><nl/"
+"السلة غير متاحة لموقع هذا العنصر. أتريد حذفه نهائيًا بدلًا من ذلك؟<nl/><nl/"
 "><filename>%1</filename><nl/><nl/><emphasis strong='true'> هذا إجراء لا عودة "
 "فيه.</emphasis>"
 
@@ -7401,7 +7401,7 @@ msgid_plural ""
 "undone.</emphasis>"
 msgstr[0] ""
 "سلة المهملات غير متوفرة لموقع هذا العنصر %1. هل يمكن حذفه نهائيًا بدلًا من ذلك؟"
-"<nl/><nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
+"<nl/> <nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
 msgstr[1] ""
 "سلة المهملات غير متوفرة لموقع هذا العنصر. هل يمكن حذفه نهائيًا بدلًا من ذلك؟"
 "<nl/><nl/><emphasis strong='true'> هذا إجراء لا عودة فيه.</emphasis>"
