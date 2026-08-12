@@ -224,6 +224,9 @@ public:
      * \value SupportsUTime
      * \value SupportsSymlinks
      * \value CaseInsensitive
+     * \value SupportsFileCloning Copy-on-write filesystem, where a file can be copied with the
+     * FICLONE ioctl.
+     * \since 6.30
      */
     enum FileSystemFlag {
         SupportsChmod,
@@ -231,6 +234,7 @@ public:
         SupportsUTime,
         SupportsSymlinks,
         CaseInsensitive,
+        SupportsFileCloning,
     };
 
     /*!
@@ -252,6 +256,11 @@ public:
      * (e.g. msdos filesystems return false)
      * \li CaseInsensitive: returns true if the filesystem treats
      * "foo" and "FOO" as being the same file (true for msdos filesystems)
+     * \li SupportsFileCloning: returns true on a copy-on-write filesystem, where a file can be
+     * copied with the FICLONE ioctl, which only ever works within one filesystem. Such a
+     * filesystem may still turn a single request down, XFS for one only clones when it was made
+     * with reflink support, so a caller has to be ready for the request to fail and copy the
+     * contents instead.
      * \endlist
      */
     bool testFileSystemFlag(FileSystemFlag flag) const;

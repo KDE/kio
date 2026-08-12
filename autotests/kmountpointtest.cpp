@@ -8,9 +8,16 @@
 
 #include "kmountpoint.h"
 #include <QDebug>
+#include <QFile>
+#include <QTemporaryDir>
 #include <QTest>
 #include <limits>
 #include <qplatformdefs.h>
+
+#ifdef Q_OS_LINUX
+#include <linux/fs.h>
+#include <sys/ioctl.h>
+#endif
 
 QTEST_MAIN(KMountPointTest)
 
@@ -238,6 +245,45 @@ void KMountPointTest::testCachedMountPointLookup()
 
     // An id that does not belong to any current mount has no mount point.
     QVERIFY(!KMountPoint::currentMountPointForUniqueId(std::numeric_limits<quint64>::max()));
+}
+
+// The list of filesystems that can share the blocks of a file with a copy of it is written out by
+// hand, so it is checked against the filesystem the test itself is running on: whatever the kernel
+// agrees to clone has to be a filesystem the list names.
+void KMountPointTest::testFileCloningFlagMatchesTheKernel()
+{
+#ifndef Q_OS_LINUX
+    QSKIP("Cloning a file is asked for with a Linux ioctl");
+#else
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+
+    QFile source(dir.filePath(QStringLiteral("source")));
+    QVERIFY(source.open(QIODevice::WriteOnly));
+    QCOMPARE(source.write(QByteArray(64 * 1024, 'a')), 64 * 1024);
+    source.close();
+    QVERIFY(source.open(QIODevice::ReadOnly));
+
+    QFile clone(dir.filePath(QStringLiteral("clone")));
+    QVERIFY(clone.open(QIODevice::WriteOnly));
+    const bool kernelClonedIt = ::ioctl(clone.handle(), FICLONE, source.handle()) == 0;
+
+    const KMountPoint::List mountPoints = KMountPoint::currentMountPoints();
+    if (mountPoints.isEmpty()) { // can happen in chroot jails
+        QSKIP("mtab is empty");
+    }
+    const KMountPoint::Ptr mountPoint = mountPoints.findByPath(dir.path());
+    QVERIFY(mountPoint);
+    const bool flag = mountPoint->testFileSystemFlag(KMountPoint::SupportsFileCloning);
+
+    qDebug() << "cloning a file on" << mountPoint->mountType() << (kernelClonedIt ? "worked" : "was refused") << ", the flag says"
+             << (flag ? "it is supported" : "it is not");
+    if (kernelClonedIt) {
+        QVERIFY2(flag, "the kernel cloned a file on a filesystem the flag does not name");
+    }
+    // The other way around says nothing: a filesystem of the right kind still refuses to clone
+    // when it was made without the feature, which is why the flag is documented as it is.
+#endif
 }
 
 #include "moc_kmountpointtest.cpp"

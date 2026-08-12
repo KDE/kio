@@ -769,6 +769,15 @@ bool KMountPoint::testFileSystemFlag(FileSystemFlag flag) const
                        || d->m_mountType == QLatin1String("smbfs")
                        // gvfs-fuse mounted SMB share
                        || d->m_mountType == QLatin1String("smb-share");
+
+    // Copy-on-write filesystems. Whether one of these clones a particular file is still up to the
+    // filesystem itself: XFS only does it when it was made with reflink support, and ZFS only from
+    // the version that brought block cloning.
+    const bool clonesFiles = d->m_mountType == QLatin1String("btrfs")
+                             || d->m_mountType == QLatin1String("xfs")
+                             || d->m_mountType == QLatin1String("bcachefs")
+                             || d->m_mountType == QLatin1String("ocfs2")
+                             || d->m_mountType == QLatin1String("zfs");
     /* clang-format on */
 
     switch (flag) {
@@ -779,6 +788,8 @@ bool KMountPoint::testFileSystemFlag(FileSystemFlag flag) const
         return !isMsDos && !isNtfs && !isSmb; // it's amazing the number of things Microsoft filesystems don't support :)
     case CaseInsensitive:
         return isMsDos;
+    case SupportsFileCloning:
+        return clonesFiles;
     }
     return false;
 }
