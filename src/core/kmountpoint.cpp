@@ -25,6 +25,8 @@
 
 #include <qplatformdefs.h>
 
+using namespace Qt::StringLiterals;
+
 #ifdef Q_OS_WIN
 #include <qt_windows.h>
 static const Qt::CaseSensitivity cs = Qt::CaseInsensitive;
@@ -61,21 +63,21 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 static bool isNetfs(const QString &mountType)
 {
     // List copied from util-linux/libmount/src/utils.c
-    static const std::vector<QLatin1String> netfsList{
-        QLatin1String("cifs"),
-        QLatin1String("smb3"),
-        QLatin1String("smbfs"),
-        QLatin1String("nfs"),
-        QLatin1String("nfs3"),
-        QLatin1String("nfs4"),
-        QLatin1String("afs"),
-        QLatin1String("ncpfs"),
-        QLatin1String("fuse.curlftpfs"),
-        QLatin1String("fuse.sshfs"),
-        QLatin1String("9p"),
+    static const std::vector<QLatin1StringView> netfsList{
+        "cifs"_L1,
+        "smb3"_L1,
+        "smbfs"_L1,
+        "nfs"_L1,
+        "nfs3"_L1,
+        "nfs4"_L1,
+        "afs"_L1,
+        "ncpfs"_L1,
+        "fuse.curlftpfs"_L1,
+        "fuse.sshfs"_L1,
+        "9p"_L1,
     };
 
-    return std::ranges::any_of(netfsList, [mountType](const QLatin1String &netfs) {
+    return std::ranges::any_of(netfsList, [mountType](QLatin1StringView netfs) {
         return mountType == netfs;
     });
 }
@@ -83,68 +85,68 @@ static bool isNetfs(const QString &mountType)
 static bool isPseudoFs(const QString &mountType)
 {
     // List copied from util-linux/libmount/src/utils.c mnt_fstype_is_pseudofs
-    static const std::vector<QLatin1String> pseudofsList{
-        QLatin1String("anon_inodefs"),
-        QLatin1String("apparmorfs"),
-        QLatin1String("autofs"),
-        QLatin1String("bdev"),
-        QLatin1String("binder"),
-        QLatin1String("binfmt_misc"),
-        QLatin1String("bpf"),
-        QLatin1String("cgroup"),
-        QLatin1String("cgroup2"),
-        QLatin1String("configfs"),
-        QLatin1String("cpuset"),
-        QLatin1String("debugfs"),
-        QLatin1String("devfs"),
-        QLatin1String("devpts"),
-        QLatin1String("devtmpfs"),
-        QLatin1String("dlmfs"),
-        QLatin1String("dmabuf"),
-        QLatin1String("drm"),
-        QLatin1String("efivarfs"),
-        QLatin1String("fuse"),
-        QLatin1String("fuse.archivemount"),
-        QLatin1String("fuse.avfsd"),
-        QLatin1String("fuse.dumpfs"),
-        QLatin1String("fuse.encfs"),
-        QLatin1String("fuse.gvfs-fuse-daemon"),
-        QLatin1String("fuse.gvfsd-fuse"),
-        QLatin1String("fuse.kio-fuse"),
-        QLatin1String("fuse.lxcfs"),
-        QLatin1String("fuse.portal"),
-        QLatin1String("fuse.rofiles-fuse"),
-        QLatin1String("fuse.vmware-vmblock"),
-        QLatin1String("fuse.xwmfs"),
-        QLatin1String("fusectl"),
-        QLatin1String("hugetlbfs"),
-        QLatin1String("ipathfs"),
-        QLatin1String("mqueue"),
-        QLatin1String("nfsd"),
-        QLatin1String("none"),
-        QLatin1String("nsfs"),
-        QLatin1String("overlay"),
-        QLatin1String("pidfs"),
-        QLatin1String("pipefs"),
-        QLatin1String("proc"),
-        QLatin1String("pstore"),
-        QLatin1String("ramfs"),
-        QLatin1String("resctrl"),
-        QLatin1String("rootfs"),
-        QLatin1String("rpc_pipefs"),
-        QLatin1String("securityfs"),
-        QLatin1String("selinuxfs"),
-        QLatin1String("smackfs"),
-        QLatin1String("sockfs"),
-        QLatin1String("spufs"),
-        QLatin1String("sysfs"),
-        QLatin1String("tmpfs"),
-        QLatin1String("tracefs"),
-        QLatin1String("vboxsf"),
-        QLatin1String("virtiofs"),
+    static const std::vector<QLatin1StringView> pseudofsList{
+        "anon_inodefs"_L1,
+        "apparmorfs"_L1,
+        "autofs"_L1,
+        "bdev"_L1,
+        "binder"_L1,
+        "binfmt_misc"_L1,
+        "bpf"_L1,
+        "cgroup"_L1,
+        "cgroup2"_L1,
+        "configfs"_L1,
+        "cpuset"_L1,
+        "debugfs"_L1,
+        "devfs"_L1,
+        "devpts"_L1,
+        "devtmpfs"_L1,
+        "dlmfs"_L1,
+        "dmabuf"_L1,
+        "drm"_L1,
+        "efivarfs"_L1,
+        "fuse"_L1,
+        "fuse.archivemount"_L1,
+        "fuse.avfsd"_L1,
+        "fuse.dumpfs"_L1,
+        "fuse.encfs"_L1,
+        "fuse.gvfs-fuse-daemon"_L1,
+        "fuse.gvfsd-fuse"_L1,
+        "fuse.kio-fuse"_L1,
+        "fuse.lxcfs"_L1,
+        "fuse.portal"_L1,
+        "fuse.rofiles-fuse"_L1,
+        "fuse.vmware-vmblock"_L1,
+        "fuse.xwmfs"_L1,
+        "fusectl"_L1,
+        "hugetlbfs"_L1,
+        "ipathfs"_L1,
+        "mqueue"_L1,
+        "nfsd"_L1,
+        "none"_L1,
+        "nsfs"_L1,
+        "overlay"_L1,
+        "pidfs"_L1,
+        "pipefs"_L1,
+        "proc"_L1,
+        "pstore"_L1,
+        "ramfs"_L1,
+        "resctrl"_L1,
+        "rootfs"_L1,
+        "rpc_pipefs"_L1,
+        "securityfs"_L1,
+        "selinuxfs"_L1,
+        "smackfs"_L1,
+        "sockfs"_L1,
+        "spufs"_L1,
+        "sysfs"_L1,
+        "tmpfs"_L1,
+        "tracefs"_L1,
+        "vboxsf"_L1,
+        "virtiofs"_L1,
     };
 
-    return std::ranges::any_of(pseudofsList, [mountType](const QLatin1String &pseudofs) {
+    return std::ranges::any_of(pseudofsList, [mountType](QLatin1StringView pseudofs) {
         return mountType == pseudofs;
     });
 }
@@ -217,10 +219,10 @@ static void translateMountOptions(QStringList &list, uint64_t flags)
 void KMountPointPrivate::finalizePossibleMountPoint(KMountPoint::DetailsNeededFlags infoNeeded)
 {
     QString potentialDevice;
-    if (const auto tag = QLatin1String("UUID="); m_mountedFrom.startsWith(tag)) {
-        potentialDevice = QFile::symLinkTarget(QLatin1String("/dev/disk/by-uuid/") + QStringView(m_mountedFrom).mid(tag.size()));
-    } else if (const auto tag = QLatin1String("LABEL="); m_mountedFrom.startsWith(tag)) {
-        potentialDevice = QFile::symLinkTarget(QLatin1String("/dev/disk/by-label/") + QStringView(m_mountedFrom).mid(tag.size()));
+    if (const auto tag = "UUID="_L1; m_mountedFrom.startsWith(tag)) {
+        potentialDevice = QFile::symLinkTarget("/dev/disk/by-uuid/"_L1 + QStringView(m_mountedFrom).mid(tag.size()));
+    } else if (const auto tag = "LABEL="_L1; m_mountedFrom.startsWith(tag)) {
+        potentialDevice = QFile::symLinkTarget("/dev/disk/by-label/"_L1 + QStringView(m_mountedFrom).mid(tag.size()));
     }
 
     if (QFile::exists(potentialDevice)) {
@@ -293,7 +295,7 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
     }
 #elif HAVE_FSTAB_H
 
-    QFile f{QLatin1String(FSTAB)};
+    QFile f{QLatin1StringView(FSTAB)};
     if (!f.open(QIODevice::ReadOnly)) {
         return result;
     }
@@ -320,7 +322,7 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
         mp->d->m_mountedFrom = item[i++];
         mp->d->m_mountPoint = item[i++];
         mp->d->m_mountType = item[i++];
-        if (mp->d->m_mountType == QLatin1String("swap")) {
+        if (mp->d->m_mountType == "swap"_L1) {
             continue;
         }
         mp->d->m_isNetFs = isNetfs(mp->d->m_mountType);
@@ -344,7 +346,7 @@ KMountPoint::List KMountPoint::possibleMountPoints(DetailsNeededFlags infoNeeded
 
 void KMountPointPrivate::resolveGvfsMountPoints(KMountPoint::List &result)
 {
-    if (m_mountedFrom == QLatin1String("gvfsd-fuse")) {
+    if (m_mountedFrom == "gvfsd-fuse"_L1) {
         const QDir gvfsDir(m_mountPoint);
         const QStringList mountDirs = gvfsDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot);
         for (const QString &mountDir : mountDirs) {
@@ -417,7 +419,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
     for (int i = 0; i < 26; i++) {
         if (bits & (1 << i)) {
             Ptr mp(new KMountPoint);
-            mp->d->m_mountPoint = QString(QLatin1Char('A' + i) + QLatin1String(":/"));
+            mp->d->m_mountPoint = QString(QLatin1Char('A' + i) + ":/"_L1);
             result.append(mp);
         }
     }
@@ -444,7 +446,7 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
                 mp->d->m_mountedFrom = QFile::decodeName(mnt_fs_get_source(fs));
                 mp->d->m_mountType = QFile::decodeName(mnt_fs_get_fstype(fs));
                 mp->d->m_isNetFs = mnt_fs_is_netfs(fs) == 1;
-                mp->d->m_isPseudoFs = mnt_fs_is_pseudofs(fs) == 1 || mp->d->m_mountType == QLatin1String("fuse.kio-fuse");
+                mp->d->m_isPseudoFs = mnt_fs_is_pseudofs(fs) == 1 || mp->d->m_mountType == "fuse.kio-fuse"_L1;
 
                 uint mask_mnt_id = 0;
 #if HAVE_STATX_MNT_ID_UNIQUE
@@ -510,8 +512,7 @@ bool KMountPoint::isPseudoFs() const
 
 bool KMountPoint::isEncryptedFs() const
 {
-    return d->m_mountType == QLatin1String("fuse.gocryptfs")
-        || d->m_mountType == QLatin1String("fuse.encfs");
+    return d->m_mountType == "fuse.gocryptfs"_L1 || d->m_mountType == "fuse.encfs"_L1;
 }
 
 QString KMountPoint::realDeviceName() const
@@ -744,40 +745,40 @@ bool KMountPoint::probablySlow() const
 {
     /* clang-format off */
     return isOnNetwork()
-        || d->m_mountType == QLatin1String("autofs")
-        || d->m_mountType == QLatin1String("subfs")
+        || d->m_mountType == "autofs"_L1
+        || d->m_mountType == "subfs"_L1
         // Technically KIOFUSe mounts local workers as well,
         // such as recents:/, but better safe than sorry...
-        || d->m_mountType == QLatin1String("fuse.kio-fuse");
+        || d->m_mountType == "fuse.kio-fuse"_L1;
     /* clang-format on */
 }
 
 bool KMountPoint::testFileSystemFlag(FileSystemFlag flag) const
 {
     /* clang-format off */
-    const bool isMsDos = d->m_mountType == QLatin1String("msdos")
-                         || d->m_mountType == QLatin1String("fat")
-                         || d->m_mountType == QLatin1String("vfat");
+    const bool isMsDos = d->m_mountType == "msdos"_L1
+                         || d->m_mountType == "fat"_L1
+                         || d->m_mountType == "vfat"_L1;
 
-    const bool isNtfs = d->m_mountType.contains(QLatin1String("fuse.ntfs"))
-                        || d->m_mountType.contains(QLatin1String("fuseblk.ntfs"))
+    const bool isNtfs = d->m_mountType.contains("fuse.ntfs"_L1)
+                        || d->m_mountType.contains("fuseblk.ntfs"_L1)
                         // fuseblk could really be anything. But its most common use is for NTFS mounts, these days.
-                        || d->m_mountType == QLatin1String("fuseblk");
+                        || d->m_mountType == "fuseblk"_L1;
 
-    const bool isSmb = d->m_mountType == QLatin1String("cifs")
-                       || d->m_mountType == QLatin1String("smb3")
-                       || d->m_mountType == QLatin1String("smbfs")
+    const bool isSmb = d->m_mountType == "cifs"_L1
+                       || d->m_mountType == "smb3"_L1
+                       || d->m_mountType == "smbfs"_L1
                        // gvfs-fuse mounted SMB share
-                       || d->m_mountType == QLatin1String("smb-share");
+                       || d->m_mountType == "smb-share"_L1;
 
     // Copy-on-write filesystems. Whether one of these clones a particular file is still up to the
     // filesystem itself: XFS only does it when it was made with reflink support, and ZFS only from
     // the version that brought block cloning.
-    const bool clonesFiles = d->m_mountType == QLatin1String("btrfs")
-                             || d->m_mountType == QLatin1String("xfs")
-                             || d->m_mountType == QLatin1String("bcachefs")
-                             || d->m_mountType == QLatin1String("ocfs2")
-                             || d->m_mountType == QLatin1String("zfs");
+    const bool clonesFiles = d->m_mountType == "btrfs"_L1
+                             || d->m_mountType == "xfs"_L1
+                             || d->m_mountType == "bcachefs"_L1
+                             || d->m_mountType == "ocfs2"_L1
+                             || d->m_mountType == "zfs"_L1;
     /* clang-format on */
 
     switch (flag) {
