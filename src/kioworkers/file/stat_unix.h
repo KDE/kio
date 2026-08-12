@@ -33,7 +33,7 @@ inline uint32_t statxMask(KIO::StatDetails details)
     // KIO::StatAcl needs type
     if (details & (KIO::StatBasic | KIO::StatAcl | KIO::StatResolveSymlink)) {
         // filename, access, type
-        mask |= STATX_TYPE;
+        mask |= STATX_TYPE | STATX_MODE;
     }
     if (details & (KIO::StatBasic | KIO::StatResolveSymlink)) {
         // size, linkdest
