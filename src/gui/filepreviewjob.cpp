@@ -9,10 +9,12 @@
  */
 
 #include "filepreviewjob.h"
+
 #include "filecopyjob.h"
 #include "kiogui_debug.h"
 #include "standardthumbnailjob_p.h"
 #include "statjob.h"
+#include "thumbnailcache_p.h"
 #include "transferjob.h"
 
 #if defined(Q_OS_UNIX) && !defined(Q_OS_ANDROID) && !defined(Q_OS_HAIKU)
@@ -129,50 +131,25 @@ void FilePreviewJob::start()
     m_timeoutTimer->start(5s);
 }
 
-// The freedesktop thumbnail cache base size in pixels for a request of the given
-// size: 128 (normal), 256 (large), 512 (x-large) or 1024 (xx-large).
-static short thumbnailCacheSize(const QSize &size)
-{
-    const int longer = std::max(size.width(), size.height());
-    if (longer <= 128) {
-        return 128;
-    } else if (longer <= 256) {
-        return 256;
-    } else if (longer <= 512) {
-        return 512;
-    }
-    return 1024;
-}
-
-// The cache tier subdirectory ("normal/", "large/", ...) that stores thumbnails for
-// the given base size and device pixel ratio, or an empty string if none is large
-// enough.
-static QString thumbnailCacheTierDir(short cacheSize, qreal devicePixelRatio)
-{
-    struct CachePool {
-        QLatin1String path;
-        int minSize;
-    };
-    static const CachePool pools[] = {
-        {QLatin1String("normal/"), 128},
-        {QLatin1String("large/"), 256},
-        {QLatin1String("x-large/"), 512},
-        {QLatin1String("xx-large/"), 1024},
-    };
-    const int wants = devicePixelRatio * cacheSize;
-    for (const auto &p : pools) {
-        if (p.minSize >= wants) {
-            return QString(p.path);
-        }
-    }
-    return QString();
-}
-
 bool FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
 {
     auto setUpCaching = [this]() {
-        const short cacheSize = thumbnailCacheSize(m_options.size);
-        const QString thumbDir = thumbnailCacheTierDir(cacheSize, m_options.devicePixelRatio);
+        const short cacheSize = ThumbnailCache::cacheSize(m_options.size);
+        const QString thumbDir = ThumbnailCache::tierDir(cacheSize, m_options.devicePixelRatio);
+        if (thumbDir.isEmpty()) {
+            // No directory of the cache holds thumbnails this large, so this one is made for this
+            // request alone. An empty path is what tells the rest of the job that.
+            static bool warned = false;
+            if (!warned) {
+                warned = true;
+                qCWarning(KIO_GUI) << "Thumbnails of" << m_options.size << "at a ratio of" << m_options.devicePixelRatio
+                                   << "are larger than the largest the thumbnail cache holds (1024 pixels), so they are made again every time.";
+            }
+            m_thumbPath.clear();
+            m_cacheSize = cacheSize;
+            return;
+        }
+
         QString thumbPath = m_setupData.thumbRoot + thumbDir;
         QDir().mkpath(m_setupData.thumbRoot);
         if (!QDir(thumbPath).exists() && !QDir(m_setupData.thumbRoot).mkdir(thumbDir, QFile::ReadUser | QFile::WriteUser | QFile::ExeUser)) { // 0700
@@ -350,78 +327,14 @@ void FilePreviewJob::slotStatFile(KJob *job)
             getOrCreateThumbnail();
         }
     });
-    QFuture<QImage> future = QtConcurrent::run(loadThumbnailFromCache, QString(m_thumbPath + m_thumbName), m_options.devicePixelRatio);
+    QFuture<QImage> future = QtConcurrent::run(ThumbnailCache::load, QString(m_thumbPath + m_thumbName), m_options.devicePixelRatio);
 
     watcher->setFuture(future);
 }
 
-QImage FilePreviewJob::loadThumbnailFromCache(const QString &path, qreal dpr)
-{
-    QImage thumb;
-    QFile thumbFile(path);
-    if (!thumbFile.open(QIODevice::ReadOnly) || !thumb.load(&thumbFile, "png")) {
-        return QImage();
-    }
-    // The DPR of the loaded thumbnail is unspecified (and typically irrelevant).
-    // When a thumbnail is DPR-invariant, use the DPR passed in the request.
-    thumb.setDevicePixelRatio(dpr);
-    return thumb;
-}
-
-// Validates that a loaded cached thumbnail belongs to the source file identified by
-// origName with modification time origMTimeSecs and byte size origSize. When
-// requireSufficientResolution is true it also rejects a thumbnail that is smaller
-// than a request of requestSize at devicePixelRatio would need. Does not check the
-// thumbnailer version, which only the async job knows.
-// Whether a loaded cached thumbnail was made from a file of this modification time and size.
-static bool cachedThumbnailIsCurrent(const QImage &thumb, qint64 origMTimeSecs, KIO::filesize_t origSize)
-{
-    if (thumb.isNull() || thumb.text(QStringLiteral("Thumb::MTime")).toLongLong() != origMTimeSecs) {
-        return false;
-    }
-
-    // Thumb::Size is not required, but if it is set it should match
-    const QString cachedSize = thumb.text(QStringLiteral("Thumb::Size"));
-    return cachedSize.isEmpty() || cachedSize.toULongLong() == origSize;
-}
-
-static bool cachedThumbnailMatches(const QImage &thumb,
-                                   const QByteArray &origName,
-                                   qint64 origMTimeSecs,
-                                   KIO::filesize_t origSize,
-                                   const QSize &requestSize,
-                                   qreal devicePixelRatio,
-                                   bool requireSufficientResolution = true)
-{
-    if (thumb.isNull()) {
-        return false;
-    }
-    if (thumb.text(QStringLiteral("Thumb::URI")) != QString::fromUtf8(origName)) {
-        return false;
-    }
-    if (!cachedThumbnailIsCurrent(thumb, origMTimeSecs, origSize)) {
-        return false;
-    }
-
-    if (requireSufficientResolution) {
-        // Reject a cached thumbnail smaller than needed now (blurry if scaled up), but
-        // only when the original is large enough to yield a bigger one; else keep it.
-        const int neededPixels = qMax(requestSize.width(), requestSize.height()) * devicePixelRatio;
-        const int cachedPixels = qMax(thumb.width(), thumb.height());
-        if (cachedPixels < neededPixels) {
-            const int origWidth = thumb.text(QStringLiteral("Thumb::Image::Width")).toInt();
-            const int origHeight = thumb.text(QStringLiteral("Thumb::Image::Height")).toInt();
-            if (qMax(origWidth, origHeight) > cachedPixels) {
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
 bool FilePreviewJob::isCacheValid(const QImage &thumb)
 {
-    if (!cachedThumbnailMatches(thumb, m_origName, m_tOrig.toSecsSinceEpoch(), m_fileItem.size(), m_options.size, m_options.devicePixelRatio)) {
+    if (!ThumbnailCache::matches(thumb, m_origName, m_tOrig.toSecsSinceEpoch(), m_fileItem.size(), m_options.size, m_options.devicePixelRatio)) {
         return false;
     }
 
@@ -753,52 +666,9 @@ void FilePreviewJob::saveThumbnailToCache(const QImage &thumb, const QString &pa
     }
 }
 
-QImage FilePreviewJob::cachedThumbnail(const KFileItem &item, const QSize &size, qreal devicePixelRatio)
-{
-    if (item.isNull() || item.isDir()) {
-        return QImage();
-    }
-    const QUrl url = item.mostLocalUrl();
-    if (!url.isLocalFile()) {
-        // The synchronous cache lookup only serves local files.
-        return QImage();
-    }
-    const QByteArray origName = url.toEncoded(QUrl::RemovePassword | QUrl::FullyEncoded);
-    QCryptographicHash md5(QCryptographicHash::Md5);
-    md5.addData(origName);
-    const QString thumbName = QString::fromLatin1(md5.result().toHex()) + QLatin1String(".png");
-
-    const QString thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
-    const QString tier = thumbnailCacheTierDir(thumbnailCacheSize(size), devicePixelRatio);
-
-    // A thumbnail of an older state of the file, or one smaller than the request, is still worth
-    // showing at once on the first paint: the async job replaces it moments later. So only the
-    // uri is checked here, which says the thumbnail is of this file at all, and
-    // thumbnailIsCurrent() tells the caller which of the two it got.
-    const QImage thumb = loadThumbnailFromCache(thumbRoot + tier + thumbName, devicePixelRatio);
-    if (thumb.isNull() || thumb.text(QStringLiteral("Thumb::URI")) != QString::fromUtf8(origName)) {
-        return QImage();
-    }
-
-    // Deliver at the same device-pixel size PreviewJob::generated() would: downscale
-    // only when the cached image is larger than the request.
-    const qreal ratio = thumb.devicePixelRatio();
-    if (thumb.width() > size.width() * ratio || thumb.height() > size.height() * ratio) {
-        return thumb.scaled(QSize(size.width() * ratio, size.height() * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-    }
-    return thumb;
-}
-
 void FilePreviewJob::emitPreview(const QImage &thumb)
 {
-    const qreal ratio = thumb.devicePixelRatio();
-
-    QImage preview = thumb;
-    if (preview.width() > m_options.size.width() * ratio || preview.height() > m_options.size.height() * ratio) {
-        preview = preview.scaled(QSize(m_options.size.width() * ratio, m_options.size.height() * ratio), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-    }
-
-    m_preview = preview;
+    m_preview = ThumbnailCache::scaledToFit(thumb, m_options.size);
     emitResult();
 }
 
@@ -928,8 +798,3 @@ SHM::SHM(int id, uchar *address)
 }
 
 #include "moc_filepreviewjob.cpp"
-
-bool FilePreviewJob::thumbnailIsCurrent(const QImage &thumb, qint64 sourceMTimeSecs, KIO::filesize_t sourceSize)
-{
-    return cachedThumbnailIsCurrent(thumb, sourceMTimeSecs, sourceSize);
-}

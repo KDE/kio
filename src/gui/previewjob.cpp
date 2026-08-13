@@ -24,6 +24,7 @@
 #include <QTimer>
 
 #include "job_p.h"
+#include "thumbnailcache_p.h"
 
 #ifdef WITH_QTDBUS
 #include <QDBusConnection>
@@ -99,7 +100,7 @@ public:
         , options{size, s_defaultDevicePixelRatio, false, 0, PreviewJob::ScaleType::ScaledAndCached}
     {
         // https://specifications.freedesktop.org/thumbnail-spec/thumbnail-spec-latest.html#DIRECTORY
-        setupData.thumbRoot = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
+        setupData.thumbRoot = ThumbnailCache::rootPath();
     }
 
     KFileItemList fileItems;
@@ -132,7 +133,7 @@ void PreviewJob::setDefaultDevicePixelRatio(qreal defaultDevicePixelRatio)
 
 QImage PreviewJob::cachedPreview(const KFileItem &item, const QSize &size, qreal devicePixelRatio)
 {
-    return FilePreviewJob::cachedThumbnail(item, size, devicePixelRatio);
+    return ThumbnailCache::thumbnailForItem(item, size, devicePixelRatio);
 }
 
 bool PreviewJob::cachedPreviewMatchesFile(const QImage &preview, const KFileItem &item)
@@ -142,7 +143,7 @@ bool PreviewJob::cachedPreviewMatchesFile(const QImage &preview, const KFileItem
         return false;
     }
 
-    return FilePreviewJob::thumbnailIsCurrent(preview, mtime.toSecsSinceEpoch(), item.size());
+    return ThumbnailCache::isCurrent(preview, mtime.toSecsSinceEpoch(), item.size());
 }
 
 PreviewJob::PreviewJob(const KFileItemList &items, const QSize &size, const QStringList *enabledPlugins)

@@ -9,10 +9,15 @@
 
 #include "../src/gui/filepreviewjob.h"
 #include "../src/gui/standardthumbnailjob_p.h"
+#include "../src/gui/thumbnailcache_p.h"
 
 #include <KFileItem>
+#include <KIO/UDSEntry>
 
+#include <QCryptographicHash>
 #include <QDateTime>
+#include <QDir>
+#include <QFileInfo>
 #include <QImage>
 #include <QSignalSpy>
 #include <QSize>
@@ -21,6 +26,8 @@
 #include <QTemporaryFile>
 #include <QTest>
 #include <QTimer>
+
+#include <sys/stat.h>
 
 QTEST_GUILESS_MAIN(FilePreviewJobTest)
 
@@ -232,4 +239,198 @@ void FilePreviewJobTest::testSupportedDevicePixelRatio()
     QFETCH(qreal, expectedDpr);
 
     QCOMPARE(KIO::supportedDevicePixelRatio(imageSize, QSize(128, 128), 1.75), expectedDpr);
+}
+
+namespace
+{
+// Creates a regular file with some content and returns a KFileItem carrying its modification time
+// and size, as an item from a directory listing does. The cached thumbnail of a file is told from
+// an outdated one by those two, so an item without them can answer nothing.
+KFileItem makeFileItem(const QString &path)
+{
+    QFile file(path);
+    if (file.open(QIODevice::WriteOnly)) {
+        file.write("some content");
+        file.close();
+    }
+
+    const QFileInfo info(path);
+    KIO::UDSEntry entry;
+    entry.reserve(4);
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, info.fileName());
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG);
+    entry.fastInsert(KIO::UDSEntry::UDS_SIZE, info.size());
+    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, info.lastModified().toSecsSinceEpoch());
+    return KFileItem(entry, QUrl::fromLocalFile(path));
+}
+
+// Writes a thumbnail into the cache for the given source url at size and ratio, stamped with the
+// freedesktop metadata a thumbnailer writes.
+void writeCachedThumbnail(const QUrl &url, const QSize &size, qreal dpr, qint64 mtimeSecs, qint64 fileSize)
+{
+    const QByteArray uri = url.toEncoded(QUrl::RemovePassword | QUrl::FullyEncoded);
+    const QString path = ThumbnailCache::filePath(uri, ThumbnailCache::rootPath(), size, dpr);
+    QDir().mkpath(QFileInfo(path).absolutePath());
+
+    QImage thumb(64, 64, QImage::Format_ARGB32);
+    thumb.fill(Qt::blue);
+    thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(uri));
+    thumb.setText(QStringLiteral("Thumb::MTime"), QString::number(mtimeSecs));
+    thumb.setText(QStringLiteral("Thumb::Size"), QString::number(fileSize));
+    thumb.save(path, "png");
+}
+}
+
+void FilePreviewJobTest::testCachedPreviewReturnsFreshThumbnail()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const KFileItem item = makeFileItem(dir.filePath(QStringLiteral("photo.png")));
+    const QSize size(256, 256);
+
+    writeCachedThumbnail(item.targetUrl(), size, 1.0, item.time(KFileItem::ModificationTime).toSecsSinceEpoch(), item.size());
+
+    const QImage fresh = PreviewJob::cachedPreview(item, size, 1.0);
+    QVERIFY(!fresh.isNull());
+    QVERIFY(PreviewJob::cachedPreviewMatchesFile(fresh, item));
+}
+
+// A thumbnail made from an older state of the file is still handed over, to be shown while a
+// fresh one is generated, and is told apart by cachedPreviewMatchesFile().
+void FilePreviewJobTest::testCachedPreviewServesAStaleThumbnail()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const KFileItem item = makeFileItem(dir.filePath(QStringLiteral("photo.png")));
+    const QSize size(256, 256);
+
+    writeCachedThumbnail(item.targetUrl(), size, 1.0, item.time(KFileItem::ModificationTime).toSecsSinceEpoch() - 60, item.size());
+
+    const QImage stale = PreviewJob::cachedPreview(item, size, 1.0);
+    QVERIFY(!stale.isNull());
+    QVERIFY(!PreviewJob::cachedPreviewMatchesFile(stale, item));
+}
+
+void FilePreviewJobTest::testCachedPreviewMissReturnsNull()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const KFileItem item = makeFileItem(dir.filePath(QStringLiteral("photo.png")));
+
+    QVERIFY(PreviewJob::cachedPreview(item, QSize(256, 256), 1.0).isNull());
+}
+
+// A folder and a remote file have no thumbnail this synchronous path can read.
+void FilePreviewJobTest::testCachedPreviewRejectsIneligibleItems()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QSize size(256, 256);
+
+    const KFileItem dirItem(QUrl::fromLocalFile(dir.path()));
+    QVERIFY(PreviewJob::cachedPreview(dirItem, size, 1.0).isNull());
+
+    const KFileItem remoteItem(QUrl(QStringLiteral("ftp://example.com/photo.png")));
+    QVERIFY(PreviewJob::cachedPreview(remoteItem, size, 1.0).isNull());
+}
+
+// The directory a thumbnail is looked for in has to be the one it is written to. What is written
+// is generated at the cache size of the request times the ratio of the screen, so that product is
+// what names the directory, and a size that no directory takes is not cached at all.
+void FilePreviewJobTest::testCacheDirMatchesWhatIsWritten_data()
+{
+    QTest::addColumn<QSize>("size");
+    QTest::addColumn<qreal>("devicePixelRatio");
+    QTest::addColumn<QString>("expectedDir");
+
+    QTest::newRow("64 at 1") << QSize(64, 64) << 1.0 << QStringLiteral("normal/");
+    QTest::newRow("64 at 1.25") << QSize(64, 64) << 1.25 << QStringLiteral("large/");
+    QTest::newRow("64 at 1.5") << QSize(64, 64) << 1.5 << QStringLiteral("large/");
+    QTest::newRow("64 at 2") << QSize(64, 64) << 2.0 << QStringLiteral("large/");
+    QTest::newRow("64 at 3") << QSize(64, 64) << 3.0 << QStringLiteral("x-large/");
+    QTest::newRow("128 at 1") << QSize(128, 128) << 1.0 << QStringLiteral("normal/");
+    QTest::newRow("128 at 2") << QSize(128, 128) << 2.0 << QStringLiteral("large/");
+    QTest::newRow("129 at 1") << QSize(129, 129) << 1.0 << QStringLiteral("large/");
+    QTest::newRow("129 at 1.25") << QSize(129, 129) << 1.25 << QStringLiteral("x-large/");
+    QTest::newRow("160 at 2.5") << QSize(160, 160) << 2.5 << QStringLiteral("xx-large/");
+    QTest::newRow("256 at 4") << QSize(256, 256) << 4.0 << QStringLiteral("xx-large/");
+    QTest::newRow("512 at 4") << QSize(512, 512) << 4.0 << QString();
+    QTest::newRow("600 at 2") << QSize(600, 600) << 2.0 << QString();
+}
+
+void FilePreviewJobTest::testCacheDirMatchesWhatIsWritten()
+{
+    QFETCH(QSize, size);
+    QFETCH(qreal, devicePixelRatio);
+    QFETCH(QString, expectedDir);
+
+    QCOMPARE(ThumbnailCache::tierDir(ThumbnailCache::cacheSize(size), devicePixelRatio), expectedDir);
+
+    const QString path = ThumbnailCache::filePath(QByteArrayLiteral("file:///a"), QStringLiteral("/thumbs/"), size, devicePixelRatio);
+    if (expectedDir.isEmpty()) {
+        QVERIFY(path.isEmpty());
+    } else {
+        QVERIFY(path.startsWith(QStringLiteral("/thumbs/") + expectedDir));
+    }
+}
+
+// A thumbnail cached for a screen of a given ratio is found again by a request of that ratio.
+void FilePreviewJobTest::testCachedPreviewFoundAtDevicePixelRatio_data()
+{
+    QTest::addColumn<QSize>("size");
+    QTest::addColumn<qreal>("devicePixelRatio");
+
+    QTest::newRow("64 at 1") << QSize(64, 64) << 1.0;
+    QTest::newRow("64 at 1.5") << QSize(64, 64) << 1.5;
+    QTest::newRow("64 at 2") << QSize(64, 64) << 2.0;
+    QTest::newRow("128 at 2") << QSize(128, 128) << 2.0;
+    QTest::newRow("200 at 1.25") << QSize(200, 200) << 1.25;
+    QTest::newRow("256 at 2") << QSize(256, 256) << 2.0;
+}
+
+void FilePreviewJobTest::testCachedPreviewFoundAtDevicePixelRatio()
+{
+    QFETCH(QSize, size);
+    QFETCH(qreal, devicePixelRatio);
+
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const KFileItem item = makeFileItem(dir.filePath(QStringLiteral("photo.png")));
+
+    writeCachedThumbnail(item.targetUrl(), size, devicePixelRatio, item.time(KFileItem::ModificationTime).toSecsSinceEpoch(), item.size());
+
+    QVERIFY(!PreviewJob::cachedPreview(item, size, devicePixelRatio).isNull());
+}
+
+// A thumbnail too large for any of the cache directories has none to go in, so it is made for the
+// request alone: no directory is named for it, and nothing is read from the root of the cache,
+// where such a thumbnail used to be written.
+void FilePreviewJobTest::testNoCacheBucketLeavesTheCacheAlone()
+{
+    const QSize size(512, 512);
+    const qreal devicePixelRatio = 4.0;
+
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const KFileItem item = makeFileItem(dir.filePath(QStringLiteral("photo.png")));
+    const QByteArray uri = item.targetUrl().toEncoded(QUrl::RemovePassword | QUrl::FullyEncoded);
+    const QString thumbRoot = ThumbnailCache::rootPath();
+
+    QVERIFY(ThumbnailCache::tierDir(ThumbnailCache::cacheSize(size), devicePixelRatio).isEmpty());
+    QVERIFY(ThumbnailCache::filePath(uri, thumbRoot, size, devicePixelRatio).isEmpty());
+
+    QCryptographicHash md5(QCryptographicHash::Md5);
+    md5.addData(uri);
+    const QString strayPath = thumbRoot + QString::fromLatin1(md5.result().toHex()) + QLatin1String(".png");
+    QDir().mkpath(thumbRoot);
+    QImage stray(64, 64, QImage::Format_ARGB32);
+    stray.fill(Qt::red);
+    stray.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(uri));
+    stray.setText(QStringLiteral("Thumb::MTime"), QString::number(item.time(KFileItem::ModificationTime).toSecsSinceEpoch()));
+    stray.setText(QStringLiteral("Thumb::Size"), QString::number(item.size()));
+    QVERIFY(stray.save(strayPath, "png"));
+
+    QVERIFY(PreviewJob::cachedPreview(item, size, devicePixelRatio).isNull());
+
+    QVERIFY(QFile::remove(strayPath));
 }

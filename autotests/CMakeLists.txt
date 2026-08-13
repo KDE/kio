@@ -121,6 +121,10 @@ if (TARGET KF6::KIOGui)
 
   target_link_libraries(favicontest Qt6::Concurrent)
 
+  # The thumbnail cache functions are internal to KIOGui and not exported, so the test builds them
+  # rather than looking for them in the library.
+  target_sources(filepreviewjobtest PRIVATE ${CMAKE_SOURCE_DIR}/src/gui/thumbnailcache_p.cpp)
+
   # disable some tests that fail on Windows ATM
   if (NOT WIN32)
     foreach(_kprocessrunnerTest applicationlauncherjob commandlauncherjob kterminallauncherjob)
