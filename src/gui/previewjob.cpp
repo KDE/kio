@@ -17,11 +17,18 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <QDateTime>
+#include <QFutureWatcher>
+#include <QImage>
 #include <QMetaMethod>
 #include <QMimeDatabase>
 #include <QPixmap>
+#include <QPointer>
 #include <QStandardPaths>
+#include <QThreadPool>
 #include <QTimer>
+#include <QtConcurrentMap>
+
+#include <limits>
 
 #include "job_p.h"
 #include "thumbnailcache_p.h"
@@ -92,6 +99,28 @@ QMap<QString, int> PathsFileDeviceIdsJob::takeDeviceIdByPathTable() const
     return std::move(m_deviceIdByPathTable);
 }
 
+namespace
+{
+struct CachedThumbnailRequest {
+    KFileItem item;
+    QByteArray uri;
+    // The modification time and size the item carries, so that the lookup needs nothing of the
+    // file itself beyond the cached thumbnail.
+    qint64 mtimeSecs = 0;
+    KIO::filesize_t fileSize = 0;
+};
+struct CachedThumbnailResult {
+    KFileItem item;
+    QImage preview; // null if nothing usable was cached
+};
+
+// Reading a cached thumbnail is a small read and a small decode, so a few threads saturate the
+// disk without taking the machine over, and the work is handed to them a batch at a time so that
+// what is found is shown while the rest is still being looked up.
+constexpr int s_cachedThumbnailThreads = 4;
+constexpr int s_cachedThumbnailBatchSize = 32;
+}
+
 class KIO::PreviewJobPrivate : public KIO::JobPrivate
 {
 public:
@@ -115,9 +144,19 @@ public:
 
     QTimer nextBatchScheduler;
 
+    // Items whose cached thumbnail is still to be looked up, those that had none, and the pool
+    // and watcher the lookups of the batch in flight run on.
+    QList<CachedThumbnailRequest> cachedThumbnailQueue;
+    QList<KFileItem> cachedThumbnailMisses;
+    QThreadPool *cachedThumbnailPool = nullptr;
+    QPointer<QFutureWatcher<CachedThumbnailResult>> cachedThumbnailWatcher;
+
     void startNextFilePreviewJobBatch();
     void startPreview();
     void scheduleNextFilePreviewJobBatch();
+    void resolveCachedThumbnails();
+    void startNextCachedThumbnailBatch();
+    void cancelCachedThumbnailLookups();
 
     Q_DECLARE_PUBLIC(PreviewJob)
 
@@ -223,7 +262,7 @@ void PreviewJobPrivate::startPreview()
         // caching info about thumbroot device id separately, to avoid repeated lookup
         setupData.thumbRootDeviceId = deviceIdForLocalPath(setupData.thumbRoot);
 
-        startNextFilePreviewJobBatch();
+        resolveCachedThumbnails();
     });
     pathsFileDeviceIdsJob->start();
 }
@@ -331,13 +370,7 @@ void PreviewJob::slotResult(KJob *job)
         const auto &fileItem = previewJob->item();
         if (!previewJob->previewImage().isNull()) {
             d->thumbnailWorkerMetaData = previewJob->thumbnailWorkerMetaData();
-            auto previewImage = previewJob->previewImage();
-            Q_EMIT generated(fileItem, previewImage);
-            if (isSignalConnected(QMetaMethod::fromSignal(&PreviewJob::gotPreview))) {
-                QPixmap pixmap = QPixmap::fromImage(previewImage);
-                pixmap.setDevicePixelRatio(d->options.devicePixelRatio);
-                Q_EMIT gotPreview(fileItem, pixmap);
-            }
+            emitPreview(fileItem, previewJob->previewImage());
         } else {
             Q_EMIT failed(fileItem);
         }
@@ -353,6 +386,134 @@ void PreviewJob::slotResult(KJob *job)
     // slot might have been called synchronously from startNextFilePreviewJobBatch(), as KIO::stat currently can do
     // so always delay the next call to the next event-loop, to ensure startNextFilePreviewJobBatch() has exited
     d->scheduleNextFilePreviewJobBatch();
+}
+
+void PreviewJob::emitPreview(const KFileItem &fileItem, const QImage &previewImage)
+{
+    Q_D(PreviewJob);
+    Q_EMIT generated(fileItem, previewImage);
+    if (isSignalConnected(QMetaMethod::fromSignal(&PreviewJob::gotPreview))) {
+        QPixmap pixmap = QPixmap::fromImage(previewImage);
+        pixmap.setDevicePixelRatio(d->options.devicePixelRatio);
+        Q_EMIT gotPreview(fileItem, pixmap);
+    }
+}
+
+void PreviewJobPrivate::resolveCachedThumbnails()
+{
+    Q_Q(PreviewJob);
+
+    const KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
+    const KIO::filesize_t maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
+
+    for (const KFileItem &item : std::as_const(fileItems)) {
+        bool isLocal = false;
+        const QUrl url = item.mostLocalUrl(&isLocal);
+
+        // A sequence frame, a folder and a symlink are all keyed on something a stat has to
+        // resolve first, and a remote item has no local thumbnail to read, so those are generated
+        // the usual way. So is an item whose type is not known yet, since asking for it here would
+        // read the file on the thread the user is waiting on.
+        // The modification time has to come with the item, since telling a cached thumbnail from
+        // an outdated one without it would mean stat'ing the file here.
+        const QDateTime mtime = item.time(KFileItem::ModificationTime);
+        bool eligible = options.sequenceIndex == 0 && isLocal && !item.isDir() && !item.isLink() && item.isMimeTypeKnown() && mtime.isValid();
+
+        if (eligible) {
+            // Only what a thumbnailer of its own is enabled for, and only where that thumbnailer
+            // caches what it makes, has a thumbnail of this item in the shared cache. The lookup
+            // is by the type itself: an item whose thumbnailer is registered for an ancestor type
+            // is left to the job, which walks the ancestry.
+            const auto plugin = setupData.pluginByMimeTable.constFind(item.currentMimeType().name());
+            if (plugin == setupData.pluginByMimeTable.constEnd() || !plugin->value(QStringLiteral("CacheThumbnail"), true)) {
+                eligible = false;
+            } else if (!options.ignoreMaximumSize && static_cast<KIO::filesize_t>(item.size()) > maximumLocalSize
+                       && !plugin->value(QStringLiteral("IgnoreMaximumSize"), false)) {
+                // Over the size the user allows, so no preview is shown for it at all.
+                eligible = false;
+            }
+        }
+
+        if (eligible) {
+            cachedThumbnailQueue.append(
+                {item, url.toEncoded(QUrl::RemovePassword | QUrl::FullyEncoded), mtime.toSecsSinceEpoch(), static_cast<KIO::filesize_t>(item.size())});
+        } else {
+            cachedThumbnailMisses.append(item);
+        }
+    }
+
+    if (!cachedThumbnailQueue.isEmpty()) {
+        cachedThumbnailPool = new QThreadPool(q);
+        cachedThumbnailPool->setMaxThreadCount(s_cachedThumbnailThreads);
+    }
+
+    // With nothing to look up this hands every item straight to the generation batches.
+    startNextCachedThumbnailBatch();
+}
+
+void PreviewJobPrivate::startNextCachedThumbnailBatch()
+{
+    Q_Q(PreviewJob);
+
+    if (cachedThumbnailQueue.isEmpty()) {
+        // What was not cached is left to the generation batches, which the thumbnail worker count
+        // bounds.
+        fileItems = cachedThumbnailMisses;
+        cachedThumbnailMisses.clear();
+        startNextFilePreviewJobBatch();
+        return;
+    }
+
+    const int batchSize = qMin(cachedThumbnailQueue.size(), s_cachedThumbnailBatchSize);
+    QList<CachedThumbnailRequest> batch;
+    batch.reserve(batchSize);
+    for (int i = 0; i < batchSize; ++i) {
+        batch.append(cachedThumbnailQueue.takeFirst());
+    }
+
+    auto *watcher = new QFutureWatcher<CachedThumbnailResult>(q);
+    cachedThumbnailWatcher = watcher;
+    q->connect(watcher, &QFutureWatcher<CachedThumbnailResult>::finished, q, [this, watcher]() {
+        watcher->deleteLater();
+        if (watcher->isCanceled()) {
+            return;
+        }
+
+        Q_Q(PreviewJob);
+        const QList<CachedThumbnailResult> results = watcher->future().results();
+        for (const CachedThumbnailResult &result : results) {
+            if (result.preview.isNull()) {
+                cachedThumbnailMisses.append(result.item);
+            } else {
+                q->emitPreview(result.item, result.preview);
+            }
+        }
+
+        startNextCachedThumbnailBatch();
+    });
+
+    const QString thumbRoot = setupData.thumbRoot;
+    const QSize size = options.size;
+    const qreal dpr = options.devicePixelRatio;
+    watcher->setFuture(QtConcurrent::mapped(cachedThumbnailPool, batch, [thumbRoot, size, dpr](const CachedThumbnailRequest &request) -> CachedThumbnailResult {
+        return {request.item, ThumbnailCache::thumbnailFor(request.uri, thumbRoot, size, dpr, request.mtimeSecs, request.fileSize)};
+    }));
+}
+
+void PreviewJobPrivate::cancelCachedThumbnailLookups()
+{
+    if (cachedThumbnailWatcher) {
+        cachedThumbnailWatcher->cancel();
+    }
+    cachedThumbnailQueue.clear();
+    cachedThumbnailMisses.clear();
+}
+
+bool PreviewJob::doKill()
+{
+    Q_D(PreviewJob);
+    d->cancelCachedThumbnailLookups();
+    return KIO::Job::doKill();
 }
 
 QList<KPluginMetaData> PreviewJob::availableThumbnailerPlugins()
