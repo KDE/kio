@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-12 00:41+0000\n"
+"POT-Creation-Date: 2026-08-13 00:42+0000\n"
 "PO-Revision-Date: 2026-06-17 13:01+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -2166,7 +2166,7 @@ msgstr "（%1，連結到 %2）"
 msgid " (Points to %1)"
 msgstr "（指向 %1）"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:174
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:171
 #: widgets/renamedialog.cpp:679
 #, kde-format
 msgid ""
@@ -3717,7 +3717,7 @@ msgstr ""
 "無法使 %1 服務可被執行，取消執行。\n"
 "%2。"
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:686
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "您未獲授權去選取應用程式以開啟此檔案。"
@@ -3787,12 +3787,12 @@ msgstr "找不到命令 <command>%1</command>。"
 msgid "No terminal emulator found"
 msgstr "找不到終端機模擬程式"
 
-#: gui/openurljob.cpp:187
+#: gui/openurljob.cpp:184
 #, kde-format
 msgid "Failed to open %1"
 msgstr "無法開啟 %1"
 
-#: gui/openurljob.cpp:325
+#: gui/openurljob.cpp:318
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3803,27 +3803,27 @@ msgstr ""
 "%1\n"
 "為 Link 類型，但沒有 URL=... 項目。"
 
-#: gui/openurljob.cpp:409
+#: gui/openurljob.cpp:402
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr "可執行檔「%1」位於遠端檔案系統。因安全性考量，將不啟動。"
 
-#: gui/openurljob.cpp:450
+#: gui/openurljob.cpp:443
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "為了安全，這個環境下不允許啟動執行檔。"
 
-#: gui/openurljob.cpp:480
+#: gui/openurljob.cpp:473
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "「%1」程式需要有執行權限才可執行。"
 
-#: gui/openurljob.cpp:491
+#: gui/openurljob.cpp:484
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3832,12 +3832,12 @@ msgstr ""
 "無法使「%1」檔案能夠執行。\n"
 "%2。"
 
-#: gui/openurljob.cpp:577
+#: gui/openurljob.cpp:570
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "桌面項目檔案 %1 中沒有 Type=... 項目。"
 
-#: gui/openurljob.cpp:679
+#: gui/openurljob.cpp:672
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3847,12 +3847,12 @@ msgstr ""
 "此檔案不完全而不應被開啟。\n"
 "請檢查開啟的應用程式與通知區域是否有進行中的工作或下載。"
 
-#: gui/openurljob.cpp:705
+#: gui/openurljob.cpp:698
 #, kde-format
 msgid "Failed to open the file."
 msgstr "無法開啟檔案。"
 
-#: gui/openurljob.cpp:739
+#: gui/openurljob.cpp:732
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "程式「%1」無法啟動。"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-12 00:41+0000\n"
+"POT-Creation-Date: 2026-08-13 00:42+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@nuug.no>\n"
@@ -2177,7 +2177,7 @@ msgstr "(%1, liŋka %2:ii)"
 msgid " (Points to %1)"
 msgstr " (Čujuha dása: %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:174
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:171
 #: widgets/renamedialog.cpp:679
 #, kde-format
 msgid ""
@@ -3730,7 +3730,7 @@ msgid ""
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:686
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Dus ii leat lohpi válljet prográmma mii galgá rahpat dán fiilla."
@@ -3800,12 +3800,12 @@ msgstr ""
 msgid "No terminal emulator found"
 msgstr ""
 
-#: gui/openurljob.cpp:187
+#: gui/openurljob.cpp:184
 #, kde-format
 msgid "Failed to open %1"
 msgstr ""
 
-#: gui/openurljob.cpp:325
+#: gui/openurljob.cpp:318
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3816,39 +3816,39 @@ msgstr ""
 "%1\n"
 "lea Link-šlájat, muhto das váilu URL=… merkoša."
 
-#: gui/openurljob.cpp:409
+#: gui/openurljob.cpp:402
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr ""
 
-#: gui/openurljob.cpp:450
+#: gui/openurljob.cpp:443
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 
-#: gui/openurljob.cpp:480
+#: gui/openurljob.cpp:473
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
 
-#: gui/openurljob.cpp:491
+#: gui/openurljob.cpp:484
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
 "%2."
 msgstr ""
 
-#: gui/openurljob.cpp:577
+#: gui/openurljob.cpp:570
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Čállinbeavdemearkkušfiillas, %1, ii leat Type=… mearkkuš."
 
-#: gui/openurljob.cpp:679
+#: gui/openurljob.cpp:672
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3856,12 +3856,12 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:705
+#: gui/openurljob.cpp:698
 #, kde-format
 msgid "Failed to open the file."
 msgstr ""
 
-#: gui/openurljob.cpp:739
+#: gui/openurljob.cpp:732
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr ""

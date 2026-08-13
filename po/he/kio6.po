@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-12 00:41+0000\n"
+"POT-Creation-Date: 2026-08-13 00:42+0000\n"
 "PO-Revision-Date: 2026-08-11 08:39+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -2215,7 +2215,7 @@ msgstr "(%1, קישור אל %2)"
 msgid " (Points to %1)"
 msgstr " (מצביע אל %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:174
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:171
 #: widgets/renamedialog.cpp:679
 #, kde-format
 msgid ""
@@ -3784,7 +3784,7 @@ msgstr ""
 "לא ניתן להפוך את השירות %1 לזמין להפעלה, ההפעלה מבוטלת.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:686
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "אין לך הרשאה לבחור תוכנית לפתיחת קובץ זה."
@@ -3854,12 +3854,12 @@ msgstr "לא ניתן למצוא את הפקודה <command>%1</command>."
 msgid "No terminal emulator found"
 msgstr "לא נמצא מדמה מסוף"
 
-#: gui/openurljob.cpp:187
+#: gui/openurljob.cpp:184
 #, kde-format
 msgid "Failed to open %1"
 msgstr "הפתיחה של %1 נכשלה"
 
-#: gui/openurljob.cpp:325
+#: gui/openurljob.cpp:318
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3870,27 +3870,27 @@ msgstr ""
 "%1\n"
 "הוא מסוג קישור אבל אין בו רשומת URL=…‎."
 
-#: gui/openurljob.cpp:409
+#: gui/openurljob.cpp:402
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr "קובץ ההפעלה „%1” נמצא במערכת קבצים מרוחקת. מטעמי אבטחה הוא לא יופעל."
 
-#: gui/openurljob.cpp:450
+#: gui/openurljob.cpp:443
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "מטעמי אבטחה, הפעלת יישומים אסורה בהקשר הזה."
 
-#: gui/openurljob.cpp:480
+#: gui/openurljob.cpp:473
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "לתוכנית „%1” צריכות להיות הרשאות הרצה לפני שניתן להריץ אותה."
 
-#: gui/openurljob.cpp:491
+#: gui/openurljob.cpp:484
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3899,12 +3899,12 @@ msgstr ""
 "לא ניתן לגרום לקובץ „%1” להיות זמין להפעלה.\n"
 "%2."
 
-#: gui/openurljob.cpp:577
+#: gui/openurljob.cpp:570
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "לקובץ רשומת שולחן העבודה %1 אין רשומת Type=…‎."
 
-#: gui/openurljob.cpp:679
+#: gui/openurljob.cpp:672
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3915,12 +3915,12 @@ msgstr ""
 "נא לבדוק בין היישומים הפתוחים ואזור ההתראות שלך אם יש משימות או הורדות "
 "ממתינות."
 
-#: gui/openurljob.cpp:705
+#: gui/openurljob.cpp:698
 #, kde-format
 msgid "Failed to open the file."
 msgstr "פתיחת הקובץ נכשלה."
 
-#: gui/openurljob.cpp:739
+#: gui/openurljob.cpp:732
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "אי אפשר להפעיל את התוכנית „%1”."

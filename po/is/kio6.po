@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-12 00:41+0000\n"
+"POT-Creation-Date: 2026-08-13 00:42+0000\n"
 "PO-Revision-Date: 2026-06-24 11:19+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -2273,7 +2273,7 @@ msgstr "(%1, tengill á %2)"
 msgid " (Points to %1)"
 msgstr " (Vísar á %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:174
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:171
 #: widgets/renamedialog.cpp:679
 #, kde-format
 msgid ""
@@ -3868,7 +3868,7 @@ msgstr ""
 "Tókst ekki að gera þjónustuna %1 keyranlega, hætt við keyrslu.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:686
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Þú hefur ekki heimild til að velja forrit til að opna þessa skrá."
@@ -3940,12 +3940,12 @@ msgstr "Skipunin <command>%1</command> fannst ekki."
 msgid "No terminal emulator found"
 msgstr "Enginn skjáhermir fannst"
 
-#: gui/openurljob.cpp:187
+#: gui/openurljob.cpp:184
 #, kde-format
 msgid "Failed to open %1"
 msgstr "Mistókst að opna %1"
 
-#: gui/openurljob.cpp:325
+#: gui/openurljob.cpp:318
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3956,7 +3956,7 @@ msgstr ""
 "%1\n"
 "er af gerðinni tengill en er ekki með neina URL=...-færslu."
 
-#: gui/openurljob.cpp:409
+#: gui/openurljob.cpp:402
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3965,14 +3965,14 @@ msgstr ""
 "Keyrsluskráin \"%1\" er staðsett á fjartengdu skráakerfi.  Af öryggisástæðum "
 "verður hún ekki keyrð."
 
-#: gui/openurljob.cpp:450
+#: gui/openurljob.cpp:443
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 "Öryggisins vegna er ekki leyfilegt að ræsa keyrsluskrár í þessu samhengi."
 
-#: gui/openurljob.cpp:480
+#: gui/openurljob.cpp:473
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -3980,7 +3980,7 @@ msgid ""
 msgstr ""
 "Forritið \"%1\" þarf að vera með keyrsluheimild til að hægt sé að ræsa það."
 
-#: gui/openurljob.cpp:491
+#: gui/openurljob.cpp:484
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3989,12 +3989,12 @@ msgstr ""
 "Tókst ekki að gera skrána \"%1\" keyranlega.\n"
 "%2."
 
-#: gui/openurljob.cpp:577
+#: gui/openurljob.cpp:570
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Skjáborðsfærsluskráin %1 er ekki með neina Type=...-færslu."
 
-#: gui/openurljob.cpp:679
+#: gui/openurljob.cpp:672
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4005,12 +4005,12 @@ msgstr ""
 "Athugaðu hvort verk í bið eða niðurhal sé að finna í forritum sem eru opin "
 "og á tilkynningasvæðinu."
 
-#: gui/openurljob.cpp:705
+#: gui/openurljob.cpp:698
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Mistókst að opna skrána."
 
-#: gui/openurljob.cpp:739
+#: gui/openurljob.cpp:732
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Ekki var hægt að ræsa forritið \"%1\"."

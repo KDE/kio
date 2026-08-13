@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-12 00:41+0000\n"
+"POT-Creation-Date: 2026-08-13 00:42+0000\n"
 "PO-Revision-Date: 2023-10-24 10:35+0200\n"
 "Last-Translator: Phu Hung Nguyen <phu.nguyen@kdemail.net>\n"
 "Language-Team: Vietnamese <kde-l10n-vi@kde.org>\n"
@@ -2262,7 +2262,7 @@ msgstr "(%1, liên kết đến %2)"
 msgid " (Points to %1)"
 msgstr " (Trỏ đến %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:174
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:171
 #: widgets/renamedialog.cpp:679
 #, kde-format
 msgid ""
@@ -3880,7 +3880,7 @@ msgstr ""
 "Không thể làm cho dịch vụ %1 trở thành thực thi được, huỷ bỏ việc thực thi.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:686
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Bạn không có quyền chọn ứng dụng để mở tệp này."
@@ -3950,12 +3950,12 @@ msgstr "Không tìm được lệnh <command>%1</command>."
 msgid "No terminal emulator found"
 msgstr "Không tìm thấy trình giả lập thiết bị đầu cuối nào"
 
-#: gui/openurljob.cpp:187
+#: gui/openurljob.cpp:184
 #, kde-format
 msgid "Failed to open %1"
 msgstr "Mở %1 thất bại"
 
-#: gui/openurljob.cpp:325
+#: gui/openurljob.cpp:318
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3966,7 +3966,7 @@ msgstr ""
 "%1\n"
 "thuộc kiểu \"Link\" nhưng không có mục \"URL=...\" nào."
 
-#: gui/openurljob.cpp:409
+#: gui/openurljob.cpp:402
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3975,7 +3975,7 @@ msgstr ""
 "Tệp thực thi \"%1\" nằm trong một hệ thống tệp ở xa. Vì lí do an ninh, nó sẽ "
 "không được khởi động."
 
-#: gui/openurljob.cpp:450
+#: gui/openurljob.cpp:443
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -3983,7 +3983,7 @@ msgstr ""
 "Vì lí do an ninh, việc khởi chạy các tệp thực thi không được cho phép trong "
 "ngữ cảnh này."
 
-#: gui/openurljob.cpp:480
+#: gui/openurljob.cpp:473
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -3991,7 +3991,7 @@ msgid ""
 msgstr ""
 "Chương trình \"%1\" cần có quyền thực thi trước khi nó có thể được khởi chạy."
 
-#: gui/openurljob.cpp:491
+#: gui/openurljob.cpp:484
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4000,12 +4000,12 @@ msgstr ""
 "Không thể làm tệp \"%1\" trở thành thực thi được.\n"
 "%2."
 
-#: gui/openurljob.cpp:577
+#: gui/openurljob.cpp:570
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Tệp mục desktop %1 không có mục \"Type=...\" nào."
 
-#: gui/openurljob.cpp:679
+#: gui/openurljob.cpp:672
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4016,12 +4016,12 @@ msgstr ""
 "Hãy kiểm tra các ứng dụng đang mở và ô thông báo để xem các tác vụ hay các "
 "mục tải về còn đang thực hiện."
 
-#: gui/openurljob.cpp:705
+#: gui/openurljob.cpp:698
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Mở tệp thất bại."
 
-#: gui/openurljob.cpp:739
+#: gui/openurljob.cpp:732
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Không khởi chạy được chương trình \"%1\"."

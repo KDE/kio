@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-12 00:41+0000\n"
+"POT-Creation-Date: 2026-08-13 00:42+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2222,7 +2222,7 @@ msgstr "(%1, %2 इत्यस्य सम्बन्धितुम्)"
 msgid " (Points to %1)"
 msgstr " (%1 प्रति सूचयति)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:174
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:171
 #: widgets/renamedialog.cpp:679
 #, kde-format
 msgid ""
@@ -3817,7 +3817,7 @@ msgstr ""
 "%1 सेवां कार्यान्वयनीयं कर्तुं असमर्थः, निष्पादनं निरस्तं करोति ।\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:686
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "एतां सञ्चिकां उद्घाटयितुं भवान् अनुप्रयोगं चिन्वितुं अधिकृतः नास्ति ।."
@@ -3887,12 +3887,12 @@ msgstr "<command>%1</command> इति आदेशः न लब्धः ।.
 msgid "No terminal emulator found"
 msgstr "कोऽपि टर्मिनल् एमुलेटरः न लब्धः"
 
-#: gui/openurljob.cpp:187
+#: gui/openurljob.cpp:184
 #, kde-format
 msgid "Failed to open %1"
 msgstr "%1 उद्घाटयितुं असफलम्"
 
-#: gui/openurljob.cpp:325
+#: gui/openurljob.cpp:318
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3903,7 +3903,7 @@ msgstr ""
 "%1\n"
 "Link प्रकारस्य अस्ति किन्तु URL=... निवेशः नास्ति ।."
 
-#: gui/openurljob.cpp:409
+#: gui/openurljob.cpp:402
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3912,20 +3912,20 @@ msgstr ""
 "कार्यान्वयनीयसञ्चिका \"%1\" दूरस्थसञ्चिकातन्त्रे स्थिता अस्ति । सुरक्षाकारणात् तस्य आरम्भः न "
 "भविष्यति।."
 
-#: gui/openurljob.cpp:450
+#: gui/openurljob.cpp:443
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "सुरक्षाकारणात् अस्मिन् सन्दर्भे कार्यान्वयनीयानां प्रारम्भस्य अनुमतिः नास्ति ।."
 
-#: gui/openurljob.cpp:480
+#: gui/openurljob.cpp:473
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "\"%1\" इति कार्यक्रमस्य प्रारम्भात् पूर्वं कार्यान्वयनीय-अनुमतिः आवश्यकी अस्ति ।."
 
-#: gui/openurljob.cpp:491
+#: gui/openurljob.cpp:484
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3934,12 +3934,12 @@ msgstr ""
 "\"%1\" सञ्चिकां कार्यान्वयनीयं कर्तुं असमर्थम् ।\n"
 "%2."
 
-#: gui/openurljob.cpp:577
+#: gui/openurljob.cpp:570
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "कार्यमुख प्रविष्टिसञ्चिका %1 इत्यस्य Type=... प्रविष्टिः नास्ति ।."
 
-#: gui/openurljob.cpp:679
+#: gui/openurljob.cpp:672
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3950,12 +3950,12 @@ msgstr ""
 "भवतः उद्घाटितानि अनुप्रयोगाः सूचनाक्षेत्रं च पश्यन्तु यत् किमपि लम्बितकार्यं वा अवारोपण वा "
 "भवति।."
 
-#: gui/openurljob.cpp:705
+#: gui/openurljob.cpp:698
 #, kde-format
 msgid "Failed to open the file."
 msgstr "सञ्चिकां उद्घाटयितुं असफलम्।."
 
-#: gui/openurljob.cpp:739
+#: gui/openurljob.cpp:732
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "\"%1\" इति कार्यक्रमः प्रारब्धः न अभवत् ।."

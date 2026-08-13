@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-12 00:41+0000\n"
+"POT-Creation-Date: 2026-08-13 00:42+0000\n"
 "PO-Revision-Date: 2023-06-08 11:57+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -2283,7 +2283,7 @@ msgstr "(%1، پیوند به %2)"
 msgid " (Points to %1)"
 msgstr " (به %1 اشاره می‌کند)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:174
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:171
 #: widgets/renamedialog.cpp:679
 #, kde-format
 msgid ""
@@ -3916,7 +3916,7 @@ msgid ""
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:686
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "مجاز به برگزیدن کاربردی برای باز کردن این پرونده نیستید."
@@ -3987,12 +3987,12 @@ msgstr "پروندهٔ «%1» نمی‌تواند پیدا شود"
 msgid "No terminal emulator found"
 msgstr "شبیه‌ساز پایانه‌ای پیدا نشد"
 
-#: gui/openurljob.cpp:187
+#: gui/openurljob.cpp:184
 #, kde-format
 msgid "Failed to open %1"
 msgstr "شکست در گشودن ‎%1"
 
-#: gui/openurljob.cpp:325
+#: gui/openurljob.cpp:318
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4003,7 +4003,7 @@ msgstr ""
 "%1\n"
 "از نوع پیوند است، اما هیچ نشانی وب=…مدخل ندارد."
 
-#: gui/openurljob.cpp:409
+#: gui/openurljob.cpp:402
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>The file <b>%1</b> is an executable program. For safety it will not "
@@ -4015,20 +4015,20 @@ msgstr ""
 "<qt>پرونده <b>%1</b>، یک برنامه قابل اجرا می‌باشد. برای ایمنی، آغاز نخواهد شد."
 "</qt>"
 
-#: gui/openurljob.cpp:450
+#: gui/openurljob.cpp:443
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 
-#: gui/openurljob.cpp:480
+#: gui/openurljob.cpp:473
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
 
-#: gui/openurljob.cpp:491
+#: gui/openurljob.cpp:484
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4037,12 +4037,12 @@ msgstr ""
 "ناتوانی در اجرایی کردن پروندهٔ «%1».\n"
 "%2."
 
-#: gui/openurljob.cpp:577
+#: gui/openurljob.cpp:570
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "پرونده %1 مدخل رومیزی هیچ نوعی=… مدخل ندارد."
 
-#: gui/openurljob.cpp:679
+#: gui/openurljob.cpp:672
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4050,12 +4050,12 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:705
+#: gui/openurljob.cpp:698
 #, kde-format
 msgid "Failed to open the file."
 msgstr "شکست در گشودن پرونده."
 
-#: gui/openurljob.cpp:739
+#: gui/openurljob.cpp:732
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "برنامهٔ «%1» نمی‌تواند اجرا شود."

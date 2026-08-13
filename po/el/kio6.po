@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-12 00:41+0000\n"
+"POT-Creation-Date: 2026-08-13 00:42+0000\n"
 "PO-Revision-Date: 2024-09-19 21:59+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -2324,7 +2324,7 @@ msgstr "(%1, δεσμός στο %2)"
 msgid " (Points to %1)"
 msgstr " (Δείκτης στο %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:174
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:171
 #: widgets/renamedialog.cpp:679
 #, kde-format
 msgid ""
@@ -3952,7 +3952,7 @@ msgstr ""
 "Αδυναμία ορισμού της υπηρεσίας %1 ως εκτελέσιμη, εγκατάλειψη εκτέλεσης.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:686
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -4025,12 +4025,12 @@ msgstr "Η εντολή <command>%1</command> δεν βρέθηκε."
 msgid "No terminal emulator found"
 msgstr "Δεν βρέθηκε εξομοιωτής τερματικού"
 
-#: gui/openurljob.cpp:187
+#: gui/openurljob.cpp:184
 #, kde-format
 msgid "Failed to open %1"
 msgstr "Αποτυχία ανοίγματος %1"
 
-#: gui/openurljob.cpp:325
+#: gui/openurljob.cpp:318
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4041,7 +4041,7 @@ msgstr ""
 "%1\n"
 "είναι του τύπου Δεσμός αλλά δεν έχει καταχώρηση URL=... ."
 
-#: gui/openurljob.cpp:409
+#: gui/openurljob.cpp:402
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4050,7 +4050,7 @@ msgstr ""
 "Το εκτελέσιμο αρχείο «%1» βρίσκεται σε απομακρυσμένο σύστημα αρχείων. Για "
 "λόγους ασφαλείας δεν θα ξεκινήσει."
 
-#: gui/openurljob.cpp:450
+#: gui/openurljob.cpp:443
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4058,7 +4058,7 @@ msgstr ""
 "Για λόγους ασφαλείας, η εκκίνηση εκτελέσιμων αρχείων δεν επιτρέπεται σε αυτό "
 "το πλαίσιο."
 
-#: gui/openurljob.cpp:480
+#: gui/openurljob.cpp:473
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4067,7 +4067,7 @@ msgstr ""
 "Το πρόγραμμα «%1» πρέπει να έχει άδεια εκτέλεσης για να μπορέσει να "
 "εκκινηθεί."
 
-#: gui/openurljob.cpp:491
+#: gui/openurljob.cpp:484
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4076,13 +4076,13 @@ msgstr ""
 "Αδυναμία ορισμού το αρχείο «%1» ως εκτελέσιμο.\n"
 "%2."
 
-#: gui/openurljob.cpp:577
+#: gui/openurljob.cpp:570
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr ""
 "Το αρχείο καταχώρησης επιφάνειας εργασίας %1 δεν έχει καταχώρηση Type=... ."
 
-#: gui/openurljob.cpp:679
+#: gui/openurljob.cpp:672
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4093,12 +4093,12 @@ msgstr ""
 "Ελέγξτε τις ανοιχτές εφαρμογές σας και την περιοχή ειδοποιήσεων για τυχόν "
 "εκκρεμείς εργασίες ή λήψεις."
 
-#: gui/openurljob.cpp:705
+#: gui/openurljob.cpp:698
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Αποτυχία ανοίγματος του αρχείου."
 
-#: gui/openurljob.cpp:739
+#: gui/openurljob.cpp:732
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Το πρόγραμμα «%1» δεν μπόρεσε να εκκινηθεί."

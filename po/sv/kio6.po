@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-12 00:41+0000\n"
+"POT-Creation-Date: 2026-08-13 00:42+0000\n"
 "PO-Revision-Date: 2026-08-10 17:03+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -2293,7 +2293,7 @@ msgstr "(%1, Länk till %2)"
 msgid " (Points to %1)"
 msgstr " (Pekar på %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:174
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:171
 #: widgets/renamedialog.cpp:679
 #, kde-format
 msgid ""
@@ -3887,7 +3887,7 @@ msgstr ""
 "Kan inte göra tjänsten %1 körbar. Avbryter körning.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:686
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -3961,12 +3961,12 @@ msgstr "Kommandot <command>%1</command> kunde inte hittas."
 msgid "No terminal emulator found"
 msgstr "Ingen terminalemulator hittades"
 
-#: gui/openurljob.cpp:187
+#: gui/openurljob.cpp:184
 #, kde-format
 msgid "Failed to open %1"
 msgstr "Misslyckades öppna %1"
 
-#: gui/openurljob.cpp:325
+#: gui/openurljob.cpp:318
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3977,7 +3977,7 @@ msgstr ""
 "%1\n"
 "är av typ Link men har inte posten URL=..."
 
-#: gui/openurljob.cpp:409
+#: gui/openurljob.cpp:402
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3986,7 +3986,7 @@ msgstr ""
 "Den körbara filen \"%1\" finns på ett fjärrfilsystem. Av säkerhetsskäl "
 "kommer det inte att startas."
 
-#: gui/openurljob.cpp:450
+#: gui/openurljob.cpp:443
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -3994,7 +3994,7 @@ msgstr ""
 "AV säkerhetsskäl tillåts inte att körbara program startas i det här "
 "sammanhanget."
 
-#: gui/openurljob.cpp:480
+#: gui/openurljob.cpp:473
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4002,7 +4002,7 @@ msgid ""
 msgstr ""
 "Programmet \"%1\" måste ha rättigheter att köras innan det kan startas."
 
-#: gui/openurljob.cpp:491
+#: gui/openurljob.cpp:484
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4011,12 +4011,12 @@ msgstr ""
 "Kan inte göra filen \"%1\" körbar.\n"
 "%2."
 
-#: gui/openurljob.cpp:577
+#: gui/openurljob.cpp:570
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Skrivbordspostfilen %1 har inte posten Type=..."
 
-#: gui/openurljob.cpp:679
+#: gui/openurljob.cpp:672
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4027,12 +4027,12 @@ msgstr ""
 "Kontrollera öppna program och underrättelseområdet för eventuella väntande "
 "uppgifter eller nerladdningar."
 
-#: gui/openurljob.cpp:705
+#: gui/openurljob.cpp:698
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Misslyckades öppna filen."
 
-#: gui/openurljob.cpp:739
+#: gui/openurljob.cpp:732
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Programmet \"%1\" kunde inte startas."

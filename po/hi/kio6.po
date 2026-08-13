@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-12 00:41+0000\n"
+"POT-Creation-Date: 2026-08-13 00:42+0000\n"
 "PO-Revision-Date: 2024-12-15 19:32+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2200,7 +2200,7 @@ msgstr "(%1, इस पर कड़ी: %2)"
 msgid " (Points to %1)"
 msgstr "की ओर इशाराः"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:174
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:171
 #: widgets/renamedialog.cpp:679
 #, kde-format
 msgid ""
@@ -3851,7 +3851,7 @@ msgid ""
 "%2."
 msgstr ""
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:686
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "इस फ़ाइल को खोलने के लिए आप किसी अनुप्रयोग को चुनने के लिए अधिकृत नहीं हैं."
@@ -3928,12 +3928,12 @@ msgstr "निवेदित तालाबंद दिया नहीं �
 msgid "No terminal emulator found"
 msgstr ""
 
-#: gui/openurljob.cpp:187
+#: gui/openurljob.cpp:184
 #, kde-format
 msgid "Failed to open %1"
 msgstr ""
 
-#: gui/openurljob.cpp:325
+#: gui/openurljob.cpp:318
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3944,7 +3944,7 @@ msgstr ""
 "%1\n"
 "लिंक क़िस्म का है पर कोई URL=... प्रविष्टि नहीं है."
 
-#: gui/openurljob.cpp:409
+#: gui/openurljob.cpp:402
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>The file <b>%1</b> is an executable program. For safety it will not "
@@ -3956,20 +3956,20 @@ msgstr ""
 "<qt>फ़ाइल <b>%1</b> एक चलाने लायक प्रोग्राम है. सुरक्षा के लिए इसे चलाया नहीं जाएगा.</"
 "qt>"
 
-#: gui/openurljob.cpp:450
+#: gui/openurljob.cpp:443
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 
-#: gui/openurljob.cpp:480
+#: gui/openurljob.cpp:473
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
 
-#: gui/openurljob.cpp:491
+#: gui/openurljob.cpp:484
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>Unable to run the command specified. The file or folder <b>%1</b> "
@@ -3980,12 +3980,12 @@ msgid ""
 msgstr ""
 "<qt>उल्लेखित कमांड चलाने में अक्षम. फ़ाइल या फ़ोल्डर<b>%1</b> अस्तित्व में नहीं है.</qt>"
 
-#: gui/openurljob.cpp:577
+#: gui/openurljob.cpp:570
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "डेस्कटॉप प्रविष्टि फ़ाइल %1 में कोई क़िस्म=... प्रविष्टि दर्ज नहीं है."
 
-#: gui/openurljob.cpp:679
+#: gui/openurljob.cpp:672
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3993,12 +3993,12 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:705
+#: gui/openurljob.cpp:698
 #, kde-format
 msgid "Failed to open the file."
 msgstr ""
 
-#: gui/openurljob.cpp:739
+#: gui/openurljob.cpp:732
 #, fuzzy, kde-format
 #| msgid "The requested lock could not be granted. %1"
 msgid "The program \"%1\" could not be launched."

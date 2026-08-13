@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-12 00:41+0000\n"
+"POT-Creation-Date: 2026-08-13 00:42+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -2350,7 +2350,7 @@ msgstr "(%1, spasylka na %2)"
 msgid " (Points to %1)"
 msgstr " (Spasylajecca na %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:174
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:171
 #: widgets/renamedialog.cpp:679
 #, kde-format
 msgid ""
@@ -4007,7 +4007,7 @@ msgstr ""
 "Nie ŭdalosia zrabić službu %1 vykanaĺnaj, skasavannie vykanannia.\n"
 " %2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:686
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -4082,12 +4082,12 @@ msgstr "Nie ŭdalosia znajsci fajl \"%1\""
 msgid "No terminal emulator found"
 msgstr "Emuliatar terminala nie znojdzieny"
 
-#: gui/openurljob.cpp:187
+#: gui/openurljob.cpp:184
 #, kde-format
 msgid "Failed to open %1"
 msgstr "Nie ŭdalosia adkryć %1"
 
-#: gui/openurljob.cpp:325
+#: gui/openurljob.cpp:318
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4098,7 +4098,7 @@ msgstr ""
 " %1\n"
 "- spasylka, alie jon nie maje zapisu URL=…"
 
-#: gui/openurljob.cpp:409
+#: gui/openurljob.cpp:402
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4107,20 +4107,20 @@ msgstr ""
 "Vykanaĺny fajl \"%1\" razmieščany ŭ adliehlaj fajlavaj sistemie. Z pryčyn "
 "biaspieki jon nie byŭ zapuščany."
 
-#: gui/openurljob.cpp:450
+#: gui/openurljob.cpp:443
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "Z pryčyn biaspieki zapusk vykanaĺnych fajlaŭ zabaronieny."
 
-#: gui/openurljob.cpp:480
+#: gui/openurljob.cpp:473
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "Pierad zapuskam prahramie \"%1\" treba dać pravy na vykanannie."
 
-#: gui/openurljob.cpp:491
+#: gui/openurljob.cpp:484
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4129,12 +4129,12 @@ msgstr ""
 "Nie ŭdalosia zrabić fajl \"%1\" vykanaĺnym.\n"
 "%2."
 
-#: gui/openurljob.cpp:577
+#: gui/openurljob.cpp:570
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Fajl zapisu pracoŭnaha stala %1 nie maje zapisu Type=…"
 
-#: gui/openurljob.cpp:679
+#: gui/openurljob.cpp:672
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4145,12 +4145,12 @@ msgstr ""
 "Praviercie adkrytyja prahramy i praastoru apaviaščenniaŭ na najaŭnasć "
 "niezavieršanych zadač abo spampoŭvanniaŭ."
 
-#: gui/openurljob.cpp:705
+#: gui/openurljob.cpp:698
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Nie ŭdalosia adkryć fajl."
 
-#: gui/openurljob.cpp:739
+#: gui/openurljob.cpp:732
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Nie ŭdalosia zapuscić prahramu \"%1\"."

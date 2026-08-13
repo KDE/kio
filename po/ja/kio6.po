@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-12 00:41+0000\n"
+"POT-Creation-Date: 2026-08-13 00:42+0000\n"
 "PO-Revision-Date: 2026-07-23 17:16+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -2248,7 +2248,7 @@ msgstr "(%1, %2 へのリンク)"
 msgid " (Points to %1)"
 msgstr " (リンク先: %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:174
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:171
 #: widgets/renamedialog.cpp:679
 #, kde-format
 msgid ""
@@ -3824,7 +3824,7 @@ msgstr ""
 "サービス “%1” を実行可能にできません。実行を中止します。\n"
 "%2。"
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:686
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -3899,12 +3899,12 @@ msgstr "コマンド <command>%1</command> が見つかりませんでした。"
 msgid "No terminal emulator found"
 msgstr "ターミナルエミュレータが見つかりませんでした"
 
-#: gui/openurljob.cpp:187
+#: gui/openurljob.cpp:184
 #, kde-format
 msgid "Failed to open %1"
 msgstr "%1 を開けませんでした"
 
-#: gui/openurljob.cpp:325
+#: gui/openurljob.cpp:318
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3915,7 +3915,7 @@ msgstr ""
 "%1\n"
 "はタイプがリンクですが、URL=... という行がありません。"
 
-#: gui/openurljob.cpp:409
+#: gui/openurljob.cpp:402
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>The file <b>%1</b> is an executable program. For safety it will not "
@@ -3925,20 +3925,20 @@ msgid ""
 "reasons it will not be started."
 msgstr "<qt>‘%1’ は実行ファイルです。安全のため実行しません。</qt>"
 
-#: gui/openurljob.cpp:450
+#: gui/openurljob.cpp:443
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 
-#: gui/openurljob.cpp:480
+#: gui/openurljob.cpp:473
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
 
-#: gui/openurljob.cpp:491
+#: gui/openurljob.cpp:484
 #, fuzzy, kde-format
 #| msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgid ""
@@ -3946,12 +3946,12 @@ msgid ""
 "%2."
 msgstr "<qt>テンプレートファイル ‘%1’ は存在しません。</qt>"
 
-#: gui/openurljob.cpp:577
+#: gui/openurljob.cpp:570
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "デスクトップエントリファイル ‘%1’ には Type=... という行がありません。"
 
-#: gui/openurljob.cpp:679
+#: gui/openurljob.cpp:672
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3959,12 +3959,12 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:705
+#: gui/openurljob.cpp:698
 #, kde-format
 msgid "Failed to open the file."
 msgstr "ファイルを開けませんでした。"
 
-#: gui/openurljob.cpp:739
+#: gui/openurljob.cpp:732
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "プログラム \"%1\" を起動できませんでした。"

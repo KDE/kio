@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-12 00:41+0000\n"
+"POT-Creation-Date: 2026-08-13 00:42+0000\n"
 "PO-Revision-Date: 2026-08-09 08:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2315,7 +2315,7 @@ msgstr "(%1, enllaç a %2)"
 msgid " (Points to %1)"
 msgstr " (Apunta a %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:174
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:171
 #: widgets/renamedialog.cpp:679
 #, kde-format
 msgid ""
@@ -3911,7 +3911,7 @@ msgstr ""
 "No s'ha pogut fer executable el servei %1, s'ha interromput l'execució.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:686
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -3985,12 +3985,12 @@ msgstr "No s'ha pogut trobar l'ordre <command>%1</command>."
 msgid "No terminal emulator found"
 msgstr "No s'ha trobat cap emulador de terminal"
 
-#: gui/openurljob.cpp:187
+#: gui/openurljob.cpp:184
 #, kde-format
 msgid "Failed to open %1"
 msgstr "Ha fallat en obrir %1"
 
-#: gui/openurljob.cpp:325
+#: gui/openurljob.cpp:318
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4001,7 +4001,7 @@ msgstr ""
 "%1\n"
 "és de tipus «Link» però no té cap entrada URL=..."
 
-#: gui/openurljob.cpp:409
+#: gui/openurljob.cpp:402
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4010,7 +4010,7 @@ msgstr ""
 "El fitxer executable «%1» està ubicat a un sistema de fitxers remot. No "
 "s'engegarà per motius de seguretat."
 
-#: gui/openurljob.cpp:450
+#: gui/openurljob.cpp:443
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4018,7 +4018,7 @@ msgstr ""
 "Per motius de seguretat no es permet el llançament d'executables en aquest "
 "context."
 
-#: gui/openurljob.cpp:480
+#: gui/openurljob.cpp:473
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4027,7 +4027,7 @@ msgstr ""
 "Cal que el programa «%1» tingui el permís d'execució abans que es pugui "
 "llançar."
 
-#: gui/openurljob.cpp:491
+#: gui/openurljob.cpp:484
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4036,12 +4036,12 @@ msgstr ""
 "No es pot fer executable el fitxer «%1».\n"
 "%2."
 
-#: gui/openurljob.cpp:577
+#: gui/openurljob.cpp:570
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "El fitxer d'entrades «desktop» %1 no té cap entrada Type=..."
 
-#: gui/openurljob.cpp:679
+#: gui/openurljob.cpp:672
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4052,12 +4052,12 @@ msgstr ""
 "Comproveu les vostres aplicacions obertes i l'àrea de notificació per a "
 "qualsevol tasca o baixada pendent."
 
-#: gui/openurljob.cpp:705
+#: gui/openurljob.cpp:698
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Ha fallat en obrir el fitxer."
 
-#: gui/openurljob.cpp:739
+#: gui/openurljob.cpp:732
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "No s'ha pogut llançar el programa «%1»."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-12 00:41+0000\n"
+"POT-Creation-Date: 2026-08-13 00:42+0000\n"
 "PO-Revision-Date: 2014-02-25 01:34+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -2340,7 +2340,7 @@ msgstr "(%1, Link op \"%2\")"
 msgid " (Points to %1)"
 msgstr " (wiest op %1)"
 
-#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:174
+#: core/mimetypefinderjob.cpp:57 gui/openurljob.cpp:171
 #: widgets/renamedialog.cpp:679
 #, kde-format
 msgid ""
@@ -4018,7 +4018,7 @@ msgid ""
 msgstr ""
 "De Deenst \"%1\" lett sik nich utföhrbor maken, Utföhren warrt afbraken"
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:693
+#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:686
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Du muttst keen Programm utsöken, mit dat sik disse Datei opmaken lett."
@@ -4091,12 +4091,12 @@ msgstr "De Datei \"%1\" lett sik nich finnen"
 msgid "No terminal emulator found"
 msgstr ""
 
-#: gui/openurljob.cpp:187
+#: gui/openurljob.cpp:184
 #, kde-format
 msgid "Failed to open %1"
 msgstr ""
 
-#: gui/openurljob.cpp:325
+#: gui/openurljob.cpp:318
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -4107,7 +4107,7 @@ msgstr ""
 "%1\n"
 "hett den Typ \"Link\", man se bargt keen Indrag \"URL=...\"."
 
-#: gui/openurljob.cpp:409
+#: gui/openurljob.cpp:402
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>The file <b>%1</b> is an executable program. For safety it will not "
@@ -4119,20 +4119,20 @@ msgstr ""
 "<qt>De Datei <b>%1</b> is en utföhrbor Programm. Dat warrt ut Sekerheitgrünn "
 "nich start.</qt>"
 
-#: gui/openurljob.cpp:450
+#: gui/openurljob.cpp:443
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 
-#: gui/openurljob.cpp:480
+#: gui/openurljob.cpp:473
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
 
-#: gui/openurljob.cpp:491
+#: gui/openurljob.cpp:484
 #, fuzzy, kde-format
 #| msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgid ""
@@ -4140,12 +4140,12 @@ msgid ""
 "%2."
 msgstr "<qt>Dat gifft de Vörlaagdatei <b>%1</b> nich.</qt>"
 
-#: gui/openurljob.cpp:577
+#: gui/openurljob.cpp:570
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "De Schriefdisch-Datei %1 bargt keen Indrag \"Type=...\""
 
-#: gui/openurljob.cpp:679
+#: gui/openurljob.cpp:672
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4153,13 +4153,13 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:705
+#: gui/openurljob.cpp:698
 #, fuzzy, kde-format
 #| msgid "Cannot open file"
 msgid "Failed to open the file."
 msgstr "Datei lett sik nich opmaken"
 
-#: gui/openurljob.cpp:739
+#: gui/openurljob.cpp:732
 #, fuzzy, kde-format
 #| msgid "The file \"%1\" could not be found"
 msgid "The program \"%1\" could not be launched."
