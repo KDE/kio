@@ -22,7 +22,7 @@ msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
 "KDE China, Feng Chao, Funda Wang, Guo Yunhe, Jiang Xiong, Lie Ex, Ni Hui, "
-"Tyson Tan Wang Jian, Weng Xuetian"
+"Tyson Tan, Wang Jian, Weng Xuetian"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
