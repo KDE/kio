@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-13 00:42+0000\n"
+"POT-Creation-Date: 2026-08-14 00:41+0000\n"
 "PO-Revision-Date: 2026-08-09 18:53+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -50,7 +50,7 @@ msgstr ""
 "No se ha podido cambiar el propietario del archivo <filename>%1</filename>. "
 "No tiene permisos suficientes para realizar el cambio."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1015
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1081
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3966,7 +3966,7 @@ msgid "Icon file too big, download aborted"
 msgstr ""
 "El archivo del icono es demasiado grande; se ha interrumpido la descarga"
 
-#: gui/filepreviewjob.cpp:295
+#: gui/filepreviewjob.cpp:289
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4263,22 +4263,22 @@ msgstr "No fue posible encontrar el programa «mount»"
 msgid "Could not find program \"umount\""
 msgstr "No fue posible encontrar el programa «umount»"
 
-#: kioworkers/file/file_unix.cpp:610
+#: kioworkers/file/file_unix.cpp:668
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "No se puede copiar el archivo de %1 a %2. (Errno: %3)"
 
-#: kioworkers/file/file_unix.cpp:814
+#: kioworkers/file/file_unix.cpp:880
 #, kde-format
 msgid "No media in device for %1"
 msgstr "No hay medios en el dispositivo para %1"
 
-#: kioworkers/file/file_unix.cpp:1173
+#: kioworkers/file/file_unix.cpp:1239
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Imposible obtener el id del usuario para el usuario %1"
 
-#: kioworkers/file/file_unix.cpp:1184
+#: kioworkers/file/file_unix.cpp:1250
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Imposible obtener el id del grupo para el grupo %1"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-13 00:42+0000\n"
+"POT-Creation-Date: 2026-08-14 00:41+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 "<filename>%1</filename> सञ्चिकायाः स्वामित्वं परिवर्तयितुं न शक्तम्। परिवर्तनं कर्तुं भवतः "
 "सञ्चिकायाः अपर्याप्तप्रवेशः अस्ति ।."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1015
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1081
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3849,7 +3849,7 @@ msgstr "%1 इत्यत्र चित्रं रक्षितुं त
 msgid "Icon file too big, download aborted"
 msgstr "चिह्नसञ्चिका अतीव विशाला, अवारोपण निरस्तम्"
 
-#: gui/filepreviewjob.cpp:295
+#: gui/filepreviewjob.cpp:289
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4136,22 +4136,22 @@ msgstr "\"mount\" इति कार्यक्रमः न लब्धः �
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" इति कार्यक्रमः न लब्धः ।"
 
-#: kioworkers/file/file_unix.cpp:610
+#: kioworkers/file/file_unix.cpp:668
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1 तः %2 पर्यन्तं सञ्चिकां प्रतिलिखितुं न शक्यते । (त्रुटिसङ्ख्या: %3)"
 
-#: kioworkers/file/file_unix.cpp:814
+#: kioworkers/file/file_unix.cpp:880
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 इत्यस्य कृते उपकरणे कोऽपि माध्यमः नास्ति"
 
-#: kioworkers/file/file_unix.cpp:1173
+#: kioworkers/file/file_unix.cpp:1239
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "दत्तस्य उपयोक्तृनाम %1 कृते उपयोक्तृ-तादात्म्यम् (user id) प्राप्तुं न शक्तम्"
 
-#: kioworkers/file/file_unix.cpp:1184
+#: kioworkers/file/file_unix.cpp:1250
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "दत्तसमूहनाम %1 कृते समूह id प्राप्तुं न शक्तम्"

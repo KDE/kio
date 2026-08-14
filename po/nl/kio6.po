@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-13 00:42+0000\n"
+"POT-Creation-Date: 2026-08-14 00:41+0000\n"
 "PO-Revision-Date: 2026-08-09 13:00+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -41,7 +41,7 @@ msgstr ""
 "Kon de eigenaar van het bestand <filename>%1</filename> niet wijzigen. U "
 "hebt niet de benodigde toegangsrechten voor deze wijziging."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1015
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1081
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3971,7 +3971,7 @@ msgstr "Fout bij opslaan van afbeelding naar %1"
 msgid "Icon file too big, download aborted"
 msgstr "Pictogrambestand is te groot, download afgebroken"
 
-#: gui/filepreviewjob.cpp:295
+#: gui/filepreviewjob.cpp:289
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4268,22 +4268,22 @@ msgstr "Kon het programma \"mount\" niet vinden"
 msgid "Could not find program \"umount\""
 msgstr "Kon het programma \"umount\" niet vinden"
 
-#: kioworkers/file/file_unix.cpp:610
+#: kioworkers/file/file_unix.cpp:668
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Bestand kan niet van %1 naar %2 worden gekopieerd. (foutcode: %3)"
 
-#: kioworkers/file/file_unix.cpp:814
+#: kioworkers/file/file_unix.cpp:880
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Geen medium in station voor %1"
 
-#: kioworkers/file/file_unix.cpp:1173
+#: kioworkers/file/file_unix.cpp:1239
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Kon gebruikers-id voor de opgegeven gebruikersnaam %1 niet verkrijgen"
 
-#: kioworkers/file/file_unix.cpp:1184
+#: kioworkers/file/file_unix.cpp:1250
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Kon de groeps-id voor opgegeven groepsnaam %1 niet verkrijgen"

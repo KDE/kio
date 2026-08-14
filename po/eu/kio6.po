@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-13 00:42+0000\n"
+"POT-Creation-Date: 2026-08-14 00:41+0000\n"
 "PO-Revision-Date: 2026-08-11 19:05+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 "Ezin izan du <filename>%1</filename> fitxategiaren jabetza aldatu. Ez duzu "
 "aldaketa gauzatzeko, fitxategia atzitzeko baimen nahikorik."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1015
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1081
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3923,7 +3923,7 @@ msgstr "Errorea irudia %1(t)era gordetzean"
 msgid "Icon file too big, download aborted"
 msgstr "Ikono fitxategi handiegia, jaistea galarazi da"
 
-#: gui/filepreviewjob.cpp:295
+#: gui/filepreviewjob.cpp:289
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4218,22 +4218,22 @@ msgstr "Ezin izan du «mount» programa aurkitu"
 msgid "Could not find program \"umount\""
 msgstr "Ezin izan du «umount» programa aurkitu"
 
-#: kioworkers/file/file_unix.cpp:610
+#: kioworkers/file/file_unix.cpp:668
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Ezin da fitxategia %1(e)tik %2(e)ra kopiatu. (Err.: %3)"
 
-#: kioworkers/file/file_unix.cpp:814
+#: kioworkers/file/file_unix.cpp:880
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Ez dago euskarririk %1 gailuan"
 
-#: kioworkers/file/file_unix.cpp:1173
+#: kioworkers/file/file_unix.cpp:1239
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Ezin izan du %1 erabiltzaile-izenaren erabiltzaile IDa lortu"
 
-#: kioworkers/file/file_unix.cpp:1184
+#: kioworkers/file/file_unix.cpp:1250
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Ezin izan du %1 talde-izenaren talde IDa lortu"

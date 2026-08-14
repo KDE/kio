@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-13 00:42+0000\n"
+"POT-Creation-Date: 2026-08-14 00:41+0000\n"
 "PO-Revision-Date: 2026-08-10 01:12+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -47,7 +47,7 @@ msgstr ""
 "Impossibile modificare il proprietario del file <filename>%1</filename>. Non "
 "hai accesso sufficiente al file per effettuare la modifica."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1015
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1081
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3969,7 +3969,7 @@ msgstr "Errore durante il salvataggio dell'immagine in %1"
 msgid "Icon file too big, download aborted"
 msgstr "File dell'icona troppo grande, scaricamento interrotto"
 
-#: gui/filepreviewjob.cpp:295
+#: gui/filepreviewjob.cpp:289
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4266,22 +4266,22 @@ msgstr "Impossibile trovare il programma «mount»"
 msgid "Could not find program \"umount\""
 msgstr "Impossibile trovare il programma «umount»"
 
-#: kioworkers/file/file_unix.cpp:610
+#: kioworkers/file/file_unix.cpp:668
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Impossibile copiare il file da %1 a %2 (Err: %3)"
 
-#: kioworkers/file/file_unix.cpp:814
+#: kioworkers/file/file_unix.cpp:880
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nessun supporto nel dispositivo per %1"
 
-#: kioworkers/file/file_unix.cpp:1173
+#: kioworkers/file/file_unix.cpp:1239
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Impossibile ottenere l'identificativo utente per l'utente %1"
 
-#: kioworkers/file/file_unix.cpp:1184
+#: kioworkers/file/file_unix.cpp:1250
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Impossibile ottenere l'identificativo di gruppo per il gruppo %1"

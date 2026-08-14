@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-13 00:42+0000\n"
+"POT-Creation-Date: 2026-08-14 00:41+0000\n"
 "PO-Revision-Date: 2025-12-07 00:08-0500\n"
 "Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
 "Language-Team: sq\n"
@@ -44,7 +44,7 @@ msgstr ""
 "S’u ndryshua dot pronësia e kartelës <filename>%1</filename>. S’keni leje të "
 "mjaftueshme mbi skedarin, për të kryer ndryshimin."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1015
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1081
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3951,7 +3951,7 @@ msgstr "Gabim në ruajtje figure te %1"
 msgid "Icon file too big, download aborted"
 msgstr "Skedë shumë e madhe ikone, shkarkimi u ndërpre"
 
-#: gui/filepreviewjob.cpp:295
+#: gui/filepreviewjob.cpp:289
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4245,22 +4245,22 @@ msgstr "S’u gjet dot programi “mount”"
 msgid "Could not find program \"umount\""
 msgstr "S’u gjet dot programi “umount”"
 
-#: kioworkers/file/file_unix.cpp:610
+#: kioworkers/file/file_unix.cpp:668
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "S’mund të kopjohet kartelë nga %1 në %2. (Errno: %3)"
 
-#: kioworkers/file/file_unix.cpp:814
+#: kioworkers/file/file_unix.cpp:880
 #, kde-format
 msgid "No media in device for %1"
 msgstr "S’ka media te pajisja për %1"
 
-#: kioworkers/file/file_unix.cpp:1173
+#: kioworkers/file/file_unix.cpp:1239
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "S’u mor dot ID përdoruesi për emrin e dhënë të përdoruesit %1"
 
-#: kioworkers/file/file_unix.cpp:1184
+#: kioworkers/file/file_unix.cpp:1250
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "S’u mor dot ID grupi për emrin e dhënë të grupit %1"

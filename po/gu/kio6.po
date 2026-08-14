@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-13 00:42+0000\n"
+"POT-Creation-Date: 2026-08-14 00:41+0000\n"
 "PO-Revision-Date: 2026-03-31 23:12+0530\n"
 "Last-Translator: CrazyCourt651 <CrazyCourt651@gmail.com>\n"
 "Language-Team: Gujarati\n"
@@ -43,7 +43,7 @@ msgstr ""
 "ઇલ <filename>%1</filename> ની માલિકી સુધારી શકાતી નથી. ફેરફાર કરવા માટે તમારી "
 "પાસે ફાઇલ પર અપૂરતો પ્રવેશ (access) છે.\t\t\t\t"
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1015
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1081
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3861,7 +3861,7 @@ msgstr "છબીને %1 માં સાચવવામાં ભૂલ થ�
 msgid "Icon file too big, download aborted"
 msgstr "ચિહ્ન ફાઇલ ખૂબ મોટી છે, ડાઉનલોડ રદ કરવામાં આવ્યું છે"
 
-#: gui/filepreviewjob.cpp:295
+#: gui/filepreviewjob.cpp:289
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4149,22 +4149,22 @@ msgstr "કાર્યક્રમ \"mount\" શોધી શકાતો ન�
 msgid "Could not find program \"umount\""
 msgstr "કાર્યક્રમ \"umount\" શોધી શકાતો નથી"
 
-#: kioworkers/file/file_unix.cpp:610
+#: kioworkers/file/file_unix.cpp:668
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "%1 માંથી %2 પર ફાઇલ નકલ કરી શકાતી નથી. (ક્ષતિક્રમ: %3)"
 
-#: kioworkers/file/file_unix.cpp:814
+#: kioworkers/file/file_unix.cpp:880
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 માટે કોઇ મીડિઆ ઉપકરણ નથી"
 
-#: kioworkers/file/file_unix.cpp:1173
+#: kioworkers/file/file_unix.cpp:1239
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "આપેલ વપરાશકર્તા નામ %1 માટે વપરાશકર્તા ઓળ મેળવી શકાતી નથી"
 
-#: kioworkers/file/file_unix.cpp:1184
+#: kioworkers/file/file_unix.cpp:1250
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "આપેલ સમૂહ નામ %1 માટે સમૂહ ઓળ મેળવી શકાતી નથી"

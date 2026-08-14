@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-13 00:42+0000\n"
+"POT-Creation-Date: 2026-08-14 00:41+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -46,7 +46,7 @@ msgstr ""
 "Nie ŭdalosia zmianić ulasnika fajla <filename>%1</filename>. Vy nie majecie "
 "pravoŭ dostupu, patrebnych dlia vykanannia hetaha dziejannia."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1015
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1081
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "The first arg is the path to the symlink that couldnt be created, the "
@@ -4043,7 +4043,7 @@ msgstr "Nie ŭdalosia zachavać vyjavu ŭ %1"
 msgid "Icon file too big, download aborted"
 msgstr "Fajl značka zanadta vialiki, spampoŭvannie skasavana"
 
-#: gui/filepreviewjob.cpp:295
+#: gui/filepreviewjob.cpp:289
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4337,24 +4337,24 @@ msgstr "Nie ŭdalosia znajsci prahramu \"mount\""
 msgid "Could not find program \"umount\""
 msgstr "Nie ŭdalosia znajsci prahramu \"umount\""
 
-#: kioworkers/file/file_unix.cpp:610
+#: kioworkers/file/file_unix.cpp:668
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nie ŭdalosia skapijavać fajl z %1 u %2. (Kod pamylki: %3)"
 
-#: kioworkers/file/file_unix.cpp:814
+#: kioworkers/file/file_unix.cpp:880
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Niama nośbita ŭ pryladzie %1"
 
-#: kioworkers/file/file_unix.cpp:1173
+#: kioworkers/file/file_unix.cpp:1239
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 "Nie ŭdalosia atrymać identyfikatar karystaĺnika dlia padadzienaha imia "
 "karystaĺnika %1"
 
-#: kioworkers/file/file_unix.cpp:1184
+#: kioworkers/file/file_unix.cpp:1250
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nie ŭdalosia atrymać identyfikatar hrupy dlia padadzienaj hrupy %1"
