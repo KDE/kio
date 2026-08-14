@@ -35,6 +35,9 @@ private Q_SLOTS:
     void testDotDirectory();
     void testMimetypeForRemoteFolder();
     void testMimetypeForRemoteFolderWithFileType();
+    void testMimetypeForRemoteFileWithUnknownType();
+    void testMimetypeForRemoteFileWithAliasType();
+    void testDetermineMimeTypeFromSeveralThreads();
     void testCurrentMimetypeForRemoteFolder();
     void testCurrentMimetypeForRemoteFolderWithFileType();
     void testIconNameForCustomFolderIcons();

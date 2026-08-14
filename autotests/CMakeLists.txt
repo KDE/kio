@@ -57,6 +57,7 @@ if (NOT WIN32)
   )
 
   target_link_libraries(deleteortrashjobtest KF6::KIOWidgets)
+  target_link_libraries(kfileitemtest Qt6::Concurrent)
   if(TARGET Qt6::DBus)
     target_link_libraries(deletejobtest Qt6::DBus)
   endif()

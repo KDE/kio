@@ -19,6 +19,7 @@
 #include "kiocoredebug.h"
 #include "kioglobal_p.h"
 
+#include <QCache>
 #include <QDataStream>
 #include <QDate>
 #include <QDebug>
@@ -26,6 +27,7 @@
 #include <QDirIterator>
 #include <QLocale>
 #include <QMimeDatabase>
+#include <QMutex>
 #include <QRegularExpression>
 #include <QTimeZone>
 
@@ -43,6 +45,40 @@
 #include <KShell>
 
 #define KFILEITEM_DEBUG 0
+
+// Items that carry the same mime type share one QMimeType, so the database is asked for a given name
+// only once and the type is held once for the whole process instead of once per listed file. The lock
+// guards the shared cache alone. The database does its own locking, and reading a type back off an
+// item touches its stored QMimeType directly and takes no lock at all.
+static QMimeType sharedMimeType(const QString &name)
+{
+    // The cache holds only names the system knows, so it is bounded by the mime database. The ceiling
+    // sits well above the number of mime types any system defines, so a known name is never evicted in
+    // practice. It is a hard limit that keeps the cache bounded no matter how many names are asked for.
+    static constexpr int maxCachedMimeTypes = 4096;
+    static QMutex mutex;
+    static QCache<QString, QMimeType> cache(maxCachedMimeTypes);
+
+    {
+        QMutexLocker locker(&mutex);
+        if (const QMimeType *cached = cache.object(name)) {
+            return *cached;
+        }
+    }
+
+    QMimeDatabase db;
+    const QMimeType type = db.mimeTypeForName(name);
+    // A name that does not exist is looked up fresh each time rather than taking a cache slot.
+    if (!type.isValid()) {
+        return type;
+    }
+
+    QMutexLocker locker(&mutex);
+    // Another thread asking for the same name at the same time leaves its own type here, and the two
+    // are equal, so whichever arrives second is the one the items after it share.
+    cache.insert(name, new QMimeType(type));
+    return type;
+}
 
 class KFileItemPrivate : public QSharedData
 {
@@ -331,11 +367,10 @@ void KFileItemPrivate::readUDSEntry(bool _urlIsDirectory)
             m_bIsLocalUrl = true;
         }
     }
-    QMimeDatabase db;
     const QString mimeTypeStr = m_entry.stringValue(KIO::UDSEntry::UDS_MIME_TYPE);
     m_bMimeTypeKnown = !mimeTypeStr.isEmpty();
     if (m_bMimeTypeKnown) {
-        m_mimeType = db.mimeTypeForName(mimeTypeStr);
+        m_mimeType = sharedMimeType(mimeTypeStr);
     }
 
     m_guessedMimeType = m_entry.stringValue(KIO::UDSEntry::UDS_GUESSED_MIME_TYPE);
@@ -620,14 +655,14 @@ void KFileItemPrivate::determineMimeTypeHelper(const QUrl &url) const
     if (m_bSkipMimeTypeFromContent || isSlow()) {
         const QString scheme = url.scheme();
         if (scheme.startsWith(QLatin1String("http")) || scheme == QLatin1String("mailto")) {
-            m_mimeType = db.mimeTypeForName(QLatin1String("application/octet-stream"));
+            m_mimeType = sharedMimeType(QStringLiteral("application/octet-stream"));
         } else if (url.path().isEmpty()) {
-            m_mimeType = db.mimeTypeForName(QLatin1String("inode/directory"));
+            m_mimeType = sharedMimeType(QStringLiteral("inode/directory"));
         } else {
-            m_mimeType = db.mimeTypeForFile(url.path(), QMimeDatabase::MatchMode::MatchExtension);
+            m_mimeType = sharedMimeType(db.mimeTypeForFile(url.path(), QMimeDatabase::MatchMode::MatchExtension).name());
         }
     } else {
-        m_mimeType = db.mimeTypeForUrl(url);
+        m_mimeType = sharedMimeType(db.mimeTypeForUrl(url).name());
     }
 }
 
@@ -656,8 +691,7 @@ KFileItem::KFileItem(const QUrl &url, const QString &mimeType, mode_t mode)
 
     d->m_bMimeTypeKnown = !mimeType.simplified().isEmpty();
     if (d->m_bMimeTypeKnown) {
-        QMimeDatabase db;
-        d->m_mimeType = db.mimeTypeForName(mimeType);
+        d->m_mimeType = sharedMimeType(mimeType);
     }
 }
 
@@ -1015,9 +1049,8 @@ QMimeType KFileItem::determineMimeType() const
     }
 
     if (!d->m_mimeType.isValid() || !d->m_bMimeTypeKnown) {
-        QMimeDatabase db;
         if (isDir()) {
-            d->m_mimeType = db.mimeTypeForName(QStringLiteral("inode/directory"));
+            d->m_mimeType = sharedMimeType(QStringLiteral("inode/directory"));
         } else {
             const auto [url, isLocalUrl] = isMostLocalUrl();
             d->determineMimeTypeHelper(url);
@@ -1198,11 +1231,10 @@ QString KFileItem::iconName() const
 
     const auto [url, isLocalUrl] = isMostLocalUrl();
 
-    QMimeDatabase db;
     QMimeType mime;
     // Use guessed MIME type for the icon
     if (!d->m_guessedMimeType.isEmpty()) {
-        mime = db.mimeTypeForName(d->m_guessedMimeType);
+        mime = sharedMimeType(d->m_guessedMimeType);
     } else {
         mime = currentMimeType();
     }
@@ -1784,17 +1816,17 @@ QMimeType KFileItem::currentMimeType() const
         // On-demand fast (but not always accurate) MIME type determination
         QMimeDatabase db;
         if (isDir()) {
-            d->m_mimeType = db.mimeTypeForName(QStringLiteral("inode/directory"));
+            d->m_mimeType = sharedMimeType(QStringLiteral("inode/directory"));
             return d->m_mimeType;
         }
         const QUrl url = mostLocalUrl();
         if (d->m_delayedMimeTypes) {
             const QList<QMimeType> mimeTypes = db.mimeTypesForFileName(url.path());
             if (mimeTypes.isEmpty()) {
-                d->m_mimeType = db.mimeTypeForName(QStringLiteral("application/octet-stream"));
+                d->m_mimeType = sharedMimeType(QStringLiteral("application/octet-stream"));
                 d->m_bMimeTypeKnown = false;
             } else {
-                d->m_mimeType = mimeTypes.first();
+                d->m_mimeType = sharedMimeType(mimeTypes.first().name());
                 // If there were conflicting globs. determineMimeType will be able to do better.
                 d->m_bMimeTypeKnown = (mimeTypes.count() == 1);
             }

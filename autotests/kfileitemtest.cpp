@@ -20,6 +20,7 @@
 
 #include <KProtocolInfo>
 #include <QMimeDatabase>
+#include <QtConcurrentMap>
 
 QTEST_MAIN(KFileItemTest)
 
@@ -874,6 +875,93 @@ void KFileItemTest::testMimetypeForRemoteFolderWithFileType()
     KFileItem fileItem(entry, url);
 
     QCOMPARE(fileItem.mimetype(), udsMimeType);
+}
+
+void KFileItemTest::testMimetypeForRemoteFileWithUnknownType()
+{
+    // A worker can send a mime type name this installation does not know. The item does not keep the
+    // unknown name. Asking for the type determines it from the item instead, here from the extension.
+    const QString unknownType = QStringLiteral("application/x-does-not-exist-here");
+    QVERIFY(!QMimeDatabase().mimeTypeForName(unknownType).isValid());
+
+    KIO::UDSEntry entry;
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo.txt"));
+    entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, unknownType);
+
+    KFileItem fileItem(entry, QUrl(QStringLiteral("smb://remoteFolder/foo.txt")));
+    QCOMPARE(fileItem.determineMimeType().name(), QStringLiteral("text/plain"));
+
+    // The same name arriving a second time is answered the same way, and a name the system does know
+    // is unaffected by the unknown one before it.
+    KFileItem secondItem(entry, QUrl(QStringLiteral("smb://remoteFolder/foo.txt")));
+    QCOMPARE(secondItem.determineMimeType().name(), QStringLiteral("text/plain"));
+
+    KIO::UDSEntry knownEntry;
+    knownEntry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo.txt"));
+    knownEntry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("text/html"));
+    KFileItem knownItem(knownEntry, QUrl(QStringLiteral("smb://remoteFolder/foo.txt")));
+    QCOMPARE(knownItem.mimetype(), QStringLiteral("text/html"));
+}
+
+void KFileItemTest::testMimetypeForRemoteFileWithAliasType()
+{
+    // A worker can send a name the system knows as another name for the same type. Whichever of the
+    // two spellings arrives, the item answers with the name the system files it under.
+    const QString aliasName = QStringLiteral("text/xml");
+    const QString canonicalName = QMimeDatabase().mimeTypeForName(aliasName).name();
+    if (canonicalName == aliasName) {
+        QSKIP("text/xml is a type of its own on this system, so there is no alias to test with.");
+    }
+
+    KIO::UDSEntry aliasEntry;
+    aliasEntry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo.xml"));
+    aliasEntry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, aliasName);
+    KFileItem aliasItem(aliasEntry, QUrl(QStringLiteral("smb://remoteFolder/foo.xml")));
+    QCOMPARE(aliasItem.mimetype(), canonicalName);
+
+    KIO::UDSEntry canonicalEntry;
+    canonicalEntry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("foo.xml"));
+    canonicalEntry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, canonicalName);
+    KFileItem canonicalItem(canonicalEntry, QUrl(QStringLiteral("smb://remoteFolder/foo.xml")));
+    QCOMPARE(canonicalItem.mimetype(), aliasItem.mimetype());
+}
+
+void KFileItemTest::testDetermineMimeTypeFromSeveralThreads()
+{
+    // Determining a type happens on worker threads in the programs that list folders, and the type
+    // of a name is shared between the items that carry it, so every thread has to come out with the
+    // name that belongs to its own item.
+    struct Expectation {
+        QString fileName;
+        QString mimeTypeName;
+    };
+    const QList<Expectation> expectations{
+        {QStringLiteral("foo.txt"), QStringLiteral("text/plain")},
+        {QStringLiteral("foo.html"), QStringLiteral("text/html")},
+        {QStringLiteral("foo.png"), QStringLiteral("image/png")},
+        {QStringLiteral("foo.pdf"), QStringLiteral("application/pdf")},
+    };
+
+    QList<KFileItem> items;
+    items.reserve(expectations.size() * 50);
+    for (int i = 0; i < 50; ++i) {
+        for (const Expectation &expectation : expectations) {
+            KIO::UDSEntry entry;
+            entry.fastInsert(KIO::UDSEntry::UDS_NAME, expectation.fileName);
+            items << KFileItem(entry, QUrl(QStringLiteral("smb://remoteFolder/") + expectation.fileName));
+        }
+    }
+
+    // Each item is determined by one thread only, so what the threads share is the type of a name and
+    // nothing else.
+    const QList<QString> names = QtConcurrent::blockingMapped(items, [](KFileItem item) {
+        return item.determineMimeType().name();
+    });
+
+    QCOMPARE(names.size(), items.size());
+    for (int i = 0; i < names.size(); ++i) {
+        QCOMPARE(names.at(i), expectations.at(i % expectations.size()).mimeTypeName);
+    }
 }
 
 void KFileItemTest::testCurrentMimetypeForRemoteFolder()
