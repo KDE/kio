@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-14 00:41+0000\n"
-"PO-Revision-Date: 2026-07-23 22:01+0900\n"
+"PO-Revision-Date: 2026-08-14 22:39+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Min Nan Chinese Latin <zh-l10n@lists.slat.org>\n"
 "Language: nan_TW@latin\n"
@@ -1399,7 +1399,7 @@ msgid ""
 "This is a fairly technical error in which a required device for network "
 "communications (a socket) could not be created."
 msgstr ""
-"Tse sī tsi̍t-ê ki-su̍t-siōng ê tshò-gōo: bô-huat-tōo kiàn-li̍p bāng-lōo thong-"
+"Tse sī tsi̍t-ê ki-su̍t-siōng ê tshò-gōo, bô-huat-tōo kiàn-li̍p bāng-lōo thong-"
 "sìn su-iàu ê tsi̍t-ê tsong-tì (tsi̍t-ê socket)."
 
 #: core/job_error.cpp:711 core/job_error.cpp:860 core/job_error.cpp:873
@@ -1655,7 +1655,7 @@ msgstr "Bô-huat-tōo Kàm-thiann Bāng-lōo Liân-suànn"
 #: core/job_error.cpp:854
 #, kde-format
 msgid "Could Not Bind"
-msgstr ""
+msgstr "Bô-huat-tōo Bind"
 
 #: core/job_error.cpp:856 core/job_error.cpp:869
 #, kde-format
@@ -1664,6 +1664,9 @@ msgid ""
 "communications (a socket) could not be established to listen for incoming "
 "network connections."
 msgstr ""
+"Tse sī tsi̍t-ê ki-su̍t-siōng ê tshò-gōo, bô-huat-tōo khak-li̍p bāng-lōo thong-"
+"sìn su-iàu ê tsi̍t-ê tsong-tì (tsi̍t-ê socket) lâi kàm-thiann ji̍p-lâi ê bāng-"
+"lōo liân-suànn."
 
 #: core/job_error.cpp:867
 #, kde-format
@@ -1681,6 +1684,8 @@ msgid ""
 "This is a fairly technical error in which an error occurred while attempting "
 "to accept an incoming network connection."
 msgstr ""
+"Tse sī tsi̍t-ê ki-su̍t-siōng ê tshò-gōo, tī beh tsiap-siū ji̍p-lâi ê bāng-lōo "
+"liân-suànn ê sî-tsūn huat-sing--ah tshò-gōo."
 
 #: core/job_error.cpp:886
 #, kde-format
@@ -1714,11 +1719,13 @@ msgid ""
 "An attempt to determine information about the status of the resource <strong>"
 "%1</strong>, such as the resource name, type, size, etc., was unsuccessful."
 msgstr ""
+"Tshú-tit tsu-guân <strong>%1</strong> tshin-tshiūnn miâ, luī-pia̍t, tuā-sè "
+"tíng-tíng ê tsōng-thài tsu-sìn ê sî-tsūn sit-pāi--ah."
 
 #: core/job_error.cpp:917
 #, kde-format
 msgid "The specified resource may not have existed or may not be accessible."
-msgstr ""
+msgstr "Tsí-tīng ê tsu-guân khó-lîng bô tsûn-tsāi á-sī bô-huat-tōo tsûn-tshú."
 
 #. i18n( "Could not terminate listing %1" ).arg( errorText );
 #: core/job_error.cpp:928
@@ -1739,12 +1746,12 @@ msgstr "Bô-huat-tōo Kiàn-li̍p Tsu-liāu-giap-á"
 #: core/job_error.cpp:934
 #, kde-format
 msgid "An attempt to create the requested folder failed."
-msgstr ""
+msgstr "Kiàn-li̍p iau-kiû ê tsu-liāu-giap-á ê sî-tsūn sit-pāi--ah."
 
 #: core/job_error.cpp:937
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
-msgstr ""
+msgstr "Tsu-liāu-giap-á ài kiàn-li̍p ê sóo-tsāi khó-lîng bô tsûn-tsāi."
 
 #: core/job_error.cpp:946
 #, kde-format
@@ -1785,16 +1792,19 @@ msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
 "resumed at a certain point of the transfer. This was not possible."
 msgstr ""
+"Tsí-tīng ê tshíng-kiû iau-kiû tóng-àn <strong>%1</strong> tī thuân-su tiong-"
+"ng kè-sio̍k, m̄-koh tse suah bô-huat-tōo ta̍t-sîng."
 
 #: core/job_error.cpp:969
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
 msgstr ""
+"Tse hia̍p-tīng á-sī sù-ho̍k-khì khó-lîng bô tsi-uān tóng-àn thuân-su ê kè-sio̍k."
 
 #: core/job_error.cpp:972
 #, kde-format
 msgid "Retry the request without attempting to resume transfer."
-msgstr ""
+msgstr "Tshiánn koh tshì tsi̍t-pái, m̄-koh mài kè-sio̍k thuân-su."
 
 #: core/job_error.cpp:977
 #, kde-format
@@ -1805,6 +1815,7 @@ msgstr "Bô-huat-tōo kā Tsu-guân Kái-miâ"
 #, kde-format
 msgid "An attempt to rename the specified resource <strong>%1</strong> failed."
 msgstr ""
+"Kā tsí-tīng ê tsu-guân <strong>%1</strong> kái-miâ ê sî-tsūn sit-pāi--ah."
 
 #: core/job_error.cpp:990
 #, kde-format
@@ -1817,6 +1828,8 @@ msgid ""
 "An attempt to alter the permissions on the specified resource <strong>%1</"
 "strong> failed."
 msgstr ""
+"Kái-piàn tsí-tīng ê tsu-guân <strong>%1</strong> ê khuân-hān ê sî-tsūn sit-"
+"pāi--ah."
 
 #: core/job_error.cpp:1000
 #, kde-format
@@ -1829,6 +1842,8 @@ msgid ""
 "An attempt to change the ownership of the specified resource <strong>%1</"
 "strong> failed."
 msgstr ""
+"Kái-piàn tsí-tīng ê tsu-guân <strong>%1</strong> ê sóo-iú-tsiá ê sî-tsūn sit-"
+"pāi--ah."
 
 #: core/job_error.cpp:1010
 #, kde-format
@@ -1839,6 +1854,7 @@ msgstr "Bô-huat-tōo Thâi-tiāu Tsu-guân"
 #, kde-format
 msgid "An attempt to delete the specified resource <strong>%1</strong> failed."
 msgstr ""
+"Thâi-tiāu tsí-tīng ê tsu-guân <strong>%1</strong> ê sî-tsūn sit-pāi--ah."
 
 #: core/job_error.cpp:1020
 #, kde-format
@@ -2566,7 +2582,7 @@ msgstr "Tsu-liāu-giap-á tī Thâu-tsîng"
 #: filewidgets/kdiroperator.cpp:2146
 #, kde-format
 msgid "Hidden Files Last"
-msgstr "Ún-tsông-tóng-àn tī Siōng-bué"
+msgstr "Ún-tsông Tóng-àn tī Siōng-bué"
 
 #: filewidgets/kdiroperator.cpp:2153
 #, kde-format
@@ -2626,7 +2642,7 @@ msgstr ""
 #: filewidgets/kdiroperator.cpp:2249
 #, kde-format
 msgid "Show Hidden Files"
-msgstr "Hián-sī Ún-tsông-tóng-àn"
+msgstr "Hián-sī Ún-tsông Tóng-àn"
 
 #: filewidgets/kdiroperator.cpp:2256
 #, kde-format
@@ -4349,7 +4365,7 @@ msgstr "tī tsí-tīng tsu-liāu-giap-á tsip-hîng huê-pò"
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr ""
+msgstr "Beh %2 ê sî-tsūn hiông-hiông huat-sing būn-tê (%1)."
 
 #: kioworkers/http/http.cpp:1471
 #, kde-format
@@ -4358,12 +4374,13 @@ msgid ""
 "An error occurred while attempting to %1, %2. A summary of the reasons is "
 "below."
 msgstr ""
+"Beh %1 ê sî-tsūn huat-sing būn-tê (%2). Í-hā thê-kiong guân-in ê tiah-iàu."
 
 #: kioworkers/http/http.cpp:1489 kioworkers/http/http.cpp:1633
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
-msgstr ""
+msgstr "Beh %1 ê sî-tsūn hōo kī-tsua̍t tsûn-tshú--ah."
 
 #: kioworkers/http/http.cpp:1503 kioworkers/http/http.cpp:1640
 #, kde-format
@@ -4438,7 +4455,7 @@ msgstr "tsiūnn-thuân %1"
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
-msgstr ""
+msgstr "Beh %2 ê sî-tsūn hiông-hiông huat-sing būn-tê (%1)."
 
 #: kioworkers/remote/remoteimpl.cpp:98
 #, kde-format
@@ -4544,12 +4561,12 @@ msgstr "Lí bô khuân-hān tsûn-tshú %1 hia̍p-tīng."
 #: urifilters/ikws/kuriikwsfilter.cpp:81
 #, kde-format
 msgid "No preferred search providers were found."
-msgstr "Tshuē-bô ài iu-sian sú-iōng ê tshiau-tshuē-thê-kiong-tsiá."
+msgstr "Tshuē-bô ài iu-sian sú-iōng ê tshiau-tshuē thê-kiong-tsiá."
 
 #: urifilters/ikws/kuriikwsfilter.cpp:96
 #, kde-format
 msgid "No search providers were found."
-msgstr "Tshuē-bô tshiau-tshuē-thê-kiong-tsiá."
+msgstr "Tshuē-bô tshiau-tshuē thê-kiong-tsiá."
 
 #: urifilters/shorturi/kshorturifilter.cpp:247
 #, kde-format

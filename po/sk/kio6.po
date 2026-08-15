@@ -3575,11 +3575,10 @@ msgid "Create link to URL"
 msgstr "Vytvoriť odkaz na URL"
 
 #: filewidgets/knewfilemenu.cpp:650
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
-msgstr "Vytvoriť nový"
+msgstr "Vytvoriť nový %1"
 
 #: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, kde-format
@@ -5455,22 +5454,19 @@ msgstr "Súborový systém:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
+#, kde-format
 msgid "Mounted on:"
 msgstr "Pripojené do:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
+#, kde-format
 msgid "Mounted from:"
 msgstr "Pripojené z:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:533
-#, fuzzy, kde-format
-#| msgid "Free Space:"
+#, kde-format
 msgid "Free space:"
 msgstr "Voľné miesto:"
 
