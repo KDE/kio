@@ -45,6 +45,7 @@
 #include <QFileInfo>
 #include <QHash>
 #include <QHostInfo>
+#include <QLocale>
 #include <QPointer>
 #include <QProcess>
 #include <QScopeGuard>
@@ -62,6 +63,19 @@
 #endif
 
 using namespace Qt::StringLiterals;
+
+// Sets the language the comparisons below expect, ignoring the locale of the user running the test.
+// This runs before main, so nothing has read that locale by then.
+void initLocale()
+{
+#ifndef Q_OS_WIN
+    qputenv("LC_ALL", "en_US.utf-8");
+#else
+    QLocale::setDefault(QLocale(QStringLiteral("en_US")));
+#endif
+}
+
+Q_CONSTRUCTOR_FUNCTION(initLocale)
 
 QTEST_MAIN(JobTest)
 
