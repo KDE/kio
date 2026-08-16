@@ -6,7 +6,12 @@
 
 #include <kio/udsentry.h>
 
+#include <QFile>
 #include <QTest>
+
+#if defined(__GLIBC__)
+#include <malloc.h>
+#endif
 
 /*!
  * This benchmarks tests four typical uses of UDSEntry:
@@ -28,6 +33,9 @@
  * 1.   UDSEntries containing the entries which are provided by kio_file.
  *
  * 2.   UDSEntries with a larger number of "fields".
+ *
+ * It also measures what the entries cost in resident memory, both as a worker builds them and as a
+ * program loads them off a stream, which is what it keeps for as long as it holds the listing.
  */
 
 // The following constants control the number of UDSEntries that are considered
@@ -35,6 +43,22 @@
 const int numberOfSmallUDSEntries = 100 * 1000;
 const int numberOfLargeUDSEntries = 5 * 1000;
 const int extraFieldsForLargeUDSEntries = 40;
+
+// The resident memory of this process, read back after asking the allocator to return what it can,
+// so that what is measured is what the entries hold rather than what the allocator kept.
+static long processResidentBytes()
+{
+    QFile status(QStringLiteral("/proc/self/status"));
+    if (!status.open(QIODevice::ReadOnly)) {
+        return -1;
+    }
+    for (QByteArray line = status.readLine(); !line.isEmpty(); line = status.readLine()) {
+        if (line.startsWith("VmRSS:")) {
+            return line.mid(6).simplified().split(' ').first().toLong() * 1024;
+        }
+    }
+    return -1;
+}
 
 class UDSEntryBenchmark : public QObject
 {
@@ -53,6 +77,9 @@ private Q_SLOTS:
     void saveLargeEntries();
     void loadSmallEntries();
     void loadLargeEntries();
+    void memoryOfSmallEntries();
+    void memoryOfLoadedSmallEntries();
+    void memoryOfLoadedLargeEntries();
 
 private:
     KIO::UDSEntryList m_smallEntries;
@@ -309,7 +336,7 @@ void UDSEntryBenchmark::saveSmallEntries()
 void UDSEntryBenchmark::saveLargeEntries()
 {
     // Create the entries if they do not exist yet.
-    if (m_smallEntries.isEmpty()) {
+    if (m_largeEntries.isEmpty()) {
         createLargeEntries();
     }
 
@@ -352,6 +379,101 @@ void UDSEntryBenchmark::loadLargeEntries()
     }
 
     QCOMPARE(entries, m_largeEntries);
+}
+
+void UDSEntryBenchmark::memoryOfSmallEntries()
+{
+#if !defined(__GLIBC__)
+    QSKIP("resident memory is read back with the help of malloc_trim");
+#else
+    // The names and the user and group are made before the memory is read, and an entry shares the
+    // strings it is given, so what this measures is the storage an entry keeps for its fields.
+    const QString user = QStringLiteral("user");
+    const QString group = QStringLiteral("group");
+    QList<QString> names(numberOfSmallUDSEntries);
+    for (int i = 0; i < numberOfSmallUDSEntries; ++i) {
+        names[i] = QString::number(i);
+    }
+
+    KIO::UDSEntryList entries;
+    entries.reserve(numberOfSmallUDSEntries);
+
+    malloc_trim(0);
+    const long before = processResidentBytes();
+
+    for (int i = 0; i < numberOfSmallUDSEntries; ++i) {
+        KIO::UDSEntry entry;
+        entry.reserveStrings(3);
+        entry.reserveNumbers(5);
+
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, names[i]);
+        entry.fastInsert(KIO::UDSEntry::UDS_USER, user);
+        entry.fastInsert(KIO::UDSEntry::UDS_GROUP, group);
+
+        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, i);
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, i);
+        entry.fastInsert(KIO::UDSEntry::UDS_SIZE, i);
+        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, i);
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS_TIME, i);
+        entries.append(entry);
+    }
+
+    malloc_trim(0);
+    const long after = processResidentBytes();
+
+    QVERIFY(before >= 0);
+    QVERIFY(after >= before);
+    qInfo() << numberOfSmallUDSEntries << "entries of the shape kio_file sends cost" << (after - before) << "bytes of resident memory,"
+            << double(after - before) / numberOfSmallUDSEntries << "bytes per entry";
+#endif
+}
+
+void UDSEntryBenchmark::memoryOfLoadedSmallEntries()
+{
+#if !defined(__GLIBC__)
+    QSKIP("resident memory is read back with the help of malloc_trim");
+#else
+    if (m_savedSmallEntries.isEmpty()) {
+        saveSmallEntries();
+    }
+    const QByteArray data = m_savedSmallEntries;
+
+    malloc_trim(0);
+    const long before = processResidentBytes();
+    KIO::UDSEntryList entries;
+    QDataStream stream(data);
+    stream >> entries;
+    malloc_trim(0);
+    const long after = processResidentBytes();
+
+    QVERIFY(after >= before);
+    qInfo() << entries.count() << "entries of the shape kio_file sends cost" << (after - before) << "bytes of resident memory once loaded,"
+            << double(after - before) / entries.count() << "bytes per entry";
+#endif
+}
+
+void UDSEntryBenchmark::memoryOfLoadedLargeEntries()
+{
+#if !defined(__GLIBC__)
+    QSKIP("resident memory is read back with the help of malloc_trim");
+#else
+    if (m_savedLargeEntries.isEmpty()) {
+        saveLargeEntries();
+    }
+    const QByteArray data = m_savedLargeEntries;
+
+    malloc_trim(0);
+    const long before = processResidentBytes();
+    KIO::UDSEntryList entries;
+    QDataStream stream(data);
+    stream >> entries;
+    malloc_trim(0);
+    const long after = processResidentBytes();
+
+    QVERIFY(after >= before);
+    qInfo() << entries.count() << "entries of many fields cost" << (after - before) << "bytes of resident memory once loaded,"
+            << double(after - before) / entries.count() << "bytes per entry";
+#endif
 }
 
 QTEST_MAIN(UDSEntryBenchmark)

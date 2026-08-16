@@ -11,6 +11,16 @@
 #include <QHash>
 #include <QList>
 
+#include <QElapsedTimer>
+#include <QFile>
+
+#include <memory>
+#include <vector>
+
+#if defined(__GLIBC__)
+#include <malloc.h>
+#endif
+
 #include <kio/global.h> // filesize_t
 #include <kio/udsentry.h>
 
@@ -43,6 +53,8 @@ private Q_SLOTS:
     void testTwoVectorsFill();
     void testUDSEntryHSFill();
     void testUnionFill();
+    void testInternedFieldsFill();
+    void testInternedSingleBlockFill();
 
     void testAnotherCompare();
     void testTwoVectorKindEntryCompare();
@@ -50,6 +62,8 @@ private Q_SLOTS:
     void testTwoVectorsCompare();
     void testUDSEntryHSCompare();
     void testUnionCompare();
+    void testInternedFieldsCompare();
+    void testInternedSingleBlockCompare();
 
     void testAnotherApp();
     void testTwoVectorKindEntryApp();
@@ -57,8 +71,11 @@ private Q_SLOTS:
     void testTwoVectorsApp();
     void testUDSEntryHSApp();
     void testUnionApp();
+    void testInternedFieldsApp();
+    void testInternedSingleBlockApp();
 
     void testspaceUsed();
+    void testDolphinLikeWorkload();
 
 public:
     const QString nameStr;
@@ -710,6 +727,262 @@ public:
 };
 Q_DECLARE_TYPEINFO(UnionUDSEntry, Q_RELOCATABLE_TYPE);
 
+// The entries of a listing carry the same fields in the same order, so the sequence of their ids is
+// interned and shared between them, and an entry keeps its values alone. Inserting a field walks a
+// tree of the sequences seen so far, one step per field, which every entry after the first follows
+// without making anything.
+// The fields an entry carries, in the order they were given, shared by every entry carrying them.
+struct FieldSequence {
+    std::vector<uint> stringFields;
+    std::vector<uint> numberFields;
+    // The sequences that carry these fields and one more.
+    mutable std::vector<std::pair<uint, const FieldSequence *>> longer;
+};
+
+// A sequence is kept for as long as the program runs, there being one for each shape an entry takes,
+// so an entry points at it without counting who else does.
+static const FieldSequence *emptySequence()
+{
+    static thread_local const FieldSequence *sequence = new FieldSequence;
+    return sequence;
+}
+
+static const FieldSequence *sequenceWith(const FieldSequence *from, uint field, bool isString)
+{
+    for (const auto &[knownField, longer] : from->longer) {
+        if (knownField == field) {
+            return longer;
+        }
+    }
+    FieldSequence *longer = new FieldSequence{from->stringFields, from->numberFields, {}};
+    if (isString) {
+        longer->stringFields.push_back(field);
+    } else {
+        longer->numberFields.push_back(field);
+    }
+    from->longer.emplace_back(field, longer);
+    return longer;
+}
+
+class InternedFieldsUDSEntry
+{
+public:
+public:
+    InternedFieldsUDSEntry()
+        : m_schema(emptySequence())
+    {
+    }
+
+    void reserve(int size)
+    {
+        // The caller says how many fields it is about to insert without saying of which kind, and a
+        // listing carries about two numbers for every string.
+        m_strings.reserve(size / 3);
+        m_numbers.reserve(size * 2 / 3);
+    }
+
+    void insert(uint field, const QString &value)
+    {
+        m_schema = sequenceWith(m_schema, field, true);
+        m_strings.push_back(value);
+    }
+
+    void insert(uint field, long long value)
+    {
+        m_schema = sequenceWith(m_schema, field, false);
+        m_numbers.push_back(value);
+    }
+
+    int count() const
+    {
+        return int(m_strings.size() + m_numbers.size());
+    }
+
+    QString stringValue(uint field) const
+    {
+        const std::vector<uint> &fields = m_schema->stringFields;
+        for (size_t i = 0; i < fields.size(); ++i) {
+            if (fields[i] == field) {
+                return m_strings[i];
+            }
+        }
+        return QString();
+    }
+
+    long long numberValue(uint field, long long defaultValue = -1) const
+    {
+        const std::vector<uint> &fields = m_schema->numberFields;
+        for (size_t i = 0; i < fields.size(); ++i) {
+            if (fields[i] == field) {
+                return m_numbers[i];
+            }
+        }
+        return defaultValue;
+    }
+
+    QString spaceUsed()
+    {
+        const size_t fixed = sizeof(const FieldSequence *) + sizeof(std::vector<QString>) + sizeof(std::vector<long long>);
+        return QStringLiteral("size:%1 space used:%2")
+            .arg(m_strings.size() * sizeof(QString) + m_numbers.size() * sizeof(long long) + fixed)
+            .arg(m_strings.capacity() * sizeof(QString) + m_numbers.capacity() * sizeof(long long) + fixed);
+    }
+
+private:
+    const FieldSequence *m_schema;
+    std::vector<QString> m_strings;
+    std::vector<long long> m_numbers;
+};
+
+// The same set of fields shared between entries, with the values of an entry in a single block, the
+// strings first and the numbers after them. A listing builds such an entry once from what it
+// receives, so growing one field at a time, as this does, is not what the shape is for.
+class InternedSingleBlockUDSEntry
+{
+public:
+    InternedSingleBlockUDSEntry() = default;
+
+    InternedSingleBlockUDSEntry(const InternedSingleBlockUDSEntry &other)
+    {
+        copyFrom(other);
+    }
+
+    InternedSingleBlockUDSEntry &operator=(const InternedSingleBlockUDSEntry &other)
+    {
+        if (this != &other) {
+            release();
+            copyFrom(other);
+        }
+        return *this;
+    }
+
+    ~InternedSingleBlockUDSEntry()
+    {
+        release();
+    }
+
+    void reserve(int size)
+    {
+        Q_UNUSED(size)
+    }
+
+    void insert(uint field, const QString &value)
+    {
+        const size_t strings = m_fields->stringFields.size();
+        const size_t numbers = m_fields->numberFields.size();
+        void *block = ::operator new((strings + 1) * sizeof(QString) + numbers * sizeof(long long));
+        QString *newStrings = static_cast<QString *>(block);
+        for (size_t i = 0; i < strings; ++i) {
+            new (newStrings + i) QString(std::move(stringSlot(i)));
+        }
+        new (newStrings + strings) QString(value);
+        long long *newNumbers = reinterpret_cast<long long *>(newStrings + strings + 1);
+        for (size_t i = 0; i < numbers; ++i) {
+            newNumbers[i] = numberSlot(i);
+        }
+        release();
+        m_block = block;
+        m_fields = sequenceWith(m_fields, field, true);
+    }
+
+    void insert(uint field, long long value)
+    {
+        const size_t strings = m_fields->stringFields.size();
+        const size_t numbers = m_fields->numberFields.size();
+        void *block = ::operator new(strings * sizeof(QString) + (numbers + 1) * sizeof(long long));
+        QString *newStrings = static_cast<QString *>(block);
+        for (size_t i = 0; i < strings; ++i) {
+            new (newStrings + i) QString(std::move(stringSlot(i)));
+        }
+        long long *newNumbers = reinterpret_cast<long long *>(newStrings + strings);
+        for (size_t i = 0; i < numbers; ++i) {
+            newNumbers[i] = numberSlot(i);
+        }
+        newNumbers[numbers] = value;
+        release();
+        m_block = block;
+        m_fields = sequenceWith(m_fields, field, false);
+    }
+
+    int count() const
+    {
+        return int(m_fields->stringFields.size() + m_fields->numberFields.size());
+    }
+
+    QString stringValue(uint field) const
+    {
+        const std::vector<uint> &fields = m_fields->stringFields;
+        for (size_t i = 0; i < fields.size(); ++i) {
+            if (fields[i] == field) {
+                return stringSlot(i);
+            }
+        }
+        return QString();
+    }
+
+    long long numberValue(uint field, long long defaultValue = -1) const
+    {
+        const std::vector<uint> &fields = m_fields->numberFields;
+        for (size_t i = 0; i < fields.size(); ++i) {
+            if (fields[i] == field) {
+                return numberSlot(i);
+            }
+        }
+        return defaultValue;
+    }
+
+    QString spaceUsed()
+    {
+        const size_t block = m_fields->stringFields.size() * sizeof(QString) + m_fields->numberFields.size() * sizeof(long long);
+        const size_t fixed = sizeof(const FieldSequence *) + sizeof(void *);
+        return QStringLiteral("size:%1 space used:%2").arg(block + fixed).arg(block + fixed);
+    }
+
+private:
+    QString &stringSlot(size_t index) const
+    {
+        return *(static_cast<QString *>(m_block) + index);
+    }
+
+    long long &numberSlot(size_t index) const
+    {
+        return *(reinterpret_cast<long long *>(static_cast<QString *>(m_block) + m_fields->stringFields.size()) + index);
+    }
+
+    void release()
+    {
+        if (!m_block) {
+            return;
+        }
+        for (size_t i = 0; i < m_fields->stringFields.size(); ++i) {
+            stringSlot(i).~QString();
+        }
+        ::operator delete(m_block);
+        m_block = nullptr;
+    }
+
+    void copyFrom(const InternedSingleBlockUDSEntry &other)
+    {
+        m_fields = other.m_fields;
+        m_block = nullptr;
+        if (!other.m_block) {
+            return;
+        }
+        const size_t strings = m_fields->stringFields.size();
+        const size_t numbers = m_fields->numberFields.size();
+        m_block = ::operator new(strings * sizeof(QString) + numbers * sizeof(long long));
+        for (size_t i = 0; i < strings; ++i) {
+            new (static_cast<QString *>(m_block) + i) QString(other.stringSlot(i));
+        }
+        for (size_t i = 0; i < numbers; ++i) {
+            numberSlot(i) = other.numberSlot(i);
+        }
+    }
+
+    const FieldSequence *m_fields = emptySequence();
+    void *m_block = nullptr;
+};
+
 template<class T>
 static void fillUDSEntries(T &entry, time_t now_time_t, const QString &nameStr, const QString &groupStr)
 {
@@ -876,6 +1149,117 @@ void printSpaceUsed(UdsEntryBenchmark *bench)
     qDebug() << typeid(T).name() << " memory used" << entry.spaceUsed();
 }
 
+void UdsEntryBenchmark::testInternedFieldsFill()
+{
+    testFill<InternedFieldsUDSEntry>(this);
+}
+
+void UdsEntryBenchmark::testInternedFieldsCompare()
+{
+    testCompare<InternedFieldsUDSEntry>(this);
+}
+
+void UdsEntryBenchmark::testInternedFieldsApp()
+{
+    testApp<InternedFieldsUDSEntry>(this);
+}
+
+// The resident memory of this process, read back after asking the allocator to return what it can.
+static long processResidentBytes()
+{
+    QFile status(QStringLiteral("/proc/self/status"));
+    if (!status.open(QIODevice::ReadOnly)) {
+        return -1;
+    }
+    for (QByteArray line = status.readLine(); !line.isEmpty(); line = status.readLine()) {
+        if (line.startsWith("VmRSS:")) {
+            return line.mid(6).simplified().split(' ').first().toLong() * 1024;
+        }
+    }
+    return -1;
+}
+
+// The fields a listing carries for a file, as kio_file sends them: two strings, the name and where a
+// link points, and eight numbers, the type, the permissions, the size, the three times and the two
+// ids of who owns it.
+template<class T>
+static void fillDolphinLikeEntry(T &entry, time_t now_time_t, const QString &nameStr, const QString &groupStr)
+{
+    entry.reserve(10);
+    entry.insert(KIO::UDSEntry::UDS_NAME, nameStr);
+    entry.insert(KIO::UDSEntry::UDS_LINK_DEST, groupStr);
+    entry.insert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG);
+    entry.insert(KIO::UDSEntry::UDS_ACCESS, 0644);
+    entry.insert(KIO::UDSEntry::UDS_SIZE, 123456ULL);
+    entry.insert(KIO::UDSEntry::UDS_MODIFICATION_TIME, now_time_t);
+    entry.insert(KIO::UDSEntry::UDS_ACCESS_TIME, now_time_t);
+    entry.insert(KIO::UDSEntry::UDS_CREATION_TIME, now_time_t);
+    entry.insert(KIO::UDSEntry::UDS_LOCAL_USER_ID, 1000);
+    entry.insert(KIO::UDSEntry::UDS_LOCAL_GROUP_ID, 1000);
+}
+
+// What a window listing a folder does: it keeps an entry per file for as long as the folder is
+// shown, and reads a few of their fields again on every sort, filter and repaint.
+template<class T>
+static void dolphinLikeWorkload(UdsEntryBenchmark *bench, const char *name)
+{
+    const int fileCount = 100000;
+    const int viewPasses = 20;
+
+    QList<T> entries;
+    entries.reserve(fileCount);
+
+#if defined(__GLIBC__)
+    malloc_trim(0);
+#endif
+    const long before = processResidentBytes();
+
+    QElapsedTimer timer;
+    timer.start();
+    for (int i = 0; i < fileCount; ++i) {
+        entries.append(T());
+        fillDolphinLikeEntry<T>(entries.last(), bench->now_time_t, bench->nameStr, bench->groupStr);
+    }
+    const qint64 fillMs = timer.elapsed();
+
+#if defined(__GLIBC__)
+    malloc_trim(0);
+#endif
+    const long after = processResidentBytes();
+
+    timer.restart();
+    long long sink = 0;
+    for (int pass = 0; pass < viewPasses; ++pass) {
+        for (const T &entry : std::as_const(entries)) {
+            sink += entry.stringValue(KIO::UDSEntry::UDS_NAME).size();
+            sink += entry.numberValue(KIO::UDSEntry::UDS_SIZE);
+            sink += entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME);
+            sink += entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE);
+        }
+    }
+    const qint64 readMs = timer.elapsed();
+
+    QVERIFY(sink > 0);
+    qInfo().nospace() << name << ": keeping " << fileCount << " entries took " << fillMs << " ms and " << (after - before) << " bytes, "
+                      << double(after - before) / fileCount << " bytes per entry. Reading four fields of each, " << viewPasses << " times over, took " << readMs
+                      << " ms.";
+}
+
+void UdsEntryBenchmark::testInternedSingleBlockFill()
+{
+    testFill<InternedSingleBlockUDSEntry>(this);
+}
+
+void UdsEntryBenchmark::testInternedSingleBlockCompare()
+{
+    testCompare<InternedSingleBlockUDSEntry>(this);
+}
+
+void UdsEntryBenchmark::testInternedSingleBlockApp()
+{
+    testApp<InternedSingleBlockUDSEntry>(this);
+}
+
 void UdsEntryBenchmark::testspaceUsed()
 {
     printSpaceUsed<FrankUDSEntry>(this);
@@ -884,6 +1268,20 @@ void UdsEntryBenchmark::testspaceUsed()
     printSpaceUsed<TwoVectorKindEntry>(this);
     printSpaceUsed<UDSEntryHS>(this);
     printSpaceUsed<UnionUDSEntry>(this);
+    printSpaceUsed<InternedFieldsUDSEntry>(this);
+    printSpaceUsed<InternedSingleBlockUDSEntry>(this);
+}
+
+void UdsEntryBenchmark::testDolphinLikeWorkload()
+{
+    dolphinLikeWorkload<FrankUDSEntry>(this, "two vectors");
+    dolphinLikeWorkload<AnotherUDSEntry>(this, "one vector");
+    dolphinLikeWorkload<AnotherV2UDSEntry>(this, "one vector, v2");
+    dolphinLikeWorkload<TwoVectorKindEntry>(this, "two vectors by kind, as it is now");
+    dolphinLikeWorkload<UDSEntryHS>(this, "hash");
+    dolphinLikeWorkload<UnionUDSEntry>(this, "union");
+    dolphinLikeWorkload<InternedFieldsUDSEntry>(this, "interned set of fields");
+    dolphinLikeWorkload<InternedSingleBlockUDSEntry>(this, "interned, values in one block");
 }
 
 QTEST_MAIN(UdsEntryBenchmark)
