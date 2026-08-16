@@ -150,9 +150,10 @@ Q_SIGNALS:
 
     /*!
      * Emitted when the URL \a url should be opened in a new inactive tab because
-     * the user clicked on a place with the middle mouse button or
-     * left-clicked with the Ctrl modifier pressed or selected "Open in New Tab"
-     * from the context menu.
+     * the user clicked on a place with the middle mouse button with the Shift
+     * modifier pressed or left-clicked with both the Ctrl and Shift modifiers
+     * pressed or selected "Open in New Tab" from the context menu with the Shift
+     * modifier pressed.
      *
      * If a storage device needs to be mounted first, this signal is emitted once
      * mounting has completed successfully.
@@ -162,9 +163,9 @@ Q_SIGNALS:
 
     /*!
      * Emitted when the URL \a url should be opened in a new active tab because
-     * the user clicked on a place with the middle mouse button with
-     * the Shift modifier pressed or left-clicked with both the Ctrl and Shift
-     * modifiers pressed.
+     * the user clicked on a place with the middle mouse button or left-clicked
+     * with the Ctrl modifier pressed or selected "Open in New Tab" from the
+     * context menu.
 
      * If a storage device needs to be mounted first, this signal is emitted once
      * mounting has completed successfully.

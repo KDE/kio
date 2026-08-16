@@ -778,6 +778,9 @@ public:
     void setupIconSizeSubMenu(QMenu *submenu);
 
     void placeClicked(const QModelIndex &index, ActivationSignal activationSignal);
+    // The signal asking for a new tab, active or in the background, or nullptr when the application
+    // connected neither of the two.
+    ActivationSignal tabActivationSignal(bool background) const;
     void headerAreaEntered(const QModelIndex &index);
     void headerAreaLeft(const QModelIndex &index);
     void actionClicked(const QModelIndex &index);
@@ -878,10 +881,10 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
     // KFilePlacesView should be style independent.
     connect(this, &KFilePlacesView::clicked, this, [this](const QModelIndex &index) {
         const auto modifiers = qGuiApp->keyboardModifiers();
-        if (modifiers == (Qt::ControlModifier | Qt::ShiftModifier) && isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::activeTabRequested))) {
-            d->placeClicked(index, &KFilePlacesView::activeTabRequested);
-        } else if (modifiers == Qt::ControlModifier && isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::tabRequested))) {
-            d->placeClicked(index, &KFilePlacesView::tabRequested);
+        // Holding Shift down along with Ctrl asks for the new tab to stay in the background.
+        const auto tabSignal = d->tabActivationSignal(modifiers == (Qt::ControlModifier | Qt::ShiftModifier));
+        if ((modifiers == Qt::ControlModifier || modifiers == (Qt::ControlModifier | Qt::ShiftModifier)) && tabSignal) {
+            d->placeClicked(index, tabSignal);
         } else if (modifiers == Qt::ShiftModifier && isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::newWindowRequested))) {
             d->placeClicked(index, &KFilePlacesView::newWindowRequested);
         } else {
@@ -933,10 +936,10 @@ KFilePlacesView::KFilePlacesView(QWidget *parent)
 
     viewport()->installEventFilter(d->m_watcher);
     connect(d->m_watcher, &KFilePlacesEventWatcher::entryMiddleClicked, this, [this](const QModelIndex &index) {
-        if (qGuiApp->keyboardModifiers() == Qt::ShiftModifier && isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::activeTabRequested))) {
-            d->placeClicked(index, &KFilePlacesView::activeTabRequested);
-        } else if (isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::tabRequested))) {
-            d->placeClicked(index, &KFilePlacesView::tabRequested);
+        // Holding Shift down asks for the new tab to stay in the background.
+        const auto tabSignal = d->tabActivationSignal(qGuiApp->keyboardModifiers() == Qt::ShiftModifier);
+        if (tabSignal) {
+            d->placeClicked(index, tabSignal);
         } else {
             d->placeClicked(index, &KFilePlacesView::placeActivated);
         }
@@ -1257,8 +1260,7 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
             openRecentlyUsedSetting = placesModel->openRecentOption(index);
         }
 
-        // TODO What about active tab?
-        if (isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::tabRequested))) {
+        if (d->tabActivationSignal(false)) {
             newTab = new QAction(QIcon::fromTheme(QStringLiteral("tab-new")), i18nc("@item:inmenu", "Open in New Tab"), &menu);
         }
         if (isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::newWindowRequested))) {
@@ -1385,7 +1387,8 @@ void KFilePlacesView::contextMenuEvent(QContextMenuEvent *event)
         } else if (result == teardown) {
             d->teardown(index);
         } else if (result == newTab) {
-            d->placeClicked(index, &KFilePlacesView::tabRequested);
+            // Holding Shift down asks for the new tab to stay in the background.
+            d->placeClicked(index, d->tabActivationSignal(qGuiApp->keyboardModifiers() == Qt::ShiftModifier));
         } else if (result == newWindow) {
             d->placeClicked(index, &KFilePlacesView::newWindowRequested);
         } else if (result == properties) {
@@ -2062,6 +2065,24 @@ void KFilePlacesViewPrivate::triggerItemDisappearingAnimation()
     } else {
         itemDisappearUpdate(1.0);
     }
+}
+
+KFilePlacesViewPrivate::ActivationSignal KFilePlacesViewPrivate::tabActivationSignal(bool background) const
+{
+    const bool activeTabConnected = q->isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::activeTabRequested));
+    const bool tabConnected = q->isSignalConnected(QMetaMethod::fromSignal(&KFilePlacesView::tabRequested));
+
+    // An application connecting only one of the two signals gets that one for both cases.
+    if (background) {
+        if (tabConnected) {
+            return &KFilePlacesView::tabRequested;
+        }
+        return activeTabConnected ? &KFilePlacesView::activeTabRequested : nullptr;
+    }
+    if (activeTabConnected) {
+        return &KFilePlacesView::activeTabRequested;
+    }
+    return tabConnected ? &KFilePlacesView::tabRequested : nullptr;
 }
 
 void KFilePlacesViewPrivate::placeClicked(const QModelIndex &index, ActivationSignal activationSignal)
