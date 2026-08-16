@@ -114,8 +114,8 @@ public:
      * Is invoked when a navigator button has been clicked.
      * Different combinations of mouse clicks and keyboard modifiers have different effects on how
      * the url is opened. The behaviours are the following:
-     * - shift+middle-click or ctrl+shift+left-click => activeTabRequested() signal is emitted
-     * - ctrl+left-click or middle-click => tabRequested() signal is emitted
+     * - middle-click or ctrl+left-click => activeTabRequested() signal is emitted
+     * - shift+middle-click or ctrl+shift+left-click => tabRequested() signal is emitted
      * - shift+left-click => newWindowRequested() signal is emitted
      * - left-click => open the new url in-place
      */
@@ -589,10 +589,13 @@ void KUrlNavigatorPrivate::dropUrls(const QUrl &destination, QDropEvent *event, 
 
 void KUrlNavigatorPrivate::slotNavigatorButtonClicked(const QUrl &url, Qt::MouseButton button, Qt::KeyboardModifiers modifiers)
 {
-    if ((button & Qt::MiddleButton && modifiers & Qt::ShiftModifier) || (button & Qt::LeftButton && modifiers & (Qt::ControlModifier | Qt::ShiftModifier))) {
-        Q_EMIT q->activeTabRequested(url);
-    } else if (button & Qt::MiddleButton || (button & Qt::LeftButton && modifiers & Qt::ControlModifier)) {
-        Q_EMIT q->tabRequested(url);
+    if (button & Qt::MiddleButton || (button & Qt::LeftButton && modifiers & Qt::ControlModifier)) {
+        // Holding Shift down asks for the new tab to stay in the background.
+        if (modifiers & Qt::ShiftModifier) {
+            Q_EMIT q->tabRequested(url);
+        } else {
+            Q_EMIT q->activeTabRequested(url);
+        }
     } else if (button & Qt::LeftButton && modifiers & Qt::ShiftModifier) {
         Q_EMIT q->newWindowRequested(url);
     } else if (button & Qt::LeftButton) {
@@ -634,7 +637,13 @@ void KUrlNavigatorPrivate::openContextMenu(const QPoint &p)
             if (isTabSignal) {
                 QAction *openInTab = popup->addAction(QIcon::fromTheme(QStringLiteral("tab-new")), i18nc("@item:inmenu", "Open \"%1\" in New Tab", text));
                 q->connect(openInTab, &QAction::triggered, q, [this, url]() {
-                    Q_EMIT q->tabRequested(url);
+                    // Holding Shift down asks for the new tab to stay in the background.
+                    const bool background = QApplication::keyboardModifiers() & Qt::ShiftModifier;
+                    if (!background && q->isSignalConnected(QMetaMethod::fromSignal(&KUrlNavigator::activeTabRequested))) {
+                        Q_EMIT q->activeTabRequested(url);
+                    } else {
+                        Q_EMIT q->tabRequested(url);
+                    }
                 });
             }
 
