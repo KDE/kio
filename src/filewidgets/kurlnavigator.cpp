@@ -17,6 +17,7 @@
 #include "kurlnavigatorplacesselector_p.h"
 #include "kurlnavigatorschemecombo_p.h"
 #include "kurlnavigatortogglebutton_p.h"
+#include "shiftalternative_p.h"
 
 #include <KIO/StatJob>
 #include <KLocalizedString>
@@ -636,6 +637,11 @@ void KUrlNavigatorPrivate::openContextMenu(const QPoint &p)
 
             if (isTabSignal) {
                 QAction *openInTab = popup->addAction(QIcon::fromTheme(QStringLiteral("tab-new")), i18nc("@item:inmenu", "Open \"%1\" in New Tab", text));
+                new FileWidgetsPrivate::ShiftAlternative(
+                    openInTab,
+                    popup,
+                    i18nc("@item:inmenu", "Open \"%1\" in New Background Tab", text),
+                    i18nc("@info:tooltip", "Hold Shift to open the new tab in the background instead of switching to it."));
                 q->connect(openInTab, &QAction::triggered, q, [this, url]() {
                     // Holding Shift down asks for the new tab to stay in the background.
                     const bool background = QApplication::keyboardModifiers() & Qt::ShiftModifier;
