@@ -185,6 +185,12 @@ bool SocketConnectionBackend::sendCommand(int cmd, const QByteArray &data)
     Q_ASSERT(state == Connected);
     Q_ASSERT(socket);
 
+    // The header holds the size in six hex digits, so that is as much as one message can carry.
+    if (data.size() > 0xffffff) {
+        qCWarning(KIO_CORE_CONNECTION) << "Message of" << data.size() << "bytes is too much for one command";
+        return false;
+    }
+
     char buffer[HeaderSize + 2];
     sprintf(buffer, "%6zx_%2x_", static_cast<size_t>(data.size()), cmd);
     socket->write(buffer, HeaderSize);
@@ -268,22 +274,30 @@ void SocketConnectionBackend::socketReadyRead()
 
             pendingTask = Task{.cmd = static_cast<int>(cmd)};
             pendingLen = len;
+            pendingData.clear();
+            pendingData.reserve(len);
 
             qCDebug(KIO_CORE_CONNECTION) << this << "Beginning of command" << pendingTask->cmd << "of size" << pendingLen;
         }
 
         QPointer<ConnectionBackend> that = this;
 
-        const auto toRead = std::min<off_t>(socket->bytesAvailable(), pendingLen - pendingTask->data.size());
-        qCDebug(KIO_CORE_CONNECTION) << socket << "Want to read" << toRead << "bytes; appending to already existing bytes" << pendingTask->data.size();
-        pendingTask->data += socket->read(toRead);
+        const auto alreadyRead = pendingData.size();
+        const auto toRead = std::min<off_t>(socket->bytesAvailable(), pendingLen - alreadyRead);
+        qCDebug(KIO_CORE_CONNECTION) << socket << "Want to read" << toRead << "bytes; appending to already existing bytes" << alreadyRead;
+        // Read into the buffer the command is collected in, rather than into one of its own.
+        pendingData.resize(alreadyRead + toRead);
+        const auto wasRead = socket->read(pendingData.data() + alreadyRead, toRead);
+        pendingData.resize(alreadyRead + std::max<qint64>(wasRead, 0));
 
-        if (pendingTask->data.size() == pendingLen) { // read all data of this task -> emit it and reset
+        if (pendingData.size() == pendingLen) { // read all data of this task -> emit it and reset
             signalEmitted = true;
-            qCDebug(KIO_CORE_CONNECTION) << "emitting task" << pendingTask->cmd << pendingTask->data.size();
+            qCDebug(KIO_CORE_CONNECTION) << "emitting task" << pendingTask->cmd << pendingData.size();
+            pendingTask->payload = std::move(pendingData);
             Q_EMIT commandReceived(pendingTask.value());
 
             pendingTask = {};
+            pendingData.clear();
         }
 
         // If we're dead, better don't try anything.

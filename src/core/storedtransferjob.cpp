@@ -18,12 +18,12 @@ using namespace KIO;
 class KIO::StoredTransferJobPrivate : public TransferJobPrivate
 {
 public:
-    StoredTransferJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs, const QByteArray &_staticData)
+    StoredTransferJobPrivate(const QUrl &url, int command, const TaskPayload &packedArgs, const QByteArray &_staticData)
         : TransferJobPrivate(url, command, packedArgs, _staticData)
         , m_uploadOffset(0)
     {
     }
-    StoredTransferJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs, QIODevice *ioDevice)
+    StoredTransferJobPrivate(const QUrl &url, int command, const TaskPayload &packedArgs, QIODevice *ioDevice)
         : TransferJobPrivate(url, command, packedArgs, ioDevice)
         , m_uploadOffset(0)
     {

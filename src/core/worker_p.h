@@ -50,6 +50,11 @@ public:
      * \a arr byte array containing data
      */
     virtual void send(int cmd, const QByteArray &arr = QByteArray());
+    /*!
+     * Sends what the command carries. The worker is handed the object as it is when it runs in a
+     * thread of this process, and the bytes it is written to otherwise.
+     */
+    virtual void send(int cmd, const TaskPayload &payload);
 
     /*!
      * Returns Host this worker is (was?) connected to

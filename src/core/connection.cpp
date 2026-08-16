@@ -12,7 +12,9 @@
 #include "connectionbackend_p.h"
 #include "kiocoredebug.h"
 #include "socketconnectionbackend_p.h"
+#include <QDataStream>
 #include <QDebug>
+#include <QIODevice>
 
 #include <cerrno>
 
@@ -25,7 +27,7 @@ void ConnectionPrivate::dequeue()
     }
 
     for (const Task &task : std::as_const(outgoingTasks)) {
-        q->sendnow(task.cmd, task.data);
+        q->sendnow(task.cmd, task.payload);
     }
     outgoingTasks.clear();
 
@@ -174,25 +176,40 @@ bool Connection::send(int cmd, const QByteArray &data)
         return false;
     }
     if (!inited() || !d->outgoingTasks.isEmpty()) {
-        Task task;
-        task.cmd = cmd;
-        task.data = data;
-        d->outgoingTasks.append(std::move(task));
+        d->outgoingTasks.append(Task{.cmd = cmd, .payload = data});
         return true;
     } else {
         return sendnow(cmd, data);
     }
 }
 
+bool Connection::send(int cmd, const TaskPayload &payload)
+{
+    if (m_type == Type::Worker && !inited()) {
+        qCWarning(KIO_CORE) << "Connection::send() called with connection not inited";
+        return false;
+    }
+    if (!inited() || !d->outgoingTasks.isEmpty()) {
+        d->outgoingTasks.append(Task{.cmd = cmd, .payload = payload});
+        return true;
+    }
+    return sendnow(cmd, payload);
+}
+
+bool Connection::sendnow(int cmd, const TaskPayload &payload)
+{
+    if (!isConnected()) {
+        qCWarning(KIO_CORE) << "Connection::sendnow not connected";
+        return false;
+    }
+
+    return d->backend->sendPayload(cmd, payload);
+}
+
 bool Connection::sendnow(int cmd, const QByteArray &data)
 {
     if (!d->backend) {
         qCWarning(KIO_CORE) << "Connection::sendnow has no backend";
-        return false;
-    }
-
-    if (data.size() > 0xffffff) {
-        qCWarning(KIO_CORE) << "Connection::sendnow too much data";
         return false;
     }
 
@@ -222,7 +239,7 @@ bool Connection::waitForIncomingTask(int ms)
     return false;
 }
 
-int Connection::read(int *_cmd, QByteArray &data)
+int Connection::read(int *_cmd, QByteArray &data, TaskPayload *payload)
 {
     // if it's still empty, then it's an error
     if (d->incomingTasks.isEmpty()) {
@@ -230,9 +247,12 @@ int Connection::read(int *_cmd, QByteArray &data)
         return -1;
     }
     const Task &task = d->incomingTasks.constFirst();
-    // qDebug() << this << "Command" << task.cmd << "removed from the queue (size" << task.data.size() << ")";
+    // qDebug() << this << "Command" << task.cmd << "removed from the queue";
     *_cmd = task.cmd;
-    data = task.data;
+    data = task.bytes();
+    if (payload) {
+        *payload = task.payload;
+    }
 
     d->incomingTasks.removeFirst();
 

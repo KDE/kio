@@ -260,7 +260,7 @@ MetaData Job::outgoingMetaData() const
 class KIO::DirectCopyJobPrivate : public KIO::SimpleJobPrivate
 {
 public:
-    DirectCopyJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs)
+    DirectCopyJobPrivate(const QUrl &url, int command, const TaskPayload &packedArgs)
         : SimpleJobPrivate(url, command, packedArgs)
     {
     }

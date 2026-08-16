@@ -7,6 +7,7 @@
 #ifndef SLAVEBASE_H
 #define SLAVEBASE_H
 
+#include "connectionbackend_p.h" // for KIO::TaskPayload
 #include "job_base.h" // for KIO::JobFlags
 #include <kio/authinfo.h>
 #include <kio/global.h>
@@ -936,6 +937,9 @@ private:
     // This helps catching missing tr()/i18n() calls in error().
     void error(int _errid, const QByteArray &_text);
     void send(int cmd, const QByteArray &arr = QByteArray());
+    // Hands what a message carries to the application as it is, when the application is in this
+    // process, and as the bytes standing for it otherwise.
+    void send(int cmd, const TaskPayload &payload);
 
     std::unique_ptr<SlaveBasePrivate> const d;
     friend class SlaveBasePrivate;

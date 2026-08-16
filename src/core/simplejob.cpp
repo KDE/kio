@@ -163,8 +163,7 @@ void SimpleJobPrivate::start(Worker *worker)
     }
 
     if (!m_outgoingMetaData.isEmpty()) {
-        KIO_ARGS << m_outgoingMetaData;
-        worker->send(CMD_META_DATA, packedArgs);
+        worker->send(CMD_META_DATA, m_outgoingMetaData);
     }
 
     worker->send(m_command, m_packedArgs);
@@ -204,7 +203,7 @@ void SimpleJob::slotFinished()
             } else { /*if ( m_command == CMD_RENAME )*/
                 QUrl src;
                 QUrl dst;
-                QDataStream str(d->m_packedArgs);
+                QDataStream str(payloadBytes(d->m_packedArgs));
                 str >> src >> dst;
                 if (src.adjusted(QUrl::RemoveFilename) == dst.adjusted(QUrl::RemoveFilename) // For the user, moving isn't
                                                                                              // renaming. Only renaming is.

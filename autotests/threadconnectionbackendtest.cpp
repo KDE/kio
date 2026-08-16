@@ -51,7 +51,24 @@ private Q_SLOTS:
     void testOwnedPayloadSurvivesSenderScope();
     void testManyTasksPreserveOrderUnderBackPressure();
     void testWorkerCloseDisconnectsApplication();
+    void testEntriesTravelAsObjects();
+    void testEntriesBuiltOnTheWorkerThread();
 };
+
+// The entries of a listing, of the shape kio_file sends.
+static UDSEntryList makeEntries(int count)
+{
+    UDSEntryList entries;
+    entries.reserve(count);
+    for (int i = 0; i < count; ++i) {
+        UDSEntry entry;
+        entry.fastInsert(UDSEntry::UDS_NAME, QStringLiteral("file%1").arg(i));
+        entry.fastInsert(UDSEntry::UDS_FILE_TYPE, S_IFREG);
+        entry.fastInsert(UDSEntry::UDS_SIZE, i);
+        entries.append(entry);
+    }
+    return entries;
+}
 
 void ThreadConnectionBackendTest::testApplicationReceivesFromWorker()
 {
@@ -71,9 +88,9 @@ void ThreadConnectionBackendTest::testApplicationReceivesFromWorker()
     QTRY_COMPARE(sink.count(), 3); // delivered via the application event loop
     const QList<Task> tasks = sink.tasks();
     QCOMPARE(tasks.at(0).cmd, 1);
-    QCOMPARE(tasks.at(0).data, QByteArrayLiteral("a"));
+    QCOMPARE(tasks.at(0).bytes(), QByteArrayLiteral("a"));
     QCOMPARE(tasks.at(2).cmd, 3);
-    QCOMPARE(tasks.at(2).data, QByteArrayLiteral("ccc"));
+    QCOMPARE(tasks.at(2).bytes(), QByteArrayLiteral("ccc"));
 }
 
 void ThreadConnectionBackendTest::testSuspendedApplicationBuffersUntilResumed()
@@ -101,11 +118,11 @@ void ThreadConnectionBackendTest::testSuspendedApplicationBuffersUntilResumed()
     QTRY_COMPARE(sink.count(), 3);
     const QList<Task> tasks = sink.tasks();
     QCOMPARE(tasks.at(0).cmd, 1);
-    QCOMPARE(tasks.at(0).data, QByteArrayLiteral("a"));
+    QCOMPARE(tasks.at(0).bytes(), QByteArrayLiteral("a"));
     QCOMPARE(tasks.at(1).cmd, 2);
-    QCOMPARE(tasks.at(1).data, QByteArrayLiteral("bb"));
+    QCOMPARE(tasks.at(1).bytes(), QByteArrayLiteral("bb"));
     QCOMPARE(tasks.at(2).cmd, 3);
-    QCOMPARE(tasks.at(2).data, QByteArrayLiteral("ccc"));
+    QCOMPARE(tasks.at(2).bytes(), QByteArrayLiteral("ccc"));
 }
 
 void ThreadConnectionBackendTest::testWorkerReceivesFromApplication()
@@ -139,7 +156,7 @@ void ThreadConnectionBackendTest::testWorkerReceivesFromApplication()
 
     const QList<Task> tasks = sink.tasks();
     QCOMPARE(tasks.at(0).cmd, 10);
-    QCOMPARE(tasks.at(1).data, QByteArrayLiteral("yy"));
+    QCOMPARE(tasks.at(1).bytes(), QByteArrayLiteral("yy"));
 }
 
 void ThreadConnectionBackendTest::testOwnedPayloadSurvivesSenderScope()
@@ -161,7 +178,7 @@ void ThreadConnectionBackendTest::testOwnedPayloadSurvivesSenderScope()
 
     QTRY_COMPARE(sink.count(), 1);
     QCOMPARE(sink.tasks().at(0).cmd, 7);
-    QCOMPARE(sink.tasks().at(0).data, QByteArray(64, 'z'));
+    QCOMPARE(sink.tasks().at(0).bytes(), QByteArray(64, 'z'));
 }
 
 void ThreadConnectionBackendTest::testManyTasksPreserveOrderUnderBackPressure()
@@ -190,7 +207,7 @@ void ThreadConnectionBackendTest::testManyTasksPreserveOrderUnderBackPressure()
     const QList<Task> tasks = sink.tasks();
     for (int i = 0; i < total; ++i) {
         QCOMPARE(tasks.at(i).cmd, i);
-        QCOMPARE(tasks.at(i).data, QByteArray::number(i));
+        QCOMPARE(tasks.at(i).bytes(), QByteArray::number(i));
     }
 }
 
@@ -205,6 +222,62 @@ void ThreadConnectionBackendTest::testWorkerCloseDisconnectsApplication()
 
     QTRY_COMPARE(disconnectedSpy.count(), 1);
     QCOMPARE(appBackend->state, ConnectionBackend::Idle);
+}
+
+void ThreadConnectionBackendTest::testEntriesTravelAsObjects()
+{
+    auto [appBackend, workerBackend] = ThreadConnectionBackend::createPair();
+
+    TaskSink sink;
+    connect(appBackend.get(), &ConnectionBackend::commandReceived, this, [&sink](const Task &task) {
+        sink.add(task);
+    });
+
+    QVERIFY(workerBackend->sendPayload(42, makeEntries(3)));
+
+    QTRY_COMPARE(sink.count(), 1);
+    const Task task = sink.tasks().constFirst();
+    QCOMPARE(task.cmd, 42);
+    QVERIFY(task.bytes().isEmpty()); // nothing was written down, the entries came as they are
+    const UDSEntryList *entries = std::get_if<UDSEntryList>(&task.payload);
+    QVERIFY(entries);
+    QCOMPARE(entries->count(), 3);
+    QCOMPARE(entries->at(2).stringValue(UDSEntry::UDS_NAME), QStringLiteral("file2"));
+    QCOMPARE(entries->at(2).numberValue(UDSEntry::UDS_SIZE), 2);
+}
+
+void ThreadConnectionBackendTest::testEntriesBuiltOnTheWorkerThread()
+{
+    // What a listing does: the entries are built on the worker thread and read on the
+    // application thread, so whatever an entry holds must be safe to hand over that way.
+    auto [appBackend, workerBackend] = ThreadConnectionBackend::createPair();
+
+    TaskSink sink;
+    connect(appBackend.get(), &ConnectionBackend::commandReceived, this, [&sink](const Task &task) {
+        sink.add(task);
+    });
+
+    const int batches = 20;
+    QThread *workerThread = QThread::create([worker = workerBackend.get()] {
+        for (int i = 0; i < batches; ++i) {
+            worker->sendPayload(i, makeEntries(100));
+        }
+    });
+    workerThread->start();
+
+    QTRY_COMPARE_WITH_TIMEOUT(sink.count(), batches, 30000);
+    QVERIFY(workerThread->wait(5000));
+    delete workerThread;
+
+    const QList<Task> tasks = sink.tasks();
+    for (int i = 0; i < batches; ++i) {
+        QCOMPARE(tasks.at(i).cmd, i);
+        const UDSEntryList *entries = std::get_if<UDSEntryList>(&tasks.at(i).payload);
+        QVERIFY(entries);
+        QCOMPARE(entries->count(), 100);
+        QCOMPARE(entries->at(99).stringValue(UDSEntry::UDS_NAME), QStringLiteral("file99"));
+        QCOMPARE(entries->at(99).numberValue(UDSEntry::UDS_SIZE), 99);
+    }
 }
 
 QTEST_MAIN(ThreadConnectionBackendTest)

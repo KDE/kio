@@ -49,7 +49,7 @@ bool WorkerInterface::dispatch()
     int cmd;
     QByteArray data;
 
-    int ret = m_connection->read(&cmd, data);
+    int ret = m_connection->read(&cmd, data, &m_incomingPayload);
     if (ret == -1) {
         return false;
     }
@@ -124,13 +124,16 @@ bool WorkerInterface::dispatch(int _cmd, const QByteArray &rawdata)
         m_speed_timer.stop();
         Q_EMIT finished();
         break;
-    case MSG_STAT_ENTRY: {
-        UDSEntry entry;
-        stream >> entry;
-        Q_EMIT statEntry(entry);
+    case MSG_STAT_ENTRY:
+        Q_EMIT statEntry(carried<UDSEntry>(m_incomingPayload, stream));
         break;
-    }
     case MSG_LIST_ENTRIES: {
+        if (UDSEntryList *entries = std::get_if<UDSEntryList>(&m_incomingPayload)) {
+            // The worker lives in a thread of this process and handed its entries over as they are.
+            Q_EMIT listEntries(std::exchange(*entries, UDSEntryList{}));
+            break;
+        }
+
         UDSEntryList list;
         UDSEntry entry;
 
@@ -143,7 +146,7 @@ bool WorkerInterface::dispatch(int _cmd, const QByteArray &rawdata)
         break;
     }
     case MSG_RESUME: { // From the put job
-        m_offset = readFilesize_t(stream);
+        m_offset = carried<quint64>(m_incomingPayload, stream);
         Q_EMIT canResume(m_offset);
         break;
     }
@@ -152,20 +155,23 @@ bool WorkerInterface::dispatch(int _cmd, const QByteArray &rawdata)
         Q_EMIT canResume(0); // the arg doesn't matter
         break;
     case MSG_ERROR:
-        stream >> i >> str1;
-        // qDebug() << "error " << i << " " << str1;
-        Q_EMIT error(i, str1);
+        if (TaskError *reported = std::get_if<TaskError>(&m_incomingPayload)) {
+            Q_EMIT error(reported->code, reported->text);
+        } else {
+            stream >> i >> str1;
+            Q_EMIT error(i, str1);
+        }
         break;
     case MSG_CONNECTED:
         Q_EMIT connected();
         break;
     case MSG_WRITTEN: {
-        KIO::filesize_t size = readFilesize_t(stream);
+        const KIO::filesize_t size = carried<quint64>(m_incomingPayload, stream);
         Q_EMIT written(size);
         break;
     }
     case INF_TOTAL_SIZE: {
-        KIO::filesize_t size = readFilesize_t(stream);
+        const KIO::filesize_t size = carried<quint64>(m_incomingPayload, stream);
         m_start_time = QDateTime::currentMSecsSinceEpoch();
         m_last_time = 0;
         m_filesize = m_offset;
@@ -178,45 +184,40 @@ bool WorkerInterface::dispatch(int _cmd, const QByteArray &rawdata)
         break;
     }
     case INF_PROCESSED_SIZE: {
-        KIO::filesize_t size = readFilesize_t(stream);
+        const KIO::filesize_t size = carried<quint64>(m_incomingPayload, stream);
         Q_EMIT processedSize(size);
         m_filesize = size;
         break;
     }
     case INF_POSITION: {
-        KIO::filesize_t pos = readFilesize_t(stream);
+        const KIO::filesize_t pos = carried<quint64>(m_incomingPayload, stream);
         Q_EMIT position(pos);
         break;
     }
     case INF_TRUNCATED: {
-        KIO::filesize_t length = readFilesize_t(stream);
+        const KIO::filesize_t length = carried<quint64>(m_incomingPayload, stream);
         Q_EMIT truncated(length);
         break;
     }
     case INF_SPEED:
-        stream >> ul;
+        ul = carried<quint32>(m_incomingPayload, stream);
         m_worker_calcs_speed = true;
         m_speed_timer.stop();
         Q_EMIT speed(ul);
         break;
     case INF_ERROR_PAGE:
         break;
-    case INF_REDIRECTION: {
-        QUrl url;
-        stream >> url;
-        Q_EMIT redirection(url);
+    case INF_REDIRECTION:
+        Q_EMIT redirection(carried<QUrl>(m_incomingPayload, stream));
         break;
-    }
     case INF_MIME_TYPE:
-        stream >> str1;
-        Q_EMIT mimeType(str1);
+        Q_EMIT mimeType(carried<QString>(m_incomingPayload, stream));
         if (!m_connection->suspended()) {
             m_connection->sendnow(CMD_NONE, QByteArray());
         }
         break;
     case INF_WARNING:
-        stream >> str1;
-        Q_EMIT warning(str1);
+        Q_EMIT warning(carried<QString>(m_incomingPayload, stream));
         break;
     case INF_MESSAGEBOX: {
         // qDebug() << "needs a msg box";
@@ -235,12 +236,9 @@ bool WorkerInterface::dispatch(int _cmd, const QByteArray &rawdata)
         }
         break;
     }
-    case INF_INFOMESSAGE: {
-        QString msg;
-        stream >> msg;
-        Q_EMIT infoMessage(msg);
+    case INF_INFOMESSAGE:
+        Q_EMIT infoMessage(carried<QString>(m_incomingPayload, stream));
         break;
-    }
     case INF_SSLERROR: {
         QVariantMap sslErrorData;
         stream >> sslErrorData;
@@ -248,8 +246,7 @@ bool WorkerInterface::dispatch(int _cmd, const QByteArray &rawdata)
         break;
     }
     case INF_META_DATA: {
-        MetaData m;
-        stream >> m;
+        const MetaData m = carried<MetaData>(m_incomingPayload, stream);
         if (auto it = m.constFind(QStringLiteral("privilege_conf_details")); it != m.cend()) {
             // see WORKER_MESSAGEBOX_DETAILS_HACK
             m_messageBoxDetails = it.value();

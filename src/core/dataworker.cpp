@@ -126,18 +126,28 @@ void DataWorker::dispatchNext()
 
 void DataWorker::send(int cmd, const QByteArray &arr)
 {
-    QDataStream stream(arr);
+    send(cmd, TaskPayload{arr});
+}
+
+// This worker runs in the application itself, so a command reaches it without a transport under it
+// and carries whatever the job handed over.
+void DataWorker::send(int cmd, const TaskPayload &payload)
+{
+    QDataStream stream(payloadBytes(payload));
 
     QUrl url;
+    if (const QUrl *carried = std::get_if<QUrl>(&payload)) {
+        url = *carried;
+    } else {
+        stream >> url;
+    }
 
     switch (cmd) {
     case CMD_GET: {
-        stream >> url;
         get(url);
         break;
     }
     case CMD_MIMETYPE: {
-        stream >> url;
         mimetype(url);
         break;
     }

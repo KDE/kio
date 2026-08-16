@@ -110,6 +110,8 @@ public:
     UDSEntryList pendingListEntries;
     QElapsedTimer m_timeSinceLastBatch;
     Connection appConnection{Connection::Type::Worker};
+    // What the last command carried, when the application shares this process with the worker.
+    TaskPayload incomingPayload;
     bool isConnectedToApp;
 
     QString slaveid;
@@ -320,7 +322,7 @@ void SlaveBase::dispatchLoop()
             // dispatch application messages
             int cmd;
             QByteArray data;
-            ret = d->appConnection.read(&cmd, data);
+            ret = d->appConnection.read(&cmd, data, &d->incomingPayload);
 
             if (ret != -1) {
                 if (d->inOpenLoop) {
@@ -432,9 +434,7 @@ void SlaveBase::sendMetaData()
 void SlaveBase::sendAndKeepMetaData()
 {
     if (!mOutgoingMetaData.isEmpty()) {
-        KIO_DATA << mOutgoingMetaData;
-
-        send(INF_META_DATA, data);
+        send(INF_META_DATA, mOutgoingMetaData);
     }
 }
 
@@ -499,9 +499,7 @@ void SlaveBase::error(int _errid, const QString &_text)
     mIncomingMetaData.clear(); // Clear meta data
     d->rebuildConfig();
     mOutgoingMetaData.clear();
-    KIO_DATA << static_cast<qint32>(_errid) << _text;
-
-    send(MSG_ERROR, data);
+    send(MSG_ERROR, TaskError{static_cast<qint32>(_errid), _text});
     // reset
     d->totalSize = 0;
     d->inOpenLoop = false;
@@ -573,8 +571,7 @@ void SlaveBase::canResume()
 
 void SlaveBase::totalSize(KIO::filesize_t _bytes)
 {
-    KIO_DATA << static_cast<quint64>(_bytes);
-    send(INF_TOTAL_SIZE, data);
+    send(INF_TOTAL_SIZE, static_cast<quint64>(_bytes));
 
     // this one is usually called before the first item is listed in listDir()
     d->totalSize = _bytes;
@@ -595,8 +592,7 @@ void SlaveBase::processedSize(KIO::filesize_t _bytes)
     }
 
     if (emitSignal) {
-        KIO_DATA << static_cast<quint64>(_bytes);
-        send(INF_PROCESSED_SIZE, data);
+        send(INF_PROCESSED_SIZE, static_cast<quint64>(_bytes));
         d->lastTimeout.start();
     }
 
@@ -605,20 +601,17 @@ void SlaveBase::processedSize(KIO::filesize_t _bytes)
 
 void SlaveBase::written(KIO::filesize_t _bytes)
 {
-    KIO_DATA << static_cast<quint64>(_bytes);
-    send(MSG_WRITTEN, data);
+    send(MSG_WRITTEN, static_cast<quint64>(_bytes));
 }
 
 void SlaveBase::position(KIO::filesize_t _pos)
 {
-    KIO_DATA << static_cast<quint64>(_pos);
-    send(INF_POSITION, data);
+    send(INF_POSITION, static_cast<quint64>(_pos));
 }
 
 void SlaveBase::truncated(KIO::filesize_t _length)
 {
-    KIO_DATA << static_cast<quint64>(_length);
-    send(INF_TRUNCATED, data);
+    send(INF_TRUNCATED, static_cast<quint64>(_length));
 }
 
 void SlaveBase::processedPercent(float /* percent */)
@@ -628,14 +621,12 @@ void SlaveBase::processedPercent(float /* percent */)
 
 void SlaveBase::speed(unsigned long _bytes_per_second)
 {
-    KIO_DATA << static_cast<quint32>(_bytes_per_second);
-    send(INF_SPEED, data);
+    send(INF_SPEED, static_cast<quint32>(_bytes_per_second));
 }
 
 void SlaveBase::redirection(const QUrl &_url)
 {
-    KIO_DATA << _url;
-    send(INF_REDIRECTION, data);
+    send(INF_REDIRECTION, _url);
 }
 
 static bool isSubCommand(int cmd)
@@ -659,16 +650,15 @@ void SlaveBase::mimeType(const QString &_type)
         // Send the meta-data each time we send the MIME type.
         if (!mOutgoingMetaData.isEmpty()) {
             qCDebug(KIO_CORE) << "sending mimetype meta data";
-            KIO_DATA << mOutgoingMetaData;
-            send(INF_META_DATA, data);
+            send(INF_META_DATA, mOutgoingMetaData);
         }
-        KIO_DATA << _type;
-        send(INF_MIME_TYPE, data);
+        send(INF_MIME_TYPE, _type);
+        QByteArray data;
         while (true) {
             cmd = 0;
             int ret = -1;
             if (d->appConnection.hasTaskAvailable() || d->appConnection.waitForIncomingTask(-1)) {
-                ret = d->appConnection.read(&cmd, data);
+                ret = d->appConnection.read(&cmd, data, &d->incomingPayload);
             }
             if (ret == -1) {
                 qCDebug(KIO_CORE) << "read error on app connection while sending mimetype";
@@ -705,20 +695,17 @@ void SlaveBase::exit() // possibly called from another thread, only use atomics 
 
 void SlaveBase::warning(const QString &_msg)
 {
-    KIO_DATA << _msg;
-    send(INF_WARNING, data);
+    send(INF_WARNING, _msg);
 }
 
 void SlaveBase::infoMessage(const QString &_msg)
 {
-    KIO_DATA << _msg;
-    send(INF_INFOMESSAGE, data);
+    send(INF_INFOMESSAGE, _msg);
 }
 
 void SlaveBase::statEntry(const UDSEntry &entry)
 {
-    KIO_DATA << entry;
-    send(MSG_STAT_ENTRY, data);
+    send(MSG_STAT_ENTRY, entry);
 }
 
 void SlaveBase::listEntry(const UDSEntry &entry)
@@ -755,14 +742,11 @@ void SlaveBase::listEntry(const UDSEntry &entry)
 
 void SlaveBase::listEntries(const UDSEntryList &list)
 {
-    QByteArray data;
-    QDataStream stream(&data, QIODevice::WriteOnly);
-
-    for (const UDSEntry &entry : list) {
-        stream << entry;
+    // A worker running in a thread of the application hands the entries over as they are, which
+    // leaves them to be written down and read back only when the two are in different processes.
+    if (!d->appConnection.send(MSG_LIST_ENTRIES, list)) {
+        exit();
     }
-
-    send(MSG_LIST_ENTRIES, data);
 }
 
 static void sigpipe_handler(int)
@@ -993,9 +977,9 @@ bool SlaveBase::canResume(KIO::filesize_t offset)
 {
     // qDebug() << "offset=" << KIO::number(offset);
     d->needSendCanResume = false;
-    KIO_DATA << static_cast<quint64>(offset);
-    send(MSG_RESUME, data);
+    send(MSG_RESUME, static_cast<quint64>(offset));
     if (offset) {
+        QByteArray data;
         int cmd;
         if (waitForAnswer(CMD_RESUMEANSWER, CMD_NONE, data, &cmd) != -1) {
             // qDebug() << "returning" << (cmd == CMD_RESUMEANSWER);
@@ -1014,7 +998,7 @@ int SlaveBase::waitForAnswer(int expected1, int expected2, QByteArray &data, int
     int result = -1;
     for (;;) {
         if (d->appConnection.hasTaskAvailable() || d->appConnection.waitForIncomingTask(-1)) {
-            result = d->appConnection.read(&cmd, data);
+            result = d->appConnection.read(&cmd, data, &d->incomingPayload);
         }
         if (result == -1) {
             // qDebug() << "read error.";
@@ -1102,7 +1086,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         break;
     }
     case CMD_GET: {
-        stream >> url;
+        url = carried<QUrl>(d->incomingPayload, stream);
         d->m_state = d->InsideMethod;
         get(url);
         d->verifyState("get()");
@@ -1142,7 +1126,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         break;
     }
     case CMD_STAT: {
-        stream >> url;
+        url = carried<QUrl>(d->incomingPayload, stream);
         d->m_state = d->InsideMethod;
         stat(url); // krazy:exclude=syscalls
         d->verifyState("stat()");
@@ -1150,7 +1134,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         break;
     }
     case CMD_MIMETYPE: {
-        stream >> url;
+        url = carried<QUrl>(d->incomingPayload, stream);
         d->m_state = d->InsideMethod;
         mimetype(url);
         d->verifyState("mimetype()");
@@ -1158,7 +1142,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         break;
     }
     case CMD_LISTDIR: {
-        stream >> url;
+        url = carried<QUrl>(d->incomingPayload, stream);
         d->m_state = d->InsideMethod;
         listDir(url);
         d->verifyState("listDir()");
@@ -1261,7 +1245,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
     }
     case CMD_META_DATA: {
         // qDebug() << "(" << getpid() << ") Incoming meta-data...";
-        stream >> mIncomingMetaData;
+        mIncomingMetaData = carried<MetaData>(d->incomingPayload, stream);
         d->rebuildConfig();
         break;
     }
@@ -1270,7 +1254,7 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         break;
     }
     case CMD_FILESYSTEMFREESPACE: {
-        stream >> url;
+        url = carried<QUrl>(d->incomingPayload, stream);
 
         void *data = static_cast<void *>(&url);
 
@@ -1407,6 +1391,14 @@ bool SlaveBase::wasKilled() const
 void SlaveBase::setKillFlag()
 {
     d->wasKilled = true;
+}
+
+void SlaveBase::send(int cmd, const TaskPayload &payload)
+{
+    if (!d->appConnection.send(cmd, payload)) {
+        qCWarning(KIO_CORE) << "An error occurred during write. The worker terminates now.";
+        exit();
+    }
 }
 
 void SlaveBase::send(int cmd, const QByteArray &arr)

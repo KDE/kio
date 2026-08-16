@@ -20,7 +20,7 @@ using namespace KIO;
 class KIO::StatJobPrivate : public SimpleJobPrivate
 {
 public:
-    inline StatJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs)
+    inline StatJobPrivate(const QUrl &url, int command, const TaskPayload &packedArgs)
         : SimpleJobPrivate(url, command, packedArgs)
         , m_bSource(true)
         , m_details(KIO::StatDefaultDetails)
@@ -44,7 +44,7 @@ public:
 
     Q_DECLARE_PUBLIC(StatJob)
 
-    static inline StatJob *newJob(const QUrl &url, int command, const QByteArray &packedArgs, JobFlags flags)
+    static inline StatJob *newJob(const QUrl &url, int command, const TaskPayload &packedArgs, JobFlags flags)
     {
         StatJob *job = new StatJob(*new StatJobPrivate(url, command, packedArgs));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
@@ -157,9 +157,7 @@ void StatJob::slotFinished()
         }
 
         if (d->m_redirectionHandlingEnabled) {
-            d->m_packedArgs.truncate(0);
-            QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
-            stream << d->m_redirectionURL;
+            d->m_packedArgs = d->m_redirectionURL;
 
             d->restartAfterRedirection(&d->m_redirectionURL);
             return;
@@ -209,8 +207,7 @@ StatJob *KIO::stat(const QUrl &url, JobFlags flags)
 StatJob *KIO::stat(const QUrl &url, KIO::StatJob::StatSide side, KIO::StatDetails details, JobFlags flags)
 {
     // qCDebug(KIO_CORE) << "stat" << url;
-    KIO_ARGS << url;
-    StatJob *job = StatJobPrivate::newJob(url, CMD_STAT, packedArgs, flags);
+    StatJob *job = StatJobPrivate::newJob(url, CMD_STAT, url, flags);
     job->setSide(side);
     job->setDetails(details);
     return job;

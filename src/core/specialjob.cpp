@@ -13,7 +13,7 @@ using namespace KIO;
 
 class KIO::SpecialJobPrivate : public TransferJobPrivate
 {
-    SpecialJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs, const QByteArray &_staticData)
+    SpecialJobPrivate(const QUrl &url, int command, const TaskPayload &packedArgs, const QByteArray &_staticData)
         : TransferJobPrivate(url, command, packedArgs, _staticData)
     {
     }
@@ -36,7 +36,7 @@ void SpecialJob::setArguments(const QByteArray &data)
 
 QByteArray SpecialJob::arguments() const
 {
-    return d_func()->m_packedArgs;
+    return payloadBytes(d_func()->m_packedArgs);
 }
 
 #include "moc_specialjob.cpp"

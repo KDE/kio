@@ -62,6 +62,8 @@ public:
     bool waitForIncomingTask(int ms) override;
     bool sendCommand(int command, const QByteArray &data) override;
 
+    bool sendPayload(int command, const TaskPayload &payload) override;
+
 private Q_SLOTS:
     /// Emit commandReceived() for every queued task (drives the event-loop side).
     void drainIncoming();
@@ -92,6 +94,9 @@ private:
         // time, so a burst of sends costs one cross-thread event instead of one per message.
         std::atomic<bool> appDrainScheduled{false};
     };
+
+    /// Hands \a task to the peer, waiting while the peer is HighWaterMark tasks behind.
+    bool queueTask(Task &&task);
 
     Direction &incoming(); // the direction this backend reads
     Direction &outgoing(); // the direction this backend writes

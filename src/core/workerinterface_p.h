@@ -144,6 +144,9 @@ protected:
     virtual bool dispatch();
     virtual bool dispatch(int _cmd, const QByteArray &data);
 
+    // What the last task carried, when the worker lives in a thread of this process.
+    TaskPayload m_incomingPayload;
+
     void messageBox(int type, const QString &text, const QString &title, const QString &primaryActionText, const QString &secondaryActionText);
 
     void messageBox(int type,

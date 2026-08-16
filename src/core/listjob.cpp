@@ -75,8 +75,7 @@ ListJob::ListJob(ListJobPrivate &dd)
     Q_D(ListJob);
     // We couldn't set the args when calling the parent constructor,
     // so do it now.
-    QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
-    stream << d->m_url;
+    d->m_packedArgs = d->m_url;
 }
 
 ListJob::~ListJob()
@@ -251,9 +250,7 @@ void ListJob::slotFinished()
         }
 
         if (d->m_redirectionHandlingEnabled) {
-            d->m_packedArgs.truncate(0);
-            QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
-            stream << d->m_redirectionURL;
+            d->m_packedArgs = d->m_redirectionURL;
 
             d->restartAfterRedirection(&d->m_redirectionURL);
             return;

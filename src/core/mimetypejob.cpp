@@ -14,14 +14,14 @@ using namespace KIO;
 class KIO::MimetypeJobPrivate : public KIO::TransferJobPrivate
 {
 public:
-    MimetypeJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs)
+    MimetypeJobPrivate(const QUrl &url, int command, const TaskPayload &packedArgs)
         : TransferJobPrivate(url, command, packedArgs, QByteArray())
     {
     }
 
     Q_DECLARE_PUBLIC(MimetypeJob)
 
-    static inline MimetypeJob *newJob(const QUrl &url, int command, const QByteArray &packedArgs, JobFlags flags)
+    static inline MimetypeJob *newJob(const QUrl &url, int command, const TaskPayload &packedArgs, JobFlags flags)
     {
         MimetypeJob *job = new MimetypeJob(*new MimetypeJobPrivate(url, command, packedArgs));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
@@ -66,9 +66,7 @@ void MimetypeJob::slotFinished()
         if (d->m_redirectionHandlingEnabled) {
             d->staticData.truncate(0);
             d->m_internalSuspended = false;
-            d->m_packedArgs.truncate(0);
-            QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
-            stream << d->m_redirectionURL;
+            d->m_packedArgs = d->m_redirectionURL;
 
             d->restartAfterRedirection(&d->m_redirectionURL);
             return;
@@ -81,7 +79,7 @@ void MimetypeJob::slotFinished()
 
 MimetypeJob *KIO::mimetype(const QUrl &url, JobFlags flags)
 {
-    KIO_ARGS << url;
+    const TaskPayload packedArgs = url;
     return MimetypeJobPrivate::newJob(url, CMD_MIMETYPE, packedArgs, flags);
 }
 

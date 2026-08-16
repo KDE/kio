@@ -46,8 +46,10 @@ DavJob::DavJob(DavJobPrivate &dd, int method, const QString &request)
     // We couldn't set the args when calling the parent constructor,
     // so do it now.
     Q_D(DavJob);
-    QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
+    QByteArray args;
+    QDataStream stream(&args, QIODevice::WriteOnly);
     stream << (int)7 << d->m_url << method;
+    d->m_packedArgs = args;
     // Same for static data
     if (!request.isEmpty()) {
         if (!request.startsWith(QLatin1StringView("<?xml"))) {
@@ -85,7 +87,7 @@ void DavJob::slotFinished()
     Q_D(DavJob);
     // qDebug() << d->str_response;
     if (!d->m_redirectionURL.isEmpty() && d->m_redirectionURL.isValid() && (d->m_command == CMD_SPECIAL)) {
-        QDataStream istream(d->m_packedArgs);
+        QDataStream istream(payloadBytes(d->m_packedArgs));
         int s_cmd;
         int s_method;
         qint64 s_size;
@@ -96,9 +98,10 @@ void DavJob::slotFinished()
         istream >> s_size;
         // PROPFIND
         if ((s_cmd == 7) && (s_method == (int)KIO::DAV_PROPFIND)) {
-            d->m_packedArgs.truncate(0);
-            QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
+            QByteArray args;
+            QDataStream stream(&args, QIODevice::WriteOnly);
             stream << (int)7 << d->m_redirectionURL << (int)KIO::DAV_PROPFIND << s_size;
+            d->m_packedArgs = args;
         }
     }
     TransferJob::slotFinished();

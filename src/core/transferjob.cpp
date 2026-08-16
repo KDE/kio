@@ -120,14 +120,12 @@ void TransferJob::slotFinished()
             d->m_internalSuspended = false;
             // The very tricky part is the packed arguments business
             QUrl dummyUrl;
-            QDataStream istream(d->m_packedArgs);
+            QDataStream istream(payloadBytes(d->m_packedArgs));
             switch (d->m_command) {
             case CMD_GET:
             case CMD_STAT:
             case CMD_DEL: {
-                d->m_packedArgs.truncate(0);
-                QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
-                stream << d->m_redirectionURL;
+                d->m_packedArgs = d->m_redirectionURL;
                 break;
             }
             case CMD_PUT: {
@@ -135,9 +133,10 @@ void TransferJob::slotFinished()
                 qint8 iOverwrite;
                 qint8 iResume;
                 istream >> dummyUrl >> iOverwrite >> iResume >> permissions;
-                d->m_packedArgs.truncate(0);
-                QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
+                QByteArray args;
+                QDataStream stream(&args, QIODevice::WriteOnly);
                 stream << d->m_redirectionURL << iOverwrite << iResume << permissions;
+                d->m_packedArgs = args;
                 break;
             }
             case CMD_SPECIAL: {
@@ -146,9 +145,7 @@ void TransferJob::slotFinished()
                 if (specialcmd == 1) { // HTTP POST
                     d->m_outgoingMetaData.remove(QStringLiteral("content-type"));
                     addMetaData(QStringLiteral("cache"), QStringLiteral("reload"));
-                    d->m_packedArgs.truncate(0);
-                    QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
-                    stream << d->m_redirectionURL;
+                    d->m_packedArgs = d->m_redirectionURL;
                     d->m_command = CMD_GET;
                 }
                 break;
@@ -390,7 +387,7 @@ void TransferJob::setModificationTime(const QDateTime &mtime)
 TransferJob *KIO::get(const QUrl &url, LoadType reload, JobFlags flags)
 {
     // Send decoded path and encoded query
-    KIO_ARGS << url;
+    const TaskPayload packedArgs = url;
     TransferJob *job = TransferJobPrivate::newJob(url, CMD_GET, packedArgs, QByteArray(), flags);
     if (reload == Reload) {
         job->addMetaData(QStringLiteral("cache"), QStringLiteral("reload"));

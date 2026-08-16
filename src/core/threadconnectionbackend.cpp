@@ -92,7 +92,7 @@ void ThreadConnectionBackend::drainIncoming()
     }
 }
 
-bool ThreadConnectionBackend::sendCommand(int cmd, const QByteArray &data)
+bool ThreadConnectionBackend::queueTask(Task &&task)
 {
     if (!m_channel) {
         return false;
@@ -116,7 +116,7 @@ bool ThreadConnectionBackend::sendCommand(int cmd, const QByteArray &data)
     // Share the payload (no copy): in-process workers must hand us an owned QByteArray,
     // since we deliver it to the application asynchronously (after the worker has moved
     // on). Its refcount keeps the bytes alive until the application has consumed them.
-    out.queue.append(Task{.cmd = cmd, .data = data});
+    out.queue.append(std::move(task));
     out.dataAvailable.wakeOne(); // one consumer per direction
 
     // Post the wakeup to the event-loop consumer while still holding the mutex: the application
@@ -128,6 +128,19 @@ bool ThreadConnectionBackend::sendCommand(int cmd, const QByteArray &data)
         QMetaObject::invokeMethod(m_channel->appBackend, &ThreadConnectionBackend::drainIncoming, Qt::QueuedConnection);
     }
     return true;
+}
+
+bool ThreadConnectionBackend::sendCommand(int cmd, const QByteArray &data)
+{
+    return queueTask(Task{.cmd = cmd, .payload = data});
+}
+
+// The peer lives in another thread of this process, so what the message carries is handed over as it
+// is. The objects are shared, so what travels is a reference, and the worker letting go of its own
+// leaves them to the application.
+bool ThreadConnectionBackend::sendPayload(int cmd, const TaskPayload &payload)
+{
+    return queueTask(Task{.cmd = cmd, .payload = payload});
 }
 
 bool ThreadConnectionBackend::waitForIncomingTask(int ms)

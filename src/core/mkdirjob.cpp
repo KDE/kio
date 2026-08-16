@@ -18,7 +18,7 @@ using namespace KIO;
 class KIO::MkdirJobPrivate : public SimpleJobPrivate
 {
 public:
-    MkdirJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs)
+    MkdirJobPrivate(const QUrl &url, int command, const TaskPayload &packedArgs)
         : SimpleJobPrivate(url, command, packedArgs)
     {
     }
@@ -91,12 +91,13 @@ void MkdirJob::slotFinished()
         if (d->m_redirectionHandlingEnabled) {
             QUrl dummyUrl;
             int permissions;
-            QDataStream istream(d->m_packedArgs);
+            QDataStream istream(payloadBytes(d->m_packedArgs));
             istream >> dummyUrl >> permissions;
 
-            d->m_packedArgs.truncate(0);
-            QDataStream stream(&d->m_packedArgs, QIODevice::WriteOnly);
+            QByteArray args;
+            QDataStream stream(&args, QIODevice::WriteOnly);
             stream << d->m_redirectionURL << permissions;
+            d->m_packedArgs = args;
 
             d->restartAfterRedirection(&d->m_redirectionURL);
             return;

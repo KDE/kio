@@ -17,7 +17,7 @@ using namespace KIO;
 class KIO::FileSystemFreeSpaceJobPrivate : public SimpleJobPrivate
 {
 public:
-    FileSystemFreeSpaceJobPrivate(const QUrl &url, int command, const QByteArray &packedArgs)
+    FileSystemFreeSpaceJobPrivate(const QUrl &url, int command, const TaskPayload &packedArgs)
         : SimpleJobPrivate(url, command, packedArgs)
     {
     }
@@ -32,7 +32,7 @@ public:
 
     Q_DECLARE_PUBLIC(FileSystemFreeSpaceJob)
 
-    static inline FileSystemFreeSpaceJob *newJob(const QUrl &url, int command, const QByteArray &packedArgs)
+    static inline FileSystemFreeSpaceJob *newJob(const QUrl &url, int command, const TaskPayload &packedArgs)
     {
         FileSystemFreeSpaceJob *job = new FileSystemFreeSpaceJob(*new FileSystemFreeSpaceJobPrivate(url, command, packedArgs));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
@@ -84,7 +84,7 @@ void FileSystemFreeSpaceJob::slotFinished()
 
 KIO::FileSystemFreeSpaceJob *KIO::fileSystemFreeSpace(const QUrl &url)
 {
-    KIO_ARGS << url;
+    const TaskPayload packedArgs = url;
     return FileSystemFreeSpaceJobPrivate::newJob(url, CMD_FILESYSTEMFREESPACE, packedArgs);
 }
 

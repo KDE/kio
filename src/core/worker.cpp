@@ -297,6 +297,11 @@ void Worker::send(int cmd, const QByteArray &arr)
     m_connection->send(cmd, arr);
 }
 
+void Worker::send(int cmd, const TaskPayload &payload)
+{
+    m_connection->send(cmd, payload);
+}
+
 void Worker::gotInput()
 {
     if (m_dead) { // already dead? then workerDied was emitted and we are done

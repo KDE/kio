@@ -41,7 +41,7 @@ private Q_SLOTS:
         QVERIFY(!spy->isEmpty());
 
         auto task = spy->at(0).at(0).value<KIO::Task>();
-        QCOMPARE(task.data.size(), data.size());
+        QCOMPARE(task.bytes().size(), data.size());
     }
 
     // Resuming a backend whose socket is not open must stay quiet. connectToRemote sets the
@@ -111,7 +111,7 @@ private Q_SLOTS:
         QVERIFY(sendOk);
 
         auto task = spy.at(0).at(0).value<KIO::Task>();
-        QCOMPARE(task.data, data);
+        QCOMPARE(task.bytes(), data);
     }
 
     // Commands keep flowing intact and in order across repeated suspend and
@@ -157,7 +157,7 @@ private Q_SLOTS:
         QCOMPARE(spy.size(), payloads.size());
         for (qsizetype i = 0; i < payloads.size(); ++i) {
             auto task = spy.at(i).at(0).value<KIO::Task>();
-            QCOMPARE(task.data, payloads.at(i));
+            QCOMPARE(task.bytes(), payloads.at(i));
         }
     }
 
