@@ -17,11 +17,89 @@
 #include <QDebug>
 #include <QString>
 
+#include <algorithm>
+
 #include <KUser>
 
 using namespace KIO;
 
 // BEGIN UDSEntryPrivate
+
+namespace
+{
+// The fields an entry carries, in the order they were given. A listing hands the same fields over
+// from one file to the next, so a sequence is made once and every entry carrying those fields points
+// at it, which leaves an entry holding its values alone.
+struct FieldSequence {
+    std::vector<uint> stringFields;
+    std::vector<uint> numberFields;
+    // The sequences carrying these fields and one more, grown by the thread which made this one.
+    std::vector<std::pair<uint, const FieldSequence *>> longer;
+    const void *owner = nullptr;
+};
+
+// The sequences a thread has met. They are kept for as long as the program runs, which is what lets
+// an entry built on one thread be read on another. There is one for each shape an entry takes, a
+// handful in practice, so a thread that meets a sequence made elsewhere looks its own up rather than
+// writing to something another thread reads.
+struct FieldSequenceStore {
+    std::vector<const FieldSequence *> known;
+    FieldSequence *empty = nullptr;
+};
+
+FieldSequenceStore &sequenceStore()
+{
+    static thread_local FieldSequenceStore store;
+    if (!store.empty) {
+        store.empty = new FieldSequence;
+        store.empty->owner = &store;
+        store.known.push_back(store.empty);
+    }
+    return store;
+}
+
+const FieldSequence *emptySequence()
+{
+    return sequenceStore().empty;
+}
+
+const FieldSequence *sequenceFor(const std::vector<uint> &stringFields, const std::vector<uint> &numberFields)
+{
+    FieldSequenceStore &store = sequenceStore();
+    // The shape of an entry repeats, so the one met last is looked at first.
+    for (auto it = store.known.rbegin(); it != store.known.rend(); ++it) {
+        if ((*it)->stringFields == stringFields && (*it)->numberFields == numberFields) {
+            return *it;
+        }
+    }
+    FieldSequence *sequence = new FieldSequence{stringFields, numberFields, {}, &store};
+    store.known.push_back(sequence);
+    return sequence;
+}
+
+// The sequence carrying the fields of \a from with \a field after them.
+const FieldSequence *sequenceWith(const FieldSequence *from, uint field, bool isString)
+{
+    FieldSequenceStore &store = sequenceStore();
+    const bool ours = from->owner == &store;
+    if (ours) {
+        for (const auto &[knownField, longer] : from->longer) {
+            if (knownField == field) {
+                return longer;
+            }
+        }
+    }
+
+    std::vector<uint> stringFields = from->stringFields;
+    std::vector<uint> numberFields = from->numberFields;
+    (isString ? stringFields : numberFields).push_back(field);
+    const FieldSequence *longer = sequenceFor(stringFields, numberFields);
+    if (ours) {
+        const_cast<FieldSequence *>(from)->longer.emplace_back(field, longer);
+    }
+    return longer;
+}
+}
 
 class KIO::UDSEntryPrivate : public QSharedData
 {
@@ -52,32 +130,121 @@ public:
      */
     static QString nameOfUdsField(uint field);
 
+    UDSEntryPrivate() = default;
+    UDSEntryPrivate(const UDSEntryPrivate &other);
+    UDSEntryPrivate &operator=(const UDSEntryPrivate &) = delete;
+    ~UDSEntryPrivate();
+
 private:
-    struct StringField {
-        inline StringField(const uint index, const QString &value)
-            : m_str(value)
-            , m_index(index)
-        {
+    // The values of an entry lie in one block, the strings first and the numbers after them, so that
+    // an entry asks the allocator once. Which field each value belongs to is read off the sequence.
+    QString *stringSlot(size_t index) const
+    {
+        return static_cast<QString *>(valueBlock) + index;
+    }
+
+    long long *numberSlot(size_t index) const
+    {
+        return reinterpret_cast<long long *>(static_cast<QString *>(valueBlock) + stringCapacity) + index;
+    }
+
+    size_t stringCount() const
+    {
+        return fieldSequence->stringFields.size();
+    }
+
+    size_t numberCount() const
+    {
+        return fieldSequence->numberFields.size();
+    }
+
+    // Moves the values into a block with room for the given numbers of them.
+    void reallocate(size_t strings, size_t numbers);
+
+    void makeRoom(size_t moreStrings, size_t moreNumbers)
+    {
+        const size_t strings = stringCount() + moreStrings;
+        const size_t numbers = numberCount() + moreNumbers;
+        if (strings <= stringCapacity && numbers <= numberCapacity) {
+            return;
         }
 
-        QString m_str;
-        uint m_index = 0;
-    };
+        // A caller which says how many fields are coming, by reserving or by handing them over
+        // together, gets room for exactly those. One which inserts a field at a time gets room that
+        // doubles, so that the values are moved a few times rather than at every field.
+        const size_t stringRoom = strings > stringCapacity ? qMax(strings, size_t(stringCapacity) * 2) : stringCapacity;
+        const size_t numberRoom = numbers > numberCapacity ? qMax(numbers, size_t(numberCapacity) * 2) : numberCapacity;
+        reallocate(stringRoom, numberRoom);
+    }
 
-    struct NumberField {
-        inline NumberField(const uint index, long long value = 0)
-            : m_long(value)
-            , m_index(index)
-        {
-        }
+    void release();
 
-        long long m_long = LLONG_MIN;
-        uint m_index = 0;
-    };
-
-    std::vector<StringField> stringStorage;
-    std::vector<NumberField> numberStorage;
+    // The fields this entry carries, shared with every entry carrying the same ones.
+    const FieldSequence *fieldSequence = emptySequence();
+    void *valueBlock = nullptr;
+    quint32 stringCapacity = 0;
+    quint32 numberCapacity = 0;
 };
+
+UDSEntryPrivate::UDSEntryPrivate(const UDSEntryPrivate &other)
+    : QSharedData(other)
+{
+    const size_t strings = other.stringCount();
+    const size_t numbers = other.numberCount();
+    // The block is made while this entry still carries no field, so nothing is moved into it, and
+    // the sequence is taken on once the values are in place.
+    if (strings > 0 || numbers > 0) {
+        reallocate(strings, numbers);
+        for (size_t i = 0; i < strings; ++i) {
+            new (stringSlot(i)) QString(*other.stringSlot(i));
+        }
+        for (size_t i = 0; i < numbers; ++i) {
+            *numberSlot(i) = *other.numberSlot(i);
+        }
+    }
+    fieldSequence = other.fieldSequence;
+}
+
+UDSEntryPrivate::~UDSEntryPrivate()
+{
+    release();
+}
+
+void UDSEntryPrivate::release()
+{
+    if (!valueBlock) {
+        return;
+    }
+    for (size_t i = 0; i < stringCount(); ++i) {
+        stringSlot(i)->~QString();
+    }
+    ::operator delete(valueBlock);
+    valueBlock = nullptr;
+    stringCapacity = 0;
+    numberCapacity = 0;
+}
+
+void UDSEntryPrivate::reallocate(size_t strings, size_t numbers)
+{
+    void *block = ::operator new(strings * sizeof(QString) + numbers * sizeof(long long));
+    QString *newStrings = static_cast<QString *>(block);
+    long long *newNumbers = reinterpret_cast<long long *>(newStrings + strings);
+
+    for (size_t i = 0; i < stringCount(); ++i) {
+        new (newStrings + i) QString(std::move(*stringSlot(i)));
+        stringSlot(i)->~QString();
+    }
+    for (size_t i = 0; i < numberCount(); ++i) {
+        newNumbers[i] = *numberSlot(i);
+    }
+
+    if (valueBlock) {
+        ::operator delete(valueBlock);
+    }
+    valueBlock = block;
+    stringCapacity = quint32(strings);
+    numberCapacity = quint32(numbers);
+}
 
 void UDSEntryPrivate::reserve(std::initializer_list<uint> fields)
 {
@@ -96,17 +263,22 @@ void UDSEntryPrivate::reserve(std::initializer_list<uint> fields)
 
 void UDSEntryPrivate::reserveStrings(int size)
 {
-    stringStorage.reserve(size);
+    if (size_t(size) > stringCapacity) {
+        reallocate(size, numberCapacity);
+    }
 }
 
 void UDSEntryPrivate::reserveNumbers(int size)
 {
-    numberStorage.reserve(size);
+    if (size_t(size) > numberCapacity) {
+        reallocate(stringCapacity, size);
+    }
 }
 
 void UDSEntryPrivate::insert(std::initializer_list<std::pair<uint, const QString &>> fieldValuePairs)
 {
-    stringStorage.reserve(fieldValuePairs.size() + stringStorage.size());
+    // The block is sized for the whole batch, so it is made once rather than at every field.
+    makeRoom(fieldValuePairs.size(), 0);
     for (const auto &f : fieldValuePairs) {
         insert(f.first, f.second);
     }
@@ -115,31 +287,28 @@ void UDSEntryPrivate::insert(std::initializer_list<std::pair<uint, const QString
 void UDSEntryPrivate::insert(uint udsField, const QString &value)
 {
     Q_ASSERT(udsField & KIO::UDSEntry::UDS_STRING);
-    Q_ASSERT(std::find_if(stringStorage.cbegin(),
-                          stringStorage.cend(),
-                          [udsField](const StringField &entry) {
-                              return entry.m_index == udsField;
-                          })
-             == stringStorage.cend());
-    stringStorage.emplace_back(udsField, value);
+    Q_ASSERT(std::ranges::find(fieldSequence->stringFields, udsField) == fieldSequence->stringFields.cend());
+    makeRoom(1, 0);
+    new (stringSlot(stringCount())) QString(value);
+    fieldSequence = sequenceWith(fieldSequence, udsField, true);
 }
 
 void UDSEntryPrivate::replace(uint udsField, const QString &value)
 {
     Q_ASSERT(udsField & KIO::UDSEntry::UDS_STRING);
-    auto it = std::find_if(stringStorage.begin(), stringStorage.end(), [udsField](const StringField &entry) {
-        return entry.m_index == udsField;
-    });
-    if (it != stringStorage.end()) {
-        it->m_str = value;
+    const std::vector<uint> &fields = fieldSequence->stringFields;
+    const auto it = std::ranges::find(fields, udsField);
+    if (it != fields.cend()) {
+        *stringSlot(it - fields.cbegin()) = value;
         return;
     }
-    stringStorage.emplace(it, udsField, value);
+    insert(udsField, value);
 }
 
 void UDSEntryPrivate::insert(std::initializer_list<std::pair<uint, long long>> fieldValuePairs)
 {
-    numberStorage.reserve(fieldValuePairs.size() + numberStorage.size());
+    // The block is sized for the whole batch, so it is made once rather than at every field.
+    makeRoom(0, fieldValuePairs.size());
     for (const auto &f : fieldValuePairs) {
         insert(f.first, f.second);
     }
@@ -148,59 +317,53 @@ void UDSEntryPrivate::insert(std::initializer_list<std::pair<uint, long long>> f
 void UDSEntryPrivate::insert(uint udsField, long long value)
 {
     Q_ASSERT(udsField & KIO::UDSEntry::UDS_NUMBER);
-    Q_ASSERT(std::find_if(numberStorage.cbegin(),
-                          numberStorage.cend(),
-                          [udsField](const NumberField &entry) {
-                              return entry.m_index == udsField;
-                          })
-             == numberStorage.cend());
-    numberStorage.emplace_back(udsField, value);
+    Q_ASSERT(std::ranges::find(fieldSequence->numberFields, udsField) == fieldSequence->numberFields.cend());
+    makeRoom(0, 1);
+    *numberSlot(numberCount()) = value;
+    fieldSequence = sequenceWith(fieldSequence, udsField, false);
 }
 
 void UDSEntryPrivate::replace(uint udsField, long long value)
 {
     Q_ASSERT(udsField & KIO::UDSEntry::UDS_NUMBER);
-    auto it = std::find_if(numberStorage.begin(), numberStorage.end(), [udsField](const NumberField &entry) {
-        return entry.m_index == udsField;
-    });
-    if (it != numberStorage.end()) {
-        it->m_long = value;
+    const std::vector<uint> &fields = fieldSequence->numberFields;
+    const auto it = std::ranges::find(fields, udsField);
+    if (it != fields.cend()) {
+        *numberSlot(it - fields.cbegin()) = value;
         return;
     }
-    numberStorage.emplace(it, udsField, value);
+    insert(udsField, value);
 }
 
 int UDSEntryPrivate::count() const
 {
-    return stringStorage.size() + numberStorage.size();
+    return int(stringCount() + numberCount());
 }
 int UDSEntryPrivate::numbersCount() const
 {
-    return numberStorage.size();
+    return int(numberCount());
 }
 int UDSEntryPrivate::stringsCount() const
 {
-    return stringStorage.size();
+    return int(stringCount());
 }
 
 QString UDSEntryPrivate::stringValue(uint udsField) const
 {
-    auto it = std::find_if(stringStorage.cbegin(), stringStorage.cend(), [udsField](const StringField &entry) {
-        return entry.m_index == udsField;
-    });
-    if (it != stringStorage.cend()) {
-        return it->m_str;
+    const std::vector<uint> &fields = fieldSequence->stringFields;
+    const auto it = std::ranges::find(fields, udsField);
+    if (it != fields.cend()) {
+        return *stringSlot(it - fields.cbegin());
     }
     return QString();
 }
 
 long long UDSEntryPrivate::numberValue(uint udsField, long long defaultValue) const
 {
-    auto it = std::find_if(numberStorage.cbegin(), numberStorage.cend(), [udsField](const NumberField &entry) {
-        return entry.m_index == udsField;
-    });
-    if (it != numberStorage.cend()) {
-        return it->m_long;
+    const std::vector<uint> &fields = fieldSequence->numberFields;
+    const auto it = std::ranges::find(fields, udsField);
+    if (it != fields.cend()) {
+        return *numberSlot(it - fields.cbegin());
     }
     return defaultValue;
 }
@@ -208,59 +371,49 @@ long long UDSEntryPrivate::numberValue(uint udsField, long long defaultValue) co
 QList<uint> UDSEntryPrivate::fields() const
 {
     QList<uint> res;
-    res.reserve(stringStorage.size() + numberStorage.size());
-    for (const StringField &field : stringStorage) {
-        res.append(field.m_index);
+    res.reserve(stringCount() + numberCount());
+    for (uint field : fieldSequence->stringFields) {
+        res.append(field);
     }
-    for (const NumberField &field : numberStorage) {
-        res.append(field.m_index);
+    for (uint field : fieldSequence->numberFields) {
+        res.append(field);
     }
     return res;
 }
 
 bool UDSEntryPrivate::contains(uint udsField) const
 {
-    if (udsField & KIO::UDSEntry::UDS_NUMBER) {
-        auto it = std::find_if(numberStorage.cbegin(), numberStorage.cend(), [udsField](const NumberField &entry) {
-            return entry.m_index == udsField;
-        });
-        return (it != numberStorage.cend());
-
-    } else {
-        auto it = std::find_if(stringStorage.cbegin(), stringStorage.cend(), [udsField](const StringField &entry) {
-            return entry.m_index == udsField;
-        });
-        return (it != stringStorage.cend());
-    }
+    const std::vector<uint> &fields = (udsField & KIO::UDSEntry::UDS_NUMBER) ? fieldSequence->numberFields : fieldSequence->stringFields;
+    return std::ranges::find(fields, udsField) != fields.cend();
 }
 
 void UDSEntryPrivate::clear()
 {
-    stringStorage.clear();
-    numberStorage.clear();
+    release();
+    fieldSequence = emptySequence();
 }
 
 void UDSEntryPrivate::save(QDataStream &s) const
 {
-    s << static_cast<quint32>(stringStorage.size() + numberStorage.size());
+    s << static_cast<quint32>(stringCount() + numberCount());
 
-    for (const StringField &field : stringStorage) {
-        uint uds = field.m_index;
+    for (size_t i = 0; i < stringCount(); ++i) {
+        const uint uds = fieldSequence->stringFields[i];
         s << uds;
 
         if (uds & KIO::UDSEntry::UDS_STRING) [[likely]] {
-            s << field.m_str;
+            s << *stringSlot(i);
         } else {
             Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an invalid type");
         }
     }
 
-    for (const NumberField &field : numberStorage) {
-        uint uds = field.m_index;
+    for (size_t i = 0; i < numberCount(); ++i) {
+        const uint uds = fieldSequence->numberFields[i];
         s << uds;
 
         if (uds & KIO::UDSEntry::UDS_NUMBER) [[likely]] {
-            s << field.m_long;
+            s << *numberSlot(i);
         } else {
             Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an invalid type");
         }
@@ -287,10 +440,14 @@ void UDSEntryPrivate::load(QDataStream &s)
 
     quint32 size;
     s >> size;
-    // Buffers that live as long as the thread, so both counts are known before either vector of the
-    // entry is sized and each takes exactly what it holds.
-    thread_local std::vector<StringField> stagedStrings;
-    thread_local std::vector<NumberField> stagedNumbers;
+    // Buffers that live as long as the thread, so the fields of an entry are known before its
+    // sequence is looked up and each of its arrays takes exactly what it holds.
+    thread_local std::vector<uint> stagedStringFields;
+    thread_local std::vector<uint> stagedNumberFields;
+    thread_local std::vector<QString> stagedStrings;
+    thread_local std::vector<long long> stagedNumbers;
+    stagedStringFields.clear();
+    stagedNumberFields.clear();
     stagedStrings.clear();
     stagedNumbers.clear();
 
@@ -309,6 +466,20 @@ void UDSEntryPrivate::load(QDataStream &s)
     // to reuse existing allocation.
     thread_local QString buffer;
 
+    // The entries of a listing carry the same fields in the same order, so the sequence of the entry
+    // before this one is followed while the fields match it, and the ids are written down only from
+    // the first field that does not.
+    thread_local const FieldSequence *lastSequence = nullptr;
+    const FieldSequence *expected = lastSequence;
+    bool asExpected = expected != nullptr;
+    size_t stringCount = 0;
+    size_t numberCount = 0;
+
+    auto writeDownFieldsSoFar = [&]() {
+        stagedStringFields.assign(expected->stringFields.cbegin(), expected->stringFields.cbegin() + stringCount);
+        stagedNumberFields.assign(expected->numberFields.cbegin(), expected->numberFields.cbegin() + numberCount);
+    };
+
     for (quint32 i = 0; i < size; ++i) {
         quint32 uds;
         s >> uds;
@@ -316,8 +487,20 @@ void UDSEntryPrivate::load(QDataStream &s)
         if (uds & KIO::UDSEntry::UDS_STRING) {
             s >> buffer;
 
+            if (asExpected) {
+                if (stringCount < expected->stringFields.size() && expected->stringFields[stringCount] == uds) {
+                    ++stringCount;
+                } else {
+                    asExpected = false;
+                    writeDownFieldsSoFar();
+                    stagedStringFields.push_back(uds);
+                }
+            } else {
+                stagedStringFields.push_back(uds);
+            }
+
             if (namesTheItem(uds)) {
-                stagedStrings.emplace_back(uds, buffer);
+                stagedStrings.push_back(buffer);
             } else {
                 // Values repeat from one entry to the next often enough that sharing one is worth
                 // a comparison.
@@ -326,25 +509,50 @@ void UDSEntryPrivate::load(QDataStream &s)
                     cachedString = buffer;
                 }
 
-                stagedStrings.emplace_back(uds, cachedString);
+                stagedStrings.push_back(cachedString);
             }
         } else if (uds & KIO::UDSEntry::UDS_NUMBER) {
             long long value;
             s >> value;
-            stagedNumbers.emplace_back(uds, value);
+
+            if (asExpected) {
+                if (numberCount < expected->numberFields.size() && expected->numberFields[numberCount] == uds) {
+                    ++numberCount;
+                } else {
+                    asExpected = false;
+                    writeDownFieldsSoFar();
+                    stagedNumberFields.push_back(uds);
+                }
+            } else {
+                stagedNumberFields.push_back(uds);
+            }
+
+            stagedNumbers.push_back(value);
         } else {
             Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an unexpected type");
         }
     }
 
-    stringStorage.reserve(stagedStrings.size());
-    for (StringField &field : stagedStrings) {
-        stringStorage.emplace_back(field.m_index, std::move(field.m_str));
+    // The fields are known, so the block takes exactly what the entry holds. It is made while this
+    // entry still carries no field, so nothing is moved into it.
+    reallocate(stagedStrings.size(), stagedNumbers.size());
+    for (size_t i = 0; i < stagedStrings.size(); ++i) {
+        new (stringSlot(i)) QString(stagedStrings[i]);
     }
-    numberStorage.reserve(stagedNumbers.size());
-    for (const NumberField &field : stagedNumbers) {
-        numberStorage.emplace_back(field.m_index, field.m_long);
+    for (size_t i = 0; i < stagedNumbers.size(); ++i) {
+        *numberSlot(i) = stagedNumbers[i];
     }
+
+    if (asExpected && stringCount == expected->stringFields.size() && numberCount == expected->numberFields.size()) {
+        fieldSequence = expected;
+    } else {
+        if (asExpected) {
+            // Every field matched but the entry carries fewer of them than the one before it.
+            writeDownFieldsSoFar();
+        }
+        fieldSequence = sequenceFor(stagedStringFields, stagedNumberFields);
+    }
+    lastSequence = fieldSequence;
 }
 
 QString UDSEntryPrivate::nameOfUdsField(uint field)
@@ -433,21 +641,11 @@ void UDSEntryPrivate::debugUDSEntry(QDebug &stream) const
 {
     QDebugStateSaver saver(stream);
     stream.nospace() << "[";
-    for (const StringField &field : stringStorage) {
-        stream << " " << nameOfUdsField(field.m_index) << "=";
-        if (field.m_index & KIO::UDSEntry::UDS_STRING) {
-            stream << field.m_str;
-        } else {
-            Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an invalid type");
-        }
+    for (size_t i = 0; i < stringCount(); ++i) {
+        stream << " " << nameOfUdsField(fieldSequence->stringFields[i]) << "=" << *stringSlot(i);
     }
-    for (const NumberField &field : numberStorage) {
-        stream << " " << nameOfUdsField(field.m_index) << "=";
-        if (field.m_index & KIO::UDSEntry::UDS_NUMBER) {
-            stream << field.m_long;
-        } else {
-            Q_ASSERT_X(false, "KIO::UDSEntry", "Found a field with an invalid type");
-        }
+    for (size_t i = 0; i < numberCount(); ++i) {
+        stream << " " << nameOfUdsField(fieldSequence->numberFields[i]) << "=" << *numberSlot(i);
     }
     stream << " ]";
 }
