@@ -40,6 +40,7 @@
 #include <QDateTime>
 #include <QDebug>
 #include <QDir>
+#include <QDirIterator>
 #include <QElapsedTimer>
 #include <QEventLoop>
 #include <QFileInfo>
@@ -1806,12 +1807,62 @@ void JobTest::directorySize()
 #else
     QCOMPARE(job->totalFiles(), 7ULL); // see expected result in listRecursive() above
     QCOMPARE(job->totalSubdirs(), 4ULL); // see expected result in listRecursive() above
-    QVERIFY2(job->totalSize() >= 60,
-             qPrintable(QString("totalSize was %1").arg(job->totalSize()))); // size of subdir entries is filesystem dependent. E.g. this is 16428 with ext4 but
-                                                                             // only 272 with xfs, and 63 on FreeBSD
+
+    // Only the data in the files counts, so the total is the same whatever filesystem this runs on.
+    // Counting the directories as well used to make it 16428 on ext4, 272 on xfs and 63 on FreeBSD.
+    KIO::filesize_t expectedSize = 0;
+    QSet<QPair<dev_t, ino_t>> visited;
+    QDirIterator it(src, QDir::AllEntries | QDir::Hidden | QDir::System | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+    while (it.hasNext()) {
+        const QFileInfo info(it.next());
+        if (info.isSymLink() || info.isDir()) {
+            continue;
+        }
+        QT_STATBUF buf;
+        QCOMPARE(QT_LSTAT(QFile::encodeName(info.absoluteFilePath()).constData(), &buf), 0);
+        const QPair<dev_t, ino_t> key(buf.st_dev, buf.st_ino);
+        if (visited.contains(key)) { // a hard link is counted once, as the job does
+            continue;
+        }
+        visited.insert(key);
+        expectedSize += KIO::filesize_t(buf.st_size);
+    }
+    QVERIFY(expectedSize > 0);
+    QCOMPARE(job->totalSize(), expectedSize);
 #endif
 
     qApp->sendPostedEvents(nullptr, QEvent::DeferredDelete);
+}
+
+void JobTest::directorySizeOnDisk()
+{
+#ifdef Q_OS_WIN
+    QSKIP("The space a file takes up is only reported on Unix");
+#else
+    const QString dirPath = homeTmpDir() + QStringLiteral("sizeOnDisk");
+    QVERIFY(QDir().mkpath(dirPath + QStringLiteral("/subdir")));
+    createTestFile(dirPath + QStringLiteral("/file"));
+    createTestFile(dirPath + QStringLiteral("/subdir/file"));
+
+    // What the filesystem itself says the tree takes up. The directories count too, which is the
+    // whole point: that is the part a plain sum of file sizes does not see.
+    KIO::filesize_t expected = 0;
+    const QStringList paths{dirPath, dirPath + QStringLiteral("/file"), dirPath + QStringLiteral("/subdir"), dirPath + QStringLiteral("/subdir/file")};
+    for (const QString &path : paths) {
+        QT_STATBUF buf;
+        QCOMPARE(QT_LSTAT(QFile::encodeName(path).constData(), &buf), 0);
+        expected += KIO::filesize_t(buf.st_blocks) * 512;
+    }
+    QVERIFY(expected > 0);
+
+    KIO::DirectorySizeJob *job = KIO::directorySize(QUrl::fromLocalFile(dirPath));
+    job->setUiDelegate(nullptr);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QCOMPARE(job->totalSizeOnDisk(), std::optional<KIO::filesize_t>(expected));
+
+    qApp->sendPostedEvents(nullptr, QEvent::DeferredDelete);
+#endif
 }
 
 void JobTest::directorySizeError()

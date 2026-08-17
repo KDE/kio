@@ -73,6 +73,7 @@ private Q_SLOTS:
     void killJobBeforeStart();
     void deleteJobBeforeStart();
     void directorySize();
+    void directorySizeOnDisk();
     void directorySizeError();
     void moveFileToSamePartition();
     void moveDirectoryToSamePartition();

@@ -253,7 +253,33 @@
        </property>
       </widget>
      </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="sizeOnDiskLabelLeft">
+       <property name="text">
+        <string>Size on disk:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+       </property>
+       <property name="buddy">
+        <cstring>sizeOnDiskLabel</cstring>
+       </property>
+      </widget>
+     </item>
      <item row="7" column="1">
+      <widget class="QLabel" name="sizeOnDiskLabel">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::PlainText</enum>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard</set>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
       <widget class="QWidget" name="sizeBtnWidget" native="true">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <property name="leftMargin">
@@ -324,7 +350,7 @@
        </layout>
       </widget>
      </item>
-     <item row="8" column="0">
+     <item row="9" column="0">
       <widget class="QLabel" name="symlinkTargetLabel">
        <property name="text">
         <string>Points to:</string>
@@ -337,7 +363,7 @@
        </property>
       </widget>
      </item>
-     <item row="8" column="1">
+     <item row="9" column="1">
       <layout class="QHBoxLayout" name="symlinkLayout">
        <item>
         <widget class="QLineEdit" name="symlinkTargetEdit">
@@ -367,7 +393,7 @@
        </item>
       </layout>
      </item>
-     <item row="9" column="0" colspan="2">
+     <item row="10" column="0" colspan="2">
       <widget class="KMessageWidget" name="symlinkTargetMessageWidget">
        <property name="wordWrap">
         <bool>true</bool>
@@ -377,7 +403,7 @@
        </property>
       </widget>
      </item>
-     <item row="10" column="0">
+     <item row="11" column="0">
       <widget class="QLabel" name="createdTimeLabel_Left">
        <property name="text">
         <string>Created:</string>
@@ -390,7 +416,7 @@
        </property>
       </widget>
      </item>
-     <item row="10" column="1">
+     <item row="11" column="1">
       <widget class="QLabel" name="createdTimeLabel">
        <property name="text">
         <string/>
@@ -400,7 +426,7 @@
        </property>
       </widget>
      </item>
-     <item row="11" column="0">
+     <item row="12" column="0">
       <widget class="QLabel" name="modifiedTimeLabel_Left">
        <property name="text">
         <string>Modified:</string>
@@ -413,7 +439,7 @@
        </property>
       </widget>
      </item>
-     <item row="11" column="1">
+     <item row="12" column="1">
       <widget class="QLabel" name="modifiedTimeLabel">
        <property name="text">
         <string/>
@@ -423,7 +449,7 @@
        </property>
       </widget>
      </item>
-     <item row="12" column="0">
+     <item row="13" column="0">
       <widget class="QLabel" name="accessTimeLabel_Left">
        <property name="text">
         <string>Accessed:</string>
@@ -436,7 +462,7 @@
        </property>
       </widget>
      </item>
-     <item row="12" column="1">
+     <item row="13" column="1">
       <widget class="QLabel" name="accessTimeLabel">
        <property name="text">
         <string/>
@@ -446,10 +472,10 @@
        </property>
       </widget>
      </item>
-     <item row="13" column="0" colspan="2">
+     <item row="14" column="0" colspan="2">
       <widget class="KSeparator" name="fsSeparator"/>
      </item>
-     <item row="14" column="0">
+     <item row="15" column="0">
       <widget class="QLabel" name="fsLabel_Left">
        <property name="text">
         <string>File system:</string>
@@ -462,7 +488,7 @@
        </property>
       </widget>
      </item>
-     <item row="14" column="1">
+     <item row="15" column="1">
       <widget class="QLabel" name="fsLabel">
        <property name="text">
         <string/>
@@ -475,7 +501,7 @@
        </property>
       </widget>
      </item>
-     <item row="15" column="0">
+     <item row="16" column="0">
       <widget class="QLabel" name="mountPointLabel_Left">
        <property name="text">
         <string>Mounted on:</string>
@@ -488,7 +514,7 @@
        </property>
       </widget>
      </item>
-     <item row="15" column="1">
+     <item row="16" column="1">
       <widget class="KSqueezedTextLabel" name="mountPointLabel">
        <property name="text">
         <string/>
@@ -501,7 +527,7 @@
        </property>
       </widget>
      </item>
-     <item row="16" column="0">
+     <item row="17" column="0">
       <widget class="QLabel" name="mountSrcLabel_Left">
        <property name="text">
         <string>Mounted from:</string>
@@ -514,7 +540,7 @@
        </property>
       </widget>
      </item>
-     <item row="16" column="1">
+     <item row="17" column="1">
       <widget class="QLabel" name="mountSrcLabel">
        <property name="text">
         <string/>
@@ -527,7 +553,7 @@
        </property>
       </widget>
      </item>
-     <item row="17" column="0">
+     <item row="18" column="0">
       <widget class="QLabel" name="freespaceLabel">
        <property name="text">
         <string>Free space:</string>
@@ -540,7 +566,7 @@
        </property>
       </widget>
      </item>
-     <item row="17" column="1">
+     <item row="18" column="1">
       <widget class="KCapacityBar" name="capacityBar">
        <property name="text">
         <string>Unknown size</string>

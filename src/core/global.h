@@ -350,6 +350,8 @@ enum PrivilegeOperationStatus {
  * \value [since 6.23] StatSubVolId in case the filesystem supports it, return its subvol Identifier
  * \value [since 6.23] StatMountId the unique mount identifier, see man statx
  * \value [since 6.24] StatTimeNsOffset Stat will provide nanosecond precision offsets when available
+ * \value [since 6.30] StatSizeOnDisk the space the file takes up on its storage, see UDS_SIZE_ON_DISK. Off by default, since a listing carries one number
+ * per entry and most callers only want the size of the data
  */
 enum StatDetail {
     StatNoDetails = 0x0,
@@ -365,6 +367,7 @@ enum StatDetail {
     StatSubVolId = 0x100,
     StatMountId = 0x200,
     StatTimeNsOffset = 0x400 | StatTime,
+    StatSizeOnDisk = 0x800,
 };
 Q_DECLARE_FLAGS(StatDetails, StatDetail)
 

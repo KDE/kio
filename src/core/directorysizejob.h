@@ -36,9 +36,22 @@ public:
 
 public:
     /*!
-     * Returns the size we found
+     * Returns how many bytes of data the files we found hold. Directories do not add to it: the
+     * room their list of entries needs is not data anybody put there, and it varies wildly between
+     * filesystems, which made the same folder report a different size once copied. See
+     * totalSizeOnDisk() for the space everything takes up.
      */
     KIO::filesize_t totalSize() const;
+
+    /*!
+     * Returns the space the files and directories we found take up on the storage they live on,
+     * which is what the filesystem has allocated to them rather than how many bytes of data they
+     * hold. Empty when the protocol has no way to tell, which is anything but local files. Zero is
+     * an answer in its own right: a file that is entirely sparse holds data but occupies nothing.
+     *
+     * \since 6.30
+     */
+    std::optional<KIO::filesize_t> totalSizeOnDisk() const;
 
     /*!
      * Returns the total number of files (counting symlinks to files, sockets

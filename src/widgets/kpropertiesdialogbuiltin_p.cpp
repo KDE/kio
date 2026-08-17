@@ -149,6 +149,32 @@ public:
         m_ui->mountSrcLabel->hide();
     }
 
+    /**
+     * A size the way this dialog writes it: rounded so it can be read at a glance, then exactly,
+     * as in "4.0 KiB (4,096 bytes)".
+     */
+    static QString formatSize(KIO::filesize_t size)
+    {
+        return i18nc("@label the size of a file or folder, first rounded and then to the byte",
+                     "%1 (%2)",
+                     KIO::convertSize(size),
+                     i18ncp("@item the exact size of a file or folder", "%1 byte", "%1 bytes", size));
+    }
+
+    /**
+     * Shows how much room the files take up on their storage, or hides the row when \a sizeOnDisk
+     * is empty, which is what a protocol with no way to tell reports. Zero is a real answer and is
+     * shown: a file that is entirely sparse holds data but occupies nothing.
+     */
+    void setSizeOnDisk(std::optional<KIO::filesize_t> sizeOnDisk)
+    {
+        m_ui->sizeOnDiskLabelLeft->setVisible(sizeOnDisk.has_value());
+        m_ui->sizeOnDiskLabel->setVisible(sizeOnDisk.has_value());
+        if (sizeOnDisk.has_value()) {
+            m_ui->sizeOnDiskLabel->setText(formatSize(*sizeOnDisk));
+        }
+    }
+
     QWidget m_mainWidget;
     std::unique_ptr<Ui_KFilePropsPluginWidget> m_ui;
     KIO::DirectorySizeJob *dirSizeJob = nullptr;
@@ -202,6 +228,13 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
     QString mimeComment = firstItem.mimeComment();
     d->mimeType = firstItem.mimetype();
     KIO::filesize_t totalSize = firstItem.size();
+    std::optional<KIO::filesize_t> totalSizeOnDisk;
+    const auto addSizeOnDisk = [&totalSizeOnDisk](const KFileItem &item) {
+        if (item.entry().contains(KIO::UDSEntry::UDS_SIZE_ON_DISK)) {
+            totalSizeOnDisk = totalSizeOnDisk.value_or(0) + item.entry().numberValue(KIO::UDSEntry::UDS_SIZE_ON_DISK, 0);
+        }
+    };
+    addSizeOnDisk(firstItem);
     QString magicMimeName;
     QString magicMimeComment;
     QMimeDatabase db;
@@ -309,6 +342,7 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
             } else {
                 iFileCount++;
                 totalSize += item.size();
+                addSizeOnDisk(item);
             }
         }
     }
@@ -418,7 +452,19 @@ KFilePropsPlugin::KFilePropsPlugin(KPropertiesDialog *_props)
 
     // Size widgets
     if (!hasDirs) { // Only files [and symlinks]
-        d->m_ui->sizeLabel->setText(QStringLiteral("%1 (%2)").arg(KIO::convertSize(totalSize), QLocale().toString(totalSize)));
+        d->m_ui->sizeLabel->setText(KFilePropsPluginPrivate::formatSize(totalSize));
+        d->setSizeOnDisk(totalSizeOnDisk);
+        if (!totalSizeOnDisk.has_value() && properties->items().count() == 1 && !firstItem.isLink()) {
+            // Whoever listed the folder had no reason to ask how much room the file takes up, so
+            // ask now. This is one stat for one file, which is why a whole selection does not do it.
+            KIO::StatJob *job = KIO::stat(url, KIO::StatJob::SourceSide, KIO::StatSizeOnDisk, KIO::HideProgressInfo);
+            connect(job, &KJob::result, this, [this, job]() {
+                const KIO::UDSEntry &entry = job->statResult();
+                if (!job->error() && entry.contains(KIO::UDSEntry::UDS_SIZE_ON_DISK)) {
+                    d->setSizeOnDisk(entry.numberValue(KIO::UDSEntry::UDS_SIZE_ON_DISK, 0));
+                }
+            });
+        }
         d->m_ui->sizeBtnWidget->hide();
     } else { // Directory
         connect(d->m_ui->calculateSizeBtn, &QAbstractButton::clicked, this, &KFilePropsPlugin::slotSizeDetermine);
@@ -690,11 +736,11 @@ void KFilePropsPlugin::slotDirSizeUpdate()
     KIO::filesize_t totalSize = d->dirSizeJob->totalSize();
     KIO::filesize_t totalFiles = d->dirSizeJob->totalFiles();
     KIO::filesize_t totalSubdirs = d->dirSizeJob->totalSubdirs();
-    d->m_ui->sizeLabel->setText(i18n("Calculating... %1 (%2)\n%3, %4",
-                                     KIO::convertSize(totalSize),
-                                     QLocale().toString(totalSize),
+    d->m_ui->sizeLabel->setText(i18n("Calculating... %1\n%2, %3",
+                                     KFilePropsPluginPrivate::formatSize(totalSize),
                                      i18np("1 file", "%1 files", totalFiles),
                                      i18np("1 sub-folder", "%1 sub-folders", totalSubdirs)));
+    d->setSizeOnDisk(d->dirSizeJob->totalSizeOnDisk());
 }
 
 void KFilePropsPlugin::slotDirSizeFinished(KJob *job)
@@ -705,11 +751,11 @@ void KFilePropsPlugin::slotDirSizeFinished(KJob *job)
         KIO::filesize_t totalSize = d->dirSizeJob->totalSize();
         KIO::filesize_t totalFiles = d->dirSizeJob->totalFiles();
         KIO::filesize_t totalSubdirs = d->dirSizeJob->totalSubdirs();
-        d->m_ui->sizeLabel->setText(QStringLiteral("%1 (%2)\n%3, %4")
-                                        .arg(KIO::convertSize(totalSize),
-                                             QLocale().toString(totalSize),
+        d->m_ui->sizeLabel->setText(QStringLiteral("%1\n%2, %3")
+                                        .arg(KFilePropsPluginPrivate::formatSize(totalSize),
                                              i18np("1 file", "%1 files", totalFiles),
                                              i18np("1 sub-folder", "%1 sub-folders", totalSubdirs)));
+        d->setSizeOnDisk(d->dirSizeJob->totalSizeOnDisk());
     }
     d->m_ui->stopCalculateSizeBtn->setEnabled(false);
     // just in case you change something and try again :)
@@ -745,7 +791,7 @@ void KFilePropsPlugin::slotSizeStop()
 {
     if (d->dirSizeJob) {
         KIO::filesize_t totalSize = d->dirSizeJob->totalSize();
-        d->m_ui->sizeLabel->setText(i18n("At least %1\n", KIO::convertSize(totalSize)));
+        d->m_ui->sizeLabel->setText(i18n("At least %1\n", KFilePropsPluginPrivate::formatSize(totalSize)));
         d->dirSizeJob->kill();
         d->dirSizeJob = nullptr;
     }

@@ -23,6 +23,7 @@ class DirectorySizeJobPrivate : public KIO::JobPrivate
 public:
     DirectorySizeJobPrivate()
         : m_totalSize(0L)
+        , m_totalSizeOnDisk(0L)
         , m_totalFiles(0L)
         , m_totalSubdirs(0L)
         , m_currentItem(0)
@@ -30,6 +31,7 @@ public:
     }
     explicit DirectorySizeJobPrivate(const KFileItemList &lstItems)
         : m_totalSize(0L)
+        , m_totalSizeOnDisk(0L)
         , m_totalFiles(0L)
         , m_totalSubdirs(0L)
         , m_lstItems(lstItems)
@@ -37,6 +39,8 @@ public:
     {
     }
     KIO::filesize_t m_totalSize;
+    KIO::filesize_t m_totalSizeOnDisk;
+    bool m_gotSizeOnDisk = false;
     KIO::filesize_t m_totalFiles;
     KIO::filesize_t m_totalSubdirs;
     KFileItemList m_lstItems;
@@ -88,6 +92,14 @@ KIO::filesize_t DirectorySizeJob::totalSize() const
     return d_func()->m_totalSize;
 }
 
+std::optional<KIO::filesize_t> DirectorySizeJob::totalSizeOnDisk() const
+{
+    if (!d_func()->m_gotSizeOnDisk) {
+        return std::nullopt;
+    }
+    return d_func()->m_totalSizeOnDisk;
+}
+
 KIO::filesize_t DirectorySizeJob::totalFiles() const
 {
     return d_func()->m_totalFiles;
@@ -116,6 +128,10 @@ void DirectorySizeJobPrivate::processNextItem()
                 return; // we'll come back later, when this one's finished
             } else {
                 m_totalSize += item.size();
+                if (item.entry().contains(KIO::UDSEntry::UDS_SIZE_ON_DISK)) {
+                    m_gotSizeOnDisk = true;
+                    m_totalSizeOnDisk += item.entry().numberValue(KIO::UDSEntry::UDS_SIZE_ON_DISK, 0);
+                }
                 m_totalFiles++;
                 // qDebug() << "file -> " << m_totalSize;
             }
@@ -132,7 +148,7 @@ void DirectorySizeJobPrivate::startNextJob(const QUrl &url)
     Q_Q(DirectorySizeJob);
     // qDebug() << url;
     KIO::ListJob *listJob = KIO::listRecursive(url, KIO::HideProgressInfo);
-    listJob->setDetails(KIO::StatBasic | KIO::StatResolveSymlink | KIO::StatInode);
+    listJob->setDetails(KIO::StatBasic | KIO::StatResolveSymlink | KIO::StatInode | KIO::StatSizeOnDisk);
     q->connect(listJob, &KIO::ListJob::entries, q, [this](KIO::Job *job, const KIO::UDSEntryList &list) {
         slotEntries(job, list);
     });
@@ -157,13 +173,20 @@ void DirectorySizeJobPrivate::slotEntries(KIO::Job *, const KIO::UDSEntryList &l
             }
         }
         const KIO::filesize_t size = entry.numberValue(KIO::UDSEntry::UDS_SIZE, 0);
+        const bool hasSizeOnDisk = entry.contains(KIO::UDSEntry::UDS_SIZE_ON_DISK);
+        const KIO::filesize_t sizeOnDisk = entry.numberValue(KIO::UDSEntry::UDS_SIZE_ON_DISK, 0);
+        m_gotSizeOnDisk = m_gotSizeOnDisk || hasSizeOnDisk;
         const QString name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
         if (name == QLatin1Char('.')) {
-            m_totalSize += size;
-            // qDebug() << "'.': added" << size << "->" << m_totalSize;
+            // The size of a directory is the room its list of entries needs, which is not data the
+            // user put there, so only the space it takes up is counted.
+            m_totalSizeOnDisk += sizeOnDisk;
         } else if (name != QLatin1String("..")) {
             if (!entry.isLink()) {
-                m_totalSize += size;
+                if (!entry.isDir()) {
+                    m_totalSize += size;
+                }
+                m_totalSizeOnDisk += sizeOnDisk;
             }
             if (!entry.isDir()) {
                 m_totalFiles++;

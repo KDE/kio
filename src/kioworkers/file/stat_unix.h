@@ -39,6 +39,10 @@ inline uint32_t statxMask(KIO::StatDetails details)
         // size, linkdest
         mask |= STATX_SIZE;
     }
+    if (details & KIO::StatSizeOnDisk) {
+        // the space taken up on the storage
+        mask |= STATX_BLOCKS;
+    }
     if (details & KIO::StatUser) {
         // uid, gid
         mask |= STATX_UID | STATX_GID;
@@ -98,6 +102,18 @@ inline static uint64_t stat_ino(const struct statx &buf)
 inline static size_t stat_size(const struct statx &buf)
 {
     return buf.stx_size;
+}
+// A filesystem does not have to report how many blocks it gave a file, and statx says in stx_mask
+// which of the things asked for came back.
+inline static bool stat_has_size_on_disk(const struct statx &buf)
+{
+    return (buf.stx_mask & STATX_BLOCKS) != 0;
+}
+// statx fixes the unit of stx_blocks at 512 bytes whatever the filesystem does with its own blocks,
+// so this is not stx_blksize, which is the size a read is best done in.
+inline static uint64_t stat_size_on_disk(const struct statx &buf)
+{
+    return uint64_t(buf.stx_blocks) * 512;
 }
 inline static uint32_t stat_uid(const struct statx &buf)
 {
@@ -176,6 +192,27 @@ inline static size_t stat_size(const QT_STATBUF &buf)
 {
     return buf.st_size;
 }
+#ifndef Q_OS_WIN
+// Windows has no count of the blocks a file was given, so these are for the systems that do.
+//
+// POSIX says how many blocks st_blocks counts but not how big one is, so the systems that have an
+// answer publish it as S_BLKSIZE. The ones that do not have all used 512 bytes for decades. This is
+// not st_blksize, which is the size a read is best done in and is commonly 4096.
+#ifdef S_BLKSIZE
+constexpr uint64_t s_statBlockSize = S_BLKSIZE;
+#else
+constexpr uint64_t s_statBlockSize = 512;
+#endif
+
+inline static bool stat_has_size_on_disk(const QT_STATBUF &)
+{
+    return true;
+}
+inline static uint64_t stat_size_on_disk(const QT_STATBUF &buf)
+{
+    return uint64_t(buf.st_blocks) * s_statBlockSize;
+}
+#endif
 inline static uint32_t stat_uid(const QT_STATBUF &buf)
 {
     return buf.st_uid;

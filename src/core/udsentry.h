@@ -362,6 +362,9 @@ public:
      * higher precision for filesystems that support it.
      * \value[since 6.24] UDS_CREATION_TIME_NS_OFFSET The offset in nanoseconds to the seconds since the file was created. This is used to provide higher
      * precision for filesystems that support it.
+     * \value[since 6.30] UDS_SIZE_ON_DISK The space the file takes up on the storage it lives on, which is what the filesystem has allocated to it rather
+     * than how many bytes of data it holds. Larger than UDS_SIZE for a file whose last block is partly unused, smaller for one that is sparse or compressed,
+     * and it counts the space a directory itself takes as well. Absent when the protocol has no way to tell.
      * \value UDS_EXTRA Extra data (used only if you specified Columns/ColumnsTypes). NB: you cannot repeat this entry; use UDS_EXTRA + i until UDS_EXTRA_END
      * \value UDS_EXTRA_END
      */
@@ -403,6 +406,7 @@ public:
         UDS_MODIFICATION_TIME_NS_OFFSET = 34 | UDS_NUMBER,
         UDS_ACCESS_TIME_NS_OFFSET = 35 | UDS_NUMBER,
         UDS_CREATION_TIME_NS_OFFSET = 36 | UDS_NUMBER,
+        UDS_SIZE_ON_DISK = 37 | UDS_NUMBER,
         UDS_EXTRA = 100 | UDS_STRING,
         UDS_EXTRA_END = 140 | UDS_STRING,
     };
