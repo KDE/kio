@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 00:41+0000\n"
+"POT-Creation-Date: 2026-08-18 00:41+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda\n"
@@ -41,7 +41,7 @@ msgstr ""
 "Tekisobose okukyusamu obwanannyini bwa fayiro <filename>%1</filename>. "
 "Endukusa z'olina ku sisitemu eno tezikumala okutuukiriza kino."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1081
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1085
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3188,7 +3188,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:360
-#: widgets/kpropertiesdialogbuiltin_p.cpp:676
+#: widgets/kpropertiesdialogbuiltin_p.cpp:722
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -3764,7 +3764,7 @@ msgstr "Kolawo Tterekero Ppya"
 msgid "Create new folder in %1:"
 msgstr "Kolawo tterekero ppya mu %1:"
 
-#: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox Prompt for new file of type"
 #| msgid "Enter %1 filename:"
@@ -4268,22 +4268,22 @@ msgstr "Puloguramu \"mount\" embuze"
 msgid "Could not find program \"umount\""
 msgstr "Puloguramu \"umount\" embuze"
 
-#: kioworkers/file/file_unix.cpp:668
+#: kioworkers/file/file_unix.cpp:672
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nnemedwa okukola koppi %2 mu fayiro %1. (Nmaba ya kiremya: %3)"
 
-#: kioworkers/file/file_unix.cpp:880
+#: kioworkers/file/file_unix.cpp:884
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Mu kyuma temuli mediya ya %1"
 
-#: kioworkers/file/file_unix.cpp:1239
+#: kioworkers/file/file_unix.cpp:1243
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nnemedwa okufuna ennamba ya mukozesa egendera ku linnya %1"
 
-#: kioworkers/file/file_unix.cpp:1250
+#: kioworkers/file/file_unix.cpp:1254
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nnemedwa okufuna ennamba ya guluupu egendera ku guluupu %1"
@@ -4872,7 +4872,7 @@ msgstr "Ya kika kya SHA512:"
 #. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
 #: widgets/checksumswidget.ui:112 widgets/checksumswidget.ui:159
 #: widgets/checksumswidget.ui:206 widgets/checksumswidget.ui:253
-#: widgets/kfilepropspluginwidget.ui:276
+#: widgets/kfilepropspluginwidget.ui:302
 #, kde-format
 msgid "Calculate"
 msgstr "Gibale"
@@ -5266,7 +5266,7 @@ msgstr "Nyini yo"
 msgid "Owning Group"
 msgstr "Guluupu ya Nyini Yo"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1450
+#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1496
 #, kde-format
 msgid "Others"
 msgstr "Balala"
@@ -5496,91 +5496,97 @@ msgstr "Obusangiro:"
 msgid "Size:"
 msgstr "Bunene:"
 
+#. i18n: ectx: property (text), widget (QLabel, sizeOnDiskLabelLeft)
+#: widgets/kfilepropspluginwidget.ui:259
+#, kde-format
+msgid "Size on disk:"
+msgstr ""
+
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
-#: widgets/kfilepropspluginwidget.ui:282
+#: widgets/kfilepropspluginwidget.ui:308
 #, kde-format
 msgid "Determine the folder size"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
-#: widgets/kfilepropspluginwidget.ui:289
+#: widgets/kfilepropspluginwidget.ui:315
 #, kde-format
 msgid "Stop"
 msgstr "Komya"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, stopCalculateSizeBtn)
-#: widgets/kfilepropspluginwidget.ui:295
+#: widgets/kfilepropspluginwidget.ui:321
 #, kde-format
 msgid "Stop determining the folder size"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
-#: widgets/kfilepropspluginwidget.ui:302
+#: widgets/kfilepropspluginwidget.ui:328
 #, kde-format
 msgid "Explore in Filelight"
 msgstr "Keberera mu Filelight"
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
-#: widgets/kfilepropspluginwidget.ui:330
+#: widgets/kfilepropspluginwidget.ui:356
 #, kde-format
 msgid "Points to:"
 msgstr "Egguka ku:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
-#: widgets/kfilepropspluginwidget.ui:361
+#: widgets/kfilepropspluginwidget.ui:387
 #, fuzzy, kde-format
 #| msgid "Show Preview"
 msgid "Show target"
 msgstr "Lagako Ebiri Mu Fayiro"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:383
+#: widgets/kfilepropspluginwidget.ui:409
 #, kde-format
 msgid "Created:"
 msgstr "Lwe yakolebwawo:"
 
 #. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:406
+#: widgets/kfilepropspluginwidget.ui:432
 #, kde-format
 msgid "Modified:"
 msgstr "Amakyusa:"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:429
+#: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
 msgid "Accessed:"
 msgstr "Amabikkula Agaasemba:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:455
+#: widgets/kfilepropspluginwidget.ui:481
 #, fuzzy, kde-format
 #| msgid "File System:"
 msgid "File system:"
 msgstr "Sisitemu ya Fayiro:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:481
+#: widgets/kfilepropspluginwidget.ui:507
 #, fuzzy, kde-format
 #| msgid "Mounted On:"
 msgid "Mounted on:"
 msgstr "Kiwangidwa Ku:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:507
+#: widgets/kfilepropspluginwidget.ui:533
 #, fuzzy, kde-format
 #| msgid "Mounted From:"
 msgid "Mounted from:"
 msgstr "Kiwangidwa Okuva Ku:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
-#: widgets/kfilepropspluginwidget.ui:533
+#: widgets/kfilepropspluginwidget.ui:559
 #, fuzzy, kde-format
 #| msgid "Free Space:"
 msgid "Free space:"
 msgstr "Ekifo ekisigadde mu kibondo:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
-#: widgets/kfilepropspluginwidget.ui:546
+#: widgets/kfilepropspluginwidget.ui:572
 #, kde-format
 msgid "Unknown size"
 msgstr "Obunene tebutegeerese"
@@ -6157,13 +6163,29 @@ msgstr ""
 "Nnemedwa okukazza eby'obutonde kubanga endukusa za kwo tezikkiriza "
 "okuwandika mu:<nl/><filename>%1</filename>."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:230
+#: widgets/kpropertiesdialogbuiltin_p.cpp:159
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt ""
+"@label the size of a file or folder, first rounded and then to the byte"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:161
+#, kde-format
+msgctxt "@item the exact size of a file or folder"
+msgid "%1 byte"
+msgid_plural "%1 bytes"
+msgstr[0] ""
+msgstr[1] ""
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:263
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "Eby'a&wamu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, fuzzy, kde-format
 #| msgctxt "@label:textbox Prompt for new file of type"
 #| msgid "Enter %1 filename:"
@@ -6171,26 +6193,26 @@ msgctxt "@info:placeholder"
 msgid "Enter file name"
 msgstr "Fayiro ey'ekika kya %1 giwe erinnya:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:428
+#: widgets/kpropertiesdialogbuiltin_p.cpp:474
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "Keberera mu %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:439
-#: widgets/kpropertiesdialogbuiltin_p.cpp:716
+#: widgets/kpropertiesdialogbuiltin_p.cpp:485
+#: widgets/kpropertiesdialogbuiltin_p.cpp:762
 #, kde-format
 msgid "Refresh"
 msgstr "Nyumunguza"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:448
+#: widgets/kpropertiesdialogbuiltin_p.cpp:494
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:452
-#: widgets/kpropertiesdialogbuiltin_p.cpp:455
+#: widgets/kpropertiesdialogbuiltin_p.cpp:498
+#: widgets/kpropertiesdialogbuiltin_p.cpp:501
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Cannot transfer <filename>%1</filename>"
@@ -6198,164 +6220,167 @@ msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
 msgstr "Sisobola okusimbuliza <filename>%1</filename>"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:561
+#: widgets/kpropertiesdialogbuiltin_p.cpp:607
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:683
+#: widgets/kpropertiesdialogbuiltin_p.cpp:729
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "Obunene tebutegeerese"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:693
-#, kde-format
+#: widgets/kpropertiesdialogbuiltin_p.cpp:739
+#, fuzzy, kde-format
+#| msgid ""
+#| "Calculating... %1 (%2)\n"
+#| "%3, %4"
 msgid ""
-"Calculating... %1 (%2)\n"
-"%3, %4"
+"Calculating... %1\n"
+"%2, %3"
 msgstr ""
 "Mbala... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:696
-#: widgets/kpropertiesdialogbuiltin_p.cpp:711
+#: widgets/kpropertiesdialogbuiltin_p.cpp:741
+#: widgets/kpropertiesdialogbuiltin_p.cpp:756
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "Fayiro 1"
 msgstr[1] "Fayiro %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:697
-#: widgets/kpropertiesdialogbuiltin_p.cpp:712
+#: widgets/kpropertiesdialogbuiltin_p.cpp:742
+#: widgets/kpropertiesdialogbuiltin_p.cpp:757
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "Lirimu etterekero eddala 1"
 msgstr[1] "Lirimu materekero malala %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:725
+#: widgets/kpropertiesdialogbuiltin_p.cpp:771
 #, kde-format
 msgid "Calculating...\n"
 msgstr "Mbala...\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:748
+#: widgets/kpropertiesdialogbuiltin_p.cpp:794
 #, kde-format
 msgid "At least %1\n"
 msgstr "Butakka wansi wa %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:794
+#: widgets/kpropertiesdialogbuiltin_p.cpp:840
 #, kde-format
 msgid "The new file name is empty."
 msgstr "Awandibadde linnya lya fayiro waliwo bbanga."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:992
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1038
 #, kde-format
 msgid "No registered file type"
 msgstr "Tewali kika kya fayiro kiragidwa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:994
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1040
 #, kde-format
 msgid "No associated application"
 msgstr "Tewali puloguramu ekwataganyizidwa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1000
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1046
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Kolawo…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1004
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1050
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Kyusa…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1006
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1052
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1076
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1077
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1122
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1123
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1125
 msgid "No Access"
 msgstr "Tokkirizidwa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1076
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1122
 msgid "Can Only View"
 msgstr "Kukeberabukezi"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1076
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1122
 msgid "Can View & Modify"
 msgstr "Kukebera n'okukyusa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1077
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1123
 msgid "Can Only View Content"
 msgstr "Kukeberabukezi ebirimu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1077
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1123
 msgid "Can View & Modify Content"
 msgstr "Kukebera n'okukyusa ebirimu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1125
 msgid "Can Only View/Read Content"
 msgstr "Kukeberabukezi ebirimu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1125
 msgid "Can View/Read & Modify/Write"
 msgstr "Kukebera n'okukyusa ebirimu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1178
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1224
 #, kde-format
 msgid "&Permissions"
 msgstr "&Ndukusa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1189
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1235
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1423
 #, kde-format
 msgid "Access Permissions"
 msgstr "Ebikkirizibwa Okukolebwa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1199
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1245
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "Fayiro eno nyunzi era tebeerako ndukusa."
 msgstr[1] "Fayiro zonna nyunzi era tezibeerako ndukusa."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1201
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1247
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Nyini yo yekka y'asobola okukyusa endukusa za kwo."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1208
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1254
 #, kde-format
 msgid "O&wner:"
 msgstr "&Nyini yo:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1256
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Bino bitegeka nyini yo by'asobola okukola."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1259
 #, kde-format
 msgid "Gro&up:"
 msgstr "&Guluupu:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1261
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Bino bitegeka bamemba ba guluupu bye basobola okukola."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1218
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1264
 #, kde-format
 msgid "O&thers:"
 msgstr "&Balala:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1221
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1267
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6364,28 +6389,28 @@ msgstr ""
 "Bino bitegeka abalala bonna, abatali banyini yo era nga ssi bamemba ba "
 "guluupu, bye basobola okukola."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1225
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1271
 #, kde-format
 msgid "Only own&er can delete or rename contents"
 msgstr ""
 "Nyini tt&erekero yekka y'asobola okukyusa mannya g'ebiririmu n'okubigyawo"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1225
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1271
 #, kde-format
 msgid "Allow &executing file as program"
 msgstr "Fayiro &esobole okutandikibwanga nga puloguramu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1273
 #, kde-format
 msgid "Delete or rename:"
 msgstr "Gyawo oba kyusa linnya:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1273
 #, kde-format
 msgid "Execute:"
 msgstr "Tandika:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1274
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6396,7 +6421,7 @@ msgstr ""
 "g'ebiririmu n'okubigyawo. Abalala basobola okwongeramu bwongezi fayiro "
 "empya, kasita olukusa olukkiriza ekyo luba lutegekedwa."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1232
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1278
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6407,42 +6432,42 @@ msgstr ""
 "Ebigirimu bwe bitaba puloguramu entegeke oba biragiro bya kompyuta tekigasa "
 "okukironda."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1282
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "Ebyetaagisa &Bumanyirivu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1244
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1290
 #, kde-format
 msgid "Ownership"
 msgstr "Obwanannyini"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1252
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1298
 #, kde-format
 msgid "User:"
 msgstr "Mukozesa:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1290
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1336
 #, kde-format
 msgid "Group:"
 msgstr "Guluupu:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1324
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1370
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Enkyukakyuka zikalize ku materekero gonna agali muno n'ebigalimu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1367
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1413
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Enteekateeka Za Ndukusa Ez'etaagisa Bumanyirivu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1433
 #, kde-format
 msgid "Class"
 msgstr "Kiti"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1394
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1440
 #, kde-format
 msgid ""
 "Show\n"
@@ -6451,22 +6476,22 @@ msgstr ""
 "Laga\n"
 "Ebirimu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1395
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1441
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Akatuuti kano kakkiriza ebiri mu tterekero okulabibwa."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1443
 #, kde-format
 msgid "Read"
 msgstr "Laba ebirimu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1444
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "Akatuuti kano kakkiriza ebiri mu fayiro okulabibwa."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1404
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1450
 #, kde-format
 msgid ""
 "Write\n"
@@ -6475,7 +6500,7 @@ msgstr ""
 "Kyusamu\n"
 "Ebirimu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1452
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6486,45 +6511,45 @@ msgstr ""
 "okulitegekako olukusa lwa bwa nannyini okugaana abatali bannyi lyo okugyawo "
 "oba okukyusa mannya ga fayiro eziririmu ezaateekebwawo balala."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1455
 #, kde-format
 msgid "Write"
 msgstr "Kyusamu ebirimu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1410
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1456
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "Akatuuti kano kakkiriza okukyusamu ebiri mu fayiro."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1416
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1462
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Kuyingira"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1417
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1463
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Akatuuti kano kakkiriza etterekero okuyingirwa."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1465
 #, kde-format
 msgid "Exec"
 msgstr "Tandika"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1420
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1466
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr ""
 "Akatuuti kano kakkiriza puloguramu entegeke oba ebiragiro bya kompyuta ebiri "
 "mu fayiro eno okutandikibwa."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1428
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1474
 #, kde-format
 msgid "Special"
 msgstr "Ndukusa Ez'enjawulo"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1433
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1479
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6533,7 +6558,7 @@ msgstr ""
 "Kabonero akawa ndukusa ez'enjawulo. Kakola ku byonna ebiri mu tterekero. "
 "Ebiwandikidwa mu lukumbo olwa ddyo bye biraga akabonero kye kaleetawo."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1437
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1483
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6542,17 +6567,17 @@ msgstr ""
 "Kabonero akawa ndukusa ez'enjawulo. Bye kakola byennyini biragidwa mu "
 "lukumbo olw'oku ddyo."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1442
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1488
 #, kde-format
 msgid "User"
 msgstr "Omukozesa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1446
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1492
 #, kde-format
 msgid "Group"
 msgstr "Guluupu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1457
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1503
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6561,7 +6586,7 @@ msgstr ""
 "Bw'olonda kino, nyini tterekero lino era y'ajjakuba nyini buli fayiro empya "
 "ekolebwa wano."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1461
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1507
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6570,7 +6595,7 @@ msgstr ""
 "Akatuuti bwe kategekebwa ate nga fayiro eno puloguramu, bw'etandikibwa "
 "ejjakukozesa obuyinza bwa nyini yo."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1468
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1514
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6578,7 +6603,7 @@ msgstr ""
 "Bw'olonda kino, buli fayiro empya ekolebwa wano ejjakuba ne guluupu y'emu "
 "n'etterekero lino."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1472
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1518
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6587,7 +6612,7 @@ msgstr ""
 "Akatuuti bwe kategekebwa ate nga fayiro eno puloguramu, bw'etandikibwa "
 "ejjakukozesa obuyinza bwa guluupu ya yo."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1479
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1525
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6598,7 +6623,7 @@ msgstr ""
 "lutategekebwako buli alina olukusa oluliwandikamu aba asobola naye okukola "
 "ebyo."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1484
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1530
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6607,81 +6632,81 @@ msgstr ""
 "Olukusa olw'obwa nannyini olutegekedwa ku fayirobufayiro sisitemu eza Linux "
 "ziruyisa nga olutaliwo. Sisitemu ez'ebika ebirala ezimu zo zirugenderako"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1545
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1591
 #, kde-format
 msgid "Set UID"
 msgstr "Tegeka UID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1549
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1595
 #, kde-format
 msgid "Set GID"
 msgstr "Tegeka GID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1553
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1599
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Lukusa lwa bwa nannyini"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1679
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1725
 #, kde-format
 msgid "Link"
 msgstr "Nyunzi"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1699
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1745
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Kisinzira (Tewali Kikyuse)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1810
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1856
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Fayiro eno eriko endukusa ezitegekebwa abamanyirivu"
 msgstr[1] "Fayiro zino ziriko endukusa ezitegekebwa abamanyirivu."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1832
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1878
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Etterekero lino liriko endukusa ezitegekebwa abamanyirivu."
 msgstr[1] "Amaterekero gano galiko endukusa ezitegekebwa abamanyirivu."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1846
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1892
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Fayiro zino ziriko endukusa ezitegekebwa abamanyirivu."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2090
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2136
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "&Ennamba enkuumi"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2381
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2427
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Ennamba enkuumi tekozeseka."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2384
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2430
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr ""
 "Ekiweeredwa tekitegeerese nga ennamba ya kika kya MD5, SHA1 oba SHA256."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2395
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2441
 #, kde-format
 msgid "Checksums match."
 msgstr "Ennamba ze zimu."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "Ennamba enkuumi ebalidwa y'esuubidwa."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2410
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2456
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6692,48 +6717,48 @@ msgstr ""
 "mu kuwanula fayiro. Gezaako okuddamu fayiro okugiwanula.<br/>Ennamba bwe "
 "ziddamu butafaanagana, tuukirira abaakola fayiro."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2416
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2462
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "Ennamba enkuumi ebalidwa ssi y'esuubidwa."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2424
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2470
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Nkakasa ennamba enkuumi…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2499
 #, fuzzy, kde-format
 #| msgid "The files are <b>identical</b>."
 msgid "The checksums of all files are identical."
 msgstr "Fayiro <b>ze zimu</b>."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2458
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2504
 #, fuzzy, kde-format
 #| msgid "The files are <b>different</b>."
 msgid "The selected files have different checksums."
 msgstr "Fayiro <b>z'awukana</b>."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2464
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2510
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Mbala…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2575
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2621
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2581
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2627
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2650
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2921
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2696
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2967
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6741,28 +6766,28 @@ msgstr ""
 "Nnemedwa okukaza eby'obutonde. Ebiri ku sisitemu eza fayiro eziri ebunaayira "
 "tebikolebwako."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2721
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2767
 #, kde-format
 msgid "&Application"
 msgstr "&Puloguramu"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2861
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2907
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1 giteekereko ekika kya fayiro"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2862
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Londako ekika oba bika bya fayiro ebinaateekebwako:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3000
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3046
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr ""
 "Puloguramu eziri ku sisitemu eza fayiro eziri ebunaayira tezikolebwako."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3015
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3061
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Ebisoboka ku %1 ebyetaagisa bumanyirivu"

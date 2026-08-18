@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 00:41+0000\n"
+"POT-Creation-Date: 2026-08-18 00:41+0000\n"
 "PO-Revision-Date: 2026-07-03 22:06+0100\n"
 "Last-Translator: deck <altronic25@protonmail.com>\n"
 "Language-Team: English <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -43,7 +43,7 @@ msgstr ""
 "Níorbh fhéidir úinéireacht an chomhaid <filename>%1</filename> a athrú. Níl "
 "rochtain leordhóthanach agat ar an gcomhad chun an t-athrú a dhéanamh."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1081
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1085
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3179,7 +3179,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:360
-#: widgets/kpropertiesdialogbuiltin_p.cpp:676
+#: widgets/kpropertiesdialogbuiltin_p.cpp:722
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -3764,7 +3764,7 @@ msgstr "Cruthaigh Fillteán Nua"
 msgid "Create new folder in %1:"
 msgstr "Cruthaigh fillteán nua i %1:"
 
-#: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
@@ -4260,23 +4260,23 @@ msgstr "Níorbh fhéidir clár \"mount\" a aimsiú"
 msgid "Could not find program \"umount\""
 msgstr "Níorbh fhéidir clár \"umount\" a aimsiú"
 
-#: kioworkers/file/file_unix.cpp:668
+#: kioworkers/file/file_unix.cpp:672
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Ní féidir comhad a chóipeáil ó %1 go %2. (Earráid: %3)"
 
-#: kioworkers/file/file_unix.cpp:880
+#: kioworkers/file/file_unix.cpp:884
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Níl meáin sa ghléas le haghaidh %1"
 
-#: kioworkers/file/file_unix.cpp:1239
+#: kioworkers/file/file_unix.cpp:1243
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 "Níorbh fhéidir aitheantas úsáideora a fháil don ainm úsáideora tugtha %1"
 
-#: kioworkers/file/file_unix.cpp:1250
+#: kioworkers/file/file_unix.cpp:1254
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Níorbh fhéidir aitheantas grúpa a fháil don ainm grúpa tugtha %1"
@@ -4926,7 +4926,7 @@ msgstr "SHA512:"
 #. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
 #: widgets/checksumswidget.ui:112 widgets/checksumswidget.ui:159
 #: widgets/checksumswidget.ui:206 widgets/checksumswidget.ui:253
-#: widgets/kfilepropspluginwidget.ui:276
+#: widgets/kfilepropspluginwidget.ui:302
 #, kde-format
 msgid "Calculate"
 msgstr "Ríomh"
@@ -5334,7 +5334,7 @@ msgstr "Úinéir"
 msgid "Owning Group"
 msgstr "Grúpa an Chomhaid"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1450
+#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1496
 #, kde-format
 msgid "Others"
 msgstr "Eile"
@@ -5566,86 +5566,92 @@ msgstr "Suíomh:"
 msgid "Size:"
 msgstr "Méid:"
 
+#. i18n: ectx: property (text), widget (QLabel, sizeOnDiskLabelLeft)
+#: widgets/kfilepropspluginwidget.ui:259
+#, kde-format
+msgid "Size on disk:"
+msgstr ""
+
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
-#: widgets/kfilepropspluginwidget.ui:282
+#: widgets/kfilepropspluginwidget.ui:308
 #, kde-format
 msgid "Determine the folder size"
 msgstr "Cinntigh méid an fhillteáin"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
-#: widgets/kfilepropspluginwidget.ui:289
+#: widgets/kfilepropspluginwidget.ui:315
 #, kde-format
 msgid "Stop"
 msgstr "Stad"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, stopCalculateSizeBtn)
-#: widgets/kfilepropspluginwidget.ui:295
+#: widgets/kfilepropspluginwidget.ui:321
 #, kde-format
 msgid "Stop determining the folder size"
 msgstr "Stop ag cinneadh méid an fhillteáin"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
-#: widgets/kfilepropspluginwidget.ui:302
+#: widgets/kfilepropspluginwidget.ui:328
 #, kde-format
 msgid "Explore in Filelight"
 msgstr "Iniúchadh i Filelight"
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
-#: widgets/kfilepropspluginwidget.ui:330
+#: widgets/kfilepropspluginwidget.ui:356
 #, kde-format
 msgid "Points to:"
 msgstr "Dírithe ar:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
-#: widgets/kfilepropspluginwidget.ui:361
+#: widgets/kfilepropspluginwidget.ui:387
 #, kde-format
 msgid "Show target"
 msgstr "Taispeáin sprioc"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:383
+#: widgets/kfilepropspluginwidget.ui:409
 #, kde-format
 msgid "Created:"
 msgstr "Cruthaithe:"
 
 #. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:406
+#: widgets/kfilepropspluginwidget.ui:432
 #, kde-format
 msgid "Modified:"
 msgstr "Athraithe:"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:429
+#: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
 msgid "Accessed:"
 msgstr "Rochtain:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:455
+#: widgets/kfilepropspluginwidget.ui:481
 #, kde-format
 msgid "File system:"
 msgstr "Córas comhaid:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:481
+#: widgets/kfilepropspluginwidget.ui:507
 #, kde-format
 msgid "Mounted on:"
 msgstr "Suite ar:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:507
+#: widgets/kfilepropspluginwidget.ui:533
 #, kde-format
 msgid "Mounted from:"
 msgstr "Suiteáilte ó:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
-#: widgets/kfilepropspluginwidget.ui:533
+#: widgets/kfilepropspluginwidget.ui:559
 #, kde-format
 msgid "Free space:"
 msgstr "Spás saor:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
-#: widgets/kfilepropspluginwidget.ui:546
+#: widgets/kfilepropspluginwidget.ui:572
 #, kde-format
 msgid "Unknown size"
 msgstr "Méid anaithnid"
@@ -6214,65 +6220,87 @@ msgstr ""
 "Níorbh fhéidir airíonna a shábháil mar gheall ar easpa rochtana "
 "scríbhneoireachta chuig:<nl/><filename>%1</filename>."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:230
+#: widgets/kpropertiesdialogbuiltin_p.cpp:159
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt ""
+"@label the size of a file or folder, first rounded and then to the byte"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:161
+#, kde-format
+msgctxt "@item the exact size of a file or folder"
+msgid "%1 byte"
+msgid_plural "%1 bytes"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:263
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "&Ginearálta"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
 msgstr "Cuir isteach ainm comhaid"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:428
+#: widgets/kpropertiesdialogbuiltin_p.cpp:474
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "Taiscéal i %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:439
-#: widgets/kpropertiesdialogbuiltin_p.cpp:716
+#: widgets/kpropertiesdialogbuiltin_p.cpp:485
+#: widgets/kpropertiesdialogbuiltin_p.cpp:762
 #, kde-format
 msgid "Refresh"
 msgstr "Athnuaigh"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:448
+#: widgets/kpropertiesdialogbuiltin_p.cpp:494
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
 msgstr "Cuir isteach suíomh sprice"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:452
-#: widgets/kpropertiesdialogbuiltin_p.cpp:455
+#: widgets/kpropertiesdialogbuiltin_p.cpp:498
+#: widgets/kpropertiesdialogbuiltin_p.cpp:501
 #, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
 msgstr "Taispeáin  <filename>%1</filename>"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:561
+#: widgets/kpropertiesdialogbuiltin_p.cpp:607
 #, kde-format
 msgid "%1:"
 msgstr "%1:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:683
+#: widgets/kpropertiesdialogbuiltin_p.cpp:729
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "Méid anaithnid"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:693
-#, kde-format
+#: widgets/kpropertiesdialogbuiltin_p.cpp:739
+#, fuzzy, kde-format
+#| msgid ""
+#| "Calculating... %1 (%2)\n"
+#| "%3, %4"
 msgid ""
-"Calculating... %1 (%2)\n"
-"%3, %4"
+"Calculating... %1\n"
+"%2, %3"
 msgstr ""
 "Á Ríomh... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:696
-#: widgets/kpropertiesdialogbuiltin_p.cpp:711
+#: widgets/kpropertiesdialogbuiltin_p.cpp:741
+#: widgets/kpropertiesdialogbuiltin_p.cpp:756
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
@@ -6282,8 +6310,8 @@ msgstr[2] "%1 chomhad"
 msgstr[3] "%1 gcomhad"
 msgstr[4] "%1 comhad"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:697
-#: widgets/kpropertiesdialogbuiltin_p.cpp:712
+#: widgets/kpropertiesdialogbuiltin_p.cpp:742
+#: widgets/kpropertiesdialogbuiltin_p.cpp:757
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
@@ -6293,44 +6321,44 @@ msgstr[2] "%1 fhofhillteán"
 msgstr[3] "%1 bhfofhillteán"
 msgstr[4] "%1 fofhillteán"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:725
+#: widgets/kpropertiesdialogbuiltin_p.cpp:771
 #, kde-format
 msgid "Calculating...\n"
 msgstr "Ag ríomh...\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:748
+#: widgets/kpropertiesdialogbuiltin_p.cpp:794
 #, kde-format
 msgid "At least %1\n"
 msgstr "Ar a laghad %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:794
+#: widgets/kpropertiesdialogbuiltin_p.cpp:840
 #, kde-format
 msgid "The new file name is empty."
 msgstr "Is folamh é an t-ainm comhaid nua."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:992
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1038
 #, kde-format
 msgid "No registered file type"
 msgstr "Gan aon chineál comhaid cláraithe"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:994
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1040
 #, kde-format
 msgid "No associated application"
 msgstr "Gan aon fheidhmchlár gaolmhar"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1000
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1046
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Cruthaigh…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1004
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1050
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Athraigh…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1006
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1052
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
@@ -6338,53 +6366,53 @@ msgstr ""
 "Athraigh an feidhmchlár réamhshocraithe chun comhaid den chineál “%1” a "
 "oscailt."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1076
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1077
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1122
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1123
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1125
 msgid "No Access"
 msgstr "Gan Rochtain"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1076
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1122
 msgid "Can Only View"
 msgstr "Ní féidir ach féachaint air"
 
 # applies to folders
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1076
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1122
 msgid "Can View & Modify"
 msgstr "Is féidir féachaint air agus é a mhodhnú"
 
 # applies to folders
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1077
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1123
 msgid "Can Only View Content"
 msgstr "Ní féidir ach ábhar a fheiceáil"
 
 # applies to folders
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1077
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1123
 msgid "Can View & Modify Content"
 msgstr "Ábhar Infheicthe agus Inathraithe"
 
 # applies to folders
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1125
 msgid "Can Only View/Read Content"
 msgstr "Ní féidir ach ábhar a fheiceáil/a léamh"
 
 # applies to "mixed"
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1125
 msgid "Can View/Read & Modify/Write"
 msgstr "Infheicthe/Inléite agus Inathraithe/Inscríofa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1178
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1224
 #, kde-format
 msgid "&Permissions"
 msgstr "&Ceadanna"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1189
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1235
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1423
 #, kde-format
 msgid "Access Permissions"
 msgstr "Ceadanna Rochtana"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1199
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1245
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
@@ -6394,64 +6422,64 @@ msgstr[2] "Tá gach comhad ina nasc agus nach bhfuil ceadanna acu."
 msgstr[3] "Tá gach comhad ina nasc agus nach bhfuil ceadanna acu."
 msgstr[4] "Tá gach comhad ina nasc agus nach bhfuil ceadanna acu."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1201
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1247
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Is féidir leis an úinéir amháin ceadanna a athrú."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1208
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1254
 #, kde-format
 msgid "O&wner:"
 msgstr "Úi&néir:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1256
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Sonraigh na gníomhartha atá ceadaithe don úinéir."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1259
 #, kde-format
 msgid "Gro&up:"
 msgstr "&Grúpa:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1261
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Sonraigh na gníomhartha atá ceadaithe do bhaill an ghrúpa."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1218
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1264
 #, kde-format
 msgid "O&thers:"
 msgstr "&Eile:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1221
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1267
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
 "group, are allowed to do."
 msgstr "Sonraigh na gníomhartha atá ceadaithe do gach duine eile."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1225
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1271
 #, kde-format
 msgid "Only own&er can delete or rename contents"
 msgstr "Ní féidir ach l&eis an úinéir ábhar a scriosadh nó a athainmniú"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1225
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1271
 #, kde-format
 msgid "Allow &executing file as program"
 msgstr "C&eadaigh comhad a fhorghníomhú mar chlár"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1273
 #, kde-format
 msgid "Delete or rename:"
 msgstr "Scrios nó athainmnigh:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1273
 #, kde-format
 msgid "Execute:"
 msgstr "Rith:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1274
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6463,7 +6491,7 @@ msgstr ""
 "húsáideoirí eile ach comhaid nua a chur leis, agus teastaíonn cead "
 "‘Inneachar a Mhodhnú’ chuige sin."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1232
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1278
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6473,43 +6501,43 @@ msgstr ""
 "seo ach ar ríomhchláir agus ar scripteanna. Tá gá leis más mian leat iad a "
 "rith."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1282
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "C&eadanna Casta"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1244
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1290
 #, kde-format
 msgid "Ownership"
 msgstr "Úinéireacht"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1252
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1298
 #, kde-format
 msgid "User:"
 msgstr "Úsáideoir:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1290
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1336
 #, kde-format
 msgid "Group:"
 msgstr "Grúpa:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1324
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1370
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr ""
 "Cuir na hathruithe i bhfeidhm ar gach fofhillteán agus ar a n-inneachar"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1367
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1413
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Ceadanna Casta"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1433
 #, kde-format
 msgid "Class"
 msgstr "Aicme"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1394
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1440
 #, kde-format
 msgid ""
 "Show\n"
@@ -6518,22 +6546,22 @@ msgstr ""
 "Taispeáin\n"
 "Iontrálacha"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1395
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1441
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Ceadaíonn an bratach seo inneachar an fhillteáin a bheith léite."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1443
 #, kde-format
 msgid "Read"
 msgstr "Léigh"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1444
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "Ceadaíonn an bratach Inléite inneachar an chomhaid a bheith léite."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1404
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1450
 #, kde-format
 msgid ""
 "Write\n"
@@ -6542,7 +6570,7 @@ msgstr ""
 "Scríobh\n"
 "Iontrálacha"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1452
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6552,44 +6580,44 @@ msgstr ""
 "Tabhair faoi deara gur féidir scriosadh agus athainmniú a theorannú tríd an "
 "mbratach Greamaitheach a úsáid."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1455
 #, kde-format
 msgid "Write"
 msgstr "Scríobh"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1410
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1456
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr ""
 "Ceadaíonn an bhratach 'Inscríofa' inneachar an chomhaid a bheith athraithe."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1416
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1462
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Téigh Isteach"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1417
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1463
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Ceadaíonn an bhratach seo dul isteach san fhillteán."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1465
 #, kde-format
 msgid "Exec"
 msgstr "Rith"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1420
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1466
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr "Ceadaíonn an bhratach seo an comhad a rith mar ríomhchlár."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1428
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1474
 #, kde-format
 msgid "Special"
 msgstr "Speisialta"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1433
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1479
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6598,7 +6626,7 @@ msgstr ""
 "Bratach speisialta. Bailí don fhillteán iomlán. Tig leat brí bheacht na "
 "brataí a fheiceáil sa cholún ar thaobh na láimhe dheise."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1437
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1483
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6607,17 +6635,17 @@ msgstr ""
 "Bratach speisialta. Tig leat brí bheacht na brataí a fheiceáil sa cholún ar "
 "thaobh na láimhe dheise."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1442
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1488
 #, kde-format
 msgid "User"
 msgstr "Úsáideoir"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1446
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1492
 #, kde-format
 msgid "Group"
 msgstr "Grúpa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1457
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1503
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6626,7 +6654,7 @@ msgstr ""
 "Leis an mbratach seo, beidh úinéir an fhillteáin ina (h)úinéir ar gach "
 "comhad nua."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1461
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1507
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6635,7 +6663,7 @@ msgstr ""
 "Má tá an comhad seo inrite agus má tá an bhratach socraithe, beidh sé rite "
 "le ceadanna an úinéara."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1468
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1514
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6643,7 +6671,7 @@ msgstr ""
 "Leis an mbratach seo, úsáidfear grúpa an fhillteáin mar ghrúpa gach comhaid "
 "nua."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1472
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1518
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6652,7 +6680,7 @@ msgstr ""
 "Má tá an comhad seo inrite agus má tá an bhratach socraithe, beidh sé rite "
 "le ceadanna an ghrúpa."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1479
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1525
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6663,7 +6691,7 @@ msgstr ""
 "Gan an bhratach seo, tá gach duine a bhfuil cead scríofa ar an bhfillteán "
 "aige in ann na rudaí seo a dhéanamh."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1484
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1530
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6672,33 +6700,33 @@ msgstr ""
 "Déantar neamhaird den bhratach 'Greamaitheach' ar Linux, ach baintear úsáid "
 "aisti ar chórais áirithe"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1545
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1591
 #, kde-format
 msgid "Set UID"
 msgstr "Socraigh Aitheantas an Úsáideora"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1549
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1595
 #, kde-format
 msgid "Set GID"
 msgstr "Socraigh Aitheantas an Ghrúpa"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1553
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1599
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Greamaitheach"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1679
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1725
 #, kde-format
 msgid "Link"
 msgstr "Nasc"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1699
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1745
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Athraitheach (Gan Athrú)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1810
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1856
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
@@ -6708,7 +6736,7 @@ msgstr[2] "Úsáideann na comhaid seo ardcheadanna."
 msgstr[3] "Úsáideann na comhaid seo ardcheadanna."
 msgstr[4] "Úsáideann na comhaid seo ardcheadanna."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1832
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1878
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
@@ -6718,34 +6746,34 @@ msgstr[2] "Úsáideann na fillteáin seo ardcheadanna."
 msgstr[3] "Úsáideann na fillteáin seo ardcheadanna."
 msgstr[4] "Úsáideann na fillteáin seo ardcheadanna."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1846
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1892
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Úsáideann na comhaid seo ardcheadanna."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2090
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2136
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "S&uimeannaSeiceála"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2381
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2427
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Suim seiceála neamhbhailí."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2384
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2430
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "Ní suim sheiceála bhailí MD5, SHA1 ná SHA256 an t-ionchur a tugadh."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2395
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2441
 #, kde-format
 msgid "Checksums match."
 msgstr "Tá suimeanna seiceála ag teacht le chéile."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
@@ -6753,7 +6781,7 @@ msgstr ""
 "Tá an tsuim seiceála ríofa agus an tsuim seiceála a bhfuiltear ag súil léi "
 "ag teacht le chéile."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2410
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2456
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6764,47 +6792,47 @@ msgstr ""
 "gheall ar íoslódáil lochtach. Déan iarracht an comhad a athíoslódáil.<br/"
 ">Mura n-éiríonn leis an bhfíorú fós, déan teagmháil le foinse an chomhaid."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2416
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2462
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr ""
 "Tá difríocht idir an tsuim seiceála ríofa agus an tsuim seiceála ionchais."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2424
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2470
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Ag fíorú suime seiceála…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2499
 #, kde-format
 msgid "The checksums of all files are identical."
 msgstr "Tá suimeanna seiceála na gcomhad uile comhionann."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2458
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2504
 #, kde-format
 msgid "The selected files have different checksums."
 msgstr "Tá suimeanna seiceála difriúla ag na comhaid roghnaithe."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2464
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2510
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Ag ríomh…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2575
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2621
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2581
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2627
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2650
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2921
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2696
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2967
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6812,27 +6840,27 @@ msgstr ""
 "Níorbh fhéidir airíonna a shábháil. Ní thacaítear ach le hiontrálacha ar "
 "chórais chomhad áitiúla."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2721
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2767
 #, kde-format
 msgid "&Application"
 msgstr "&Feidhmchlár"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2861
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2907
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Cuir Cineál Comhaid leis do %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2862
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Roghnaigh cineál nó cineálacha comhaid le cur leis:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3000
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3046
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Tacaítear le comhaid inrite ar chórais comhad logánta amháin."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3015
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3061
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Ardroghanna le haghaidh %1"

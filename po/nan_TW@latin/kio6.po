@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 00:41+0000\n"
-"PO-Revision-Date: 2026-08-14 22:39+0900\n"
+"POT-Creation-Date: 2026-08-18 00:41+0000\n"
+"PO-Revision-Date: 2026-08-18 04:10+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Min Nan Chinese Latin <zh-l10n@lists.slat.org>\n"
 "Language: nan_TW@latin\n"
@@ -41,7 +41,7 @@ msgstr ""
 "Bô-huat-tōo siu-kái tóng-àn <filename>%1</filename> ê sóo-iú-tsiá. Lí bô "
 "khuân-hān tsò tsit-ê kái-piàn."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1081
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1085
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -290,7 +290,7 @@ msgstr "Bô-huat-tōo siá-ji̍p %1."
 #: core/job_error.cpp:43
 #, kde-format
 msgid "Could not start process %1."
-msgstr "Bô-huat-tōo khí-tōng tîng-sū %1."
+msgstr "Bô-huat-tōo khé-tōng tîng-sū %1."
 
 #: core/job_error.cpp:46
 #, kde-format
@@ -963,12 +963,12 @@ msgstr ""
 #: core/job_error.cpp:460
 #, kde-format
 msgid "Cannot Launch Process required by the %1 Protocol"
-msgstr "Bô-huat-tōo Khí-tōng %1 Hia̍p-tīng su-iàu ê Tîng-sū"
+msgstr "Bô-huat-tōo Khé-tōng %1 Hia̍p-tīng su-iàu ê Tîng-sū"
 
 #: core/job_error.cpp:461
 #, kde-format
 msgid "Unable to Launch Process"
-msgstr "Bô-huat-tōo Khí-tōng Tîng-sū"
+msgstr "Bô-huat-tōo Khé-tōng Tîng-sū"
 
 #: core/job_error.cpp:463
 #, kde-format
@@ -978,7 +978,7 @@ msgid ""
 "technical reasons."
 msgstr ""
 "Tī lí ê tiān-náu thê-kiong <strong>%1</strong> hia̍p-tīng tsûn-tshú ê tîng-"
-"sik tshuē-bô á-sī bô-huat-tōo khí-tōng. Tse thong-siông sī in-uī ki-su̍t-"
+"sik tshuē-bô á-sī bô-huat-tōo khé-tōng. Tse thong-siông sī in-uī ki-su̍t-"
 "siōng ê guân-in."
 
 #: core/job_error.cpp:468
@@ -1606,7 +1606,7 @@ msgstr ""
 #, kde-format
 msgid "Check that no applications are accessing the device, and try again."
 msgstr ""
-"Tshiánn khak-tīng bô îng-ióng-tîng-sik teh tsûn-tshú tsit-ê tsong-tì, jiân-"
+"Tshiánn khak-tīng bô ìng-iōng-tîng-sik teh tsûn-tshú tsit-ê tsong-tì, jiân-"
 "āu koh tshì tsi̍t-pái."
 
 #: core/job_error.cpp:816
@@ -2186,7 +2186,7 @@ msgstr ""
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
-"Tshiánn tîng-khí-tōng lí ê kang-tsok-kai-tuānn, á-sī tī kì-lio̍k lāi-té tshuē "
+"Tshiánn tîng-khé-tōng lí ê kang-tsok-kai-tuānn, á-sī tī kì-lio̍k lāi-té tshuē "
 "uì \"kiod\" lâi ê tshò-gōo."
 
 #: core/job_error.cpp:1246
@@ -3055,7 +3055,7 @@ msgstr ""
 #, kde-format
 msgid "One or more files on this device are open within an application."
 msgstr ""
-"Tsit-ê tsong-tì tíng-kuân ū tóng-àn ia̍h hōo îng-ióng-tîng-sik khui--leh."
+"Tsit-ê tsong-tì tíng-kuân ū tóng-àn ia̍h hōo ìng-iōng-tîng-sik khui--leh."
 
 #: filewidgets/kfileplacesmodel.cpp:1574
 #, kde-kuit-format
@@ -3066,7 +3066,7 @@ msgid_plural ""
 "One or more files on this device are opened in following applications: "
 "<application>%2</application>."
 msgstr[0] ""
-"Tsit-ê tsong-tì tíng-kuân ū tóng-àn ia̍h hōo tsit-kuá îng-ióng-tîng-sik khui--"
+"Tsit-ê tsong-tì tíng-kuân ū tóng-àn ia̍h hōo tsit-kuá ìng-iōng-tîng-sik khui--"
 "leh: <application>%2</application>."
 
 #: filewidgets/kfileplacesmodel.cpp:1577
@@ -3088,7 +3088,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:360
-#: widgets/kpropertiesdialogbuiltin_p.cpp:676
+#: widgets/kpropertiesdialogbuiltin_p.cpp:722
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -3619,7 +3619,7 @@ msgstr "Kiàn-li̍p Sin-ê Tsu-liāu-giap-á"
 msgid "Create new folder in %1:"
 msgstr "Tī %1 kiàn-li̍p sin-ê tsu-liāu-giap-á:"
 
-#: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
@@ -3774,7 +3774,7 @@ msgstr "Lí bô khuân-hān tsip-hîng tsit-ê tóng-àn."
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
-msgstr "Tī khí-tōng %1"
+msgstr "Tī khé-tōng %1"
 
 #: gui/applicationlauncherjob.cpp:173
 #, kde-format
@@ -3797,7 +3797,7 @@ msgstr ""
 msgid ""
 "Internal error: could not prompt the user for which application to start"
 msgstr ""
-"Luē-pōo tshò-gōo: bô-huat-tōo mn̄g iōng-tsiá ài khí-tōng tó-tsi̍t-ê ìng-iōng-"
+"Luē-pōo tshò-gōo: bô-huat-tōo mn̄g iōng-tsiá ài khé-tōng tó-tsi̍t-ê ìng-iōng-"
 "tîng-sik"
 
 #: gui/commandlauncherjob.cpp:107
@@ -3848,7 +3848,7 @@ msgstr ""
 #: gui/kprocessrunner.cpp:297
 #, kde-format
 msgid "Launching %1"
-msgstr "Tī khí-tōng %1"
+msgstr "Tī khé-tōng %1"
 
 #: gui/kprocessrunner.cpp:481
 #, kde-kuit-format
@@ -3899,7 +3899,7 @@ msgstr "Uī-tio̍h an-tsuân, bē-sái tī tsit-ê lāi-bûn tsip-hîng tóng-à
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
-msgstr "Tîng-sik \"%1\" su-iàu ū tsip-hîng khuân-hān tsiah ē-sái khí-tōng."
+msgstr "Tîng-sik \"%1\" su-iàu ū tsip-hîng khuân-hān tsiah ē-sái khé-tōng."
 
 #: gui/openurljob.cpp:484
 #, kde-format
@@ -3934,7 +3934,7 @@ msgstr "Khui tóng-àn sit-pāi."
 #: gui/openurljob.cpp:732
 #, kde-format
 msgid "The program \"%1\" could not be launched."
-msgstr "Tîng-sik \"%1\" bô-huat-tōo khí-tōng."
+msgstr "Tîng-sik \"%1\" bô-huat-tōo khé-tōng."
 
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
@@ -4115,22 +4115,22 @@ msgstr "Tshuē-bô \"mount\" tîng-sik"
 msgid "Could not find program \"umount\""
 msgstr "Tshuē-bô \"umount\" tîng-sik"
 
-#: kioworkers/file/file_unix.cpp:668
+#: kioworkers/file/file_unix.cpp:672
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Bô-huat-tōo kā tóng-àn uì %1 khóo-pih kàu %2. (Errno: %3)"
 
-#: kioworkers/file/file_unix.cpp:880
+#: kioworkers/file/file_unix.cpp:884
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Tsong-tì bô muî-thé hōo %1"
 
-#: kioworkers/file/file_unix.cpp:1239
+#: kioworkers/file/file_unix.cpp:1243
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:1250
+#: kioworkers/file/file_unix.cpp:1254
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
@@ -4707,7 +4707,7 @@ msgstr "SHA512："
 #. i18n: ectx: property (text), widget (QPushButton, calculateSizeBtn)
 #: widgets/checksumswidget.ui:112 widgets/checksumswidget.ui:159
 #: widgets/checksumswidget.ui:206 widgets/checksumswidget.ui:253
-#: widgets/kfilepropspluginwidget.ui:276
+#: widgets/kfilepropspluginwidget.ui:302
 #, kde-format
 msgid "Calculate"
 msgstr "Kè-sǹg"
@@ -4752,7 +4752,7 @@ msgstr "&Liân-kiat kàu Tsia"
 #, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
-msgstr "Khí-tōng(&L)"
+msgstr "Khé-tōng(&L)"
 
 #: widgets/executablefileopendialog.cpp:80
 #, kde-format
@@ -4775,7 +4775,7 @@ msgstr "Iōng %1 Phah-khui(&O)"
 #: widgets/executablefileopendialog.ui:26
 #, kde-format
 msgid "Would you like to launch this file?"
-msgstr "Lí kám ài khí-tōng tsit-ê tóng-àn?"
+msgstr "Lí kám ài khé-tōng tsit-ê tóng-àn?"
 
 #: widgets/fileundomanager.cpp:126
 #, kde-format
@@ -5087,7 +5087,7 @@ msgstr "Sóo-iú-tsiá"
 msgid "Owning Group"
 msgstr "Sóo-ū ê Kûn-tsoo"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1450
+#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1496
 #, kde-format
 msgid "Others"
 msgstr "Kî-thann"
@@ -5314,86 +5314,92 @@ msgstr "Uī-tì:"
 msgid "Size:"
 msgstr "Tuā-sè:"
 
+#. i18n: ectx: property (text), widget (QLabel, sizeOnDiskLabelLeft)
+#: widgets/kfilepropspluginwidget.ui:259
+#, kde-format
+msgid "Size on disk:"
+msgstr ""
+
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
-#: widgets/kfilepropspluginwidget.ui:282
+#: widgets/kfilepropspluginwidget.ui:308
 #, kde-format
 msgid "Determine the folder size"
 msgstr "Phuànn-tuàn tsu-liāu-giap-á tuā-sè"
 
 #. i18n: ectx: property (text), widget (QPushButton, stopCalculateSizeBtn)
-#: widgets/kfilepropspluginwidget.ui:289
+#: widgets/kfilepropspluginwidget.ui:315
 #, kde-format
 msgid "Stop"
 msgstr "Thîng"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, stopCalculateSizeBtn)
-#: widgets/kfilepropspluginwidget.ui:295
+#: widgets/kfilepropspluginwidget.ui:321
 #, kde-format
 msgid "Stop determining the folder size"
 msgstr "Tiong-tsí phuànn-tuàn tsu-liāu-giap-á tuā-sè"
 
 #. i18n: ectx: property (text), widget (QPushButton, sizeDetailsBtn)
-#: widgets/kfilepropspluginwidget.ui:302
+#: widgets/kfilepropspluginwidget.ui:328
 #, kde-format
 msgid "Explore in Filelight"
 msgstr "Tī Filelight Thàm-sik"
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
-#: widgets/kfilepropspluginwidget.ui:330
+#: widgets/kfilepropspluginwidget.ui:356
 #, kde-format
 msgid "Points to:"
 msgstr "Liân-kiat kàu:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
-#: widgets/kfilepropspluginwidget.ui:361
+#: widgets/kfilepropspluginwidget.ui:387
 #, kde-format
 msgid "Show target"
 msgstr "Hián-sī bo̍k-piau"
 
 #. i18n: ectx: property (text), widget (QLabel, createdTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:383
+#: widgets/kfilepropspluginwidget.ui:409
 #, kde-format
 msgid "Created:"
 msgstr "Kiàn-li̍p:"
 
 #. i18n: ectx: property (text), widget (QLabel, modifiedTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:406
+#: widgets/kfilepropspluginwidget.ui:432
 #, kde-format
 msgid "Modified:"
 msgstr "Siu-kái:"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:429
+#: widgets/kfilepropspluginwidget.ui:455
 #, kde-format
 msgid "Accessed:"
 msgstr "Tsûn-tshú:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:455
+#: widgets/kfilepropspluginwidget.ui:481
 #, kde-format
 msgid "File system:"
 msgstr "Tóng-àn hē-thóng:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:481
+#: widgets/kfilepropspluginwidget.ui:507
 #, kde-format
 msgid "Mounted on:"
 msgstr "Kuà-tsài-tiám:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
-#: widgets/kfilepropspluginwidget.ui:507
+#: widgets/kfilepropspluginwidget.ui:533
 #, kde-format
 msgid "Mounted from:"
 msgstr "Uì toh kuà-tsài:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
-#: widgets/kfilepropspluginwidget.ui:533
+#: widgets/kfilepropspluginwidget.ui:559
 #, kde-format
 msgid "Free space:"
 msgstr "Ē-sái iōng ê khang-king:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
-#: widgets/kfilepropspluginwidget.ui:546
+#: widgets/kfilepropspluginwidget.ui:572
 #, kde-format
 msgid "Unknown size"
 msgstr "M̄-tsai tuā-sè"
@@ -5656,7 +5662,7 @@ msgctxt ""
 "@title:group Title of a group that lets the user choose options regarding "
 "program startup"
 msgid "Startup"
-msgstr "Khí-tōng"
+msgstr "Khé-tōng"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, startupInfoCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:152
@@ -5670,7 +5676,7 @@ msgstr ""
 #: widgets/kpropertiesdesktopadvbase.ui:155
 #, kde-format
 msgid "Enable launch feedback"
-msgstr "Khé-iōng khí-tōng huê-kuī"
+msgstr "Khé-iōng khé-tōng huê-kuī"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, nameLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, nameEdit)
@@ -5731,7 +5737,7 @@ msgstr "Khuân-kíng piàn-sòo:"
 #, kde-format
 msgid "Type the command to start this application here."
 msgstr ""
-"Tī tsia su-ji̍p ài iōng siánn-mih tsí-līng lâi khí-tōng tsit-ê ìng-iōng-tîng-"
+"Tī tsia su-ji̍p ài iōng siánn-mih tsí-līng lâi khé-tōng tsit-ê ìng-iōng-tîng-"
 "sik."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel4)
@@ -5880,7 +5886,7 @@ msgid ""
 "Click here to modify the way this application will run, launch feedback, D-"
 "Bus options or to run it as a different user."
 msgstr ""
-"Tshi̍h tsia lâi kái-piàn tsit-ê ìng-iōng-tîng-sik ē án-ná tsip-hîng, khí-tōng "
+"Tshi̍h tsia lâi kái-piàn tsit-ê ìng-iōng-tîng-sik ē án-ná tsip-hîng, khé-tōng "
 "huê-kuī, kap D-Bus suán-hāng, á-sī iōng pa̍t-ê iōng-tsiá lâi kā i tsip-hîng."
 
 #. i18n: ectx: property (text), widget (QPushButton, advancedButton)
@@ -5918,115 +5924,133 @@ msgstr ""
 "Bô-huat-tōo tû-tsûn sio̍k-sìng, in-uī tuì tsit-ê tóng-àn bô kàu siá-ji̍p tsûn-"
 "tshú-khuân:<nl/> <filename>%1</filename>。"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:230
+#: widgets/kpropertiesdialogbuiltin_p.cpp:159
+#, fuzzy, kde-format
+#| msgid "%1 (%2)"
+msgctxt ""
+"@label the size of a file or folder, first rounded and then to the byte"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:161
+#, kde-format
+msgctxt "@item the exact size of a file or folder"
+msgid "%1 byte"
+msgid_plural "%1 bytes"
+msgstr[0] ""
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:263
 #, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "It-puann(&G)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:363
+#: widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
 msgstr "Su-ji̍p tóng-miâ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:428
+#: widgets/kpropertiesdialogbuiltin_p.cpp:474
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr "Tī %1 Thàm-sik"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:439
-#: widgets/kpropertiesdialogbuiltin_p.cpp:716
+#: widgets/kpropertiesdialogbuiltin_p.cpp:485
+#: widgets/kpropertiesdialogbuiltin_p.cpp:762
 #, kde-format
 msgid "Refresh"
 msgstr "Tîng tsíng-lí"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:448
+#: widgets/kpropertiesdialogbuiltin_p.cpp:494
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
 msgstr "Su-ji̍p bo̍k-piau uī-tì"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:452
-#: widgets/kpropertiesdialogbuiltin_p.cpp:455
+#: widgets/kpropertiesdialogbuiltin_p.cpp:498
+#: widgets/kpropertiesdialogbuiltin_p.cpp:501
 #, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
 msgstr "Hián-sī <filename>%1</filename>"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:561
+#: widgets/kpropertiesdialogbuiltin_p.cpp:607
 #, kde-format
 msgid "%1:"
 msgstr "%1："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:683
+#: widgets/kpropertiesdialogbuiltin_p.cpp:729
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "M̄-tsai tuā-sè"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:693
-#, kde-format
+#: widgets/kpropertiesdialogbuiltin_p.cpp:739
+#, fuzzy, kde-format
+#| msgid ""
+#| "Calculating... %1 (%2)\n"
+#| "%3, %4"
 msgid ""
-"Calculating... %1 (%2)\n"
-"%3, %4"
+"Calculating... %1\n"
+"%2, %3"
 msgstr ""
 "Leh Kè-sǹg… %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:696
-#: widgets/kpropertiesdialogbuiltin_p.cpp:711
+#: widgets/kpropertiesdialogbuiltin_p.cpp:741
+#: widgets/kpropertiesdialogbuiltin_p.cpp:756
 #, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "%1 ê tóng-àn"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:697
-#: widgets/kpropertiesdialogbuiltin_p.cpp:712
+#: widgets/kpropertiesdialogbuiltin_p.cpp:742
+#: widgets/kpropertiesdialogbuiltin_p.cpp:757
 #, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "%1 ê tsú tsu-liāu-giap-á"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:725
+#: widgets/kpropertiesdialogbuiltin_p.cpp:771
 #, kde-format
 msgid "Calculating...\n"
 msgstr "Tī Kè-sǹg...\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:748
+#: widgets/kpropertiesdialogbuiltin_p.cpp:794
 #, kde-format
 msgid "At least %1\n"
 msgstr "Tsì-tsió %1\n"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:794
+#: widgets/kpropertiesdialogbuiltin_p.cpp:840
 #, kde-format
 msgid "The new file name is empty."
 msgstr "Sin ê tóng-miâ sī khang ê."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:992
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1038
 #, kde-format
 msgid "No registered file type"
 msgstr "Bô tsù-tsheh kuè ê tóng-àn luī"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:994
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1040
 #, kde-format
 msgid "No associated application"
 msgstr "Bô siong kuan-liân ê ìng-iōng-tîng-sik"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1000
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1046
 #, kde-format
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Kiàn-li̍p…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1004
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1050
 #, kde-format
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "Kái-piàn…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1006
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1052
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
@@ -6034,85 +6058,85 @@ msgstr ""
 "Kái-piàn \"%1\" luī ê tóng-àn ū-siat ài iōng siánn-mih ìng-iōng-tîng-sik lâi "
 "khui."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1076
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1077
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1122
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1123
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1125
 msgid "No Access"
 msgstr "Bô Khuân Tsûn-tshú"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1076
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1122
 msgid "Can Only View"
 msgstr "Tsí Ē-sái Kiám-sī"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1076
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1122
 msgid "Can View & Modify"
 msgstr "Ē-sái Kiám-sī kap Kái-piàn"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1077
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1123
 msgid "Can Only View Content"
 msgstr "Tsí Ē-sái Kiám-sī Lāi-iông"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1077
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1123
 msgid "Can View & Modify Content"
 msgstr "Ē-sái Kiám-sī kap Kái-piàn Lāi-iông"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1125
 msgid "Can Only View/Read Content"
 msgstr "Tsí Ē-sái Kiám-sī/Tho̍k-tshú Lāi-iông"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1079
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1125
 msgid "Can View/Read & Modify/Write"
 msgstr "Ē-sái Kiám-sī/Tho̍k-tshú kap Kái-piàn/Siá-ji̍p"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1178
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1224
 #, kde-format
 msgid "&Permissions"
 msgstr "Khuân-hān(&P)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1189
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1377
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1235
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1423
 #, kde-format
 msgid "Access Permissions"
 msgstr "Tsûn-tshú Khuân-hān"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1199
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1245
 #, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] ""
 "Tsia sóo-ū ê tóng-àn lóng sī liân-kiat sóo-í bô khuân-hān siat-tīng."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1201
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1247
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Kan-na sóo-iú-tsiá ē-sái kái khuân-hān."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1208
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1254
 #, kde-format
 msgid "O&wner:"
 msgstr "Sóo-iú-tsiá(&W)："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1210
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1256
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Tsí-tīng sóo-iú-tsiá hōo ún-tsún ē-sái tsò ê tōng-tsok."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1213
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1259
 #, kde-format
 msgid "Gro&up:"
 msgstr "Kûn-tsoo(&U)："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1215
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1261
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Tsí-tīng kûn-tsoo sîng-uân hōo ún-tsún ē-sái tsò ê tōng-tsok."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1218
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1264
 #, kde-format
 msgid "O&thers:"
 msgstr "Kî-thann(&T)："
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1221
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1267
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6121,27 +6145,27 @@ msgstr ""
 "Tsí-tīng kî-thann m̄-sī sóo-iú-tsiá mā m̄-sī tī kûn-tsoo lāi-té ê iōng-tsiá ū "
 "hōo ún-tsún ē-sái tsò ê tōng-tsok."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1225
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1271
 #, kde-format
 msgid "Only own&er can delete or rename contents"
 msgstr "Tsí-ū sóo-iú-tsiá ē-sái thâi-tiāu á-sī kái-miâ lāi-iông(&E)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1225
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1271
 #, kde-format
 msgid "Allow &executing file as program"
 msgstr "Ún-tsún kā tóng-àn tòng-tsò tîng-sik tsip-hîng(&E)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1273
 #, kde-format
 msgid "Delete or rename:"
 msgstr "Thâi-tiāu á-sī kái-miâ:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1227
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1273
 #, kde-format
 msgid "Execute:"
 msgstr "Tsip-hîng:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1228
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1274
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6152,7 +6176,7 @@ msgstr ""
 "tsiá lóng bē-sái kā lāi-té ê tóng-àn kap tsu-liāu-giap-á thâi-tiāu á-sī kái-"
 "miâ. Kî-tha ê"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1232
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1278
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6162,42 +6186,42 @@ msgstr ""
 "tîng-sik á-sī tsí-līng-kó ū lō-iōng. Nā lí hi-bāng tsip-hîng in, lí ê su-iàu "
 "siat-tīng tsit-ê piau-kì."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1236
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1282
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "Tsìn-kai Khuân-hān(&D)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1244
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1290
 #, kde-format
 msgid "Ownership"
 msgstr "Sóo-iú-tsiá"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1252
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1298
 #, kde-format
 msgid "User:"
 msgstr "Iōng-tsiá:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1290
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1336
 #, kde-format
 msgid "Group:"
 msgstr "Kûn-tsoo:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1324
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1370
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Thò-iōng kái-piàn kàu sóo-ū ê tsí tsu-liāu-giap-á kap in ê lāi-iông"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1367
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1413
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Tsìn-kai Khuân-hān"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1387
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1433
 #, kde-format
 msgid "Class"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1394
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1440
 #, kde-format
 msgid ""
 "Show\n"
@@ -6206,22 +6230,22 @@ msgstr ""
 "Hián-sī\n"
 "Hāng-bo̍k"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1395
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1441
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Tsit-ê flag ún-tsún piáu-sī tsu-liāu-giap-á ê lāi-iông."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1443
 #, kde-format
 msgid "Read"
 msgstr "Tho̍k-tshú"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1444
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "Tho̍k-tshú flag ún-tsún piáu-sī tóng-àn ê lāi-iông."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1404
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1450
 #, kde-format
 msgid ""
 "Write\n"
@@ -6230,7 +6254,7 @@ msgstr ""
 "Siá-ji̍p\n"
 "Hāng-bo̍k"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1406
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1452
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6239,45 +6263,45 @@ msgstr ""
 "Tsit-ê flag ún-tsún thiam tóng-àn, hōo tóng-àn kái-miâ á-sī thâi-tiāu tóng-"
 "àn. Tshiánn tsù-ì, thâi-tiāu kap kái-miâ ē-sái iōng Sticky flag lâi hān-tsè."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1409
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1455
 #, kde-format
 msgid "Write"
 msgstr "Siá-ji̍p"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1410
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1456
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "Siá-ji̍p flat ún-tsún siu-kái tóng-àn ê lāi-iông."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1416
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1462
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Ji̍p-khì"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1417
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1463
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Khé-iōng tsit-ê flag lâi ín-tsún ji̍p-khì tsu-liāu-giap-á."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1419
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1465
 #, kde-format
 msgid "Exec"
 msgstr "Tsip-hîng"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1420
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1466
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr ""
 "Khé-iōng tsit-ê flag lâi ín-tsún kā tsit-ê tóng-àn tòng-tsò tîng-sik tsip-"
 "hîng."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1428
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1474
 #, kde-format
 msgid "Special"
 msgstr "Ti̍k-pia̍t"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1433
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1479
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6286,7 +6310,7 @@ msgstr ""
 "Ti̍k-pia̍t ê flag. Tuì kui-ê tsu-liāu-giap-á ū-hāu, tsit-ê flag si̍t-tsè ê ì-sù "
 "ē-sái khuànn tsiànn-tshiú-pîng ê lân-uī."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1437
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1483
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6295,17 +6319,17 @@ msgstr ""
 "Ti̍k-pia̍t ê flag. Tsit-ê flag si̍t-tsè ê ì-sù ē-sái khuànn tsiànn-tshiú-pîng ê "
 "lân-uī."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1442
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1488
 #, kde-format
 msgid "User"
 msgstr "Iōng-tsiá"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1446
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1492
 #, kde-format
 msgid "Group"
 msgstr "Kûn-tsoo"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1457
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1503
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6314,7 +6338,7 @@ msgstr ""
 "Nā siat tsit-ê flag, tsit-ê tsu-liāu-giap-á ê sóo-iú-tsiá ē siat tsò sóo-ū "
 "sin tóng-àn ê sóo-iú-tsiá."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1461
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1507
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6323,7 +6347,7 @@ msgstr ""
 "Nā uī tsip-hîng-tóng siat tsit-ê flag, i leh tsip-hîng ê sî-tsūn ē iōng i ê "
 "sóo-iú-tsiá ê khuân-hān lâi tsip-hîng."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1468
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1514
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
@@ -6331,7 +6355,7 @@ msgstr ""
 "Nā siat tsit-ê flag, tsit-ê tsu-liāu-giap-á ê kûn-tsoo ē siat tsò sóo-ū sin "
 "tóng-àn ê kûn-tsoo."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1472
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1518
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6340,7 +6364,7 @@ msgstr ""
 "Nā uī tsip-hîng-tóng siat tsit-ê flag, i leh tsip-hîng ê sî-tsūn ē iōng i ê "
 "kûn-tsoo ê khuân-hān lâi tsip-hîng."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1479
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1525
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6351,7 +6375,7 @@ msgstr ""
 "siá-ji̍p khuân-hān ê láng lóng ē-sái thâi-tiāu tóng-àn á-sī hōo tóng-àn kái-"
 "miâ."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1484
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1530
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6360,78 +6384,78 @@ msgstr ""
 "Tóng-àn ê Sticky flag tī Linux bô hāu-kó, m̄-koh tī pa̍t-ê hē-thóng tíng-kuân "
 "khó-lîng ū lōo-iōng."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1545
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1591
 #, kde-format
 msgid "Set UID"
 msgstr "Siat-tīng UID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1549
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1595
 #, kde-format
 msgid "Set GID"
 msgstr "Siat-tīng GID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1553
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1599
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Sticky"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1679
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1725
 #, kde-format
 msgid "Link"
 msgstr "Liân-kiat"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1699
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1745
 #, kde-format
 msgid "Varying (No Change)"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1810
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1856
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Tsia-ê tóng-àn ū iōng tsìn-kai khuân-hān."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1832
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1878
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Tsia-ê tsu-liāu-giap-á ū iōng tsìn-kai khuân-hān."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1846
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1892
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Tsia-ê tóng-àn ū iōng tsìn-kai khuân-hān."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2090
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2136
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "Kiám-tsa-bé(&H)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2381
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2427
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Bô-hāu ê kiám-tsa-bé."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2384
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2430
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "Thê-kiong ê su-ji̍p m̄-sī ū-hāu ê MD5, SHA1 á-sī SHA256 kiám-tsa-bé."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2395
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2441
 #, kde-format
 msgid "Checksums match."
 msgstr "Kiám-tsa-bé hû-ha̍p."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2398
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "Kè-sǹg ê kiám-tsa-bé kap kî-thāi ê kiám-tsa-bé hû-ha̍p."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2410
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2456
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6439,46 +6463,46 @@ msgid ""
 "source of the file."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2416
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2462
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "Kè-sǹg ê kiám-tsa-bé kap kî-thāi ê kiám-tsa-bé bô-kâng."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2424
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2470
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2453
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2499
 #, kde-format
 msgid "The checksums of all files are identical."
 msgstr "Sóo-ū tóng-àn ê kiám-tsa-bé lóng kāng-khuán."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2458
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2504
 #, kde-format
 msgid "The selected files have different checksums."
 msgstr "Suán ê tóng-àn ê kiám-tsa-bé bô-kâng."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2464
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2510
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Tī Kè-sǹg…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2575
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2621
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2581
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2627
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2650
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2921
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2696
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2967
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6486,27 +6510,27 @@ msgstr ""
 "Bô-huat-tōo tû-tsûn sio̍k-sìng. Tsí tsi-uān pún-tē tóng-àn-hē-thóng tíng-kuân "
 "ê hāng-bo̍k."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2721
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2767
 #, kde-format
 msgid "&Application"
 msgstr "Ìng-iōng-tîng-sik(&A)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2861
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2907
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Uī %1 Thiam Tóng-àn Luī"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2862
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3000
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3046
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Tsí tsi-uān pún-tē tóng-àn hē-thóng siōng ê tsip-hîng-tóng."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3015
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3061
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 ê Siông-sè Suán-hāng"
