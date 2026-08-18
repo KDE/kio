@@ -14,6 +14,8 @@
 
 #include <QTimer>
 
+#include <KLocalizedString>
+
 #include <algorithm>
 #include <mutex>
 #include <signal.h>
@@ -185,22 +187,29 @@ void SystemdProcessRunner::handleProperties(QDBusPendingCallWatcher *watcher)
         return;
     }
     const auto properties = reply.argumentAt<0>();
-    if (!m_pid) {
-        setPid(properties[QStringLiteral("ExecMainPID")].value<quint32>());
-        return;
-    }
-    const auto activeState = properties[QStringLiteral("ActiveState")].toString();
-    if (activeState != QLatin1String("inactive") && activeState != QLatin1String("failed")) {
-        return;
-    }
-    m_exited = true;
 
+    const auto activeState = properties[QStringLiteral("ActiveState")].toString();
     // ExecMainCode/Status correspond to si_code/si_status in the siginfo_t structure
     // ExecMainCode is the signal code: CLD_EXITED (1) means normal exit
     // ExecMainStatus is the process exit code in case of normal exit, otherwise it is the signal number
     const auto signalCode = properties[QStringLiteral("ExecMainCode")].value<qint32>();
     const auto exitCodeOrSignalNumber = properties[QStringLiteral("ExecMainStatus")].value<qint32>();
     const auto exitStatus = signalCode == CLD_EXITED ? QProcess::ExitStatus::NormalExit : QProcess::ExitStatus::CrashExit;
+
+    if (activeState == QLatin1String("failed")) {
+        systemdError(i18n("Failed to launch process (status code: %1)", exitCodeOrSignalNumber));
+        return;
+    }
+
+    if (!m_pid) {
+        setPid(properties[QStringLiteral("ExecMainPID")].value<quint32>());
+        return;
+    }
+
+    if (activeState != QLatin1String("inactive")) {
+        return;
+    }
+    m_exited = true;
 
     qCDebug(KIO_GUI) << m_serviceName << "pid=" << m_pid << "exitCode=" << exitCodeOrSignalNumber << "exitStatus=" << exitStatus;
     terminateStartupNotification();
