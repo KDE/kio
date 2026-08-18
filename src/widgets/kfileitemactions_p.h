@@ -92,6 +92,7 @@ public:
     QActionGroup m_executeServiceActionGroup;
     QActionGroup m_runApplicationActionGroup;
     QWidget *m_parentWidget;
+    QMenu *m_mainMenu = nullptr;
     KConfig m_config;
     QHash<QString, KAbstractFileItemActionPlugin *> m_loadedPlugins;
     // Actions created by createServiceMenuActions()
