@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:41+0000\n"
+"POT-Creation-Date: 2026-08-19 00:41+0000\n"
 "PO-Revision-Date: 2026-06-22 12:38+0300\n"
 "Last-Translator: Olesya Gerasimenko <goa@altlinux.org>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -2340,87 +2340,87 @@ msgstr ""
 "<filename>%1</filename> не найден, укажите верный путь к исполняемой "
 "программе."
 
-#: core/slavebase.cpp:792
+#: core/slavebase.cpp:776
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Открытие соединений не поддерживается протоколом %1."
 
-#: core/slavebase.cpp:794
+#: core/slavebase.cpp:778
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Закрытие соединений не поддерживается протоколом %1."
 
-#: core/slavebase.cpp:796
+#: core/slavebase.cpp:780
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Доступ к файлам не поддерживается протоколом %1."
 
-#: core/slavebase.cpp:798
+#: core/slavebase.cpp:782
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Запись в %1 не поддерживается."
 
-#: core/slavebase.cpp:800
+#: core/slavebase.cpp:784
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Протокол %1 не имеет специальных действий."
 
-#: core/slavebase.cpp:802
+#: core/slavebase.cpp:786
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Вывод списка папок не поддерживается протоколом %1."
 
-#: core/slavebase.cpp:804
+#: core/slavebase.cpp:788
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Получение данных из %1 не поддерживается."
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:790
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Получение сведений о типе MIME из %1 не поддерживается."
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:792
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Переименование или перемещение файлов в %1 не поддерживается."
 
-#: core/slavebase.cpp:810
+#: core/slavebase.cpp:794
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Создание символических ссылок не поддерживается протоколом %1."
 
-#: core/slavebase.cpp:812
+#: core/slavebase.cpp:796
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Копирование файлов в %1 не поддерживается."
 
-#: core/slavebase.cpp:814
+#: core/slavebase.cpp:798
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Удаление файлов из %1 не поддерживается."
 
-#: core/slavebase.cpp:816
+#: core/slavebase.cpp:800
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Создание папок не поддерживается протоколом %1."
 
-#: core/slavebase.cpp:818
+#: core/slavebase.cpp:802
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Изменение атрибутов файлов не поддерживается протоколом %1."
 
-#: core/slavebase.cpp:820
+#: core/slavebase.cpp:804
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Изменение владельца не поддерживается протоколом %1."
 
-#: core/slavebase.cpp:822
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Открытие файлов не поддерживается протоколом %1."
 
-#: core/slavebase.cpp:824
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Протокол %1 не поддерживает действие %2."
@@ -2430,7 +2430,7 @@ msgstr "Протокол %1 не поддерживает действие %2."
 msgid "Unable to create KIO worker: %1"
 msgstr "Ошибка создания вспомогательного процесса ввода/вывода: %1"
 
-#: core/worker.cpp:398
+#: core/worker.cpp:403
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2442,17 +2442,17 @@ msgstr ""
 "для протокола «%1», который обычно требует наличия расширенных прав доступа, "
 "так как отличные от root пользователи могут изменять его в %2."
 
-#: core/worker.cpp:435
+#: core/worker.cpp:440
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Неизвестный протокол «%1»."
 
-#: core/worker.cpp:446
+#: core/worker.cpp:451
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Не удалось найти модуль поддержки протокола «%1»."
 
-#: core/worker.cpp:453
+#: core/worker.cpp:458
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2464,36 +2464,36 @@ msgstr ""
 "использование модулей поддержки, которые располагаются вне %3 и требуют "
 "более высокого уровня привилегий для работы, считается небезопасным."
 
-#: core/worker.cpp:493
+#: core/worker.cpp:498
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Не удалось создать сокет для запуска вспомогательного процесса ввода-вывода "
 "для протокола «%1»."
 
-#: core/worker.cpp:513
+#: core/worker.cpp:518
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Не удалось найти исполняемый файл «kioworker» в «%1»."
 
-#: core/workerinterface.cpp:343 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:340 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "&Details"
 msgstr "&Подробности"
 
-#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Навсегда"
 
-#: core/workerinterface.cpp:349 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:346 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Пр&одолжить"
 
-#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"

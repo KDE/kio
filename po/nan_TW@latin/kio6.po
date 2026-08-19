@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:41+0000\n"
+"POT-Creation-Date: 2026-08-19 00:41+0000\n"
 "PO-Revision-Date: 2026-08-18 04:10+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Min Nan Chinese Latin <zh-l10n@lists.slat.org>\n"
@@ -2292,87 +2292,87 @@ msgstr ""
 "Tshuē-bô <filename>%1</filename>; tshiánn su-ji̍p ē-sái tsip-hîng ê tîng-sik "
 "ê iú-hāu lōo-kìng."
 
-#: core/slavebase.cpp:792
+#: core/slavebase.cpp:776
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:794
+#: core/slavebase.cpp:778
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:796
+#: core/slavebase.cpp:780
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:798
+#: core/slavebase.cpp:782
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Bô tsi-uān siá-ji̍p %1."
 
-#: core/slavebase.cpp:800
+#: core/slavebase.cpp:784
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:802
+#: core/slavebase.cpp:786
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:804
+#: core/slavebase.cpp:788
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Bô tsi-uān uì %1 tshú-tit tsu-liāu."
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:790
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Bô tsi-uān uì %1 tshú-tit MIME luī-pia̍t tsu-sìn."
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:792
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Bô tsi-uān tī %1 lāi-té kā tóng-àn kái-miâ á-sī suá-uī."
 
-#: core/slavebase.cpp:810
+#: core/slavebase.cpp:794
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Bô tsi-uān iōng hia̍p-tīng %1 ê sî-tsūn kiàn-li̍p hû-hō-liân-kiat."
 
-#: core/slavebase.cpp:812
+#: core/slavebase.cpp:796
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Bô tsi-uān tī %1 lāi-té khóo-pih tóng-àn."
 
-#: core/slavebase.cpp:814
+#: core/slavebase.cpp:798
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Bô tsi-uān uì %1 thâi-tiāu tóng-àn."
 
-#: core/slavebase.cpp:816
+#: core/slavebase.cpp:800
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Bô tsi-uān iōng hia̍p-tīng %1 ê sî-tsūn kiàn-li̍p tsu-liāu-giap-á."
 
-#: core/slavebase.cpp:818
+#: core/slavebase.cpp:802
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:820
+#: core/slavebase.cpp:804
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Tī hia̍p-tīng %1 bô tsi-uān kái-piàn tóng-àn ê sóo-iú-tsiá."
 
-#: core/slavebase.cpp:822
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Tī hia̍p-tīng %1 bô tsi-uān khui tóng-àn."
 
-#: core/slavebase.cpp:824
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Hia̍p-tīng %1 bô tsi-uān tōng-tsok %2."
@@ -2382,7 +2382,7 @@ msgstr "Hia̍p-tīng %1 bô tsi-uān tōng-tsok %2."
 msgid "Unable to create KIO worker: %1"
 msgstr "Bô-huat-tōo kiàn-li̍p KIO kang-tsok-khí: %1"
 
-#: core/worker.cpp:398
+#: core/worker.cpp:403
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2394,17 +2394,17 @@ msgstr ""
 "koh i ê an-tsuân suah bô-huat-tōo pó-tsìng, in-uī root í-guā ê iōng-tsiá mā "
 "ū khuân-hān tī %2 kā i siu-kái."
 
-#: core/worker.cpp:435
+#: core/worker.cpp:440
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "M̄-tsai ê hia̍p-tīng '%1'."
 
-#: core/worker.cpp:446
+#: core/worker.cpp:451
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Tshuē-bô hia̍p-tīng '%1' iōng ê KIO kang-tsok-khì."
 
-#: core/worker.cpp:453
+#: core/worker.cpp:458
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2413,34 +2413,34 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:493
+#: core/worker.cpp:498
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 
-#: core/worker.cpp:513
+#: core/worker.cpp:518
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Tī '%1' tshuē-bô 'kioworker' tsip-hîng-tóng"
 
-#: core/workerinterface.cpp:343 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:340 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "&Details"
 msgstr "Siông-sè(&D)"
 
-#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "Íng-uán(&F)"
 
-#: core/workerinterface.cpp:349 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:346 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Kè-sio̍k(&N)"
 
-#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"

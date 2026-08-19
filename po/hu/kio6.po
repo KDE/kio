@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:41+0000\n"
+"POT-Creation-Date: 2026-08-19 00:41+0000\n"
 "PO-Revision-Date: 2026-05-26 22:49+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -2328,87 +2328,87 @@ msgstr ""
 "A(z) <filename>%1</filename> nem található; adjon meg egy érvényes elérési "
 "utat a programhoz."
 
-#: core/slavebase.cpp:792
+#: core/slavebase.cpp:776
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "A(z) %1 protokollal nem lehet kapcsolatot megnyitni."
 
-#: core/slavebase.cpp:794
+#: core/slavebase.cpp:778
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "A(z) %1 protokollnál nem lehet kapcsolatot lezárni."
 
-#: core/slavebase.cpp:796
+#: core/slavebase.cpp:780
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Fájlok elérésére nem használható a(z) %1 protokoll."
 
-#: core/slavebase.cpp:798
+#: core/slavebase.cpp:782
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Nem lehet írni ide: %1."
 
-#: core/slavebase.cpp:800
+#: core/slavebase.cpp:784
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Nem érhető el speciális művelet a(z) %1 protokollnál."
 
-#: core/slavebase.cpp:802
+#: core/slavebase.cpp:786
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Könyvtárak kilistázását nem támogatja a(z) %1 protokoll."
 
-#: core/slavebase.cpp:804
+#: core/slavebase.cpp:788
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Adatletöltés nem lehetséges innen: %1."
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:790
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Nem lehet letölteni MIME-típusok jellemzőit innen: %1."
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:792
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Nem lehet fájlokat átnevezni vagy mozgatni ezen belül: %1."
 
-#: core/slavebase.cpp:810
+#: core/slavebase.cpp:794
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Szimbolikus link nem hozható létre a(z) %1 protokollal."
 
-#: core/slavebase.cpp:812
+#: core/slavebase.cpp:796
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Fájlmásolás nem lehetséges ezen belül: %1."
 
-#: core/slavebase.cpp:814
+#: core/slavebase.cpp:798
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Nem lehet fájlokat törölni innen: %1."
 
-#: core/slavebase.cpp:816
+#: core/slavebase.cpp:800
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Könyvtárak létrehozását nem támogatja a(z) %1 protokoll."
 
-#: core/slavebase.cpp:818
+#: core/slavebase.cpp:802
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Fájlattribútumokat nem lehet megváltoztatni a(z) %1 protokollal."
 
-#: core/slavebase.cpp:820
+#: core/slavebase.cpp:804
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Fájlok tulajdonosát nem lehet megváltoztatni %1 protokollal."
 
-#: core/slavebase.cpp:822
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Fájlmegnyitást nem támogat a(z) %1 protokoll."
 
-#: core/slavebase.cpp:824
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "A(z) %1 protokoll nem támogatja ezt a műveletet: %2."
@@ -2418,7 +2418,7 @@ msgstr "A(z) %1 protokoll nem támogatja ezt a műveletet: %2."
 msgid "Unable to create KIO worker: %1"
 msgstr "Nem sikerült létrehozni ezt a KIO szolgáltatást: %1"
 
-#: core/worker.cpp:398
+#: core/worker.cpp:403
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2430,17 +2430,17 @@ msgstr ""
 "jogosultságokat kér) biztonsága nem garantálható, mert a root-on kívüli "
 "felhasználók is jogosultak módosítani azt a(z) %2 helyen."
 
-#: core/worker.cpp:435
+#: core/worker.cpp:440
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Ismeretlen protokoll: „%1”."
 
-#: core/worker.cpp:446
+#: core/worker.cpp:451
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "A(z) „%1” protokollhoz tartozó KIO feldolgozó nem található."
 
-#: core/worker.cpp:453
+#: core/worker.cpp:458
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2453,35 +2453,35 @@ msgstr ""
 "található, és a megnövelt jogosultságok iránti kérés nem számít "
 "biztonságosnak."
 
-#: core/worker.cpp:493
+#: core/worker.cpp:498
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "Nem lehet létrehozni socketet a(z) „%1” protokollt kezelő KIO feldolgozóhoz."
 
-#: core/worker.cpp:513
+#: core/worker.cpp:518
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Nem található a „kioworker” végrehajtható itt: „%1”"
 
-#: core/workerinterface.cpp:343 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:340 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "&Details"
 msgstr "&Részletek"
 
-#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "I&gen, mindig"
 
-#: core/workerinterface.cpp:349 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:346 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "F&olytatás"
 
-#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"

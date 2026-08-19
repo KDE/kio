@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:41+0000\n"
+"POT-Creation-Date: 2026-08-19 00:41+0000\n"
 "PO-Revision-Date: 2025-09-10 15:28+0630\n"
 "Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2224,87 +2224,87 @@ msgstr ""
 "<filename>%1</filename> ကိုမတွေ့ပါ။ ကျေးဇူးပြု၍ ဆောင်ရွက်၍ရသောပရိုဂရမ်သို့ "
 "မှန်ကန်စွာပြသောလမ်းကြောင်းရေးထည့်ပါ။"
 
-#: core/slavebase.cpp:792
+#: core/slavebase.cpp:776
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ချိတ်ဆက်မှုဖွင့်ခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:794
+#: core/slavebase.cpp:778
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး '%1' တွင် ချိတ်ဆက်မှုပိတ်သောလုပ်ဆောင်ချက်မပါပါ။"
 
-#: core/slavebase.cpp:796
+#: core/slavebase.cpp:780
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်များရယူအသုံးပြုခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:798
+#: core/slavebase.cpp:782
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1 သို့ ရေးမရပါ။"
 
-#: core/slavebase.cpp:800
+#: core/slavebase.cpp:784
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 အတွက် အထူးပြုလုပ်ဆောင်ချက်များ မရှိပါ။"
 
-#: core/slavebase.cpp:802
+#: core/slavebase.cpp:786
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်တွဲများစာရင်းပြခြင်းပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:804
+#: core/slavebase.cpp:788
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 မှ ဒေတာရယူခြင်း လုပ်ဆောင်၍မရပါ။"
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:790
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1 မှ အမ်အိုင်အမ်အီးတိုက် ဆိုင်ရာ အချက်အလက် ရယူခြင်း လုပ်ဆောင်၍မရပါ။"
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:792
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 အတွင်း ဖိုင်များ အမည်ပြောင်းခြင်း၊ ကူးပြောင်းခြင်း မပြုလုပ်နိုင်ပါ။"
 
-#: core/slavebase.cpp:810
+#: core/slavebase.cpp:794
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဆင်းလင့်ခ်များဖန်တီးခြင်းပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:812
+#: core/slavebase.cpp:796
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 အတွင်း ဖိုင်များ ကူးယူခြင်း မပြုလုပ်နိုင်ပါ။"
 
-#: core/slavebase.cpp:814
+#: core/slavebase.cpp:798
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1မှဖိုင်များဖျက်ခြင်းကို မလုပ်ဆောင်နိုင်ပါ။"
 
-#: core/slavebase.cpp:816
+#: core/slavebase.cpp:800
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်တွဲများတည်ဆောင်ခြင်းပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:818
+#: core/slavebase.cpp:802
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်များ၏သက်ဆိုင်ရာညွှန်ပြတန်ဖိုးများပြောင်းလဲခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:820
+#: core/slavebase.cpp:804
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်များ၏ပိုင်ဆိုင်မှု ပြောင်းလဲခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:822
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် ဖိုင်များဖွင့်ခြင်း ပြုလုပ်၍မရပါ။"
 
-#: core/slavebase.cpp:824
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် လုပ်ဆောင်ချက် %2 ပြုလုပ်၍မရပါ။"
@@ -2314,7 +2314,7 @@ msgstr "လုပ်ရိုးလုပ်ထုံး %1 နှင့် လ�
 msgid "Unable to create KIO worker: %1"
 msgstr "ဖန်တီး၍မရခဲ့ပါ KIO worker: %1"
 
-#: core/worker.cpp:398
+#: core/worker.cpp:403
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2325,17 +2325,17 @@ msgstr ""
 "ခွင့်ပြုချက်လိုသည်များအတွက် တောင်းခံပေးသည့် '%1' KIO worker၏လုံခြုံရေးလုပ်ထုံးကိုတရားသေယုံကြည့်ထား၍မရပါ။ "
 "rootအပြင်အခြားသုံးစွဲသူများကလည်း %2တွင် လုပ်ထုံးကိုပြင်ဆင်ထားနိုင်သောကြောင့်ဖြစ်သည်။"
 
-#: core/worker.cpp:435
+#: core/worker.cpp:440
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "မသိသောလုပ်ရိုးလုပ်ထုံး '%1'။"
 
-#: core/worker.cpp:446
+#: core/worker.cpp:451
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' စနစ်အတွက် KIO workerရှာမတွေ့ပါ။"
 
-#: core/worker.cpp:453
+#: core/worker.cpp:458
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2346,34 +2346,34 @@ msgstr ""
 "%2ရှိ \"%1\" KIO workerကို မတွန်းတင်ထားပါ။ %3အပြင်ရောက်နေပြီး "
 "အဆင့်တိုးမြင့်သတ်မှတ်ချက်တောင်းခံမှုလုပ်ဆောင်ခြင်းသည် မယုံကြည့်ရ၍ဖြစ်သည်"
 
-#: core/worker.cpp:493
+#: core/worker.cpp:498
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "'%1' စနစ်အတွက် KIO worker လွှင့်တင်ရန် socketမဖန်တီးနိုင်ခဲ့ပါ"
 
-#: core/worker.cpp:513
+#: core/worker.cpp:518
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'တွင်'kioworker'ကိုရှာမတွေ့ပါ"
 
-#: core/workerinterface.cpp:343 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:340 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "&Details"
 msgstr "&Dအသေးစိတ်"
 
-#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Fထာဝရ"
 
-#: core/workerinterface.cpp:349 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:346 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "&nဆက်ရန်"
 
-#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"

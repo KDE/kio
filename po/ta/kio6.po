@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:41+0000\n"
+"POT-Creation-Date: 2026-08-19 00:41+0000\n"
 "PO-Revision-Date: 2026-08-01 17:53+0530\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -2280,87 +2280,87 @@ msgstr ""
 "<filename>%1</filename> கண்டுபிடிக்கப்படவில்லை; இயக்கவல்ல நிரலுக்கான சரியான பாதையை "
 "உள்ளிடவும்."
 
-#: core/slavebase.cpp:792
+#: core/slavebase.cpp:776
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு இணைப்புகளை தொடங்குதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:794
+#: core/slavebase.cpp:778
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு இணைப்புகளை முடக்குதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:796
+#: core/slavebase.cpp:780
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு கோப்புகளை அணுகுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:798
+#: core/slavebase.cpp:782
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr " %1 -க்கு எழுதுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:800
+#: core/slavebase.cpp:784
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "%1 நெறிமுறைக்கு சிறப்பு செயற்பாடுகள் ஏதுமில்லை."
 
-#: core/slavebase.cpp:802
+#: core/slavebase.cpp:786
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு அடைவுகளை பட்டியலிடுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:804
+#: core/slavebase.cpp:788
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 -இலிருந்து தரவை பெறுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:790
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1 -இலிருந்து மைம் வகை விவரங்களை பெறுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:792
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 -க்குள் கோப்புகளின் பெயர்களை மாற்றுதல் அல்லது அவற்றை நகர்த்தல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:810
+#: core/slavebase.cpp:794
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு குறியிணைப்புகளை உருவாக்குதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:812
+#: core/slavebase.cpp:796
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 -க்குள் கோப்புகளை நகலெடுத்தல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:814
+#: core/slavebase.cpp:798
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 -இலிருந்து கோப்புகளை நீக்குதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:816
+#: core/slavebase.cpp:800
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு அடைவுகளை உருவாக்குதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:818
+#: core/slavebase.cpp:802
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு கோப்புகளின் பண்புகளை மாற்றுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:820
+#: core/slavebase.cpp:804
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு கோப்புகளின் உரிமையாளரை மாற்றுதல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:822
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "%1 நெறிமுறையைக் கொண்டு கோப்புகளை திறத்தல் ஆதரிக்கப்படாது."
 
-#: core/slavebase.cpp:824
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 நெறிமுறை %2 செயல்பாட்டை ஆதரிக்காது."
@@ -2370,7 +2370,7 @@ msgstr "%1 நெறிமுறை %2 செயல்பாட்டை ஆத�
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO பின்னணி பணியை உருவாக்க முடியவில்லை: %1"
 
-#: core/worker.cpp:398
+#: core/worker.cpp:403
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2381,17 +2381,17 @@ msgstr ""
 "சாதாரணமாக ரூட் அனுமதியை கோரும் '%1' நெறிமுறைக்கான KIO பணியின் பாதுகாப்பை "
 "உறுதிசெய்ய முடியவில்லை. ரூட் அல்லாத பயனர்களும் அதை %2 தனில் மாற்ற அனுமதி உள்ளது."
 
-#: core/worker.cpp:435
+#: core/worker.cpp:440
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "தெரியாத நெறிமுறை '%1'."
 
-#: core/worker.cpp:446
+#: core/worker.cpp:451
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "'%1' நெறிமுறைக்கான KIO ஆதரவுநிரலை கண்டுபிடிக்க முடியவில்லை."
 
-#: core/worker.cpp:453
+#: core/worker.cpp:458
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2402,36 +2402,36 @@ msgstr ""
 "\"%1\" எனும் நெறிமுறைக்கான KIO பின்னிரல் (%2 தனில் உள்ளது) ஏற்றப்படவில்லை, ஏனெனில் %3-"
 "இல் இல்லாத நிரல்களுக்கு ரூட் உரிமை வழங்குவது பாதுகாப்பற்றது."
 
-#: core/worker.cpp:493
+#: core/worker.cpp:498
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "'%1' என்ற நெறிமுறைக்கான KIO ஆதரவுநிரலை இயக்க தேவைப்படும் சாக்கெடை உருவாக்க "
 "முடியவில்லை."
 
-#: core/worker.cpp:513
+#: core/worker.cpp:518
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1' -இல் 'kioworker' நிரலை கண்டுபிடிக்க முடியவில்லை"
 
-#: core/workerinterface.cpp:343 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:340 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "&Details"
 msgstr "&விவரங்கள்"
 
-#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&என்றென்றும்"
 
-#: core/workerinterface.cpp:349 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:346 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "&தொடர்"
 
-#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:41+0000\n"
+"POT-Creation-Date: 2026-08-19 00:41+0000\n"
 "PO-Revision-Date: 2026-07-22 17:03-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -2299,87 +2299,87 @@ msgstr ""
 "<filename>%1</filename> تېپىلمىدى. ئىجرا قىلغىلى بولىدىغان پىروگراممىنىڭ "
 "ئىناۋەتلىك يولىنى كىرگۈزۈڭ."
 
-#: core/slavebase.cpp:792
+#: core/slavebase.cpp:776
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "%1 كېلىشىم باغلانما ئېچىشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:794
+#: core/slavebase.cpp:778
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "%1 كېلىشىم باغلانما تاقاشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:796
+#: core/slavebase.cpp:780
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "%1 كېلىشىم ھۆججەت زىيارىتىنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:798
+#: core/slavebase.cpp:782
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1 غا يېزىشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:800
+#: core/slavebase.cpp:784
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "%1 كېلىشىمنىڭ ئىشلەتكىلى بولىدىغان ئالاھىدە مەشغۇلاتى يوق."
 
-#: core/slavebase.cpp:802
+#: core/slavebase.cpp:786
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "تىزىمدا كۆرسىتىلگەن قىسقۇچلار %1 كېلىشىمنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:804
+#: core/slavebase.cpp:788
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 دىن سانلىق مەلۇمات قوبۇللاشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:790
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1 دىن mime تۈرى ئۇچۇرىنى قوبۇللاشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:792
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 دا ھۆججەت ئاتىنى ئۆزگەرتىش ياكى يۆتكەشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:810
+#: core/slavebase.cpp:794
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "%1 كېلىشىم بەلگە ئۇلانمىسىنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:812
+#: core/slavebase.cpp:796
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 دا ھۆججەت كۆچۈرۈشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:814
+#: core/slavebase.cpp:798
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 دىن ھۆججەت ئۆچۈرۈشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:816
+#: core/slavebase.cpp:800
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "%1 كېلىشىم قىسقۇچ قۇرۇشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:818
+#: core/slavebase.cpp:802
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "%1 كېلىشىم ھۆججەت خاسلىقىنى ئۆزگەرتىشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:820
+#: core/slavebase.cpp:804
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "%1 كېلىشىم ھۆججەت ئىگىدارلىق ھوقۇقىنى ئۆزگەرتىشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:822
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "%1 كېلىشىم ھۆججەت ئېچىشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:824
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 كېلىشىم %2 مەشغۇلاتنى قوللىمايدۇ."
@@ -2389,7 +2389,7 @@ msgstr "%1 كېلىشىم %2 مەشغۇلاتنى قوللىمايدۇ."
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO worker قۇرالمايدۇ: %1"
 
-#: core/worker.cpp:398
+#: core/worker.cpp:403
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2401,17 +2401,17 @@ msgstr ""
 "root ئىشلەتكۈچىدىن سىرت باشقا ئىشلەتكۈچىنىڭ %2 دا ئۆزگەرتىش ئىجازىتى بار، "
 "مەزكۇر كېلىشىم ئادەتتە ئىشلەتكۈچىدىن ئىجازەتكە ئېرىشىشنى تەلەپ قىلىدۇ."
 
-#: core/worker.cpp:435
+#: core/worker.cpp:440
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "نامەلۇم كېلىشىم «%1»."
 
-#: core/worker.cpp:446
+#: core/worker.cpp:451
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "«%1» كېلىشىمنىڭ  KIO worker نى تاپالمىدى."
 
-#: core/worker.cpp:453
+#: core/worker.cpp:458
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2422,35 +2422,35 @@ msgstr ""
 "%2 دىكى «%1» كېلىشىمنىڭ KIO worker يۈكلەنمىدى چۈنكى %3 دىن سىرت ھەر قانداق "
 "KIO worker نىڭ ئىجازەت ئۆرلىتىش تەلىپى بىخەتەر ئەمەس دەپ قارىلىدۇ."
 
-#: core/worker.cpp:493
+#: core/worker.cpp:498
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "«%1» كېلىشىمنىڭ KIO worker نى قوزغىتىشقا ئىشلىتىدىغان ئۇلاقنى قۇرالمىدى."
 
-#: core/worker.cpp:513
+#: core/worker.cpp:518
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "«%1» دىكى «kioworker» ئىجراچان پىروگراممىنى تاپالمىدى."
 
-#: core/workerinterface.cpp:343 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:340 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "&Details"
 msgstr "تەپسىلاتى(&D)"
 
-#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "مەڭگۈ(&F)"
 
-#: core/workerinterface.cpp:349 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:346 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "داۋاملاشتۇر(&N)"
 
-#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"

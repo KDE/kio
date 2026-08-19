@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:41+0000\n"
-"PO-Revision-Date: 2026-08-09 18:43+0300\n"
+"POT-Creation-Date: 2026-08-19 00:41+0000\n"
+"PO-Revision-Date: 2026-08-18 19:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2287,89 +2287,89 @@ msgstr ""
 "<filename>%1</filename> bulunamadı; lütfen yürütülebilir bir programın "
 "geçerli yolunu girin."
 
-#: core/slavebase.cpp:792
+#: core/slavebase.cpp:776
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "%1 protokolü ile bağlantı açmak olanaklı değil."
 
-#: core/slavebase.cpp:794
+#: core/slavebase.cpp:778
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "%1 protokolü ile bağlantı kapatmak olanaklı değil."
 
-#: core/slavebase.cpp:796
+#: core/slavebase.cpp:780
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Dosyalara erişim %1 protokolü ile yapılamaz."
 
-#: core/slavebase.cpp:798
+#: core/slavebase.cpp:782
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1 konumuna yazmak henüz desteklenmiyor."
 
-#: core/slavebase.cpp:800
+#: core/slavebase.cpp:784
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "%1 protokolü için kullanılabilir özel işlemler yok."
 
-#: core/slavebase.cpp:802
+#: core/slavebase.cpp:786
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "%1 protokolü için klasör listeleme işlevi desteklenmiyor."
 
-#: core/slavebase.cpp:804
+#: core/slavebase.cpp:788
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 adresinden veri alma desteklenmiyor."
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:790
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1 adresinden MIME tür bilgisi alma desteklenmiyor."
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:792
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 içinde dosya taşımak veya adlarını değiştirmek desteklenmiyor."
 
-#: core/slavebase.cpp:810
+#: core/slavebase.cpp:794
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "%1 protokolü ile sembolik bağlantı oluşturulması olanaklı değil."
 
-#: core/slavebase.cpp:812
+#: core/slavebase.cpp:796
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 içinde dosya kopyalamak desteklenmiyor."
 
-#: core/slavebase.cpp:814
+#: core/slavebase.cpp:798
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 konumundan dosyalar silmek desteklenmiyor."
 
-#: core/slavebase.cpp:816
+#: core/slavebase.cpp:800
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "%1 protokolü yardımıyla klasör oluşturmak olanaklı değil."
 
-#: core/slavebase.cpp:818
+#: core/slavebase.cpp:802
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr ""
 "%1 protokolü yardımıyla dosyaların özniteliklerini değiştirmek olanaklı "
 "değil."
 
-#: core/slavebase.cpp:820
+#: core/slavebase.cpp:804
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "%1 protokolü ile dosyaların sahibini değiştirme işlemi desteklenmiyor."
 
-#: core/slavebase.cpp:822
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "%1 protokolü dosyaları açma işlemi desteklenmiyor."
 
-#: core/slavebase.cpp:824
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 protokolü %2 eylemini desteklemiyor."
@@ -2379,7 +2379,7 @@ msgstr "%1 protokolü %2 eylemini desteklemiyor."
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO işçisi oluşturulamıyor: %1"
 
-#: core/worker.cpp:398
+#: core/worker.cpp:403
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2391,17 +2391,17 @@ msgstr ""
 "güvenliği garanti edilemiyor; çünkü kök kullanıcı dışındaki kullanıcıların "
 "onun üzerinde %2 konumunda değişiklik yapmaya izinleri var."
 
-#: core/worker.cpp:435
+#: core/worker.cpp:440
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Bilinmeyen protokol “%1”."
 
-#: core/worker.cpp:446
+#: core/worker.cpp:451
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "“%1” protokolü için bir KIO işçisi bulunamadı."
 
-#: core/worker.cpp:453
+#: core/worker.cpp:458
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2413,35 +2413,35 @@ msgstr ""
 "yer alan ve yükseltilmiş ayrıcalıklar isteyen tüm KIO işçileri güvensiz "
 "olarak kabul edilirler."
 
-#: core/worker.cpp:493
+#: core/worker.cpp:498
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "“%1” protokolü için bir KIO işçisi başlatmak üzere yuva oluşturulamıyor."
 
-#: core/worker.cpp:513
+#: core/worker.cpp:518
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "“%1” konumunda “kioworker” yürütülebiliri bulunamadı"
 
-#: core/workerinterface.cpp:343 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:340 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "&Details"
 msgstr "&Ayrıntılar"
 
-#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Sonsuza Dek"
 
-#: core/workerinterface.cpp:349 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:346 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Sür&dür"
 
-#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -5383,7 +5383,7 @@ msgstr "Boyut:"
 #: widgets/kfilepropspluginwidget.ui:259
 #, kde-format
 msgid "Size on disk:"
-msgstr ""
+msgstr "Diskteki büyüklük:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:308
@@ -6011,8 +6011,7 @@ msgstr ""
 "><filename>%1</filename>."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:159
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt ""
 "@label the size of a file or folder, first rounded and then to the byte"
 msgid "%1 (%2)"
@@ -6023,8 +6022,8 @@ msgstr "%1 (%2)"
 msgctxt "@item the exact size of a file or folder"
 msgid "%1 byte"
 msgid_plural "%1 bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 bayt"
+msgstr[1] "%1 bayt"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:263
 #, kde-format
@@ -6075,16 +6074,13 @@ msgid "Unknown size"
 msgstr "Bilinmeyen boyut"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:739
-#, fuzzy, kde-format
-#| msgid ""
-#| "Calculating... %1 (%2)\n"
-#| "%3, %4"
+#, kde-format
 msgid ""
 "Calculating... %1\n"
 "%2, %3"
 msgstr ""
-"Hesaplanıyor… %1 (%2)\n"
-"%3, %4"
+"Hesaplanıyor… %1\n"
+"%2, %3"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:741
 #: widgets/kpropertiesdialogbuiltin_p.cpp:756

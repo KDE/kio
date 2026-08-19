@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:41+0000\n"
+"POT-Creation-Date: 2026-08-19 00:41+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -2366,88 +2366,88 @@ msgid ""
 "executable program."
 msgstr ""
 
-#: core/slavebase.cpp:792
+#: core/slavebase.cpp:776
 #, fuzzy, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Uvulo lodibaniso aluxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:794
+#: core/slavebase.cpp:778
 #, fuzzy, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Uvulo lodibaniso aluxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:796
+#: core/slavebase.cpp:780
 #, fuzzy, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Ukunikeza iifayile aluxhaswa ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:798
+#: core/slavebase.cpp:782
 #, fuzzy, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Ukubhalo kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:800
+#: core/slavebase.cpp:784
 #, fuzzy, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Akukho ntshukumo ezikhethekileyo ezifumaneka kumthetho olandelwayo %1"
 
-#: core/slavebase.cpp:802
+#: core/slavebase.cpp:786
 #, fuzzy, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Ukudweliso lwabalawuli aluxhaselwanga umthetho olandelwayo %1"
 
-#: core/slavebase.cpp:804
+#: core/slavebase.cpp:788
 #, fuzzy, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Ukufumana kwakhona i data evela kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:790
 #, fuzzy, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Ukufumana kwakhona i data evela kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:792
 #, fuzzy, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr ""
 "Ukunika igama kwakhona okanye ukususa iifayile ngaphakathi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:810
+#: core/slavebase.cpp:794
 #, fuzzy, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Ukwenza i symlinks akuxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:812
+#: core/slavebase.cpp:796
 #, fuzzy, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Ukukhuphela iifayile ngapakhathi kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:814
+#: core/slavebase.cpp:798
 #, fuzzy, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Ukucima iifayile kwi %1 akuxhaswanga"
 
-#: core/slavebase.cpp:816
+#: core/slavebase.cpp:800
 #, fuzzy, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Ukwenza abalawuli akuxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:818
+#: core/slavebase.cpp:802
 #, fuzzy, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Ukutshintsha iziphumo zeefayile akuxhaswanga nge protocol %1"
 
-#: core/slavebase.cpp:820
+#: core/slavebase.cpp:804
 #, fuzzy, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Ukutshintsha iziphumo zeefayile akuxhaswanga nge protocol %1"
 
-#: core/slavebase.cpp:822
+#: core/slavebase.cpp:806
 #, fuzzy, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Ukwenza abalawuli akuxhaswanga ngomthetho olandelwayo %1"
 
-#: core/slavebase.cpp:824
+#: core/slavebase.cpp:808
 #, fuzzy, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Umthetho %1 awuxhaswanga."
@@ -2458,7 +2458,7 @@ msgstr "Umthetho %1 awuxhaswanga."
 msgid "Unable to create KIO worker: %1"
 msgstr "Ayikwazi ukwenza i io-slave: %1"
 
-#: core/worker.cpp:398
+#: core/worker.cpp:403
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2467,18 +2467,18 @@ msgid ""
 "have permission to modify it at %2."
 msgstr ""
 
-#: core/worker.cpp:435
+#: core/worker.cpp:440
 #, fuzzy, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "Umthetho olandelwayo ongaziwayo '%1'.\n"
 
-#: core/worker.cpp:446
+#: core/worker.cpp:451
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Ayinakuyifumana i io-slave umthetho olandelwayo '%1'."
 
-#: core/worker.cpp:453
+#: core/worker.cpp:458
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2487,36 +2487,36 @@ msgid ""
 "considered insecure."
 msgstr ""
 
-#: core/worker.cpp:493
+#: core/worker.cpp:498
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr "Ayinakuyifumana i io-slave umthetho olandelwayo '%1'."
 
-#: core/worker.cpp:513
+#: core/worker.cpp:518
 #, fuzzy, kde-format
 #| msgid "Can not find io-slave for protocol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ayinakuyifumana i io-slave umthetho olandelwayo '%1'."
 
-#: core/workerinterface.cpp:343 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:340 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "&Details"
 msgstr "&Iinkcukacha"
 
-#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Okokoko"
 
-#: core/workerinterface.cpp:349 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:346 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Qhu&bekeka"
 
-#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, fuzzy, kde-format
 #| msgid "&Current Sessions Only"

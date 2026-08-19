@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-18 00:41+0000\n"
-"PO-Revision-Date: 2026-08-09 04:56+0200\n"
+"POT-Creation-Date: 2026-08-19 00:41+0000\n"
+"PO-Revision-Date: 2026-08-18 08:14+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2306,87 +2306,87 @@ msgid ""
 msgstr ""
 "<filename>%1</filename> ვერ ვიპოვე. შეიყვანეთ სწორი ბილიკი გამშვებ ფაილამდე."
 
-#: core/slavebase.cpp:792
+#: core/slavebase.cpp:776
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "შეერთებების გახსნა მხარდაუჭერელია პროტოკოლით %1."
 
-#: core/slavebase.cpp:794
+#: core/slavebase.cpp:778
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "შეერთებების დახურვა მხარდაუჭერელია პროტოკოლით %1."
 
-#: core/slavebase.cpp:796
+#: core/slavebase.cpp:780
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "ფაილებთან წვდომა მხარდაუჭერელია პროტოკოლით %1."
 
-#: core/slavebase.cpp:798
+#: core/slavebase.cpp:782
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1-ში ჩაწერა მხარდაუჭერელია."
 
-#: core/slavebase.cpp:800
+#: core/slavebase.cpp:784
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "პროტოკოლისთვის %1 სპეციალური ქმედებები ხელმიუწვდომელია."
 
-#: core/slavebase.cpp:802
+#: core/slavebase.cpp:786
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "საქაღალდეების სიის მღება პროტოკოლისთვის %1 მხარდაუჭერელია."
 
-#: core/slavebase.cpp:804
+#: core/slavebase.cpp:788
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1-დან მონაცემების მიღება მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:790
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1-დან mime ტიპის ინფორმაციის მიღება მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:792
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1-ში ფაილების გადაადგილება ან სახელის გადარქმევა მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:810
+#: core/slavebase.cpp:794
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "პროტოკოლით %1 სიმბმულების შექმნა მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:812
+#: core/slavebase.cpp:796
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1-ში ფაილების კოპირება მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:814
+#: core/slavebase.cpp:798
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1-დან ფაილების წაშლა მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:816
+#: core/slavebase.cpp:800
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "პროტოკოლით %1 საქაღალდეების შექმნა მხარდაჭერილი არაა."
 
-#: core/slavebase.cpp:818
+#: core/slavebase.cpp:802
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "ფაილების ატრიბუტების შეცვლა მხარდაუჭერელია პროტოკოლისთვის %1."
 
-#: core/slavebase.cpp:820
+#: core/slavebase.cpp:804
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "ფაილების მფლობელის შეცვლა მხარდაუჭერელია პროტოკოლით %1."
 
-#: core/slavebase.cpp:822
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "ფაილების გახსნა მხარდაუჭერელია პროტოკოლით %1."
 
-#: core/slavebase.cpp:824
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "პროტოკოლს %1 ქმედების (%2) მხარდაჭერა არ გააჩნია."
@@ -2396,7 +2396,7 @@ msgstr "პროტოკოლს %1 ქმედების (%2) მხა�
 msgid "Unable to create KIO worker: %1"
 msgstr "KIO დამხმარე პროცესის შექმნის შეცდომა: %1"
 
-#: core/worker.cpp:398
+#: core/worker.cpp:403
 #, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
@@ -2408,17 +2408,17 @@ msgstr ""
 "მომატებულ წვდომებს მოითხოვს, გარანტირებული ვერ იქნება, რადგან მისი ჩასწორება "
 "%2-ზე root-ის გარდა სხვა მომხმარებლებსაც შეუძლიათ."
 
-#: core/worker.cpp:435
+#: core/worker.cpp:440
 #, kde-format
 msgid "Unknown protocol '%1'."
 msgstr "უცნობი პროტოკოლი %1."
 
-#: core/worker.cpp:446
+#: core/worker.cpp:451
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "პროტოკოლისთვის '%1' KIO -ის დამხმარე პროგრამა ვერ ვიპოვე."
 
-#: core/worker.cpp:453
+#: core/worker.cpp:458
 #, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
@@ -2430,36 +2430,36 @@ msgstr ""
 "რადგან ყველა KIO-ის დამხმარე პროგრამა, რომელიც მოთავსებულია %3-ის გარეთ და "
 "ითხოვს ამაღლებულ წვდომებს, საფრთხის შემცველად ითვლება."
 
-#: core/worker.cpp:493
+#: core/worker.cpp:498
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
 msgstr ""
 "სოკეტის შექმნის შეცდომა KIO-ის დამხმარე პროცესის გასაშვებად პროტოკოლისთვის "
 "'%1'."
 
-#: core/worker.cpp:513
+#: core/worker.cpp:518
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'-ზე 'kioworker' გამშვები ფაილი ვერ ვიპოვე."
 
-#: core/workerinterface.cpp:343 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:340 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "&Details"
 msgstr "&დეტალები"
 
-#: core/workerinterface.cpp:345 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:215
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&სამუდამოდ"
 
-#: core/workerinterface.cpp:349 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:346 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "&გაგრძელება"
 
-#: core/workerinterface.cpp:351 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -5390,7 +5390,7 @@ msgstr "ზომა:"
 #: widgets/kfilepropspluginwidget.ui:259
 #, kde-format
 msgid "Size on disk:"
-msgstr ""
+msgstr "ზომა დისკზე:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:308
@@ -6020,22 +6020,19 @@ msgstr ""
 "><filename>%1</filename>."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:159
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt ""
 "@label the size of a file or folder, first rounded and then to the byte"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:161
-#, fuzzy, kde-format
-#| msgid " byte"
-#| msgid_plural " bytes"
+#, kde-format
 msgctxt "@item the exact size of a file or folder"
 msgid "%1 byte"
 msgid_plural "%1 bytes"
-msgstr[0] " ბაიტი"
-msgstr[1] " ბაიტი"
+msgstr[0] "%1 ბაიტი"
+msgstr[1] "%1 ბაიტი"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:263
 #, kde-format
@@ -6086,16 +6083,13 @@ msgid "Unknown size"
 msgstr "უცნობი ზომა"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:739
-#, fuzzy, kde-format
-#| msgid ""
-#| "Calculating... %1 (%2)\n"
-#| "%3, %4"
+#, kde-format
 msgid ""
 "Calculating... %1\n"
 "%2, %3"
 msgstr ""
-"გამოთვლა... %1 (%2)\n"
-"%3, %4"
+"გამოთვლა... %1\n"
+"%2, %3"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:741
 #: widgets/kpropertiesdialogbuiltin_p.cpp:756
