@@ -20,6 +20,8 @@
 #include <QMimeType>
 #include <qplatformdefs.h>
 
+#include <optional>
+
 class KFileItemPrivate;
 
 /*!
@@ -484,6 +486,19 @@ public:
      * Returns 0 otherwise.
      */
     KIO::filesize_t size() const;
+
+    /*!
+     * Returns the space the file takes up on the storage it lives on, which is what the filesystem
+     * has allocated to it rather than how many bytes of data it holds. Larger than size() for a file
+     * whose last block is partly unused, smaller for one that is sparse or compressed, and a folder
+     * takes up room for its own list of entries.
+     *
+     * Empty unless the listing was asked for KIO::StatSizeOnDisk, and unless the protocol has an
+     * answer, which so far means local files.
+     *
+     * \since 6.33
+     */
+    std::optional<KIO::filesize_t> sizeOnDisk() const;
 
     /*!
      * For folders, returns its recursive size: the size of its files plus the recursiveSize of its folder

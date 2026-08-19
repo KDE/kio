@@ -102,11 +102,16 @@ KCoreDirListerCache::~KCoreDirListerCache()
 
 // The mount id of an item names its mount without a stat of its path, which can block on a remote
 // filesystem.
-static KIO::StatDetails listingDetails(bool mimeType)
+// The room an entry takes up on its storage is one more number per entry, so a listing only carries
+// it when a lister asked for it.
+static KIO::StatDetails listingDetails(bool mimeType, bool sizeOnDisk)
 {
     KIO::StatDetails details = KIO::StatDefaultDetails | KIO::StatMountId;
     if (mimeType) {
         details |= KIO::StatMimeType;
+    }
+    if (sizeOnDisk) {
+        details |= KIO::StatSizeOnDisk;
     }
     return details;
 }
@@ -224,7 +229,7 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
             }
 
             KIO::ListJob *job = KIO::listDir(_url, KIO::HideProgressInfo);
-            job->setDetails(listingDetails(lister->requestMimeTypeWhileListing()));
+            job->setDetails(listingDetails(lister->requestMimeTypeWhileListing(), lister->requestSizeOnDiskWhileListing()));
             setJobUrl(job, _url);
             runningListJobs.insert(job, KIO::UDSEntryList());
 
@@ -643,14 +648,15 @@ void KCoreDirListerCache::updateDirectory(const QUrl &_dir)
     setJobUrl(job, dir);
     runningListJobs.insert(job, KIO::UDSEntryList());
 
-    const bool requestFromListers = std::any_of(listers.cbegin(), listers.cend(), [](KCoreDirLister *lister) {
-        return lister->requestMimeTypeWhileListing();
-    });
-    const bool requestFromholders = std::any_of(holders.cbegin(), holders.cend(), [](KCoreDirLister *lister) {
-        return lister->requestMimeTypeWhileListing();
-    });
+    const auto requestedByAny = [&listers, &holders](bool (KCoreDirLister::*request)() const) {
+        const auto asks = [request](KCoreDirLister *lister) {
+            return (lister->*request)();
+        };
+        return std::any_of(listers.cbegin(), listers.cend(), asks) || std::any_of(holders.cbegin(), holders.cend(), asks);
+    };
 
-    job->setDetails(listingDetails(requestFromListers || requestFromholders));
+    job->setDetails(listingDetails(requestedByAny(&KCoreDirLister::requestMimeTypeWhileListing),
+                                   requestedByAny(&KCoreDirLister::requestSizeOnDiskWhileListing)));
 
     connect(job, &KIO::ListJob::entries, this, &KCoreDirListerCache::slotUpdateEntries);
     connect(job, &KJob::result, this, &KCoreDirListerCache::slotUpdateResult);
@@ -2340,6 +2346,26 @@ void KCoreDirLister::setRequestMimeTypeWhileListing(bool request)
         // Changing from request off to on, clear any cached items associated
         // with this lister so we re-request them and get the mimetype as well.
         // If we do not, we risk caching items that have no mime type.
+        s_kDirListerCache.localData().forgetDirs(this);
+    }
+}
+
+bool KCoreDirLister::requestSizeOnDiskWhileListing() const
+{
+    return d->requestSizeOnDiskWhileListing;
+}
+
+void KCoreDirLister::setRequestSizeOnDiskWhileListing(bool request)
+{
+    if (d->requestSizeOnDiskWhileListing == request) {
+        return;
+    }
+
+    d->requestSizeOnDiskWhileListing = request;
+    if (d->requestSizeOnDiskWhileListing) {
+        // Changing from request off to on, clear any cached items associated with this lister so we
+        // re-request them and get the size on disk as well. If we do not, we risk caching items that
+        // have no size on disk.
         s_kDirListerCache.localData().forgetDirs(this);
     }
 }
