@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2026-07-26 11:45+0200\n"
+"PO-Revision-Date: 2026-08-19 11:53+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -231,7 +231,7 @@ msgstr "Cíl"
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
-msgstr "Přejmenovávám"
+msgstr "Přejmenování"
 
 #: core/job.cpp:120
 #, kde-format
@@ -267,7 +267,7 @@ msgstr "Soubor"
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
-msgstr "Zkoumám"
+msgstr "Zkoumání"
 
 #: core/job.cpp:149
 #, kde-format
@@ -3689,7 +3689,7 @@ msgstr ""
 #: filewidgets/knewfilemenu.cpp:474
 #, kde-format
 msgid "Sorry"
-msgstr "Lituji"
+msgstr "Litujeme"
 
 #: filewidgets/knewfilemenu.cpp:485
 #, kde-format
@@ -5961,7 +5961,7 @@ msgstr "Pro '%1' není dostupná žádná dokumentace."
 #: kioworkers/help/kio_help.cpp:157
 #, kde-format
 msgid "Looking up correct file"
-msgstr "Vyhledávám odpovídající soubor"
+msgstr "Vyhledávání odpovídajícího souboru"
 
 #: kioworkers/help/kio_help.cpp:203
 #, kde-format
@@ -5976,7 +5976,7 @@ msgstr "Požadovaný dokument s nápovědou nebylo možné analyzovat:<br />%1"
 #: kioworkers/help/kio_help.cpp:234
 #, kde-format
 msgid "Saving to cache"
-msgstr "Ukládám do mezipaměti"
+msgstr "Ukládání do mezipaměti"
 
 #: kioworkers/help/kio_help.cpp:253
 #, kde-format
@@ -6241,7 +6241,7 @@ msgstr "Neznámá autorizační metoda."
 #: kioworkers/http/httpfilter.cpp:175
 #, kde-format
 msgid "Receiving corrupt data."
-msgstr "Stahuji poškozená data."
+msgstr "Stahování poškozených dat."
 
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:47
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:55
@@ -7131,7 +7131,7 @@ msgstr "Přesouvání"
 #: widgets/fileundomanager.cpp:141
 #, kde-format
 msgid "Renaming"
-msgstr "Přejmenovávám"
+msgstr "Přejmenování"
 
 #: widgets/fileundomanager.cpp:148
 #, kde-format
@@ -8277,7 +8277,7 @@ msgid ""
 "Calculating... %1 (%2)\n"
 "%3, %4"
 msgstr ""
-"Počítám... %1 (%2)\n"
+"Výpočet... %1 (%2)\n"
 "%3, %4"
 
 #: widgets/kpropertiesdialog.cpp:1376 widgets/kpropertiesdialog.cpp:1391
@@ -8299,7 +8299,7 @@ msgstr[2] "%1 podsložek"
 #: widgets/kpropertiesdialog.cpp:1405
 #, kde-format
 msgid "Calculating...\n"
-msgstr "Počítám...\n"
+msgstr "Výpočet...\n"
 
 #: widgets/kpropertiesdialog.cpp:1428
 #, kde-format
@@ -8698,7 +8698,7 @@ msgstr "Kontro&lní součty"
 #, kde-format
 msgctxt "@action:button"
 msgid "Calculating..."
-msgstr "Počítám..."
+msgstr "Výpočet..."
 
 #: widgets/kpropertiesdialog.cpp:3017
 #, kde-format
@@ -8853,9 +8853,9 @@ msgstr "%1, %2 %3"
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "using %1 bit"
 msgid_plural "using %1 bits"
-msgstr[0] "používám %1 bit"
-msgstr[1] "používám %1 bity"
-msgstr[2] "používám %1 bitů"
+msgstr[0] "použití %1 bitu"
+msgstr[1] "použití %1 bitů"
+msgstr[2] "použití %1 bitů"
 
 #: widgets/ksslinfodialog.cpp:169
 #, kde-format

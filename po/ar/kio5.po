@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2026-08-11 09:28+0400\n"
+"PO-Revision-Date: 2026-08-19 17:50+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3215,7 +3215,7 @@ msgstr "أفرِغ المهملات"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
-msgstr "وصل"
+msgstr "صِل"
 
 #: filewidgets/kfileplacesview.cpp:1145
 #, kde-format
@@ -3245,7 +3245,7 @@ msgstr "&حرّر…"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
-msgstr "أزل"
+msgstr "أزِل"
 
 #: filewidgets/kfileplacesview.cpp:1172
 #, kde-format
@@ -3749,7 +3749,7 @@ msgstr "مجلد جديد"
 #, kde-format
 msgctxt "@title:window"
 msgid "New Folder"
-msgstr "مجلّد جديد"
+msgstr "مجلد جديد"
 
 #: filewidgets/knewfilemenu.cpp:1478
 #, kde-format
@@ -7159,7 +7159,7 @@ msgstr ""
 #: widgets/jobuidelegate.cpp:309 widgets/widgetsaskuseractionhandler.cpp:204
 #, kde-format
 msgid "Delete Permanently"
-msgstr "احذف نهائيا"
+msgstr "احذف نهائيًا"
 
 #: widgets/jobuidelegate.cpp:284 widgets/jobuidelegate.cpp:298
 #: widgets/widgetsaskuseractionhandler.cpp:247
@@ -7167,7 +7167,7 @@ msgstr "احذف نهائيا"
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
-msgstr "احذف نهائيا"
+msgstr "احذف نهائيًا"
 
 #: widgets/jobuidelegate.cpp:293
 #, kde-kuit-format
