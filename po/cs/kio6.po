@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-19 00:41+0000\n"
-"PO-Revision-Date: 2026-08-09 23:49+0200\n"
+"PO-Revision-Date: 2026-08-19 11:53+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -226,7 +226,7 @@ msgstr "Cíl"
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
-msgstr "Přejmenovávám"
+msgstr "Přejmenování"
 
 #: core/job.cpp:120
 #, kde-format
@@ -262,7 +262,7 @@ msgstr "Soubor"
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
-msgstr "Zkoumám"
+msgstr "Zkoumání"
 
 #: core/job.cpp:149
 #, kde-format
@@ -3560,7 +3560,7 @@ msgstr "Zadejte %1 název souboru:"
 #: filewidgets/knewfilemenu.cpp:558
 #, kde-format
 msgid "Sorry"
-msgstr "Lituji"
+msgstr "Litujeme"
 
 #: filewidgets/knewfilemenu.cpp:569
 #, kde-format
@@ -4309,7 +4309,7 @@ msgstr "Pro '%1' není dostupná žádná dokumentace."
 #: kioworkers/help/kio_help.cpp:157
 #, kde-format
 msgid "Looking up correct file"
-msgstr "Vyhledávám odpovídající soubor"
+msgstr "Vyhledávání odpovídajícího souboru"
 
 #: kioworkers/help/kio_help.cpp:203
 #, kde-format
@@ -4324,7 +4324,7 @@ msgstr "Požadovaný dokument s nápovědou nebylo možné analyzovat:<br />%1"
 #: kioworkers/help/kio_help.cpp:234
 #, kde-format
 msgid "Saving to cache"
-msgstr "Ukládám do mezipaměti"
+msgstr "Ukládání do mezipaměti"
 
 #: kioworkers/help/kio_help.cpp:253
 #, kde-format
@@ -4885,7 +4885,7 @@ msgstr "Přesouvání"
 #: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Renaming"
-msgstr "Přejmenovávám"
+msgstr "Přejmenování"
 
 #: widgets/fileundomanager.cpp:147
 #, kde-format
@@ -5405,7 +5405,7 @@ msgstr "Velikost:"
 #: widgets/kfilepropspluginwidget.ui:259
 #, kde-format
 msgid "Size on disk:"
-msgstr ""
+msgstr "Velikost na disku:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:308
@@ -6028,8 +6028,7 @@ msgstr ""
 "souboru:<nl/><filename>%1</filename>."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:159
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt ""
 "@label the size of a file or folder, first rounded and then to the byte"
 msgid "%1 (%2)"
@@ -6040,9 +6039,9 @@ msgstr "%1 (%2)"
 msgctxt "@item the exact size of a file or folder"
 msgid "%1 byte"
 msgid_plural "%1 bytes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 bajt"
+msgstr[1] "%1 bajty"
+msgstr[2] "%1 bajtů"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:263
 #, kde-format
@@ -6093,16 +6092,13 @@ msgid "Unknown size"
 msgstr "Neznámá velikost"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:739
-#, fuzzy, kde-format
-#| msgid ""
-#| "Calculating... %1 (%2)\n"
-#| "%3, %4"
+#, kde-format
 msgid ""
 "Calculating... %1\n"
 "%2, %3"
 msgstr ""
-"Počítám... %1 (%2)\n"
-"%3, %4"
+"Výpočet... %1\n"
+"%2, %3"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:741
 #: widgets/kpropertiesdialogbuiltin_p.cpp:756
@@ -6125,7 +6121,7 @@ msgstr[2] "%1 podsložek"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:771
 #, kde-format
 msgid "Calculating...\n"
-msgstr "Počítám...\n"
+msgstr "Výpočet...\n"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:794
 #, kde-format
@@ -6596,7 +6592,7 @@ msgstr "Vybrané soubory mají rozdílné kontrolní součty."
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
-msgstr "Počítám…"
+msgstr "Výpočet…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2621
 #, kde-format
@@ -6693,9 +6689,9 @@ msgstr "%1, %2 %3"
 msgctxt "Part of: %1, using %2 bits of a %3 bit key"
 msgid "using %1 bit"
 msgid_plural "using %1 bits"
-msgstr[0] "používám %1 bit"
-msgstr[1] "používám %1 bity"
-msgstr[2] "používám %1 bitů"
+msgstr[0] "použití %1 bitu"
+msgstr[1] "použití %1 bitů"
+msgstr[2] "použití %1 bitů"
 
 #: widgets/ksslinfodialog.cpp:142
 #, kde-format

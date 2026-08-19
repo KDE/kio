@@ -22,7 +22,7 @@ msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
 "KDE China, Feng Chao, Funda Wang, Guo Yunhe, Jiang Xiong, Lie Ex, Ni Hui, "
-"Tyson Tan Wang Jian, Weng Xuetian"
+"Tyson Tan, Wang Jian, Weng Xuetian"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -3419,11 +3419,10 @@ msgid "Create link to URL"
 msgstr "创建到 URL 的链接"
 
 #: filewidgets/knewfilemenu.cpp:650
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
-msgstr "新建"
+msgstr "新建 %1"
 
 #: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, kde-format
@@ -5806,12 +5805,11 @@ msgid ""
 msgstr "无法保存属性，因为写入权限不足：<nl/><filename>%1</filename>。"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:159
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt ""
 "@label the size of a file or folder, first rounded and then to the byte"
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:161
 #, kde-format
@@ -5869,16 +5867,11 @@ msgid "Unknown size"
 msgstr "未知大小"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:739
-#, fuzzy, kde-format
-#| msgid ""
-#| "Calculating... %1 (%2)\n"
-#| "%3, %4"
+#, kde-format
 msgid ""
 "Calculating... %1\n"
 "%2, %3"
 msgstr ""
-"正在计算... %1 (%2)\n"
-"%3，%4"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:741
 #: widgets/kpropertiesdialogbuiltin_p.cpp:756

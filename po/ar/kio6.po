@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-19 00:41+0000\n"
-"PO-Revision-Date: 2026-08-18 17:47+0400\n"
+"PO-Revision-Date: 2026-08-19 17:50+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3108,7 +3108,7 @@ msgstr "أفرِغ المهملات"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
-msgstr "وصل"
+msgstr "صِل"
 
 #: filewidgets/kfileplacesview.cpp:1262
 #, kde-format
@@ -4987,7 +4987,7 @@ msgstr ""
 #: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:203
 #, kde-format
 msgid "Delete Permanently"
-msgstr "احذف نهائيا"
+msgstr "احذف نهائيًا"
 
 #: widgets/jobuidelegate.cpp:234 widgets/jobuidelegate.cpp:248
 #: widgets/widgetsaskuseractionhandler.cpp:246
@@ -4996,7 +4996,7 @@ msgstr "احذف نهائيا"
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
-msgstr "احذف نهائيا"
+msgstr "احذف نهائيًا"
 
 #: widgets/jobuidelegate.cpp:243
 #, kde-kuit-format
