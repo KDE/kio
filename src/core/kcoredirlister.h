@@ -85,6 +85,11 @@ class KIOCORE_EXPORT KCoreDirLister : public QObject
     Q_PROPERTY(bool requestMimeTypeWhileListing READ requestMimeTypeWhileListing WRITE setRequestMimeTypeWhileListing)
 
     /*!
+     * \property KCoreDirLister::requestSizeOnDiskWhileListing
+     */
+    Q_PROPERTY(bool requestSizeOnDiskWhileListing READ requestSizeOnDiskWhileListing WRITE setRequestSizeOnDiskWhileListing)
+
+    /*!
      * \property KCoreDirLister::nameFilter
      */
     Q_PROPERTY(QString nameFilter READ nameFilter WRITE setNameFilter)
@@ -304,6 +309,34 @@ public:
      * \since 5.82
      */
     void setRequestMimeTypeWhileListing(bool request);
+
+    /*!
+     * Returns \c true if the worker is asked for how much room each entry takes up on its storage,
+     * \c false otherwise.
+     *
+     * When this is on, KFileItem::sizeOnDisk() has an answer for the entries of a listing, on the
+     * protocols that can tell. A listing then carries one more number per entry, which is why it is
+     * off by default.
+     *
+     * \sa setRequestSizeOnDiskWhileListing()
+     *
+     * \since 6.33
+     */
+    bool requestSizeOnDiskWhileListing() const;
+
+    /*!
+     * Toggles whether to ask the worker for how much room each entry takes up on its storage.
+     *
+     * \a request set to \c true to ask for it.
+     *
+     * \note If this is changed while the lister is already listing a directory,
+     * it will only have an effect the next time openUrl() is called.
+     *
+     * \sa requestSizeOnDiskWhileListing()
+     *
+     * \since 6.33
+     */
+    void setRequestSizeOnDiskWhileListing(bool request);
 
     /*!
      * Returns the top level URL that is listed by this KCoreDirLister.

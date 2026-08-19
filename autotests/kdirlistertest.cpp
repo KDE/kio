@@ -1609,6 +1609,45 @@ void KDirListerTest::testRequestMimeType()
     QCOMPARE(items[3].mimetype(), QStringLiteral("text/markdown"));
 }
 
+void KDirListerTest::testRequestSizeOnDisk()
+{
+#ifdef Q_OS_WIN
+    QSKIP("Only Unix says how many blocks a file was given");
+#else
+    // Use a new tempdir and lister instance for this test, so that we don't use any cache at all.
+    QTemporaryDir tempDir(homeTmpDir());
+    const QString path = tempDir.path() + QLatin1Char('/');
+    const QString filePath = path + QStringLiteral("a_file");
+    createTestFile(filePath);
+
+    MyDirLister lister;
+    // Explicitly set requestSizeOnDiskWhileListing to false so we know what state it is in.
+    lister.setRequestSizeOnDiskWhileListing(false);
+    lister.openUrl(QUrl::fromLocalFile(path), KDirLister::NoFlags);
+
+    QTRY_VERIFY(lister.isFinished());
+
+    // Nobody asked for it, so the listing does not carry it.
+    KFileItem item = lister.findByName(QStringLiteral("a_file"));
+    QVERIFY(!item.isNull());
+    QVERIFY(!item.sizeOnDisk().has_value());
+
+    lister.setRequestSizeOnDiskWhileListing(true);
+    QVERIFY(lister.requestSizeOnDiskWhileListing());
+    lister.openUrl(QUrl::fromLocalFile(path), KDirLister::Reload);
+
+    QTRY_VERIFY(lister.isFinished());
+
+    // Now every entry says how much room the filesystem gave it.
+    QT_STATBUF buf;
+    QCOMPARE(QT_LSTAT(QFile::encodeName(filePath).constData(), &buf), 0);
+
+    item = lister.findByName(QStringLiteral("a_file"));
+    QVERIFY(!item.isNull());
+    QCOMPARE(item.sizeOnDisk(), std::optional<KIO::filesize_t>(KIO::filesize_t(buf.st_blocks) * 512));
+#endif
+}
+
 void KDirListerTest::testMimeFilter_data()
 {
     QTest::addColumn<QStringList>("files");
