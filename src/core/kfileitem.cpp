@@ -131,6 +131,7 @@ public:
 
     QString localPath() const;
     KIO::filesize_t size() const;
+    std::optional<KIO::filesize_t> sizeOnDisk() const;
     KIO::filesize_t recursiveSize() const;
     QDateTime time(KFileItem::FileTimes which) const;
     void setTime(KFileItem::FileTimes which, uint time_t_val) const;
@@ -412,6 +413,17 @@ inline KIO::filesize_t KFileItemPrivate::size() const
         return QFileInfo(m_url.toLocalFile()).size();
     }
     return 0;
+}
+
+std::optional<KIO::filesize_t> KFileItemPrivate::sizeOnDisk() const
+{
+    // Extract it from the KIO::UDSEntry
+    long long fieldVal = m_entry.numberValue(KIO::UDSEntry::UDS_SIZE_ON_DISK, -1);
+    if (fieldVal != -1) {
+        return static_cast<KIO::filesize_t>(fieldVal);
+    }
+
+    return std::nullopt;
 }
 
 KIO::filesize_t KFileItemPrivate::recursiveSize() const
@@ -882,6 +894,15 @@ KIO::filesize_t KFileItem::size() const
     }
 
     return d->size();
+}
+
+std::optional<KIO::filesize_t> KFileItem::sizeOnDisk() const
+{
+    if (!d) {
+        return std::nullopt;
+    }
+
+    return d->sizeOnDisk();
 }
 
 KIO::filesize_t KFileItem::recursiveSize() const

@@ -109,6 +109,7 @@ private Q_SLOTS:
     void testCopyAfterListingAndMove(); // #353195
     void testRenameDirectory(); // #401552
     void testRequestMimeType();
+    void testRequestSizeOnDisk();
     void testMimeFilter_data();
     void testMimeFilter();
     void testBug386763();

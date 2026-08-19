@@ -139,6 +139,7 @@ public:
     bool hasPendingChanges = false; // i.e. settings != oldSettings
     bool m_autoErrorHandling = true;
     bool requestMimeTypeWhileListing = false;
+    bool requestSizeOnDiskWhileListing = false;
 
     struct JobData {
         long unsigned int percent, speed;
