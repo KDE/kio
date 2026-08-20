@@ -120,9 +120,113 @@ QUrl protocolChangedToHttp(const QUrl &url)
 }
 };
 
+static QString protocolForProxyType(QNetworkProxy::ProxyType type)
+{
+    switch (type) {
+    case QNetworkProxy::DefaultProxy:
+        break;
+    case QNetworkProxy::Socks5Proxy:
+        return QStringLiteral("socks");
+    case QNetworkProxy::NoProxy:
+        break;
+    case QNetworkProxy::HttpProxy:
+    case QNetworkProxy::HttpCachingProxy:
+    case QNetworkProxy::FtpCachingProxy:
+        break;
+    }
+
+    return QStringLiteral("http");
+}
+
 HTTPProtocol::HTTPProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app)
     : WorkerBase(protocol, pool, app)
 {
+    // Disable automatic redirect handling from Qt. We need to intercept redirects
+    // to let KIO handle them
+    m_nam.setRedirectPolicy(QNetworkRequest::ManualRedirectPolicy);
+
+    // One manager for the life of the worker, so that requests to the same host go over a
+    // connection that is already open, and an https one over a session that is already agreed.
+    // These two answers depend on the request being served, which m_requestUrl carries.
+    connect(&m_nam, &QNetworkAccessManager::authenticationRequired, this, &HTTPProtocol::handleAuthenticationRequired);
+
+    connect(&m_nam, &QNetworkAccessManager::proxyAuthenticationRequired, this, &HTTPProtocol::handleProxyAuthenticationRequired);
+}
+
+void HTTPProtocol::supplyCredentials(KIO::AuthInfo &authinfo, QAuthenticator *authenticator)
+{
+    // try to get credentials from kpasswdserver's cache, then try asking the user.
+    authinfo.verifyPath = false; // we have realm, no path based checking please!
+    authinfo.realmValue = authenticator->realm();
+
+    // Save the current authinfo url because it can be modified by the call to
+    // checkCachedAuthentication. That way we can restore it if the call
+    // modified it.
+    const QUrl reqUrl = authinfo.url;
+
+    if (checkCachedAuthentication(authinfo)) {
+        authenticator->setUser(authinfo.username);
+        authenticator->setPassword(authinfo.password);
+        return;
+    }
+
+    // Reset url to the saved url...
+    authinfo.url = reqUrl;
+    authinfo.keepPassword = true;
+    authinfo.comment = i18n("<b>%1</b> at <b>%2</b>", authinfo.realmValue.toHtmlEscaped(), authinfo.url.host());
+
+    const int errorCode = openPasswordDialog(authinfo, QString());
+
+    if (!errorCode) {
+        authenticator->setUser(authinfo.username);
+        authenticator->setPassword(authinfo.password);
+        if (authinfo.keepPassword) {
+            cacheAuthentication(authinfo);
+        }
+    }
+}
+
+void HTTPProtocol::handleAuthenticationRequired(QNetworkReply * /*reply*/, QAuthenticator *authenticator)
+{
+    if (configValue(QStringLiteral("no-www-auth"), false)) {
+        return;
+    }
+
+    KIO::AuthInfo authinfo;
+    authinfo.url = m_requestUrl;
+    authinfo.username = m_requestUrl.userName();
+    authinfo.prompt = i18n(
+        "You need to supply a username and a "
+        "password to access this site.");
+    authinfo.commentLabel = i18n("Site:");
+
+    supplyCredentials(authinfo, authenticator);
+}
+
+void HTTPProtocol::handleProxyAuthenticationRequired(const QNetworkProxy &proxy, QAuthenticator *authenticator)
+{
+    if (configValue(QStringLiteral("no-proxy-auth"), false)) {
+        return;
+    }
+
+    QUrl proxyUrl;
+
+    proxyUrl.setScheme(protocolForProxyType(proxy.type()));
+    proxyUrl.setUserName(proxy.user());
+    proxyUrl.setHost(proxy.hostName());
+    proxyUrl.setPort(proxy.port());
+
+    KIO::AuthInfo authinfo;
+    authinfo.url = proxyUrl;
+    authinfo.username = proxyUrl.userName();
+    authinfo.prompt = i18n(
+        "You need to supply a username and a password for "
+        "the proxy server listed below before you are allowed "
+        "to access any sites.");
+    authinfo.keepPassword = true;
+    authinfo.commentLabel = i18n("Proxy:");
+
+    supplyCredentials(authinfo, authenticator);
 }
 
 HTTPProtocol::~HTTPProtocol()
@@ -275,36 +379,12 @@ HTTPProtocol::makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QByteArray &
     return makeRequest(url, method, &buffer, dataMode, extraHeaders);
 }
 
-static QString protocolForProxyType(QNetworkProxy::ProxyType type)
-{
-    switch (type) {
-    case QNetworkProxy::DefaultProxy:
-        break;
-    case QNetworkProxy::Socks5Proxy:
-        return QStringLiteral("socks");
-    case QNetworkProxy::NoProxy:
-        break;
-    case QNetworkProxy::HttpProxy:
-    case QNetworkProxy::HttpCachingProxy:
-    case QNetworkProxy::FtpCachingProxy:
-        break;
-    }
-
-    return QStringLiteral("http");
-}
-
 HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
                                                  KIO::HTTP_METHOD method,
                                                  QIODevice *inputData,
                                                  HTTPProtocol::DataMode dataMode,
                                                  const QMap<QByteArray, QByteArray> &extraHeaders)
 {
-    QNetworkAccessManager nam;
-
-    // Disable automatic redirect handling from Qt. We need to intercept redirects
-    // to let KIO handle them
-    nam.setRedirectPolicy(QNetworkRequest::ManualRedirectPolicy);
-
     auto cookies = new Cookies;
 
     if (metaData(QStringLiteral("cookies")) == QStringLiteral("manual")) {
@@ -315,107 +395,12 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
         });
     }
 
-    nam.setCookieJar(cookies);
+    m_nam.setCookieJar(cookies);
 
     QUrl properUrl = protocolChangedToHttp(url);
 
     m_hostName = properUrl.host();
-
-    connect(&nam, &QNetworkAccessManager::authenticationRequired, this, [this, url](QNetworkReply * /*reply*/, QAuthenticator *authenticator) {
-        if (configValue(QStringLiteral("no-www-auth"), false)) {
-            return;
-        }
-
-        KIO::AuthInfo authinfo;
-        authinfo.url = url;
-        authinfo.username = url.userName();
-        authinfo.prompt = i18n(
-            "You need to supply a username and a "
-            "password to access this site.");
-        authinfo.commentLabel = i18n("Site:");
-
-        // try to get credentials from kpasswdserver's cache, then try asking the user.
-        authinfo.verifyPath = false; // we have realm, no path based checking please!
-        authinfo.realmValue = authenticator->realm();
-
-        // Save the current authinfo url because it can be modified by the call to
-        // checkCachedAuthentication. That way we can restore it if the call
-        // modified it.
-        const QUrl reqUrl = authinfo.url;
-
-        if (checkCachedAuthentication(authinfo)) {
-            authenticator->setUser(authinfo.username);
-            authenticator->setPassword(authinfo.password);
-        } else {
-            // Reset url to the saved url...
-            authinfo.url = reqUrl;
-            authinfo.keepPassword = true;
-            authinfo.comment = i18n("<b>%1</b> at <b>%2</b>", authinfo.realmValue.toHtmlEscaped(), authinfo.url.host());
-
-            const int errorCode = openPasswordDialog(authinfo, QString());
-
-            if (!errorCode) {
-                authenticator->setUser(authinfo.username);
-                authenticator->setPassword(authinfo.password);
-                if (authinfo.keepPassword) {
-                    cacheAuthentication(authinfo);
-                }
-            }
-        }
-    });
-
-    connect(&nam, &QNetworkAccessManager::proxyAuthenticationRequired, this, [this](const QNetworkProxy &proxy, QAuthenticator *authenticator) {
-        if (configValue(QStringLiteral("no-proxy-auth"), false)) {
-            return;
-        }
-
-        QUrl proxyUrl;
-
-        proxyUrl.setScheme(protocolForProxyType(proxy.type()));
-        proxyUrl.setUserName(proxy.user());
-        proxyUrl.setHost(proxy.hostName());
-        proxyUrl.setPort(proxy.port());
-
-        KIO::AuthInfo authinfo;
-        authinfo.url = proxyUrl;
-        authinfo.username = proxyUrl.userName();
-        authinfo.prompt = i18n(
-            "You need to supply a username and a password for "
-            "the proxy server listed below before you are allowed "
-            "to access any sites.");
-        authinfo.keepPassword = true;
-        authinfo.commentLabel = i18n("Proxy:");
-
-        // try to get credentials from kpasswdserver's cache, then try asking the user.
-        authinfo.verifyPath = false; // we have realm, no path based checking please!
-        authinfo.realmValue = authenticator->realm();
-        authinfo.comment = i18n("<b>%1</b> at <b>%2</b>", authinfo.realmValue.toHtmlEscaped(), proxyUrl.host());
-
-        // Save the current authinfo url because it can be modified by the call to
-        // checkCachedAuthentication. That way we can restore it if the call
-        // modified it.
-        const QUrl reqUrl = authinfo.url;
-
-        if (checkCachedAuthentication(authinfo)) {
-            authenticator->setUser(authinfo.username);
-            authenticator->setPassword(authinfo.password);
-        } else {
-            // Reset url to the saved url...
-            authinfo.url = reqUrl;
-            authinfo.keepPassword = true;
-            authinfo.comment = i18n("<b>%1</b> at <b>%2</b>", authinfo.realmValue.toHtmlEscaped(), authinfo.url.host());
-
-            const int errorCode = openPasswordDialog(authinfo, QString());
-
-            if (!errorCode) {
-                authenticator->setUser(authinfo.username);
-                authenticator->setPassword(authinfo.password);
-                if (authinfo.keepPassword) {
-                    cacheAuthentication(authinfo);
-                }
-            }
-        }
-    });
+    m_requestUrl = url;
 
     QNetworkRequest request(properUrl);
 
@@ -484,25 +469,29 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
     QNetworkReply *reply = nullptr;
     switch (method) {
     case KIO::HTTP_GET:
-        reply = nam.get(request, inputData);
+        reply = m_nam.get(request, inputData);
         break;
     case KIO::HTTP_PUT:
-        reply = nam.put(request, inputData);
+        reply = m_nam.put(request, inputData);
         break;
     case KIO::HTTP_POST:
-        reply = nam.post(request, inputData);
+        reply = m_nam.post(request, inputData);
         break;
     case KIO::HTTP_HEAD:
-        reply = nam.head(request);
+        reply = m_nam.head(request);
         break;
     case KIO::HTTP_DELETE:
-        reply = nam.deleteResource(request);
+        reply = m_nam.deleteResource(request);
         break;
     default:
-        reply = nam.sendCustomRequest(request, methodToString(method), inputData);
+        reply = m_nam.sendCustomRequest(request, methodToString(method), inputData);
     }
 
-    const auto replyDeleter = qScopeGuard([reply] {
+    const auto replyDeleter = qScopeGuard([this, reply] {
+        // The handlers below read state that lives on this function's stack, and the reply outlives
+        // the call now that the manager it belongs to is not torn down with it. Take them off it
+        // before leaving, so nothing arrives late to read a stack frame that is gone.
+        reply->disconnect(this);
         reply->deleteLater();
     });
 
@@ -602,7 +591,7 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
     });
 
     if (dataMode == Emit) {
-        QObject::connect(reply, &QNetworkReply::readyRead, &nam, [this, reply] {
+        QObject::connect(reply, &QNetworkReply::readyRead, this, [this, reply] {
             while (reply->bytesAvailable() > 0) {
                 QByteArray buf(2048, Qt::Uninitialized);
                 qint64 readBytes = reply->read(buf.data(), 2048);

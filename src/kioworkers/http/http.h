@@ -69,6 +69,18 @@ private:
 
     void handleSslErrors(QNetworkReply *reply, const QList<QSslError> errors);
 
+    /*!
+     * Answers an authenticator with credentials for what \a authinfo describes, taken from the
+     * cache when they are there and asked of the user when they are not.
+     */
+    void supplyCredentials(KIO::AuthInfo &authinfo, QAuthenticator *authenticator);
+
+    /*! Supplies the credentials for the site being asked for, from the cache or from the user. */
+    void handleAuthenticationRequired(QNetworkReply *reply, QAuthenticator *authenticator);
+
+    /*! Supplies the credentials the proxy in front of the site asks for. */
+    void handleProxyAuthenticationRequired(const QNetworkProxy &proxy, QAuthenticator *authenticator);
+
     [[nodiscard]] KIO::WorkerResult davStatList(const QUrl &url, bool stat);
     void davParsePropstats(const QDomNodeList &propstats, KIO::UDSEntry &entry);
     QDateTime parseDateTime(const QString &input, const QString &type);
@@ -118,6 +130,9 @@ private:
 
     KIO::MetaData sslMetaData;
     KIO::Error lastError = (KIO::Error)KJob::NoError;
+    QNetworkAccessManager m_nam;
+    /** The URL of the request being served, for the answers that depend on it. */
+    QUrl m_requestUrl;
     QString m_hostName;
     QString m_defaultUserAgent;
 };
