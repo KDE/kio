@@ -32,6 +32,7 @@
 #include <KConfigGroup>
 #include <KFileSystemType>
 #include <KLocalizedString>
+#include <KNetworkMounts>
 #include <QDebug>
 #include <kmountpoint.h>
 
@@ -116,6 +117,26 @@ static bool isOnCifs(const StatStruct &buf, const QString &fallbackPath)
     Q_UNUSED(buf);
 #endif
     return isOnCifsMount(fallbackPath);
+}
+
+static QMimeDatabase::MatchMode mimeMatchModeFor(const StatStruct &buf, const QString &fallbackPath)
+{
+    if (KNetworkMounts::self()->isSlowPath(fallbackPath)) {
+        return QMimeDatabase::MatchExtension;
+    }
+
+#if HAVE_STATX_MNT_ID_UNIQUE
+    if (buf.stx_mask & STATX_MNT_ID_UNIQUE) {
+        const KMountPoint::Ptr mount = KMountPoint::currentMountPointForUniqueId(stat_mnt_id(buf));
+        return mount && mount->probablySlow() ? QMimeDatabase::MatchExtension : QMimeDatabase::MatchDefault;
+    }
+#else
+    Q_UNUSED(buf);
+#endif
+
+    const KFileSystemType::Type fsType = KFileSystemType::fileSystemType(fallbackPath);
+    const bool isSlowFs = fsType == KFileSystemType::Nfs || fsType == KFileSystemType::Smb;
+    return isSlowFs ? QMimeDatabase::MatchExtension : QMimeDatabase::MatchDefault;
 }
 
 static QByteArray readlinkToBuffer(const StatStruct &buf, const QByteArray &path)
@@ -335,7 +356,7 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
     if (details & KIO::StatMimeType) {
         if (type == 0 || type != S_IFDIR) {
             QMimeDatabase db;
-            entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, db.mimeTypeForFile(fullPath).name());
+            entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, db.mimeTypeForFile(fullPath, mimeMatchModeFor(buff, fullPath)).name());
         } else {
             // fast path for directories
             entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));

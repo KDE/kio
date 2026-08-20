@@ -62,7 +62,7 @@ inline uint32_t statxMask(KIO::StatDetails details)
     }
 #endif
 #if HAVE_STATX_MNT_ID_UNIQUE
-    if (details & KIO::StatMountId) {
+    if (details & (KIO::StatMountId | KIO::StatMimeType)) {
         // mount unique id
         mask |= STATX_MNT_ID_UNIQUE;
     }
