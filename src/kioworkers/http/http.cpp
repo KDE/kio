@@ -26,6 +26,7 @@
 #include <QNetworkCookieJar>
 #include <QNetworkProxy>
 #include <QSslCipher>
+#include <QTemporaryFile>
 
 #include <KLocalizedString>
 
@@ -241,6 +242,17 @@ HTTPProtocol::Response HTTPProtocol::makeDavRequest(const QUrl &url,
                                                     DataMode dataMode,
                                                     const QMap<QByteArray, QByteArray> &extraHeaders)
 {
+    QBuffer buffer(&inputData);
+    buffer.open(QIODevice::ReadOnly);
+    return makeDavRequest(url, method, &buffer, dataMode, extraHeaders);
+}
+
+HTTPProtocol::Response HTTPProtocol::makeDavRequest(const QUrl &url,
+                                                    KIO::HTTP_METHOD method,
+                                                    QIODevice *inputData,
+                                                    DataMode dataMode,
+                                                    const QMap<QByteArray, QByteArray> &extraHeaders)
+{
     auto headers = extraHeaders;
     const QString locks = davProcessLocks();
 
@@ -258,17 +270,9 @@ HTTPProtocol::Response HTTPProtocol::makeDavRequest(const QUrl &url,
 HTTPProtocol::Response
 HTTPProtocol::makeRequest(const QUrl &url, KIO::HTTP_METHOD method, QByteArray &inputData, DataMode dataMode, const QMap<QByteArray, QByteArray> &extraHeaders)
 {
-    /* HTTPProtocol::get(...) creates an empty inputData whether or not the calling function
-     * sent data to the request. QNetworkRequest sends "Content-Length: 0" for all requests
-     * when the device != nullptr, even if data is empty. Per RFC9110, "A user agent SHOULD NOT
-     * send a Content-Length header field when the request message does not contain content and
-     * the method semantics do not anticipate such data." Semantically, HTTP_GET, HTTP_HEAD,
-     * and others shouldn't send the header when the data is empty. Workaround that behavior
-     * here until and if Qt is modified. https://bugreports.qt.io/browse/QTBUG-138848 */
-    const bool noBodyWhenEmpty = (method == KIO::HTTP_GET || method == KIO::HTTP_HEAD || method == KIO::HTTP_DELETE);
     QBuffer buffer(&inputData);
-    QIODevice *bodyDevice = (noBodyWhenEmpty && inputData.isEmpty()) ? nullptr : &buffer;
-    return makeRequest(url, method, bodyDevice, dataMode, extraHeaders);
+    buffer.open(QIODevice::ReadOnly);
+    return makeRequest(url, method, &buffer, dataMode, extraHeaders);
 }
 
 static QString protocolForProxyType(QNetworkProxy::ProxyType type)
@@ -456,6 +460,17 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
             request.setRawHeader(split[0].toUtf8(), split[1].toUtf8());
         }
     }
+
+#if QT_VERSION < QT_VERSION_CHECK(6, 9, 3)
+    // Older Qt sent "Content-Length: 0" for any device it was given, empty or not, which RFC 9110
+    // discourages for a method whose meaning does not anticipate a body. Drop the device instead so
+    // the header stays away. Qt 6.9.3 makes the same distinction itself, see QTBUG-138848, so this
+    // can go once that is the oldest Qt we build against.
+    const bool noBodyWhenEmpty = (method == KIO::HTTP_GET || method == KIO::HTTP_HEAD || method == KIO::HTTP_DELETE);
+    if (inputData && inputData->size() == 0 && noBodyWhenEmpty) {
+        inputData = nullptr;
+    }
+#endif
 
     if (inputData) {
         inputData->startTransaction(); // To be able to restart after redirects.
@@ -680,7 +695,10 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
 
 KIO::WorkerResult HTTPProtocol::get(const QUrl &url)
 {
-    QByteArray inputData = getData();
+    std::unique_ptr<QIODevice> inputData = getData();
+    if (!inputData) {
+        return KIO::WorkerResult::fail(KIO::ERR_OUT_OF_MEMORY, url.host());
+    }
 
     QString start = metaData(QStringLiteral("range-start"));
 
@@ -695,7 +713,7 @@ KIO::WorkerResult HTTPProtocol::get(const QUrl &url)
         headers.insert("Range", "bytes=" + start.toUtf8() + "-");
     }
 
-    Response response = makeRequest(url, KIO::HTTP_GET, inputData, DataMode::Emit, headers);
+    Response response = makeRequest(url, KIO::HTTP_GET, inputData.get(), DataMode::Emit, headers);
 
     return sendHttpError(url, KIO::HTTP_GET, response);
 }
@@ -711,24 +729,36 @@ KIO::WorkerResult HTTPProtocol::put(const QUrl &url, int /*_mode*/, KIO::JobFlag
         }
     }
 
-    QByteArray inputData = getData();
-    Response response = makeRequest(url, KIO::HTTP_PUT, inputData, DataMode::Emit);
+    std::unique_ptr<QIODevice> inputData = getData();
+    if (!inputData) {
+        return KIO::WorkerResult::fail(KIO::ERR_OUT_OF_MEMORY, url.host());
+    }
+
+    Response response = makeRequest(url, KIO::HTTP_PUT, inputData.get(), DataMode::Emit);
 
     return sendHttpError(url, KIO::HTTP_PUT, response);
 }
 
 KIO::WorkerResult HTTPProtocol::mimetype(const QUrl &url)
 {
-    QByteArray inputData = getData();
-    Response response = makeRequest(url, KIO::HTTP_HEAD, inputData, DataMode::Discard);
+    std::unique_ptr<QIODevice> inputData = getData();
+    if (!inputData) {
+        return KIO::WorkerResult::fail(KIO::ERR_OUT_OF_MEMORY, url.host());
+    }
+
+    Response response = makeRequest(url, KIO::HTTP_HEAD, inputData.get(), DataMode::Discard);
 
     return sendHttpError(url, KIO::HTTP_HEAD, response);
 }
 
 KIO::WorkerResult HTTPProtocol::post(const QUrl &url, qint64 /*size*/)
 {
-    QByteArray inputData = getData();
-    Response response = makeRequest(url, KIO::HTTP_POST, inputData, DataMode::Emit);
+    std::unique_ptr<QIODevice> inputData = getData();
+    if (!inputData) {
+        return KIO::WorkerResult::fail(KIO::ERR_OUT_OF_MEMORY, url.host());
+    }
+
+    Response response = makeRequest(url, KIO::HTTP_POST, inputData.get(), DataMode::Emit);
 
     return sendHttpError(url, KIO::HTTP_POST, response);
 }
@@ -757,10 +787,18 @@ KIO::WorkerResult HTTPProtocol::special(const QByteArray &data)
     return KIO::WorkerResult::pass();
 }
 
-QByteArray HTTPProtocol::getData()
+std::unique_ptr<QIODevice> HTTPProtocol::getData()
 {
-    // TODO this is probably not great. Instead create a QIODevice that calls readData and pass that to QNAM?
-    QByteArray dataBuffer;
+    // The body has to be read whole before the request goes out: a PUT arrives without a size, and
+    // handing QNetworkAccessManager a device that cannot tell its length makes it send the body in
+    // chunks, which not every server and proxy accepts. Small bodies stay in memory. Past this much
+    // they go to a file, so that uploading a large file costs a file on disk rather than its size
+    // in memory.
+    constexpr qint64 maxInMemoryBodySize = 256 * 1024;
+
+    std::unique_ptr<QIODevice> body = std::make_unique<QBuffer>();
+    body->open(QIODevice::ReadWrite);
+    bool spooledToFile = false;
 
     while (true) {
         dataReq();
@@ -768,16 +806,31 @@ QByteArray HTTPProtocol::getData()
         QByteArray buffer;
         const int bytesRead = readData(buffer);
 
-        dataBuffer += buffer;
-
         // On done...
         if (bytesRead == 0) {
-            // sendOk = (bytesSent == m_iPostDataSize);
             break;
+        }
+
+        if (!spooledToFile && body->size() + buffer.size() > maxInMemoryBodySize) {
+            auto file = std::make_unique<QTemporaryFile>();
+            if (file->open()) {
+                const QByteArray sofar = static_cast<QBuffer *>(body.get())->data();
+                if (file->write(sofar) == sofar.size()) {
+                    body = std::move(file);
+                    spooledToFile = true;
+                }
+            }
+        }
+
+        if (body->write(buffer) != buffer.size()) {
+            // Nowhere left to hold it. Say so, rather than send a request that is missing part of
+            // what it was given.
+            return nullptr;
         }
     }
 
-    return dataBuffer;
+    body->seek(0);
+    return body;
 }
 
 QString HTTPProtocol::getContentType()
@@ -1333,8 +1386,12 @@ KIO::WorkerResult HTTPProtocol::davGeneric(const QUrl &url, KIO::HTTP_METHOD met
         extraHeaders.insert("Depth", QByteArray::number(depth));
     }
 
-    QByteArray inputData = getData();
-    Response response = makeDavRequest(url, method, inputData, DataMode::Emit, extraHeaders);
+    std::unique_ptr<QIODevice> inputData = getData();
+    if (!inputData) {
+        return KIO::WorkerResult::fail(KIO::ERR_OUT_OF_MEMORY, url.host());
+    }
+
+    Response response = makeDavRequest(url, method, inputData.get(), DataMode::Emit, extraHeaders);
 
     // TODO old code seems to use http error, not dav error
     return sendHttpError(url, method, response);

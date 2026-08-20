@@ -215,6 +215,31 @@ private Q_SLOTS:
         QCOMPARE(reported.last(), qulonglong(payload.size()));
     }
 
+    void testPutLargeBody()
+    {
+        const QString path("/testPutLargeBody");
+        const auto url = this->url(path);
+        const QString remotePath = m_remoteDir.path() + path;
+        QFile::remove(remotePath);
+        QFile::remove(remotePath + QStringLiteral(".part"));
+
+        // Past the point where the worker stops holding the body in memory and writes it to a file
+        // instead, so that the hand-over in the middle of the body is covered. The pattern makes a
+        // byte lost or repeated at that point show up, which a run of one repeated byte would hide.
+        QByteArray payload(1024 * 1024, Qt::Uninitialized);
+        for (int i = 0; i < payload.size(); ++i) {
+            payload[i] = char(i % 251);
+        }
+
+        auto job = KIO::storedPut(payload, url, -1, KIO::Overwrite | KIO::HideProgressInfo);
+        job->setUiDelegate(nullptr);
+        QVERIFY2(job->exec(), qUtf8Printable(job->errorString()));
+
+        QFile file(remotePath);
+        QVERIFY(file.open(QFile::ReadOnly));
+        QCOMPARE(file.readAll(), payload);
+    }
+
     void testCopyResume()
     {
         const QString path("/testCopy");

@@ -75,7 +75,11 @@ private:
     void davParseActiveLocks(const QDomNodeList &activeLocks, uint &lockCount);
     int codeFromResponse(const QString &response);
     bool davDestinationExists(const QUrl &url);
-    QByteArray getData();
+    /**
+     * Reads the request body from the job, into memory when it is small and into a file when it is
+     * not. Returns nothing when there was nowhere left to hold it.
+     */
+    std::unique_ptr<QIODevice> getData();
     QString getContentType();
 
     [[nodiscard]] KIO::WorkerResult post(const QUrl &url, qint64 size);
@@ -84,6 +88,8 @@ private:
 
     [[nodiscard]] Response
     makeDavRequest(const QUrl &url, KIO::HTTP_METHOD, QByteArray &inputData, DataMode dataMode, const QMap<QByteArray, QByteArray> &extraHeaders = {});
+    [[nodiscard]] Response
+    makeDavRequest(const QUrl &url, KIO::HTTP_METHOD, QIODevice *inputData, DataMode dataMode, const QMap<QByteArray, QByteArray> &extraHeaders = {});
     [[nodiscard]] Response
     makeRequest(const QUrl &url, KIO::HTTP_METHOD, QByteArray &inputData, DataMode dataMode, const QMap<QByteArray, QByteArray> &extraHeaders = {});
 
