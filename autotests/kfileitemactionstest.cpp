@@ -102,7 +102,7 @@ void KFileItemActionsTest::testCreateServiceMenuActions()
     const QList<QAction *> actions = fileItemActions.createServiceMenuActions();
 
     // All enabled service menu actions are returned regardless of MIME type or protocol
-    QCOMPARE(actions.count(), 4);
+    QCOMPARE(actions.count(), 6);
 
     // Each action carries its actionsKey as objectName and a KDesktopFileAction in data
     for (const QAction *action : actions) {
@@ -117,6 +117,37 @@ void KFileItemActionsTest::testCreateServiceMenuActions()
     const QList<QAction *> freshActions = fileItemActions.createServiceMenuActions();
     QVERIFY(firstAction.isNull());
     QCOMPARE(freshActions.count(), actions.count());
+}
+
+void KFileItemActionsTest::testServiceMenuSubmenuActions()
+{
+#ifdef Q_OS_WIN
+    QSKIP("Service menu discovery does not work on Windows");
+#endif
+    QStandardPaths::setTestModeEnabled(true);
+    qputenv("XDG_DATA_DIRS", QFINDTESTDATA("servicemenu_protocol_mime_test_data").toUtf8());
+
+    KFileItemActions fileItemActions;
+    fileItemActions.setItemListProperties(KFileItemList({KFileItem(QUrl::fromLocalFile(QFINDTESTDATA("servicemenu_protocol_mime_test_data")))}));
+
+    QMenu menu;
+    fileItemActions.addActionsTo(&menu, KFileItemActions::MenuActionSource::Services);
+
+    // The menu should contain a submenu for the inode/directory mime type
+    QMenu *subMenu = nullptr;
+    for (const QAction *action : menu.actions()) {
+        if (action->menu() && action->text() == "dir_service_submenu") {
+            subMenu = action->menu();
+        }
+    }
+    QVERIFY(subMenu);
+
+    const QList<QAction *> submenuActions = subMenu->actions();
+    // The two actions should show up
+    QCOMPARE(submenuActions.count(), 2);
+    const QAction *action1 = submenuActions.at(0);
+    QVERIFY(action1);
+    QCOMPARE(action1->text(), "dir_service_submenu_action1");
 }
 
 QTEST_MAIN(KFileItemActionsTest)

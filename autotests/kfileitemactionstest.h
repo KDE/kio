@@ -18,6 +18,7 @@ private Q_SLOTS:
     void testSetParentWidget();
     void testTopLevelServiceMenuActions();
     void testCreateServiceMenuActions();
+    void testServiceMenuSubmenuActions();
 };
 
 #endif
