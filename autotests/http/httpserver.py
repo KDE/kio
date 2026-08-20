@@ -301,3 +301,7 @@ def contentlength_post():
         return f"Content-Length: {content_length} bytes in POST request"
     else:
         return Response("Content-Length header not found in POST request.", status=400)
+
+if __name__ == "__main__":
+    import sys
+    app.run(port=int(sys.argv[1]) if len(sys.argv) > 1 else 5000)
