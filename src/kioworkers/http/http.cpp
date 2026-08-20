@@ -501,14 +501,23 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
 
     qint64 lastTotalSize = -1;
 
-    QObject::connect(reply, &QNetworkReply::downloadProgress, this, [this, &lastTotalSize](qint64 received, qint64 total) {
+    auto reportProgress = [this, &lastTotalSize](qint64 transferred, qint64 total) {
         if (total != lastTotalSize) {
             lastTotalSize = total;
             totalSize(total);
         }
 
-        processedSize(received);
-    });
+        processedSize(transferred);
+    };
+
+    // An upload is the body going out, and the answer to it is a short status document. Following
+    // the bytes coming back would leave the numbers a few hundred bytes from the start for as long
+    // as the upload takes, and finish there.
+    if (inputData && method == KIO::HTTP_PUT) {
+        QObject::connect(reply, &QNetworkReply::uploadProgress, this, reportProgress);
+    } else {
+        QObject::connect(reply, &QNetworkReply::downloadProgress, this, reportProgress);
+    }
 
     // From RFC 4918 5.2 Collection Resources:
     // > In general, clients SHOULD use the trailing slash form of collection names.

@@ -7,6 +7,7 @@
 // This test suite is based on those in ftptest.cpp and uses the same test files.
 
 #include <kio/copyjob.h>
+#include <kio/filecopyjob.h>
 #include <kio/filesystemfreespacejob.h>
 #include <kio/storedtransferjob.h>
 
@@ -15,6 +16,7 @@
 #include <QProcess>
 #include <QSignalSpy>
 #include <QStandardPaths>
+#include <QTemporaryFile>
 #include <QTest>
 
 class WebDAVTest : public QObject
@@ -175,6 +177,42 @@ private Q_SLOTS:
         QFile file(remotePath);
         QVERIFY(file.open(QFile::ReadOnly));
         QCOMPARE(file.readAll(), QByteArray("part1\n"));
+    }
+
+    void testUploadProgress()
+    {
+        const QString path("/testUploadProgress");
+        const auto url = this->url(path);
+        const QString remotePath = m_remoteDir.path() + path;
+        QFile::remove(remotePath);
+        QFile::remove(remotePath + QStringLiteral(".part"));
+
+        // Big enough that the upload takes several writes, so progress has something to report
+        // while it is still going on.
+        QTemporaryFile source;
+        QVERIFY(source.open());
+        const QByteArray payload(8 * 1024 * 1024, 'x');
+        QCOMPARE(source.write(payload), payload.size());
+        QVERIFY(source.flush());
+
+        auto job = KIO::file_copy(QUrl::fromLocalFile(source.fileName()), url, -1, KIO::Overwrite);
+        job->setUiDelegate(nullptr);
+
+        QList<qulonglong> reported;
+        connect(job, &KJob::processedSize, this, [&reported](KJob *, qulonglong size) {
+            reported.append(size);
+        });
+
+        QVERIFY2(job->exec(), qUtf8Printable(job->errorString()));
+
+        QFile file(remotePath);
+        QVERIFY(file.open(QFile::ReadOnly));
+        QCOMPARE(file.size(), payload.size());
+
+        // Progress follows the body going out. Reporting what comes back instead leaves it at the
+        // few hundred bytes of the server's answer, however much was uploaded.
+        QVERIFY(!reported.isEmpty());
+        QCOMPARE(reported.last(), qulonglong(payload.size()));
     }
 
     void testCopyResume()
