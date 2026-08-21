@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-19 00:41+0000\n"
-"PO-Revision-Date: 2026-08-11 19:05+0200\n"
+"POT-Creation-Date: 2026-08-21 00:41+0000\n"
+"PO-Revision-Date: 2026-08-20 12:44+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -49,7 +49,7 @@ msgstr ""
 "Ezin izan du <filename>%1</filename> fitxategiaren jabetza aldatu. Ez duzu "
 "aldaketa gauzatzeko, fitxategia atzitzeko baimen nahikorik."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1085
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1106
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3491,7 +3491,7 @@ msgstr "Karpeta guztiak"
 msgid "Current Directory: %1"
 msgstr "Uneko direktorioa: %1"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:858
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:859
 #, kde-format
 msgid "&Open"
 msgstr "&Ireki"
@@ -4038,6 +4038,11 @@ msgstr "Huts egin du fitxategia irekitzea."
 msgid "The program \"%1\" could not be launched."
 msgstr "«%1» programa ezin izan du abiarazi."
 
+#: gui/systemd/systemdprocessrunner.cpp:200
+#, kde-format
+msgid "Failed to launch process (status code: %1)"
+msgstr ""
+
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
 msgctxt "@info"
@@ -4218,22 +4223,22 @@ msgstr "Ezin izan du «mount» programa aurkitu"
 msgid "Could not find program \"umount\""
 msgstr "Ezin izan du «umount» programa aurkitu"
 
-#: kioworkers/file/file_unix.cpp:672
+#: kioworkers/file/file_unix.cpp:693
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Ezin da fitxategia %1(e)tik %2(e)ra kopiatu. (Err.: %3)"
 
-#: kioworkers/file/file_unix.cpp:884
+#: kioworkers/file/file_unix.cpp:905
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Ez dago euskarririk %1 gailuan"
 
-#: kioworkers/file/file_unix.cpp:1243
+#: kioworkers/file/file_unix.cpp:1264
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Ezin izan du %1 erabiltzaile-izenaren erabiltzaile IDa lortu"
 
-#: kioworkers/file/file_unix.cpp:1254
+#: kioworkers/file/file_unix.cpp:1275
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Ezin izan du %1 talde-izenaren talde IDa lortu"
@@ -4389,90 +4394,90 @@ msgstr "Zerbitzariaren autentifikazioa"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> <b>%2</b>(e)n"
 
-#: kioworkers/http/http.cpp:1398
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Bestela, eskaera ongi burutuko zen."
 
-#: kioworkers/http/http.cpp:1401
+#: kioworkers/http/http.cpp:1410
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "berreskuratu propietatearen balioak"
 
-#: kioworkers/http/http.cpp:1403
+#: kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "ezarri propietatearen balioak"
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1414
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "sortu eskatutako direktorioa"
 
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1416
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopiatu zehaztutako fitxategia edo direktorioa"
 
-#: kioworkers/http/http.cpp:1409
+#: kioworkers/http/http.cpp:1418
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "mugitu zehaztutako fitxategi edo direktorioa"
 
-#: kioworkers/http/http.cpp:1411
+#: kioworkers/http/http.cpp:1420
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "bilatu zehaztutako direktorioan"
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1422
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "blokeatu zehaztutako fitxategia edo direktorioa"
 
-#: kioworkers/http/http.cpp:1415
+#: kioworkers/http/http.cpp:1424
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "desblokeatu zehaztutako fitxategia edo direktorioa"
 
-#: kioworkers/http/http.cpp:1417
+#: kioworkers/http/http.cpp:1426
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "ezabatu zehaztutako fitxategia edo direktorioa"
 
-#: kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1428
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "galdetu zerbitzariaren funtzioei buruz"
 
-#: kioworkers/http/http.cpp:1421
+#: kioworkers/http/http.cpp:1430
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "berreskuratu zehaztutako fitxategiaren edo karpetaren edukiak"
 
-#: kioworkers/http/http.cpp:1423
+#: kioworkers/http/http.cpp:1432
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "exekutatu txostena zehaztutako karpetan"
 
-#: kioworkers/http/http.cpp:1431
+#: kioworkers/http/http.cpp:1440
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Ustekabeko errorera (%1) gertatu da %2 egiten saiatzean."
 
-#: kioworkers/http/http.cpp:1471
+#: kioworkers/http/http.cpp:1480
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4481,13 +4486,13 @@ msgid ""
 msgstr ""
 "Akatsa gertatu da %1, %2 egiten saiatzean. Arrazoiaren laburpena azpian."
 
-#: kioworkers/http/http.cpp:1489 kioworkers/http/http.cpp:1633
+#: kioworkers/http/http.cpp:1498 kioworkers/http/http.cpp:1642
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Atzipena ukatu da %1 saiatzean."
 
-#: kioworkers/http/http.cpp:1503 kioworkers/http/http.cpp:1640
+#: kioworkers/http/http.cpp:1512 kioworkers/http/http.cpp:1649
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4496,7 +4501,7 @@ msgstr ""
 "Ezin da helburuko baliabidea sortu bitarteko bildumak (direktorioak) sortu "
 "arte."
 
-#: kioworkers/http/http.cpp:1512
+#: kioworkers/http/http.cpp:1521
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4511,28 +4516,28 @@ msgstr ""
 "fitxategiak ez gainidazteko eskatu duzun bitartean.\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1529
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Ezin izan du eskatutako blokeoa eman. %1"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1535
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Zerbitzariak ez du onartzen gorputzaren eskaera-mota."
 
-#: kioworkers/http/http.cpp:1531 kioworkers/http/http.cpp:1648
+#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1657
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Ezin da %1 (baliabidea blokeatua dagoelako)."
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1544
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Beste errore batek eragotzi du ekintza hau."
 
-#: kioworkers/http/http.cpp:1542 kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1551 kioworkers/http/http.cpp:1664
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4542,7 +4547,7 @@ msgstr ""
 "Ezin da %1, helburuko zerbitzariak fitxategia edo direktorioa onartzea ukatu "
 "duelako."
 
-#: kioworkers/http/http.cpp:1551 kioworkers/http/http.cpp:1664
+#: kioworkers/http/http.cpp:1560 kioworkers/http/http.cpp:1673
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4551,18 +4556,18 @@ msgstr ""
 "Helburuko baliabideak ez dauka nahikoa leku metodo honen exekuzioaren "
 "ondoren baliabidearen egoera grabatzeko."
 
-#: kioworkers/http/http.cpp:1604
+#: kioworkers/http/http.cpp:1613
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Baliabidea ezin da ezabatu."
 
-#: kioworkers/http/http.cpp:1624
+#: kioworkers/http/http.cpp:1633
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "kargatu %1"
 
-#: kioworkers/http/http.cpp:1675
+#: kioworkers/http/http.cpp:1684
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -5319,64 +5324,64 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Mota"
 
-#: widgets/kfileitemactions.cpp:330
+#: widgets/kfileitemactions.cpp:331
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Ekintzak"
 
-#: widgets/kfileitemactions.cpp:591
+#: widgets/kfileitemactions.cpp:592
 #, kde-format
 msgid "Open &with %1"
 msgstr "&Ireki %1(r)ekin"
 
-#: widgets/kfileitemactions.cpp:593
+#: widgets/kfileitemactions.cpp:594
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&Ireki karpeta honekin…"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Ireki &honekin…"
 
-#: widgets/kfileitemactions.cpp:825
+#: widgets/kfileitemactions.cpp:826
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "E&xekutatu exekutagarria"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:848
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "&Ireki karpeta %1(r)ekin"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:848
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Ireki %1(r)ekin"
 
-#: widgets/kfileitemactions.cpp:879
+#: widgets/kfileitemactions.cpp:880
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Ireki karpeta honekin"
 
-#: widgets/kfileitemactions.cpp:879
+#: widgets/kfileitemactions.cpp:880
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Ireki &honekin"
 
-#: widgets/kfileitemactions.cpp:890
+#: widgets/kfileitemactions.cpp:891
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
@@ -5436,7 +5441,7 @@ msgstr "Tamaina:"
 #: widgets/kfilepropspluginwidget.ui:259
 #, kde-format
 msgid "Size on disk:"
-msgstr ""
+msgstr "Tamaina diskoan:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:308
@@ -6064,22 +6069,19 @@ msgstr ""
 "><filename>%1</filename>."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:159
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt ""
 "@label the size of a file or folder, first rounded and then to the byte"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:161
-#, fuzzy, kde-format
-#| msgid " byte"
-#| msgid_plural " bytes"
+#, kde-format
 msgctxt "@item the exact size of a file or folder"
 msgid "%1 byte"
 msgid_plural "%1 bytes"
-msgstr[0] " byte"
-msgstr[1] " bytes"
+msgstr[0] "%1 byte"
+msgstr[1] "%1 byte"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:263
 #, kde-format
@@ -6130,16 +6132,13 @@ msgid "Unknown size"
 msgstr "Neurri ezezaguna"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:739
-#, fuzzy, kde-format
-#| msgid ""
-#| "Calculating... %1 (%2)\n"
-#| "%3, %4"
+#, kde-format
 msgid ""
 "Calculating... %1\n"
 "%2, %3"
 msgstr ""
-"Kalkulatzen… %1 (%2)\n"
-"%3, %4"
+"Kalkulatzen… %1\n"
+"%2, %3"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:741
 #: widgets/kpropertiesdialogbuiltin_p.cpp:756

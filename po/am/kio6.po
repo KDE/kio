@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-19 00:41+0000\n"
+"POT-Creation-Date: 2026-08-21 00:41+0000\n"
 "PO-Revision-Date: 2026-05-04 17:15+0300\n"
 "Last-Translator: Wesenseged <kde-i18n-de@kde.org>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 "የፋይል <filename>%1</filename> ባለቤትነትን መቀየር አልተቻለም። ለውጡን ለማከናወን ፋይሉን የመጠቀም በቂ "
 "ፈቃድ የሎትም።"
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1085
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1106
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3361,7 +3361,7 @@ msgstr "ሁሉም አቃፊዎች"
 msgid "Current Directory: %1"
 msgstr "አሁኑ ያላህበት ማውጫ፦ %1"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:858
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:859
 #, kde-format
 msgid "&Open"
 msgstr "ክፈት(&O)"
@@ -3886,6 +3886,11 @@ msgstr "ፋይሉን መክፈት አልተሳካም።"
 msgid "The program \"%1\" could not be launched."
 msgstr "ፕሮግራም \"%1\"ን ማስጀመር አልተቻለም።"
 
+#: gui/systemd/systemdprocessrunner.cpp:200
+#, kde-format
+msgid "Failed to launch process (status code: %1)"
+msgstr ""
+
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
 msgctxt "@info"
@@ -4062,22 +4067,22 @@ msgstr "\"mount\" የተባለውን ፕሮግራም ማግኘት አልተቻ�
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" የተባለውን ፕሮግራም ማግኘት አልተቻለም"
 
-#: kioworkers/file/file_unix.cpp:672
+#: kioworkers/file/file_unix.cpp:693
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "ፋይሉን ከ%1 ወደ %2 መቅዳት አይቻልም። (የስህተት ቁጥር፦ %3)"
 
-#: kioworkers/file/file_unix.cpp:884
+#: kioworkers/file/file_unix.cpp:905
 #, kde-format
 msgid "No media in device for %1"
 msgstr "ለ%1 በመሳሪያው ውስጥ ምንም ሚዲያ የለም"
 
-#: kioworkers/file/file_unix.cpp:1243
+#: kioworkers/file/file_unix.cpp:1264
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ለተጠቀሰው የተጠቃሚ ስም %1 የተጠቃሚ ID ማግኘት አልተቻለም"
 
-#: kioworkers/file/file_unix.cpp:1254
+#: kioworkers/file/file_unix.cpp:1275
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ለቡድን ስም %1 የቡድን ID ማግኘት አልተቻለም"
@@ -4230,90 +4235,90 @@ msgstr "የሰርቨር ማረጋገጫ"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> በ<b>%2</b>"
 
-#: kioworkers/http/http.cpp:1398
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "አለበለዚያ ጥያቄው ይሳካ ነበር።"
 
-#: kioworkers/http/http.cpp:1401
+#: kioworkers/http/http.cpp:1410
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "የባህሪ እሴቶችን ያግኙ"
 
-#: kioworkers/http/http.cpp:1403
+#: kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "የባህሪ እሴቶችን ያስቀምጡ"
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1414
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "የተጠየቀውን አቃፊ ይፍጠሩ"
 
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1416
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "የተገለጸውን ፋይል ወይም አቃፊ ይቅዱ"
 
-#: kioworkers/http/http.cpp:1409
+#: kioworkers/http/http.cpp:1418
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "የተጠቀሰውን ፋይል ወይም አቃፊ አንቀሳቅስ"
 
-#: kioworkers/http/http.cpp:1411
+#: kioworkers/http/http.cpp:1420
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "በተጠቀሰው አቃፊ ውስጥ ይፈልጉ"
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1422
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "የተገለጸውን ፋይል ወይም አቃፊ ቆልፍ"
 
-#: kioworkers/http/http.cpp:1415
+#: kioworkers/http/http.cpp:1424
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "የተገለጸውን ፋይል ወይም አቃፊ ይክፈቱ"
 
-#: kioworkers/http/http.cpp:1417
+#: kioworkers/http/http.cpp:1426
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "የተገለጸውን ፋይል ወይም አቃፊ ሰርዝ"
 
-#: kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1428
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "የሰርቨሩን ችሎታዎች ይጠይቁ"
 
-#: kioworkers/http/http.cpp:1421
+#: kioworkers/http/http.cpp:1430
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "የተገለጸውን ፋይል ወይም አቃፊ ይዘቶችን ሰርስረህ አውጣ"
 
-#: kioworkers/http/http.cpp:1423
+#: kioworkers/http/http.cpp:1432
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "በተጠቀሰው አቃፊ ውስጥ ሪፖርት ያሂዱ"
 
-#: kioworkers/http/http.cpp:1431
+#: kioworkers/http/http.cpp:1440
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 ለማድረግ ሲሞከር ያልተጠበቀ ስህተት (%1) ተከስቷል።"
 
-#: kioworkers/http/http.cpp:1471
+#: kioworkers/http/http.cpp:1480
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4321,13 +4326,13 @@ msgid ""
 "below."
 msgstr "%1፣ %2 ለማድረግ ሲሞከር ስህተት ተከስቷል። የምክንያቶቹ ማጠቃለያ ከዚህ በታች ቀርቧል።"
 
-#: kioworkers/http/http.cpp:1489 kioworkers/http/http.cpp:1633
+#: kioworkers/http/http.cpp:1498 kioworkers/http/http.cpp:1642
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 ለማድረግ ሲሞክሩ መዳረሻ ተከልክሏል።"
 
-#: kioworkers/http/http.cpp:1503 kioworkers/http/http.cpp:1640
+#: kioworkers/http/http.cpp:1512 kioworkers/http/http.cpp:1649
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4335,7 +4340,7 @@ msgid ""
 msgstr ""
 "አንድ ወይም ከዚያ በላይ መካከለኛ ስብስቦች (አቃፊዎች) እስኪፈጠሩ ድረስ ግብዓት በመድረሻ ቦታ ላይ ሊፈጠር አይችልም።"
 
-#: kioworkers/http/http.cpp:1512
+#: kioworkers/http/http.cpp:1521
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4349,28 +4354,28 @@ msgstr ""
 "ወይም ፋይሎች እንዳይተኩ እየጠየቁ ሳለ ፋይል ለመተካት ሞክረዋል።\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1529
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "የተጠየቀው መቆለፊያ ሊፈቀድ አልቻለም። %1"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1535
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "ሰርቨሩ የጥያቄውን አይነት አካል አይደግፍም።"
 
-#: kioworkers/http/http.cpp:1531 kioworkers/http/http.cpp:1648
+#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1657
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1 ማድረግ አልተቻለም ምክንያቱም ምንጩ ተቆልፏል።"
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1544
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "ይህ እርምጃ በሌላ ስህተት ተከልክሏል።"
 
-#: kioworkers/http/http.cpp:1542 kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1551 kioworkers/http/http.cpp:1664
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4378,25 +4383,25 @@ msgid ""
 "folder."
 msgstr "የመድረሻ ሰርቨሩ ፋይሉን ወይም አቃፊውን ለመቀበል ፈቃደኛ ባለመሆኑ %1 ማድረግ አልተቻለም።"
 
-#: kioworkers/http/http.cpp:1551 kioworkers/http/http.cpp:1664
+#: kioworkers/http/http.cpp:1560 kioworkers/http/http.cpp:1673
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr "የመድረሻው ምንጭ ይህ ዘዴ ከተፈጸመ በኋላ የምንጩን ሁኔታ ለመመዝገብ በቂ ቦታ የለውም።"
 
-#: kioworkers/http/http.cpp:1604
+#: kioworkers/http/http.cpp:1613
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "ምንጩ ሊሰረዝ አይችልም።"
 
-#: kioworkers/http/http.cpp:1624
+#: kioworkers/http/http.cpp:1633
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 ጫን"
 
-#: kioworkers/http/http.cpp:1675
+#: kioworkers/http/http.cpp:1684
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -5146,64 +5151,64 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "አይነት"
 
-#: widgets/kfileitemactions.cpp:330
+#: widgets/kfileitemactions.cpp:331
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "ድርጊቶች(&A)"
 
-#: widgets/kfileitemactions.cpp:591
+#: widgets/kfileitemactions.cpp:592
 #, kde-format
 msgid "Open &with %1"
 msgstr "ክፈት በ %1(&W)"
 
-#: widgets/kfileitemactions.cpp:593
+#: widgets/kfileitemactions.cpp:594
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "አቃፊን ክፈት በ(&O)…"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "ክፈት በ(&O)…"
 
-#: widgets/kfileitemactions.cpp:825
+#: widgets/kfileitemactions.cpp:826
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "ተፈጻሚውን አስኪድ(&R)"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:848
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "አቃፊን በ%1 ክፈት(&O)"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:848
 #, kde-format
 msgid "&Open with %1"
 msgstr "በ %1 ክፈት(&O)"
 
-#: widgets/kfileitemactions.cpp:879
+#: widgets/kfileitemactions.cpp:880
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "አቃፊን ክፈት በ(&O)"
 
-#: widgets/kfileitemactions.cpp:879
+#: widgets/kfileitemactions.cpp:880
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "ክፈት በ(&O)"
 
-#: widgets/kfileitemactions.cpp:890
+#: widgets/kfileitemactions.cpp:891
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

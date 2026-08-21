@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-19 00:41+0000\n"
+"POT-Creation-Date: 2026-08-21 00:41+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda\n"
@@ -41,7 +41,7 @@ msgstr ""
 "Tekisobose okukyusamu obwanannyini bwa fayiro <filename>%1</filename>. "
 "Endukusa z'olina ku sisitemu eno tezikumala okutuukiriza kino."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1085
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1106
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3532,7 +3532,7 @@ msgstr "Materekero Gonna"
 msgid "Current Directory: %1"
 msgstr "Kolawo Tterekero"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:858
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:859
 #, kde-format
 msgid "&Open"
 msgstr "&Bikkula"
@@ -4082,6 +4082,11 @@ msgstr "Nnemedwa okubikkula fayiro."
 msgid "The program \"%1\" could not be launched."
 msgstr "Tekisobose okutandika puloguramu \"%1\"."
 
+#: gui/systemd/systemdprocessrunner.cpp:200
+#, kde-format
+msgid "Failed to launch process (status code: %1)"
+msgstr ""
+
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
 msgctxt "@info"
@@ -4268,22 +4273,22 @@ msgstr "Puloguramu \"mount\" embuze"
 msgid "Could not find program \"umount\""
 msgstr "Puloguramu \"umount\" embuze"
 
-#: kioworkers/file/file_unix.cpp:672
+#: kioworkers/file/file_unix.cpp:693
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Nnemedwa okukola koppi %2 mu fayiro %1. (Nmaba ya kiremya: %3)"
 
-#: kioworkers/file/file_unix.cpp:884
+#: kioworkers/file/file_unix.cpp:905
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Mu kyuma temuli mediya ya %1"
 
-#: kioworkers/file/file_unix.cpp:1243
+#: kioworkers/file/file_unix.cpp:1264
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nnemedwa okufuna ennamba ya mukozesa egendera ku linnya %1"
 
-#: kioworkers/file/file_unix.cpp:1254
+#: kioworkers/file/file_unix.cpp:1275
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nnemedwa okufuna ennamba ya guluupu egendera ku guluupu %1"
@@ -4440,90 +4445,90 @@ msgstr "Kukakasa Kompyuta Eweereza"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> ku <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1398
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Butabeera ekyo, ekyetaagidwa kyandisobose."
 
-#: kioworkers/http/http.cpp:1401
+#: kioworkers/http/http.cpp:1410
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "nona ebifa ku by'obutonde"
 
-#: kioworkers/http/http.cpp:1403
+#: kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "tegeka ebifa ku by'obutonde"
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1414
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "kolawo tterekero eryetaagibwa"
 
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1416
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "fayiro oba tterekero eriragidwa kolamu koppi"
 
-#: kioworkers/http/http.cpp:1409
+#: kioworkers/http/http.cpp:1418
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "simbuliza fayiro oba tterekero eriragidwa"
 
-#: kioworkers/http/http.cpp:1411
+#: kioworkers/http/http.cpp:1420
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "noonya tterekero eriragidwa"
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1422
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "fayiro oba tterekero eriragidwa liteekeko ekikugizo"
 
-#: kioworkers/http/http.cpp:1415
+#: kioworkers/http/http.cpp:1424
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "fayiro oba tterekero eriragidwa ligyeko ekikugizo"
 
-#: kioworkers/http/http.cpp:1417
+#: kioworkers/http/http.cpp:1426
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "fayiro oba tterekero eriragidwa ligyewo"
 
-#: kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1428
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "kalaani gibuuze by'esobola okukola"
 
-#: kioworkers/http/http.cpp:1421
+#: kioworkers/http/http.cpp:1430
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "nona ebiri mu fayiro oba tterekero eriragidwa"
 
-#: kioworkers/http/http.cpp:1423
+#: kioworkers/http/http.cpp:1432
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "kebera mu tterekero eriragidwa"
 
-#: kioworkers/http/http.cpp:1431
+#: kioworkers/http/http.cpp:1440
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Omulimu ogwa %2 guzzeemu kiremya atali mulindirire (%1)."
 
-#: kioworkers/http/http.cpp:1471
+#: kioworkers/http/http.cpp:1480
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4532,13 +4537,13 @@ msgid ""
 msgstr ""
 "Omilimu ogwa %1 gwazzeemu kiremya, %2. Ebiddako bye bimufaako mu bufunze."
 
-#: kioworkers/http/http.cpp:1489 kioworkers/http/http.cpp:1633
+#: kioworkers/http/http.cpp:1498 kioworkers/http/http.cpp:1642
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Mu mulimu ogwa %1 waliwo ekigaanidwa okutuukibwako."
 
-#: kioworkers/http/http.cpp:1503 kioworkers/http/http.cpp:1640
+#: kioworkers/http/http.cpp:1512 kioworkers/http/http.cpp:1649
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4547,7 +4552,7 @@ msgstr ""
 "Waliwo etterekero oba materekero agetaaga okumala kukolebwawo kiryoke "
 "kisoboke okukolawo ekifunibwa ku kigenderwa."
 
-#: kioworkers/http/http.cpp:1512
+#: kioworkers/http/http.cpp:1521
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4562,28 +4567,28 @@ msgstr ""
 "tekkirizibwa okuwandikibwa buto.\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1529
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Ekikugizo ekyetaagibwa tekisobose okukiteekako. %1"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1535
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Kalaani tekola ku bisindikibwa eby'ekika kino."
 
-#: kioworkers/http/http.cpp:1531 kioworkers/http/http.cpp:1648
+#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1657
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1 tekisobose kubanga ekifunibwa kiriko ekikugizo."
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1544
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Ekikolwa kino kiremesedwa olw'ekizibu ekizze awalala."
 
-#: kioworkers/http/http.cpp:1542 kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1551 kioworkers/http/http.cpp:1664
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4593,7 +4598,7 @@ msgstr ""
 "%1 tekisobose kubanga kalaani ey'okukigenderwa egaanye okukola ku fayiro oba "
 "tterekero."
 
-#: kioworkers/http/http.cpp:1551 kioworkers/http/http.cpp:1664
+#: kioworkers/http/http.cpp:1560 kioworkers/http/http.cpp:1673
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4602,18 +4607,18 @@ msgstr ""
 "Ekifo mu kifunibwa eky'okukigenderwa tekimala okuterekamu ebifa ku mbeera "
 "yakyo nga omukolo guno gumalirizidwa."
 
-#: kioworkers/http/http.cpp:1604
+#: kioworkers/http/http.cpp:1613
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Ekifunibwa tekigyikawo."
 
-#: kioworkers/http/http.cpp:1624
+#: kioworkers/http/http.cpp:1633
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "sindika %1"
 
-#: kioworkers/http/http.cpp:1675
+#: kioworkers/http/http.cpp:1684
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -5381,65 +5386,65 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Kika"
 
-#: widgets/kfileitemactions.cpp:330
+#: widgets/kfileitemactions.cpp:331
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Ebikolwa"
 
-#: widgets/kfileitemactions.cpp:591
+#: widgets/kfileitemactions.cpp:592
 #, kde-format
 msgid "Open &with %1"
 msgstr "&Bikkuza %1"
 
-#: widgets/kfileitemactions.cpp:593
+#: widgets/kfileitemactions.cpp:594
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Tterekero Li&bikkuze…"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Bikkuza…"
 
-#: widgets/kfileitemactions.cpp:825
+#: widgets/kfileitemactions.cpp:826
 #, fuzzy, kde-format
 #| msgid "&Execute"
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Tandika"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:848
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "Tterekero Li&bikkuze %1"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:848
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Bikkuza %1"
 
-#: widgets/kfileitemactions.cpp:879
+#: widgets/kfileitemactions.cpp:880
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Tterekero Li&bikkuze"
 
-#: widgets/kfileitemactions.cpp:879
+#: widgets/kfileitemactions.cpp:880
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Bikkuza"
 
-#: widgets/kfileitemactions.cpp:890
+#: widgets/kfileitemactions.cpp:891
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

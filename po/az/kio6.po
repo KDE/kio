@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-19 00:41+0000\n"
+"POT-Creation-Date: 2026-08-21 00:41+0000\n"
 "PO-Revision-Date: 2026-03-26 02:42+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 "<filename>%1</filename> sənədinin sahibliyini dəyişdirmək mümkün oladı. "
 "Sizin bu dəyişiklikləri etmək imtiyazınız yoxdur."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1085
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1106
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3470,7 +3470,7 @@ msgstr "Bütün qovluqlar"
 msgid "Current Directory: %1"
 msgstr "Cari kataloq: %1"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:858
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:859
 #, kde-format
 msgid "&Open"
 msgstr "&Aç"
@@ -4018,6 +4018,11 @@ msgstr "Fayl açılmır."
 msgid "The program \"%1\" could not be launched."
 msgstr "\"%1\" proqramı başladılmadı."
 
+#: gui/systemd/systemdprocessrunner.cpp:200
+#, kde-format
+msgid "Failed to launch process (status code: %1)"
+msgstr ""
+
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
 msgctxt "@info"
@@ -4198,22 +4203,22 @@ msgstr "\"mount\" proqramı tapılmadı"
 msgid "Could not find program \"umount\""
 msgstr "\"unmoumt\" proqramı tapılmadı"
 
-#: kioworkers/file/file_unix.cpp:672
+#: kioworkers/file/file_unix.cpp:693
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Faylı %1 ünvanından %2 ünvanına kopyalana bilmir. (Xəta: %3)"
 
-#: kioworkers/file/file_unix.cpp:884
+#: kioworkers/file/file_unix.cpp:905
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 üçün Daşıyıcı yoxdur"
 
-#: kioworkers/file/file_unix.cpp:1243
+#: kioworkers/file/file_unix.cpp:1264
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Verilən %1 istifadəçi adı üçün istifadəçi kimliyi (İD) alına bilmədi"
 
-#: kioworkers/file/file_unix.cpp:1254
+#: kioworkers/file/file_unix.cpp:1275
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Verilən %1 qrup adı üçün qrup kimliyi (İD) alınmadı"
@@ -4366,90 +4371,90 @@ msgstr "Kimlik Doğrulaması Serveri"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> / <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1398
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Əks halda sorğu uğurla başa çata bilərdi."
 
-#: kioworkers/http/http.cpp:1401
+#: kioworkers/http/http.cpp:1410
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "Xüsusiyyətlər dəyərini almaq"
 
-#: kioworkers/http/http.cpp:1403
+#: kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "Xüsusiyyətlər dəyərini qur"
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1414
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "Sorğu olunan qovluğu yarat"
 
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1416
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "Göstərilən fayl və qovluğu kopyala"
 
-#: kioworkers/http/http.cpp:1409
+#: kioworkers/http/http.cpp:1418
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "Göstərilən fayl və qovluğu daşı"
 
-#: kioworkers/http/http.cpp:1411
+#: kioworkers/http/http.cpp:1420
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "Göstərilən qovluqda axtar"
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1422
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "Göstərilən fayl və qovluğu kilidlə"
 
-#: kioworkers/http/http.cpp:1415
+#: kioworkers/http/http.cpp:1424
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "Göstərilən fayl və qovluğun kilidini aç"
 
-#: kioworkers/http/http.cpp:1417
+#: kioworkers/http/http.cpp:1426
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "Göstərilən fayl və qovluğu sil"
 
-#: kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1428
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "sever imkanlarını sorğula"
 
-#: kioworkers/http/http.cpp:1421
+#: kioworkers/http/http.cpp:1430
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "göstərilən faylın və ya qovluğun məzmununu almaq"
 
-#: kioworkers/http/http.cpp:1423
+#: kioworkers/http/http.cpp:1432
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "göstərilən qovluqda bir hesabat başlat"
 
-#: kioworkers/http/http.cpp:1431
+#: kioworkers/http/http.cpp:1440
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 cəhdi zamanı %1 gözlənilməz xəta baş verdi."
 
-#: kioworkers/http/http.cpp:1471
+#: kioworkers/http/http.cpp:1480
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4459,13 +4464,13 @@ msgstr ""
 "%1, %2 üçün cəhd zamanı xəta baş verdi. Xəta səbəbləri haqqında məlumat "
 "aşağıdadır."
 
-#: kioworkers/http/http.cpp:1489 kioworkers/http/http.cpp:1633
+#: kioworkers/http/http.cpp:1498 kioworkers/http/http.cpp:1642
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 cəhdi zamanı giriş qadağan edildi."
 
-#: kioworkers/http/http.cpp:1503 kioworkers/http/http.cpp:1640
+#: kioworkers/http/http.cpp:1512 kioworkers/http/http.cpp:1649
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4474,7 +4479,7 @@ msgstr ""
 "Təyinat nöqtəsində bir və birdən çox aralıq kolleksiyalar (quvluqlar) "
 "yaradılmayınca resurs yaradıla bilməz."
 
-#: kioworkers/http/http.cpp:1512
+#: kioworkers/http/http.cpp:1521
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4489,28 +4494,28 @@ msgstr ""
 "yazmağa cəhd etdiniz.\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1529
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Tələb olunan kilid təsdiq edilmir. %1"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1535
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Server bu istifadə tələbini anlamadı."
 
-#: kioworkers/http/http.cpp:1531 kioworkers/http/http.cpp:1648
+#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1657
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1 icra edilmədi, çünki resurs kilidləndi."
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1544
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Bu əməl başqa bir xəta tərəfindən əngəlləndi."
 
-#: kioworkers/http/http.cpp:1542 kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1551 kioworkers/http/http.cpp:1664
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4520,7 +4525,7 @@ msgstr ""
 "%1 icra edilmədi, çünki təyinat serveri fayl və qovluq qəbul etməyi rədd "
 "edir."
 
-#: kioworkers/http/http.cpp:1551 kioworkers/http/http.cpp:1664
+#: kioworkers/http/http.cpp:1560 kioworkers/http/http.cpp:1673
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4529,18 +4534,18 @@ msgstr ""
 "Bu metodu icra etmək üçün təyinat resursu resursun vəziyyətini yazmaq üçün "
 "kifayət qədər disk yaddaşına malik deyil."
 
-#: kioworkers/http/http.cpp:1604
+#: kioworkers/http/http.cpp:1613
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Resurs silinmədi."
 
-#: kioworkers/http/http.cpp:1624
+#: kioworkers/http/http.cpp:1633
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 gondərmək"
 
-#: kioworkers/http/http.cpp:1675
+#: kioworkers/http/http.cpp:1684
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -5292,64 +5297,64 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Növ"
 
-#: widgets/kfileitemactions.cpp:330
+#: widgets/kfileitemactions.cpp:331
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "Ə&məllər"
 
-#: widgets/kfileitemactions.cpp:591
+#: widgets/kfileitemactions.cpp:592
 #, kde-format
 msgid "Open &with %1"
 msgstr "%1 ilə &açın"
 
-#: widgets/kfileitemactions.cpp:593
+#: widgets/kfileitemactions.cpp:594
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Qovluğu bununla &açın..."
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Bununla &açın..."
 
-#: widgets/kfileitemactions.cpp:825
+#: widgets/kfileitemactions.cpp:826
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&İcra faylını başladın"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:848
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "Qovluğu %1 ilə &açın"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:848
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1 ilə &açın"
 
-#: widgets/kfileitemactions.cpp:879
+#: widgets/kfileitemactions.cpp:880
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Qovluğu bununla &açın"
 
-#: widgets/kfileitemactions.cpp:879
+#: widgets/kfileitemactions.cpp:880
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Bununla &açın"
 
-#: widgets/kfileitemactions.cpp:890
+#: widgets/kfileitemactions.cpp:891
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

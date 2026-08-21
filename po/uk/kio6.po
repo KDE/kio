@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-19 00:41+0000\n"
+"POT-Creation-Date: 2026-08-21 00:41+0000\n"
 "PO-Revision-Date: 2026-08-18 13:59+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -47,7 +47,7 @@ msgstr ""
 "Не вдалося змінити власника файла <filename>%1</filename>. Для цієї зміни у "
 "вас не вистачає прав доступу до файла."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1085
+#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1106
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3501,7 +3501,7 @@ msgstr "Всі теки"
 msgid "Current Directory: %1"
 msgstr "Поточний каталог: %1"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:858
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:859
 #, kde-format
 msgid "&Open"
 msgstr "&Відкрити"
@@ -4050,6 +4050,11 @@ msgstr "Не вдалося відкрити файл."
 msgid "The program \"%1\" could not be launched."
 msgstr "Не вдалося запустити програму «%1»."
 
+#: gui/systemd/systemdprocessrunner.cpp:200
+#, kde-format
+msgid "Failed to launch process (status code: %1)"
+msgstr ""
+
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
 msgctxt "@info"
@@ -4230,22 +4235,22 @@ msgstr "Не вдалось знайти програму «mount»"
 msgid "Could not find program \"umount\""
 msgstr "Не вдалось знайти програму «umount»"
 
-#: kioworkers/file/file_unix.cpp:672
+#: kioworkers/file/file_unix.cpp:693
 #, kde-format
 msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr "Не вдалося скопіювати з %1 у %2. (Помилка: %3)"
 
-#: kioworkers/file/file_unix.cpp:884
+#: kioworkers/file/file_unix.cpp:905
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Немає носія інформації у пристрої, зв'язаному з %1"
 
-#: kioworkers/file/file_unix.cpp:1243
+#: kioworkers/file/file_unix.cpp:1264
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Не вдалося дістати ІД користувача для %1"
 
-#: kioworkers/file/file_unix.cpp:1254
+#: kioworkers/file/file_unix.cpp:1275
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Не вдалося дістати ІД групи для %1"
@@ -4399,90 +4404,90 @@ msgstr "Автентифікація сервера"
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> на <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1398
+#: kioworkers/http/http.cpp:1407
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Інакше, запит завершився б вдало."
 
-#: kioworkers/http/http.cpp:1401
+#: kioworkers/http/http.cpp:1410
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "отримати значення властивостей"
 
-#: kioworkers/http/http.cpp:1403
+#: kioworkers/http/http.cpp:1412
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "встановити значення властивостей"
 
-#: kioworkers/http/http.cpp:1405
+#: kioworkers/http/http.cpp:1414
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "створити вказану теку"
 
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1416
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "скопіювати вказаний файл або теку"
 
-#: kioworkers/http/http.cpp:1409
+#: kioworkers/http/http.cpp:1418
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "пересунути вказаний файл або теку"
 
-#: kioworkers/http/http.cpp:1411
+#: kioworkers/http/http.cpp:1420
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "шукати у вказаній теці"
 
-#: kioworkers/http/http.cpp:1413
+#: kioworkers/http/http.cpp:1422
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "заблокувати вказаний файл або теку"
 
-#: kioworkers/http/http.cpp:1415
+#: kioworkers/http/http.cpp:1424
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "розблокувати вказаний файл або теку"
 
-#: kioworkers/http/http.cpp:1417
+#: kioworkers/http/http.cpp:1426
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "вилучити вказаний файл або теку"
 
-#: kioworkers/http/http.cpp:1419
+#: kioworkers/http/http.cpp:1428
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "запитати можливості сервера"
 
-#: kioworkers/http/http.cpp:1421
+#: kioworkers/http/http.cpp:1430
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "отримати вміст вказаного файла або теки"
 
-#: kioworkers/http/http.cpp:1423
+#: kioworkers/http/http.cpp:1432
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "створити звіт за вказаною текою"
 
-#: kioworkers/http/http.cpp:1431
+#: kioworkers/http/http.cpp:1440
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "При спробі %2 сталася непередбачена помилка (%1)."
 
-#: kioworkers/http/http.cpp:1471
+#: kioworkers/http/http.cpp:1480
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4490,13 +4495,13 @@ msgid ""
 "below."
 msgstr "Сталася помилка при спробі %1, %2. Резюме причин наведено нижче."
 
-#: kioworkers/http/http.cpp:1489 kioworkers/http/http.cpp:1633
+#: kioworkers/http/http.cpp:1498 kioworkers/http/http.cpp:1642
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Було відмовлено у доступі при спробі %1."
 
-#: kioworkers/http/http.cpp:1503 kioworkers/http/http.cpp:1640
+#: kioworkers/http/http.cpp:1512 kioworkers/http/http.cpp:1649
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4505,7 +4510,7 @@ msgstr ""
 "Ресурс неможливо створити на місці призначення, поки не буде створено одну "
 "або більше проміжних збірок (тек)."
 
-#: kioworkers/http/http.cpp:1512
+#: kioworkers/http/http.cpp:1521
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4520,28 +4525,28 @@ msgstr ""
 "перезаписаним.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1520
+#: kioworkers/http/http.cpp:1529
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Не вдалося встановити блок. %1"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1535
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Сервер не підтримує запитаний тип тіла."
 
-#: kioworkers/http/http.cpp:1531 kioworkers/http/http.cpp:1648
+#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1657
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Неможливо виконати %1, оскільки ресурс заблоковано."
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1544
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Ця дія не була виконана через іншу помилку."
 
-#: kioworkers/http/http.cpp:1542 kioworkers/http/http.cpp:1655
+#: kioworkers/http/http.cpp:1551 kioworkers/http/http.cpp:1664
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4549,7 +4554,7 @@ msgid ""
 "folder."
 msgstr "Неможливо %1, оскільки сервер відмовляється прийняти файл або теку."
 
-#: kioworkers/http/http.cpp:1551 kioworkers/http/http.cpp:1664
+#: kioworkers/http/http.cpp:1560 kioworkers/http/http.cpp:1673
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4558,18 +4563,18 @@ msgstr ""
 "Ресурс призначення не має достатньо місця, щоб записати стан ресурсу після "
 "виконання цього метода."
 
-#: kioworkers/http/http.cpp:1604
+#: kioworkers/http/http.cpp:1613
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Вказаний ресурс не можна вилучати."
 
-#: kioworkers/http/http.cpp:1624
+#: kioworkers/http/http.cpp:1633
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "вивантажити %1"
 
-#: kioworkers/http/http.cpp:1675
+#: kioworkers/http/http.cpp:1684
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -5337,64 +5342,64 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Тип"
 
-#: widgets/kfileitemactions.cpp:330
+#: widgets/kfileitemactions.cpp:331
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Дії"
 
-#: widgets/kfileitemactions.cpp:591
+#: widgets/kfileitemactions.cpp:592
 #, kde-format
 msgid "Open &with %1"
 msgstr "Відкрити &за допомогою %1"
 
-#: widgets/kfileitemactions.cpp:593
+#: widgets/kfileitemactions.cpp:594
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "В&ідкрити теку за допомогою…"
 
-#: widgets/kfileitemactions.cpp:767
+#: widgets/kfileitemactions.cpp:768
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "В&ідкрити за допомогою…"
 
-#: widgets/kfileitemactions.cpp:825
+#: widgets/kfileitemactions.cpp:826
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Запустити виконуваний файл"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:848
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "В&ідкрити теку за допомогою %1"
 
-#: widgets/kfileitemactions.cpp:847
+#: widgets/kfileitemactions.cpp:848
 #, kde-format
 msgid "&Open with %1"
 msgstr "В&ідкрити за допомогою %1"
 
-#: widgets/kfileitemactions.cpp:879
+#: widgets/kfileitemactions.cpp:880
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "В&ідкрити теку за допомогою"
 
-#: widgets/kfileitemactions.cpp:879
+#: widgets/kfileitemactions.cpp:880
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "В&ідкрити за допомогою"
 
-#: widgets/kfileitemactions.cpp:890
+#: widgets/kfileitemactions.cpp:891
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
