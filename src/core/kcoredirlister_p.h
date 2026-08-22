@@ -23,6 +23,7 @@
 #include <QTimer>
 #include <QUrl>
 
+#include <algorithm>
 #include <chrono>
 
 #include <KDirWatch>
@@ -495,12 +496,14 @@ private:
             if (items.isEmpty()) {
                 return;
             }
-            lstItems.reserve(lstItems.size() + items.size());
-            auto it = lstItems.begin();
-            for (const auto &item : items) {
-                it = std::lower_bound(it, lstItems.end(), item.url());
-                it = lstItems.insert(it, item);
-            }
+            // Append the batch and merge the two sorted halves. Inserting one item at a time walks
+            // every later item along by a place for each one, and asking for room up front copies
+            // the whole list into a new buffer, because QList::reserve builds an exactly sized copy
+            // rather than growing what it already has. Merging moves an item once and lets the list
+            // grow the way it does for any other append.
+            const qsizetype originalSize = lstItems.size();
+            lstItems.append(items);
+            std::inplace_merge(lstItems.begin(), lstItems.begin() + originalSize, lstItems.end());
         }
 
         // number of KCoreDirListers using autoUpdate for this dir
