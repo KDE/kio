@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-21 00:41+0000\n"
+"POT-Creation-Date: 2026-08-22 00:41+0000\n"
 "PO-Revision-Date: 2025-08-19 17:33+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -2453,7 +2453,7 @@ msgstr "Nevar atrast KIO strādnieku „%1“ protokolam"
 msgid "&Details"
 msgstr "&Informācija"
 
-#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
@@ -2464,7 +2464,7 @@ msgstr "&Vienmēr"
 msgid "Co&ntinue"
 msgstr "Turpi&nāt"
 
-#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:217
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -3906,7 +3906,7 @@ msgstr "Kļūda, saglabājot attēlus „%1“"
 msgid "Icon file too big, download aborted"
 msgstr "Ikona ir pārāk liela, lejupielāde ir atcelta"
 
-#: gui/filepreviewjob.cpp:289
+#: gui/filepreviewjob.cpp:273
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4258,12 +4258,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:329
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:333
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "Lai piekļūtu šai vietnei, jums jānorāda lietotājvārds un parole."
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:331
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:335
 #, kde-format
 msgid "Site:"
 msgstr "Vietne:"
@@ -4292,7 +4292,7 @@ msgstr ""
 "\n"
 "Serveris atbildēja: „%1“"
 
-#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4301,7 +4301,7 @@ msgstr ""
 "Lai piekļūtu vietnēm, jums nepieciešams norādītā starpniekservera "
 "lietotājvārds un parole."
 
-#: kioworkers/ftp/ftp.cpp:2502 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2502 kioworkers/http/http.cpp:387
 #, kde-format
 msgid "Proxy:"
 msgstr "Starpniekserveris:"
@@ -4351,108 +4351,108 @@ msgstr "Uzmeklē sadaļu"
 msgid "Could not find filename %1 in %2."
 msgstr "„%2“ mapē neatrada datnei ar nosaukumu „%1“."
 
-#: kioworkers/http/http.cpp:211 widgets/sslui.cpp:93
+#: kioworkers/http/http.cpp:212 widgets/sslui.cpp:93
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "Vai vēlaties vienmēr pieņemt šo sertifikātu bez vaicāšanas?"
 
-#: kioworkers/http/http.cpp:214 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: kioworkers/http/http.cpp:215 widgets/sslui.cpp:60 widgets/sslui.cpp:96
 #: widgets/widgetsaskuseractionhandler.cpp:515
 #, kde-format
 msgid "Server Authentication"
 msgstr "Servera autentificēšana"
 
-#: kioworkers/http/http.cpp:349 kioworkers/http/http.cpp:388
-#: kioworkers/http/http.cpp:402
+#: kioworkers/http/http.cpp:353 kioworkers/http/http.cpp:392
+#: kioworkers/http/http.cpp:406
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr "<b>%1</b> uz <b>%2</b>"
 
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1464
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Pretējā gadījumā pieprasījumu izpildītu."
 
-#: kioworkers/http/http.cpp:1410
+#: kioworkers/http/http.cpp:1467
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "saņemt īpašību vērtības"
 
-#: kioworkers/http/http.cpp:1412
+#: kioworkers/http/http.cpp:1469
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "iestatīt īpašību vērtības"
 
-#: kioworkers/http/http.cpp:1414
+#: kioworkers/http/http.cpp:1471
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "izveidot pieprasīto mapi"
 
-#: kioworkers/http/http.cpp:1416
+#: kioworkers/http/http.cpp:1473
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopēt norādīto datni vai mapi"
 
-#: kioworkers/http/http.cpp:1418
+#: kioworkers/http/http.cpp:1475
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "pārvietot norādīto datni vai mapi"
 
-#: kioworkers/http/http.cpp:1420
+#: kioworkers/http/http.cpp:1477
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "meklēt norādītajā mapē"
 
-#: kioworkers/http/http.cpp:1422
+#: kioworkers/http/http.cpp:1479
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "slēgt norādīto datni vai mapi"
 
-#: kioworkers/http/http.cpp:1424
+#: kioworkers/http/http.cpp:1481
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "atslēgt norādīto datni vai mapi"
 
-#: kioworkers/http/http.cpp:1426
+#: kioworkers/http/http.cpp:1483
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "dzēst norādīto datni vai mapi"
 
-#: kioworkers/http/http.cpp:1428
+#: kioworkers/http/http.cpp:1485
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "pārbaudīt servera iespējas"
 
-#: kioworkers/http/http.cpp:1430
+#: kioworkers/http/http.cpp:1487
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "saņemt norādītās mapes vai datnes saturu"
 
-#: kioworkers/http/http.cpp:1432
+#: kioworkers/http/http.cpp:1489
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "darbināt atskaiti norādītajā mapē"
 
-#: kioworkers/http/http.cpp:1440
+#: kioworkers/http/http.cpp:1497
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Gadījusies neparedzēta kļūda (%1), mēģinot %2."
 
-#: kioworkers/http/http.cpp:1480
+#: kioworkers/http/http.cpp:1537
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4462,13 +4462,13 @@ msgstr ""
 "Gadījusies kļūda, mēģinot „%1“ pieprasījumu adresē „%2“. Iemeslu "
 "kopsavilkums ir zemāk."
 
-#: kioworkers/http/http.cpp:1498 kioworkers/http/http.cpp:1642
+#: kioworkers/http/http.cpp:1555 kioworkers/http/http.cpp:1699
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Liegta pieeja, mēģinot „%1“ pieprasījumu."
 
-#: kioworkers/http/http.cpp:1512 kioworkers/http/http.cpp:1649
+#: kioworkers/http/http.cpp:1569 kioworkers/http/http.cpp:1706
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4477,7 +4477,7 @@ msgstr ""
 "Nevar izveidot resursu mērķī, vispirms jāizveido viena vai vairākas "
 "starpkolekcijas (mapes)."
 
-#: kioworkers/http/http.cpp:1521
+#: kioworkers/http/http.cpp:1578
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4492,28 +4492,28 @@ msgstr ""
 "nepārrakstīt.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1586
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Nevar piešķirt tiesības izpildīt pieprasīto slēgšanu. %1"
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1592
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Serveris neatbalsta pamatteksta pieprasījuma tipa."
 
-#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1657
+#: kioworkers/http/http.cpp:1597 kioworkers/http/http.cpp:1714
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Nevar „%1“, jo resurss ir slēgts."
 
-#: kioworkers/http/http.cpp:1544
+#: kioworkers/http/http.cpp:1601
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Šo darbību apturēja cita kļūda."
 
-#: kioworkers/http/http.cpp:1551 kioworkers/http/http.cpp:1664
+#: kioworkers/http/http.cpp:1608 kioworkers/http/http.cpp:1721
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4521,7 +4521,7 @@ msgid ""
 "folder."
 msgstr "Nevar „%1“, jo mērķa serveris atteicās pieņemt datni vai mapi."
 
-#: kioworkers/http/http.cpp:1560 kioworkers/http/http.cpp:1673
+#: kioworkers/http/http.cpp:1617 kioworkers/http/http.cpp:1730
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4530,18 +4530,18 @@ msgstr ""
 "Uz mērķa resursa nepietiek vietas, lai ierakstītu resursa stāvokli pēc šīs "
 "metodes izpildes."
 
-#: kioworkers/http/http.cpp:1613
+#: kioworkers/http/http.cpp:1670
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Šo resursu nevar izdzēst."
 
-#: kioworkers/http/http.cpp:1633
+#: kioworkers/http/http.cpp:1690
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "augšupielādēt „%1“"
 
-#: kioworkers/http/http.cpp:1684
+#: kioworkers/http/http.cpp:1741
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."

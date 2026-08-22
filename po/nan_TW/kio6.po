@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-21 00:41+0000\n"
+"POT-Creation-Date: 2026-08-22 00:41+0000\n"
 "PO-Revision-Date: 2026-08-18 02:37+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Min Nan Chinese <zh-l10n@lists.slat.org>\n"
@@ -2279,7 +2279,7 @@ msgstr ""
 msgid "&Details"
 msgstr "詳細(&D)"
 
-#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:215
+#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:216
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
@@ -2290,7 +2290,7 @@ msgstr "永遠(&F)"
 msgid "Co&ntinue"
 msgstr "繼續(&N)"
 
-#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:217
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -3655,7 +3655,7 @@ msgstr "儲存影像 kàu %1 ê 時陣發生錯誤"
 msgid "Icon file too big, download aborted"
 msgstr "圖示檔案 siunn 大--ah，下載中止"
 
-#: gui/filepreviewjob.cpp:289
+#: gui/filepreviewjob.cpp:273
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -3993,12 +3993,12 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:329
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:333
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:331
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:335
 #, kde-format
 msgid "Site:"
 msgstr ""
@@ -4025,14 +4025,14 @@ msgid ""
 "The server said: \"%1\""
 msgstr ""
 
-#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:379
+#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
 msgstr ""
 
-#: kioworkers/ftp/ftp.cpp:2502 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2502 kioworkers/http/http.cpp:387
 #, kde-format
 msgid "Proxy:"
 msgstr "代理："
@@ -4082,108 +4082,108 @@ msgstr ""
 msgid "Could not find filename %1 in %2."
 msgstr ""
 
-#: kioworkers/http/http.cpp:211 widgets/sslui.cpp:93
+#: kioworkers/http/http.cpp:212 widgets/sslui.cpp:93
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr ""
 
-#: kioworkers/http/http.cpp:214 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: kioworkers/http/http.cpp:215 widgets/sslui.cpp:60 widgets/sslui.cpp:96
 #: widgets/widgetsaskuseractionhandler.cpp:515
 #, kde-format
 msgid "Server Authentication"
 msgstr ""
 
-#: kioworkers/http/http.cpp:349 kioworkers/http/http.cpp:388
-#: kioworkers/http/http.cpp:402
+#: kioworkers/http/http.cpp:353 kioworkers/http/http.cpp:392
+#: kioworkers/http/http.cpp:406
 #, kde-format
 msgid "<b>%1</b> at <b>%2</b>"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1407
+#: kioworkers/http/http.cpp:1464
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1410
+#: kioworkers/http/http.cpp:1467
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "取得屬性值"
 
-#: kioworkers/http/http.cpp:1412
+#: kioworkers/http/http.cpp:1469
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "設定屬性值"
 
-#: kioworkers/http/http.cpp:1414
+#: kioworkers/http/http.cpp:1471
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1416
+#: kioworkers/http/http.cpp:1473
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1418
+#: kioworkers/http/http.cpp:1475
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1420
+#: kioworkers/http/http.cpp:1477
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1422
+#: kioworkers/http/http.cpp:1479
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1424
+#: kioworkers/http/http.cpp:1481
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1426
+#: kioworkers/http/http.cpp:1483
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1428
+#: kioworkers/http/http.cpp:1485
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1430
+#: kioworkers/http/http.cpp:1487
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1432
+#: kioworkers/http/http.cpp:1489
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1440
+#: kioworkers/http/http.cpp:1497
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1480
+#: kioworkers/http/http.cpp:1537
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4191,20 +4191,20 @@ msgid ""
 "below."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1498 kioworkers/http/http.cpp:1642
+#: kioworkers/http/http.cpp:1555 kioworkers/http/http.cpp:1699
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1512 kioworkers/http/http.cpp:1649
+#: kioworkers/http/http.cpp:1569 kioworkers/http/http.cpp:1706
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1521
+#: kioworkers/http/http.cpp:1578
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4218,28 +4218,28 @@ msgstr ""
 "檔案崁掉。\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1529
+#: kioworkers/http/http.cpp:1586
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1535
+#: kioworkers/http/http.cpp:1592
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1540 kioworkers/http/http.cpp:1657
+#: kioworkers/http/http.cpp:1597 kioworkers/http/http.cpp:1714
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1544
+#: kioworkers/http/http.cpp:1601
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1551 kioworkers/http/http.cpp:1664
+#: kioworkers/http/http.cpp:1608 kioworkers/http/http.cpp:1721
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4247,25 +4247,25 @@ msgid ""
 "folder."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1560 kioworkers/http/http.cpp:1673
+#: kioworkers/http/http.cpp:1617 kioworkers/http/http.cpp:1730
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1613
+#: kioworkers/http/http.cpp:1670
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1633
+#: kioworkers/http/http.cpp:1690
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "上傳 %1"
 
-#: kioworkers/http/http.cpp:1684
+#: kioworkers/http/http.cpp:1741
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
