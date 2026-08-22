@@ -177,9 +177,11 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
     int numberEntries = 0;
     int stringEntries = 0;
     if (details & KIO::StatBasic) {
-        // filename, access, type, size, linkdest
+        // access, type, size, and the filename. The link destination is only there for a
+        // symlink, which is not known yet, so the rare entry that carries one grows for it
+        // rather than every entry keeping room it never uses.
         numberEntries += 3;
-        stringEntries += 2;
+        stringEntries += 1;
     }
     if (details & KIO::StatUser) {
         // uid, gid
@@ -193,11 +195,9 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
             numberEntries += 3;
         }
     }
-    if (details & KIO::StatAcl) {
-        // acl data
-        numberEntries += 1;
-        stringEntries += 2;
-    }
+    // The acl fields are only filled in for a file that carries one, so they are not
+    // reserved here either.
+
     if (details & KIO::StatInode) {
         // dev, inode
         numberEntries += 2;
