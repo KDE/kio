@@ -495,7 +495,10 @@ private:
             if (items.isEmpty()) {
                 return;
             }
-            lstItems.reserve(lstItems.size() + items.size());
+            // Let the list grow on its own rather than asking for room for the batch up front.
+            // QList::reserve builds an exactly sized copy instead of growing the buffer it already
+            // has, so it copies every item the list holds, and it leaves no spare room, which makes
+            // the next batch copy them all again.
             auto it = lstItems.begin();
             for (const auto &item : items) {
                 it = std::lower_bound(it, lstItems.end(), item.url());
