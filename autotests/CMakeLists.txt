@@ -184,7 +184,7 @@ if (NOT WIN32)
     LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB}
   )
   set(_libexec_dir_kf "${KDKE_INSTALL_FULL_LIBEXECDIR_KF}")
-  target_compile_definitions(desktopexecparsertest PRIVATE "KDE_INSTALL_FULL_LIBEXECDIR_KF=${_libexec_dir_kf}")
+  target_compile_definitions(desktopexecparsertest PRIVATE "KDE_INSTALL_FULL_LIBEXECDIR_KF=\"${_libexec_dir_kf}\"")
 endif()
 
 # disable some tests that fail on Windows ATM
