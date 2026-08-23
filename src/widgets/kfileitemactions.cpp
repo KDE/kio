@@ -142,87 +142,6 @@ KFileItemActionsPrivate::~KFileItemActionsPrivate()
     qDeleteAll(m_serviceMenuShortcutActions);
 }
 
-int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceList> &submenus, QMenu *menu)
-{
-    int count = 0;
-    QMap<QString, ServiceList>::ConstIterator it;
-    for (it = submenus.begin(); it != submenus.end(); ++it) {
-        if (it.value().isEmpty()) {
-            // avoid empty sub-menus
-            continue;
-        }
-
-        QMenu *actionSubmenu = new QMenu(m_mainMenu);
-        const int servicesAddedCount = insertServices(it.value(), actionSubmenu);
-
-        if (servicesAddedCount > 0) {
-            count += servicesAddedCount;
-            actionSubmenu->setTitle(it.key());
-            actionSubmenu->setIcon(QIcon::fromTheme(it.value().first().icon()));
-            actionSubmenu->menuAction()->setObjectName(QStringLiteral("services_submenu")); // for the unittest
-            menu->addMenu(actionSubmenu);
-        } else {
-            // avoid empty sub-menus
-            delete actionSubmenu;
-        }
-    }
-
-    return count;
-}
-
-int KFileItemActionsPrivate::insertServices(const ServiceList &list, QMenu *menu)
-{
-    // Temporary storage for current group and all groups
-    ServiceList currentGroup;
-    std::vector<ServiceList> allGroups;
-
-    // Grouping
-    for (const KDesktopFileAction &serviceAction : std::as_const(list)) {
-        if (serviceAction.isSeparator()) {
-            if (!currentGroup.empty()) {
-                allGroups.push_back(currentGroup);
-                currentGroup.clear();
-            }
-            // Push back a dummy list to represent a separator for later
-            allGroups.push_back(ServiceList());
-        } else {
-            currentGroup.push_back(serviceAction);
-        }
-    }
-    // Don't forget to add the last group if it exists
-    if (!currentGroup.empty()) {
-        allGroups.push_back(currentGroup);
-    }
-
-    // Sort each group
-    for (ServiceList &group : allGroups) {
-        std::sort(group.begin(), group.end(), [](const KDesktopFileAction &a1, const KDesktopFileAction &a2) {
-            return a1.actionsKey() < a2.actionsKey();
-        });
-    }
-
-    int count = 0;
-    for (const ServiceList &group : allGroups) {
-        // Check if the group is a separator
-        if (group.empty()) {
-            const QList<QAction *> actions = menu->actions();
-            if (!actions.isEmpty() && !actions.last()->isSeparator()) {
-                menu->addSeparator();
-            }
-            continue;
-        }
-
-        // Insert sorted actions for current group
-        for (const KDesktopFileAction &serviceAction : group) {
-            QAction *act = createActionForService(serviceAction, QStringLiteral("menuaction"));
-            menu->addAction(act); // Add to toplevel menu
-            ++count;
-        }
-    }
-
-    return count;
-}
-
 QAction *KFileItemActionsPrivate::createActionForService(const KDesktopFileAction &serviceAction, const QString &objectName)
 {
     QAction *act = new QAction(q);
@@ -433,6 +352,87 @@ void KFileItemActionsPrivate::addServiceActionsTo(QMenu *mainMenuHolder,
 
     insertServicesSubmenus(s.userToplevelSubmenus, mainMenuHolder);
     insertServices(s.userToplevel, mainMenuHolder);
+}
+
+int KFileItemActionsPrivate::insertServicesSubmenus(const QMap<QString, ServiceList> &submenus, QMenu *menu)
+{
+    int count = 0;
+    QMap<QString, ServiceList>::ConstIterator it;
+    for (it = submenus.begin(); it != submenus.end(); ++it) {
+        if (it.value().isEmpty()) {
+            // avoid empty sub-menus
+            continue;
+        }
+
+        QMenu *actionSubmenu = new QMenu(m_mainMenu);
+        const int servicesAddedCount = insertServices(it.value(), actionSubmenu);
+
+        if (servicesAddedCount > 0) {
+            count += servicesAddedCount;
+            actionSubmenu->setTitle(it.key());
+            actionSubmenu->setIcon(QIcon::fromTheme(it.value().first().icon()));
+            actionSubmenu->menuAction()->setObjectName(QStringLiteral("services_submenu")); // for the unittest
+            menu->addMenu(actionSubmenu);
+        } else {
+            // avoid empty sub-menus
+            delete actionSubmenu;
+        }
+    }
+
+    return count;
+}
+
+int KFileItemActionsPrivate::insertServices(const ServiceList &list, QMenu *menu)
+{
+    // Temporary storage for current group and all groups
+    ServiceList currentGroup;
+    std::vector<ServiceList> allGroups;
+
+    // Grouping
+    for (const KDesktopFileAction &serviceAction : std::as_const(list)) {
+        if (serviceAction.isSeparator()) {
+            if (!currentGroup.empty()) {
+                allGroups.push_back(currentGroup);
+                currentGroup.clear();
+            }
+            // Push back a dummy list to represent a separator for later
+            allGroups.push_back(ServiceList());
+        } else {
+            currentGroup.push_back(serviceAction);
+        }
+    }
+    // Don't forget to add the last group if it exists
+    if (!currentGroup.empty()) {
+        allGroups.push_back(currentGroup);
+    }
+
+    // Sort each group
+    for (ServiceList &group : allGroups) {
+        std::sort(group.begin(), group.end(), [](const KDesktopFileAction &a1, const KDesktopFileAction &a2) {
+            return a1.actionsKey() < a2.actionsKey();
+        });
+    }
+
+    int count = 0;
+    for (const ServiceList &group : allGroups) {
+        // Check if the group is a separator
+        if (group.empty()) {
+            const QList<QAction *> actions = menu->actions();
+            if (!actions.isEmpty() && !actions.last()->isSeparator()) {
+                menu->addSeparator();
+            }
+            continue;
+        }
+
+        // Insert sorted actions for current group
+        for (const KDesktopFileAction &serviceAction : group) {
+            QAction *act = createActionForService(serviceAction, QStringLiteral("menuaction"));
+            menu->addAction(act); // Add to toplevel menu
+            ++count;
+        }
+    }
+
+    return count;
 }
 
 void KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenuHolder, QMenu *actionsMenuHolder, const QStringList &excludeList)
