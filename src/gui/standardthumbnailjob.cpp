@@ -116,7 +116,7 @@ bool KIO::StandardThumbnailJob::StandardThumbnailJob::doKill()
 void KIO::StandardThumbnailJob::StandardThumbnailJob::start()
 {
     // Prepare the command
-    d->m_tempFile = new QTemporaryFile(QStringLiteral("%1/XXXXXX.png").arg(d->m_outputFolder));
+    d->m_tempFile = new QTemporaryFile(QStringLiteral("%1/XXXXXX.png").arg(d->m_outputFolder), this);
     if (!d->m_tempFile->open()) {
         setErrorText(QStringLiteral("Standard Thumbnail Job had an error: could not open temporary file"));
         setError(KIO::ERR_CANNOT_OPEN_FOR_WRITING);

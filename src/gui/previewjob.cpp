@@ -23,6 +23,7 @@
 #include <QMimeDatabase>
 #include <QPixmap>
 #include <QPointer>
+#include <QSet>
 #include <QStandardPaths>
 #include <QThreadPool>
 #include <QTimer>
@@ -147,7 +148,9 @@ public:
     // Items whose cached thumbnail is still to be looked up, those that had none, and the pool
     // and watcher the lookups of the batch in flight run on.
     QList<CachedThumbnailRequest> cachedThumbnailQueue;
-    QList<KFileItem> cachedThumbnailMisses;
+    // The items the lookups above served, so that the generation list can drop them and keep the
+    // order it was given for everything else.
+    QSet<QUrl> cachedThumbnailHits;
     QThreadPool *cachedThumbnailPool = nullptr;
     QPointer<QFutureWatcher<CachedThumbnailResult>> cachedThumbnailWatcher;
 
@@ -437,8 +440,6 @@ void PreviewJobPrivate::resolveCachedThumbnails()
         if (eligible) {
             cachedThumbnailQueue.append(
                 {item, url.toEncoded(QUrl::RemovePassword | QUrl::FullyEncoded), mtime.toSecsSinceEpoch(), static_cast<KIO::filesize_t>(item.size())});
-        } else {
-            cachedThumbnailMisses.append(item);
         }
     }
 
@@ -456,10 +457,14 @@ void PreviewJobPrivate::startNextCachedThumbnailBatch()
     Q_Q(PreviewJob);
 
     if (cachedThumbnailQueue.isEmpty()) {
-        // What was not cached is left to the generation batches, which the thumbnail worker count
-        // bounds.
-        fileItems = cachedThumbnailMisses;
-        cachedThumbnailMisses.clear();
+        // What the lookups served needs generating no more. Taking those out of the list leaves
+        // every other item where the caller put it, so the ones it asked for first are made first.
+        if (!cachedThumbnailHits.isEmpty()) {
+            fileItems.removeIf([this](const KFileItem &item) {
+                return cachedThumbnailHits.contains(item.url());
+            });
+            cachedThumbnailHits.clear();
+        }
         startNextFilePreviewJobBatch();
         return;
     }
@@ -482,9 +487,8 @@ void PreviewJobPrivate::startNextCachedThumbnailBatch()
         Q_Q(PreviewJob);
         const QList<CachedThumbnailResult> results = watcher->future().results();
         for (const CachedThumbnailResult &result : results) {
-            if (result.preview.isNull()) {
-                cachedThumbnailMisses.append(result.item);
-            } else {
+            if (!result.preview.isNull()) {
+                cachedThumbnailHits.insert(result.item.url());
                 q->emitPreview(result.item, result.preview);
             }
         }
@@ -506,7 +510,7 @@ void PreviewJobPrivate::cancelCachedThumbnailLookups()
         cachedThumbnailWatcher->cancel();
     }
     cachedThumbnailQueue.clear();
-    cachedThumbnailMisses.clear();
+    cachedThumbnailHits.clear();
 }
 
 bool PreviewJob::doKill()

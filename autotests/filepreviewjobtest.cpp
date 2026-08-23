@@ -434,3 +434,74 @@ void FilePreviewJobTest::testNoCacheBucketLeavesTheCacheAlone()
 
     QVERIFY(QFile::remove(strayPath));
 }
+
+/**
+ * An item whose cached thumbnail is looked for and not found still has its preview made in the
+ * order the caller asked for. It used to be made after every item that skipped the lookup, so the
+ * items on screen, the only ones whose type is known early enough to be looked up, were made last.
+ */
+void FilePreviewJobTest::testAMissedCacheLookupKeepsItsPlaceInTheQueue()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+
+    // Empty files, so that every one of them is refused for want of content instead of having a
+    // thumbnailer run over it. What is under test is the order they are dealt with in, and an
+    // empty file reaches that point the same way a full one does.
+    const auto emptyFile = [&dir](const QString &name) {
+        const QString path = dir.filePath(name);
+        QFile file(path);
+        file.open(QIODevice::WriteOnly);
+        file.close();
+        KIO::UDSEntry entry;
+        entry.reserve(4);
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, name);
+        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG);
+        entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 0);
+        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, QFileInfo(path).lastModified().toSecsSinceEpoch());
+        return KFileItem(entry, QUrl::fromLocalFile(path));
+    };
+
+    // The first item is the one that gets looked up: its type is known, and nothing is cached for
+    // it. The others have no type yet, so the lookup skips them.
+    KFileItemList items;
+    KFileItem lookedUp = emptyFile(QStringLiteral("00-looked-up.png"));
+    lookedUp.determineMimeType();
+    QVERIFY(lookedUp.isMimeTypeKnown());
+    items.append(lookedUp);
+
+    // Enough of them that the position in the queue outweighs the reordering a handful of
+    // concurrent thumbnail workers can cause.
+    const int others = 39;
+    for (int i = 0; i < others; ++i) {
+        const QString name = QStringLiteral("%1-other.png").arg(i + 1, 2, 10, QLatin1Char('0'));
+        QFile file(dir.filePath(name));
+        QVERIFY(file.open(QIODevice::WriteOnly));
+        file.close();
+        items.append(KFileItem(QUrl::fromLocalFile(dir.filePath(name))));
+    }
+
+    QStringList plugins = PreviewJob::defaultPlugins();
+    auto *job = new PreviewJob(items, QSize(256, 256), &plugins);
+    job->setUiDelegate(nullptr);
+
+    // Whatever becomes of each item, made or refused, the order it was dealt with in is the order
+    // the outcomes arrive in.
+    QStringList outcomes;
+    connect(job, &PreviewJob::generated, this, [&outcomes](const KFileItem &item, const QImage &) {
+        outcomes.append(item.url().fileName());
+    });
+    connect(job, &PreviewJob::failed, this, [&outcomes](const KFileItem &item) {
+        outcomes.append(item.url().fileName());
+    });
+
+    QSignalSpy resultSpy(job, &KJob::result);
+    QVERIFY(resultSpy.wait(60000));
+    QCOMPARE(outcomes.count(), items.count());
+
+    const int place = outcomes.indexOf(QStringLiteral("00-looked-up.png"));
+    QVERIFY(place >= 0);
+    // It was asked for first, so it is not left until after the rest.
+    QVERIFY2(place < outcomes.count() / 2,
+             qPrintable(QStringLiteral("dealt with %1 of %2: %3").arg(place + 1).arg(outcomes.count()).arg(outcomes.join(QLatin1Char(' ')))));
+}

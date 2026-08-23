@@ -33,6 +33,7 @@ private Q_SLOTS:
     void testCachedPreviewFoundAtDevicePixelRatio_data();
     void testCachedPreviewFoundAtDevicePixelRatio();
     void testNoCacheBucketLeavesTheCacheAlone();
+    void testAMissedCacheLookupKeepsItsPlaceInTheQueue();
 };
 
 #endif
