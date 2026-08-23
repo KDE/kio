@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-22 00:41+0000\n"
-"PO-Revision-Date: 2026-08-19 12:40+0300\n"
+"PO-Revision-Date: 2026-08-22 20:43+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -4061,7 +4061,7 @@ msgstr "Nepavyko paleisti programos „%1“."
 #: gui/systemd/systemdprocessrunner.cpp:200
 #, kde-format
 msgid "Failed to launch process (status code: %1)"
-msgstr ""
+msgstr "Nepavyko paleisti proceso (būsenos kodas: %1)"
 
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format

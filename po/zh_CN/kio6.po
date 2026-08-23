@@ -3839,7 +3839,7 @@ msgstr "程序“%1”无法启动。"
 #: gui/systemd/systemdprocessrunner.cpp:200
 #, kde-format
 msgid "Failed to launch process (status code: %1)"
-msgstr ""
+msgstr "启动进程失败 (状态码：%1)"
 
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
