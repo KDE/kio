@@ -154,7 +154,16 @@ public:
     QThreadPool *cachedThumbnailPool = nullptr;
     QPointer<QFutureWatcher<CachedThumbnailResult>> cachedThumbnailWatcher;
 
+    // Reading the cache is all this job does, so no directory is stat'ed and no thumbnailer runs.
+    bool cachedThumbnailsOnly = false;
+
+    // Generation waits on both of these: the device ids say whether what is made may be cached,
+    // the lookups say which items still need making.
+    bool deviceIdsResolved = false;
+    bool cachedThumbnailsResolved = false;
+
     void startNextFilePreviewJobBatch();
+    void startFilePreviewJobsWhenReady();
     void startPreview();
     void scheduleNextFilePreviewJobBatch();
     void resolveCachedThumbnails();
@@ -198,6 +207,12 @@ PreviewJob::~PreviewJob()
 {
 }
 
+void PreviewJob::setCachedThumbnailsOnly(bool cachedOnly)
+{
+    Q_D(PreviewJob);
+    d->cachedThumbnailsOnly = cachedOnly;
+}
+
 void PreviewJob::setScaleType(ScaleType type)
 {
     Q_D(PreviewJob);
@@ -232,6 +247,14 @@ void PreviewJobPrivate::startPreview()
         }
     }
 
+    // The cache is keyed on the url of an item, so a lookup needs neither the device ids below nor
+    // a thumbnailer. It goes first, and what it finds is shown while the stat is still running.
+    resolveCachedThumbnails();
+
+    if (cachedThumbnailsOnly) {
+        return;
+    }
+
     // estimate the device ids for relevant paths
     QStringList paths;
     for (const auto &fileItem : std::as_const(fileItems)) {
@@ -250,9 +273,17 @@ void PreviewJobPrivate::startPreview()
         // caching info about thumbroot device id separately, to avoid repeated lookup
         setupData.thumbRootDeviceId = deviceIdForLocalPath(setupData.thumbRoot);
 
-        resolveCachedThumbnails();
+        deviceIdsResolved = true;
+        startFilePreviewJobsWhenReady();
     });
     pathsFileDeviceIdsJob->start();
+}
+
+void PreviewJobPrivate::startFilePreviewJobsWhenReady()
+{
+    if (deviceIdsResolved && cachedThumbnailsResolved) {
+        startNextFilePreviewJobBatch();
+    }
 }
 
 void PreviewJobPrivate::scheduleNextFilePreviewJobBatch()
@@ -393,6 +424,7 @@ void PreviewJobPrivate::resolveCachedThumbnails()
 
     const KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
     const KIO::filesize_t maximumLocalSize = cg.readEntry("MaximumSize", std::numeric_limits<KIO::filesize_t>::max());
+    QMimeDatabase db;
 
     for (const KFileItem &item : std::as_const(fileItems)) {
         bool isLocal = false;
@@ -400,19 +432,25 @@ void PreviewJobPrivate::resolveCachedThumbnails()
 
         // A sequence frame, a folder and a symlink are all keyed on something a stat has to
         // resolve first, and a remote item has no local thumbnail to read, so those are generated
-        // the usual way. So is an item whose type is not known yet, since asking for it here would
-        // read the file on the thread the user is waiting on.
+        // the usual way.
         // The modification time has to come with the item, since telling a cached thumbnail from
         // an outdated one without it would mean stat'ing the file here.
         const QDateTime mtime = item.time(KFileItem::ModificationTime);
-        bool eligible = options.sequenceIndex == 0 && isLocal && !item.isDir() && !item.isLink() && item.isMimeTypeKnown() && mtime.isValid();
+        bool eligible = options.sequenceIndex == 0 && isLocal && !item.isDir() && !item.isLink() && mtime.isValid();
 
         if (eligible) {
+            // The type of an item that has not been asked for one yet is taken from its name.
+            // Determining it properly reads the file, which is what the job is for; a name says
+            // enough to know whether a thumbnail of it may be shown at all, and a name that lies
+            // leads to a lookup that finds nothing.
+            const QString mimeType =
+                item.isMimeTypeKnown() ? item.currentMimeType().name() : db.mimeTypeForFile(url.toLocalFile(), QMimeDatabase::MatchExtension).name();
+
             // Only what a thumbnailer of its own is enabled for, and only where that thumbnailer
             // caches what it makes, has a thumbnail of this item in the shared cache. The lookup
             // is by the type itself: an item whose thumbnailer is registered for an ancestor type
             // is left to the job, which walks the ancestry.
-            const auto plugin = setupData.pluginByMimeTable.constFind(item.currentMimeType().name());
+            const auto plugin = setupData.pluginByMimeTable.constFind(mimeType);
             if (plugin == setupData.pluginByMimeTable.constEnd() || !plugin->value(QStringLiteral("CacheThumbnail"), true)) {
                 eligible = false;
             } else if (!options.ignoreMaximumSize && static_cast<KIO::filesize_t>(item.size()) > maximumLocalSize
@@ -450,7 +488,15 @@ void PreviewJobPrivate::startNextCachedThumbnailBatch()
             });
             cachedThumbnailHits.clear();
         }
-        startNextFilePreviewJobBatch();
+
+        if (cachedThumbnailsOnly) {
+            // Nothing is made here, so the cache having been read is the whole job.
+            q->emitResult();
+            return;
+        }
+
+        cachedThumbnailsResolved = true;
+        startFilePreviewJobsWhenReady();
         return;
     }
 
@@ -484,9 +530,16 @@ void PreviewJobPrivate::startNextCachedThumbnailBatch()
     const QString thumbRoot = setupData.thumbRoot;
     const QSize size = options.size;
     const qreal dpr = options.devicePixelRatio;
-    watcher->setFuture(QtConcurrent::mapped(cachedThumbnailPool, batch, [thumbRoot, size, dpr](const CachedThumbnailRequest &request) -> CachedThumbnailResult {
-        return {request.item, ThumbnailCache::thumbnailFor(request.uri, thumbRoot, size, dpr, request.mtimeSecs, request.fileSize)};
-    }));
+    // A job that generates promises a thumbnail of the size that was asked for, so only a
+    // cached-only job takes one out of a smaller bucket.
+    const bool orSmaller = cachedThumbnailsOnly;
+    watcher->setFuture(
+        QtConcurrent::mapped(cachedThumbnailPool, batch, [thumbRoot, size, dpr, orSmaller](const CachedThumbnailRequest &request) -> CachedThumbnailResult {
+            if (orSmaller) {
+                return {request.item, ThumbnailCache::thumbnailForOrSmaller(request.uri, thumbRoot, size, dpr, request.mtimeSecs, request.fileSize)};
+            }
+            return {request.item, ThumbnailCache::thumbnailFor(request.uri, thumbRoot, size, dpr, request.mtimeSecs, request.fileSize)};
+        }));
 }
 
 void PreviewJobPrivate::cancelCachedThumbnailLookups()

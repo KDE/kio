@@ -518,3 +518,155 @@ void FilePreviewJobTest::testAMissedCacheLookupKeepsItsPlaceInTheQueue()
     QVERIFY2(place < outcomes.count() / 2,
              qPrintable(QStringLiteral("dealt with %1 of %2: %3").arg(place + 1).arg(outcomes.count()).arg(outcomes.join(QLatin1Char(' ')))));
 }
+
+// A file with a thumbnail in the cache, and one without. The cached-only job hands over what the
+// cache holds and makes nothing, so the file with nothing cached for it is not reported at all.
+void FilePreviewJobTest::testCachedOnlyReachesTheSmallestBucketAtEveryRatio_data()
+{
+    QTest::addColumn<QSize>("asked");
+    QTest::addColumn<qreal>("devicePixelRatio");
+    QTest::addColumn<int>("cachedBucket");
+
+    // A thumbnail written at a size with a ratio of one lands in the directory named for that
+    // size, so the bucket column names the directory the thumbnail is in. Every directory below
+    // the one the request lands in has to be reached, at every ratio.
+    QTest::newRow("256 at 1, in normal") << QSize(256, 256) << 1.0 << 128;
+    QTest::newRow("512 at 1, in large") << QSize(512, 512) << 1.0 << 256;
+    QTest::newRow("512 at 1, in normal") << QSize(512, 512) << 1.0 << 128;
+    QTest::newRow("256 at 2, in large") << QSize(256, 256) << 2.0 << 256;
+    QTest::newRow("256 at 2, in normal") << QSize(256, 256) << 2.0 << 128;
+    QTest::newRow("128 at 2, in normal") << QSize(128, 128) << 2.0 << 128;
+    QTest::newRow("256 at 1.5, in large") << QSize(256, 256) << 1.5 << 256;
+}
+
+// Whatever the ratio of the screen, a thumbnail in a smaller directory than the one the request
+// lands in is found. The size a directory is named for does not lead back to that directory once
+// the ratio has been applied to it twice, which is what this guards.
+void FilePreviewJobTest::testCachedOnlyReachesTheSmallestBucketAtEveryRatio()
+{
+    QFETCH(QSize, asked);
+    QFETCH(qreal, devicePixelRatio);
+    QFETCH(int, cachedBucket);
+
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const KFileItem item = makeFileItem(dir.filePath(QStringLiteral("photo.png")));
+    const QByteArray uri = cacheUri(item);
+    const QString thumbRoot = ThumbnailCache::rootPath();
+    const qint64 mtime = item.time(KFileItem::ModificationTime).toSecsSinceEpoch();
+
+    writeCachedThumbnail(item.targetUrl(), QSize(cachedBucket, cachedBucket), 1.0, mtime, item.size());
+
+    // The thumbnail lies where the bucket says, and the request lands somewhere else.
+    QCOMPARE(ThumbnailCache::filePath(uri, thumbRoot, QSize(cachedBucket, cachedBucket), 1.0),
+             ThumbnailCache::filePathInTier(uri, thumbRoot, ThumbnailCache::tierDirOfSize(cachedBucket)));
+    QVERIFY(ThumbnailCache::filePath(uri, thumbRoot, asked, devicePixelRatio)
+            != ThumbnailCache::filePathInTier(uri, thumbRoot, ThumbnailCache::tierDirOfSize(cachedBucket)));
+
+    bool fromRequestedBucket = true;
+    const QImage found = ThumbnailCache::thumbnailForOrSmaller(uri, thumbRoot, asked, devicePixelRatio, mtime, item.size(), &fromRequestedBucket);
+    QVERIFY(!found.isNull());
+    QVERIFY(!fromRequestedBucket);
+}
+
+void FilePreviewJobTest::testCachedOnlyServesTheCacheAndMakesNothing()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QSize size(256, 256);
+
+    const KFileItem cached = makeFileItem(dir.filePath(QStringLiteral("cached.png")));
+    writeCachedThumbnail(cached.targetUrl(), size, 1.0, cached.time(KFileItem::ModificationTime).toSecsSinceEpoch(), cached.size());
+    const KFileItem uncached = makeFileItem(dir.filePath(QStringLiteral("uncached.png")));
+
+    QStringList plugins = PreviewJob::defaultPlugins();
+    auto *job = new PreviewJob(KFileItemList{cached, uncached}, size, &plugins);
+    job->setUiDelegate(nullptr);
+    job->setCachedThumbnailsOnly(true);
+
+    QList<QUrl> served;
+    connect(job, &PreviewJob::generated, this, [&served](const KFileItem &item, const QImage &) {
+        served.append(item.url());
+    });
+    QSignalSpy failedSpy(job, &PreviewJob::failed);
+    QSignalSpy resultSpy(job, &KJob::result);
+    QVERIFY(resultSpy.wait(10000));
+
+    QCOMPARE(served, QList<QUrl>{cached.url()});
+    QCOMPARE(failedSpy.count(), 0);
+}
+
+// An item whose type nobody has asked for yet is served all the same: the name says enough to know
+// that a thumbnail of it may be shown, and the cache is keyed on the url.
+void FilePreviewJobTest::testCachedOnlyServesAnItemWhoseTypeIsNotDetermined()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QSize size(256, 256);
+
+    const KFileItem item = makeFileItem(dir.filePath(QStringLiteral("photo.png")));
+    QVERIFY(!item.isMimeTypeKnown());
+    writeCachedThumbnail(item.targetUrl(), size, 1.0, item.time(KFileItem::ModificationTime).toSecsSinceEpoch(), item.size());
+
+    QStringList plugins = PreviewJob::defaultPlugins();
+    auto *job = new PreviewJob(KFileItemList{item}, size, &plugins);
+    job->setUiDelegate(nullptr);
+    job->setCachedThumbnailsOnly(true);
+
+    QSignalSpy generatedSpy(job, &PreviewJob::generated);
+    QSignalSpy resultSpy(job, &KJob::result);
+    QVERIFY(resultSpy.wait(10000));
+
+    QCOMPARE(generatedSpy.count(), 1);
+}
+
+// The settings decide what may be previewed. With no thumbnailer enabled for the type, what the
+// cache happens to hold for it is not shown.
+void FilePreviewJobTest::testCachedOnlySkipsATypeNoEnabledThumbnailerClaims()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QSize size(256, 256);
+
+    const KFileItem item = makeFileItem(dir.filePath(QStringLiteral("photo.png")));
+    writeCachedThumbnail(item.targetUrl(), size, 1.0, item.time(KFileItem::ModificationTime).toSecsSinceEpoch(), item.size());
+
+    QStringList none;
+    auto *job = new PreviewJob(KFileItemList{item}, size, &none);
+    job->setUiDelegate(nullptr);
+    job->setCachedThumbnailsOnly(true);
+
+    QSignalSpy generatedSpy(job, &PreviewJob::generated);
+    QSignalSpy resultSpy(job, &KJob::result);
+    QVERIFY(resultSpy.wait(10000));
+
+    QCOMPARE(generatedSpy.count(), 0);
+}
+
+// With the bucket that was asked for empty and a smaller one holding a thumbnail, the smaller one
+// is handed over, to be shown until the size that is wanted has been made. Its size is what tells
+// the caller which of the two it got.
+void FilePreviewJobTest::testCachedOnlyTakesASmallerBucketWhenTheOneAskedForIsEmpty()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+
+    const KFileItem item = makeFileItem(dir.filePath(QStringLiteral("photo.png")));
+    writeCachedThumbnail(item.targetUrl(), QSize(128, 128), 1.0, item.time(KFileItem::ModificationTime).toSecsSinceEpoch(), item.size());
+
+    const QSize asked(512, 512);
+    QStringList plugins = PreviewJob::defaultPlugins();
+    auto *job = new PreviewJob(KFileItemList{item}, asked, &plugins);
+    job->setUiDelegate(nullptr);
+    job->setCachedThumbnailsOnly(true);
+
+    QList<QImage> served;
+    connect(job, &PreviewJob::generated, this, [&served](const KFileItem &, const QImage &image) {
+        served.append(image);
+    });
+    QSignalSpy resultSpy(job, &KJob::result);
+    QVERIFY(resultSpy.wait(10000));
+
+    QCOMPARE(served.count(), 1);
+    QVERIFY(served.first().width() < asked.width());
+}

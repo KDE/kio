@@ -37,30 +37,43 @@ short cacheSize(const QSize &size)
     return 1024;
 }
 
+namespace
+{
+struct CachePool {
+    QLatin1String path;
+    int minSize;
+};
+const CachePool s_pools[] = {
+    {QLatin1String("normal/"), 128},
+    {QLatin1String("large/"), 256},
+    {QLatin1String("x-large/"), 512},
+    {QLatin1String("xx-large/"), 1024},
+};
+}
+
 QString tierDir(short cacheSize, qreal devicePixelRatio)
 {
-    struct CachePool {
-        QLatin1String path;
-        int minSize;
-    };
-    static const CachePool pools[] = {
-        {QLatin1String("normal/"), 128},
-        {QLatin1String("large/"), 256},
-        {QLatin1String("x-large/"), 512},
-        {QLatin1String("xx-large/"), 1024},
-    };
     const int wants = devicePixelRatio * cacheSize;
-    for (const auto &p : pools) {
-        if (p.minSize >= wants) {
-            return QString(p.path);
+    for (const auto &pool : s_pools) {
+        if (pool.minSize >= wants) {
+            return QString(pool.path);
         }
     }
     return QString();
 }
 
-QString filePath(const QByteArray &uri, const QString &thumbRoot, const QSize &size, qreal devicePixelRatio)
+QString tierDirOfSize(int pixels)
 {
-    const QString tier = tierDir(cacheSize(size), devicePixelRatio);
+    for (const auto &pool : s_pools) {
+        if (pool.minSize == pixels) {
+            return QString(pool.path);
+        }
+    }
+    return QString();
+}
+
+QString filePathInTier(const QByteArray &uri, const QString &thumbRoot, const QString &tier)
+{
     if (tier.isEmpty()) {
         return QString();
     }
@@ -69,6 +82,11 @@ QString filePath(const QByteArray &uri, const QString &thumbRoot, const QSize &s
     md5.addData(uri);
     const QString name = QString::fromLatin1(md5.result().toHex()) + QLatin1String(".png");
     return thumbRoot + tier + name;
+}
+
+QString filePath(const QByteArray &uri, const QString &thumbRoot, const QSize &size, qreal devicePixelRatio)
+{
+    return filePathInTier(uri, thumbRoot, tierDir(cacheSize(size), devicePixelRatio));
 }
 
 QImage load(const QString &path, qreal devicePixelRatio)
@@ -158,5 +176,48 @@ thumbnailFor(const QByteArray &uri, const QString &thumbRoot, const QSize &size,
 
     return scaledToFit(thumb, size);
 }
+
+QImage thumbnailForOrSmaller(const QByteArray &uri,
+                             const QString &thumbRoot,
+                             const QSize &size,
+                             qreal devicePixelRatio,
+                             qint64 sourceMTimeSecs,
+                             KIO::filesize_t sourceSize,
+                             bool *fromRequestedBucket)
+{
+    if (fromRequestedBucket) {
+        *fromRequestedBucket = false;
+    }
+
+    QImage thumb = thumbnailFor(uri, thumbRoot, size, devicePixelRatio, sourceMTimeSecs, sourceSize);
+    if (!thumb.isNull()) {
+        if (fromRequestedBucket) {
+            *fromRequestedBucket = true;
+        }
+        return thumb;
+    }
+
+    // Every directory below the one that was asked for, largest first. A thumbnail out of one of
+    // them is shown upscaled, which is worth more than a generic icon while the right size is made.
+    // The directory is named outright rather than derived from a size again, since the size a
+    // directory is named for does not lead back to that directory at every device pixel ratio.
+    const int wants = qRound(devicePixelRatio * std::max(size.width(), size.height()));
+    for (const short pixels : {512, 256, 128}) {
+        if (pixels >= wants) {
+            continue;
+        }
+        const QString path = filePathInTier(uri, thumbRoot, tierDirOfSize(pixels));
+        if (path.isEmpty()) {
+            continue;
+        }
+        thumb = load(path, devicePixelRatio);
+        if (matches(thumb, uri, sourceMTimeSecs, sourceSize, size, devicePixelRatio, false)) {
+            return scaledToFit(thumb, size);
+        }
+    }
+
+    return QImage();
+}
+
 }
 }

@@ -34,6 +34,13 @@ private Q_SLOTS:
     void testCachedPreviewFoundAtDevicePixelRatio();
     void testNoCacheBucketLeavesTheCacheAlone();
     void testAMissedCacheLookupKeepsItsPlaceInTheQueue();
+
+    void testCachedOnlyServesTheCacheAndMakesNothing();
+    void testCachedOnlyServesAnItemWhoseTypeIsNotDetermined();
+    void testCachedOnlySkipsATypeNoEnabledThumbnailerClaims();
+    void testCachedOnlyTakesASmallerBucketWhenTheOneAskedForIsEmpty();
+    void testCachedOnlyReachesTheSmallestBucketAtEveryRatio_data();
+    void testCachedOnlyReachesTheSmallestBucketAtEveryRatio();
 };
 
 #endif

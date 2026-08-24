@@ -163,6 +163,23 @@ public:
      */
     static QStringList supportedMimeTypes();
 
+    /*!
+     * Reads the thumbnails the items already have in the shared cache and makes none.
+     *
+     * generated() carries each thumbnail that is found, and an item with nothing cached for it is
+     * not reported at all. None of the work a generating job does is started: no directory is
+     * stat'ed and no thumbnailer is run, and the reading happens on a pool of threads, so the job
+     * answers in a fraction of the time. It is meant for showing a view what it can show at once,
+     * with an ordinary job asked for the rest afterwards.
+     *
+     * A thumbnail may come back smaller than the size that was asked for, when only a smaller
+     * bucket of the cache holds one. Comparing the size of the image with the size that was asked
+     * for tells the two apart: a smaller one is worth showing until the right one is made.
+     *
+     * \since 6.30
+     */
+    void setCachedThumbnailsOnly(bool cachedOnly);
+
 Q_SIGNALS:
     /*!
      * Emitted when a thumbnail picture for \a item has been successfully

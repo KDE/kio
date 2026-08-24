@@ -37,8 +37,14 @@ short cacheSize(const QSize &size);
  */
 QString tierDir(short cacheSize, qreal devicePixelRatio);
 
+/*! The directory that holds thumbnails of exactly \a pixels pixels, or empty when none does. */
+QString tierDirOfSize(int pixels);
+
 /*! Cache file path for the encoded \a uri, empty when no directory holds thumbnails of that size. */
 QString filePath(const QByteArray &uri, const QString &thumbRoot, const QSize &size, qreal devicePixelRatio);
+
+/*! Cache file path for the encoded \a uri in \a tier, empty when \a tier is. */
+QString filePathInTier(const QByteArray &uri, const QString &thumbRoot, const QString &tier);
 
 /*! Reads the thumbnail at \a path, tagging it with \a devicePixelRatio, or a null image. */
 QImage load(const QString &path, qreal devicePixelRatio);
@@ -68,6 +74,20 @@ bool isCurrent(const QImage &thumb, qint64 sourceMTimeSecs, KIO::filesize_t sour
  */
 QImage
 thumbnailFor(const QByteArray &uri, const QString &thumbRoot, const QSize &size, qreal devicePixelRatio, qint64 sourceMTimeSecs, KIO::filesize_t sourceSize);
+
+/*!
+ * The cached thumbnail for the file \a uri names, taking a smaller bucket of the cache when the
+ * one for \a size holds nothing, so that something can be shown while the size that is wanted is
+ * being made. \a fromRequestedBucket, when given, says which of the two happened.
+ */
+QImage thumbnailForOrSmaller(const QByteArray &uri,
+                             const QString &thumbRoot,
+                             const QSize &size,
+                             qreal devicePixelRatio,
+                             qint64 sourceMTimeSecs,
+                             KIO::filesize_t sourceSize,
+                             bool *fromRequestedBucket = nullptr);
+
 }
 }
 
