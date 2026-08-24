@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2024-07-25 15:33+0200\n"
+"PO-Revision-Date: 2026-08-23 20:39+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1091,7 +1091,7 @@ msgstr ""
 #: core/job_error.cpp:453
 #, kde-format
 msgid "Cannot Launch Process required by the %1 Protocol"
-msgstr "Impossibile lanciare il processo richiesto dal protocollo %1"
+msgstr "Impossibile avviare il processo richiesto dal protocollo %1"
 
 #: core/job_error.cpp:454
 #, kde-format
