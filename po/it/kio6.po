@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-22 00:41+0000\n"
-"PO-Revision-Date: 2026-08-18 15:31+0200\n"
+"PO-Revision-Date: 2026-08-23 20:39+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -982,7 +982,7 @@ msgstr ""
 #: core/job_error.cpp:460
 #, kde-format
 msgid "Cannot Launch Process required by the %1 Protocol"
-msgstr "Impossibile lanciare il processo richiesto dal protocollo %1"
+msgstr "Impossibile avviare il processo richiesto dal protocollo %1"
 
 #: core/job_error.cpp:461
 #, kde-format
@@ -4089,7 +4089,7 @@ msgstr "Il programma «%1» non può essere avviato."
 #: gui/systemd/systemdprocessrunner.cpp:200
 #, kde-format
 msgid "Failed to launch process (status code: %1)"
-msgstr ""
+msgstr "Impossibile avviare il processo (codice di stato: %1)"
 
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
