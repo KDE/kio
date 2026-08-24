@@ -378,6 +378,67 @@ static bool hasExecuteBit(const QString &fileName)
     return QFileInfo(fileName).isExecutable();
 }
 
+#ifndef Q_OS_WIN
+// Returns whether the kernel's binfmt_misc has an enabled registration that
+// will handle a PE/MS-DOS executable
+static bool binfmtMiscHandlesExe()
+{
+    namespace fs = std::filesystem;
+
+    std::error_code error;
+    const fs::directory_iterator dirIt(fs::path("/proc/sys/fs/binfmt_misc"), error);
+    if (error) {
+        return false;
+    }
+
+    for (const auto &entry : dirIt) {
+        std::error_code error;
+        if (!entry.is_regular_file(error)) {
+            continue;
+        }
+
+        const std::string name = entry.path().filename().string();
+        if (name == "register" || name == "status") {
+            continue; // skips control files
+        }
+
+        QFile entryFile(QString::fromStdString(entry.path().string()));
+        if (!entryFile.open(QIODevice::ReadOnly)) {
+            continue;
+        }
+
+        bool firstLine = true;
+
+        for (;;) {
+            const QByteArray rawLine = entryFile.readLine();
+            if (rawLine.isEmpty()) {
+                break;
+            }
+
+            const QByteArrayView line = QByteArrayView(rawLine).trimmed();
+
+            if (firstLine) {
+                firstLine = false;
+                if (line != "enabled") {
+                    break;
+                }
+                continue;
+            }
+
+            // PE/MS-DOS executables: "magic 4d5a"
+            if (line.startsWith("magic ")) {
+                const QByteArrayView magic = line.sliced(6).trimmed();
+                if (magic.compare("4d5a", Qt::CaseInsensitive) == 0) {
+                    return true;
+                }
+            }
+        }
+    }
+
+    return false;
+}
+#endif
+
 bool KIO::OpenUrlJob::isExecutableFile(const QUrl &url, const QString &mimetypeString)
 {
     if (!url.isLocalFile()) {
@@ -386,7 +447,15 @@ bool KIO::OpenUrlJob::isExecutableFile(const QUrl &url, const QString &mimetypeS
 
     QMimeDatabase db;
     QMimeType mimeType = db.mimeTypeForName(mimetypeString);
-    return (isBinary(mimeType) || isTextScript(mimeType)) && hasExecuteBit(url.toLocalFile());
+    if ((isBinary(mimeType) || isTextScript(mimeType)) && hasExecuteBit(url.toLocalFile())) {
+#ifndef Q_OS_WIN
+        if (mimeType.inherits(QStringLiteral("application/x-ms-dos-executable"))) {
+            return binfmtMiscHandlesExe();
+        }
+#endif
+        return true;
+    }
+    return false;    
 }
 
 // Handle native binaries (.e.g. /usr/bin/*); and .exe files
@@ -414,10 +483,9 @@ void KIO::OpenUrlJobPrivate::handleBinaries(const QMimeType &mimeType)
     bool isNativeBinary = true;
 #ifndef Q_OS_WIN
     if (mimeType.inherits(QStringLiteral("application/x-ms-dos-executable"))) {
-        // Treat as a native binary only if the executable bit is set, which implies 
-        // binfmt_misc or a similar kernel mechanism will handle it. Without the executable bit,
-        // fall back to association handling.
-        isNativeBinary = hasExecuteBit(localPath);
+        // Treat as a native binary only if the executable bit is set and the kernel's
+        // binfmt_misc will handle it. Otherwise, fall back to association handling.
+        isNativeBinary = hasExecuteBit(localPath) && binfmtMiscHandlesExe();
     }
 #endif
 
