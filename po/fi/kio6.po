@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-22 00:41+0000\n"
-"PO-Revision-Date: 2026-01-12 14:38+0200\n"
+"PO-Revision-Date: 2026-03-02 19:25+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -4198,10 +4198,9 @@ msgstr ""
 "omistajaa ja ryhmää ei voitu muuttaa"
 
 #: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
-#, fuzzy, kde-format
-#| msgid "Could Not Rename Temporary File"
+#, kde-format
 msgid "Could not open temporary file"
-msgstr "Väliaikaisen tiedoston nimeä ei voitu muuttaa"
+msgstr "Väliaikaistiedostoa ei voitu avata"
 
 #: kioworkers/file/file.cpp:841
 #, kde-format
@@ -5342,11 +5341,10 @@ msgid "&Open With…"
 msgstr "A&vaa ohjelmalla…"
 
 #: widgets/kfileitemactions.cpp:826
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
-msgstr "&Suorita"
+msgstr "&Suorita ohjelma"
 
 #: widgets/kfileitemactions.cpp:848
 #, kde-format
@@ -5404,7 +5402,8 @@ msgstr "Sisältö:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Open with:"
 msgid "Open with:"
 msgstr "Avaa ohjelmalla:"
 
@@ -5489,7 +5488,8 @@ msgstr "Avattu:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "File system:"
 msgid "File system:"
 msgstr "Tiedostojärjestelmä:"
 
@@ -6862,12 +6862,7 @@ msgid "Appl&y to All"
 msgstr "K&äytä kaikkiin"
 
 #: widgets/renamedialog.cpp:280
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "folder conflicts for the remainder of the current job.\n"
-#| "Unless you press Skip you will still be prompted in case of a conflict "
-#| "with an existing file in the directory."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
@@ -6876,14 +6871,11 @@ msgid ""
 msgstr ""
 "Kun tämä asetus on valittu, painettua painiketta sovelletaan kaikkiin "
 "kansioristiriitoihin nykyisen työn ajan.\n"
-"Ellet paina Ohita, sinulta kysytään yhä ristiriitatilanteessa, kun kansiossa "
-"on jo tiedosto olemassa."
+"Ellei paineta Ohita, ristiriitatilanteessa kysytään yhä, kun kansiossa on jo "
+"tiedosto olemassa."
 
 #: widgets/renamedialog.cpp:284
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "conflicts for the remainder of the current job."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
