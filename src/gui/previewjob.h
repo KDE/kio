@@ -16,7 +16,6 @@
 #include <kio/job.h>
 
 class QPixmap;
-class QImage;
 class KPluginMetaData;
 
 namespace KIO
@@ -163,33 +162,6 @@ public:
      * Returns the list of MIME types
      */
     static QStringList supportedMimeTypes();
-
-    /*!
-     * Synchronously returns the already-cached thumbnail for \a item at \a size and
-     * \a devicePixelRatio, or a null QImage if none is cached (it never generates one).
-     *
-     * This reads the on-disk freedesktop thumbnail on the calling thread, so it can be
-     * used to show cached thumbnails during the initial layout, before the asynchronous
-     * PreviewJob would deliver them. Only local files are served.
-     *
-     * The thumbnail may have been made from an older state of the file, which is worth
-     * showing at once and replacing when the job delivers a fresh one. Ask
-     * cachedPreviewMatchesFile() which of the two it is.
-     *
-     * \since 6.30
-     */
-    static QImage cachedPreview(const KFileItem &item, const QSize &size, qreal devicePixelRatio = 1.0);
-
-    /*!
-     * Returns whether \a preview, as returned by cachedPreview(), was made from \a item as it
-     * stands now, so that nothing more needs to be generated for it.
-     *
-     * \a item has to carry its modification time and size, as an item from a directory listing
-     * does, otherwise there is nothing to compare against and \c false is returned.
-     *
-     * \since 6.30
-     */
-    static bool cachedPreviewMatchesFile(const QImage &preview, const KFileItem &item);
 
 Q_SIGNALS:
     /*!

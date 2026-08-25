@@ -68,13 +68,6 @@ bool isCurrent(const QImage &thumb, qint64 sourceMTimeSecs, KIO::filesize_t sour
  */
 QImage
 thumbnailFor(const QByteArray &uri, const QString &thumbRoot, const QSize &size, qreal devicePixelRatio, qint64 sourceMTimeSecs, KIO::filesize_t sourceSize);
-
-/*!
- * The cached thumbnail for \a item, ready to be shown at \a size, whether or not it was made from
- * the file as it stands now, which isCurrent() tells. Only local files are served.
- */
-QImage thumbnailForItem(const KFileItem &item, const QSize &size, qreal devicePixelRatio);
-
 }
 }
 

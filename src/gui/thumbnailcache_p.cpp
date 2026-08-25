@@ -158,32 +158,5 @@ thumbnailFor(const QByteArray &uri, const QString &thumbRoot, const QSize &size,
 
     return scaledToFit(thumb, size);
 }
-
-QImage thumbnailForItem(const KFileItem &item, const QSize &size, qreal devicePixelRatio)
-{
-    if (item.isNull() || item.isDir()) {
-        return QImage();
-    }
-    const QUrl url = item.mostLocalUrl();
-    if (!url.isLocalFile()) {
-        // The synchronous cache lookup only serves local files.
-        return QImage();
-    }
-    const QByteArray uri = url.toEncoded(QUrl::RemovePassword | QUrl::FullyEncoded);
-    const QString path = filePath(uri, rootPath(), size, devicePixelRatio);
-    if (path.isEmpty()) {
-        return QImage();
-    }
-
-    // A thumbnail of an older state of the file is still worth showing at once on the first paint,
-    // so it is handed over as it is and isCurrent() says whether it is the final one.
-    const QImage thumb = load(path, devicePixelRatio);
-    if (thumb.isNull() || thumb.text(QStringLiteral("Thumb::URI")) != QString::fromUtf8(uri)) {
-        return QImage();
-    }
-
-    return scaledToFit(thumb, size);
-}
-
 }
 }
