@@ -22,6 +22,7 @@
 #include <KLocalizedString>
 #include <kfileitem.h>
 #include <kfileplacesmodel.h>
+#include <kpropertiesdialog.h>
 #include <kprotocolinfo.h>
 #include <kurifilter.h>
 #include <kurlcombobox.h>
@@ -618,6 +619,7 @@ void KUrlNavigatorPrivate::openContextMenu(const QPoint &p)
 
     popup->addSeparator();
 
+    QUrl url;
     // We are checking whether the signal is connected because it's odd to have a tab entry even
     // if it's not supported, like in the case of the open dialog
     const bool isTabSignal = q->isSignalConnected(QMetaMethod::fromSignal(&KUrlNavigator::tabRequested));
@@ -628,7 +630,7 @@ void KUrlNavigatorPrivate::openContextMenu(const QPoint &p)
         });
         if (it != m_navButtons.cend()) {
             const auto *button = *it;
-            const QUrl url = button->url();
+            url = button->url();
             const QString text = button->text();
 
             if (isTabSignal) {
@@ -670,6 +672,17 @@ void KUrlNavigatorPrivate::openContextMenu(const QPoint &p)
     QAction *showFullPathAction = popup->addAction(i18n("Show Full Path"));
     showFullPathAction->setCheckable(true);
     showFullPathAction->setChecked(q->showFullPath());
+
+    // Show the "Folder Properties" action only when the "Open in New Tab"
+    // or "Open in New Window" action is shown.
+    if ((isTabSignal || isWindowSignal) && !url.isEmpty()) {
+        popup->addSeparator();
+
+        QAction *propertiesAction = popup->addAction(QIcon::fromTheme(QStringLiteral("document-properties")), i18nc("@item:inmenu", "Folder Properties"));
+        q->connect(propertiesAction, &QAction::triggered, q, [this, url]() {
+            KPropertiesDialog::showDialog(url, q);
+        });
+    }
 
     // We need this property and its update below so that the line edit's
     // focus effect persists (like in KUrlComboBox) when a context menu is open
