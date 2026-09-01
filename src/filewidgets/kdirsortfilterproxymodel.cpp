@@ -244,11 +244,17 @@ bool KDirSortFilterProxyModel::subSortLessThan(const QModelIndex &left, const QM
     }
 
     case KDirModel::ModifiedTime: {
-        QDateTime leftModifiedTime = leftFileItem.time(KFileItem::ModificationTime).toLocalTime();
-        QDateTime rightModifiedTime = rightFileItem.time(KFileItem::ModificationTime).toLocalTime();
+        const auto leftModifiedTime = leftFileItem.entry().numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME);
+        const auto rightModifiedTime = rightFileItem.entry().numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME);
 
         if (leftModifiedTime == rightModifiedTime) {
-            return d->compare(leftFileItem.text(), rightFileItem.text(), sortCaseSensitivity()) < 0;
+            const auto leftModifiedTimeNs = leftFileItem.entry().numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET);
+            const auto rightModifiedTimeNs = rightFileItem.entry().numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET);
+
+            if (leftModifiedTimeNs == rightModifiedTimeNs) {
+                return d->compare(leftFileItem.text(), rightFileItem.text(), sortCaseSensitivity()) < 0;
+            }
+            return leftModifiedTimeNs < rightModifiedTimeNs;
         }
 
         return leftModifiedTime < rightModifiedTime;
