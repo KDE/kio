@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-22 00:41+0000\n"
-"PO-Revision-Date: 2026-07-29 11:47+0200\n"
+"PO-Revision-Date: 2026-08-31 17:19+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -3623,11 +3623,10 @@ msgid "Create link to URL"
 msgstr "Crea ligamine a URL"
 
 #: filewidgets/knewfilemenu.cpp:650
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
-msgstr "Crea nove"
+msgstr "Crea nove %1"
 
 #: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, kde-format
@@ -4060,7 +4059,7 @@ msgstr "Le programma \"%1\" non pote esser lanceate."
 #: gui/systemd/systemdprocessrunner.cpp:200
 #, kde-format
 msgid "Failed to launch process (status code: %1)"
-msgstr ""
+msgstr "Falleva a lancear processo (status code: %1)"
 
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
@@ -5462,7 +5461,7 @@ msgstr "Dimension:"
 #: widgets/kfilepropspluginwidget.ui:259
 #, kde-format
 msgid "Size on disk:"
-msgstr ""
+msgstr "Grandor sur disco:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:308
@@ -6092,22 +6091,19 @@ msgstr ""
 "accesso pro scriber sur <nl/><filename>%1</filename>,"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:159
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt ""
 "@label the size of a file or folder, first rounded and then to the byte"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:161
-#, fuzzy, kde-format
-#| msgid " byte"
-#| msgid_plural " bytes"
+#, kde-format
 msgctxt "@item the exact size of a file or folder"
 msgid "%1 byte"
 msgid_plural "%1 bytes"
-msgstr[0] " Byte"
-msgstr[1] " bytes"
+msgstr[0] "%1 byte"
+msgstr[1] "%1 bytes"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:263
 #, kde-format
@@ -6158,16 +6154,13 @@ msgid "Unknown size"
 msgstr "Grandor incognite"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:739
-#, fuzzy, kde-format
-#| msgid ""
-#| "Calculating... %1 (%2)\n"
-#| "%3, %4"
+#, kde-format
 msgid ""
 "Calculating... %1\n"
 "%2, %3"
 msgstr ""
-"Il calcula... %1 (%2)\n"
-"%3, %4"
+"Calculante... %1\n"
+"%2, %3"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:741
 #: widgets/kpropertiesdialogbuiltin_p.cpp:756
