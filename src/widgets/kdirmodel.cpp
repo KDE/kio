@@ -883,7 +883,8 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
                 return KIO::convertSize(item.size()); // size formatted as QString
             case ModifiedTime: {
                 static KFormat format;
-                const QDateTime dt = item.time(KFileItem::ModificationTime);
+                const auto time = item.entry().numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME);
+                const QDateTime dt = QDateTime::fromSecsSinceEpoch(time, QTimeZone(QTimeZone::UTC));
                 return format.formatRelativeDateTime(dt, QLocale::ShortFormat);
             }
             case Permissions:
