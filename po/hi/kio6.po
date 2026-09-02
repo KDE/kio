@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-22 00:41+0000\n"
+"POT-Creation-Date: 2026-09-02 00:40+0000\n"
 "PO-Revision-Date: 2024-12-15 19:32+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -2374,7 +2374,7 @@ msgstr "प्रोटोकॉल '%1' के लिए आइओ-स्ले
 msgid "&Details"
 msgstr "विवरण (&D) "
 
-#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:320
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
@@ -2385,7 +2385,7 @@ msgstr "सर्वदा (&F)"
 msgid "Co&ntinue"
 msgstr "जारी रहें (&n)"
 
-#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:217
+#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:321
 #: widgets/sslui.cpp:98
 #, fuzzy, kde-format
 #| msgid "&Current Sessions Only"
@@ -4239,17 +4239,17 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:333
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:199
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "इस साइट पर पहुँचने के लिए आपको उपयोक्ता नाम और पासवर्ड देना होगा."
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:335
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:201
 #, kde-format
 msgid "Site:"
 msgstr "साइटः"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2503
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2498
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4272,7 +4272,7 @@ msgid ""
 "The server said: \"%1\""
 msgstr "चालू किया जा रहा है %1"
 
-#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2493 kioworkers/http/http.cpp:223
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4281,12 +4281,12 @@ msgstr ""
 "इससे पहले कि आपको किसी साइट पर पहुँच की अनुमति दी जाए, नीचे सूची-बद्ध किए प्रॉक्सी "
 "सर्वर के लिए आपको उपयोक्ता नाम तथा पासवर्ड देना होगा."
 
-#: kioworkers/ftp/ftp.cpp:2502 kioworkers/http/http.cpp:387
+#: kioworkers/ftp/ftp.cpp:2497 kioworkers/http/http.cpp:227
 #, kde-format
 msgid "Proxy:"
 msgstr "प्रॉक्सीः"
 
-#: kioworkers/ftp/ftp.cpp:2505
+#: kioworkers/ftp/ftp.cpp:2500
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "प्रॉक्सी प्रमाणीकरण असफल."
@@ -4334,96 +4334,95 @@ msgstr ""
 msgid "Could not find filename %1 in %2."
 msgstr "फ़ाइल %1 को पढ़ नहीं सका."
 
-#: kioworkers/http/http.cpp:212 widgets/sslui.cpp:93
+#: kioworkers/http/http.cpp:176
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> पर <b>%2</b>"
+
+#: kioworkers/http/http.cpp:316 widgets/sslui.cpp:93
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "क्या आप इस प्रमाणपत्र को हमेशा के लिए स्वीकृत करना चाहेंगे बिना पूछे?"
 
-#: kioworkers/http/http.cpp:215 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: kioworkers/http/http.cpp:319 widgets/sslui.cpp:60 widgets/sslui.cpp:96
 #: widgets/widgetsaskuseractionhandler.cpp:515
 #, kde-format
 msgid "Server Authentication"
 msgstr "सर्वर प्रमाणीकरण"
 
-#: kioworkers/http/http.cpp:353 kioworkers/http/http.cpp:392
-#: kioworkers/http/http.cpp:406
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b> पर <b>%2</b>"
-
-#: kioworkers/http/http.cpp:1464
+#: kioworkers/http/http.cpp:1453
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "अन्यथा, निवेदन पूरा हो गया होता."
 
-#: kioworkers/http/http.cpp:1467
+#: kioworkers/http/http.cpp:1456
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "गुण मान निकालें"
 
-#: kioworkers/http/http.cpp:1469
+#: kioworkers/http/http.cpp:1458
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "गुण मान नियत करें. "
 
-#: kioworkers/http/http.cpp:1471
+#: kioworkers/http/http.cpp:1460
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "निवेदित फ़ोल्डर बनाएँ"
 
-#: kioworkers/http/http.cpp:1473
+#: kioworkers/http/http.cpp:1462
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "उल्लेखित फ़ाइल या फ़ोल्डर की नक़ल करें"
 
-#: kioworkers/http/http.cpp:1475
+#: kioworkers/http/http.cpp:1464
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "उल्लेखित फ़ाइल या फ़ोल्डर खिसकाएँ"
 
-#: kioworkers/http/http.cpp:1477
+#: kioworkers/http/http.cpp:1466
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "उल्लेखित फ़ोल्डर में ढूंढें"
 
-#: kioworkers/http/http.cpp:1479
+#: kioworkers/http/http.cpp:1468
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "उल्लेखित फ़ाइल या फ़ोल्डर को तालाबंद करें"
 
-#: kioworkers/http/http.cpp:1481
+#: kioworkers/http/http.cpp:1470
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "उल्लेखित फ़ाइल या फ़ोल्डर का ताला खोलें"
 
-#: kioworkers/http/http.cpp:1483
+#: kioworkers/http/http.cpp:1472
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "उल्लेखित फ़ाइल या फ़ोल्डर को मिटाएँ"
 
-#: kioworkers/http/http.cpp:1485
+#: kioworkers/http/http.cpp:1474
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "सर्वर केपेबिलिटी क्वेरी करें"
 
-#: kioworkers/http/http.cpp:1487
+#: kioworkers/http/http.cpp:1476
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "उल्लेखित फ़ाइल या फ़ोल्डर के विषयवस्तुओं को निकालें"
 
-#: kioworkers/http/http.cpp:1489
+#: kioworkers/http/http.cpp:1478
 #, fuzzy, kde-format
 #| msgctxt "request type"
 #| msgid "search in the specified folder"
@@ -4431,7 +4430,7 @@ msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "उल्लेखित फ़ोल्डर में ढूंढें"
 
-#: kioworkers/http/http.cpp:1497
+#: kioworkers/http/http.cpp:1486
 #, fuzzy, kde-format
 #| msgctxt "%1: response code, %2: request type"
 #| msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4439,7 +4438,7 @@ msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr " एक त्रुटि %1  हुई, %2 की कोशिश में"
 
-#: kioworkers/http/http.cpp:1537
+#: kioworkers/http/http.cpp:1526
 #, fuzzy, kde-format
 #| msgctxt "%1: request type, %2: url"
 #| msgid ""
@@ -4451,20 +4450,20 @@ msgid ""
 "below."
 msgstr " %1 की कोशिश में एक त्रुटि हुई, %2. कारणों का संक्षिप्त निम्न है.<ul>"
 
-#: kioworkers/http/http.cpp:1555 kioworkers/http/http.cpp:1699
+#: kioworkers/http/http.cpp:1544 kioworkers/http/http.cpp:1688
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 की कोशिश में पहुँच नकार दिया गया."
 
-#: kioworkers/http/http.cpp:1569 kioworkers/http/http.cpp:1706
+#: kioworkers/http/http.cpp:1558 kioworkers/http/http.cpp:1695
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1578
+#: kioworkers/http/http.cpp:1567
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4474,28 +4473,28 @@ msgid ""
 " %1"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1586
+#: kioworkers/http/http.cpp:1575
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "निवेदित तालाबंद दिया नहीं जा सकता. %1"
 
-#: kioworkers/http/http.cpp:1592
+#: kioworkers/http/http.cpp:1581
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "सर्वर निवेदित क़िस्म के बॉडी समर्थित नहीं करते."
 
-#: kioworkers/http/http.cpp:1597 kioworkers/http/http.cpp:1714
+#: kioworkers/http/http.cpp:1586 kioworkers/http/http.cpp:1703
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr " %1 पर अक्षम चूंकि रिसोर्स ताला बंद है."
 
-#: kioworkers/http/http.cpp:1601
+#: kioworkers/http/http.cpp:1590
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "अन्य त्रुटि के द्वारा यह क्रिया रोकी गई."
 
-#: kioworkers/http/http.cpp:1608 kioworkers/http/http.cpp:1721
+#: kioworkers/http/http.cpp:1597 kioworkers/http/http.cpp:1710
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4503,26 +4502,26 @@ msgid ""
 "folder."
 msgstr " %1 को असमर्थ चूंकि गंतव्य सर्वर ने फ़ाइल या फ़ोल्डर को स्वीकार करने से मना किया."
 
-#: kioworkers/http/http.cpp:1617 kioworkers/http/http.cpp:1730
+#: kioworkers/http/http.cpp:1606 kioworkers/http/http.cpp:1719
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1670
+#: kioworkers/http/http.cpp:1659
 #, fuzzy, kde-format
 #| msgid "The specified resource may not exist."
 msgid "The resource cannot be deleted."
 msgstr "उल्लेखित रिसोर्स अस्तित्व में नहीं है."
 
-#: kioworkers/http/http.cpp:1690
+#: kioworkers/http/http.cpp:1679
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "अपलोड %1"
 
-#: kioworkers/http/http.cpp:1741
+#: kioworkers/http/http.cpp:1730
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -5551,12 +5550,12 @@ msgstr "अज्ञात होस्ट"
 msgid "Known Applications"
 msgstr "ज्ञात अनुप्रयोग"
 
-#: widgets/kopenwithdialog.cpp:557
+#: widgets/kopenwithdialog.cpp:558
 #, kde-format
 msgid "Open With"
 msgstr "के साथ खोलें"
 
-#: widgets/kopenwithdialog.cpp:562
+#: widgets/kopenwithdialog.cpp:563
 #, kde-format
 msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
@@ -5565,17 +5564,17 @@ msgstr ""
 "<qt>प्रोग्राम चुनें जो <b>%1</b> को खोलने में उपयोग में लिया जाएगा. यदि प्रोग्राम सूचीबद्ध "
 "नहीं है, नाम भरें या ब्राउज़ बटन क्लिक करें.</qt>"
 
-#: widgets/kopenwithdialog.cpp:569
+#: widgets/kopenwithdialog.cpp:570
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
 msgstr "प्रोग्राम का नाम चुनें जिससे चुनी गई फ़ाइल को खोलना है."
 
-#: widgets/kopenwithdialog.cpp:590
+#: widgets/kopenwithdialog.cpp:591
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr ""
 
-#: widgets/kopenwithdialog.cpp:592
+#: widgets/kopenwithdialog.cpp:593
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
@@ -5583,17 +5582,17 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/kopenwithdialog.cpp:597 widgets/kopenwithdialog.cpp:628
+#: widgets/kopenwithdialog.cpp:598 widgets/kopenwithdialog.cpp:629
 #, kde-format
 msgid "Choose Application"
 msgstr "अनुप्रयोग चुनें"
 
-#: widgets/kopenwithdialog.cpp:612
+#: widgets/kopenwithdialog.cpp:613
 #, kde-format
 msgid "Choose Application for %1"
 msgstr " %1 के लिए अनुप्रयोग चुनें"
 
-#: widgets/kopenwithdialog.cpp:614
+#: widgets/kopenwithdialog.cpp:615
 #, kde-format
 msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
@@ -5602,7 +5601,7 @@ msgstr ""
 "<qt>फ़ाइल क़िस्म : <b>%1</b> के लिए प्रोग्राम चुनें. यदि प्रोग्राम सूचीबद्ध नहीं है, तो नाम "
 "भरें या ब्राउज़ बटन क्लिक करें.</qt>"
 
-#: widgets/kopenwithdialog.cpp:630
+#: widgets/kopenwithdialog.cpp:631
 #, kde-format
 msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
@@ -5611,14 +5610,14 @@ msgstr ""
 "<qt>प्रोग्राम चुनें. यदि प्रोग्राम सूचीबद्ध नहीं है, तो नाम भरें या ब्राउज़ बटन क्लिक करें.</"
 "qt> "
 
-#: widgets/kopenwithdialog.cpp:676
+#: widgets/kopenwithdialog.cpp:677
 #, kde-format
 msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
 "Press down arrow to navigate the results."
 msgstr ""
 
-#: widgets/kopenwithdialog.cpp:699
+#: widgets/kopenwithdialog.cpp:700
 #, kde-format
 msgid ""
 "Following the command, you can have several place holders which will be "
@@ -5635,7 +5634,7 @@ msgid ""
 "%c - the comment"
 msgstr ""
 
-#: widgets/kopenwithdialog.cpp:742
+#: widgets/kopenwithdialog.cpp:744
 #, fuzzy, kde-format
 #| msgid "&Remember application association for this type of file"
 msgid ""
@@ -5643,7 +5642,7 @@ msgid ""
 "\"%1\" (%2)"
 msgstr "इस क़िस्म की फ़ाइल के फ़ाइल असोसिएशन को स्मरण में रखें (&R)"
 
-#: widgets/kopenwithdialog.cpp:744
+#: widgets/kopenwithdialog.cpp:746
 #, fuzzy, kde-format
 #| msgid "&Remember application association for this type of file"
 msgid ""
@@ -5651,23 +5650,23 @@ msgid ""
 "\"%1\""
 msgstr "इस क़िस्म की फ़ाइल के फ़ाइल असोसिएशन को स्मरण में रखें (&R)"
 
-#: widgets/kopenwithdialog.cpp:754
+#: widgets/kopenwithdialog.cpp:756
 #, fuzzy, kde-format
 #| msgid "&Terminal options:"
 msgid "Terminal options"
 msgstr "टर्मिनल विकल्पः (&T)"
 
-#: widgets/kopenwithdialog.cpp:759
+#: widgets/kopenwithdialog.cpp:761
 #, kde-format
 msgid "Run in &terminal"
 msgstr "टर्मिनल में चलाएँ (&t)"
 
-#: widgets/kopenwithdialog.cpp:777
+#: widgets/kopenwithdialog.cpp:779
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "जब कमांड उपलब्ध हो तो बंद नहीं करें (&D)"
 
-#: widgets/kopenwithdialog.cpp:796
+#: widgets/kopenwithdialog.cpp:798
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr ""

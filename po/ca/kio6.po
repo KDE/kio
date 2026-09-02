@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-22 00:41+0000\n"
+"POT-Creation-Date: 2026-09-02 00:40+0000\n"
 "PO-Revision-Date: 2026-08-21 08:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -2497,7 +2497,7 @@ msgstr "No s'ha pogut trobar l'executable «kioworker» a «%1»"
 msgid "&Details"
 msgstr "&Detalls"
 
-#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:216
+#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:320
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
@@ -2508,7 +2508,7 @@ msgstr "Per &sempre"
 msgid "Co&ntinue"
 msgstr "Co&ntinua"
 
-#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:217
+#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:321
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -4303,18 +4303,18 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:333
+#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:199
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Heu de donar un nom d'usuari i una contrasenya per a accedir a aquest lloc."
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:335
+#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:201
 #, kde-format
 msgid "Site:"
 msgstr "Lloc:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2503
+#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2498
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4338,7 +4338,7 @@ msgstr ""
 "\n"
 "El servidor ha indicat: «%1»"
 
-#: kioworkers/ftp/ftp.cpp:2498 kioworkers/http/http.cpp:383
+#: kioworkers/ftp/ftp.cpp:2493 kioworkers/http/http.cpp:223
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4347,12 +4347,12 @@ msgstr ""
 "Heu de donar un nom d'usuari i una contrasenya per al servidor intermediari "
 "llistat a sota abans que se us permeti accedir a altres llocs."
 
-#: kioworkers/ftp/ftp.cpp:2502 kioworkers/http/http.cpp:387
+#: kioworkers/ftp/ftp.cpp:2497 kioworkers/http/http.cpp:227
 #, kde-format
 msgid "Proxy:"
 msgstr "Servidor intermediari:"
 
-#: kioworkers/ftp/ftp.cpp:2505
+#: kioworkers/ftp/ftp.cpp:2500
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Ha fallat en l'autenticació de l'intermediari."
@@ -4397,108 +4397,107 @@ msgstr "S'està cercant la secció"
 msgid "Could not find filename %1 in %2."
 msgstr "No s'ha pogut trobar el nom de fitxer %1 a %2."
 
-#: kioworkers/http/http.cpp:212 widgets/sslui.cpp:93
+#: kioworkers/http/http.cpp:176
+#, kde-format
+msgid "<b>%1</b> at <b>%2</b>"
+msgstr "<b>%1</b> a <b>%2</b>"
+
+#: kioworkers/http/http.cpp:316 widgets/sslui.cpp:93
 #, kde-format
 msgid ""
 "Would you like to accept this certificate forever without being prompted?"
 msgstr "Voleu acceptar aquest certificat per sempre sense que se us demani?"
 
-#: kioworkers/http/http.cpp:215 widgets/sslui.cpp:60 widgets/sslui.cpp:96
+#: kioworkers/http/http.cpp:319 widgets/sslui.cpp:60 widgets/sslui.cpp:96
 #: widgets/widgetsaskuseractionhandler.cpp:515
 #, kde-format
 msgid "Server Authentication"
 msgstr "Autenticació del servidor"
 
-#: kioworkers/http/http.cpp:353 kioworkers/http/http.cpp:392
-#: kioworkers/http/http.cpp:406
-#, kde-format
-msgid "<b>%1</b> at <b>%2</b>"
-msgstr "<b>%1</b> a <b>%2</b>"
-
-#: kioworkers/http/http.cpp:1464
+#: kioworkers/http/http.cpp:1453
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Altrament, la petició hauria tingut èxit."
 
-#: kioworkers/http/http.cpp:1467
+#: kioworkers/http/http.cpp:1456
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "recuperar els valors de les propietats"
 
-#: kioworkers/http/http.cpp:1469
+#: kioworkers/http/http.cpp:1458
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "establir els valors de les propietats"
 
-#: kioworkers/http/http.cpp:1471
+#: kioworkers/http/http.cpp:1460
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "crea la carpeta demanada"
 
-#: kioworkers/http/http.cpp:1473
+#: kioworkers/http/http.cpp:1462
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "copia la carpeta o el fitxer especificat"
 
-#: kioworkers/http/http.cpp:1475
+#: kioworkers/http/http.cpp:1464
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "mou la carpeta o el fitxer especificat"
 
-#: kioworkers/http/http.cpp:1477
+#: kioworkers/http/http.cpp:1466
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "cerca dins la carpeta especificada"
 
-#: kioworkers/http/http.cpp:1479
+#: kioworkers/http/http.cpp:1468
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "bloqueja la carpeta o el fitxer especificat"
 
-#: kioworkers/http/http.cpp:1481
+#: kioworkers/http/http.cpp:1470
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "desbloqueja la carpeta o el fitxer especificat"
 
-#: kioworkers/http/http.cpp:1483
+#: kioworkers/http/http.cpp:1472
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "suprimeix la carpeta o el fitxer especificat"
 
-#: kioworkers/http/http.cpp:1485
+#: kioworkers/http/http.cpp:1474
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "consultar les capacitats del servidor"
 
-#: kioworkers/http/http.cpp:1487
+#: kioworkers/http/http.cpp:1476
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "recupera el contingut de la carpeta o fitxer especificat"
 
-#: kioworkers/http/http.cpp:1489
+#: kioworkers/http/http.cpp:1478
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "executa un informe a la carpeta especificada"
 
-#: kioworkers/http/http.cpp:1497
+#: kioworkers/http/http.cpp:1486
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Hi ha hagut un error inesperat (%1) en intentar %2."
 
-#: kioworkers/http/http.cpp:1537
+#: kioworkers/http/http.cpp:1526
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4507,13 +4506,13 @@ msgid ""
 msgstr ""
 "Hi ha hagut un error en intentar %1, %2. A sota hi ha un resum dels motius."
 
-#: kioworkers/http/http.cpp:1555 kioworkers/http/http.cpp:1699
+#: kioworkers/http/http.cpp:1544 kioworkers/http/http.cpp:1688
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "S'ha denegat l'accés en intentar %1."
 
-#: kioworkers/http/http.cpp:1569 kioworkers/http/http.cpp:1706
+#: kioworkers/http/http.cpp:1558 kioworkers/http/http.cpp:1695
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4522,7 +4521,7 @@ msgstr ""
 "No es pot crear un recurs a la destinació fins que s'hagin creat una o més "
 "col·leccions intermèdies (carpetes)."
 
-#: kioworkers/http/http.cpp:1578
+#: kioworkers/http/http.cpp:1567
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4537,28 +4536,28 @@ msgstr ""
 "no se sobreescrivissin.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1586
+#: kioworkers/http/http.cpp:1575
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "No s'ha pogut atorgar el bloqueig sol·licitat. %1"
 
-#: kioworkers/http/http.cpp:1592
+#: kioworkers/http/http.cpp:1581
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "El servidor no accepta el tipus de petició del cos."
 
-#: kioworkers/http/http.cpp:1597 kioworkers/http/http.cpp:1714
+#: kioworkers/http/http.cpp:1586 kioworkers/http/http.cpp:1703
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "No s'ha pogut %1 perquè el recurs està bloquejat."
 
-#: kioworkers/http/http.cpp:1601
+#: kioworkers/http/http.cpp:1590
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Aquesta acció ha estat evitada per un altre error."
 
-#: kioworkers/http/http.cpp:1608 kioworkers/http/http.cpp:1721
+#: kioworkers/http/http.cpp:1597 kioworkers/http/http.cpp:1710
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4568,7 +4567,7 @@ msgstr ""
 "No s'ha pogut %1 perquè el servidor de destinació refusa acceptar el fitxer "
 "o la carpeta."
 
-#: kioworkers/http/http.cpp:1617 kioworkers/http/http.cpp:1730
+#: kioworkers/http/http.cpp:1606 kioworkers/http/http.cpp:1719
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4577,18 +4576,18 @@ msgstr ""
 "El recurs de destinació no té espai suficient per a gravar l'estat del "
 "recurs després de l'execució d'aquest mètode."
 
-#: kioworkers/http/http.cpp:1670
+#: kioworkers/http/http.cpp:1659
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "El recurs no s'ha pogut suprimir."
 
-#: kioworkers/http/http.cpp:1690
+#: kioworkers/http/http.cpp:1679
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "puja %1"
 
-#: kioworkers/http/http.cpp:1741
+#: kioworkers/http/http.cpp:1730
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -5556,12 +5555,12 @@ msgstr "Mida desconeguda"
 msgid "Known Applications"
 msgstr "Aplicacions conegudes"
 
-#: widgets/kopenwithdialog.cpp:557
+#: widgets/kopenwithdialog.cpp:558
 #, kde-format
 msgid "Open With"
 msgstr "Obre amb"
 
-#: widgets/kopenwithdialog.cpp:562
+#: widgets/kopenwithdialog.cpp:563
 #, kde-format
 msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
@@ -5570,18 +5569,18 @@ msgstr ""
 "<qt>Trieu el programa que s'ha d'usar per a obrir <b>%1</b>. Si el programa "
 "no està a la llista, introduïu el nom o cliqueu el botó «Navega».</qt>"
 
-#: widgets/kopenwithdialog.cpp:569
+#: widgets/kopenwithdialog.cpp:570
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
 msgstr "Trieu el nom del programa que obrirà els fitxers seleccionats."
 
-#: widgets/kopenwithdialog.cpp:590
+#: widgets/kopenwithdialog.cpp:591
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr ""
 "<qt>Seleccioneu el programa que voleu usar per a obrir el fitxer<br/>%1</qt>"
 
-#: widgets/kopenwithdialog.cpp:592
+#: widgets/kopenwithdialog.cpp:593
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
@@ -5591,17 +5590,17 @@ msgstr[0] ""
 msgstr[1] ""
 "<qt>Seleccioneu el programa que voleu usar per a obrir els %1 fitxers.</qt>"
 
-#: widgets/kopenwithdialog.cpp:597 widgets/kopenwithdialog.cpp:628
+#: widgets/kopenwithdialog.cpp:598 widgets/kopenwithdialog.cpp:629
 #, kde-format
 msgid "Choose Application"
 msgstr "Tria l'aplicació"
 
-#: widgets/kopenwithdialog.cpp:612
+#: widgets/kopenwithdialog.cpp:613
 #, kde-format
 msgid "Choose Application for %1"
 msgstr "Tria l'aplicació per a %1"
 
-#: widgets/kopenwithdialog.cpp:614
+#: widgets/kopenwithdialog.cpp:615
 #, kde-format
 msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
@@ -5611,7 +5610,7 @@ msgstr ""
 "el programa no està a la llista, introduïu el nom o cliqueu el botó «Navega»."
 "</qt>"
 
-#: widgets/kopenwithdialog.cpp:630
+#: widgets/kopenwithdialog.cpp:631
 #, kde-format
 msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
@@ -5620,7 +5619,7 @@ msgstr ""
 "<qt>Trieu un programa. Si el programa no està a la llista, introduïu el nom "
 "o cliqueu el botó «Navega».</qt>"
 
-#: widgets/kopenwithdialog.cpp:676
+#: widgets/kopenwithdialog.cpp:677
 #, kde-format
 msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
@@ -5630,7 +5629,7 @@ msgstr ""
 "ordre.\n"
 "Premeu la tecla avall per a navegar pels resultats."
 
-#: widgets/kopenwithdialog.cpp:699
+#: widgets/kopenwithdialog.cpp:700
 #, kde-format
 msgid ""
 "Following the command, you can have several place holders which will be "
@@ -5659,7 +5658,7 @@ msgstr ""
 "%m - la mini icona\n"
 "%c - el comentari"
 
-#: widgets/kopenwithdialog.cpp:742
+#: widgets/kopenwithdialog.cpp:744
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5668,7 +5667,7 @@ msgstr ""
 "&Recorda l'associació de l'aplicació per a tots els fitxers del tipus\n"
 "«%1» (%2)"
 
-#: widgets/kopenwithdialog.cpp:744
+#: widgets/kopenwithdialog.cpp:746
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5677,22 +5676,22 @@ msgstr ""
 "&Recorda l'associació de l'aplicació per a tots els fitxers del tipus\n"
 "«%1»"
 
-#: widgets/kopenwithdialog.cpp:754
+#: widgets/kopenwithdialog.cpp:756
 #, kde-format
 msgid "Terminal options"
 msgstr "Opcions del terminal"
 
-#: widgets/kopenwithdialog.cpp:759
+#: widgets/kopenwithdialog.cpp:761
 #, kde-format
 msgid "Run in &terminal"
 msgstr "Executa en un &terminal"
 
-#: widgets/kopenwithdialog.cpp:777
+#: widgets/kopenwithdialog.cpp:779
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "&No ho tanquis quan finalitzi l'ordre"
 
-#: widgets/kopenwithdialog.cpp:796
+#: widgets/kopenwithdialog.cpp:798
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr "Obtén més aplicacions del Discover"
