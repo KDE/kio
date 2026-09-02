@@ -43,8 +43,6 @@ target_link_libraries(kio_help
    LibXslt::LibExslt
 )
 
-install(TARGETS kio_help  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/kio)
-
 
 ########### next target ###############
 kcoreaddons_add_plugin(kio_ghelp INSTALL_NAMESPACE "kf6/kio")
