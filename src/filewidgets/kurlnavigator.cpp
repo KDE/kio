@@ -1449,6 +1449,7 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
     option.initFrom(this);
     option.lineWidth = style()->pixelMetric(QStyle::PM_DefaultFrameWidth, &option, this);
     option.midLineWidth = 0;
+    option.frameShape = QFrame::StyledPanel;
 
     if (d->m_backgroundEnabled && !d->m_editable) {
         option.palette.setColor(QPalette::Base, palette().alternateBase().color());
