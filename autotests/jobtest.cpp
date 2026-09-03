@@ -3200,8 +3200,10 @@ void JobTest::copyDirectoryAlreadyExistsSkip()
 
     QCOMPARE(job->totalAmount(KJob::Files), 2); // testfile, testlink
     QCOMPARE(job->totalAmount(KJob::Directories), 1);
+    // Nothing was copied, so nothing counts as processed, the directory no more than the files
+    // inside it. The job is still done with all of it, which is what the percentage is for.
     QCOMPARE(job->processedAmount(KJob::Files), 0);
-    QCOMPARE(job->processedAmount(KJob::Directories), 1);
+    QCOMPARE(job->processedAmount(KJob::Directories), 0);
     QCOMPARE(job->percent(), 100);
 }
 
