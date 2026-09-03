@@ -402,6 +402,7 @@ public:
     void sourceStated(const UDSEntry &entry, const QUrl &sourceUrl);
     // Removes a dir from the "dirsToRemove" list
     void skip(const QUrl &sourceURL, bool isDir);
+    qulonglong sourcesNotReached() const;
 
     void slotResultRenaming(KJob *job);
     void directRenamingFailed(const QUrl &dest);
@@ -777,7 +778,7 @@ void CopyJobPrivate::slotReport()
 
     // If showProgressInfo was set, progressId() is > 0.
     switch (state) {
-    case STATE_RENAMING:
+    case STATE_RENAMING: {
         if (m_bURLDirty) {
             m_bURLDirty = false;
             Q_ASSERT(m_mode == CopyJob::Move);
@@ -786,9 +787,14 @@ void CopyJobPrivate::slotReport()
         }
         // "N" files renamed shouldn't include skipped files
         q->setProcessedAmount(KJob::Files, m_processedFiles);
+        // Every file this job will handle: the ones it is done with, the ones a listing queued, and
+        // one for each source it has not reached, since a move which renames them all lists nothing.
+        const qulonglong handledFiles = m_processedFiles + m_skippedFiles;
+        q->setTotalAmount(KJob::Files, handledFiles + filesToCopy.count() + sourcesNotReached());
         // % value should include skipped files, unlike the count above
-        q->emitPercent(m_processedFiles + m_skippedFiles, q->totalAmount(KJob::Files));
+        q->emitPercent(handledFiles, q->totalAmount(KJob::Files));
         break;
+    }
 
     case STATE_COPYING_FILES: {
         const bool bytesTotalUnknown = (m_totalSize == 0);
@@ -1192,6 +1198,12 @@ void CopyJobPrivate::startListing(const QUrl &src)
         slotSubError(job, subJob);
     });
     q->addSubjob(newjob);
+}
+
+// A source is at least one file, which is all a move that renames them knows before it lists.
+qulonglong CopyJobPrivate::sourcesNotReached() const
+{
+    return m_srcList.constEnd() - m_currentStatSrc;
 }
 
 void CopyJobPrivate::skip(const QUrl &sourceUrl, bool isDir)
