@@ -795,6 +795,10 @@ void CopyJobPrivate::slotReport()
         // sources are still to come. Replacing it there reports 100% for the whole move.
         const qulonglong handledFiles = m_processedFiles + m_skippedFiles;
         q->setTotalAmount(KJob::Files, std::max<qulonglong>(q->totalAmount(KJob::Files), handledFiles + filesToCopy.count()));
+        // The listing works the byte total out, but only the listing branch below publishes it, and
+        // a move whose last source is renamed or skipped ends its stating phase here instead. The
+        // copying which follows then measures itself in bytes against a total of zero.
+        q->setTotalAmount(KJob::Bytes, m_totalSize);
         // % value should include skipped files, unlike the count above
         q->emitPercent(handledFiles, q->totalAmount(KJob::Files));
         break;
