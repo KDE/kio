@@ -118,6 +118,7 @@ private Q_SLOTS:
     void calculateRemainingSeconds();
     void moveFileDestAlreadyExists_data();
     void moveFileDestAlreadyExists();
+    void movePercentStaysInRange();
     void copyFileDestAlreadyExists_data();
     void copyFileDestAlreadyExists();
     void moveDestAlreadyExistsAutoRename_data();

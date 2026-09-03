@@ -50,6 +50,8 @@
 #include <QTimeZone>
 #include <QTimer>
 
+#include <algorithm>
+
 #include <sys/stat.h> // mode_t
 
 #include "job_p.h"
@@ -775,6 +777,10 @@ void CopyJobPrivate::slotReport()
         }
         // "N" files renamed shouldn't include skipped files
         q->setProcessedAmount(KJob::Files, m_processedFiles);
+        // The files this job renamed or skipped, plus the ones a listing queued for copying. Only
+        // ever raised: a source which is renamed after another one was listed must not drop the
+        // total back to the number of sources.
+        q->setTotalAmount(KJob::Files, std::max<qulonglong>(q->totalAmount(KJob::Files), m_filesHandledByDirectRename + filesToCopy.count()));
         // % value should include skipped files
         q->emitPercent(m_filesHandledByDirectRename, q->totalAmount(KJob::Files));
         break;

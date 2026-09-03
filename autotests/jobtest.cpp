@@ -2693,6 +2693,55 @@ void JobTest::moveFileDestAlreadyExists() // #157601
     QCOMPARE(job->percent(), 100);
 }
 
+void JobTest::movePercentStaysInRange()
+{
+    // A move within one filesystem renames each file instead of copying its bytes, so the job
+    // reports progress in files. The first source here has to be listed, because a directory of
+    // that name is already at the destination, and the listing is what works out the file total.
+    // Reaching the second source then reset that total to the number of sources, so the percentage
+    // came out as the files moved divided by two. A Dolphin move of 80256 files reported 4012800%.
+    const int fileCount = 20;
+
+    const QString srcDir = homeTmpDir() + "percentSrcDir";
+    QVERIFY(QDir().mkpath(srcDir));
+    for (int i = 0; i < fileCount; ++i) {
+        createTestFile(srcDir + QStringLiteral("/file%1").arg(i));
+    }
+
+    const QString srcFile = homeTmpDir() + "percentSrcFile";
+    createTestFile(srcFile);
+
+    const QString destDir = homeTmpDir() + "percentDest";
+    QVERIFY(QDir().mkpath(destDir + "/percentSrcDir"));
+
+    ScopedCleaner cleaner([&] {
+        QVERIFY(QDir(destDir).removeRecursively());
+        QDir(srcDir).removeRecursively();
+        QFile::remove(srcFile);
+    });
+
+    const QList<QUrl> urls{QUrl::fromLocalFile(srcDir), QUrl::fromLocalFile(srcFile)};
+    KIO::CopyJob *job = KIO::move(urls, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo | KIO::Overwrite);
+    job->setUiDelegate(nullptr);
+
+    unsigned long highestPercent = 0;
+    connect(job, &KJob::percentChanged, this, [&highestPercent](KJob *, unsigned long percent) {
+        highestPercent = qMax(highestPercent, percent);
+    });
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QCOMPARE(highestPercent, 100);
+    QCOMPARE(job->percent(), 100);
+    // The directory's files and the lone file, so the total counts the same files as the job moved.
+    QCOMPARE(job->totalAmount(KJob::Files), fileCount + 1);
+    QVERIFY(job->totalAmount(KJob::Files) >= job->processedAmount(KJob::Files));
+
+    QVERIFY(!QFile::exists(srcFile));
+    QVERIFY(QFile::exists(destDir + "/percentSrcFile"));
+    QVERIFY(QFile::exists(destDir + "/percentSrcDir/file0"));
+}
+
 void JobTest::copyFileDestAlreadyExists_data()
 {
     QTest::addColumn<bool>("autoSkip");
