@@ -247,7 +247,6 @@ public:
         , m_totalSize(0)
         , m_processedSize(0)
         , m_fileProcessedSize(0)
-        , m_filesHandledByDirectRename(0)
         , m_processedFiles(0)
         , m_processedDirs(0)
         , m_srcList(src)
@@ -296,7 +295,8 @@ public:
     KIO::filesize_t m_totalSize;
     KIO::filesize_t m_processedSize;
     KIO::filesize_t m_fileProcessedSize;
-    int m_filesHandledByDirectRename;
+    // Sources the user chose not to move. Done, as far as the percentage goes, but not moved.
+    int m_skippedFiles = 0;
     int m_processedFiles;
     int m_processedDirs;
     // What the listing found and the copying has not got through yet, not what the job was given.
@@ -774,14 +774,14 @@ void CopyJobPrivate::slotReport()
         }
         // "N" files renamed shouldn't include skipped files
         q->setProcessedAmount(KJob::Files, m_processedFiles);
-        // % value should include skipped files
-        q->emitPercent(m_filesHandledByDirectRename, q->totalAmount(KJob::Files));
+        // % value should include skipped files, unlike the count above
+        q->emitPercent(m_processedFiles + m_skippedFiles, q->totalAmount(KJob::Files));
         break;
 
     case STATE_COPYING_FILES: {
         const bool bytesTotalUnknown = (m_totalSize == 0);
         const bool noByteProgress = ((m_processedSize + m_fileProcessedSize) == 0);
-        const int totalFiles = m_processedFiles + filesToCopy.count() + m_filesHandledByDirectRename;
+        const int totalFiles = m_processedFiles + m_skippedFiles + filesToCopy.count();
         if ((bytesTotalUnknown || noByteProgress) && totalFiles > 0) {
             q->setProgressUnit(KJob::Files);
         } else {
@@ -827,7 +827,7 @@ void CopyJobPrivate::slotReport()
         }
         q->setProgressUnit(KJob::Bytes);
         q->setTotalAmount(KJob::Bytes, m_totalSize);
-        q->setTotalAmount(KJob::Files, filesToCopy.count() + m_filesHandledByDirectRename);
+        q->setTotalAmount(KJob::Files, m_processedFiles + m_skippedFiles + filesToCopy.count());
         q->setTotalAmount(KJob::Directories, dirsToCopy.count());
         break;
 
@@ -2397,7 +2397,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
             bool isDir = (err == ERR_DIR_ALREADY_EXIST); // ## technically, isDir means "source is dir", not "dest is dir" #######
             if ((isDir && m_bAutoSkipDirs) || (!isDir && m_bAutoSkipFiles)) {
                 // Move on to next source url
-                ++m_filesHandledByDirectRename;
+                ++m_skippedFiles;
                 skipSrc(isDir);
                 return;
             } else if ((isDir && m_bOverwriteAllDirs) || (!isDir && m_bOverwriteAllFiles)) {
@@ -2525,7 +2525,6 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
     // No error
     qCDebug(KIO_COPYJOB_DEBUG) << "Renaming succeeded, move on";
     ++m_processedFiles;
-    ++m_filesHandledByDirectRename;
     // Emit copyingDone for FileUndoManager to remember what we did.
     // Use resolved URL m_currentSrcURL since that's what we just used for renaming. See bug 391606 and kio_desktop's testTrashAndUndo().
     const bool srcIsDir = false; // # TODO: we just don't know, since we never stat'ed it
@@ -2594,7 +2593,7 @@ void CopyJobPrivate::processDirectRenamingConflictResult(RenameDialog_Result res
         Q_FALLTHROUGH();
     case Result_Skip:
         // Move on to next url
-        ++m_filesHandledByDirectRename;
+        ++m_skippedFiles;
         skipSrc(srcIsDir);
         return;
     case Result_OverwriteAll:
