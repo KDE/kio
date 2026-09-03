@@ -14,10 +14,16 @@
 #include <QStringList>
 #include <QUrl>
 
+#include <chrono>
+
 #include "job_base.h"
 #include "kiocore_export.h"
 
 class QDateTime;
+
+#ifdef BUILD_TESTING
+class JobTest;
+#endif
 
 namespace KIO
 {
@@ -246,6 +252,16 @@ protected:
 
 private:
     Q_DECLARE_PRIVATE(CopyJob)
+
+#ifdef BUILD_TESTING
+    /*!
+     * How long a running job waits between reports of what it has got through, 200ms by default.
+     * A test which wants to see a job report more than once cannot afford to wait that long, and
+     * cannot make the job slower either, so it shortens the wait instead.
+     */
+    static void setReportTimeout(std::chrono::milliseconds timeout);
+    friend class ::JobTest;
+#endif
 };
 
 /*!

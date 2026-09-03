@@ -68,7 +68,12 @@ Q_LOGGING_CATEGORY(KIO_COPYJOB_DEBUG, "kf.kio.core.copyjob", QtWarningMsg)
 using namespace KIO;
 
 // this will update the report dialog with 5 Hz, I think this is fast enough, aleXXX
-static constexpr int s_reportTimeout = 200;
+static constexpr std::chrono::milliseconds s_defaultReportTimeout = std::chrono::milliseconds(200);
+#ifdef BUILD_TESTING
+static std::chrono::milliseconds s_reportTimeout = s_defaultReportTimeout;
+#else
+static constexpr std::chrono::milliseconds s_reportTimeout = s_defaultReportTimeout;
+#endif
 
 #if !defined(NAME_MAX)
 #if defined(_MAX_FNAME)
@@ -734,6 +739,13 @@ void CopyJobPrivate::sourceStated(const UDSEntry &entry, const QUrl &sourceUrl)
         statNextSrc();
     }
 }
+
+#ifdef BUILD_TESTING
+void CopyJob::setReportTimeout(std::chrono::milliseconds timeout)
+{
+    s_reportTimeout = timeout;
+}
+#endif
 
 bool CopyJob::doSuspend()
 {
