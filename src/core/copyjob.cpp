@@ -1452,9 +1452,8 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
         case Result_Skip:
             m_skipList.append(Utils::slashAppended(existingDest));
             skip((*it).uSource, true);
-            // Move on to next dir
+            // Move on to next dir. Not one this job processed, as with a file it did not move.
             dirsToCopy.erase(it);
-            ++m_processedDirs;
             break;
         case Result_Overwrite:
             m_overwriteList.insert(existingDest);
@@ -1601,7 +1600,6 @@ void CopyJobPrivate::processCreateNextDir(const QList<CopyInfo>::Iterator &it, i
         m_skipList.append(Utils::slashAppended(it->uDest.path()));
         skip(it->uSource, true);
         dirsToCopy.erase(it); // Move on to next dir
-        ++m_processedDirs;
         createNextDir();
         return;
     default:
