@@ -779,7 +779,7 @@ void CopyJobPrivate::slotReport()
 
     // If showProgressInfo was set, progressId() is > 0.
     switch (state) {
-    case STATE_RENAMING:
+    case STATE_RENAMING: {
         if (m_bURLDirty) {
             m_bURLDirty = false;
             Q_ASSERT(m_mode == CopyJob::Move);
@@ -788,9 +788,17 @@ void CopyJobPrivate::slotReport()
         }
         // "N" files renamed shouldn't include skipped files
         q->setProcessedAmount(KJob::Files, m_processedFiles);
+        // What this job is done with and what it still has to get through. Take the larger of that
+        // and what is already known rather than replacing it: a move which renames every source
+        // lists nothing, so filesToCopy stays empty and this sum is just the count above, and the
+        // one file per source startRenameJob assumes is then the only thing which knows how many
+        // sources are still to come. Replacing it there reports 100% for the whole move.
+        const qulonglong handledFiles = m_processedFiles + m_skippedFiles;
+        q->setTotalAmount(KJob::Files, std::max<qulonglong>(q->totalAmount(KJob::Files), handledFiles + filesToCopy.count()));
         // % value should include skipped files, unlike the count above
-        q->emitPercent(m_processedFiles + m_skippedFiles, q->totalAmount(KJob::Files));
+        q->emitPercent(handledFiles, q->totalAmount(KJob::Files));
         break;
+    }
 
     case STATE_COPYING_FILES: {
         const bool bytesTotalUnknown = (m_totalSize == 0);
