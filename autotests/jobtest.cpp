@@ -2844,6 +2844,98 @@ void JobTest::moveRenameOnlyPercentClimbs()
     QVERIFY2(reported.first() < 100, qPrintable(QStringLiteral("first report was already %1%").arg(reported.first())));
 }
 
+void JobTest::moveFileSkippedWhileCopying()
+{
+    // A file can be skipped after the listing has already queued it, which takes it out of the work
+    // left without the job having moved it. The job counts it as one it is done with, the same as a
+    // source skipped before any listing, or the percentage stops short of the end.
+    // The files are empty on purpose: with no bytes to move the job measures itself in files, which
+    // is the count this is about.
+    const QString srcDir = homeTmpDir() + "skipCopySrc";
+    const QString destDir = homeTmpDir() + "skipCopyDest";
+    QVERIFY(QDir().mkpath(srcDir));
+    QVERIFY(QDir().mkpath(destDir + "/skipCopySrc"));
+    for (const QString &name : {QStringLiteral("file0"), QStringLiteral("file1"), QStringLiteral("file2")}) {
+        QFile f(srcDir + QLatin1Char('/') + name);
+        QVERIFY(f.open(QIODevice::WriteOnly));
+    }
+    // Only this one is already at the destination, so only this one is asked about.
+    QFile clash(destDir + "/skipCopySrc/file0");
+    QVERIFY(clash.open(QIODevice::WriteOnly));
+    clash.close();
+
+    ScopedCleaner cleaner([&] {
+        QDir(srcDir).removeRecursively();
+        QDir(destDir).removeRecursively();
+    });
+
+    KIO::CopyJob *job = KIO::move({QUrl::fromLocalFile(srcDir)}, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    job->setUiDelegate(new KJobUiDelegate);
+    auto *askUserHandler = new MockAskUserInterface(job->uiDelegate());
+    // The directory is merged, then the one file already there is skipped.
+    askUserHandler->m_renameResults = {KIO::Result_Overwrite, KIO::Result_Skip};
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QCOMPARE(askUserHandler->m_askUserRenameCalled, 2);
+
+    QVERIFY(QFile::exists(srcDir + "/file0")); // it was skipped
+    QVERIFY(!QFile::exists(srcDir + "/file1")); // it was moved
+    QVERIFY(!QFile::exists(srcDir + "/file2")); // it was moved
+
+    // Three files were dealt with, two of them by moving them.
+    QCOMPARE(job->totalAmount(KJob::Files), 3);
+    QCOMPARE(job->processedAmount(KJob::Files), 2);
+    // No bytes were moved and none were claimed to be, the skipped one included.
+    QCOMPARE(job->totalAmount(KJob::Bytes), 0);
+    QCOMPARE(job->processedAmount(KJob::Bytes), 0);
+    QCOMPARE(job->percent(), 100);
+}
+
+void JobTest::copyFileAutoSkippedWhileCopying()
+{
+    // The same as moveFileSkippedWhileCopying, but for the path a job takes when it was told to
+    // skip anything in the way rather than asked about each one.
+    const QString srcDir = homeTmpDir() + "autoSkipSrcDir";
+    const QString srcFile = homeTmpDir() + "autoSkipSrcFile";
+    const QString destDir = homeTmpDir() + "autoSkipDest";
+    QVERIFY(QDir().mkpath(srcDir));
+    QVERIFY(QDir().mkpath(destDir));
+    for (const QString &name : {QStringLiteral("file1"), QStringLiteral("file2")}) {
+        QFile f(srcDir + QLatin1Char('/') + name);
+        QVERIFY(f.open(QIODevice::WriteOnly));
+    }
+    const QStringList emptyFiles{srcFile, destDir + QStringLiteral("/autoSkipSrcFile")};
+    for (const QString &path : emptyFiles) {
+        QFile f(path);
+        QVERIFY(f.open(QIODevice::WriteOnly));
+    }
+
+    ScopedCleaner cleaner([&] {
+        QDir(srcDir).removeRecursively();
+        QDir(destDir).removeRecursively();
+        QFile::remove(srcFile);
+    });
+
+    // The directory is not in the way, only the one file is, and that one is skipped.
+    const QList<QUrl> urls{QUrl::fromLocalFile(srcDir), QUrl::fromLocalFile(srcFile)};
+    KIO::CopyJob *job = KIO::copy(urls, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    job->setAutoSkip(true);
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QVERIFY(QFile::exists(destDir + "/autoSkipSrcDir/file1"));
+    QVERIFY(QFile::exists(destDir + "/autoSkipSrcDir/file2"));
+
+    // The two out of the directory and the one which was skipped.
+    QCOMPARE(job->totalAmount(KJob::Files), 3);
+    QCOMPARE(job->processedAmount(KJob::Files), 2);
+    // No bytes were moved and none were claimed to be, the skipped one included.
+    QCOMPARE(job->totalAmount(KJob::Bytes), 0);
+    QCOMPARE(job->processedAmount(KJob::Bytes), 0);
+    QCOMPARE(job->percent(), 100);
+}
+
 void JobTest::copyFileDestAlreadyExists_data()
 {
     QTest::addColumn<bool>("autoSkip");
@@ -3072,7 +3164,7 @@ void JobTest::copyDirectoryAlreadyExistsSkip()
     QCOMPARE(job->totalAmount(KJob::Directories), 1);
     QCOMPARE(job->processedAmount(KJob::Files), 0);
     QCOMPARE(job->processedAmount(KJob::Directories), 1);
-    QCOMPARE(job->percent(), 0);
+    QCOMPARE(job->percent(), 100);
 }
 
 void JobTest::copyFileAlreadyExistsRename()
