@@ -404,6 +404,7 @@ public:
     void sourceStated(const UDSEntry &entry, const QUrl &sourceUrl);
     // Removes a dir from the "dirsToRemove" list
     void skip(const QUrl &sourceURL, bool isDir);
+    void dropFromByteTotal(KIO::filesize_t size);
 
     void slotResultRenaming(KJob *job);
     void directRenamingFailed(const QUrl &dest);
@@ -1212,6 +1213,17 @@ void CopyJobPrivate::startListing(const QUrl &src)
     q->addSubjob(newjob);
 }
 
+// A file nobody is going to move is not work this job has to do, so it comes off the total rather
+// than being counted as moved. Counting it would say those bytes went by in no time, and the speed
+// and the time left both come from how fast the processed amount grows: the notification takes a
+// reading every time it changes, so a skipped directory would draw a spike which never happened.
+void CopyJobPrivate::dropFromByteTotal(KIO::filesize_t size)
+{
+    Q_Q(CopyJob);
+    m_totalSize = m_totalSize > size ? m_totalSize - size : 0;
+    q->setTotalAmount(KJob::Bytes, m_totalSize);
+}
+
 void CopyJobPrivate::skip(const QUrl &sourceUrl, bool isDir)
 {
     QUrl dir(sourceUrl);
@@ -1623,8 +1635,9 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
         // Should we skip automatically ?
         if (m_bAutoSkipFiles) {
             skip((*it).uSource, false);
-            m_fileProcessedSize = (*it).size;
             ++m_skippedFiles;
+            dropFromByteTotal((*it).size);
+            m_fileProcessedSize = 0;
             filesToCopy.erase(it); // Move on to next file
         } else {
             m_conflictError = job->error(); // save for later
@@ -1896,10 +1909,8 @@ void CopyJobPrivate::processFileRenameDialogResult(const QList<CopyInfo>::Iterat
     case Result_Skip:
         // Move on to next file
         skip((*it).uSource, false);
-        // The bytes of a file nobody is going to move count as done, so that the byte total is
-        // still reached. The file itself counts the same way.
-        m_processedSize += (*it).size;
         ++m_skippedFiles;
+        dropFromByteTotal((*it).size);
         filesToCopy.erase(it);
         break;
     case Result_OverwriteAll:
@@ -2066,6 +2077,7 @@ void CopyJobPrivate::copyNextFile()
             // Under a directory the user skipped, so nobody is going to move it. The job is done
             // with it all the same, and one skipped directory can stand for every file left.
             ++m_skippedFiles;
+            dropFromByteTotal((*it).size);
             it = filesToCopy.erase(it);
         }
 
@@ -2130,6 +2142,7 @@ void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, in
     case KIO::Result_Skip:
         // Move on the next file
         ++m_skippedFiles;
+        dropFromByteTotal((*it).size);
         filesToCopy.erase(it);
         copyNextFile();
         return;

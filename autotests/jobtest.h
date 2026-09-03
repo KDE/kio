@@ -123,6 +123,7 @@ private Q_SLOTS:
     void moveRenameOnlyPercentClimbs();
     void moveFileSkippedWhileCopying();
     void copyFileAutoSkippedWhileCopying();
+    void copySkippedDirectoryDropsItsBytes();
     void copyFileDestAlreadyExists_data();
     void copyFileDestAlreadyExists();
     void moveDestAlreadyExistsAutoRename_data();

@@ -2930,6 +2930,50 @@ void JobTest::copyFileAutoSkippedWhileCopying()
     QCOMPARE(job->percent(), 100);
 }
 
+void JobTest::copySkippedDirectoryDropsItsBytes()
+{
+    // The files here have something in them, so the job measures itself in bytes rather than in
+    // files. Skipping the inner directory takes its file out of the work left, and the bytes of
+    // that file have to leave the total with it. Counting them as moved instead would say they
+    // went by in no time, and the speed and the time left are read off how fast the processed
+    // amount grows.
+    const QString srcDir = homeTmpDir() + "skipBytesSrc";
+    const QString destDir = homeTmpDir() + "skipBytesDest";
+    QVERIFY(QDir().mkpath(srcDir + "/sub"));
+    createTestFile(srcDir + "/outer");
+    createTestFile(srcDir + "/sub/inner");
+    // Both the directory and the one inside it are already there, so both are asked about.
+    QVERIFY(QDir().mkpath(destDir + "/skipBytesSrc/sub"));
+
+    const qulonglong outerSize = QFileInfo(srcDir + "/outer").size();
+    QVERIFY(outerSize > 0);
+    QVERIFY(QFileInfo(srcDir + "/sub/inner").size() > 0);
+
+    ScopedCleaner cleaner([&] {
+        QDir(srcDir).removeRecursively();
+        QDir(destDir).removeRecursively();
+    });
+
+    KIO::CopyJob *job = KIO::copy({QUrl::fromLocalFile(srcDir)}, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    job->setUiDelegate(new KJobUiDelegate);
+    auto *askUserHandler = new MockAskUserInterface(job->uiDelegate());
+    // Merge the outer directory, skip the inner one.
+    askUserHandler->m_renameResults = {KIO::Result_Overwrite, KIO::Result_Skip};
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QCOMPARE(askUserHandler->m_askUserRenameCalled, 2);
+
+    QVERIFY(QFile::exists(destDir + "/skipBytesSrc/outer"));
+    QVERIFY(!QFile::exists(destDir + "/skipBytesSrc/sub/inner")); // it was skipped
+
+    QCOMPARE(job->totalAmount(KJob::Files), 2);
+    QCOMPARE(job->processedAmount(KJob::Files), 1);
+    // Only the file which was copied is in the byte total, and the job reached it.
+    QCOMPARE(job->totalAmount(KJob::Bytes), outerSize);
+    QCOMPARE(job->processedAmount(KJob::Bytes), outerSize);
+    QCOMPARE(job->percent(), 100);
+}
+
 void JobTest::copyFileDestAlreadyExists_data()
 {
     QTest::addColumn<bool>("autoSkip");
