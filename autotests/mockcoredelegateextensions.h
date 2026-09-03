@@ -70,7 +70,8 @@ public:
         Q_UNUSED(mtimeDest)
 
         ++m_askUserRenameCalled;
-        Q_EMIT askUserRenameResult(m_renameResult, m_newDestUrl, job);
+        const KIO::RenameDialog_Result result = m_renameResults.isEmpty() ? m_renameResult : m_renameResults.takeFirst();
+        Q_EMIT askUserRenameResult(result, m_newDestUrl, job);
     }
 
     void askUserSkip(KJob *job, KIO::SkipDialog_Options options, const QString &error_text) override
@@ -134,6 +135,9 @@ public:
     int m_messageBoxCalled = 0;
 
     KIO::RenameDialog_Result m_renameResult = KIO::Result_Skip;
+    // One answer per call, for a test which has to answer differently the second time. Once these
+    // run out m_renameResult is used, so a test which does not set them is unaffected.
+    QList<KIO::RenameDialog_Result> m_renameResults;
     KIO::SkipDialog_Result m_skipResult = KIO::Result_Skip;
     bool m_deleteResult = false;
     int m_messageBoxResult = 0;
