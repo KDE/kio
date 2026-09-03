@@ -2742,6 +2742,60 @@ void JobTest::movePercentStaysInRange()
     QVERIFY(QFile::exists(destDir + "/percentSrcDir/file0"));
 }
 
+void JobTest::moveSkippedAndListedTotals()
+{
+    if (otherTmpDirIsOnSamePartition()) {
+        QSKIP("This test needs the two dirs on different partitions, so that the directory is listed rather than renamed");
+    }
+
+    // One source is listed and moved file by file, the other is skipped without being listed. The
+    // file total has to count both, or the files moved are measured against a total which left the
+    // skipped one out.
+    const int fileCount = 4;
+    const QString srcDir = homeTmpDir() + "skipListSrcDir";
+    QVERIFY(QDir().mkpath(srcDir));
+    for (int i = 0; i < fileCount; ++i) {
+        createTestFile(srcDir + QStringLiteral("/file%1").arg(i));
+    }
+
+    const QString srcFile = homeTmpDir() + "skipListSrcFile";
+    createTestFile(srcFile);
+    const QString existingDest = otherTmpDir() + "skipListSrcFile";
+    createTestFile(existingDest);
+
+    ScopedCleaner cleaner([&] {
+        QDir(otherTmpDir() + "skipListSrcDir").removeRecursively();
+        QFile::remove(existingDest);
+        QDir(srcDir).removeRecursively();
+        QFile::remove(srcFile);
+    });
+
+    const QList<QUrl> urls{QUrl::fromLocalFile(srcDir), QUrl::fromLocalFile(srcFile)};
+    KIO::CopyJob *job = KIO::move(urls, QUrl::fromLocalFile(otherTmpDir()), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    job->setAutoSkip(true);
+
+    unsigned long highestPercent = 0;
+    connect(job, &KJob::percentChanged, this, [&highestPercent](KJob *, unsigned long percent) {
+        highestPercent = qMax(highestPercent, percent);
+    });
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QVERIFY(QFile::exists(srcFile)); // it was skipped
+    QVERIFY(!QFile::exists(srcDir + "/file0")); // it was moved
+
+    // The four files out of the directory and the one which was skipped.
+    QCOMPARE(job->totalAmount(KJob::Files), fileCount + 1);
+    // The skipped one is not one the user was told about.
+    QCOMPARE(job->processedAmount(KJob::Files), fileCount);
+    QVERIFY(highestPercent <= 100);
+    // The job got to the end of what it had to do, so it says so. It only knows that because the
+    // byte total was published before the copying started measuring itself against it.
+    QCOMPARE(job->percent(), 100);
+    QCOMPARE(job->totalAmount(KJob::Bytes), job->processedAmount(KJob::Bytes));
+}
+
 void JobTest::moveRenameOnlyPercentClimbs()
 {
     // A move where every source is renamed directly never lists anything, so the files left to copy

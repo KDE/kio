@@ -791,6 +791,9 @@ void CopyJobPrivate::slotReport()
         // one for each source it has not reached, since a move which renames them all lists nothing.
         const qulonglong handledFiles = m_processedFiles + m_skippedFiles;
         q->setTotalAmount(KJob::Files, handledFiles + filesToCopy.count() + sourcesNotReached());
+        // Published here as well as by the listing branch, which runs on a timer a short move never
+        // reaches, leaving the copying to measure itself in bytes against a total of zero.
+        q->setTotalAmount(KJob::Bytes, m_totalSize);
         // % value should include skipped files, unlike the count above
         q->emitPercent(handledFiles, q->totalAmount(KJob::Files));
         break;
