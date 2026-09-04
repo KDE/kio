@@ -200,7 +200,7 @@ protected:
 private:
     friend class PreviewJobPrivate;
 
-    void emitPreview(const KFileItem &item, const QImage &previewImage);
+    KIOGUI_NO_EXPORT void emitPreview(const KFileItem &item, const QImage &previewImage);
 
     Q_DECLARE_PRIVATE(PreviewJob)
 
