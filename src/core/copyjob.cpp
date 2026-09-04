@@ -1217,6 +1217,11 @@ qulonglong CopyJobPrivate::sourcesNotReached() const
 void CopyJobPrivate::dropFromByteTotal(KIO::filesize_t size)
 {
     Q_Q(CopyJob);
+    if (size == KIO::invalidFilesize) {
+        // A size nobody could work out was kept out of the total when the file was listed, so
+        // there is nothing here to take off it. Subtracting it would empty the total instead.
+        return;
+    }
     m_totalSize = m_totalSize > size ? m_totalSize - size : 0;
     q->setTotalAmount(KJob::Bytes, m_totalSize);
 }
@@ -1906,6 +1911,9 @@ void CopyJobPrivate::processFileRenameDialogResult(const QList<CopyInfo>::Iterat
         skip((*it).uSource, false);
         ++m_skippedFiles;
         dropFromByteTotal((*it).size);
+        // A file can be skipped part way through, when the copy of it failed rather than when it
+        // was found to be in the way. What was moved of it goes with the rest of it.
+        m_fileProcessedSize = 0;
         filesToCopy.erase(it);
         break;
     case Result_OverwriteAll:
@@ -2064,6 +2072,10 @@ void CopyJobPrivate::copyNextFile()
 
     // Take the first file in the list
     QList<CopyInfo>::Iterator it = filesToCopy.begin();
+    // The files under a skipped directory come off the total together. One answer of "skip" can
+    // account for any number of them, and saying so one at a time is one signal, and one message
+    // to whoever is drawing the progress, for every file.
+    KIO::filesize_t skippedBytes = 0;
     // Is this URL on the skip list ?
     while (it != filesToCopy.end() && !bCopyFile) {
         const QString destFile = (*it).uDest.path();
@@ -2071,7 +2083,9 @@ void CopyJobPrivate::copyNextFile()
         if (!bCopyFile) {
             // Under a directory the user skipped: nobody will move it, but the job is done with it.
             ++m_skippedFiles;
-            dropFromByteTotal((*it).size);
+            if ((*it).size != KIO::invalidFilesize) {
+                skippedBytes += (*it).size;
+            }
             it = filesToCopy.erase(it);
         }
 
@@ -2084,6 +2098,9 @@ void CopyJobPrivate::copyNextFile()
                 return;
             }
         }
+    }
+    if (skippedBytes > 0) {
+        dropFromByteTotal(skippedBytes);
     }
 
     if (bCopyFile) { // any file to create, finally ?
