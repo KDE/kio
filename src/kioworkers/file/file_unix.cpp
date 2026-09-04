@@ -36,9 +36,17 @@
 #include <QDebug>
 #include <kmountpoint.h>
 
+#include <QDataStream>
+#include <QElapsedTimer>
+
+#include <algorithm>
 #include <cerrno>
 #include <fcntl.h>
+#include <functional>
+#include <memory>
 #include <stdint.h>
+#include <sys/stat.h>
+#include <unistd.h>
 #include <utime.h>
 
 #ifdef Q_OS_LINUX
@@ -499,9 +507,63 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
 }
 #endif // HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
 
-// --- Copying one file's contents ------------------------------------------------------------
+// --- Copying one file -----------------------------------------------------------------------
+// One routine copies a file: it opens both ends, moves the contents in cancellable chunks, gives
+// the new file the metadata it is meant to carry, and publishes the result. What a caller decides
+// is a CopyRequest: what may happen to a destination name that is already taken, where the
+// permissions of the new file come from, and what of the source it carries over.
 namespace
 {
+// Result of copying one file. Conflict is split out from a plain failure because the destination
+// name being taken is something a user can be asked about.
+enum class CopyOutcome {
+    Copied,
+    Conflict,
+    Failed, // errno is set
+};
+
+// The step a copy was on when it failed, so the caller can name the error after what it was doing.
+enum class CopyStage {
+    OpenSource,
+    OpenDest,
+    Transfer,
+    Publish, // renaming the finished ".part" over the destination
+};
+
+// What a copy may do about a destination name that is already taken.
+enum class ExistingDest {
+    Refuse, // leave what is there alone and report a conflict
+    Replace, // write a sibling ".part" and rename it over the destination once it is complete
+    Truncate, // write over the file that is there, without a ".part"
+};
+
+// Where the permissions of the new file come from.
+enum class NewFilePermissions {
+    FromSource, // the mode the source file carries
+    SystemDefault, // what open() gives a new file, that is 0666 as the umask filters it
+    Explicit, // the mode the request names
+};
+
+// One file copy: what it may do at the destination, what the new file comes out carrying, and
+// whether the filesystem may share the data instead of a copy of it.
+struct CopyRequest {
+    ExistingDest existing = ExistingDest::Refuse;
+    NewFilePermissions permissions = NewFilePermissions::FromSource;
+    mode_t explicitMode = 0; // the mode to set where permissions names Explicit
+    bool preserveOwner = true; // carry over the source's user and group
+    bool preserveAcl = true; // carry over the source's access ACL where an extended attribute does not already
+    bool tryReflink = false; // offer the filesystem the chance to share extents (FICLONE) instead of copying
+};
+
+// What one file copy did. stage and err hold the failure behind a Failed outcome, and readFailed
+// tells a read error on the source from a write error on the destination.
+struct CopyReport {
+    CopyOutcome outcome = CopyOutcome::Copied;
+    CopyStage stage = CopyStage::Transfer;
+    int err = 0;
+    bool readFailed = false;
+};
+
 // Per-call transfer size and the unit of work between cancellation checks. 512 KiB balances
 // throughput against cancel latency (smaller chunks measured ~25-30% slower on large cold copies);
 // smaller files are copied in a single call.
@@ -511,8 +573,8 @@ static constexpr size_t s_copyChunk = 512 * 1024;
 // the cases it rejects (EXDEV, ENOSYS, ...). size (from the caller's fstat) bounds the loop so it
 // stops at EOF without an extra probing call, and skips empty files. The transfer is chunked,
 // polling isKilled() between chunks (on cancel: errno = ECANCELED, returns false), and isKilled
-// holds a callable. bytesCopied is the caller's running total for progress, and the loop keeps a
-// count of its own for this file. readFailed, if set, distinguishes a read (true) from a write (false) error on
+// holds a callable. bytesCopied is the caller's running batch total for progress; the loop uses a
+// per-file counter. readFailed, if set, distinguishes a read (true) from a write (false) error on
 // failure and is left untouched otherwise. errno is left set on failure.
 bool copyFds(int sourceFd,
              int destFd,
@@ -597,6 +659,290 @@ bool copyFds(int sourceFd,
     }
     return true;
 }
+
+// Reads the process umask without the racy umask(x)/umask(old) toggle: the file worker can run as
+// a thread inside the application's process, where momentarily clearing the umask would affect
+// files other threads create at the same time. Linux exposes it in /proc/self/status since 4.7.
+// Where it cannot be read we return 0777, which makes preserveAttrs treat every permission bit as
+// possibly masked and always fchmod (the safe default, same as before this optimization).
+mode_t currentUmask()
+{
+#ifdef Q_OS_LINUX
+    QFile status(QStringLiteral("/proc/self/status"));
+    if (status.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        while (!status.atEnd()) {
+            const QByteArray line = status.readLine();
+            if (line.startsWith("Umask:")) {
+                bool ok = false;
+                const int bits = line.mid(6).trimmed().toInt(&ok, 8);
+                if (ok) {
+                    return mode_t(bits);
+                }
+                break; // malformed line: fall back to the safe 0777 default below
+            }
+        }
+    }
+#endif
+    return 0777;
+}
+
+// What the directory a file is created in hands to that file: the group it comes out with, and
+// whether the directory imposes it through its set-group-ID bit.
+struct DestDirGroup {
+    gid_t createdGid = 0;
+    bool imposedByDir = false;
+};
+
+// Best-effort metadata on the new file: permissions, timestamps, ownership and (where supported)
+// the POSIX ACL. Done with both fds still open so the changes land on the file just written, not on
+// whatever the path resolves to now. Failures are non-fatal, a copy that loses its mtime is still a
+// successful copy, so each one only warns. Extended attributes are copied by the caller through
+// FileProtocol::copyXattrs(), which already handles the namespace and ENOTSUP quirks.
+void preserveAttrs([[maybe_unused]] int sourceFd,
+                   int destFd,
+                   const struct stat &st,
+                   const CopyRequest &request,
+                   bool destFreshlyCreated,
+                   mode_t umaskBits,
+                   uid_t euid,
+                   DestDirGroup destDirGroup)
+{
+    // Permissions. With the system default there is nothing to set, open() already applied it.
+    // Otherwise the fchmod is redundant - and skippable - exactly when open()'s (mode & ~umask)
+    // came out as the mode wanted: the file was freshly created (an overwritten file kept its stale
+    // bits), the umask stripped none of those bits, and there are no special bits
+    // (setuid/setgid/sticky), which open() does not reliably set from its mode argument.
+    if (request.permissions != NewFilePermissions::SystemDefault) {
+        const mode_t mode = (request.permissions == NewFilePermissions::Explicit ? request.explicitMode : mode_t(st.st_mode)) & 07777;
+        const bool createdModeAlreadyCorrect = destFreshlyCreated && (mode & (umaskBits | mode_t(07000))) == 0;
+        if (!createdModeAlreadyCorrect && ::fchmod(destFd, mode) != 0) {
+            qCWarning(KIO_FILE) << "copy: could not preserve permissions:" << strerror(errno);
+        }
+    }
+
+    // Access and modification time, with the dest still open (futimes/futimens need the fd).
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_HAIKU)
+    struct timespec ut[2] = {st.st_atim, st.st_mtim}; // nanosecond precision
+    if (::futimens(destFd, ut) != 0) {
+#else
+    struct timeval ut[2];
+    ut[0].tv_sec = st.st_atime;
+    ut[0].tv_usec = 0;
+    ut[1].tv_sec = st.st_mtime;
+    ut[1].tv_usec = 0;
+    if (::futimes(destFd, ut) != 0) {
+#endif
+        qCWarning(KIO_FILE) << "copy: could not preserve timestamps:" << strerror(errno);
+    }
+
+    // Ownership. Like the fchmod above, open() already gave the new file an owner and group, so
+    // each fchown is skippable when it already matches the source: the created owner is always our
+    // euid, and the created group is the one the destination directory handed out. A folder with
+    // the set-group-ID bit gives its group to whatever is made in it, and that group is the one the
+    // new file is meant to carry, so it is left as it was given there. Group first, then owner, so
+    // a non-root worker can still set the group before a (possibly denied) owner change. Preserving
+    // the owner is best-effort and just warns when not permitted.
+    if (request.preserveOwner) {
+        // Both skips describe a file open() has just created. A file that was written over kept the
+        // user and the group it already had, so it needs both calls whatever the source carries.
+        const bool groupComesFromDir = destDirGroup.imposedByDir;
+        const bool groupAlreadyRight = groupComesFromDir || (destFreshlyCreated && st.st_gid == destDirGroup.createdGid);
+        if (!groupAlreadyRight && ::fchown(destFd, -1 /*keep user*/, st.st_gid) != 0) {
+            qCWarning(KIO_FILE) << "copy: could not preserve group:" << strerror(errno);
+        }
+        const bool ownerAlreadyRight = destFreshlyCreated && st.st_uid == euid;
+        if (!ownerAlreadyRight && ::fchown(destFd, st.st_uid, -1 /*keep group*/) != 0) {
+            qCWarning(KIO_FILE) << "copy: could not preserve owner:" << strerror(errno);
+        }
+    }
+
+#if HAVE_POSIX_ACL && !HAVE_SYS_XATTR_H
+    // Carry over the source's access ACL explicitly only where copyXattrs cannot: BSD extattr
+    // lists just the USER namespace, so the ACL (a system attribute) would not be copied. On
+    // Linux and other HAVE_SYS_XATTR_H platforms listxattr returns system.posix_acl_access, so
+    // copyXattrs already replicates the ACL and doing it here would be a redundant get/set (plus
+    // an acl_t allocation) on every file. A plain mode-only ACL is left to the create mode and the
+    // umask, which say the same thing.
+    if (request.preserveAcl) {
+        if (acl_t acl = acl_get_fd(sourceFd)) {
+            if (FileProtocol::isExtendedACL(acl) && acl_set_fd(destFd, acl) != 0) {
+                qCWarning(KIO_FILE) << "copy: could not preserve ACL:" << strerror(errno);
+            }
+            acl_free(acl);
+        }
+    }
+#endif
+}
+
+// preserve(sourceFd, destFd, st, request, destFreshlyCreated, destDirGroup) runs after a successful
+// content copy, with both fds open, and holds a callable. The copy is agnostic to what it does.
+// destFreshlyCreated lets it skip a redundant fchmod, and destDirGroup is the group open() already
+// gave the new file (worked out once per destination directory, see below).
+using PreserveFn =
+    std::function<void(int sourceFd, int destFd, const struct stat &st, const CopyRequest &request, bool destFreshlyCreated, DestDirGroup destDirGroup)>;
+
+// The preservation a copy applies to the file it wrote: permissions, timestamps, ownership and the
+// access ACL, plus the extended attributes, which go through the worker because it knows the
+// namespace and ENOTSUP quirks. The umask and the effective user id are read once and let the
+// helper skip the fchmod and fchown calls open() already satisfied.
+PreserveFn makePreserveFn(FileProtocol *worker, mode_t umaskBits, uid_t euid)
+{
+    return [worker,
+            umaskBits,
+            euid](int sourceFd, int destFd, const struct stat &st, const CopyRequest &request, bool destFreshlyCreated, DestDirGroup destDirGroup) {
+        preserveAttrs(sourceFd, destFd, st, request, destFreshlyCreated, umaskBits, euid, destDirGroup);
+#if HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
+        worker->copyXattrs(sourceFd, destFd);
+#else
+        Q_UNUSED(worker)
+#endif
+    };
+}
+
+// The group a file freshly created in a directory comes out with, and where it comes from. A
+// directory with the set-group-ID bit hands its own group to whatever is made in it, otherwise a
+// new file gets the effective group of whoever creates it.
+DestDirGroup destDirGroupFor(int dirFd, gid_t egid)
+{
+    struct stat ds;
+    if (::fstat(dirFd, &ds) == 0 && (ds.st_mode & S_ISGID)) {
+        return {ds.st_gid, true};
+    }
+    return {egid, false};
+}
+
+// Copies one file by name, relative to already-open source and destination directory fds. Opening
+// each directory once and using openat() for every file in it spares the kernel from re-resolving
+// the shared directory prefix on each open, and the caller of a single copy can pass AT_FDCWD with
+// a full path. destDirGroup is the group a freshly created file already has in destDirFd (its
+// parent directory), and where that group comes from. bytesCopied is the caller's running total,
+// which onProgress is handed as the copy advances.
+CopyReport copyFileAt(int srcDirFd,
+                      const QByteArray &srcName,
+                      int destDirFd,
+                      const QByteArray &destName,
+                      DestDirGroup destDirGroup,
+                      const CopyRequest &request,
+                      KIO::filesize_t &bytesCopied,
+                      const PreserveFn &preserve,
+                      const std::function<bool()> &isKilled,
+                      const std::function<void(KIO::filesize_t)> &onProgress = {})
+{
+    // O_NONBLOCK so a source that is not a regular file any more cannot hold up the open: a FIFO
+    // or a device would otherwise wait for the other end, and this command is synchronous, so
+    // wasKilled() is never reached and the copy cannot be cancelled.
+    const int sourceFd = ::openat(srcDirFd, srcName.constData(), O_RDONLY | O_NONBLOCK | O_CLOEXEC);
+    if (sourceFd < 0) {
+        return {CopyOutcome::Failed, CopyStage::OpenSource, errno, false};
+    }
+    auto cleanupSourceFd = qScopeGuard([sourceFd] {
+        const int e = errno; // close() may clobber errno, and the failure is what the caller reads
+        ::close(sourceFd);
+        errno = e;
+    });
+    struct stat st;
+    if (::fstat(sourceFd, &st) != 0) {
+        return {CopyOutcome::Failed, CopyStage::OpenSource, errno, false};
+    }
+    // Regular files only. What the listing found can have become a FIFO, a device or a directory
+    // since, and EINVAL reports it as a per-item failure. The flag stays set, since it makes no
+    // difference to reading a regular file and clearing it would cost an fcntl per file.
+    if (!S_ISREG(st.st_mode)) {
+        return {CopyOutcome::Failed, CopyStage::OpenSource, EINVAL, false};
+    }
+#if HAVE_FADVISE
+    // Hint sequential access so the kernel reads ahead, but only for files large enough to benefit:
+    // measured cold on an SSD this saves ~10-18% from ~16 MiB up and is noise below ~1 MiB, so gate
+    // it at several chunks (4 MiB). Worth the extra syscall only then. (Source only - the same
+    // measurement showed the destination hint makes no difference for sequential writes.)
+    if (KIO::filesize_t(st.st_size) > KIO::filesize_t(8 * s_copyChunk)) {
+        ::posix_fadvise(sourceFd, 0, 0, POSIX_FADV_SEQUENTIAL);
+    }
+#endif
+    // Replacing a file is done by writing a sibling ".part" and renaming it over the destination at
+    // the end, so an interrupted copy never leaves the destination half written.
+    const bool publishViaRename = (request.existing == ExistingDest::Replace);
+    const QByteArray outName = publishViaRename ? (destName + ".part") : destName;
+
+    // O_NOFOLLOW so a symlink standing at the name is never written through. O_EXCL makes the
+    // create fail rather than clobber a file that appeared since the destination was looked at,
+    // and for a copy that refuses to replace anything it doubles as the conflict check itself: one
+    // syscall, no race. Truncate is the one policy that writes over the file that is there.
+    const mode_t createMode = request.permissions == NewFilePermissions::Explicit ? (request.explicitMode & 07777)
+        : request.permissions == NewFilePermissions::SystemDefault                ? mode_t(0666)
+                                                                                  : mode_t(st.st_mode & 07777);
+    const int oflags = O_WRONLY | O_CREAT | O_NOFOLLOW | O_CLOEXEC | (request.existing == ExistingDest::Truncate ? O_TRUNC : O_EXCL);
+    int destFd = ::openat(destDirFd, outName.constData(), oflags, createMode);
+    if (destFd < 0 && errno == EEXIST && publishViaRename) {
+        // A ".part" an earlier interrupted copy left behind: drop it and try once more.
+        ::unlinkat(destDirFd, outName.constData(), 0);
+        destFd = ::openat(destDirFd, outName.constData(), oflags, createMode);
+    }
+    if (destFd < 0) {
+        const int err = errno;
+        return {err == EEXIST ? CopyOutcome::Conflict : CopyOutcome::Failed, CopyStage::OpenDest, err, false};
+    }
+    auto cleanupDestFd = qScopeGuard([destFd] {
+        const int e = errno;
+        ::close(destFd);
+        errno = e;
+    });
+
+    const KIO::filesize_t bytesBefore = bytesCopied; // where the running total goes back to
+
+    // A copy that does not finish takes back the file it wrote, so no half-written file is left
+    // behind under either name, and the bytes of that file leave the running total with it.
+    auto failed = [&](CopyStage stage, int err, bool readFailed) {
+        if (::unlinkat(destDirFd, outName.constData(), 0) != 0 && errno != ENOENT) {
+            qCWarning(KIO_FILE) << "Could not delete partially copied file" << QFile::decodeName(outName);
+        }
+        bytesCopied = bytesBefore;
+        return CopyReport{CopyOutcome::Failed, stage, err, readFailed};
+    };
+    bool cloned = false;
+#ifdef FICLONE
+    // Share the data blocks ("reflink") where the filesystem can, on any failure fall through to
+    // copying it.
+    if (request.tryReflink && ::ioctl(destFd, FICLONE, sourceFd) != -1) {
+        bytesCopied += KIO::filesize_t(st.st_size);
+        cloned = true;
+        if (onProgress) {
+            onProgress(bytesCopied);
+        }
+    }
+#endif
+    bool destDeleteAttempted = false;
+    bool readFailed = false;
+    while (!cloned && !copyFds(sourceFd, destFd, st.st_size, bytesCopied, isKilled, onProgress, &readFailed)) {
+        const int err = errno;
+        const bool diskFull = (err == ENOSPC || err == EDQUOT);
+        if (diskFull && !readFailed && publishViaRename && !destDeleteAttempted) {
+            // The file being replaced is still taking up the room the copy needs: free it and start
+            // over, the descriptors have advanced.
+            ::unlinkat(destDirFd, destName.constData(), 0);
+            destDeleteAttempted = true;
+            if (::lseek(sourceFd, 0, SEEK_SET) == 0 && ::lseek(destFd, 0, SEEK_SET) == 0 && ::ftruncate(destFd, 0) == 0) {
+                bytesCopied = bytesBefore;
+                continue;
+            }
+        }
+        return failed(CopyStage::Transfer, err, readFailed);
+    }
+
+    if (isKilled()) {
+        // The cancellation landed between the last chunk and here. The written file goes, and a
+        // destination this copy was replacing is left as it was.
+        return failed(CopyStage::Transfer, ECANCELED, false);
+    }
+
+    preserve(sourceFd, destFd, st, request, request.existing != ExistingDest::Truncate, destDirGroup); // both fds still open
+
+    if (publishViaRename && ::renameat(destDirFd, outName.constData(), destDirFd, destName.constData()) != 0) {
+        return failed(CopyStage::Publish, errno, false);
+    }
+    return {CopyOutcome::Copied, CopyStage::Transfer, 0, false};
+}
+
 } // namespace
 
 WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _mode, JobFlags _flags)
@@ -645,8 +991,7 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
     // same time, so that the filesystem-type probe below costs nothing of its own.
     StatStruct buffDest;
     const bool dest_exists = (LSTATAT(dfd, destName.constData(), &buffDest, KIO::StatBasic | KIO::StatInode | KIO::StatMountId) == 0);
-    bool publishViaRename = false; // write to destName + ".part", then rename over destName
-    bool truncateInPlace = false; // overwrite destName in place (no ".part", used on CIFS)
+    ExistingDest existing = ExistingDest::Refuse; // nothing is there: the create has the name to itself
     if (dest_exists) {
         if (stat_ino(buffDest) == buffSrc.st_ino && stat_dev(buffDest) == buffSrc.st_dev) {
             return WorkerResult::fail(KIO::ERR_IDENTICAL_FILES, dest);
@@ -667,74 +1012,7 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
             // Write to a sibling ".part" and atomically rename it over the target so
             // an interrupted copy never leaves the destination truncated. CIFS keeps
             // the historical in-place overwrite.
-            if (isOnCifs(buffDest, dest)) {
-                truncateInPlace = true;
-            } else {
-                publishViaRename = true;
-            }
-        }
-    }
-
-    const QByteArray outName = publishViaRename ? (destName + ".part") : destName;
-
-    QFile srcFile(src);
-    if (!srcFile.open(QIODevice::ReadOnly)) {
-        return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_READING, src);
-    }
-
-#if HAVE_FADVISE
-    // Only for files large enough to gain from the read-ahead: measured cold on an SSD this saves
-    // ~10-18% from ~16 MiB up and is noise below ~1 MiB, and the destination hint made no
-    // difference at all for sequential writes.
-    if (KIO::filesize_t(buffSrc.st_size) > KIO::filesize_t(8 * s_copyChunk)) {
-        posix_fadvise(srcFile.handle(), 0, 0, POSIX_FADV_SEQUENTIAL);
-    }
-#endif
-
-    // KIO passes -1 to keep the system default permissions. Comparing in mode_t width
-    // also matches FreeBSD, where a 16-bit mode_t delivers the sentinel as (mode_t)-1.
-    const bool defaultPermissions = mode_t(_mode) == mode_t(-1);
-
-    // O_NOFOLLOW: never write through a symlink at the final name. O_EXCL makes the
-    // ".part"/fresh create fail rather than clobber an unexpected file; the CIFS
-    // path truncates the existing regular file in place.
-    const mode_t createMode = defaultPermissions ? mode_t(0666) : mode_t(_mode);
-    const int oflags = O_WRONLY | O_CREAT | O_NOFOLLOW | O_CLOEXEC | (truncateInPlace ? O_TRUNC : O_EXCL);
-    int destFd = ::openat(dfd, outName.constData(), oflags, createMode);
-    if (destFd < 0 && errno == EEXIST && publishViaRename) {
-        // Stale ".part" from a previous interrupted copy: drop it and retry once.
-        ::unlinkat(dfd, outName.constData(), 0);
-        destFd = ::openat(dfd, outName.constData(), oflags, createMode);
-    }
-    if (destFd < 0) {
-        return WorkerResult::fail(errno == EACCES ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
-    }
-
-    QFile destFile;
-    if (!destFile.open(destFd, QIODevice::WriteOnly, QFileDevice::AutoCloseHandle)) {
-        ::close(destFd);
-        // Only remove a file we created; never the original we overwrite in place.
-        if (!truncateInPlace) {
-            ::unlinkat(dfd, outName.constData(), 0);
-        }
-        return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
-    }
-
-    // Until the copy is known-good, any early return unlinks the partial output (the
-    // ".part", or the freshly created file). Dismissed once the result is committed.
-    auto cleanupOutput = qScopeGuard([dfd, &outName] {
-        if (::unlinkat(dfd, outName.constData(), 0) != 0 && errno != ENOENT) {
-            qCWarning(KIO_FILE) << "Could not delete partially copied file" << QFile::decodeName(outName);
-        }
-    });
-
-    // Default permissions: leave the create mode plus umask in place, otherwise set the
-    // requested mode below.
-    if (!defaultPermissions) {
-        // Change permissions through the open descriptor so they land on the
-        // file just opened, not on whatever the path resolves to now.
-        if (::fchmod(destFile.handle(), _mode) == -1) {
-            qCWarning(KIO_FILE) << "Could not change permissions for" << dest;
+            existing = isOnCifs(buffDest, dest) ? ExistingDest::Truncate : ExistingDest::Replace;
         }
     }
 
@@ -743,155 +1021,79 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
 
     const bool slowTestMode = testMode && dest.contains(QLatin1String("slow"));
 
-    KIO::filesize_t sizeProcessed = 0;
-    bool existingDestDeleteAttempted = false;
+    // KIO passes -1 to keep the system default permissions. Comparing in mode_t width
+    // also matches FreeBSD, where a 16-bit mode_t delivers the sentinel as (mode_t)-1.
+    const bool defaultPermissions = mode_t(_mode) == mode_t(-1);
 
-#ifdef FICLONE
-    if (!slowTestMode) {
-        // Share data blocks ("reflink") on supporting filesystems, like btrfs and XFS.
-        if (::ioctl(destFile.handle(), FICLONE, srcFile.handle()) != -1) {
-            sizeProcessed = srcSize;
+    CopyRequest request;
+    request.existing = existing;
+    request.permissions = defaultPermissions ? NewFilePermissions::SystemDefault : NewFilePermissions::Explicit;
+    request.explicitMode = mode_t(_mode);
+    // A request that names the permissions describes the file it wants, and gets the source's user
+    // and group with it. One that leaves the permissions to the system gets the source's access
+    // ACL, which a named mode would contradict.
+    request.preserveOwner = !defaultPermissions;
+    // The ACL follows the literal -1 rather than the mode_t-width test above, because the two part
+    // company on FreeBSD, where the sentinel arrives as 65535: acl_equiv_mode_np() there does not
+    // report a plain access ACL as mode-equivalent, so a copy asking for the system default would
+    // be given the source's mode through the ACL of a source that has no extended ACL at all.
+    request.preserveAcl = (_mode == -1);
+    request.tryReflink = !slowTestMode; // sharing the data is instant, and a slow copy is the point of the test mode
+
+    const auto isKilled = [this] {
+        return wasKilled();
+    };
+    // Progress goes out per chunk. The test mode drags each one out, so a test has time to suspend
+    // or cancel a copy that is still running.
+    const auto onProgress = [this, slowTestMode](KIO::filesize_t copied) {
+        processedSize(copied);
+        if (slowTestMode) {
+            QThread::msleep(50);
         }
-    }
-    // if the fs cannot reflink (different devices, unsupported, ...) fall through to the copy below
-#endif
+    };
 
-    processedSize(sizeProcessed);
+    // The source is named by its full path against the current directory, the destination by name
+    // against the descriptor pinned on its directory above.
+    KIO::filesize_t bytesCopied = 0;
+    const CopyReport report = copyFileAt(AT_FDCWD,
+                                         _src,
+                                         dfd,
+                                         destName,
+                                         destDirGroupFor(dfd, ::getegid()),
+                                         request,
+                                         bytesCopied,
+                                         makePreserveFn(this, currentUmask(), ::geteuid()),
+                                         isKilled,
+                                         onProgress);
 
-    if (sizeProcessed < KIO::filesize_t(srcSize)) {
-        // The content transfer is the same primitive the batch path uses (copy_file_range with a
-        // read/write fallback, chunked and cancellable), via copyFds(). copy() supplies the
-        // single-file extras through its hooks: per-chunk processedSize(), the slow-test delay, and
-        // freeing the file being overwritten to make room on a full disk before starting over.
-        const auto isKilled = [this] {
-            return wasKilled();
-        };
-        const auto onProgress = [this, slowTestMode](KIO::filesize_t copied) {
-            processedSize(copied);
-            if (slowTestMode) {
-                QThread::msleep(50);
+    switch (report.outcome) {
+    case CopyOutcome::Copied:
+        break;
+    case CopyOutcome::Conflict:
+        // The name was free when the destination was looked at above, and is taken now.
+        return WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, dest);
+    case CopyOutcome::Failed:
+        switch (report.stage) {
+        case CopyStage::OpenSource:
+            return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_READING, src);
+        case CopyStage::OpenDest:
+            return WorkerResult::fail(report.err == EACCES ? KIO::ERR_WRITE_ACCESS_DENIED : KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
+        case CopyStage::Transfer:
+            if (report.err == ECANCELED) {
+                qCDebug(KIO_FILE) << "Clean dest file after KIO worker was killed:" << dest;
+                return WorkerResult::fail(KIO::ERR_USER_CANCELED, dest);
             }
-        };
-        bool readFailed = false;
-        while (!copyFds(srcFile.handle(), destFile.handle(), srcSize, sizeProcessed, isKilled, onProgress, &readFailed)) {
-            if (errno == ECANCELED) {
-                break; // killed mid-copy; what was written is removed on the way out
+            if (report.readFailed) {
+                return WorkerResult::fail(KIO::ERR_CANNOT_READ, src);
             }
-            const bool diskFull = (errno == ENOSPC || errno == EDQUOT);
-            if (diskFull && !readFailed && publishViaRename && !existingDestDeleteAttempted) {
-                // Free the file being overwritten, then start over: the descriptors have advanced.
-                ::unlinkat(dfd, destName.constData(), 0);
-                existingDestDeleteAttempted = true;
-                if (::lseek(srcFile.handle(), 0, SEEK_SET) == 0 && ::lseek(destFile.handle(), 0, SEEK_SET) == 0 && ::ftruncate(destFile.handle(), 0) == 0) {
-                    sizeProcessed = 0;
-                    continue;
-                }
-            }
-            const int error = readFailed ? KIO::ERR_CANNOT_READ : (diskFull ? KIO::ERR_DISK_FULL : KIO::ERR_CANNOT_WRITE);
-            return WorkerResult::fail(error, readFailed ? src : dest);
-        }
-    }
-
-    // Copy Extended attributes
-#if HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
-    if (!copyXattrs(srcFile.handle(), destFile.handle())) {
-        qCDebug(KIO_FILE) << "can't copy Extended attributes";
-    }
-#endif
-
-#if HAVE_POSIX_ACL
-    // If no explicit mode was requested, carry over an extended ACL from the source
-    // (a plain mode-only ACL is left to the create mode and umask, as before). Read
-    // it while the source is still open and set it on the destination descriptor
-    // below, so it lands on the file we just wrote rather than on the path.
-    // Gate on the literal -1 sentinel: on FreeBSD acl_equiv_mode_np() does not report a
-    // plain access ACL as mode-equivalent, so the source mode would leak onto the copy.
-    acl_t acl = nullptr;
-    if (_mode == -1) {
-        acl = acl_get_fd(srcFile.handle());
-        if (acl && !isExtendedACL(acl)) {
-            acl_free(acl);
-            acl = nullptr;
-        }
-    }
-#endif
-
-    srcFile.close();
-
-    destFile.flush(); // so the writes complete before the timestamp and ownership changes
-
-    // copy access and modification time
-    if (!wasKilled()) {
-#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_HAIKU)
-        // with nano secs precision
-        struct timespec ut[2];
-        ut[0] = buffSrc.st_atim;
-        ut[1] = buffSrc.st_mtim;
-        // need to do this with the dest file still opened, or this fails
-        if (::futimens(destFile.handle(), ut) != 0) {
-#else
-        struct timeval ut[2];
-        ut[0].tv_sec = buffSrc.st_atime;
-        ut[0].tv_usec = 0;
-        ut[1].tv_sec = buffSrc.st_mtime;
-        ut[1].tv_usec = 0;
-        if (::futimes(destFile.handle(), ut) != 0) {
-#endif
-            qCWarning(KIO_FILE) << "Couldn't preserve access and modification time for" << dest;
-        }
-    }
-
-    // preserve ownership through the open descriptor, so the change lands on
-    // the file just written
-    if (!defaultPermissions) {
-        // A folder with the setgid bit gives its group to whatever is made in it, and that group
-        // is the one the new file is meant to carry, so it is left alone. The folder is asked
-        // through the descriptor the copy holds on it, which is the folder the file was written
-        // to whatever happened to the path meanwhile.
-        QT_STATBUF buffDestDir;
-        const bool destDirIsSetgid = QT_FSTAT(dfd, &buffDestDir) == 0 && (buffDestDir.st_mode & S_ISGID);
-
-        if (destDirIsSetgid || ::fchown(destFile.handle(), -1 /*keep user*/, buffSrc.st_gid) == 0) {
-            // as we are the owner of the new file, we can always change the group, but
-            // we might not be allowed to change the owner
-            if (::fchown(destFile.handle(), buffSrc.st_uid, -1 /*keep group*/) < 0) {
-                qCWarning(KIO_FILE) << "Couldn't chown destFile" << dest << "(" << strerror(errno) << ")";
-            }
-        } else {
-            qCWarning(KIO_FILE) << "Couldn't preserve group for" << dest;
-        }
-    }
-
-#if HAVE_POSIX_ACL
-    if (acl) {
-        if (acl_set_fd(destFile.handle(), acl) != 0) {
-            qCWarning(KIO_FILE) << "Could not set ACL permissions for" << dest;
-        }
-        acl_free(acl);
-    }
-#endif
-
-    destFile.close();
-
-    if (wasKilled()) {
-        qCDebug(KIO_FILE) << "Clean dest file after KIO worker was killed:" << dest;
-        return WorkerResult::fail(KIO::ERR_USER_CANCELED, dest);
-    }
-
-    if (destFile.error() != QFile::NoError) {
-        qCWarning(KIO_FILE) << "Error when closing file descriptor[2]:" << destFile.errorString();
-        return WorkerResult::fail(KIO::ERR_CANNOT_WRITE, dest);
-    }
-
-    if (publishViaRename) { // atomically replace the destination with the written ".part"
-        if (::renameat(dfd, outName.constData(), dfd, destName.constData()) == -1) {
-            qCWarning(KIO_FILE) << "Couldn't rename" << outName << "to" << destName << "(" << strerror(errno) << ")";
+            return WorkerResult::fail((report.err == ENOSPC || report.err == EDQUOT) ? KIO::ERR_DISK_FULL : KIO::ERR_CANNOT_WRITE, dest);
+        case CopyStage::Publish:
+            qCWarning(KIO_FILE) << "Couldn't rename the copy of" << src << "over" << dest << "(" << strerror(report.err) << ")";
             return WorkerResult::fail(KIO::ERR_CANNOT_WRITE, dest);
         }
+        break;
     }
 
-    // The result is committed: keep the output we just wrote (or renamed into place).
-    cleanupOutput.dismiss();
     processedSize(srcSize);
     return WorkerResult::pass();
 }
