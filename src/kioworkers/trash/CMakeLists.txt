@@ -61,6 +61,9 @@ if(APPLE)
     target_link_libraries(kio_trash "-framework DiskArbitration -framework CoreFoundation")
 endif(APPLE)
 
+if(HAVE_QTDBUS AND NOT WIN32)
+    add_subdirectory(kdedmodule)
+endif()
 
 add_executable(ktrash6)
 ecm_mark_nongui_executable(ktrash6)

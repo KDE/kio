@@ -1069,6 +1069,16 @@ TrashImpl::TrashDirMap TrashImpl::topDirectories() const
     return m_topDirectories;
 }
 
+void TrashImpl::invalidateTrashDirectoriesCache() const
+{
+    m_trashDirectoriesScanned = false;
+}
+
+QString TrashImpl::trashDirectoryForMountPoint(const QString &mountPoint) const
+{
+    return trashForMountPoint(mountPoint, false);
+}
+
 QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded) const
 {
     // (1) Administrator-created $topdir/.Trash directory

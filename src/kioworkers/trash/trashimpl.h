@@ -116,10 +116,16 @@ public:
     static bool parseURL(const QUrl &url, quint64 &trashId, QString &fileId, QString &relativePath);
 
     using TrashDirMap = QMap<quint64, QString>;
-    /// \internal This method is for TestTrash only. Home trash is included (id 0).
+    /// \internal Used by TestTrash and TrashDirNotify. Home trash is included (id 0).
     TrashDirMap trashDirectories() const;
-    /// \internal This method is for TestTrash only. No entry with id 0.
+    /// \internal Used by TestTrash and TrashDirNotify. No entry with id 0.
     TrashDirMap topDirectories() const;
+
+    /// \internal Forces the next trashDirectories()/topDirectories() call to re-scan.
+    void invalidateTrashDirectoriesCache() const;
+
+    /// \internal Used by TrashDirNotify.
+    QString trashDirectoryForMountPoint(const QString &mountPoint) const;
 
 Q_SIGNALS:
     void leaveModality();
