@@ -30,6 +30,8 @@
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_FILE)
 
+class QDataStream;
+
 class FileProtocol : public QObject, public KIO::WorkerBase
 {
     Q_OBJECT
@@ -68,6 +70,9 @@ public:
     KIO::WorkerResult special(const QByteArray &data) override;
     KIO::WorkerResult unmount(const QString &point);
     KIO::WorkerResult mount(bool _ro, const char *_fstype, const QString &dev, const QString &point);
+    // Batch-copy a list of local files in one command (special() sub-command). Platform-specific:
+    // the real engine is in file_unix.cpp; file_win.cpp returns ERR_UNSUPPORTED_ACTION.
+    KIO::WorkerResult batchCopy(QDataStream &stream);
 
 #if HAVE_POSIX_ACL
     static bool isExtendedACL(acl_t acl);
