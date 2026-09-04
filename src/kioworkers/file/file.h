@@ -62,6 +62,8 @@ private:
 };
 #endif
 
+class QDataStream;
+
 class FileProtocol : public QObject, public KIO::WorkerBase
 {
     Q_OBJECT
@@ -113,6 +115,9 @@ public:
     // Writes back the data of the filesystem that holds the folder, when it is on a removable device.
     KIO::WorkerResult flushRemovableFolder(const QString &folder);
 #endif
+    // Batch-copy a list of local files in one command (special() sub-command). Platform-specific:
+    // the real engine is in file_unix.cpp; file_win.cpp returns ERR_UNSUPPORTED_ACTION.
+    KIO::WorkerResult batchCopy(QDataStream &stream);
 
 #if HAVE_POSIX_ACL
     static bool isExtendedACL(acl_t acl);
