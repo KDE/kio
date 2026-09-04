@@ -224,9 +224,8 @@ public:
      * \value SupportsUTime
      * \value SupportsSymlinks
      * \value CaseInsensitive
-     * \value SupportsFileCloning Copy-on-write filesystem, where a file can be copied with the
+     * \value[since 6.30] SupportsFileCloning Copy-on-write filesystem, where a file can be copied with the
      * FICLONE ioctl.
-     * \since 6.30
      */
     enum FileSystemFlag {
         SupportsChmod,
