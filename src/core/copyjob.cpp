@@ -378,6 +378,10 @@ public:
 
     void slotResultCopyingFiles(KJob *job);
     void slotResultErrorCopyingFiles(KJob *job);
+    // Report that the job is waiting for an answer about @p it. No report goes out while a
+    // conflict dialog is up, so without this the trackers keep showing whichever phase the job
+    // was in when the conflict came up.
+    void emitWaiting(const QList<CopyInfo>::Iterator &it);
     void processFileRenameDialogResult(const QList<CopyInfo>::Iterator &it, RenameDialog_Result result, const QUrl &newUrl, const QDateTime &destmtime);
 
     //     KIO::Job* linkNextFile( const QUrl& uSource, const QUrl& uDest, bool overwrite );
@@ -770,6 +774,16 @@ bool CopyJob::doResume()
     return Job::doResume();
 }
 
+void CopyJobPrivate::emitWaiting(const QList<CopyInfo>::Iterator &it)
+{
+    Q_Q(CopyJob);
+    if (m_mode == CopyJob::Move) {
+        emitWaitingToMove(q, (*it).uSource, (*it).uDest);
+    } else {
+        emitWaitingToCopy(q, (*it).uSource, (*it).uDest);
+    }
+}
+
 void CopyJobPrivate::slotReport()
 {
     Q_Q(CopyJob);
@@ -843,10 +857,13 @@ void CopyJobPrivate::slotReport()
     case STATE_LISTING:
         if (m_bURLDirty) {
             m_bURLDirty = false;
+            // Nothing has been copied or moved yet, so name the phase the job is really in, while
+            // still saying which operation is coming. The totals set below grow as the listing
+            // finds more, which is the progress there is to show.
             if (m_mode == CopyJob::Move) {
-                emitMoving(q, m_currentSrcURL, m_currentDestURL);
+                emitExaminingToMove(q, m_currentSrcURL, m_currentDestURL);
             } else {
-                emitCopying(q, m_currentSrcURL, m_currentDestURL);
+                emitExaminingToCopy(q, m_currentSrcURL, m_currentDestURL);
             }
         }
         q->setProgressUnit(KJob::Bytes);
@@ -1418,6 +1435,7 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
     if (m_reportTimer) {
         m_reportTimer->stop();
     }
+    emitWaiting(it);
 
     auto *askUserActionInterface = KIO::delegateExtension<KIO::AskUserActionInterface *>(q);
 
@@ -1750,6 +1768,7 @@ void CopyJobPrivate::slotResultErrorCopyingFiles(KJob *job)
     if (m_reportTimer) {
         m_reportTimer->stop();
     }
+    emitWaiting(it);
 
     q->removeSubjob(job);
     Q_ASSERT(!q->hasSubjobs());

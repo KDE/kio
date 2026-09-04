@@ -124,6 +124,8 @@ private Q_SLOTS:
     void moveFileSkippedWhileCopying();
     void copyFileAutoSkippedWhileCopying();
     void copySkippedDirectoryDropsItsBytes();
+    void copyReportsExaminingBeforeCopying();
+    void copyReportsWaitingForInputOnConflict();
     void copyFileDestAlreadyExists_data();
     void copyFileDestAlreadyExists();
     void moveDestAlreadyExistsAutoRename_data();

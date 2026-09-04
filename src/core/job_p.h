@@ -93,6 +93,10 @@ public:
     static void emitCreatingDir(KIO::Job *, const QUrl &dir);
     static void emitDeleting(KIO::Job *, const QUrl &url);
     static void emitStating(KIO::Job *, const QUrl &url);
+    static void emitExaminingToCopy(KIO::Job *, const QUrl &src, const QUrl &dest);
+    static void emitExaminingToMove(KIO::Job *, const QUrl &src, const QUrl &dest);
+    static void emitWaitingToCopy(KIO::Job *, const QUrl &src, const QUrl &dest);
+    static void emitWaitingToMove(KIO::Job *, const QUrl &src, const QUrl &dest);
     static void emitTransferring(KIO::Job *, const QUrl &url);
     static void emitMounting(KIO::Job *, const QString &dev, const QString &point);
     static void emitUnmounting(KIO::Job *, const QString &point);

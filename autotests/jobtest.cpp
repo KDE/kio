@@ -2980,6 +2980,95 @@ void JobTest::copySkippedDirectoryDropsItsBytes()
     QCOMPARE(job->percent(), 100);
 }
 
+void JobTest::copyReportsExaminingBeforeCopying()
+{
+    // A job that has not copied anything yet used to report itself as "Copying", from the first
+    // report on, so a progress window opening during the listing claimed work that had not
+    // started. What it does until then is examine what it was given. bug 399950
+    const QString srcDir = homeTmpDir() + "phaseSrc";
+    const QString destDir = homeTmpDir() + "phaseDest";
+    QVERIFY(QDir().mkpath(srcDir));
+    QVERIFY(QDir().mkpath(destDir));
+    for (const QString &name : {QStringLiteral("file1"), QStringLiteral("file2"), QStringLiteral("file3")}) {
+        createTestFile(srcDir + QLatin1Char('/') + name);
+    }
+
+    ScopedCleaner cleaner([&] {
+        QDir(srcDir).removeRecursively();
+        QDir(destDir).removeRecursively();
+        KIO::CopyJob::setReportTimeout(std::chrono::milliseconds(200));
+    });
+
+    // Reports come every 200ms otherwise, which a job this size finishes well inside of.
+    KIO::CopyJob::setReportTimeout(std::chrono::milliseconds(1));
+
+    QStringList phases;
+    KIO::CopyJob *job = KIO::copy({QUrl::fromLocalFile(srcDir)}, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    connect(job, &KJob::description, this, [&phases](KJob *, const QString &title, const QPair<QString, QString> &, const QPair<QString, QString> &) {
+        if (phases.isEmpty() || phases.last() != title) {
+            phases << title;
+        }
+    });
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    const QString examining = i18nc("@title job", "Examining files to copy");
+    const QString copying = i18nc("@title job", "Copying");
+    const QString reported = phases.join(QLatin1String(", "));
+    QVERIFY2(!phases.isEmpty(), "the job reported no phase at all");
+    QVERIFY2(phases.first() != copying, qPrintable(QLatin1String("the first phase was already copying: ") + reported));
+    QVERIFY2(phases.contains(examining), qPrintable(QLatin1String("no examining phase: ") + reported));
+    // And it does reach copying, after the examining it starts with.
+    QVERIFY2(phases.indexOf(examining) < phases.lastIndexOf(copying), qPrintable(reported));
+}
+
+void JobTest::copyReportsWaitingForInputOnConflict()
+{
+    // No report goes out while a conflict is waiting for an answer, so the phase the job was in
+    // stays on show until the user deals with the dialog. Say that it is waiting instead, and go
+    // back to naming the work once there is an answer. bug 399950
+    const QString srcDir = homeTmpDir() + "waitSrc";
+    const QString destDir = homeTmpDir() + "waitDest";
+    QVERIFY(QDir().mkpath(srcDir));
+    QVERIFY(QDir().mkpath(destDir + "/waitSrc"));
+    for (const QString &name : {QStringLiteral("file1"), QStringLiteral("file2"), QStringLiteral("file3")}) {
+        createTestFile(srcDir + QLatin1Char('/') + name);
+    }
+    // The directory is in the way, and so is the first file in it.
+    createTestFile(destDir + "/waitSrc/file1");
+
+    ScopedCleaner cleaner([&] {
+        QDir(srcDir).removeRecursively();
+        QDir(destDir).removeRecursively();
+        KIO::CopyJob::setReportTimeout(std::chrono::milliseconds(200));
+    });
+
+    KIO::CopyJob::setReportTimeout(std::chrono::milliseconds(1));
+
+    QStringList phases;
+    KIO::CopyJob *job = KIO::copy({QUrl::fromLocalFile(srcDir)}, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    job->setUiDelegate(new KJobUiDelegate);
+    auto *askUserHandler = new MockAskUserInterface(job->uiDelegate());
+    // The directory is merged, then the file already there is overwritten.
+    askUserHandler->m_renameResults = {KIO::Result_Overwrite, KIO::Result_Overwrite};
+    connect(job, &KJob::description, this, [&phases](KJob *, const QString &title, const QPair<QString, QString> &, const QPair<QString, QString> &) {
+        if (phases.isEmpty() || phases.last() != title) {
+            phases << title;
+        }
+    });
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QCOMPARE(askUserHandler->m_askUserRenameCalled, 2);
+
+    const QString waiting = i18nc("@title job", "Waiting to copy");
+    const QString reported = phases.join(QLatin1String(", "));
+    QVERIFY2(phases.contains(waiting), qPrintable(QLatin1String("the job never said it was waiting: ") + reported));
+    // The two files which were not in the way are copied after the answer, so the job leaves the
+    // waiting phase behind it.
+    QVERIFY2(phases.last() != waiting, qPrintable(QLatin1String("the job was left waiting: ") + reported));
+}
+
 void JobTest::copyFileDestAlreadyExists_data()
 {
     QTest::addColumn<bool>("autoSkip");

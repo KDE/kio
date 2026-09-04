@@ -144,6 +144,35 @@ void JobPrivate::emitStating(KIO::Job *job, const QUrl &url)
     Q_EMIT job->description(job, s_title, qMakePair(s_file, url_description_string(url)));
 }
 
+// The phases a copy or a move goes through before and around the transfer itself. They carry the
+// same two fields as the transfer, so a tracker showing one shows all of them the same way.
+static void emitPhase(KIO::Job *job, const QString &title, const QUrl &src, const QUrl &dest)
+{
+    static const QString s_source = i18nc("The source of a file operation", "Source");
+    static const QString s_destination = i18nc("The destination of a file operation", "Destination");
+    Q_EMIT job->description(job, title, qMakePair(s_source, url_description_string(src)), qMakePair(s_destination, url_description_string(dest)));
+}
+
+void JobPrivate::emitExaminingToCopy(KIO::Job *job, const QUrl &src, const QUrl &dest)
+{
+    emitPhase(job, i18nc("@title job", "Examining files to copy"), src, dest);
+}
+
+void JobPrivate::emitExaminingToMove(KIO::Job *job, const QUrl &src, const QUrl &dest)
+{
+    emitPhase(job, i18nc("@title job", "Examining files to move"), src, dest);
+}
+
+void JobPrivate::emitWaitingToCopy(KIO::Job *job, const QUrl &src, const QUrl &dest)
+{
+    emitPhase(job, i18nc("@title job", "Waiting to copy"), src, dest);
+}
+
+void JobPrivate::emitWaitingToMove(KIO::Job *job, const QUrl &src, const QUrl &dest)
+{
+    emitPhase(job, i18nc("@title job", "Waiting to move"), src, dest);
+}
+
 void JobPrivate::emitTransferring(KIO::Job *job, const QUrl &url)
 {
     static const QString s_title = i18nc("@title job", "Transferring");
