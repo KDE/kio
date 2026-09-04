@@ -514,6 +514,29 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
 // permissions of the new file come from, and what of the source it carries over.
 namespace
 {
+// A batch is a list of local files copied in one worker command, instead of one file_copy job per
+// file, so the per-file job and IPC cost that dominates a many-small-files copy is paid once for
+// the whole run. Each file goes through the same routine a single copy uses, with a request that
+// only creates fresh files: an existing destination comes back as a conflict.
+struct BatchCopyOp {
+    int index; // position in the original request, used when reporting deferrals
+    QByteArray src;
+    QByteArray dest;
+};
+
+enum BatchDeferReason {
+    DeferConflict = 1, // destination exists and Overwrite was not requested
+    DeferError = 2, // copy failed for this item (errno reported alongside); rest of batch continues
+};
+
+enum class ItemOutcome {
+    Begin, // about to copy this file (drives the current-file report; emitted before the copy)
+    Done,
+    Conflict, // destination already exists and Overwrite was not requested
+    Defer, // per-item recoverable failure: skip this file, keep going
+    Abort, // batch-fatal failure: stop now
+};
+
 // Result of copying one file. Conflict is split out from a plain failure because the destination
 // name being taken is something a user can be asked about.
 enum class CopyOutcome {
@@ -564,10 +587,31 @@ struct CopyReport {
     bool readFailed = false;
 };
 
+// Tells apart errors that doom the rest of the batch from ones that only affect one file.
+bool isFatalCopyError(int err)
+{
+    switch (err) {
+    case ENOSPC: // out of space - every remaining file fails too
+    case EDQUOT: // quota exhausted
+    case EROFS: // destination became read-only
+    case EIO: // I/O error - failing/disconnected device
+    case ENXIO:
+    case EMFILE: // out of file descriptors - won't recover within the batch
+    case ENFILE:
+        return true;
+    default: // EACCES/EPERM/ENOENT/EISDIR/... affect this file only
+        return false;
+    }
+}
+
 // Per-call transfer size and the unit of work between cancellation checks. 512 KiB balances
 // throughput against cancel latency (smaller chunks measured ~25-30% slower on large cold copies);
 // smaller files are copied in a single call.
 static constexpr size_t s_copyChunk = 512 * 1024;
+
+// Most files one command may carry. A job sends a few hundred at a time, and the limit keeps a
+// request that claims more from reserving memory for it.
+static constexpr qint32 s_maxBatchCopyFiles = 8192;
 
 // Copy contents between two already-open fds via copy_file_range, falling back to read/write for
 // the cases it rejects (EXDEV, ENOSYS, ...). size (from the caller's fstat) bounds the loop so it
@@ -811,6 +855,17 @@ DestDirGroup destDirGroupFor(int dirFd, gid_t egid)
     return {egid, false};
 }
 
+// Splits an absolute encoded path into (parent directory, base name). The directory is "/" for a
+// root-level entry. Used to open each directory once and openat() the files within it.
+std::pair<QByteArray, QByteArray> splitDir(const QByteArray &path)
+{
+    const int slash = path.lastIndexOf('/');
+    if (slash <= 0) {
+        return {QByteArrayLiteral("/"), path.mid(slash + 1)};
+    }
+    return {path.left(slash), path.mid(slash + 1)};
+}
+
 // Copies one file by name, relative to already-open source and destination directory fds. Opening
 // each directory once and using openat() for every file in it spares the kernel from re-resolving
 // the shared directory prefix on each open, and the caller of a single copy can pass AT_FDCWD with
@@ -943,7 +998,255 @@ CopyReport copyFileAt(int srcDirFd,
     return {CopyOutcome::Copied, CopyStage::Transfer, 0, false};
 }
 
+// Copies each op and reports its ItemOutcome, so the worker can stream progress, defer
+// per-item failures, and stop on a batch-fatal one. Conflicts are pre-filtered by the caller
+// (overwrite policy). copyBatch returns the errno that aborted the batch, or 0 if it ran to
+// completion. One source and one destination directory are held open at a time.
+class BatchCopyEngine
+{
+public:
+    BatchCopyEngine(PreserveFn preserve, gid_t egid, std::function<bool()> isKilled)
+        : m_preserve(std::move(preserve))
+        , m_egid(egid)
+        , m_isKilled(std::move(isKilled))
+        , m_request{.existing = ExistingDest::Refuse, .permissions = NewFilePermissions::FromSource}
+    {
+    }
+    ~BatchCopyEngine()
+    {
+        if (m_srcDirFd >= 0) {
+            ::close(m_srcDirFd);
+        }
+        if (m_destDirFd >= 0) {
+            ::close(m_destDirFd);
+        }
+    }
+    int copyBatch(const QList<BatchCopyOp> &ops, KIO::filesize_t &bytesCopied, const std::function<void(int index, ItemOutcome outcome, int err)> &onItem);
+
+private:
+    // Keeps one source and one destination directory open at a time, so consecutive files in the
+    // same directory (the common case) are reached with openat() instead of re-resolving the full
+    // path. heldFd and heldPath are the directory currently open, and are replaced when another one
+    // is opened. Returns the descriptor just opened, 0 when heldFd already pointed at dir, or -1
+    // with errno set when dir cannot be opened. Descriptor 0 is the worker's standard input, so an
+    // open() here always lands above it.
+    static int holdDir(const QByteArray &dir, int &heldFd, QByteArray &heldPath)
+    {
+        if (heldFd >= 0 && dir == heldPath) {
+            return 0;
+        }
+        const int fd = ::open(dir.constData(), O_RDONLY | O_DIRECTORY | O_CLOEXEC);
+        if (fd < 0) {
+            return -1;
+        }
+        if (heldFd >= 0) {
+            ::close(heldFd);
+        }
+        heldFd = fd;
+        heldPath = dir;
+        return fd;
+    }
+    bool ensureSrcDir(const QByteArray &dir)
+    {
+        return holdDir(dir, m_srcDirFd, m_srcDirPath) >= 0;
+    }
+    bool ensureDestDir(const QByteArray &dir)
+    {
+        const int openedFd = holdDir(dir, m_destDirFd, m_destDirPath);
+        if (openedFd <= 0) {
+            return openedFd == 0; // the directory was already open, and carries the group settled then
+        }
+        // Ask the dir fd just opened (rather than stat-ing the path) so the group a new file comes
+        // out with is settled once per directory.
+        m_destDirGroup = destDirGroupFor(openedFd, m_egid);
+        return true;
+    }
+
+    PreserveFn m_preserve; // applied to each successfully copied file (perms/times/owner/ACL)
+    gid_t m_egid; // effective gid: the group new files get outside set-group-ID directories
+    std::function<bool()> m_isKilled; // polled to abort promptly on cancellation
+    CopyRequest m_request; // the same for every file of a batch: fresh files carrying the source's own metadata
+
+    int m_srcDirFd = -1;
+    QByteArray m_srcDirPath;
+    int m_destDirFd = -1;
+    QByteArray m_destDirPath;
+    DestDirGroup m_destDirGroup; // group files freshly created in m_destDirFd come out with
+};
+
+int BatchCopyEngine::copyBatch(const QList<BatchCopyOp> &ops, KIO::filesize_t &bytesCopied, const std::function<void(int, ItemOutcome, int)> &onItem)
+{
+    for (const auto &op : ops) {
+        if (m_isKilled()) {
+            return ECANCELED; // cancelled between files
+        }
+        const auto [srcDir, srcName] = splitDir(op.src);
+        const auto [destDir, destName] = splitDir(op.dest);
+
+        errno = 0;
+        if (!ensureSrcDir(srcDir) || !ensureDestDir(destDir)) {
+            const int err = errno; // could not open a directory: treat as a per-item failure
+            if (isFatalCopyError(err)) {
+                onItem(op.index, ItemOutcome::Abort, err);
+                return err;
+            }
+            onItem(op.index, ItemOutcome::Defer, err);
+            continue;
+        }
+
+        onItem(op.index, ItemOutcome::Begin, 0); // about to copy this file
+
+        const CopyReport report = copyFileAt(m_srcDirFd, srcName, m_destDirFd, destName, m_destDirGroup, m_request, bytesCopied, m_preserve, m_isKilled);
+        switch (report.outcome) {
+        case CopyOutcome::Copied:
+            onItem(op.index, ItemOutcome::Done, 0);
+            break;
+        case CopyOutcome::Conflict:
+            onItem(op.index, ItemOutcome::Conflict, 0);
+            break;
+        case CopyOutcome::Failed:
+            if (report.err == ECANCELED) {
+                return ECANCELED; // cancelled mid-file
+            }
+            if (isFatalCopyError(report.err)) {
+                onItem(op.index, ItemOutcome::Abort, report.err);
+                return report.err; // stop the batch
+            }
+            onItem(op.index, ItemOutcome::Defer, report.err);
+            break;
+        }
+    }
+    return 0;
+}
+
+// NOTE: io_uring has no opcode for copy_file_range, so it could only pipeline the metadata calls
+// around a data move that still goes through copy_file_range. Measured that way it came out
+// *slower* than copying serially for warm-cache local files, the metadata calls being cheap there
+// already. It is worth another look once the data move itself can be submitted to a ring.
 } // namespace
+
+WorkerResult FileProtocol::batchCopy(QDataStream &stream)
+{
+    // Request: qint32 flags (reserved), qint32 count, count x (QString src, QString dest).
+    qint32 flags = 0;
+    qint32 count = 0;
+    stream >> flags >> count;
+    // The request arrives from the application, so its count decides a reservation and a loop here
+    // and is checked before either. The cap is far above the largest batch a job sends.
+    if (count < 0 || count > s_maxBatchCopyFiles) {
+        return WorkerResult::fail(KIO::ERR_INTERNAL, i18n("Malformed batch copy request"));
+    }
+    // flags carries nothing yet. Existing destinations are always left to the caller (the engine
+    // opens every destination O_EXCL), so overwrite is not a batch concern.
+    Q_UNUSED(flags)
+
+    struct Deferral {
+        qint32 index;
+        qint32 reason;
+        qint32 err;
+    };
+    QList<Deferral> deferrals;
+
+    // Existing destinations are detected by the engine's O_EXCL open and deferred, so no
+    // destination access() pre-check is needed here.
+    QList<BatchCopyOp> todo;
+    todo.reserve(count);
+    for (int i = 0; i < count; ++i) {
+        QString src;
+        QString dest;
+        stream >> src >> dest;
+        if (stream.status() != QDataStream::Ok) {
+            return WorkerResult::fail(KIO::ERR_INTERNAL, i18n("Malformed batch copy request"));
+        }
+        todo.push_back({i, QFile::encodeName(src), QFile::encodeName(dest)});
+    }
+
+    // Group the batch by source directory so the engine's single-slot directory handles
+    // (m_srcDirFd/m_destDirFd) stay warm: consecutive files then share a directory and are reached
+    // with openat() instead of reopening it per file. The recursive caller already lists per
+    // directory, but a flat copy of files gathered from several folders into one destination would
+    // otherwise reopen the source directory on every file. Sorting on the source path keeps the
+    // destination handle warm too (it is a single directory in the flat case, and mirrors the source
+    // tree otherwise). op.index carries the original position, so deferrals still map back.
+    std::sort(todo.begin(), todo.end(), [](const BatchCopyOp &a, const BatchCopyOp &b) {
+        return a.src < b.src;
+    });
+
+    // Every copied file comes out carrying the source's metadata. Best-effort: a preservation
+    // failure does not fail the copy. The umask and our euid are read once for the whole batch, and
+    // the group a freshly created file already has is worked out per destination directory by the
+    // engine and handed in.
+    const gid_t egid = ::getegid();
+    auto engine = std::make_unique<BatchCopyEngine>(makePreserveFn(this, currentUmask(), ::geteuid()), egid, [this] {
+        return wasKilled();
+    });
+
+    // Progress + completion reporting, batched on one ~100ms gate so a large run does not flood the
+    // app. Each tick sends one data packet holding "qint32 current, QList<qint32> done", where
+    // current is the index of the file about to be copied, or -1 when there is none, and done holds
+    // the indices of the files finished since the previous packet. The cumulative byte total goes
+    // out on its own through processedSize. The final flush carries the remaining indices and the
+    // exact total. Deferred and errored items are not reported here, they come back in the
+    // batchDeferred metadata.
+    KIO::filesize_t bytesDone = 0;
+    QElapsedTimer reportTimer;
+    QList<qint32> doneSinceReport;
+    qint32 inFlight = -1; // file about to be / being copied
+    auto flushReport = [&]() {
+        processedSize(bytesDone);
+        if (inFlight < 0 && doneSinceReport.isEmpty()) {
+            return;
+        }
+        QByteArray report;
+        QDataStream out(&report, QIODevice::WriteOnly);
+        out << inFlight << doneSinceReport;
+        data(report);
+        doneSinceReport.clear();
+        reportTimer.restart();
+    };
+    const int abortErr = engine->copyBatch(todo, bytesDone, [&](int index, ItemOutcome outcome, int err) {
+        switch (outcome) {
+        case ItemOutcome::Begin:
+            inFlight = index; // about to copy this file
+            if (!reportTimer.isValid() || reportTimer.hasExpired(100)) {
+                flushReport();
+            }
+            break;
+        case ItemOutcome::Done:
+            doneSinceReport.append(index);
+            break;
+        case ItemOutcome::Conflict:
+            deferrals.push_back({index, DeferConflict, 0}); // dest exists: let the app resolve it
+            break;
+        case ItemOutcome::Defer:
+        case ItemOutcome::Abort: // record the item that triggered the abort too
+            deferrals.push_back({index, DeferError, qint32(err)});
+            break;
+        }
+    });
+    inFlight = -1; // nothing in flight anymore; final flush carries the remaining completed indices
+    flushReport();
+
+    // The deferral list goes out once, when the batch is over, as metadata holding one
+    // "index:reason:errno;" entry per deferred item.
+    QString deferredStr;
+    for (const Deferral &d : std::as_const(deferrals)) {
+        deferredStr += QStringLiteral("%1:%2:%3;").arg(d.index).arg(d.reason).arg(d.err);
+    }
+    setMetaData(QStringLiteral("batchDeferred"), deferredStr);
+
+    if (abortErr == ECANCELED) {
+        // Cancelled mid-batch (the app killed the job): stop, like copy() does on wasKilled().
+        return WorkerResult::fail(KIO::ERR_USER_CANCELED, QString());
+    }
+    if (abortErr != 0) {
+        // Batch-fatal error (disk full, read-only fs, ...): stop and fail the command, like
+        // copy() does. Items already copied stay; the rest were not attempted.
+        const int kioError = (abortErr == ENOSPC || abortErr == EDQUOT) ? KIO::ERR_DISK_FULL : KIO::ERR_CANNOT_WRITE;
+        return WorkerResult::fail(kioError, QString::fromLocal8Bit(strerror(abortErr)));
+    }
+    return WorkerResult::pass();
+}
 
 WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _mode, JobFlags _flags)
 {

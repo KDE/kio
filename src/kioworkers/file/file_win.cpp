@@ -185,6 +185,13 @@ WorkerResult FileProtocol::copy(const QUrl &src, const QUrl &dest, int _mode, Jo
     return WorkerResult::pass();
 }
 
+WorkerResult FileProtocol::batchCopy(QDataStream &)
+{
+    // The batch-copy fast path is POSIX-specific (copy_file_range / openat / fadvise); on Windows
+    // CopyJob keeps using the per-file path.
+    return WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, QString());
+}
+
 WorkerResult FileProtocol::listDir(const QUrl &url)
 {
     // qDebug() << "========= LIST " << url << " =========";
