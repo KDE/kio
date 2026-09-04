@@ -24,7 +24,9 @@
 #ifndef Q_OS_WIN
 #include <fcntl.h>
 #include <optional>
+#include <sys/stat.h>
 #include <sys/statvfs.h>
+#include <unistd.h>
 #include <utime.h>
 #endif
 
@@ -893,6 +895,8 @@ WorkerResult FileProtocol::special(const QByteArray &data)
         return flushRemovableFolder(folder);
     }
 #endif
+    case 4: // batch copy a list of local files in one command (platform-specific: see batchCopy())
+        return batchCopy(stream);
     default:
         break;
     }
