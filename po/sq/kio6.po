@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-02 00:40+0000\n"
+"POT-Creation-Date: 2026-09-04 00:40+0000\n"
 "PO-Revision-Date: 2025-12-07 00:08-0500\n"
 "Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
 "Language-Team: sq\n"
@@ -86,23 +86,23 @@ msgstr ""
 "Përzgjedhja e “Zëvendësoje” do të zëvendësojë çfarëdo shenjash të pavlefshme "
 "(te emri i kartelës vendmbërritje) me një nënvijë “_”."
 
-#: core/copyjob.cpp:1441 core/job_error.cpp:588
+#: core/copyjob.cpp:1442 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Dosja Ekziston Tashmë"
 
-#: core/copyjob.cpp:1776 core/copyjob.cpp:2492 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1777 core/copyjob.cpp:2493 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Skeda ekziston që më parë"
 
-#: core/copyjob.cpp:1776 core/copyjob.cpp:2492
+#: core/copyjob.cpp:1777 core/copyjob.cpp:2493
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Ekziston Tashmë si Skedar"
 
-#: core/copyjob.cpp:1930 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1931 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr ""
@@ -5313,43 +5313,43 @@ msgstr "Përditësim Formësimi Sistemi"
 msgid "Updating system configuration…"
 msgstr "Po përditësohet formësimi i sistemit…"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1269
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Emër"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1271
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Madhësi"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1273
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Datë"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1275
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Leje"
 
-#: widgets/kdirmodel.cpp:1276
+#: widgets/kdirmodel.cpp:1277
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Zotërues"
 
-#: widgets/kdirmodel.cpp:1278
+#: widgets/kdirmodel.cpp:1279
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Grup"
 
-#: widgets/kdirmodel.cpp:1280
+#: widgets/kdirmodel.cpp:1281
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

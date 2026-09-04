@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-02 00:40+0000\n"
+"POT-Creation-Date: 2026-09-04 00:40+0000\n"
 "PO-Revision-Date: 2026-03-31 23:12+0530\n"
 "Last-Translator: CrazyCourt651 <CrazyCourt651@gmail.com>\n"
 "Language-Team: Gujarati\n"
@@ -81,23 +81,23 @@ msgstr ""
 "લક્ષ્ય ફાઇલસિસ્ટમ (%2) ફાઇલના નામોમાં નીચેના અક્ષરોની મંજૂરી આપતું નથી: %3\n"
 "'બદલો' પસંદ કરવાથી અમાન્ય અક્ષરો અંડરસ્કોર \"_\" થી બદલાઈ જશે."
 
-#: core/copyjob.cpp:1441 core/job_error.cpp:588
+#: core/copyjob.cpp:1442 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "ફોલ્ડર પહેલેથી હાજર છે"
 
-#: core/copyjob.cpp:1776 core/copyjob.cpp:2492 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1777 core/copyjob.cpp:2493 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "ફાઇલ પહેલેથી હાજર છે"
 
-#: core/copyjob.cpp:1776 core/copyjob.cpp:2492
+#: core/copyjob.cpp:1777 core/copyjob.cpp:2493
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "ફોલ્ડર તરીકે પહેલેથી હાજર છે"
 
-#: core/copyjob.cpp:1930 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1931 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "કચરાપેટી"
@@ -5206,43 +5206,43 @@ msgstr "સિસ્ટમ રૂપરેખાંકન સુધારે છ
 msgid "Updating system configuration…"
 msgstr "સિસ્ટમ રૂપરેખાંકન અપડેટ કરી રહ્યું છે"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1269
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "નામ"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1271
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "કદ"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1273
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "તારીખ"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1275
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "પરવાનગીઓ"
 
-#: widgets/kdirmodel.cpp:1276
+#: widgets/kdirmodel.cpp:1277
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "માલિક"
 
-#: widgets/kdirmodel.cpp:1278
+#: widgets/kdirmodel.cpp:1279
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "સમૂહ"
 
-#: widgets/kdirmodel.cpp:1280
+#: widgets/kdirmodel.cpp:1281
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

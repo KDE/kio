@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-02 00:40+0000\n"
+"POT-Creation-Date: 2026-09-04 00:40+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -94,23 +94,23 @@ msgstr ""
 "Kali abrać \"Zamianić\", to ŭsio nieprydatnyja simvaly ŭ nazvach zamieniacca "
 "simvalam \"_\"."
 
-#: core/copyjob.cpp:1441 core/job_error.cpp:588
+#: core/copyjob.cpp:1442 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Kataloh užo isnuje"
 
-#: core/copyjob.cpp:1776 core/copyjob.cpp:2492 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1777 core/copyjob.cpp:2493 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fajl užo isnuje"
 
-#: core/copyjob.cpp:1776 core/copyjob.cpp:2492
+#: core/copyjob.cpp:1777 core/copyjob.cpp:2493
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Užo isnuje kataloh z takoj nazvaj"
 
-#: core/copyjob.cpp:1930 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1931 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Smietnica"
@@ -5452,43 +5452,43 @@ msgstr "Abnaŭliennie kanfihuracyi sistemy"
 msgid "Updating system configuration…"
 msgstr "Abnaŭliennie kanfihuracyi sistemy."
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1269
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nazva"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1271
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Pamier"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1273
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Data"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1275
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Pravy dostupu"
 
-#: widgets/kdirmodel.cpp:1276
+#: widgets/kdirmodel.cpp:1277
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Ulasnik"
 
-#: widgets/kdirmodel.cpp:1278
+#: widgets/kdirmodel.cpp:1279
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Hrupa"
 
-#: widgets/kdirmodel.cpp:1280
+#: widgets/kdirmodel.cpp:1281
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

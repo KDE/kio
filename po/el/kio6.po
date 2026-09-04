@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-02 00:40+0000\n"
+"POT-Creation-Date: 2026-09-04 00:40+0000\n"
 "PO-Revision-Date: 2024-09-19 21:59+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -95,23 +95,23 @@ msgstr ""
 "Η επιλογή Αντικατάσταση θα αντικαταστήσει τυχόν μη έγκυρους χαρακτήρες (στο "
 "όνομα του αρχείου προορισμού) με μια υπογράμμιση «_»."
 
-#: core/copyjob.cpp:1441 core/job_error.cpp:588
+#: core/copyjob.cpp:1442 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Ο φάκελος υπάρχει ήδη"
 
-#: core/copyjob.cpp:1776 core/copyjob.cpp:2492 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1777 core/copyjob.cpp:2493 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Το αρχείο υπάρχει ήδη"
 
-#: core/copyjob.cpp:1776 core/copyjob.cpp:2492
+#: core/copyjob.cpp:1777 core/copyjob.cpp:2493
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Υπάρχει ήδη ως φάκελος"
 
-#: core/copyjob.cpp:1930 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1931 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Απορρίμματα"
@@ -5369,43 +5369,43 @@ msgstr "Ενημέρωση ρύθμισης συστήματος"
 msgid "Updating system configuration…"
 msgstr "Ενημέρωση ρυθμίσεων συστήματος…"
 
-#: widgets/kdirmodel.cpp:1268
+#: widgets/kdirmodel.cpp:1269
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Όνομα"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1271
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Μέγεθος"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1273
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1275
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Άδειες"
 
-#: widgets/kdirmodel.cpp:1276
+#: widgets/kdirmodel.cpp:1277
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Ιδιοκτήτης"
 
-#: widgets/kdirmodel.cpp:1278
+#: widgets/kdirmodel.cpp:1279
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Ομάδα"
 
-#: widgets/kdirmodel.cpp:1280
+#: widgets/kdirmodel.cpp:1281
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
