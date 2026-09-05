@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:40+0000\n"
+"POT-Creation-Date: 2026-09-05 00:41+0000\n"
 "PO-Revision-Date: 2026-06-17 13:01+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 "無法變更檔案 <filename>%1</filename> 的擁有者。您沒有足夠的檔案存取權來進行這"
 "個變更。"
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1106
+#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:1106
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -66,7 +66,7 @@ msgstr ""
 "無法建立符號連結「%1」。\n"
 "目標檔案系統 (%2) 不支援符號連結。"
 
-#: core/copyjob.cpp:203
+#: core/copyjob.cpp:208
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -79,7 +79,7 @@ msgstr ""
 "目標檔案系統 (%2) 不允許資料夾名稱使用以下字元：%3\n"
 "選取「取代」將會把目的資料夾名稱中所有無效字元取代為底線 \"_\"。"
 
-#: core/copyjob.cpp:211
+#: core/copyjob.cpp:216
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -92,23 +92,23 @@ msgstr ""
 "目標檔案系統 (%2) 不允許檔案名稱使用以下字元：%3\n"
 "選取「取代」將會把目的檔案名稱中所有無效字元取代為底線 \"_\"。"
 
-#: core/copyjob.cpp:1442 core/job_error.cpp:588
+#: core/copyjob.cpp:1480 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "資料夾已存在"
 
-#: core/copyjob.cpp:1777 core/copyjob.cpp:2493 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1816 core/copyjob.cpp:2538 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "檔案已存在"
 
-#: core/copyjob.cpp:1777 core/copyjob.cpp:2493
+#: core/copyjob.cpp:1816 core/copyjob.cpp:2538
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "已存在以此為名的資料夾"
 
-#: core/copyjob.cpp:1931 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1971 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "垃圾桶"
@@ -2151,17 +2151,17 @@ msgstr "重新格式化目標硬碟的檔案系統到支援大檔案的檔案系
 msgid "Undocumented Error"
 msgstr "未說明的錯誤"
 
-#: core/kfileitem.cpp:1492
+#: core/kfileitem.cpp:1503
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "（符號連結到 %1）"
 
-#: core/kfileitem.cpp:1494
+#: core/kfileitem.cpp:1505
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "（%1，連結到 %2）"
 
-#: core/kfileitem.cpp:1497
+#: core/kfileitem.cpp:1508
 #, kde-format
 msgid " (Points to %1)"
 msgstr "（指向 %1）"
@@ -3749,7 +3749,7 @@ msgstr "儲存圖片到 %1 時發生錯誤。"
 msgid "Icon file too big, download aborted"
 msgstr "圖示檔案太大了，放棄下載"
 
-#: gui/filepreviewjob.cpp:273
+#: gui/filepreviewjob.cpp:256
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4438,7 +4438,7 @@ msgstr "清空垃圾桶"
 msgid "Restore a trashed file to its original location"
 msgstr "將垃圾桶內的檔案回復到原來的位置"
 
-#: kioworkers/trash/trashimpl.cpp:1305
+#: kioworkers/trash/trashimpl.cpp:1315
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "垃圾桶已滿。請將其清空或手動移除項目。"

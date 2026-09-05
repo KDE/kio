@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:40+0000\n"
+"POT-Creation-Date: 2026-09-05 00:41+0000\n"
 "PO-Revision-Date: 2026-07-12 09:10+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -45,7 +45,7 @@ msgstr ""
 "Nie można zmienić właściciela pliku <filename>%1</filename>. "
 "Niewystarczające uprawnienia do pliku."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1106
+#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:1106
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -57,7 +57,7 @@ msgstr ""
 "Nie można utworzyć dowiązania symbolicznego \"%1\".\n"
 "Docelowy system plików (%2) nie obsługuje dowiązań symbolicznych."
 
-#: core/copyjob.cpp:203
+#: core/copyjob.cpp:208
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -72,7 +72,7 @@ msgstr ""
 "Wybranie zastąpienie zastąpi każdy nieprawidłowy znak (w nazwie katalogu "
 "docelowego) znakiem podkreślenia \"_\"."
 
-#: core/copyjob.cpp:211
+#: core/copyjob.cpp:216
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -87,23 +87,23 @@ msgstr ""
 "Wybranie zastąpienie zastąpi każdy nieprawidłowy znak (w nazwie pliku "
 "docelowego) znakiem podkreślenia \"_\"."
 
-#: core/copyjob.cpp:1442 core/job_error.cpp:588
+#: core/copyjob.cpp:1480 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Katalog już istnieje"
 
-#: core/copyjob.cpp:1777 core/copyjob.cpp:2493 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1816 core/copyjob.cpp:2538 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Plik już istnieje"
 
-#: core/copyjob.cpp:1777 core/copyjob.cpp:2493
+#: core/copyjob.cpp:1816 core/copyjob.cpp:2538
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Istnieje już jako katalog"
 
-#: core/copyjob.cpp:1931 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1971 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Kosz"
@@ -2248,17 +2248,17 @@ msgstr "Sformatuj napęd docelowy na format, który obsługuje tak duże pliki."
 msgid "Undocumented Error"
 msgstr "Nieudokumentowany błąd"
 
-#: core/kfileitem.cpp:1492
+#: core/kfileitem.cpp:1503
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symboliczne dowiązanie do %1)"
 
-#: core/kfileitem.cpp:1494
+#: core/kfileitem.cpp:1505
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, dowiązanie do %2)"
 
-#: core/kfileitem.cpp:1497
+#: core/kfileitem.cpp:1508
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Wskazuje na: %1)"
@@ -3897,7 +3897,7 @@ msgstr "Błąd zapisywania obrazu do %1"
 msgid "Icon file too big, download aborted"
 msgstr "Plik ikony zbyt duży, przerwano pobieranie"
 
-#: gui/filepreviewjob.cpp:273
+#: gui/filepreviewjob.cpp:256
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4611,7 +4611,7 @@ msgstr "Opróżnij zawartość kosza"
 msgid "Restore a trashed file to its original location"
 msgstr "Przywróć plik z kosza do jego pierwotnej lokalizacji"
 
-#: kioworkers/trash/trashimpl.cpp:1305
+#: kioworkers/trash/trashimpl.cpp:1315
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Kosz jest pełen. Opróżnij go lub ręcznie usuń z niego rzeczy."

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:40+0000\n"
+"POT-Creation-Date: 2026-09-05 00:41+0000\n"
 "PO-Revision-Date: 2024-01-30 09:25-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -46,7 +46,7 @@ msgstr ""
 "ਫਾਇਲ <filename>%1</filename> ਦੀ ਓਨਰਸ਼ਿਪ ਬਦਲੀ ਨਹੀਂ ਜਾ ਸਕੀ ਹੈ, ਤੁਹਾਡੇ ਕੋਲ ਬਦਲਣ ਲਈ "
 "ਲੋੜੀਦੇ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।"
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1106
+#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:1106
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -58,7 +58,7 @@ msgstr ""
 "ਸਿਮ-ਲਿੰਕ \"%1\" ਬਣਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ ਹੈ।\n"
 "ਟਿਕਾਣਾ ਫਾਇਲ-ਸਿਸਟਮ (%2) ਸਿਮ-ਲਿੰਕ ਲਈ ਸਹਾਇਕ ਨਹੀਂ ਹੈ।"
 
-#: core/copyjob.cpp:203
+#: core/copyjob.cpp:208
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -71,7 +71,7 @@ msgstr ""
 "ਟਿਕਾਣਾ ਫਾਇਲ-ਸਿਸਟਮ (%2) ਫੋਲਡਰ ਨਾਂ ਵਿੱਚ ਅੱਗੇ ਦਿੱਤੇ ਅੱਖਰਾਂ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਦਿੰਦਾ ਹੈ: %3\n"
 "ਗਲਤ ਅੱਖਰਾਂ (ਟਿਕਾਣਾ ਫੋਲਡਰ ਨਾਂ) ਨੂੰ \"_\" ਰੇਖਾ ਨਾਲ ਬਦਲ ਦਿੱਤਾ ਜਾਵੇਗਾ।"
 
-#: core/copyjob.cpp:211
+#: core/copyjob.cpp:216
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -84,23 +84,23 @@ msgstr ""
 "ਟਿਕਾਣਾ ਫਾਇਲ-ਸਿਸਟਮ (%2) ਫਾਇਲ ਨਾਂ ਵਿੱਚ ਅੱਗੇ ਦਿੱਤੇ ਅੱਖਰਾਂ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਦਿੰਦਾ ਹੈ: %3\n"
 "ਗਲਤ ਅੱਖਰਾਂ (ਟਿਕਾਣਾ ਫਾਇਲ ਨਾਂ) ਨੂੰ \"_\" ਰੇਖਾ ਨਾਲ ਬਦਲ ਦਿੱਤਾ ਜਾਵੇਗਾ।"
 
-#: core/copyjob.cpp:1442 core/job_error.cpp:588
+#: core/copyjob.cpp:1480 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "ਫੋਲਡਰ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
 
-#: core/copyjob.cpp:1777 core/copyjob.cpp:2493 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1816 core/copyjob.cpp:2538 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "ਫਾਇਲ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
 
-#: core/copyjob.cpp:1777 core/copyjob.cpp:2493
+#: core/copyjob.cpp:1816 core/copyjob.cpp:2538
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "ਪਹਿਲਾਂ ਹੀ ਫੋਲਡਰ ਵਾਂਗ ਮੌਜੂਦ ਹੈ"
 
-#: core/copyjob.cpp:1931 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1971 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "ਰੱਦੀ"
@@ -2141,17 +2141,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "ਗ਼ੈਰ-ਡੌਕੂਮੈਂਟ ਗਲਤੀ"
 
-#: core/kfileitem.cpp:1492
+#: core/kfileitem.cpp:1503
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 ਨਾਲ ਸਿੰਬੋਲਿਕ ਲਿੰਕ)"
 
-#: core/kfileitem.cpp:1494
+#: core/kfileitem.cpp:1505
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2 ਨਾਲ ਲਿੰਕ)"
 
-#: core/kfileitem.cpp:1497
+#: core/kfileitem.cpp:1508
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (%1 ਲਈ ਪੁਆਇੰਟ)"
@@ -3758,7 +3758,7 @@ msgstr "ਚਿੱਤਰ %1 ਉੱਤੇ ਸੰਭਾਲਣ ਦੌਰਾਨ ਗ�
 msgid "Icon file too big, download aborted"
 msgstr ""
 
-#: gui/filepreviewjob.cpp:273
+#: gui/filepreviewjob.cpp:256
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4446,7 +4446,7 @@ msgstr "ਰੱਦੀ 'ਚ ਮੌਜੂਦਾ ਸਮੱਗਰੀ ਨੂੰ ਖਾ
 msgid "Restore a trashed file to its original location"
 msgstr "ਰੱਦੀ ਵਿਚਲੀ ਫਾਇਲ ਨੂੰ ਅਸਲੀ ਟਿਕਾਣੇ ਉੱਤੇ ਬਹਾਲ ਕਰੋ"
 
-#: kioworkers/trash/trashimpl.cpp:1305
+#: kioworkers/trash/trashimpl.cpp:1315
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "ਰੱਦੀ ਭਰੀ ਹੋਈ ਹੈ। ਇਸ ਨੂੰ ਖਾਲੀ ਕਰੋ ਜਾਂ ਚੀਜ਼ਾਂ ਨੂੰ ਖੁਦ ਹਟਾਓ।"

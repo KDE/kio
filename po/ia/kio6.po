@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:40+0000\n"
+"POT-Creation-Date: 2026-09-05 00:41+0000\n"
 "PO-Revision-Date: 2026-08-31 17:19+0200\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 "Il non pote modificar le proprietate del file <filename>%1</filename>. Tu "
 "non ha assatis permissiones de accesso al file pro exequer le modifica."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1106
+#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:1106
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -54,7 +54,7 @@ msgstr ""
 "Il non pote crear symlink %1 .\n"
 "Le systema de file de destination (%2) non supporta symlinks."
 
-#: core/copyjob.cpp:203
+#: core/copyjob.cpp:208
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -69,7 +69,7 @@ msgstr ""
 "Seliger Reimplacia reimplaciara ulle characteres invalide (in le nomine de "
 "dossier de destination) con un sublinea \"_\"."
 
-#: core/copyjob.cpp:211
+#: core/copyjob.cpp:216
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -84,23 +84,23 @@ msgstr ""
 "Seliger Reimplacia reimplaciara ulle characteres invalide (in le nomine de "
 "file de destination) con un sublinea \"_\"."
 
-#: core/copyjob.cpp:1442 core/job_error.cpp:588
+#: core/copyjob.cpp:1480 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Dossier ja existe"
 
-#: core/copyjob.cpp:1777 core/copyjob.cpp:2493 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1816 core/copyjob.cpp:2538 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "File Ja existe"
 
-#: core/copyjob.cpp:1777 core/copyjob.cpp:2493
+#: core/copyjob.cpp:1816 core/copyjob.cpp:2538
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Un dossier ja es existente"
 
-#: core/copyjob.cpp:1931 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1971 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Corbe"
@@ -2298,17 +2298,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Error non documentate"
 
-#: core/kfileitem.cpp:1492
+#: core/kfileitem.cpp:1503
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Ligamine symbolic a %1)"
 
-#: core/kfileitem.cpp:1494
+#: core/kfileitem.cpp:1505
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Attacca a %2)"
 
-#: core/kfileitem.cpp:1497
+#: core/kfileitem.cpp:1508
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Il puncta a %1)"
@@ -3939,7 +3939,7 @@ msgstr "Error durante que salveguardava imagine in %1"
 msgid "Icon file too big, download aborted"
 msgstr "File de icone troppo grande, discargamento abortite"
 
-#: gui/filepreviewjob.cpp:273
+#: gui/filepreviewjob.cpp:256
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4659,7 +4659,7 @@ msgstr "Vacua le contentos del corbe"
 msgid "Restore a trashed file to its original location"
 msgstr "Restabili le files ex le corbe a lor location original"
 
-#: kioworkers/trash/trashimpl.cpp:1305
+#: kioworkers/trash/trashimpl.cpp:1315
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Le corbe es plen. Vacua lo o remove elemento manualmente."

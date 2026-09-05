@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-04 00:40+0000\n"
+"POT-Creation-Date: 2026-09-05 00:41+0000\n"
 "PO-Revision-Date: 2026-05-26 22:49+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -43,7 +43,7 @@ msgstr ""
 "Nem sikerült módosítani a(z) <filename>%1</filename> fájl tulajdonosát. "
 "Nincs jogosultsága a módosítás végrehajtásához."
 
-#: core/copyjob.cpp:191 kioworkers/file/file_unix.cpp:1106
+#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:1106
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -55,7 +55,7 @@ msgstr ""
 "Nem sikerült létrehozni a(z) „%1” szimbolikus linket.\n"
 "A célfájlrendszer (%2) nem támogatja a szimbolikus linkeket."
 
-#: core/copyjob.cpp:203
+#: core/copyjob.cpp:208
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -70,7 +70,7 @@ msgstr ""
 "A Csere kiválasztása helyettesíti az érvénytelen karaktereket (a célmappa "
 "nevében) egy aláhúzással („_”)."
 
-#: core/copyjob.cpp:211
+#: core/copyjob.cpp:216
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -85,23 +85,23 @@ msgstr ""
 "A Csere kiválasztása helyettesíti az érvénytelen karaktereket (a célfájl "
 "nevében) egy aláhúzással („_”)."
 
-#: core/copyjob.cpp:1442 core/job_error.cpp:588
+#: core/copyjob.cpp:1480 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "A mappa már létezik"
 
-#: core/copyjob.cpp:1777 core/copyjob.cpp:2493 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1816 core/copyjob.cpp:2538 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "A fájl már létezik"
 
-#: core/copyjob.cpp:1777 core/copyjob.cpp:2493
+#: core/copyjob.cpp:1816 core/copyjob.cpp:2538
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Már létezik ilyen néven egy mappa"
 
-#: core/copyjob.cpp:1931 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1971 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Kuka"
@@ -2273,17 +2273,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Nem dokumentált hibakód"
 
-#: core/kfileitem.cpp:1492
+#: core/kfileitem.cpp:1503
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Szimbolikus link erre: %1)"
 
-#: core/kfileitem.cpp:1494
+#: core/kfileitem.cpp:1505
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, link erre: %2)"
 
-#: core/kfileitem.cpp:1497
+#: core/kfileitem.cpp:1508
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Ide mutat: %1)"
@@ -3920,7 +3920,7 @@ msgstr "Hiba a kép mentésekor ide: %1"
 msgid "Icon file too big, download aborted"
 msgstr "Az ikonfájl túl nagy, letöltés megszakítva"
 
-#: gui/filepreviewjob.cpp:273
+#: gui/filepreviewjob.cpp:256
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4637,7 +4637,7 @@ msgstr "A Kuka ürítése"
 msgid "Restore a trashed file to its original location"
 msgstr "Törölt fájl visszaállítása az eredeti helyére"
 
-#: kioworkers/trash/trashimpl.cpp:1305
+#: kioworkers/trash/trashimpl.cpp:1315
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "A kuka megtelt. Ürítse ki, vagy töröljön elemeket kézzel."
