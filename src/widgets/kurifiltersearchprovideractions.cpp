@@ -79,7 +79,7 @@ void KUriFilterSearchProviderActions::addWebShortcutsToMenu(QMenu *menu)
             const QString squeezedText = KStringHandler::rsqueeze(searchText, 21);
             webShortcutsMenu->setTitle(i18n("Search for '%1' with", squeezedText));
 
-            QActionGroup *actionGroup = new QActionGroup(this);
+            QActionGroup *actionGroup = new QActionGroup(webShortcutsMenu);
             connect(actionGroup, &QActionGroup::triggered, this, &KUriFilterSearchProviderActions::slotHandleWebShortcutAction);
             for (const QString &searchProvider : searchProviders) {
                 QAction *action = new QAction(i18nc("@action:inmenu Search for <text> with", "%1", searchProvider), webShortcutsMenu);
