@@ -302,7 +302,10 @@ public:
     KIO::filesize_t m_fileProcessedSize;
     // Sources the user chose not to move. Done, as far as the percentage goes, but not moved.
     int m_skippedFiles = 0;
+    // Files the job is done with, not counting the one being copied.
     int m_processedFiles;
+    // A file copy sub-job is running.
+    bool m_fileInFlight = false;
     int m_processedDirs;
     // What the listing found and the copying has not got through yet, not what the job was given.
     QList<CopyInfo> filesToCopy;
@@ -806,11 +809,13 @@ void CopyJobPrivate::slotReport()
         const qulonglong handledFiles = m_processedFiles + m_skippedFiles;
         const bool countInFiles = (bytesTotalUnknown || noByteProgress) && (handledFiles + filesToCopy.count()) > 0;
 
-        q->setProcessedAmount(KJob::Files, m_processedFiles);
+        // The count says which file the job is on, so the one in hand belongs in it.
+        q->setProcessedAmount(KJob::Files, m_processedFiles + (m_fileInFlight ? 1 : 0));
         q->setProcessedAmount(KJob::Bytes, m_processedSize + m_fileProcessedSize);
         if (countInFiles) {
             // A file the user skipped is one the job is done with, as in the renaming branch above.
-            // The progress unit stays on bytes, so this is the only percentage the job sends.
+            // A file still being copied is not. The progress unit stays on bytes, so this is the
+            // only percentage the job sends.
             q->emitPercent(handledFiles, q->totalAmount(KJob::Files));
         }
         if (m_bURLDirty) {
@@ -1571,7 +1576,6 @@ void CopyJobPrivate::createNextDir()
         }
 
         state = STATE_COPYING_FILES;
-        ++m_processedFiles; // Ralf wants it to start at 1, not 0
         copyNextFile();
     }
 }
@@ -1629,6 +1633,7 @@ void CopyJobPrivate::processCreateNextDir(const QList<CopyInfo>::Iterator &it, i
 void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
 {
     Q_Q(CopyJob);
+    m_fileInFlight = false; // the copy is over, whatever it came back with
     // The file we were trying to copy:
     QList<CopyInfo>::Iterator it = filesToCopy.begin();
     if (job->error()) {
@@ -2115,7 +2120,6 @@ void CopyJobPrivate::copyNextFile()
     } else {
         // We're done
         qCDebug(KIO_COPYJOB_DEBUG) << "copyNextFile finished";
-        --m_processedFiles; // undo the "start at 1" hack
         slotReport(); // display final numbers, important if progress dialog stays up
 
         deleteNextDir();
@@ -2238,6 +2242,7 @@ void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, in
 
     // speed is computed locally
     QObject::disconnect(newjob, &KJob::speed, q, nullptr);
+    m_fileInFlight = true;
     q->addSubjob(newjob);
     q->connect(newjob, &Job::processedSize, q, [this](KJob *job, qulonglong processedSize) {
         slotProcessedSize(job, processedSize);

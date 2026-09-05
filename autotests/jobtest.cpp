@@ -2844,6 +2844,95 @@ void JobTest::moveRenameOnlyPercentClimbs()
     QVERIFY2(reported.first() < 100, qPrintable(QStringLiteral("first report was already %1%").arg(reported.first())));
 }
 
+void JobTest::copyPercentExcludesTheFileInHand()
+{
+    // A copy counts the file it is on, so it says "file 1 of 200" from the first file on, while the
+    // percentage counts the files behind it and lags the count by that one file.
+    // The files are empty on purpose: with no bytes to move the job measures itself in files.
+    const int fileCount = 200;
+    const QString srcDir = homeTmpDir() + "inHandSrc";
+    const QString destDir = homeTmpDir() + "inHandDest";
+    QVERIFY(QDir().mkpath(srcDir));
+    QVERIFY(QDir().mkpath(destDir));
+
+    QList<QUrl> urls;
+    urls.reserve(fileCount);
+    for (int i = 0; i < fileCount; ++i) {
+        const QString path = srcDir + QStringLiteral("/file%1").arg(i);
+        QFile f(path);
+        QVERIFY(f.open(QIODevice::WriteOnly));
+        f.close();
+        urls << QUrl::fromLocalFile(path);
+    }
+
+    ScopedCleaner cleaner([&] {
+        QDir(srcDir).removeRecursively();
+        QDir(destDir).removeRecursively();
+        KIO::CopyJob::setReportTimeout(std::chrono::milliseconds(200));
+    });
+
+    // Reports come every 200ms otherwise, which a job this size finishes well inside of.
+    KIO::CopyJob::setReportTimeout(std::chrono::milliseconds(1));
+
+    KIO::CopyJob *job = KIO::copy(urls, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+
+    int copied = 0;
+    connect(job, &KIO::CopyJob::copyingDone, this, [&copied](KJob *, const QUrl &, const QUrl &, const QDateTime &, bool, bool) {
+        ++copied;
+    });
+    // copying() comes from a report made while a file is being copied, so every sample here is taken
+    // with one file in hand. The file count guards against the last one, which the report the job
+    // makes once it has finished them all can also send.
+    int samples = 0;
+    QList<QPair<int, unsigned long>> countMismatches; // copied, what the job said
+    QList<QPair<int, unsigned long>> percentMismatches;
+    connect(job, &KIO::CopyJob::copying, this, [&](KIO::Job *, const QUrl &, const QUrl &) {
+        if (copied >= fileCount) {
+            return;
+        }
+        ++samples;
+        if (job->processedAmount(KJob::Files) != qulonglong(copied) + 1) {
+            countMismatches << qMakePair(copied, static_cast<unsigned long>(job->processedAmount(KJob::Files)));
+        }
+        if (job->percent() != static_cast<unsigned long>(100 * copied / fileCount)) {
+            percentMismatches << qMakePair(copied, job->percent());
+        }
+    });
+
+    QList<unsigned long> percents;
+    connect(job, &KJob::percentChanged, this, [&percents](KJob *, unsigned long percent) {
+        percents << percent;
+    });
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QCOMPARE(copied, fileCount);
+
+    // The bar only ever moves forwards, since the job sends one percentage per report.
+    for (int i = 1; i < percents.size(); ++i) {
+        QVERIFY2(percents.at(i) >= percents.at(i - 1),
+                 qPrintable(QStringLiteral("the percentage went from %1 back to %2").arg(percents.at(i - 1)).arg(percents.at(i))));
+    }
+    QVERIFY2(samples > 1, qPrintable(QStringLiteral("only %1 report(s) while copying").arg(samples)));
+
+    // The count is on the file being copied.
+    if (!countMismatches.isEmpty()) {
+        const auto &first = countMismatches.first();
+        QFAIL(qPrintable(
+            QStringLiteral("%1 file(s) copied, the job said it was on file %2, expected %3").arg(first.first).arg(first.second).arg(first.first + 1)));
+    }
+    // The percentage is on the files behind it.
+    if (!percentMismatches.isEmpty()) {
+        const auto &first = percentMismatches.first();
+        QFAIL(qPrintable(
+            QStringLiteral("%1 file(s) copied, the job reported %2%, expected %3%").arg(first.first).arg(first.second).arg(100 * first.first / fileCount)));
+    }
+
+    QCOMPARE(job->totalAmount(KJob::Files), fileCount);
+    QCOMPARE(job->processedAmount(KJob::Files), fileCount);
+    QCOMPARE(job->percent(), 100);
+}
+
 void JobTest::moveFileSkippedWhileCopying()
 {
     // A file can be skipped after the listing has already queued it, which takes it out of the work

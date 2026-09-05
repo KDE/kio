@@ -121,6 +121,7 @@ private Q_SLOTS:
     void movePercentStaysInRange();
     void moveSkippedAndListedTotals();
     void moveRenameOnlyPercentClimbs();
+    void copyPercentExcludesTheFileInHand();
     void moveFileSkippedWhileCopying();
     void copyFileAutoSkippedWhileCopying();
     void copySkippedDirectoryDropsItsBytes();
