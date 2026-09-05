@@ -805,12 +805,12 @@ void CopyJobPrivate::slotReport()
         const bool noByteProgress = ((m_processedSize + m_fileProcessedSize) == 0);
         const qulonglong handledFiles = m_processedFiles + m_skippedFiles;
         const bool countInFiles = (bytesTotalUnknown || noByteProgress) && (handledFiles + filesToCopy.count()) > 0;
-        q->setProgressUnit(countInFiles ? KJob::Files : KJob::Bytes);
 
         q->setProcessedAmount(KJob::Files, m_processedFiles);
         q->setProcessedAmount(KJob::Bytes, m_processedSize + m_fileProcessedSize);
         if (countInFiles) {
             // A file the user skipped is one the job is done with, as in the renaming branch above.
+            // The progress unit stays on bytes, so this is the only percentage the job sends.
             q->emitPercent(handledFiles, q->totalAmount(KJob::Files));
         }
         if (m_bURLDirty) {
