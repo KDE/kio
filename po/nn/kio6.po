@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-05 00:41+0000\n"
+"POT-Creation-Date: 2026-09-06 00:41+0000\n"
 "PO-Revision-Date: 2026-07-05 17:17+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -85,23 +85,23 @@ msgstr ""
 "Filsystemet (%2) til målfila godtek ikkje desse teikna i filnamn: %3\n"
 "Vel «Byt ut» for å byta ut ugyldige teikn (i målfila) med underteikn («_»)."
 
-#: core/copyjob.cpp:1480 core/job_error.cpp:588
+#: core/copyjob.cpp:1490 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Mappa finst frå før"
 
-#: core/copyjob.cpp:1816 core/copyjob.cpp:2538 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1826 core/copyjob.cpp:2560 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fila finst frå før"
 
-#: core/copyjob.cpp:1816 core/copyjob.cpp:2538
+#: core/copyjob.cpp:1826 core/copyjob.cpp:2560
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Finst frå før som mappe"
 
-#: core/copyjob.cpp:1971 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1984 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Papirkorg"

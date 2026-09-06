@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-05 00:41+0000\n"
+"POT-Creation-Date: 2026-09-06 00:41+0000\n"
 "PO-Revision-Date: 2026-03-31 23:12+0530\n"
 "Last-Translator: CrazyCourt651 <CrazyCourt651@gmail.com>\n"
 "Language-Team: Gujarati\n"
@@ -81,23 +81,23 @@ msgstr ""
 "લક્ષ્ય ફાઇલસિસ્ટમ (%2) ફાઇલના નામોમાં નીચેના અક્ષરોની મંજૂરી આપતું નથી: %3\n"
 "'બદલો' પસંદ કરવાથી અમાન્ય અક્ષરો અંડરસ્કોર \"_\" થી બદલાઈ જશે."
 
-#: core/copyjob.cpp:1480 core/job_error.cpp:588
+#: core/copyjob.cpp:1490 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "ફોલ્ડર પહેલેથી હાજર છે"
 
-#: core/copyjob.cpp:1816 core/copyjob.cpp:2538 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1826 core/copyjob.cpp:2560 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "ફાઇલ પહેલેથી હાજર છે"
 
-#: core/copyjob.cpp:1816 core/copyjob.cpp:2538
+#: core/copyjob.cpp:1826 core/copyjob.cpp:2560
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "ફોલ્ડર તરીકે પહેલેથી હાજર છે"
 
-#: core/copyjob.cpp:1971 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1984 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "કચરાપેટી"

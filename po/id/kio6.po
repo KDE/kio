@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-05 00:41+0000\n"
+"POT-Creation-Date: 2026-09-06 00:41+0000\n"
 "PO-Revision-Date: 2024-10-03 20:40+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -84,23 +84,23 @@ msgstr ""
 "Memilih Ganti akan mengganti karakter yang tidak valid (dalam nama file "
 "tujuan) dengan garis bawah \"_\"."
 
-#: core/copyjob.cpp:1480 core/job_error.cpp:588
+#: core/copyjob.cpp:1490 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Folder Sudah Ada"
 
-#: core/copyjob.cpp:1816 core/copyjob.cpp:2538 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1826 core/copyjob.cpp:2560 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "berkas Sudah Ada"
 
-#: core/copyjob.cpp:1816 core/copyjob.cpp:2538
+#: core/copyjob.cpp:1826 core/copyjob.cpp:2560
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Sudah Ada sebagai Folder"
 
-#: core/copyjob.cpp:1971 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1984 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Tong Sampah"

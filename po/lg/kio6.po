@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-05 00:41+0000\n"
+"POT-Creation-Date: 2026-09-06 00:41+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda\n"
@@ -83,23 +83,23 @@ msgstr ""
 "Bw'olonda \"Kyusa Ekiriwo\" awali obubonero obutakkirizibwa (mu linnya lya "
 "fayiro ekolebwawo) wajja okuddawo ka \"_\"."
 
-#: core/copyjob.cpp:1480 core/job_error.cpp:588
+#: core/copyjob.cpp:1490 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Tterekero Lisangidwawo"
 
-#: core/copyjob.cpp:1816 core/copyjob.cpp:2538 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1826 core/copyjob.cpp:2560 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fayiro Esangidwawo"
 
-#: core/copyjob.cpp:1816 core/copyjob.cpp:2538
+#: core/copyjob.cpp:1826 core/copyjob.cpp:2560
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Tterekero Lisangidwawo"
 
-#: core/copyjob.cpp:1971 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1984 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Bisuulidwa"

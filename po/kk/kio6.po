@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-05 00:41+0000\n"
+"POT-Creation-Date: 2026-09-06 00:41+0000\n"
 "PO-Revision-Date: 2012-12-31 04:15+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -88,23 +88,23 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1480 core/job_error.cpp:588
+#: core/copyjob.cpp:1490 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Бұндай қапшық бар екен"
 
-#: core/copyjob.cpp:1816 core/copyjob.cpp:2538 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1826 core/copyjob.cpp:2560 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Бұндай файл атауы қолданыста бар"
 
-#: core/copyjob.cpp:1816 core/copyjob.cpp:2538
+#: core/copyjob.cpp:1826 core/copyjob.cpp:2560
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Бұл қапшық атауы ретінде бар екен"
 
-#: core/copyjob.cpp:1971 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1984 kioworkers/trash/kio_trash.cpp:294
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Trash"
