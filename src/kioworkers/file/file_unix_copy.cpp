@@ -24,6 +24,7 @@
 #include <QFile>
 #include <QScopeGuard>
 #include <QThread>
+#include <QUrl>
 #include <qplatformdefs.h>
 
 #include <KLocalizedString>
