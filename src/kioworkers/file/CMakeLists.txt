@@ -11,6 +11,7 @@ else()
     target_sources(kio_file PRIVATE
         file.cpp
         file_unix.cpp
+        file_unix_copy.cpp
         fdreceiver.cpp
     )
 endif()

@@ -21,6 +21,13 @@
 #include "kioglobal_p.h"
 #endif
 
+// The struct the stat helpers below fill in, statx where the syscall is available.
+#if HAVE_STATX
+using StatStruct = struct statx;
+#else
+using StatStruct = QT_STATBUF;
+#endif
+
 // NOTE: these calls would be nicer if they used real dirfds instead of AT_FDCWD, but benchmarking suggests that
 // it makes no real difference since we need to concatenate a complete path anyway (for UDSEntry). The kernel seems
 // to not care much whether the input is relative or absolute either.
