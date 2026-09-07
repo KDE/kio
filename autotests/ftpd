@@ -72,7 +72,7 @@ end
 # NB: stderr is used to communicate with the parent!
 
 port = ARGV.fetch(0)
-temp_dir = ARGV.fetch(1)
+temp_dir = File.expand_path(ARGV.fetch(1))
 
 driver = Driver.new(temp_dir)
 server = Ftpd::FtpServer.new(driver)
