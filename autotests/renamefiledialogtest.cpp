@@ -6,6 +6,9 @@
 */
 
 #include <QComboBox>
+#include <QDialogButtonBox>
+#include <QLineEdit>
+#include <QPushButton>
 #include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QTest>
@@ -67,6 +70,96 @@ private Q_SLOTS:
         QCOMPARE(currentOperation(dialog), int(AddText));
     }
 
+    void enumerateCanKeepTheOldNameBeforeOrAfterTheNewText()
+    {
+        KIO::RenameFileDialog dialog(m_items, nullptr);
+        QCOMPARE(currentOperation(dialog), int(Enumerate));
+
+        auto *nameTemplate = dialog.findChild<QLineEdit *>(QStringLiteral("enumerateTemplate"));
+        auto *position = dialog.findChild<QComboBox *>(QStringLiteral("enumeratePosition"));
+        auto *preview = dialog.findChild<QLineEdit *>(QStringLiteral("preview"));
+        QVERIFY(nameTemplate);
+        QVERIFY(position);
+        QVERIFY(preview);
+
+        nameTemplate->setText(QStringLiteral("copy #"));
+
+        position->setCurrentIndex(ReplaceName);
+        QCOMPARE(preview->text(), QStringLiteral("copy 1.txt"));
+
+        position->setCurrentIndex(BeforeName);
+        QCOMPARE(preview->text(), QStringLiteral("copy 1one.txt"));
+
+        position->setCurrentIndex(AfterName);
+        QCOMPARE(preview->text(), QStringLiteral("onecopy 1.txt"));
+    }
+
+    void enumerateTemplateFollowsTheChoiceWhileItIsUntouched()
+    {
+        KIO::RenameFileDialog dialog(m_items, nullptr);
+
+        auto *nameTemplate = dialog.findChild<QLineEdit *>(QStringLiteral("enumerateTemplate"));
+        auto *position = dialog.findChild<QComboBox *>(QStringLiteral("enumeratePosition"));
+        auto *preview = dialog.findChild<QLineEdit *>(QStringLiteral("preview"));
+        QVERIFY(nameTemplate);
+        QVERIFY(position);
+        QVERIFY(preview);
+
+        const QString replaceDefault = nameTemplate->text();
+
+        position->setCurrentIndex(AfterName);
+        QCOMPARE(nameTemplate->text(), QStringLiteral("_#"));
+        QCOMPARE(preview->text(), QStringLiteral("one_1.txt"));
+
+        position->setCurrentIndex(BeforeName);
+        QCOMPARE(nameTemplate->text(), QStringLiteral("#_"));
+        QCOMPARE(preview->text(), QStringLiteral("1_one.txt"));
+
+        position->setCurrentIndex(ReplaceName);
+        QCOMPARE(nameTemplate->text(), replaceDefault);
+    }
+
+    void enumerateKeepsATemplateTheUserWrote()
+    {
+        KIO::RenameFileDialog dialog(m_items, nullptr);
+
+        auto *nameTemplate = dialog.findChild<QLineEdit *>(QStringLiteral("enumerateTemplate"));
+        auto *position = dialog.findChild<QComboBox *>(QStringLiteral("enumeratePosition"));
+        QVERIFY(nameTemplate);
+        QVERIFY(position);
+
+        nameTemplate->setText(QStringLiteral("holiday #"));
+
+        position->setCurrentIndex(AfterName);
+        QCOMPARE(nameTemplate->text(), QStringLiteral("holiday #"));
+
+        position->setCurrentIndex(ReplaceName);
+        QCOMPARE(nameTemplate->text(), QStringLiteral("holiday #"));
+    }
+
+    void enumerateTakesATemplateWithoutANumberWhenItKeepsTheOldName()
+    {
+        // Two files share the extension, so a template on its own gives both the same name and is
+        // refused. It is enough once each result carries the old name as well.
+        KIO::RenameFileDialog dialog(m_items, nullptr);
+
+        auto *nameTemplate = dialog.findChild<QLineEdit *>(QStringLiteral("enumerateTemplate"));
+        auto *position = dialog.findChild<QComboBox *>(QStringLiteral("enumeratePosition"));
+        auto *preview = dialog.findChild<QLineEdit *>(QStringLiteral("preview"));
+        QVERIFY(nameTemplate);
+        QVERIFY(position);
+        QVERIFY(preview);
+
+        nameTemplate->setText(QStringLiteral("copy of "));
+
+        position->setCurrentIndex(ReplaceName);
+        QVERIFY(!acceptButton(dialog)->isEnabled());
+
+        position->setCurrentIndex(BeforeName);
+        QVERIFY(acceptButton(dialog)->isEnabled());
+        QCOMPARE(preview->text(), QStringLiteral("copy of one.txt"));
+    }
+
     void offersEnumerateWhenTheRememberedOperationIsNoLongerKnown()
     {
         KConfigGroup group = stateConfig();
@@ -85,9 +178,21 @@ private:
         AddText,
     };
 
+    // Where Enumerate puts its text, in the order the choice lists them.
+    enum Position {
+        ReplaceName,
+        BeforeName,
+        AfterName,
+    };
+
     static KConfigGroup stateConfig()
     {
         return KConfigGroup(KSharedConfig::openStateConfig(QStringLiteral("kiostaterc")), QStringLiteral("Rename dialog"));
+    }
+
+    static QPushButton *acceptButton(const KIO::RenameFileDialog &dialog)
+    {
+        return dialog.findChild<QDialogButtonBox *>()->button(QDialogButtonBox::Ok);
     }
 
     static QComboBox *renameOperation(const KIO::RenameFileDialog &dialog)
