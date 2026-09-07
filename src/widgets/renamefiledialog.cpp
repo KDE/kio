@@ -69,6 +69,13 @@ public:
     virtual ValidationResult validate(const KFileItemList &items, const QStringView fileName) = 0;
 };
 
+// Where the enumerated text goes, in the order the choice lists them.
+enum EnumeratePosition {
+    ReplaceName,
+    BeforeName,
+    AfterName,
+};
+
 enum RenameStrategy {
     // SingleFileRename
     Enumerate,
@@ -213,10 +220,21 @@ public:
         indexSpinBox->setDisplayIntegerBase(10);
         indexLabel->setBuddy(indexSpinBox);
 
-        auto newName = i18nc("This a template for new filenames, # is replaced by a number later, must be the end character", "New name #");
+        auto newName = defaultTemplate(ReplaceName);
         placeHolderEdit = new QLineEdit(newName, widget);
+        placeHolderEdit->setObjectName(QStringLiteral("enumerateTemplate"));
 
-        layout->addWidget(placeHolderEdit);
+        positionCombo = new QComboBox(widget);
+        positionCombo->setObjectName(QStringLiteral("enumeratePosition"));
+        positionCombo->addItems({i18nc("@item:inlistbox the new name is the whole file name", "Replace filename"),
+                                 i18nc("@item:inlistbox as in insert the new name before the filename", "Before filename"),
+                                 i18nc("@item:inlistbox as in insert the new name after the filename", "After filename")});
+
+        auto nameLayout = new QHBoxLayout;
+        nameLayout->setContentsMargins(0, 0, 0, 0);
+        nameLayout->addWidget(placeHolderEdit);
+        nameLayout->addWidget(positionCombo);
+        layout->addLayout(nameLayout);
 
         // Layout
         auto indexLayout = new QHBoxLayout;
@@ -227,11 +245,20 @@ public:
 
         QObject::connect(indexSpinBox, &QSpinBox::valueChanged, updateCallback);
         QObject::connect(placeHolderEdit, &QLineEdit::textChanged, updateCallback);
+        QObject::connect(positionCombo, &QComboBox::currentIndexChanged, positionCombo, [this, updateCallback](int position) {
+            // A template the user has not touched follows the choice, an edited one stays as it is.
+            if (placeHolderEdit->text() == defaultTemplate(lastPosition)) {
+                placeHolderEdit->setText(defaultTemplate(position));
+            }
+            lastPosition = position;
+            updateCallback();
+        });
 
         placeHolderEdit->setSelection(0, newName.length() - 1);
         placeHolderEdit->setFocus();
 
-        widget->setTabOrder(placeHolderEdit, indexSpinBox);
+        widget->setTabOrder(placeHolderEdit, positionCombo);
+        widget->setTabOrder(positionCombo, indexSpinBox);
         widget->setFocusProxy(placeHolderEdit);
 
         // Check for extensions.
@@ -247,6 +274,19 @@ public:
         }
 
         return widget;
+    }
+
+    // The template each choice starts with. # stands for the number.
+    static QString defaultTemplate(int position)
+    {
+        switch (position) {
+        case BeforeName:
+            return i18nc("Template putting the number before the old file name, # is replaced by a number later", "#_");
+        case AfterName:
+            return i18nc("Template putting the number after the old file name, # is replaced by a number later", "_#");
+        default:
+            return i18nc("This a template for new filenames, # is replaced by a number later, must be the end character", "New name #");
+        }
     }
 
     const std::function<QString(const QStringView fileName)> renameFunction() override
@@ -271,8 +311,9 @@ public:
         int placeHolderLength = lastMatchDashes.capturedLength(0);
 
         QString pattern(newName);
+        const int position = positionCombo->currentIndex();
 
-        if (!validPlaceholder) {
+        if (!validPlaceholder && position == ReplaceName) {
             if (allExtensionsDifferent) {
                 // pattern: my-file
                 // in: file-a.txt file-b.md
@@ -285,29 +326,37 @@ public:
                 pattern.append(placeHolder);
             }
         }
-        bool allExtensionsDiff = allExtensionsDifferent;
-        bool valid = validPlaceholder;
+        // Without a place holder there is no number to put anywhere, and the old name keeps the
+        // results apart on its own where it is part of them.
+        const bool numbered = validPlaceholder || (position == ReplaceName && !allExtensionsDifferent);
 
         index = indexSpinBox->value();
         std::function<QString(const QStringView fileName)> function =
-            [pattern, allExtensionsDiff, valid, placeHolderStart, placeHolderLength, this](const QStringView fileName) {
-                Q_UNUSED(fileName);
-
-                QString indexString = QString::number(index);
-
-                if (!valid) {
-                    if (allExtensionsDiff) {
-                        // pattern: my-file
-                        // in: file-a.txt file-b.md
-                        return pattern;
-                    }
+            [pattern, numbered, position, placeHolderStart, placeHolderLength, this](const QStringView fileName) {
+                QString text = pattern;
+                if (numbered) {
+                    // Insert leading zeros if necessary
+                    QString indexString = QString::number(index);
+                    indexString = indexString.prepend(QString(placeHolderLength - indexString.length(), QLatin1Char('0')));
+                    ++index;
+                    text = QString(pattern).replace(placeHolderStart, placeHolderLength, indexString);
                 }
 
-                // Insert leading zeros if necessary
-                indexString = indexString.prepend(QString(placeHolderLength - indexString.length(), QLatin1Char('0')));
-                ++index;
+                if (position == ReplaceName) {
+                    return text;
+                }
 
-                return QString(pattern).replace(placeHolderStart, placeHolderLength, indexString);
+                QString name = fileName.toString();
+                QMimeDatabase db;
+                const QString extension = db.suffixForFileName(name);
+                if (!extension.isEmpty()) {
+                    name = name.chopped(extension.length() + 1);
+                }
+                QString output = position == BeforeName ? text + name : name + text;
+                if (!extension.isEmpty()) {
+                    output += QLatin1Char('.') + extension;
+                }
+                return output;
             };
         return function;
     }
@@ -318,7 +367,7 @@ public:
         if (placeholder.isEmpty()) {
             return invalid(QString());
         }
-        if (!validPlaceholder && !allExtensionsDifferent) {
+        if (!validPlaceholder && !allExtensionsDifferent && positionCombo->currentIndex() == ReplaceName) {
             return invalid(
                 i18nc("@info", "Invalid filename: The new name should contain one sequence of #, unless all the files have different file extensions."));
         }
@@ -328,6 +377,8 @@ public:
     bool validPlaceholder = false;
     bool allExtensionsDifferent = true;
     QLineEdit *placeHolderEdit;
+    QComboBox *positionCombo;
+    int lastPosition = ReplaceName;
     QSpinBox *indexSpinBox;
     int index;
 };
@@ -612,6 +663,7 @@ RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
 
         d->previewLabel = new QLabel(i18nc("@info As in filename renaming preview", "Preview:"), page);
         d->preview = new QLineEdit(page);
+        d->preview->setObjectName(QStringLiteral("preview"));
         d->preview->setReadOnly(true);
         d->previewLabel->setBuddy(d->preview);
     }
