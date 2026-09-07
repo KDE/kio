@@ -17,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:41+0000\n"
-"PO-Revision-Date: 2026-09-02 21:35+0200\n"
-"Last-Translator: Alois Spitzbart <spitz234@hotmail.com>\n"
+"POT-Creation-Date: 2026-09-07 00:40+0000\n"
+"PO-Revision-Date: 2026-09-06 09:31+0200\n"
+"Last-Translator: Alexander Becker <alex-at-kde-l10n-de@freenet.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -52,7 +52,7 @@ msgstr ""
 "Der Eigentümer der Datei <filename>%1</filename> lässt sich nicht ändern. "
 "Vermutlich reichen Ihre Zugriffsrechte nicht aus."
 
-#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:1106
+#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:595
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4299,28 +4299,28 @@ msgstr "Das Programm „mount“ wurde nicht gefunden"
 msgid "Could not find program \"umount\""
 msgstr "Das Programm „umount“ wurde nicht gefunden"
 
-#: kioworkers/file/file_unix.cpp:693
-#, kde-format
-msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "Die Datei kann nicht von %1 nach %2 kopiert werden. (Fehler: %3)"
-
-#: kioworkers/file/file_unix.cpp:905
+#: kioworkers/file/file_unix.cpp:394
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Kein Medium im Gerät für %1"
 
-#: kioworkers/file/file_unix.cpp:1264
+#: kioworkers/file/file_unix.cpp:753
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 "Die Benutzerkennung für den angegebenen Benutzer %1 kann nicht ermittelt "
 "werden."
 
-#: kioworkers/file/file_unix.cpp:1275
+#: kioworkers/file/file_unix.cpp:764
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
 "Die Gruppenkennung für die angegebene Gruppe %1 kann nicht ermittelt werden."
+
+#: kioworkers/file/file_unix_copy.cpp:405
+#, kde-format
+msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+msgstr "Die Datei kann nicht von %1 nach %2 kopiert werden. (Fehler: %3)"
 
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format
@@ -5051,7 +5051,7 @@ msgstr "&Rückgängig: Umbenennen"
 #: widgets/fileundomanager.cpp:340
 #, kde-format
 msgid "Und&o: Trash"
-msgstr "&Rückgängig: In den Papierkorb verschieben"
+msgstr "&Rückgängig: Löschen"
 
 #: widgets/fileundomanager.cpp:342
 #, kde-format
@@ -5101,7 +5101,7 @@ msgstr "&Wiederherstellen: Umbenennen"
 #: widgets/fileundomanager.cpp:371
 #, kde-format
 msgid "&Redo: Trash"
-msgstr "&Wiederherstellen: In den Papierkorb verschieben"
+msgstr "&Wiederherstellen: Löschen"
 
 #: widgets/fileundomanager.cpp:373
 #, kde-format

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:41+0000\n"
+"POT-Creation-Date: 2026-09-07 00:40+0000\n"
 "PO-Revision-Date: 2026-07-22 17:03-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -42,7 +42,7 @@ msgstr ""
 "<filename>%1</filename> نىڭ ئىگىدارلىق ھوقۇقىنى ئۆزگەرتەلمىدى. بۇ "
 "ئۆزگەرتىشنى ئىجرا قىلىشقا يېتەرلىك ئىجازىتىڭىز يوق."
 
-#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:1106
+#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:595
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4181,25 +4181,25 @@ msgstr "«mount» پىروگراممىنى تاپالمىدى"
 msgid "Could not find program \"umount\""
 msgstr "«umount» پىروگراممىنى تاپالمىدى"
 
-#: kioworkers/file/file_unix.cpp:693
-#, kde-format
-msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "ھۆججەتنى %1 دىن %2 غا كۆچۈرەلمىدى. (خاتالىق نومۇرى: %3)"
-
-#: kioworkers/file/file_unix.cpp:905
+#: kioworkers/file/file_unix.cpp:394
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 نىڭ ئۈسكۈنىسىدە ۋاسىتە يوق"
 
-#: kioworkers/file/file_unix.cpp:1264
+#: kioworkers/file/file_unix.cpp:753
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "بېرىلگەن ئىشلەتكۈچى ئاتى %1 نىڭ ئىشلەتكۈچى كىملىكىگە ئېرىشەلمىدى"
 
-#: kioworkers/file/file_unix.cpp:1275
+#: kioworkers/file/file_unix.cpp:764
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "بېرىلگەن گۇرۇپپا ئاتى %1 نىڭ گۇرۇپپا كىملىكىگە ئېرىشەلمىدى"
+
+#: kioworkers/file/file_unix_copy.cpp:405
+#, kde-format
+msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+msgstr "ھۆججەتنى %1 دىن %2 غا كۆچۈرەلمىدى. (خاتالىق نومۇرى: %3)"
 
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format

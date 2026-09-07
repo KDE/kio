@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:41+0000\n"
+"POT-Creation-Date: 2026-09-07 00:40+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -46,7 +46,7 @@ msgstr ""
 "<qt>Tidak dapat ubah keempunyaan fail <b>%1</b>. Anda tidak mempunyai "
 "capaian yang cukup kepada fail untuk melakukan perubahan.</qt>"
 
-#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:1106
+#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:595
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -4185,24 +4185,24 @@ msgstr "Tidak dapat jumpa program \"mount\""
 msgid "Could not find program \"umount\""
 msgstr "Tidak dapat jumpa program \"umount\""
 
-#: kioworkers/file/file_unix.cpp:693
-#, kde-format
-msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:905
+#: kioworkers/file/file_unix.cpp:394
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Tiada media di dalam peranti untuk %1"
 
-#: kioworkers/file/file_unix.cpp:1264
+#: kioworkers/file/file_unix.cpp:753
 #, fuzzy, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Tidak dapat memasuki folder %1."
 
-#: kioworkers/file/file_unix.cpp:1275
+#: kioworkers/file/file_unix.cpp:764
 #, kde-format
 msgid "Could not get group id for given group name %1"
+msgstr ""
+
+#: kioworkers/file/file_unix_copy.cpp:405
+#, kde-format
+msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
 #: kioworkers/ftp/ftp.cpp:354

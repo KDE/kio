@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:41+0000\n"
+"POT-Creation-Date: 2026-09-07 00:40+0000\n"
 "PO-Revision-Date: 2022-10-19 21:51+0200\n"
 "Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <>\n"
@@ -46,7 +46,7 @@ msgstr ""
 "Faili <filename>%1</filename> omanikku pole võimalik muuta. Sul pole "
 "muutmiseks piisavalt õigusi."
 
-#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:1106
+#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:595
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4234,25 +4234,25 @@ msgstr "Rakendust \"mount\" ei leitud"
 msgid "Could not find program \"umount\""
 msgstr "Rakendust \"umount\" ei leitud"
 
-#: kioworkers/file/file_unix.cpp:693
-#, kde-format
-msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "Faili kopeerimine asukohast %1 asukohta %2 nurjus (viga: %3)."
-
-#: kioworkers/file/file_unix.cpp:905
+#: kioworkers/file/file_unix.cpp:394
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Andmekandja pole %1 seadmes"
 
-#: kioworkers/file/file_unix.cpp:1264
+#: kioworkers/file/file_unix.cpp:753
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Määratud kasutajanimele %1 ei õnnestunud hankida kasutaja ID-d."
 
-#: kioworkers/file/file_unix.cpp:1275
+#: kioworkers/file/file_unix.cpp:764
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Määratud grupi nimele %1 ei õnnestunud hankida grupi ID-d"
+
+#: kioworkers/file/file_unix_copy.cpp:405
+#, kde-format
+msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+msgstr "Faili kopeerimine asukohast %1 asukohta %2 nurjus (viga: %3)."
 
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format

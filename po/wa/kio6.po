@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:41+0000\n"
+"POT-Creation-Date: 2026-09-07 00:40+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 "<qt>Dji n' sai candjî l' prôpietaire do fitchî <b>%1</b>. Vos n' avoz nén "
 "des droets assez sol fitchî po fé on sfwait candjmint.</qt>"
 
-#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:1106
+#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:595
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -4385,25 +4385,25 @@ msgstr "Dji n' a savou trover li programe «mount»"
 msgid "Could not find program \"umount\""
 msgstr "Dji n' a savou trover li programe «umount»"
 
-#: kioworkers/file/file_unix.cpp:693
-#, kde-format
-msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "Dji n' sai copyî l' fitchî di %1 a %2 (Lo. d' aroke: %3)"
-
-#: kioworkers/file/file_unix.cpp:905
+#: kioworkers/file/file_unix.cpp:394
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nou media e l' éndjin po %1"
 
-#: kioworkers/file/file_unix.cpp:1264
+#: kioworkers/file/file_unix.cpp:753
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Dji n' a savou awè l' id di l' uzeu pol no d' uzeu %1 di dné"
 
-#: kioworkers/file/file_unix.cpp:1275
+#: kioworkers/file/file_unix.cpp:764
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Dji n' a savou awè l' id do groupe pol no do groupe %1 di dné"
+
+#: kioworkers/file/file_unix_copy.cpp:405
+#, kde-format
+msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+msgstr "Dji n' sai copyî l' fitchî di %1 a %2 (Lo. d' aroke: %3)"
 
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format

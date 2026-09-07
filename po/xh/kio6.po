@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:41+0000\n"
+"POT-Creation-Date: 2026-09-07 00:40+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -49,7 +49,7 @@ msgstr ""
 "<qt>Ayinakuguqula kancinane umnini wefayile<b>%1</b>.Awunamvume zaneleyo "
 "zokwenza utshintsho kwifayile.</qt>"
 
-#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:1106
+#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:595
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -4306,24 +4306,24 @@ msgstr "Ayinakufumana udweliso lwenkqubo '%1'"
 msgid "Could not find program \"umount\""
 msgstr "Ayinakufumana udweliso lwenkqubo '%1'"
 
-#: kioworkers/file/file_unix.cpp:693
-#, kde-format
-msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr ""
-
-#: kioworkers/file/file_unix.cpp:905
+#: kioworkers/file/file_unix.cpp:394
 #, fuzzy, kde-format
 msgid "No media in device for %1"
 msgstr "Akukho metainfo ye %1"
 
-#: kioworkers/file/file_unix.cpp:1264
+#: kioworkers/file/file_unix.cpp:753
 #, fuzzy, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Ayinakungena kulawulo %1"
 
-#: kioworkers/file/file_unix.cpp:1275
+#: kioworkers/file/file_unix.cpp:764
 #, kde-format
 msgid "Could not get group id for given group name %1"
+msgstr ""
+
+#: kioworkers/file/file_unix_copy.cpp:405
+#, kde-format
+msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 msgstr ""
 
 #: kioworkers/ftp/ftp.cpp:354

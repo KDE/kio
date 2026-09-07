@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:41+0000\n"
+"POT-Creation-Date: 2026-09-07 00:40+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -47,7 +47,7 @@ msgstr ""
 "<qt>फाइल <b>%1</b>को स्वामित्व परिमार्जन गर्न सकिदैन । परिवर्तन सम्पादन गर्न तपाईँसँग "
 "फाइलमा पर्याप्त पँहुच छैन ।</qt>"
 
-#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:1106
+#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:595
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -4374,26 +4374,26 @@ msgstr "\"माउन्ट\" कार्यक्रम फेला पा�
 msgid "Could not find program \"umount\""
 msgstr "\"अनमाउन्ट\" कार्यक्रम फेला पार्न सकेन"
 
-#: kioworkers/file/file_unix.cpp:693
-#, kde-format
-msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "%1 बाट %2 मा फाइल प्रतिलिपि गर्न सकिँदैन । (Errno: %3)"
-
-#: kioworkers/file/file_unix.cpp:905
+#: kioworkers/file/file_unix.cpp:394
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 का लागि यन्त्रमा मिडिया छैन"
 
-#: kioworkers/file/file_unix.cpp:1264
+#: kioworkers/file/file_unix.cpp:753
 #, fuzzy, kde-format
 #| msgid "Could not enter folder %1."
 msgid "Could not get user id for given user name %1"
 msgstr "%1 फोल्डरमा प्रविष्ट गर्न सकेन ।"
 
-#: kioworkers/file/file_unix.cpp:1275
+#: kioworkers/file/file_unix.cpp:764
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
+
+#: kioworkers/file/file_unix_copy.cpp:405
+#, kde-format
+msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+msgstr "%1 बाट %2 मा फाइल प्रतिलिपि गर्न सकिँदैन । (Errno: %3)"
 
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format
