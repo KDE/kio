@@ -39,8 +39,10 @@
 #include <QCoreApplication>
 #include <QCryptographicHash>
 #include <QFutureWatcher>
+#include <QIcon>
 #include <QJsonArray>
 #include <QMimeDatabase>
+#include <QPainter>
 #include <QSaveFile>
 #include <QTemporaryDir>
 #include <QTimer>
@@ -52,6 +54,9 @@
 
 #include "kiofuse_interface.h"
 #endif
+
+// TODO: should this be configurable, so it would be only enabled where kio-extras 26.12 is available?
+#define ENABLE_JOB_SIDE_FOLDER_RENDERING 1
 
 using namespace KIO;
 using namespace Qt::Literals;
@@ -548,8 +553,42 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
     int thumb_height = m_options.size.height();
     if (save) {
         thumb_width = thumb_height = m_cacheSize;
-    }
+#if ENABLE_JOB_SIDE_FOLDER_RENDERING
+    } else if (m_fileItem.isDir()) {
+        // request raw content preview without folder background, in case the worker supports it
+        // first prepare folder icon locally, needs to be done in advance to know the icon dimension
+        const int extent = qMin(thumb_width, thumb_height);
+        m_folderPreviewBaseLayer = QIcon::fromTheme(m_fileItem.iconName()).pixmap(QSize(extent, extent), m_options.devicePixelRatio).toImage();
+        // Scale up base icon to ensure overlays are rendered with
+        // the best quality possible even for low-res custom folder icons
+        const int physicalExtent = qRound(extent * m_options.devicePixelRatio);
+        if (qMax(m_folderPreviewBaseLayer.width(), m_folderPreviewBaseLayer.height()) < physicalExtent) {
+            m_folderPreviewBaseLayer = m_folderPreviewBaseLayer.scaled(physicalExtent, physicalExtent, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        }
 
+        // Note: using physical pixels here, not logical ones,
+        // given precise data from above scaling needs to be available to the worker
+        // normalizing by devicePixelRatio again would add rounding errors
+        const int folderPhysicalWidth = m_folderPreviewBaseLayer.width();
+        const int folderPhysicalHeight = m_folderPreviewBaseLayer.height();
+        // add flags to job
+        // using "classic" as id for the historical rendering of the content
+        // concept of ids here hopefully enables in the future to pass request for other rendering styles
+        // "classic" being expected to do:
+        // given a rectangle of size folderWidth x folderHeight,
+        // files in the folder are displayed inside these calculated margins:
+        // top: folderHeight * 30 / 100
+        // bottom: folderHeight / 6
+        // left/right: folderWidth / 13
+        // The files are shown in tiles of a 2 x 2 matrix
+        // (or if just one file, by one tile using full area),
+        // each tile being rotated by a random angle of -8°..8°,
+        // thus overlapping the given margins a bit (rendered outside the core area)
+        m_transferjob->addMetaData(QStringLiteral("rawFolder"), QStringLiteral("classic"));
+        m_transferjob->addMetaData(QStringLiteral("rawFolderPhysicalWidth"), QString::number(folderPhysicalWidth));
+        m_transferjob->addMetaData(QStringLiteral("rawFolderPhysicalHeight"), QString::number(folderPhysicalHeight));
+#endif
+    }
     m_transferjob->addMetaData(QStringLiteral("mimeType"), m_fileItem.mimetype());
     m_transferjob->addMetaData(QStringLiteral("width"), QString::number(thumb_width));
     m_transferjob->addMetaData(QStringLiteral("height"), QString::number(thumb_height));
@@ -613,6 +652,16 @@ void FilePreviewJob::slotThumbData(KIO::Job *job, const QByteArray &data)
         thumb.setDevicePixelRatio(imgDevicePixelRatio);
     }
 
+#if ENABLE_JOB_SIDE_FOLDER_RENDERING
+    // compose folder thumbnail by blitting the raw content preview onto the folder
+    if (m_fileItem.isDir() && !job->queryMetaData(QStringLiteral("isRawFolder")).isEmpty()) {
+        QPainter p;
+        p.begin(&m_folderPreviewBaseLayer);
+        p.drawImage(0, 0, thumb);
+        p.end();
+        thumb = m_folderPreviewBaseLayer;
+    }
+#endif
     slotStandardThumbData(job, thumb);
 }
 

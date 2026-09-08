@@ -165,6 +165,8 @@ private:
     // The preview image. If when emitting return this is empty, job can be considered as failed.
     QImage m_preview;
 
+    QImage m_folderPreviewBaseLayer;
+
     bool m_standardThumbnailer = false;
     KPluginMetaData m_plugin;
 
