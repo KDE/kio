@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2026-02-20 16:10+0100\n"
+"PO-Revision-Date: 2026-08-22 10:05+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -6700,7 +6700,7 @@ msgstr "Réessayer"
 #: kpasswdserver/kpasswdserver.cpp:788
 #, kde-format
 msgid "Authentication Dialog"
-msgstr "Boîte de dialogue d'authentification"
+msgstr "Boite de dialogue d'authentification"
 
 #: schemehandlers/telnet/ktelnetservice.cpp:52
 #, kde-format
