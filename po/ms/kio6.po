@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-07 00:40+0000\n"
+"POT-Creation-Date: 2026-09-08 00:41+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -4200,11 +4200,6 @@ msgstr "Tidak dapat memasuki folder %1."
 msgid "Could not get group id for given group name %1"
 msgstr ""
 
-#: kioworkers/file/file_unix_copy.cpp:405
-#, kde-format
-msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr ""
-
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format
 msgid "Opening connection to host %1"
@@ -5263,7 +5258,7 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Jenis"
 
-#: widgets/kfileitemactions.cpp:331
+#: widgets/kfileitemactions.cpp:250
 #, fuzzy, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
@@ -7194,6 +7189,82 @@ msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr ""
 
+#: widgets/renamefilewarningdialog.cpp:48
+#, fuzzy, kde-format
+msgctxt "@action:button"
+msgid "Rename and Hide"
+msgstr "Nama&kan semula"
+
+#: widgets/renamefilewarningdialog.cpp:50
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this folder's name will hide it from view.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:51
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this file's name will hide it from view.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:52
+#, fuzzy, kde-format
+#| msgid "Home Folder"
+msgctxt "@title:window"
+msgid "Hide this Folder?"
+msgstr "Folder Laman Utama"
+
+#: widgets/renamefilewarningdialog.cpp:52
+#, kde-format
+msgctxt "@title:window"
+msgid "Hide this File?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:58
+#: widgets/renamefilewarningdialog.cpp:108
+#: widgets/widgetsaskuseractionhandler.cpp:411
+#, kde-format
+msgctxt "@option:check"
+msgid "Do not ask again"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:89
+#, fuzzy, kde-format
+#| msgid "Rename"
+msgctxt "@action:button"
+msgid "Rename"
+msgstr "Namakan Semula"
+
+#: widgets/renamefilewarningdialog.cpp:94
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This will make the file type unknown.\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:98
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This will change the file type from \"%1\" to \"%2\".\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:105
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "Change File Type"
+msgstr "Keizinan Lanjutan"
+
 #: widgets/skipdialog.cpp:29
 #, fuzzy, kde-format
 msgid "Information"
@@ -7392,12 +7463,6 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr ""
 
-#: widgets/widgetsaskuseractionhandler.cpp:411
-#, kde-format
-msgctxt "@option:check"
-msgid "Do not ask again"
-msgstr ""
-
 #: widgets/widgetsaskuseractionhandler.cpp:437
 #, kde-format
 msgctxt "@option:check"
@@ -7491,9 +7556,6 @@ msgstr ""
 #~ "Hak root diperlukan untuk melakukan operasi mengalih. Adakah anda mahu "
 #~ "meneruskan?"
 
-#~ msgid "Rename"
-#~ msgstr "Namakan Semula"
-
 #~ msgid ""
 #~ "Root privileges are required to complete renaming. Do you want to "
 #~ "continue?"
@@ -7520,10 +7582,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Setting ACL for %1"
 #~ msgstr "Menghantar data ke %1"
-
-#, fuzzy
-#~ msgid "Change File Permissions"
-#~ msgstr "Keizinan Lanjutan"
 
 #, fuzzy
 #~ msgid "New Permissions: %1"

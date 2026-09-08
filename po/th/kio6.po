@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-07 00:40+0000\n"
+"POT-Creation-Date: 2026-09-08 00:41+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -4121,11 +4121,6 @@ msgstr "ไม่สามารถรับเอาหมายเลขผู
 msgid "Could not get group id for given group name %1"
 msgstr "ไม่สามารถรับเอาหมายเลขกลุ่ม (group id) ของชื่อกลุ่ม %1 ได้"
 
-#: kioworkers/file/file_unix_copy.cpp:405
-#, kde-format
-msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "ไม่สามารถคัดลอกแฟ้มจาก %1 ไปยัง %2 ได้ (หมายเลขข้อผิดพลาด: %3)"
-
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format
 msgid "Opening connection to host %1"
@@ -5202,7 +5197,7 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "ประเภท"
 
-#: widgets/kfileitemactions.cpp:331
+#: widgets/kfileitemactions.cpp:250
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
@@ -7117,6 +7112,85 @@ msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "<filename>%1</filename> ไม่ปรากฏว่าเป็นโปรแกรมที่สามารถปฏิบัติการได้"
 
+#: widgets/renamefilewarningdialog.cpp:48
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Rename Item"
+msgctxt "@action:button"
+msgid "Rename and Hide"
+msgstr "เปลี่ยนชื่อรายการ"
+
+#: widgets/renamefilewarningdialog.cpp:50
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this folder's name will hide it from view.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:51
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this file's name will hide it from view.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:52
+#, fuzzy, kde-format
+#| msgid "Home Folder"
+msgctxt "@title:window"
+msgid "Hide this Folder?"
+msgstr "โฟลเดอร์ส่วนตัว"
+
+#: widgets/renamefilewarningdialog.cpp:52
+#, kde-format
+msgctxt "@title:window"
+msgid "Hide this File?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:58
+#: widgets/renamefilewarningdialog.cpp:108
+#: widgets/widgetsaskuseractionhandler.cpp:411
+#, kde-format
+msgctxt "@option:check"
+msgid "Do not ask again"
+msgstr "ไม่ต้องถามอีก"
+
+#: widgets/renamefilewarningdialog.cpp:89
+#, fuzzy, kde-format
+#| msgid "Rename"
+msgctxt "@action:button"
+msgid "Rename"
+msgstr "เปลี่ยนชื่อ"
+
+#: widgets/renamefilewarningdialog.cpp:94
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This will make the file type unknown.\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:98
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This will change the file type from \"%1\" to \"%2\".\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:105
+#, fuzzy, kde-format
+#| msgid "Change File Owner"
+msgctxt "@title:window"
+msgid "Change File Type"
+msgstr "เปลี่ยนเจ้าของไฟล์"
+
 #: widgets/skipdialog.cpp:29
 #, kde-format
 msgid "Information"
@@ -7358,12 +7432,6 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "ไม่ต้องถามอีก"
 
-#: widgets/widgetsaskuseractionhandler.cpp:411
-#, kde-format
-msgctxt "@option:check"
-msgid "Do not ask again"
-msgstr "ไม่ต้องถามอีก"
-
 #: widgets/widgetsaskuseractionhandler.cpp:437
 #, kde-format
 msgctxt "@option:check"
@@ -7396,6 +7464,9 @@ msgstr "จะทำการเรียกใช้โปรแกรม:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "หากคุณไม่เชื่อถือโปรแกรมนี้ โปรดคลิก ยกเลิก"
+
+#~ msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+#~ msgstr "ไม่สามารถคัดลอกแฟ้มจาก %1 ไปยัง %2 ได้ (หมายเลขข้อผิดพลาด: %3)"
 
 #~ msgid "Link to Device"
 #~ msgstr "เชื่อมโยงไปยังอุปกรณ์"
@@ -7443,9 +7514,6 @@ msgstr "หากคุณไม่เชื่อถือโปรแกรม
 #~ "to continue?"
 #~ msgstr "ต้องมีสิทธิ์รูทจึงจะเคลื่อนย้ายไฟล์ได้ คุณต้องการดำเนินการต่อหรือไม่"
 
-#~ msgid "Rename"
-#~ msgstr "เปลี่ยนชื่อ"
-
 #~ msgid ""
 #~ "Root privileges are required to complete renaming. Do you want to "
 #~ "continue?"
@@ -7478,9 +7546,6 @@ msgstr "หากคุณไม่เชื่อถือโปรแกรม
 
 #~ msgid "New Permissions: %1"
 #~ msgstr "สิทธิ์ใหม่: %1"
-
-#~ msgid "Change File Owner"
-#~ msgstr "เปลี่ยนเจ้าของไฟล์"
 
 #~ msgid "New Owner: UID=%1, GID=%2"
 #~ msgstr "เจ้าของใหม่: UID=%1, GID=%2"

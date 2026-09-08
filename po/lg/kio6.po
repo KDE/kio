@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-07 00:40+0000\n"
+"POT-Creation-Date: 2026-09-08 00:41+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda\n"
@@ -4288,11 +4288,6 @@ msgstr "Nnemedwa okufuna ennamba ya mukozesa egendera ku linnya %1"
 msgid "Could not get group id for given group name %1"
 msgstr "Nnemedwa okufuna ennamba ya guluupu egendera ku guluupu %1"
 
-#: kioworkers/file/file_unix_copy.cpp:405
-#, kde-format
-msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "Nnemedwa okukola koppi %2 mu fayiro %1. (Nmaba ya kiremya: %3)"
-
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format
 msgid "Opening connection to host %1"
@@ -5385,7 +5380,7 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Kika"
 
-#: widgets/kfileitemactions.cpp:331
+#: widgets/kfileitemactions.cpp:250
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
@@ -7386,6 +7381,85 @@ msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "<filename>%1</filename> kirabika ssi linnya lya puloguramu."
 
+#: widgets/renamefilewarningdialog.cpp:48
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Rename Item"
+msgctxt "@action:button"
+msgid "Rename and Hide"
+msgstr "Ekintu Kikyuse Erinnya"
+
+#: widgets/renamefilewarningdialog.cpp:50
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this folder's name will hide it from view.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:51
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this file's name will hide it from view.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:52
+#, fuzzy, kde-format
+#| msgid "Home Folder"
+msgctxt "@title:window"
+msgid "Hide this Folder?"
+msgstr "Terekero lya Akawunti"
+
+#: widgets/renamefilewarningdialog.cpp:52
+#, kde-format
+msgctxt "@title:window"
+msgid "Hide this File?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:58
+#: widgets/renamefilewarningdialog.cpp:108
+#: widgets/widgetsaskuseractionhandler.cpp:411
+#, kde-format
+msgctxt "@option:check"
+msgid "Do not ask again"
+msgstr "Olulala kikolebwebukozi"
+
+#: widgets/renamefilewarningdialog.cpp:89
+#, fuzzy, kde-format
+#| msgid "Rename"
+msgctxt "@action:button"
+msgid "Rename"
+msgstr "Kyusa erinnya"
+
+#: widgets/renamefilewarningdialog.cpp:94
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This will make the file type unknown.\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:98
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This will change the file type from \"%1\" to \"%2\".\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:105
+#, fuzzy, kde-format
+#| msgid "Change File Owner"
+msgctxt "@title:window"
+msgid "Change File Type"
+msgstr "Kyusa Nannyini Fayiro"
+
 #: widgets/skipdialog.cpp:29
 #, kde-format
 msgid "Information"
@@ -7641,12 +7715,6 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Olulala kikolebwebukozi"
 
-#: widgets/widgetsaskuseractionhandler.cpp:411
-#, kde-format
-msgctxt "@option:check"
-msgid "Do not ask again"
-msgstr "Olulala kikolebwebukozi"
-
 #: widgets/widgetsaskuseractionhandler.cpp:437
 #, kde-format
 msgctxt "@option:check"
@@ -7680,6 +7748,9 @@ msgstr "Kino kijja okutandika puloguramu:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Puloguramu eno bw'oba togyesiga, koona ku Sazzamu"
+
+#~ msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+#~ msgstr "Nnemedwa okukola koppi %2 mu fayiro %1. (Nmaba ya kiremya: %3)"
 
 #~ msgid "Link to Device"
 #~ msgstr "Nyunzi egguka ku kyuma"
@@ -7753,9 +7824,6 @@ msgstr "Puloguramu eno bw'oba togyesiga, koona ku Sazzamu"
 #~ "Okusimbuliza kyetaagisa buyinza bwa muteesiteesi. Oyagala okugenda mu "
 #~ "maaso?"
 
-#~ msgid "Rename"
-#~ msgstr "Kyusa erinnya"
-
 #~ msgid ""
 #~ "Root privileges are required to complete renaming. Do you want to "
 #~ "continue?"
@@ -7796,9 +7864,6 @@ msgstr "Puloguramu eno bw'oba togyesiga, koona ku Sazzamu"
 
 #~ msgid "New Permissions: %1"
 #~ msgstr "Endukusa empya: %1"
-
-#~ msgid "Change File Owner"
-#~ msgstr "Kyusa Nannyini Fayiro"
 
 #~ msgid "New Owner: UID=%1, GID=%2"
 #~ msgstr "Nanyini Omupya: UID=%1, GID=%2"

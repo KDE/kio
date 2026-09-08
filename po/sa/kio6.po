@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-07 00:40+0000\n"
+"POT-Creation-Date: 2026-09-08 00:41+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -4156,11 +4156,6 @@ msgstr "दत्तस्य उपयोक्तृनाम %1 कृते 
 msgid "Could not get group id for given group name %1"
 msgstr "दत्तसमूहनाम %1 कृते समूह id प्राप्तुं न शक्तम्"
 
-#: kioworkers/file/file_unix_copy.cpp:405
-#, kde-format
-msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "%1 तः %2 पर्यन्तं सञ्चिकां प्रतिलिखितुं न शक्यते । (त्रुटिसङ्ख्या: %3)"
-
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format
 msgid "Opening connection to host %1"
@@ -5248,7 +5243,7 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "प्रकारः"
 
-#: widgets/kfileitemactions.cpp:331
+#: widgets/kfileitemactions.cpp:250
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
@@ -7192,6 +7187,85 @@ msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "<filename>%1</filename> कार्यान्वयनीयः कार्यक्रमः इति न दृश्यते ।."
 
+#: widgets/renamefilewarningdialog.cpp:48
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Rename Item"
+msgctxt "@action:button"
+msgid "Rename and Hide"
+msgstr "द्रव्यस्य नाम परिवर्तनं कुर्वन्तु"
+
+#: widgets/renamefilewarningdialog.cpp:50
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this folder's name will hide it from view.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:51
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this file's name will hide it from view.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:52
+#, fuzzy, kde-format
+#| msgid "Home Folder"
+msgctxt "@title:window"
+msgid "Hide this Folder?"
+msgstr "गृहपुटम्"
+
+#: widgets/renamefilewarningdialog.cpp:52
+#, kde-format
+msgctxt "@title:window"
+msgid "Hide this File?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:58
+#: widgets/renamefilewarningdialog.cpp:108
+#: widgets/widgetsaskuseractionhandler.cpp:411
+#, kde-format
+msgctxt "@option:check"
+msgid "Do not ask again"
+msgstr "पुनः मा पृच्छतु"
+
+#: widgets/renamefilewarningdialog.cpp:89
+#, fuzzy, kde-format
+#| msgid "Rename"
+msgctxt "@action:button"
+msgid "Rename"
+msgstr "नामान्तरम्"
+
+#: widgets/renamefilewarningdialog.cpp:94
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This will make the file type unknown.\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:98
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This will change the file type from \"%1\" to \"%2\".\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:105
+#, fuzzy, kde-format
+#| msgid "Change File Owner"
+msgctxt "@title:window"
+msgid "Change File Type"
+msgstr "सञ्चिकास्वामित्वं परिवर्तयतु"
+
 #: widgets/skipdialog.cpp:29
 #, kde-format
 msgid "Information"
@@ -7446,12 +7520,6 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "पुनः मा पृच्छतु"
 
-#: widgets/widgetsaskuseractionhandler.cpp:411
-#, kde-format
-msgctxt "@option:check"
-msgid "Do not ask again"
-msgstr "पुनः मा पृच्छतु"
-
 #: widgets/widgetsaskuseractionhandler.cpp:437
 #, kde-format
 msgctxt "@option:check"
@@ -7484,6 +7552,9 @@ msgstr "एतेन कार्यक्रमः आरभ्यते :"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "यदि भवान् अस्मिन् कार्यक्रमे विश्वासं न करोति तर्हि रद्द (Cancel) नुदतु"
+
+#~ msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+#~ msgstr "%1 तः %2 पर्यन्तं सञ्चिकां प्रतिलिखितुं न शक्यते । (त्रुटिसङ्ख्या: %3)"
 
 #~ msgid "Link to Device"
 #~ msgstr "यन्त्रस्य सम्बन्धम् स्थापितु"
@@ -7530,9 +7601,6 @@ msgstr "यदि भवान् अस्मिन् कार्यक्र
 #~ msgstr ""
 #~ "स्थानान्तरमक्रियायाः पूर्णतायै मूलविशेषाधिकाराः आवश्यकाः सन्ति । किं त्वं प्रगन्तुं इच्छसि ?"
 
-#~ msgid "Rename"
-#~ msgstr "नामान्तरम्"
-
 #~ msgid ""
 #~ "Root privileges are required to complete renaming. Do you want to "
 #~ "continue?"
@@ -7570,9 +7638,6 @@ msgstr "यदि भवान् अस्मिन् कार्यक्र
 
 #~ msgid "New Permissions: %1"
 #~ msgstr "नवीनाः अनुमतिः: %1"
-
-#~ msgid "Change File Owner"
-#~ msgstr "सञ्चिकास्वामित्वं परिवर्तयतु"
 
 #~ msgid "New Owner: UID=%1, GID=%2"
 #~ msgstr "नवीनः स्वामिः: UID=%1, GID=%2"

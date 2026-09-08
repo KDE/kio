@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-07 00:40+0000\n"
+"POT-Creation-Date: 2026-09-08 00:41+0000\n"
 "PO-Revision-Date: 2026-08-21 08:23+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -4250,11 +4250,6 @@ msgstr "Не вдалося дістати ІД користувача для %1
 msgid "Could not get group id for given group name %1"
 msgstr "Не вдалося дістати ІД групи для %1"
 
-#: kioworkers/file/file_unix_copy.cpp:405
-#, kde-format
-msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "Не вдалося скопіювати з %1 у %2. (Помилка: %3)"
-
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format
 msgid "Opening connection to host %1"
@@ -5341,7 +5336,7 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Тип"
 
-#: widgets/kfileitemactions.cpp:331
+#: widgets/kfileitemactions.cpp:250
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
@@ -7297,6 +7292,85 @@ msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr ""
 "<filename>%1</filename> не можна перейменовувати на файл з порожньою назвою."
 
+#: widgets/renamefilewarningdialog.cpp:48
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Rename Item"
+msgctxt "@action:button"
+msgid "Rename and Hide"
+msgstr "Перейменування об'єкта"
+
+#: widgets/renamefilewarningdialog.cpp:50
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this folder's name will hide it from view.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:51
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this file's name will hide it from view.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:52
+#, fuzzy, kde-format
+#| msgid "Home Folder"
+msgctxt "@title:window"
+msgid "Hide this Folder?"
+msgstr "Домівка"
+
+#: widgets/renamefilewarningdialog.cpp:52
+#, kde-format
+msgctxt "@title:window"
+msgid "Hide this File?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:58
+#: widgets/renamefilewarningdialog.cpp:108
+#: widgets/widgetsaskuseractionhandler.cpp:411
+#, kde-format
+msgctxt "@option:check"
+msgid "Do not ask again"
+msgstr "Не запитувати знову"
+
+#: widgets/renamefilewarningdialog.cpp:89
+#, fuzzy, kde-format
+#| msgid "Rename"
+msgctxt "@action:button"
+msgid "Rename"
+msgstr "Перейменування"
+
+#: widgets/renamefilewarningdialog.cpp:94
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This will make the file type unknown.\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:98
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This will change the file type from \"%1\" to \"%2\".\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:105
+#, fuzzy, kde-format
+#| msgid "Change File Owner"
+msgctxt "@title:window"
+msgid "Change File Type"
+msgstr "Змінити власника файла"
+
 #: widgets/skipdialog.cpp:29
 #, kde-format
 msgid "Information"
@@ -7551,12 +7625,6 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Не запитувати знову"
 
-#: widgets/widgetsaskuseractionhandler.cpp:411
-#, kde-format
-msgctxt "@option:check"
-msgid "Do not ask again"
-msgstr "Не запитувати знову"
-
 #: widgets/widgetsaskuseractionhandler.cpp:437
 #, kde-format
 msgctxt "@option:check"
@@ -7589,6 +7657,9 @@ msgstr "Це запустить програму:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Якщо ви не довіряєте цій програмі, натисніть кнопку «Скасувати»."
+
+#~ msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+#~ msgstr "Не вдалося скопіювати з %1 у %2. (Помилка: %3)"
 
 #~ msgid "Link to Device"
 #~ msgstr "Посилання на пристрій"
@@ -7667,9 +7738,6 @@ msgstr "Якщо ви не довіряєте цій програмі, нати�
 #~ "Для завершення дії з пересування потрібні права доступу користувача root "
 #~ "(адміністратора). Продовжити спробу виконати цю дію?"
 
-#~ msgid "Rename"
-#~ msgstr "Перейменування"
-
 #~ msgid ""
 #~ "Root privileges are required to complete renaming. Do you want to "
 #~ "continue?"
@@ -7710,9 +7778,6 @@ msgstr "Якщо ви не довіряєте цій програмі, нати�
 
 #~ msgid "New Permissions: %1"
 #~ msgstr "Нові права доступу: %1"
-
-#~ msgid "Change File Owner"
-#~ msgstr "Змінити власника файла"
 
 #~ msgid "New Owner: UID=%1, GID=%2"
 #~ msgstr "Новий власник: UID=%1, GID=%2"

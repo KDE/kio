@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-07 00:40+0000\n"
+"POT-Creation-Date: 2026-09-08 00:41+0000\n"
 "PO-Revision-Date: 2012-12-31 04:15+0600\n"
 "Last-Translator: Sairan Kikkarin <sairan@computer.org>\n"
 "Language-Team: Kazakh <kde-i18n-doc@kde.org>\n"
@@ -4299,11 +4299,6 @@ msgstr "%1 деген пайдаланушының id параметры жоқ"
 msgid "Could not get group id for given group name %1"
 msgstr "%1 деген топтың id параметры жоқ"
 
-#: kioworkers/file/file_unix_copy.cpp:405
-#, kde-format
-msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "%1 файлы %2 дегенге көшірілмеді. (Қате N: %3)"
-
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format
 msgid "Opening connection to host %1"
@@ -5429,7 +5424,7 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Түрі"
 
-#: widgets/kfileitemactions.cpp:331
+#: widgets/kfileitemactions.cpp:250
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
@@ -7445,6 +7440,85 @@ msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr ""
 
+#: widgets/renamefilewarningdialog.cpp:48
+#, fuzzy, kde-format
+#| msgid "&Rename"
+msgctxt "@action:button"
+msgid "Rename and Hide"
+msgstr "Қай&та атау"
+
+#: widgets/renamefilewarningdialog.cpp:50
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this folder's name will hide it from view.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:51
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this file's name will hide it from view.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:52
+#, fuzzy, kde-format
+#| msgid "Home Folder"
+msgctxt "@title:window"
+msgid "Hide this Folder?"
+msgstr "Мекен қапшығы"
+
+#: widgets/renamefilewarningdialog.cpp:52
+#, kde-format
+msgctxt "@title:window"
+msgid "Hide this File?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:58
+#: widgets/renamefilewarningdialog.cpp:108
+#: widgets/widgetsaskuseractionhandler.cpp:411
+#, fuzzy, kde-format
+#| msgid "Do not ask again"
+msgctxt "@option:check"
+msgid "Do not ask again"
+msgstr "Ендігәрі сұралмасын"
+
+#: widgets/renamefilewarningdialog.cpp:89
+#, fuzzy, kde-format
+#| msgid "&Rename"
+msgctxt "@action:button"
+msgid "Rename"
+msgstr "Қай&та атау"
+
+#: widgets/renamefilewarningdialog.cpp:94
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This will make the file type unknown.\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:98
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This will change the file type from \"%1\" to \"%2\".\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:105
+#, fuzzy, kde-format
+#| msgid "Advanced Permissions"
+msgctxt "@title:window"
+msgid "Change File Type"
+msgstr "Қосымша рұқсаттар"
+
 #: widgets/skipdialog.cpp:29
 #, kde-format
 msgid "Information"
@@ -7677,13 +7751,6 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Ендігәрі сұралмасын"
 
-#: widgets/widgetsaskuseractionhandler.cpp:411
-#, fuzzy, kde-format
-#| msgid "Do not ask again"
-msgctxt "@option:check"
-msgid "Do not ask again"
-msgstr "Ендігәрі сұралмасын"
-
 #: widgets/widgetsaskuseractionhandler.cpp:437
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
@@ -7720,6 +7787,9 @@ msgstr "Жегілетін бағдарлама:"
 msgid "If you do not trust this program, click Cancel"
 msgstr "Бағдарлама күдікті десеңіз 'Қайту' дегенді басыңыз"
 
+#~ msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+#~ msgstr "%1 файлы %2 дегенге көшірілмеді. (Қате N: %3)"
+
 #~ msgid "Link to Device"
 #~ msgstr "Құрылғыға сілтеме"
 
@@ -7747,11 +7817,6 @@ msgstr "Бағдарлама күдікті десеңіз 'Қайту' деге
 #~ msgstr "Өшірілгендерге тастау"
 
 #, fuzzy
-#~| msgid "&Rename"
-#~ msgid "Rename"
-#~ msgstr "Қай&та атау"
-
-#, fuzzy
 #~| msgctxt "@title job"
 #~| msgid "Transferring"
 #~ msgid "Transfer data"
@@ -7759,11 +7824,6 @@ msgstr "Бағдарлама күдікті десеңіз 'Қайту' деге
 
 #~ msgid "Setting ACL for %1"
 #~ msgstr "%1 үшін ACL орнату"
-
-#, fuzzy
-#~| msgid "Advanced Permissions"
-#~ msgid "Change File Permissions"
-#~ msgstr "Қосымша рұқсаттар"
 
 #, fuzzy
 #~| msgctxt "@title:column"

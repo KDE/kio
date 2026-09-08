@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-07 00:40+0000\n"
+"POT-Creation-Date: 2026-09-08 00:41+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -3957,11 +3957,6 @@ msgstr "%1 या दिलेल्या वापरकर्ता नाव
 msgid "Could not get group id for given group name %1"
 msgstr "%1 या दिलेल्या समूह नावाकरिता समूह आईडी प्राप्त करू शकत नाही"
 
-#: kioworkers/file/file_unix_copy.cpp:405
-#, kde-format
-msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "फाईलला %1 पासून %2 वर प्रत करू शकत नाही. (त्रुटी क्र.: %3)"
-
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format
 msgid "Opening connection to host %1"
@@ -5043,7 +5038,7 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "प्रकार"
 
-#: widgets/kfileitemactions.cpp:331
+#: widgets/kfileitemactions.cpp:250
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
@@ -6914,6 +6909,85 @@ msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr ""
 
+#: widgets/renamefilewarningdialog.cpp:48
+#, fuzzy, kde-format
+#| msgid "&Rename"
+msgctxt "@action:button"
+msgid "Rename and Hide"
+msgstr "नाव बदला (&R)"
+
+#: widgets/renamefilewarningdialog.cpp:50
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this folder's name will hide it from view.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:51
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this file's name will hide it from view.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:52
+#, fuzzy, kde-format
+#| msgid "Home Folder"
+msgctxt "@title:window"
+msgid "Hide this Folder?"
+msgstr "मुख्य संचयीका"
+
+#: widgets/renamefilewarningdialog.cpp:52
+#, kde-format
+msgctxt "@title:window"
+msgid "Hide this File?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:58
+#: widgets/renamefilewarningdialog.cpp:108
+#: widgets/widgetsaskuseractionhandler.cpp:411
+#, fuzzy, kde-format
+#| msgid "Do not ask again"
+msgctxt "@option:check"
+msgid "Do not ask again"
+msgstr "पुन्हा विचारु नका"
+
+#: widgets/renamefilewarningdialog.cpp:89
+#, fuzzy, kde-format
+#| msgid "&Rename"
+msgctxt "@action:button"
+msgid "Rename"
+msgstr "नाव बदला (&R)"
+
+#: widgets/renamefilewarningdialog.cpp:94
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This will make the file type unknown.\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:98
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This will change the file type from \"%1\" to \"%2\".\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:105
+#, fuzzy, kde-format
+#| msgid "Advanced Permissions"
+msgctxt "@title:window"
+msgid "Change File Type"
+msgstr "प्रगत परवानगी"
+
 #: widgets/skipdialog.cpp:29
 #, kde-format
 msgid "Information"
@@ -7116,13 +7190,6 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "पुन्हा विचारु नका"
 
-#: widgets/widgetsaskuseractionhandler.cpp:411
-#, fuzzy, kde-format
-#| msgid "Do not ask again"
-msgctxt "@option:check"
-msgid "Do not ask again"
-msgstr "पुन्हा विचारु नका"
-
 #: widgets/widgetsaskuseractionhandler.cpp:437
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
@@ -7159,6 +7226,9 @@ msgstr ""
 msgid "If you do not trust this program, click Cancel"
 msgstr ""
 
+#~ msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+#~ msgstr "फाईलला %1 पासून %2 वर प्रत करू शकत नाही. (त्रुटी क्र.: %3)"
+
 #~ msgid "Link to Device"
 #~ msgstr "साधनाला लिंक करा"
 
@@ -7185,18 +7255,8 @@ msgstr ""
 #~ msgid "Move Items"
 #~ msgstr "कचरापेटीत टाका"
 
-#, fuzzy
-#~| msgid "&Rename"
-#~ msgid "Rename"
-#~ msgstr "नाव बदला (&R)"
-
 #~ msgid "Setting ACL for %1"
 #~ msgstr " %1 करिता एसीएल निश्चित करत आहे"
-
-#, fuzzy
-#~| msgid "Advanced Permissions"
-#~ msgid "Change File Permissions"
-#~ msgstr "प्रगत परवानगी"
 
 #, fuzzy
 #~| msgctxt "@title:column"

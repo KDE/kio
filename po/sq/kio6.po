@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-07 00:40+0000\n"
+"POT-Creation-Date: 2026-09-08 00:41+0000\n"
 "PO-Revision-Date: 2025-12-07 00:08-0500\n"
 "Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
 "Language-Team: sq\n"
@@ -4265,11 +4265,6 @@ msgstr "S’u mor dot ID përdoruesi për emrin e dhënë të përdoruesit %1"
 msgid "Could not get group id for given group name %1"
 msgstr "S’u mor dot ID grupi për emrin e dhënë të grupit %1"
 
-#: kioworkers/file/file_unix_copy.cpp:405
-#, kde-format
-msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-msgstr "S’mund të kopjohet kartelë nga %1 në %2. (Errno: %3)"
-
 #: kioworkers/ftp/ftp.cpp:354
 #, kde-format
 msgid "Opening connection to host %1"
@@ -5355,7 +5350,7 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Lloj"
 
-#: widgets/kfileitemactions.cpp:331
+#: widgets/kfileitemactions.cpp:250
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
@@ -7324,6 +7319,85 @@ msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "<filename>%1</filename> s’duket të jetë një program i ekzekutueshëm."
 
+#: widgets/renamefilewarningdialog.cpp:48
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Rename Item"
+msgctxt "@action:button"
+msgid "Rename and Hide"
+msgstr "Riemërtoni Objekt"
+
+#: widgets/renamefilewarningdialog.cpp:50
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this folder's name will hide it from view.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:51
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this file's name will hide it from view.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:52
+#, fuzzy, kde-format
+#| msgid "Home Folder"
+msgctxt "@title:window"
+msgid "Hide this Folder?"
+msgstr "Skedar Shtëpi"
+
+#: widgets/renamefilewarningdialog.cpp:52
+#, kde-format
+msgctxt "@title:window"
+msgid "Hide this File?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:58
+#: widgets/renamefilewarningdialog.cpp:108
+#: widgets/widgetsaskuseractionhandler.cpp:411
+#, kde-format
+msgctxt "@option:check"
+msgid "Do not ask again"
+msgstr "Mos pyet sërish"
+
+#: widgets/renamefilewarningdialog.cpp:89
+#, fuzzy, kde-format
+#| msgid "Rename"
+msgctxt "@action:button"
+msgid "Rename"
+msgstr "Riemërtojeni"
+
+#: widgets/renamefilewarningdialog.cpp:94
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This will make the file type unknown.\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:98
+#, kde-format
+msgctxt "@info"
+msgid ""
+"This will change the file type from \"%1\" to \"%2\".\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
+msgstr ""
+
+#: widgets/renamefilewarningdialog.cpp:105
+#, fuzzy, kde-format
+#| msgid "Change File Owner"
+msgctxt "@title:window"
+msgid "Change File Type"
+msgstr "Ndryshoni të Zot Kartele"
+
 #: widgets/skipdialog.cpp:29
 #, kde-format
 msgid "Information"
@@ -7578,12 +7652,6 @@ msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Mos pyet sërish"
 
-#: widgets/widgetsaskuseractionhandler.cpp:411
-#, kde-format
-msgctxt "@option:check"
-msgid "Do not ask again"
-msgstr "Mos pyet sërish"
-
 #: widgets/widgetsaskuseractionhandler.cpp:437
 #, kde-format
 msgctxt "@option:check"
@@ -7616,6 +7684,9 @@ msgstr "Kjo do të nisë programin:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Nëse s’i zini besë këtij programi, klikoni mbi “Anuloje”"
+
+#~ msgid "Cannot copy file from %1 to %2. (Errno: %3)"
+#~ msgstr "S’mund të kopjohet kartelë nga %1 në %2. (Errno: %3)"
 
 #~ msgid "Link to Device"
 #~ msgstr "Lidhni Pajisje"
@@ -7670,9 +7741,6 @@ msgstr "Nëse s’i zini besë këtij programi, klikoni mbi “Anuloje”"
 #~ "Që të plotësohet veprimi i lëvizjes, lypsen privilegje rrënje. Doni të "
 #~ "vazhdohet?"
 
-#~ msgid "Rename"
-#~ msgstr "Riemërtojeni"
-
 #~ msgid ""
 #~ "Root privileges are required to complete renaming. Do you want to "
 #~ "continue?"
@@ -7709,9 +7777,6 @@ msgstr "Nëse s’i zini besë këtij programi, klikoni mbi “Anuloje”"
 
 #~ msgid "New Permissions: %1"
 #~ msgstr "Leje të Reja: %1"
-
-#~ msgid "Change File Owner"
-#~ msgstr "Ndryshoni të Zot Kartele"
 
 #~ msgid "New Owner: UID=%1, GID=%2"
 #~ msgstr "I zoti i Ri: UID=%1, GID=%2"
