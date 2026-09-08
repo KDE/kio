@@ -39,8 +39,10 @@
 #include <QCoreApplication>
 #include <QCryptographicHash>
 #include <QFutureWatcher>
+#include <QIcon>
 #include <QJsonArray>
 #include <QMimeDatabase>
+#include <QPainter>
 #include <QSaveFile>
 #include <QTemporaryDir>
 #include <QTimer>
@@ -56,6 +58,20 @@
 using namespace KIO;
 using namespace Qt::Literals;
 using namespace std::chrono_literals;
+
+namespace
+{
+
+// Remove check once kio-extras version with a capable thumbnail worker can be surely assumed on all systems
+// First version is part of Gear 26.12
+// Small disadvantage: KProtocolInfo is cached for process runtime, won't notice when worker is updated
+bool isRawFolderThumbCapableWorker()
+{
+    static const bool isCapable = KProtocolInfo::capabilities(QStringLiteral("thumbnail")).contains(QLatin1StringView("RawFolder"));
+    return isCapable;
+}
+
+}
 
 FilePreviewJob::FilePreviewJob(const KFileItem &fileItem, int parentDirDeviceId, const PreviewOptions &options, const PreviewSetupData &setupData)
     : m_fileItem(fileItem)
@@ -547,8 +563,27 @@ void FilePreviewJob::createThumbnail(const QString &pixPath)
     int thumb_height = m_options.size.height();
     if (save) {
         thumb_width = thumb_height = m_cacheSize;
-    }
+    } else if (isRawFolderThumbCapableWorker() && m_fileItem.isDir()) {
+        // request raw content preview without folder background, in case the worker supports it
+        // first prepare folder icon locally, needs to be done in advance to know the icon dimension
+        const int extent = qMin(thumb_width, thumb_height);
+        m_folderPreviewBaseLayer = QIcon::fromTheme(m_fileItem.iconName()).pixmap(QSize(extent, extent), m_options.devicePixelRatio).toImage();
+        // Scale up base icon to ensure overlays are rendered with
+        // the best quality possible even for low-res custom folder icons
+        const int physicalExtent = qRound(extent * m_options.devicePixelRatio);
+        if (qMax(m_folderPreviewBaseLayer.width(), m_folderPreviewBaseLayer.height()) < physicalExtent) {
+            m_folderPreviewBaseLayer = m_folderPreviewBaseLayer.scaled(physicalExtent, physicalExtent, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        }
 
+        // Note: using physical pixels here, not logical ones,
+        // given precise data from above scaling needs to be available to the worker
+        // normalizing by devicePixelRatio again would add rounding errors
+        const int folderPhysicalWidth = m_folderPreviewBaseLayer.width();
+        const int folderPhysicalHeight = m_folderPreviewBaseLayer.height();
+        // add flags to job
+        m_transferjob->addMetaData(QStringLiteral("rawFolderPhysicalWidth"), QString::number(folderPhysicalWidth));
+        m_transferjob->addMetaData(QStringLiteral("rawFolderPhysicalHeight"), QString::number(folderPhysicalHeight));
+    }
     m_transferjob->addMetaData(QStringLiteral("mimeType"), m_fileItem.mimetype());
     m_transferjob->addMetaData(QStringLiteral("width"), QString::number(thumb_width));
     m_transferjob->addMetaData(QStringLiteral("height"), QString::number(thumb_height));
@@ -610,6 +645,15 @@ void FilePreviewJob::slotThumbData(KIO::Job *job, const QByteArray &data)
         // fallback a raw QImage
         str >> thumb;
         thumb.setDevicePixelRatio(imgDevicePixelRatio);
+    }
+
+    // compose folder thumbnail by blitting the raw content preview onto the folder
+    if (isRawFolderThumbCapableWorker() && m_fileItem.isDir()) {
+        QPainter p;
+        p.begin(&m_folderPreviewBaseLayer);
+        p.drawImage(0, 0, thumb);
+        p.end();
+        thumb = m_folderPreviewBaseLayer;
     }
 
     slotStandardThumbData(job, thumb);
