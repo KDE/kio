@@ -20,15 +20,15 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-08 00:41+0000\n"
-"PO-Revision-Date: 2026-08-21 06:51-0300\n"
+"PO-Revision-Date: 2026-09-08 08:40-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
-"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
+"Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -7266,12 +7266,10 @@ msgstr ""
 "<filename>%1</filename> não pode ser renomeado para um nome de arquivo vazio."
 
 #: widgets/renamefilewarningdialog.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
-msgstr "Renomear item"
+msgstr "Renomear e ocultar"
 
 #: widgets/renamefilewarningdialog.cpp:50
 #, kde-format
@@ -7280,6 +7278,8 @@ msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Adicionar um ponto no começo do nome da pasta irá ocultá-la da exibição.\n"
+"Ainda quer renomear?"
 
 #: widgets/renamefilewarningdialog.cpp:51
 #, kde-format
@@ -7288,19 +7288,20 @@ msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Adicionar um ponto no começo do nome do arquivo irá ocultá-lo da exibição.\n"
+"Ainda quer renomear?"
 
 #: widgets/renamefilewarningdialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Home Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
-msgstr "Pasta Pessoal"
+msgstr "Ocultar esta pasta?"
 
 #: widgets/renamefilewarningdialog.cpp:52
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
-msgstr ""
+msgstr "Ocultar este arquivo?"
 
 #: widgets/renamefilewarningdialog.cpp:58
 #: widgets/renamefilewarningdialog.cpp:108
@@ -7311,8 +7312,7 @@ msgid "Do not ask again"
 msgstr "Não perguntar novamente"
 
 #: widgets/renamefilewarningdialog.cpp:89
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename"
 msgstr "Renomear"
@@ -7326,6 +7326,10 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Isso tornará o tipo de arquivo desconhecido.\n"
+"O conteúdo do arquivo não será alterado, mas os aplicativos podem não "
+"reconhecê-lo mais.\n"
+"Ainda deseja renomeá-lo?"
 
 #: widgets/renamefilewarningdialog.cpp:98
 #, kde-format
@@ -7336,13 +7340,16 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Isso alterará o tipo de arquivo de \"%1\" para \"%2\".\n"
+"O conteúdo do arquivo não será alterado, mas os aplicativos podem não "
+"reconhecê-lo mais.\n"
+"Ainda deseja renomeá-lo?"
 
 #: widgets/renamefilewarningdialog.cpp:105
-#, fuzzy, kde-format
-#| msgid "Change File Owner"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"
-msgstr "Alterar o proprietário do arquivo"
+msgstr "Alterar o tipo do arquivo"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format

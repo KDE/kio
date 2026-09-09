@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-08 00:41+0000\n"
-"PO-Revision-Date: 2026-08-21 06:11+0200\n"
+"PO-Revision-Date: 2026-09-08 05:20+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -7190,12 +7190,10 @@ msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "<filename>%1</filename>-ის სახელი ცარიელზე ვერ შეიცვლება."
 
 #: widgets/renamefilewarningdialog.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
-msgstr "ჩანაწერის სახელის გადარქმევა"
+msgstr "სახელის გადარქმევა და დამალვა"
 
 #: widgets/renamefilewarningdialog.cpp:50
 #, kde-format
@@ -7204,6 +7202,8 @@ msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"საქაღალდის სახელის დასაწყისში წერტილის დასმა მას ხედიდან დამალავს.\n"
+"მაინც გნებავთ გადაარქვათ მას სახელი?"
 
 #: widgets/renamefilewarningdialog.cpp:51
 #, kde-format
@@ -7212,19 +7212,20 @@ msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"ფაილის სახელის დასაწყისში წერტილის დასმა მას ხედიდან დამალავს.\n"
+"მაინც გნებავთ გადაარქვათ მას სახელი?"
 
 #: widgets/renamefilewarningdialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Home Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
-msgstr "საწყისი საქაღალდე"
+msgstr "დავმალო ეს საქაღალდე?"
 
 #: widgets/renamefilewarningdialog.cpp:52
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
-msgstr ""
+msgstr "დავმალო ეს ფაილი?"
 
 #: widgets/renamefilewarningdialog.cpp:58
 #: widgets/renamefilewarningdialog.cpp:108
@@ -7235,11 +7236,10 @@ msgid "Do not ask again"
 msgstr "აღარ მკითხო"
 
 #: widgets/renamefilewarningdialog.cpp:89
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename"
-msgstr "გადარქმევა"
+msgstr "სახელის გადარქმევა"
 
 #: widgets/renamefilewarningdialog.cpp:94
 #, kde-format
@@ -7250,6 +7250,10 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"ეს ფაილის ტიპს უცნობს გახდის.\n"
+"ფაილის შემცველობა არ შეიცვლება, მაგრამ, შეიძლება, აპლიკაციებმა ის ვეღარ "
+"იცნონ.\n"
+"მართლა გნებავთ მისი სახელის გადარქმევა?"
 
 #: widgets/renamefilewarningdialog.cpp:98
 #, kde-format
@@ -7260,13 +7264,16 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"ეს ფაილის ტიპს \"%1\"-დან \"%2\"-ზე შეცვლის.\n"
+"ფაილის შემცველობა არ შეიცვლება, მაგრამ, შეიძლება, აპლიკაციებმა ის ვეღარ "
+"იცნონ.\n"
+"მართლა გნებავთ მისი სახელის გადარქმევა?"
 
 #: widgets/renamefilewarningdialog.cpp:105
-#, fuzzy, kde-format
-#| msgid "Change File Owner"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"
-msgstr "ფაილის მფლობელის შეცვლა"
+msgstr "ფაილის ტიპის შეცვლა"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format

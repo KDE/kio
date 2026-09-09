@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-08 00:41+0000\n"
-"PO-Revision-Date: 2026-08-21 08:16+0200\n"
+"PO-Revision-Date: 2026-09-08 10:23+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -7250,12 +7250,10 @@ msgstr ""
 "datoteke."
 
 #: widgets/renamefilewarningdialog.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
-msgstr "Preimenuj postavko"
+msgstr "Preimenuj in skrij"
 
 #: widgets/renamefilewarningdialog.cpp:50
 #, kde-format
@@ -7264,6 +7262,8 @@ msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Če na začetek imena te mape dodate piko, jo boste skrili.\n"
+"Ali jo še vedno želite preimenovati?"
 
 #: widgets/renamefilewarningdialog.cpp:51
 #, kde-format
@@ -7272,19 +7272,20 @@ msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Če na začetek imena te datoteke dodate piko, jo boste skrili.\n"
+"Ali jo še vedno želite preimenovati?"
 
 #: widgets/renamefilewarningdialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Home Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
-msgstr "Domača mapa"
+msgstr "Naj skritem to mapo?"
 
 #: widgets/renamefilewarningdialog.cpp:52
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
-msgstr ""
+msgstr "Naj skritem to datoteko?"
 
 #: widgets/renamefilewarningdialog.cpp:58
 #: widgets/renamefilewarningdialog.cpp:108
@@ -7295,8 +7296,7 @@ msgid "Do not ask again"
 msgstr "Ne vprašaj več"
 
 #: widgets/renamefilewarningdialog.cpp:89
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename"
 msgstr "Preimenuj"
@@ -7310,6 +7310,10 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"S tem bo zvrst datoteke neznana.\n"
+"Vsebina datoteke se ne bo spremenila, vendar je aplikacije morda ne bodo več "
+"prepoznale.\n"
+"Ali jo še vedno želite preimenovati?"
 
 #: widgets/renamefilewarningdialog.cpp:98
 #, kde-format
@@ -7320,13 +7324,16 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"S tem se bo zvrst datoteke spremenila iz \"%1\" v \"%2\".\n"
+"Vsebina datoteke se ne bo spremenila, vendar je aplikacije morda ne bodo več "
+"prepoznale.\n"
+"Ali jo še vedno želite preimenovati?"
 
 #: widgets/renamefilewarningdialog.cpp:105
-#, fuzzy, kde-format
-#| msgid "Change File Owner"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"
-msgstr "Spremeni lastnika datoteke"
+msgstr "Spremeni zvrst datoteke"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format

@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-08 00:41+0000\n"
-"PO-Revision-Date: 2026-08-22 11:20+0200\n"
-"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
+"PO-Revision-Date: 2026-09-08 20:20+0200\n"
+"Last-Translator: Libor Filipek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -7198,12 +7198,10 @@ msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "<filename>%1</filename> nelze přejmenovat na prázdný název souboru."
 
 #: widgets/renamefilewarningdialog.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
-msgstr "Přejmenovat položku"
+msgstr "Přejmenovat a skrýt"
 
 #: widgets/renamefilewarningdialog.cpp:50
 #, kde-format
@@ -7212,6 +7210,8 @@ msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Přidáním tečky na začátek názvu této složky ji skryjete.\n"
+"Stále ji chcete přejmenovat?"
 
 #: widgets/renamefilewarningdialog.cpp:51
 #, kde-format
@@ -7220,19 +7220,20 @@ msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Přidáním tečky na začátek názvu tohoto souboru jej skryjete.\n"
+"Stále ho chcete přejmenovat?"
 
 #: widgets/renamefilewarningdialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Home Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
-msgstr "Domovská složka"
+msgstr "Skrýt tuto složku?"
 
 #: widgets/renamefilewarningdialog.cpp:52
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
-msgstr ""
+msgstr "Skrýt tento soubor?"
 
 #: widgets/renamefilewarningdialog.cpp:58
 #: widgets/renamefilewarningdialog.cpp:108
@@ -7243,11 +7244,10 @@ msgid "Do not ask again"
 msgstr "Znovu se nedotazovat"
 
 #: widgets/renamefilewarningdialog.cpp:89
-#, fuzzy, kde-format
-#| msgid "&Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename"
-msgstr "P&řejmenovat"
+msgstr "Přejmenovat"
 
 #: widgets/renamefilewarningdialog.cpp:94
 #, kde-format
@@ -7258,6 +7258,9 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Tímto se typ souboru stane neznámým.\n"
+"Obsah souboru se nezmění, ale aplikace jej již nemusí rozpoznat.\n"
+"Stále jej chcete přejmenovat?"
 
 #: widgets/renamefilewarningdialog.cpp:98
 #, kde-format
@@ -7268,12 +7271,15 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Tím se změní typ souboru z \"%1\" na \"%2\".\n"
+"Obsah souboru se nezmění, ale aplikace jej již nemusí rozpoznat.\n"
+"Chcete jej stále přejmenovat?"
 
 #: widgets/renamefilewarningdialog.cpp:105
 #, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"
-msgstr ""
+msgstr "Změnit typ souboru"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format

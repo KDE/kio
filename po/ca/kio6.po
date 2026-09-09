@@ -13,14 +13,14 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-08 00:41+0000\n"
-"PO-Revision-Date: 2026-08-21 08:52+0200\n"
+"PO-Revision-Date: 2026-09-08 11:56+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 25.04.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -7267,12 +7267,10 @@ msgstr ""
 "<filename>%1</filename> no es pot canviar el nom a un nom de fitxer buit."
 
 #: widgets/renamefilewarningdialog.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
-msgstr "Reanomena l'element"
+msgstr "Reanomena i oculta"
 
 #: widgets/renamefilewarningdialog.cpp:50
 #, kde-format
@@ -7281,6 +7279,9 @@ msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"En afegir un punt al començament d'aquest nom de carpeta, s'ocultarà a la "
+"visualització.\n"
+"Encara la voleu reanomenar?"
 
 #: widgets/renamefilewarningdialog.cpp:51
 #, kde-format
@@ -7289,19 +7290,21 @@ msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"En afegir un punt al començament d'aquest nom de fitxer, s'ocultarà a la "
+"visualització.\n"
+"Encara el voleu reanomenar?"
 
 #: widgets/renamefilewarningdialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Home Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
-msgstr "Carpeta d'inici"
+msgstr "Oculto aquesta carpeta?"
 
 #: widgets/renamefilewarningdialog.cpp:52
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
-msgstr ""
+msgstr "Oculto aquest fitxer?"
 
 #: widgets/renamefilewarningdialog.cpp:58
 #: widgets/renamefilewarningdialog.cpp:108
@@ -7312,11 +7315,10 @@ msgid "Do not ask again"
 msgstr "No ho tornis a preguntar"
 
 #: widgets/renamefilewarningdialog.cpp:89
-#, fuzzy, kde-format
-#| msgid "&Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename"
-msgstr "&Reanomena"
+msgstr "Reanomena"
 
 #: widgets/renamefilewarningdialog.cpp:94
 #, kde-format
@@ -7327,6 +7329,10 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Això farà que el tipus de fitxer sigui desconegut.\n"
+"El contingut del fitxer no canviarà, però potser les aplicacions ja no el "
+"reconeixeran.\n"
+"Encara voleu canviar-ne el nom?"
 
 #: widgets/renamefilewarningdialog.cpp:98
 #, kde-format
@@ -7337,12 +7343,16 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Això canviarà el tipus de fitxer de «%1» a «%2».\n"
+"El contingut del fitxer no canviarà, però potser les aplicacions ja no el "
+"reconeixeran.\n"
+"Encara voleu canviar-ne el nom?"
 
 #: widgets/renamefilewarningdialog.cpp:105
 #, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"
-msgstr ""
+msgstr "Canvi de tipus de fitxer"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
