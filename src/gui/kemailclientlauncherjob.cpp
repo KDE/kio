@@ -48,6 +48,31 @@ KEMailClientLauncherJob::KEMailClientLauncherJob(QObject *parent)
 
 KEMailClientLauncherJob::~KEMailClientLauncherJob() = default;
 
+QString getValueAsPercentEncoded(const QString &input)
+{
+    QByteArray qbAr = QUrl::toPercentEncoding(input);
+    return QString::fromUtf8(qbAr);
+}
+
+QStringList escapeCommaAndSingleQuote(const QStringList &input)
+{
+    // This function is used only by Thunderbird to process parameters to, cc, bcc.
+    QStringList out = input;
+    out.replaceInStrings(QStringLiteral(","), QStringLiteral("\\,"));
+    out.replaceInStrings(QStringLiteral("'"), QStringLiteral("\\'"));
+    return out;
+}
+
+QStringList escapeCommaAndSingleQuoteToPercentEncoding(const QStringList &input)
+{
+    // This function is used only by Thunderbird to process parameter attachment.
+    QStringList out = input;
+    out.replaceInStrings(QStringLiteral(","), QStringLiteral("%2C"));
+    // escape of ' is only a rare problem with attachments: to reproduce the bug: attach this two filenames, in this exact order: a' and abc
+    out.replaceInStrings(QStringLiteral("'"), QStringLiteral("%27"));
+    return out;
+}
+
 void KEMailClientLauncherJob::setTo(const QStringList &to)
 {
     d->m_to = to;
@@ -127,25 +152,26 @@ QUrl KEMailClientLauncherJob::mailToUrl() const
     QUrlQuery query;
     for (const QString &to : std::as_const(d->m_to)) {
         if (url.path().isEmpty()) {
-            url.setPath(to);
+            url.setPath(getValueAsPercentEncoded(to), QUrl::StrictMode);
+            // When adding a percent-encoded value, QUrl::StrictMode is required here (at least for email-clients: Evolution, Geary)
         } else {
-            query.addQueryItem(QStringLiteral("to"), to);
+            query.addQueryItem(QStringLiteral("to"), getValueAsPercentEncoded(to));
         }
     }
     for (const QString &cc : std::as_const(d->m_cc)) {
-        query.addQueryItem(QStringLiteral("cc"), cc);
+        query.addQueryItem(QStringLiteral("cc"), getValueAsPercentEncoded(cc));
     }
     for (const QString &bcc : std::as_const(d->m_bcc)) {
-        query.addQueryItem(QStringLiteral("bcc"), bcc);
+        query.addQueryItem(QStringLiteral("bcc"), getValueAsPercentEncoded(bcc));
     }
     for (const QUrl &url : std::as_const(d->m_attachments)) {
-        query.addQueryItem(QStringLiteral("attach"), url.toString());
+        query.addQueryItem(QStringLiteral("attach"), getValueAsPercentEncoded(url.toString()));
     }
     if (!d->m_subject.isEmpty()) {
-        query.addQueryItem(QStringLiteral("subject"), d->m_subject);
+        query.addQueryItem(QStringLiteral("subject"), getValueAsPercentEncoded(d->m_subject));
     }
     if (!d->m_body.isEmpty()) {
-        query.addQueryItem(QStringLiteral("body"), d->m_body);
+        query.addQueryItem(QStringLiteral("body"), getValueAsPercentEncoded(d->m_body));
     }
     url.setQuery(query);
     if (!url.path().isEmpty() || url.hasQuery()) {
@@ -167,17 +193,30 @@ QStringList KEMailClientLauncherJob::thunderbirdArguments() const
             arg += QLatin1String(token) + quote + str + quote;
         }
     };
+    auto addStringInPercentEncoded = [&](const char *token, const QString &str) {
+        if (!str.isEmpty()) {
+            // Don't use quotes (') here, otherwise it won't be interpreted as percent encoded
+            arg += QLatin1String(token) + getValueAsPercentEncoded(str);
+        }
+    };
     auto addList = [&](const char *token, const QStringList &list) {
         if (!list.isEmpty()) {
             arg += QLatin1String(token) + quote + list.join(QLatin1Char(',')) + quote;
         }
     };
-    addList(",to=", d->m_to);
-    addList(",cc=", d->m_cc);
-    addList(",bcc=", d->m_bcc);
-    addList(",attachment=", QUrl::toStringList(d->m_attachments));
-    addString(",subject=", d->m_subject);
-    addString(",body=", d->m_body);
+    addList(",to=", escapeCommaAndSingleQuote(d->m_to));
+    addList(",cc=", escapeCommaAndSingleQuote(d->m_cc));
+    addList(",bcc=", escapeCommaAndSingleQuote(d->m_bcc));
+
+    QStringList attachmentsList = QUrl::toStringList(d->m_attachments);
+    addList(",attachment=", escapeCommaAndSingleQuoteToPercentEncoding(attachmentsList));
+
+    // percent encode prevent problem with string ', ((escaping with \ does not work here))
+    addStringInPercentEncoded(",subject=", d->m_subject);
+
+    // prevent interpretion of HTML-code
+    QString bodyHtmlEscaped = d->m_body.toHtmlEscaped();
+    addStringInPercentEncoded(",body=", bodyHtmlEscaped);
 
     QStringList resultArgs{QLatin1String("-compose")};
     if (!arg.isEmpty()) {
