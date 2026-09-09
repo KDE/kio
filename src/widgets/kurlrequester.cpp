@@ -473,11 +473,11 @@ void KUrlRequester::KUrlRequesterPrivate::slotOpenDialog()
         Q_EMIT m_parent->openFileDialog(m_parent);
 
         if (((fileDialogMode & KFile::Directory) && (fileDialogMode & KFile::File)) || m_fileDialogModeWasDirAndFile) {
-            QMenu *dirOrFileMenu = new QMenu();
-            QAction *fileAction = new QAction(QIcon::fromTheme(QStringLiteral("document-new")), i18n("File"));
-            QAction *dirAction = new QAction(QIcon::fromTheme(QStringLiteral("folder-new")), i18n("Directory"));
-            dirOrFileMenu->addAction(fileAction);
-            dirOrFileMenu->addAction(dirAction);
+            QMenu dirOrFileMenu;
+            QAction *fileAction = new QAction(QIcon::fromTheme(QStringLiteral("document-new")), i18n("File"), &dirOrFileMenu);
+            QAction *dirAction = new QAction(QIcon::fromTheme(QStringLiteral("folder-new")), i18n("Directory"), &dirOrFileMenu);
+            dirOrFileMenu.addAction(fileAction);
+            dirOrFileMenu.addAction(dirAction);
 
             connect(fileAction, &QAction::triggered, [this]() {
                 fileDialogMode = KFile::File;
@@ -493,7 +493,7 @@ void KUrlRequester::KUrlRequesterPrivate::slotOpenDialog()
                 createFileDialog();
             });
 
-            dirOrFileMenu->exec(m_parent->mapToGlobal(QPoint(m_parent->width(), m_parent->height())));
+            dirOrFileMenu.exec(m_parent->mapToGlobal(QPoint(m_parent->width(), m_parent->height())));
 
             return;
         }
