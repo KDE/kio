@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:41+0000\n"
+"POT-Creation-Date: 2026-09-10 00:41+0000\n"
 "PO-Revision-Date: 2026-09-08 08:40-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -3946,7 +3946,7 @@ msgstr ""
 "FilePreviewJob: ignorando um arquivo vazio, pode ser um link simbólico "
 "quebrado: %1"
 
-#: gui/kemailclientlauncherjob.cpp:92
+#: gui/kemailclientlauncherjob.cpp:117
 #, kde-format
 msgid "No mail client found"
 msgstr "Nenhum cliente de e-mail encontrado"

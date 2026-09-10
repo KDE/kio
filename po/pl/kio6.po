@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:41+0000\n"
+"POT-Creation-Date: 2026-09-10 00:41+0000\n"
 "PO-Revision-Date: 2026-09-06 09:53+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -3904,7 +3904,7 @@ msgstr ""
 "FilePreviewJob: pomijanie pustego pliku, to może być uszkodzone dowiązanie: "
 "%1"
 
-#: gui/kemailclientlauncherjob.cpp:92
+#: gui/kemailclientlauncherjob.cpp:117
 #, kde-format
 msgid "No mail client found"
 msgstr "Nie znaleziono żadnego programu pocztowego"

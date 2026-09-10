@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:41+0000\n"
-"PO-Revision-Date: 2026-08-29 10:58+0400\n"
+"POT-Creation-Date: 2026-09-10 00:41+0000\n"
+"PO-Revision-Date: 2026-09-09 18:11+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -3856,7 +3856,7 @@ msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr "مهمة معاينة الملف: تخطي ملف فارغ، قد يكون رابطًا رمزيًا معطّلًا: %1"
 
-#: gui/kemailclientlauncherjob.cpp:92
+#: gui/kemailclientlauncherjob.cpp:117
 #, kde-format
 msgid "No mail client found"
 msgstr "لم يعثر على عميل بريد"
@@ -7198,12 +7198,10 @@ msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "لا يمكن تغيير تسمية <filename>%1</filename> إلى اسم ملف فارغ."
 
 #: widgets/renamefilewarningdialog.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
-msgstr "تغيير التّسمية"
+msgstr "أعد التسمية وأخفها"
 
 #: widgets/renamefilewarningdialog.cpp:50
 #, kde-format
@@ -7212,6 +7210,8 @@ msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"ستؤدي إضافة نقطة إلى بداية اسم هذا المجلد إلى إخفائه عن العرض. \n"
+"أما زلت تريد إعادة تسميته؟"
 
 #: widgets/renamefilewarningdialog.cpp:51
 #, kde-format
@@ -7220,19 +7220,20 @@ msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"ستؤدي إضافة نقطة إلى بداية اسم هذا الملف إلى إخفائه عن العرض. \n"
+"أما زلت تريد إعادة تسميته؟"
 
 #: widgets/renamefilewarningdialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Home Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
-msgstr "مجلّد المنزل"
+msgstr "أأخفي هذا المجلد؟"
 
 #: widgets/renamefilewarningdialog.cpp:52
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
-msgstr ""
+msgstr "أأخفي هذا الملف؟"
 
 #: widgets/renamefilewarningdialog.cpp:58
 #: widgets/renamefilewarningdialog.cpp:108
@@ -7243,11 +7244,10 @@ msgid "Do not ask again"
 msgstr "لا تسأل مجدّدًا"
 
 #: widgets/renamefilewarningdialog.cpp:89
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename"
-msgstr "تغيير التّسمية"
+msgstr "أعد التسمية"
 
 #: widgets/renamefilewarningdialog.cpp:94
 #, kde-format
@@ -7258,6 +7258,9 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"سيؤدي ذلك إلى جعل نوع الملف غير معروف.\n"
+"لن يتغير محتوى الملف، ولكن قد لا تتمكن التطبيقات من التعرف عليه بعد الآن.\n"
+"أما زلت تريد تغيير تسميته؟"
 
 #: widgets/renamefilewarningdialog.cpp:98
 #, kde-format
@@ -7268,13 +7271,15 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"سيؤدي ذلك إلى تغيير نوع الملف من ”%1“ إلى ”%2“.\n"
+"لن يتغير محتوى الملف، ولكن قد لا تعرفه التطبيقات بعد الآن.\n"
+"أتريد تغيير تسميته؟"
 
 #: widgets/renamefilewarningdialog.cpp:105
-#, fuzzy, kde-format
-#| msgid "Change File Owner"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"
-msgstr "غير مالك الملف"
+msgstr "غيّر نوع الملف"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
