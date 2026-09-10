@@ -51,6 +51,13 @@ static constexpr std::chrono::minutes s_cachedDirectoryLifetime{3};
 // Keep the last few directories' ".hidden" files around, so revisiting one does not re-read it.
 static constexpr int s_maxCachedDotHiddenFiles = 10;
 
+// Keys are file names or their urls
+static QString seenKey(const KIO::UDSEntry &entry, const QString &name)
+{
+    const QString ownUrl = entry.stringValue(KIO::UDSEntry::UDS_URL);
+    return ownUrl.isEmpty() ? name : ownUrl;
+}
+
 KCoreDirListerCache::KCoreDirListerCache()
     : itemsCached(s_maxCachedDirectories)
     , m_cacheHiddenFiles(s_maxCachedDotHiddenFiles)
@@ -1170,7 +1177,7 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
     CacheHiddenFile *cachedHidden = nullptr;
     bool dotHiddenChecked = false;
     KFileItemList newItems;
-    QSet<QString> newItemNames;
+    QSet<QString> newItemKeys;
     for (const auto &entry : entries) {
         const QString name = entry.stringValue(KIO::UDSEntry::UDS_NAME);
 
@@ -1205,11 +1212,12 @@ void KCoreDirListerCache::slotEntries(KIO::Job *job, const KIO::UDSEntryList &en
             // entry twice if the directory changed between reads, and a later
             // batch of the same job can repeat an entry from an earlier batch.
             // Adopting the duplicate would permanently corrupt the cache.
-            if (newItemNames.contains(name) || std::binary_search(dir->lstItems.cbegin(), dir->lstItems.cend(), item)) {
+            const QString key = seenKey(entry, name);
+            if (newItemKeys.contains(key) || std::binary_search(dir->lstItems.cbegin(), dir->lstItems.cend(), item)) {
                 qCDebug(KIO_CORE_DIRLISTER) << "Skipping duplicated entry" << item.url();
                 continue;
             }
-            newItemNames.insert(name);
+            newItemKeys.insert(key);
 
             // get the names of the files listed in ".hidden", if it exists and is a local file
             if (!dotHiddenChecked) {
@@ -1753,7 +1761,7 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
     bool dotHiddenChecked = false;
     const KIO::UDSEntryList &buf = runningListJobs.value(job);
     KFileItemList newItems;
-    QSet<QString> seenNames;
+    QSet<QString> seenKeys;
     for (const auto &entry : buf) {
         // Form the complete url
         KFileItem item(entry, jobUrl, delayedMimeTypes, true);
@@ -1770,10 +1778,11 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         // A changing directory may repeat an entry within one listing (see
         // slotEntries()); the second occurrence would no longer find its name
         // in fileItems and would wrongly be adopted as a new file.
-        if (seenNames.contains(name)) {
+        const QString key = seenKey(entry, name);
+        if (seenKeys.contains(key)) {
             continue;
         }
-        seenNames.insert(name);
+        seenKeys.insert(key);
 
         if (name == QLatin1Char('.')) {
             // if the update was started before finishing the original listing

@@ -1995,4 +1995,72 @@ void KDirListerTest::testDuplicatedEntries()
     }));
 }
 
+void KDirListerTest::testEntriesOfOneNameFromSeveralFolders()
+{
+    // A folder whose entries come from elsewhere, as a search result folder does, gives
+    // each entry a url of its own, and several of those entries can carry the same name.
+    // Every one of them is a file in its own right and belongs in the listing.
+    class Factory : public KIO::WorkerFactory
+    {
+    public:
+        using KIO::WorkerFactory::WorkerFactory;
+        std::unique_ptr<KIO::WorkerBase> createWorker(const QByteArray &pool, const QByteArray &app) override
+        {
+            class SearchWorker : public KIO::WorkerBase
+            {
+            public:
+                SearchWorker(const QByteArray &pool, const QByteArray &app)
+                    : WorkerBase(QByteArrayLiteral("kio-test-search"), pool, app)
+                {
+                }
+
+                Q_REQUIRED_RESULT KIO::WorkerResult listDir(const QUrl &url) override
+                {
+                    Q_UNUSED(url)
+                    KIO::UDSEntry root;
+                    root.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
+                    root.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+                    listEntry(root);
+
+                    auto hit = [this](const QString &path) {
+                        const QUrl fileUrl = QUrl::fromLocalFile(path);
+                        KIO::UDSEntry entry;
+                        entry.fastInsert(KIO::UDSEntry::UDS_NAME, fileUrl.fileName());
+                        entry.fastInsert(KIO::UDSEntry::UDS_URL, fileUrl.url());
+                        entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 10);
+                        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456);
+                        listEntry(entry);
+                    };
+                    hit(QStringLiteral("/hits/one/testfile.txt"));
+                    hit(QStringLiteral("/hits/two/testfile.txt"));
+                    hit(QStringLiteral("/hits/three/testfile.txt"));
+                    // The same file reached twice, which is one hit.
+                    hit(QStringLiteral("/hits/two/testfile.txt"));
+                    return KIO::WorkerResult::pass();
+                }
+            };
+
+            return std::unique_ptr<KIO::WorkerBase>(new SearchWorker(pool, app));
+        }
+    };
+    auto factory = std::make_shared<Factory>();
+    KIO::Worker::setTestWorkerFactory(factory);
+
+    const QUrl testUrl(u"kio-test-search://results/testfile"_s);
+    MyDirLister dirLister;
+    dirLister.openUrl(testUrl);
+    QVERIFY(dirLister.spyCompleted.wait(500));
+    QVERIFY(dirLister.isFinished());
+
+    const KFileItemList items = dirLister.items();
+    QCOMPARE(items.count(), 3);
+    QStringList urls;
+    for (const KFileItem &item : items) {
+        QCOMPARE(item.name(), u"testfile.txt"_s);
+        urls << item.url().toLocalFile();
+    }
+    urls.sort();
+    QCOMPARE(urls, QStringList({u"/hits/one/testfile.txt"_s, u"/hits/three/testfile.txt"_s, u"/hits/two/testfile.txt"_s}));
+}
+
 #include "moc_kdirlistertest.cpp"
