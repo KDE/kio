@@ -11,6 +11,8 @@
 #include "job_base.h"
 #include "kiocore_export.h"
 
+class KFileItemList;
+
 namespace KIO
 {
 class BatchRenameJobPrivate;
@@ -98,6 +100,25 @@ using renameFunctionType = std::function<QString(QStringView currentFileNameWith
  * \since 6.16
  */
 KIOCORE_EXPORT BatchRenameJob *batchRenameWithFunction(const QList<QUrl> &srcList, const renameFunctionType renameFunction, KIO::JobFlags flags = DefaultFlags);
+
+/*!
+ * \relates KIO::BatchRenameJob
+ *
+ * Renames multiple files at once, like batchRenameWithFunction(const QList<QUrl> &, const renameFunctionType, JobFlags),
+ * but is given the items themselves, so that what they already know is used: a directory has no
+ * file name extension and keeps its whole name, whatever protocol its URL uses. With plain URLs
+ * that is only found out for local files.
+ *
+ * \a items The items to rename.
+ *
+ * \a renameFunction A function used to find the new name of each item, given its name without
+ * the extension.
+ *
+ * Returns a pointer to the job handling the operation.
+ *
+ * \since 6.31
+ */
+KIOCORE_EXPORT BatchRenameJob *batchRenameWithFunction(const KFileItemList &items, const renameFunctionType renameFunction, KIO::JobFlags flags = DefaultFlags);
 }
 
 #endif

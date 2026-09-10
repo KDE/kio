@@ -8,6 +8,8 @@
 
 #include "renamefiledialog.h"
 
+#include "../utils_p.h"
+
 #include <KConfigGroup>
 #include <KGuiItem>
 #include <KIO/BatchRenameJob>
@@ -56,6 +58,15 @@ inline ValidationResult invalid(const QString &text)
 {
     return ValidationResult{Result::Invalid, text, KMessageWidget::MessageType::Error};
 };
+
+/**
+ * Whether @p item keeps its whole name because it is a directory. A symlink is renamed as a
+ * file even when it points at a directory, the same rule KIO::batchRenameWithFunction() applies.
+ */
+static bool renamesAsDirectory(const KFileItem &item)
+{
+    return item.isDir() && !item.isLink();
+}
 
 /// design pattern strategy
 class RenameOperationAbstractStrategy
@@ -347,15 +358,7 @@ public:
                 }
 
                 QString name = fileName.toString();
-                QMimeDatabase db;
-                const QString extension = db.suffixForFileName(name);
-                if (!extension.isEmpty()) {
-                    name = name.chopped(extension.length() + 1);
-                }
                 QString output = position == BeforeName ? text + name : name + text;
-                if (!extension.isEmpty()) {
-                    output += QLatin1Char('.') + extension;
-                }
                 return output;
             };
         return function;
@@ -530,20 +533,11 @@ public:
                 return output;
             }
 
-            QMimeDatabase db;
-            const QString extension = db.suffixForFileName(output);
-
-            if (!extension.isEmpty()) {
-                output = output.chopped(extension.length() + 1);
-            }
             if (append) {
                 output = output + textToAdd;
             } else {
                 // prepend
                 output = textToAdd + output;
-            }
-            if (!extension.isEmpty()) {
-                output += QLatin1Char('.') + extension;
             }
             return output;
         };
@@ -562,8 +556,12 @@ public:
         auto it = std::find_if(items.cbegin(), items.cend(), [&rename, &newUrl](const KFileItem &item) {
             bool fileExists = false;
             auto oldUrl = item.url();
+            // Split and re-append the extension exactly like the job does, so that the name
+            // checked for existence here is the name the job will really create.
+            QString extension;
+            const QString baseName = Utils::splitFileNameExtension(oldUrl.fileName(), renamesAsDirectory(item), &extension);
             newUrl = oldUrl.adjusted(QUrl::RemoveFilename);
-            newUrl.setPath(newUrl.path() + KIO::encodeFileName(rename(item.url().fileName())));
+            newUrl.setPath(newUrl.path() + KIO::encodeFileName(Utils::appendFileNameExtension(rename(baseName), extension)));
             if (oldUrl.isLocalFile() && newUrl != oldUrl) {
                 fileExists = QFile::exists(newUrl.toLocalFile());
             }
@@ -719,7 +717,7 @@ void RenameFileDialog::slotAccepted()
     } else {
         cmdType = KIO::FileUndoManager::BatchRename;
 
-        job = KIO::batchRenameWithFunction(srcList, d->renameStrategy->renameFunction());
+        job = KIO::batchRenameWithFunction(d->items, d->renameStrategy->renameFunction());
         connect(qobject_cast<KIO::BatchRenameJob *>(job), &KIO::BatchRenameJob::fileRenamed, this, &RenameFileDialog::slotFileRenamed);
     }
 
@@ -772,14 +770,29 @@ void RenameFileDialog::slotOperationChanged(int index)
 void RenameFileDialog::slotStateChanged()
 {
     const auto firstItem = d->items.first();
-    auto previewText = d->renameStrategy->renameFunction()(firstItem.url().fileName());
+    QString previewText;
 
-    const QString suffix = QLatin1Char('.') + firstItem.suffix();
-    if (!firstItem.suffix().isEmpty() && !previewText.endsWith(suffix) && !previewText.isEmpty() && previewText != suffix) {
-        previewText.append(suffix);
-    }
+    if (d->renameOneItem) {
+        // The single item path in slotAccepted() renames to the entered name verbatim.
+        previewText = d->renameStrategy->renameFunction()(firstItem.url().fileName());
 
-    if (!d->renameOneItem) {
+        const QString suffix = QLatin1Char('.') + firstItem.suffix();
+        if (!firstItem.suffix().isEmpty() && !previewText.endsWith(suffix) && !previewText.isEmpty() && previewText != suffix) {
+            previewText.append(suffix);
+        }
+    } else {
+        // Feed the rename function the same input BatchRenameJobPrivate::slotStart() will,
+        // otherwise the preview shows a name the job never produces.
+        QString extension;
+        const QString baseName = Utils::splitFileNameExtension(firstItem.url().fileName(), renamesAsDirectory(firstItem), &extension);
+        previewText = d->renameStrategy->renameFunction()(baseName);
+
+        // Leave an empty result empty so that it is reported as an error below instead of
+        // silently becoming a hidden file named ".<extension>".
+        if (!previewText.isEmpty()) {
+            previewText = Utils::appendFileNameExtension(previewText, extension);
+        }
+
         d->preview->setText(previewText);
         d->preview->setAccessibleName(previewText);
     }

@@ -9,7 +9,11 @@
 
 #include "copyjob.h"
 #include "job_p.h"
+#include "kfileitem.h"
 
+#include "../utils_p.h"
+
+#include <QFileInfo>
 #include <QMimeDatabase>
 #include <QRegularExpression>
 #include <QTimer>
@@ -23,9 +27,10 @@ using namespace KIO;
 class KIO::BatchRenameJobPrivate : public KIO::JobPrivate
 {
 public:
-    BatchRenameJobPrivate(const QList<QUrl> &src, const renameFunctionType renamefunction, JobFlags flags)
+    BatchRenameJobPrivate(const QList<QUrl> &src, const QList<bool> &isDir, const renameFunctionType renamefunction, JobFlags flags)
         : JobPrivate()
         , m_srcList(src)
+        , m_isDir(isDir)
         , m_renamefunction(renamefunction)
         , m_listIterator(m_srcList.constBegin())
         , m_flags(flags)
@@ -43,6 +48,7 @@ public:
     }
 
     QList<QUrl> m_srcList;
+    const QList<bool> m_isDir;
     const renameFunctionType m_renamefunction;
     QList<QUrl>::const_iterator m_listIterator;
     QUrl m_oldUrl;
@@ -55,9 +61,9 @@ public:
     void slotStart();
     void slotReport();
 
-    static inline BatchRenameJob *newJob(const QList<QUrl> &src, const renameFunctionType renamefunction, JobFlags flags)
+    static inline BatchRenameJob *newJob(const QList<QUrl> &src, const QList<bool> &isDir, const renameFunctionType renamefunction, JobFlags flags)
     {
-        BatchRenameJob *job = new BatchRenameJob(*new BatchRenameJobPrivate(src, renamefunction, flags));
+        BatchRenameJob *job = new BatchRenameJob(*new BatchRenameJobPrivate(src, isDir, renamefunction, flags));
         job->setUiDelegate(KIO::createDefaultJobUiDelegate());
         if (!(flags & HideProgressInfo)) {
             KIO::getJobTracker()->registerJob(job);
@@ -99,19 +105,22 @@ void BatchRenameJobPrivate::slotStart()
         return;
     }
 
-    QMimeDatabase db;
     const QUrl oldUrl = *m_listIterator;
     const QString oldFileName = oldUrl.fileName();
-    const QString extension = db.suffixForFileName(oldFileName);
-    int lastPoint = oldFileName.lastIndexOf(QLatin1Char('.'));
-    QString fileNameNoExt = oldFileName.left(lastPoint);
 
-    QString newName = m_renamefunction(fileNameNoExt);
+    // Directories do not have a file name extension, so nothing may be split off one. A
+    // folder called "Vol.1 Ch.3.1" must keep its name whatever the mime database happens to
+    // know about ".1". Which items are directories was settled when the job was created, see
+    // the batchRenameWithFunction() overloads.
+    const bool isDir = m_isDir.at(m_listIterator - m_srcList.constBegin());
 
-    const QString suffix = QLatin1Char('.') + extension;
-    if (!extension.isEmpty() && !newName.endsWith(suffix)) {
-        newName += suffix;
-    }
+    // Only split off what is going to be put back afterwards. Splitting at the last dot instead
+    // would silently drop everything after it whenever QMimeDatabase does not know the
+    // suffix: "Vol.1 Ch.3.1" would reach the rename function as "Vol.1 Ch.3". It would also
+    // mishandle multi-part suffixes, turning "archive.tar.gz" into "archive.tar.tar.gz".
+    QString extension;
+    const QString fileNameNoExt = Utils::splitFileNameExtension(oldFileName, isDir, &extension);
+    const QString newName = Utils::appendFileNameExtension(m_renamefunction(fileNameNoExt), extension);
 
     m_oldUrl = oldUrl;
     m_newUrl = oldUrl.adjusted(QUrl::RemoveFilename);
@@ -232,12 +241,38 @@ BatchRenameJob *KIO::batchRename(const QList<QUrl> &srcList, const QString &newN
             return QString(pattern).replace(placeHolderStart, placeHolderLength, indexString);
         };
 
-    return BatchRenameJobPrivate::newJob(srcList, std::move(function), flags);
+    return batchRenameWithFunction(srcList, std::move(function), flags);
 };
+
+static bool isLocalDirectory(const QUrl &url)
+{
+    if (!url.isLocalFile()) {
+        return false;
+    }
+    const QFileInfo info(url.toLocalFile());
+    return info.isDir() && !info.isSymLink();
+}
 
 BatchRenameJob *KIO::batchRenameWithFunction(const QList<QUrl> &srcList, const renameFunctionType renameFunction, KIO::JobFlags flags)
 {
-    return BatchRenameJobPrivate::newJob(srcList, renameFunction, flags);
+    QList<bool> isDir;
+    isDir.reserve(srcList.size());
+    for (const QUrl &url : srcList) {
+        isDir.append(isLocalDirectory(url));
+    }
+    return BatchRenameJobPrivate::newJob(srcList, isDir, renameFunction, flags);
+}
+
+BatchRenameJob *KIO::batchRenameWithFunction(const KFileItemList &items, const renameFunctionType renameFunction, KIO::JobFlags flags)
+{
+    QList<bool> isDir;
+    isDir.reserve(items.size());
+    for (const KFileItem &item : items) {
+        // The item knows what it is from the listing, for any protocol. A symlink is renamed as
+        // a file even when it points at a directory, as with plain URLs.
+        isDir.append(item.isDir() && !item.isLink());
+    }
+    return BatchRenameJobPrivate::newJob(items.urlList(), isDir, renameFunction, flags);
 }
 
 #include "moc_batchrenamejob.cpp"

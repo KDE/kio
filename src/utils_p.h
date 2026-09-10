@@ -10,6 +10,7 @@
 #define KIO_UTILS_P_H
 
 #include <QDir>
+#include <QMimeDatabase>
 #include <QString>
 #include <QUrl>
 #include <QtGlobal>
@@ -170,6 +171,44 @@ inline bool isDirMask(mode_t mode)
 inline bool isLinkMask(mode_t mode)
 {
     return (mode & QT_STAT_MASK) == QT_STAT_LNK;
+}
+
+/*
+ * Splits the file name extension off @p fileName and returns the rest, the part a batch rename
+ * function operates on. The extension goes to @p extension, without its dot.
+ *
+ * Only a suffix QMimeDatabase knows counts as an extension; a dot on its own never does, so a
+ * name such as "Vol.1 Ch.3.1" comes back whole. A directory has no extension at all.
+ *
+ * Used by KIO::BatchRenameJob and by KIO::RenameFileDialog, so that the preview shows the name
+ * the job goes on to create.
+ */
+inline QString splitFileNameExtension(const QString &fileName, bool isDir, QString *extension)
+{
+    if (isDir) {
+        extension->clear();
+        return fileName;
+    }
+
+    QMimeDatabase db;
+    *extension = db.suffixForFileName(fileName);
+    if (extension->isEmpty()) {
+        return fileName;
+    }
+    return fileName.chopped(extension->length() + 1); // +1 for the dot
+}
+
+/*
+ * Puts @p extension, as returned by splitFileNameExtension(), back on @p baseName, unless it is
+ * empty or @p baseName already ends with it.
+ */
+inline QString appendFileNameExtension(const QString &baseName, const QString &extension)
+{
+    const QString suffix = QLatin1Char('.') + extension;
+    if (extension.isEmpty() || baseName.endsWith(suffix)) {
+        return baseName;
+    }
+    return baseName + suffix;
 }
 
 } // namespace
