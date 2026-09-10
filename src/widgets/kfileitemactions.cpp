@@ -38,6 +38,7 @@
 #include <QMenu>
 #include <QMimeDatabase>
 #include <QtAlgorithms>
+#include <QUrl>
 
 #ifdef WITH_QTDBUS
 #include <QDBusConnection>
@@ -473,7 +474,14 @@ void KFileItemActionsPrivate::addPluginActionsTo(QMenu *mainMenuHolder, QMenu *a
         }
         if (abstractPlugin) {
             connect(abstractPlugin, &KAbstractFileItemActionPlugin::error, q, &KFileItemActions::error);
-            const QList<QAction *> actions = abstractPlugin->actions(m_props, m_parentWidget);
+
+            QList<QAction *> actions;
+            QObject *parentObject = m_parentWidget ? static_cast<QObject *>(m_parentWidget) : m_parentObject.data();
+            if (auto *pluginV2 = dynamic_cast<KFileItemActionPluginV2 *>(abstractPlugin); pluginV2 && parentObject) {
+                actions = pluginV2->actionsForParent(m_props, parentObject, m_currentWorkingDirectory);
+            } else {
+                actions = abstractPlugin->actions(m_props, m_parentWidget);
+            }
             if (jsonMetadata.value(QStringLiteral("X-KDE-Show-In-Submenu"), false)) {
                 if (pluginId == QLatin1String("setfoldericonitemaction")) {
                     iconAction = actions;
@@ -960,6 +968,16 @@ QStringList KFileItemActionsPrivate::serviceMenuFilePaths()
 void KFileItemActions::setParentWidget(QWidget *widget)
 {
     d->m_parentWidget = widget;
+}
+
+void KFileItemActions::setParentObject(QObject *parent)
+{
+    d->m_parentObject = parent;
+}
+
+void KFileItemActions::setCurrentWorkingDirectory(const QUrl &currentWorkingDirectory)
+{
+    d->m_currentWorkingDirectory = currentWorkingDirectory;
 }
 
 #include "moc_kfileitemactions.cpp"

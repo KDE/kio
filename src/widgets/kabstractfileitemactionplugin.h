@@ -16,6 +16,7 @@
 
 class QAction;
 class QMenu;
+class QUrl;
 class QWidget;
 class KFileItemListProperties;
 
@@ -105,6 +106,52 @@ Q_SIGNALS:
      * \since 5.82
      */
     void error(const QString &errorMessage);
+};
+
+/*!
+ * \class KFileItemActionPluginV2
+ * \inmodule KIOWidgets
+ *
+ * \brief KAbstractFileItemActionPlugin with a QObject-based actions() replacement.
+ *
+ * actions() requires a QWidget to parent the returned QActions to, but some callers
+ * (e.g. Plasma's desktop containment) have no widget to offer, which leaves those
+ * actions without an owner. Plugins that need a guaranteed owner for their actions
+ * can inherit from this class instead of KAbstractFileItemActionPlugin directly, and
+ * implement actionsForParent() instead of actions(); KFileItemActions calls it with a
+ * QObject that is never null, even when no QWidget is available (see
+ * KFileItemActions::setParentObject()). actions() itself is implemented here to forward
+ * to actionsForParent(), so plugins only need to implement the latter.
+ *
+ * \since 6.32
+ */
+class KIOWIDGETS_EXPORT KFileItemActionPluginV2 : public KAbstractFileItemActionPlugin
+{
+public:
+    explicit KFileItemActionPluginV2(QObject *parent);
+
+    ~KFileItemActionPluginV2() override;
+
+    QList<QAction *> actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget) final;
+
+    /*!
+     * Like KAbstractFileItemActionPlugin::actions(), but takes a QObject instead of a
+     * QWidget, so the returned actions can always be given a valid owner.
+     *
+     * \a fileItemInfos  Information about the selected file items.
+     *
+     * \a parent   Never null. To be used as parent for the returned QActions. May or
+     *             may not be a QWidget; use qobject_cast<QWidget *> to check.
+     *
+     * \a currentWorkingDirectory   The folder the actions are being requested for (e.g.
+     *             the folder currently shown in the view). Lets a plugin tell whether
+     *             fileItemInfos refers to this folder itself or to item(s) within it,
+     *             and present different actions accordingly. May be empty if the caller
+     *             has no such notion, or if invoked through the actions() fallback above.
+     *
+     * Returns a list of actions to be added to a contextual menu for the file items.
+     */
+    virtual QList<QAction *> actionsForParent(const KFileItemListProperties &fileItemInfos, QObject *parent, const QUrl &currentWorkingDirectory) = 0;
 };
 
 #endif

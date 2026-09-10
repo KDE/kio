@@ -7,6 +7,9 @@
 
 #include "kabstractfileitemactionplugin.h"
 
+#include <QUrl>
+#include <QWidget>
+
 KAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin(QObject *parent)
     : QObject(parent)
 {
@@ -14,6 +17,21 @@ KAbstractFileItemActionPlugin::KAbstractFileItemActionPlugin(QObject *parent)
 
 KAbstractFileItemActionPlugin::~KAbstractFileItemActionPlugin()
 {
+}
+
+KFileItemActionPluginV2::KFileItemActionPluginV2(QObject *parent)
+    : KAbstractFileItemActionPlugin(parent)
+{
+}
+
+KFileItemActionPluginV2::~KFileItemActionPluginV2() = default;
+
+QList<QAction *> KFileItemActionPluginV2::actions(const KFileItemListProperties &fileItemInfos, QWidget *parentWidget)
+{
+    // No caller-supplied notion of a "current working directory" reaches us through this
+    // legacy entry point; plugins relying on it need the actionsForParent() call from
+    // KFileItemActions (see setCurrentWorkingDirectory()) instead.
+    return actionsForParent(fileItemInfos, parentWidget, QUrl());
 }
 
 #include "moc_kabstractfileitemactionplugin.cpp"

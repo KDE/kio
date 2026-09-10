@@ -17,6 +17,7 @@
 class KFileItemListProperties;
 class QAction;
 class QMenu;
+class QUrl;
 class KFileItemActionsPrivate;
 
 /*!
@@ -76,6 +77,29 @@ public:
      * can find a statusbar, too.
      */
     void setParentWidget(QWidget *widget);
+
+    /*!
+     * Set an additional QObject to use as the owner for actions returned by plugins
+     * that implement KFileItemActionPluginV2, for use when no suitable QWidget is
+     * available to pass to setParentWidget().
+     *
+     * This is only needed by callers that have no widget at all (e.g. QML-based
+     * callers such as Plasma's desktop containment); when a parent widget has been
+     * set via setParentWidget(), it is used instead and this is not needed.
+     *
+     * \since 6.32
+     */
+    void setParentObject(QObject *parent);
+
+    /*!
+     * Set the folder the actions are being requested for (e.g. the folder currently
+     * shown in the view), passed on to KFileItemActionPluginV2::actionsForParent() so
+     * plugins can tell whether the item list refers to this folder itself or to
+     * item(s) within it, and present different actions accordingly.
+     *
+     * \since 6.32
+     */
+    void setCurrentWorkingDirectory(const QUrl &currentWorkingDirectory);
 
     /*!
      * Generates the "Open With <Application>" actions, and inserts them in \a menu,

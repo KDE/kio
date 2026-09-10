@@ -18,6 +18,7 @@
 
 #include <QActionGroup>
 #include <QObject>
+#include <QPointer>
 
 class KFileItemActions;
 
@@ -92,6 +93,12 @@ public:
     QActionGroup m_executeServiceActionGroup;
     QActionGroup m_runApplicationActionGroup;
     QWidget *m_parentWidget;
+    // QPointer, not a raw pointer: unlike m_parentWidget (meant to be a long-lived main
+    // window), this is commonly a transient object (e.g. Plasma's desktop containment
+    // passes its popup QMenu), and KFileItemActions itself is reused across calls, so
+    // relying on every caller to clear/refresh this before it could dangle isn't safe.
+    QPointer<QObject> m_parentObject;
+    QUrl m_currentWorkingDirectory;
     QMenu *m_mainMenu = nullptr;
     KConfig m_config;
     QHash<QString, KAbstractFileItemActionPlugin *> m_loadedPlugins;
