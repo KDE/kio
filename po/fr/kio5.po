@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2026-08-22 10:05+0200\n"
+"PO-Revision-Date: 2026-09-09 10:49+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -7031,8 +7031,8 @@ msgstr ""
 "utiliser \\{1}..., \\{n} pour spécifier certains mots de la requête et "
 "\\{nom} pour spécifier une valeur donnée par « nom = valeur » dans la "
 "requête de recherche. <br/>De plus, Il est possible de spécifier des "
-"références multiples (noms, chiffres et chaînes) en une seule fois par "
-"\\{nom-1, nom-2..., « chaîne » }.<br/>La première valeur de cette chaine, en "
+"références multiples (noms, chiffres et chaines) en une seule fois par "
+"\\{nom-1, nom-2..., « chaine » }.<br/>La première valeur de cette chaine, en "
 "partant de la gauche, qui coïncide avec la requête de recherche sera "
 "utilisée pour la substitution dans l'« URI » résultante.<br/>Une chaine "
 "entre guillemets peut être utilisée comme valeur par défaut si rien ne "
@@ -9521,7 +9521,7 @@ msgstr "Version de SSL :"
 #: widgets/sslinfo.ui:134
 #, kde-format
 msgid "Certificate chain:"
-msgstr "Chaîne de certificat :"
+msgstr "Chaine de certificat :"
 
 #. i18n: ectx: property (text), widget (QLabel, trustedTag)
 #: widgets/sslinfo.ui:163
