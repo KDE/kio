@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-10 00:41+0000\n"
-"PO-Revision-Date: 2026-08-22 10:05+0200\n"
+"PO-Revision-Date: 2026-09-09 10:49+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -7351,12 +7351,10 @@ msgstr ""
 "vide."
 
 #: widgets/renamefilewarningdialog.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
-msgstr "Renommer l'élément"
+msgstr "Renommer et masquer"
 
 #: widgets/renamefilewarningdialog.cpp:50
 #, kde-format
@@ -7365,6 +7363,8 @@ msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"L’ajout d’un point au début du nom de ce dossier le masquera.\n"
+"Voulez-vous vraiment le renommer ?"
 
 #: widgets/renamefilewarningdialog.cpp:51
 #, kde-format
@@ -7373,19 +7373,20 @@ msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"L’ajout d’un point au début du nom de ce fichier le masquera.\n"
+"Voulez-vous vraiment le renommer ?"
 
 #: widgets/renamefilewarningdialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Home Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
-msgstr "Dossier utilisateur"
+msgstr "Masquer ce dossier ?"
 
 #: widgets/renamefilewarningdialog.cpp:52
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
-msgstr ""
+msgstr "Masquer ce fichier ?"
 
 #: widgets/renamefilewarningdialog.cpp:58
 #: widgets/renamefilewarningdialog.cpp:108
@@ -7396,8 +7397,7 @@ msgid "Do not ask again"
 msgstr "Ne plus poser la question"
 
 #: widgets/renamefilewarningdialog.cpp:89
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename"
 msgstr "Renommer"
@@ -7411,6 +7411,10 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Cela rendra le type de fichier inconnu.\n"
+"Le contenu du fichier ne sera pas modifié. Cependant, les applications "
+"risquent de ne plus le reconnaître.\n"
+"Voulez-vous vraiment le renommer ?"
 
 #: widgets/renamefilewarningdialog.cpp:98
 #, kde-format
@@ -7421,13 +7425,16 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Cela modifiera le type de fichier de « %1 » à « %2 ».\n"
+"Le contenu du fichier ne sera pas modifié. Cependant, les pourraient ne plus "
+"traiter correctement le fichier.\n"
+"Voulez-vous vraiment le renommer ?"
 
 #: widgets/renamefilewarningdialog.cpp:105
-#, fuzzy, kde-format
-#| msgid "Change File Owner"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"
-msgstr "Modifier le propriétaire du fichier"
+msgstr "Modifier le type du fichier"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
@@ -7500,7 +7507,7 @@ msgstr "Version de SSL :"
 #: widgets/sslinfo.ui:134
 #, kde-format
 msgid "Certificate chain:"
-msgstr "Chaîne de certificat :"
+msgstr "Chaine de certificat :"
 
 #. i18n: ectx: property (text), widget (QLabel, trustedTag)
 #: widgets/sslinfo.ui:163

@@ -6922,12 +6922,10 @@ msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "<filename>%1</filename> 不能重命名为空文件名。"
 
 #: widgets/renamefilewarningdialog.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
-msgstr "重命名项目"
+msgstr ""
 
 #: widgets/renamefilewarningdialog.cpp:50
 #, kde-format
@@ -6946,11 +6944,10 @@ msgid ""
 msgstr ""
 
 #: widgets/renamefilewarningdialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Home Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
-msgstr "主文件夹"
+msgstr ""
 
 #: widgets/renamefilewarningdialog.cpp:52
 #, kde-format
@@ -6967,11 +6964,10 @@ msgid "Do not ask again"
 msgstr "不再询问"
 
 #: widgets/renamefilewarningdialog.cpp:89
-#, fuzzy, kde-format
-#| msgid "&Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename"
-msgstr "重命名(&R)"
+msgstr ""
 
 #: widgets/renamefilewarningdialog.cpp:94
 #, kde-format
@@ -7240,6 +7236,3 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
-
-#~ msgid "Cannot copy file from %1 to %2. (Errno: %3)"
-#~ msgstr "无法将文件从 %1 复制到 %2。(错误号码：%3)"
