@@ -1,6 +1,8 @@
 {
     "KPlugin": {
         "Description": "Provides change notification for the trash",
+        "Description[ar]": "يوفر إشعارًا بالتغييرات في سلة المحذوفات",
+        "Description[bg]": "Известява за промени в кошчето",
         "Description[ca@valencia]": "Proporciona notificacions de canvis a la paperera",
         "Description[ca]": "Proporciona notificacions de canvis a la paperera",
         "Description[cs]": "Poskytuje oznámení o změnách v koši",
@@ -18,7 +20,10 @@
         "Description[sv]": "Tillhandahåller ändringsunderrättelse för papperskorgen",
         "Description[tr]": "Çöp kutusu için değişiklik bildirimleri sağlar",
         "Description[uk]": "Сповіщення про зміну стану смітника",
+        "Description[zh_CN]": "提供回收站变动的通知",
         "Name": "Trash Change Notifier",
+        "Name[ar]": "مُنبِّه تغيير سلة المهملات",
+        "Name[bg]": "Уведомител за промени в Кошчето",
         "Name[ca@valencia]": "Notificador de canvi de la paperera",
         "Name[ca]": "Notificador de canvi de la paperera",
         "Name[cs]": "Oznamovač změn v koši",
@@ -35,7 +40,8 @@
         "Name[sl]": "Obvestilnik spremembe smeti",
         "Name[sv]": "Ändringsunderrättelse för papperskorgen",
         "Name[tr]": "Çöp Kutusu Değişim Bildiricisi",
-        "Name[uk]": "Сповіщення про зміну смітника"
+        "Name[uk]": "Сповіщення про зміну смітника",
+        "Name[zh_CN]": "回收站变动通知"
     },
     "X-KDE-Kded-autoload": true,
     "X-KDE-Kded-load-on-demand": true
