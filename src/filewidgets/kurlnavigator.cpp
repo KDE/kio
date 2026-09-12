@@ -606,9 +606,9 @@ void KUrlNavigatorPrivate::openContextMenu(const QPoint &p)
 
     QPointer<QMenu> popup = new QMenu(q);
 
-    // provide 'Copy' action, which copies the current URL of
+    // provide 'Copy Location' action, which copies the current URL of
     // the URL navigator into the clipboard
-    QAction *copyAction = popup->addAction(QIcon::fromTheme(QStringLiteral("edit-copy")), i18n("Copy"));
+    QAction *copyAction = popup->addAction(QIcon::fromTheme(QStringLiteral("edit-copy-path")), i18n("Copy Location"));
 
     // provide 'Paste' action, which copies the current clipboard text
     // into the URL navigator
