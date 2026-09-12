@@ -201,6 +201,11 @@ public:
     bool ftpSize(const QString &path, char mode);
 
     /*!
+     * Use the MDTM command to get the precise file modification time.
+     */
+    QDateTime ftpMdtm(const QString &path);
+
+    /*!
      * Returns true if the file exists.
      * Implemented using the SIZE command.
      */
@@ -445,6 +450,16 @@ private: // data members
     KIO::filesize_t m_size;
     static const KIO::filesize_t UnknownSize;
 
+    /*!
+     * true if MDTM command is supported
+     */
+    bool m_mdtmSupported = false;
+
+    /*!
+     * true if MLSD command is supported
+     */
+    bool m_mlsdSupported = false;
+
     enum {
         epsvUnknown = 0x01,
         epsvAllUnknown = 0x02,
@@ -462,6 +477,11 @@ private: // data members
     QByteArray m_lastControlLine;
 
     /*!
+     * stores all lines of a multiline response when ftpResponse is called with iOffset < 0
+     */
+    QStringList m_lastMultilineResponse;
+
+    /*!
      * data connection socket
      */
     QTcpSocket *m_data = nullptr;
@@ -470,6 +490,11 @@ private: // data members
      * active mode server socket
      */
     QTcpServer *m_server = nullptr;
+
+    /*!
+     * function to query server features
+     */
+    void ftpQueryFeatures();
 };
 
 #endif // KDELIBS_FTP_H
