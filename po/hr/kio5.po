@@ -1,5 +1,6 @@
 # Translation of kcmkio to Croatian
 #
+# SPDX-FileCopyrightText: 2026 Fran Mađerčić <fran.m@mailbox.org>
 # Translators: Anđelko Iharoš <>,Dario Lah <>,Darko Bednjanec <dbednjan@net4u.hr>,Denis Lackovic <delacko@fly.srk.fer.hr>,Drazen Djimoti <>,Kresimir Kalafatic <>,Mato Kutlić <mate@iskraemeco.hr>,Nikola Planinac <>,Robert Avilov <ravilov@linux.hr>,Robert Pezer <rpezer@phy.hr>,Roko Roic <roko@tis.hr>,sime essert <sime2@nofrx.org>,Vedran Rodic <vedran@quark.fsb.hr>,Vlatko Kosturjak <kost@linux.hr>,
 # DoDo <DoDoEntertainment@gmail.com>, 2009.
 # Marko Dimjasevic <marko@dimjasevic.net>, 2010, 2011.
@@ -10,15 +11,16 @@ msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2026-06-21 23:22+0200\n"
-"Last-Translator: Igor Dobrača <igor.dobraca@skole.hr>\n"
-"Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
+"PO-Revision-Date: 2026-09-12 20:11+0200\n"
+"Last-Translator: Igor Dobrača <igor.dobraca@gmail.com>\n"
+"Language-Team: Croatian <kde-i18n-doc@kde.org>\n"
 "Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -73,7 +75,7 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "folder name) with an underscore \"_\"."
 msgstr ""
-"Ne mogu stvoriti \"%1\".\n"
+"Nije moguće stvoriti \"%1\".\n"
 "Odredišni datotečni sustav (%2) ne dopušta sljedeće znakove u nazivima mapa: "
 "%3\n"
 "Odabirom Zamijeni zamijenit ćete sve nevažeće znakove (u nazivu odredišne "
@@ -88,7 +90,7 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "file name) with an underscore \"_\"."
 msgstr ""
-"Ne mogu stvoriti \"%1\".\n"
+"Nije moguće stvoriti \"%1\".\n"
 "Odredišni datotečni sustav (%2) ne dopušta sljedeće znakove u nazivima "
 "datoteka: %3\n"
 "Odabirom Zamijeni zamijenit ćete sve nevažeće znakove (u nazivu odredišne "
@@ -97,7 +99,7 @@ msgstr ""
 #: core/copyjob.cpp:1396 core/job_error.cpp:581
 #, kde-format
 msgid "Folder Already Exists"
-msgstr "Direktorij već postoji"
+msgstr "Mapa već postoji"
 
 #: core/copyjob.cpp:1726 core/copyjob.cpp:2416 core/filecopyjob.cpp:373
 #: core/job_error.cpp:570 widgets/paste.cpp:80
@@ -243,13 +245,13 @@ msgstr "Kopiranje"
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
-msgstr "Stvaranje direktorija"
+msgstr "Stvaranje mape"
 
 #: core/job.cpp:129 widgets/fileundomanager.cpp:132
 #: widgets/kurlrequester.cpp:511
 #, kde-format
 msgid "Directory"
-msgstr "Direktorij"
+msgstr "Mapa"
 
 #: core/job.cpp:135
 #, kde-format
@@ -300,7 +302,7 @@ msgstr "Demontiranje"
 #: core/job.cpp:271
 #, kde-format
 msgid "Change Attribute"
-msgstr ""
+msgstr "Promijeni atribut"
 
 #: core/job.cpp:273
 #, kde-format
@@ -308,12 +310,13 @@ msgid ""
 "Root privileges are required to change file attributes. Do you want to "
 "continue?"
 msgstr ""
+"Potrebne su korijenske ovlasti za promjenu atributa datoteke. Želite li "
+"nastaviti?"
 
 #: core/job.cpp:277
-#, fuzzy, kde-format
-#| msgid "All Files"
+#, kde-format
 msgid "Copy Files"
-msgstr "Sve datoteke"
+msgstr "Kopiraj datoteke"
 
 #: core/job.cpp:279
 #, kde-format
@@ -321,6 +324,7 @@ msgid ""
 "Root privileges are required to complete the copy operation. Do you want to "
 "continue?"
 msgstr ""
+"Potrebne su korijenske ovlasti za dovršetak kopiranja. Želite li nastaviti?"
 
 #: core/job.cpp:283
 #, kde-format
@@ -333,24 +337,25 @@ msgid ""
 "Root privileges are required to complete the delete operation. However, "
 "doing so may damage your system. Do you want to continue?"
 msgstr ""
+"Potrebne su korijenske ovlasti za dovršetak brisanja. Ovo može oštetiti vaš "
+"sustav. Želite li nastaviti?"
 
 #: core/job.cpp:289
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "Create Folder"
-msgstr "Poništi: stvori mapu"
+msgstr "Stvori mapu"
 
 #: core/job.cpp:291
 #, kde-format
 msgid ""
 "Root privileges are required to create this folder. Do you want to continue?"
 msgstr ""
+"Potrebne su korijenske ovlasti za stvaranje ove mape. Želite li nastaviti?"
 
 #: core/job.cpp:295
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Move Items"
-msgstr "Premjesti u smeće"
+msgstr "Premjesti stavke"
 
 #: core/job.cpp:297
 #, kde-format
@@ -358,18 +363,21 @@ msgid ""
 "Root privileges are required to complete the move operation. Do you want to "
 "continue?"
 msgstr ""
+"Potrebne su korijenske ovlasti za dovršetak premještanja. Želite li "
+"nastaviti?"
 
 #: core/job.cpp:301 ioslaves/file/file_unix.cpp:126
-#, fuzzy, kde-format
-#| msgid "&Rename"
+#, kde-format
 msgid "Rename"
-msgstr "P&romijeni ime"
+msgstr "Preimeuj"
 
 #: core/job.cpp:303
 #, kde-format
 msgid ""
 "Root privileges are required to complete renaming. Do you want to continue?"
 msgstr ""
+"Potrebne su korijenske ovlasti za dovršetak preimenovanja. Želite li "
+"nastaviti?"
 
 #: core/job.cpp:307 filewidgets/knewfilemenu.cpp:632
 #: ioslaves/file/file_unix.cpp:130
@@ -382,13 +390,13 @@ msgstr "Stvori simboličku poveznicu"
 msgid ""
 "Root privileges are required to create a symlink. Do you want to continue?"
 msgstr ""
+"Potrebne su korijenske ovlasti za stvaranje simboličke poveznice. Želite li "
+"nastaviti?"
 
 #: core/job.cpp:313
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Transferring"
+#, kde-format
 msgid "Transfer data"
-msgstr "Prenošenje"
+msgstr "Prenesi podatke"
 
 #: core/job.cpp:315
 #, kde-format
@@ -396,6 +404,8 @@ msgid ""
 "Root privileges are required to complete transferring data. Do you want to "
 "continue?"
 msgstr ""
+"Potrebne su korijenske ovlasti za dovršetak prijenosa podataka. Želite li "
+"nastaviti?"
 
 #: core/job_error.cpp:33
 #, kde-format
@@ -441,17 +451,17 @@ msgstr "Protokol %1 je samo filter protokol."
 #: core/job_error.cpp:58
 #, kde-format
 msgid "%1 is a folder, but a file was expected."
-msgstr "%1 je direktorij, međutim očekivana je datoteka."
+msgstr "%1 je mapa, međutim očekivana je datoteka."
 
 #: core/job_error.cpp:61
 #, kde-format
 msgid "%1 is a file, but a folder was expected."
-msgstr "%1 je datoteka, međutim očekivan je direktorij."
+msgstr "%1 je datoteka, međutim očekivana je mapa."
 
 #: core/job_error.cpp:64
 #, kde-format
 msgid "The file or folder %1 does not exist."
-msgstr "Navedena datoteka ili direktorij %1 ne postoji."
+msgstr "Navedena datoteka ili mapa %1 ne postoji."
 
 #: core/job_error.cpp:67
 #, kde-format
@@ -461,7 +471,7 @@ msgstr "Datoteka s nazivom %1 već postoji."
 #: core/job_error.cpp:70
 #, kde-format
 msgid "A folder named %1 already exists."
-msgstr "Direktorij naziva %1 već postoji."
+msgstr "Mapa po imenu %1 već postoji."
 
 #: core/job_error.cpp:73
 #, kde-format
@@ -490,12 +500,12 @@ msgstr ""
 #: core/job_error.cpp:82
 #, kde-format
 msgid "Could not enter folder %1."
-msgstr "Nije moguće ući u direktorij %1."
+msgstr "Nije moguće ući u mapu %1."
 
 #: core/job_error.cpp:85
 #, kde-format
 msgid "The protocol %1 does not implement a folder service."
-msgstr "Protokol %1 ne immplementira direktorijski servis."
+msgstr "Protokol %1 ne implementira mapni servis."
 
 #: core/job_error.cpp:88
 #, kde-format
@@ -534,7 +544,7 @@ msgid ""
 "The reported error was:\n"
 "%1"
 msgstr ""
-"Ne mogu montirati uređaj.\n"
+"Nije moguće montirati uređaj.\n"
 "Prijavljena greška je:\n"
 "%1"
 
@@ -545,7 +555,7 @@ msgid ""
 "The reported error was:\n"
 "%1"
 msgstr ""
-"Ne mogu odmontirati uređaj.\n"
+"Nije moguće odmontirati uređaj.\n"
 "Prijavljena greška je:\n"
 "%1"
 
@@ -582,7 +592,7 @@ msgstr "Nije moguće pristupiti %1."
 #: core/job_error.cpp:133
 #, kde-format
 msgid "Could not terminate listing %1."
-msgstr "Nije moguće prekinuti listanje %1."
+msgstr "Nije moguće prekinuti popisivanje %1."
 
 #: core/job_error.cpp:136
 #, kde-format
@@ -653,7 +663,7 @@ msgid ""
 "User canceled action\n"
 "%1"
 msgstr ""
-"Akciju zaustavio korisnik\n"
+"Radnju zaustavio korisnik\n"
 "%1"
 
 #: core/job_error.cpp:175
@@ -698,8 +708,8 @@ msgid ""
 "Could not delete original file %1.\n"
 "Please check permissions."
 msgstr ""
-"Ne mogu izbrisati izvornu datoteku %1.\n"
-"Molim provjerite ovlasti."
+"Nije moguće izbrisati izvornu datoteku %1.\n"
+"Provjerite ovlasti."
 
 #: core/job_error.cpp:198
 #, kde-format
@@ -707,8 +717,8 @@ msgid ""
 "Could not delete partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"Ne mogu izbrisati parcijalnu datoteku %1.\n"
-"Molim provjerite ovlasti."
+"Nije moguće izbrisati djelomičnu datoteku %1.\n"
+"Provjerite ovlasti."
 
 #: core/job_error.cpp:201
 #, kde-format
@@ -716,8 +726,8 @@ msgid ""
 "Could not rename original file %1.\n"
 "Please check permissions."
 msgstr ""
-"Ne mogu promijeniti naziv originalne datoteke %1.\n"
-"Molim provjerite ovlasti."
+"Nije moguće promijeniti naziv izvorne datoteke %1.\n"
+"Provjerite ovlasti."
 
 #: core/job_error.cpp:204
 #, kde-format
@@ -725,8 +735,8 @@ msgid ""
 "Could not rename partial file %1.\n"
 "Please check permissions."
 msgstr ""
-"Ne mogu promijeniti naziv djelomične datoteke %1.\n"
-"Molim provjerite ovlasti."
+"Nije moguće promijeniti naziv djelomične datoteke %1.\n"
+"Provjerite ovlasti."
 
 #: core/job_error.cpp:207
 #, kde-format
@@ -734,8 +744,8 @@ msgid ""
 "Could not create symlink %1.\n"
 "Please check permissions."
 msgstr ""
-"Ne mogu stvoriti simboličku vezu %1.\n"
-"Molim provjerite ovlasti."
+"Nije moguće stvoriti simboličku vezu %1.\n"
+"Provjerite ovlasti."
 
 #: core/job_error.cpp:210
 #, kde-format
@@ -768,7 +778,7 @@ msgstr "Poslužitelj potražuje %1, no to nije dostupno."
 #: core/job_error.cpp:230
 #, kde-format
 msgid "Access to restricted port in POST denied."
-msgstr "Odbijen pristup ograničenom portu u POST-u."
+msgstr "Odbijen pristup ograničenom priključku u POSTu."
 
 #: core/job_error.cpp:233
 #, kde-format
@@ -804,7 +814,7 @@ msgid ""
 "Cannot transfer <filename>%1</filename> because it is too large. The "
 "destination filesystem only supports files up to 4GiB"
 msgstr ""
-"Ne mogu prenijeti <filename>%1</filename> jer je prevelik. Odredišni "
+"Nije moguće prenijeti <filename>%1</filename> jer je prevelik. Odredišni "
 "datotečni sustav podržava samo datoteke do 4GiB"
 
 #: core/job_error.cpp:254
@@ -917,7 +927,7 @@ msgid ""
 "Your access permissions may be inadequate to perform the requested operation "
 "on this resource."
 msgstr ""
-"Vaše ovlasti  nisu dovoljne za izvršavanje traženog postupka na ovom resursu."
+"Vaše ovlasti nisu dovoljne za izvršavanje traženog postupka na ovom resursu."
 
 #: core/job_error.cpp:382
 #, kde-format
@@ -1078,7 +1088,7 @@ msgstr "Ne može se pokrenuti proces koji zahtijeva protokol %1"
 #: core/job_error.cpp:454
 #, kde-format
 msgid "Unable to Launch Process"
-msgstr "Ne mogu pokrenuti proces"
+msgstr "Nije moguće pokrenuti proces"
 
 #: core/job_error.cpp:456
 #, kde-format
@@ -1207,7 +1217,7 @@ msgstr ""
 #: core/job_error.cpp:525
 #, kde-format
 msgid "Unsupported Action: %1"
-msgstr "Nepodržani postupak: %1"
+msgstr "Nepodržana radnja: %1"
 
 #: core/job_error.cpp:527
 #, kde-format
@@ -1215,7 +1225,7 @@ msgid ""
 "The requested action is not supported by the KDE program which is "
 "implementing the <strong>%1</strong> protocol."
 msgstr ""
-"Zahtjevani postupak nije podržan od strane KDE programa koji opslužuje "
+"Zahtjevana radnja nije podržan od strane KDE programa koji opslužuje "
 "protokol <strong>%1</strong>."
 
 #: core/job_error.cpp:531
@@ -1243,8 +1253,7 @@ msgstr "Očekivana je datoteka"
 msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
 "found instead."
-msgstr ""
-"Zahtjev je očekivao datoteku, no direktorij <strong>%1</strong> je pronađen."
+msgstr "Zahtjev je očekivao mapu, no mapa <strong>%1</strong> je pronađen."
 
 #: core/job_error.cpp:545
 #, kde-format
@@ -1254,24 +1263,24 @@ msgstr "Čini se da je greška na poslužitelju."
 #: core/job_error.cpp:550
 #, kde-format
 msgid "Folder Expected"
-msgstr "Očekivan je direktorij"
+msgstr "Očekivana je mapa"
 
 #: core/job_error.cpp:552
 #, kde-format
 msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
 "found instead."
-msgstr "Zahtjevan je direktorij, a nađena je datoteka <strong>%1</strong>."
+msgstr "Zahtjevana je mapa, a nađena je datoteka <strong>%1</strong>."
 
 #: core/job_error.cpp:560
 #, kde-format
 msgid "File or Folder Does Not Exist"
-msgstr "Navedeni direktorij ili datoteka ne postoji!"
+msgstr "Navedena napa ili datoteka ne postoji"
 
 #: core/job_error.cpp:562
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
-msgstr "Navedena datoteka ili direktorij <strong>%1</strong> ne postoji."
+msgstr "Navedena datoteka ili mapa <strong>%1</strong> ne postoji."
 
 #: core/job_error.cpp:572
 #, kde-format
@@ -1302,9 +1311,7 @@ msgstr "Odaberite drugi naziv za novu datoteku."
 msgid ""
 "The requested folder could not be created because a folder with the same "
 "name already exists."
-msgstr ""
-"Traženi direktorij nije mogao biti napravljen jer već postoji direktorij "
-"istog naziva."
+msgstr "Tražena mapa nije napravljena jer već postoji mapa istog naziva."
 
 #: core/job_error.cpp:586
 #, kde-format
@@ -1320,7 +1327,7 @@ msgstr "Izbrišite postojeću mapu i isprobajte ponovo."
 #: core/job_error.cpp:588
 #, kde-format
 msgid "Choose an alternate name for the new folder."
-msgstr "Odaberite alternativni naziv za novi direktorij."
+msgstr "Odaberite alternativni naziv za novu mapu."
 
 #: core/job_error.cpp:592
 #, kde-format
@@ -1387,7 +1394,7 @@ msgstr "To znči da je odbijen pokušaj snimanja datoteke <strong>%1</strong>."
 #: core/job_error.cpp:638
 #, kde-format
 msgid "Unable to Enter Folder"
-msgstr "Ne mogu ući u mapu"
+msgstr "Nije moguće ući u mapu"
 
 #: core/job_error.cpp:640
 #, kde-format
@@ -1395,13 +1402,12 @@ msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
 "folder <strong>%1</strong> was rejected."
 msgstr ""
-"Ovo znači da je odbijen zahtjev za ulazak u navedeni direktorij<strong>%1</"
-"strong>."
+"Ovo znači da je odbijen zahtjev za ulazak u navedenu mapu<strong>%1</strong>."
 
 #: core/job_error.cpp:648
 #, kde-format
 msgid "Folder Listing Unavailable"
-msgstr "Popis direktorija nije dostupan"
+msgstr "Popis mapa nije dostupan"
 
 #: core/job_error.cpp:649
 #, kde-format
@@ -1480,12 +1486,12 @@ msgstr ""
 #: core/job_error.cpp:698
 #, kde-format
 msgid "Could Not Create Network Connection"
-msgstr "Ne mogu napraviti mrežnu vezu."
+msgstr "Nije moguće napraviti mrežnu vezu"
 
 #: core/job_error.cpp:699
 #, kde-format
 msgid "Could Not Create Socket"
-msgstr "Ne mogu napraviti priključak"
+msgstr "Nije moguće napraviti priključak"
 
 #: core/job_error.cpp:701
 #, kde-format
@@ -1509,7 +1515,7 @@ msgstr ""
 #: core/job_error.cpp:710
 #, kde-format
 msgid "Connection to Server Refused"
-msgstr "Odbijeno spajanje na poslužitelj."
+msgstr "Odbijeno spajanje na poslužitelj"
 
 #: core/job_error.cpp:712
 #, kde-format
@@ -1551,7 +1557,7 @@ msgstr ""
 #: core/job_error.cpp:730
 #, kde-format
 msgid "Connection to Server Closed Unexpectedly"
-msgstr "Neočekivano prekinuta veza sa poslužiteljem."
+msgstr "Neočekivano prekinuta veza sa poslužiteljem"
 
 #: core/job_error.cpp:732
 #, kde-format
@@ -1574,7 +1580,7 @@ msgstr ""
 #: core/job_error.cpp:744
 #, kde-format
 msgid "URL Resource Invalid"
-msgstr "Neipsravan URL."
+msgstr "Neipsravan URL"
 
 #: core/job_error.cpp:745
 #, kde-format
@@ -1600,8 +1606,8 @@ msgid ""
 "capable of such an action. This is a rare event, and is likely to indicate a "
 "programming error."
 msgstr ""
-"KDE može komunicirati kroz protkol unutar protokola. Ovaj zahtjev ne "
-"podržava navedeni postupak. To se rijetko događa i stoga upućuje na grešku u "
+"KDE može komunicirati kroz protokol unutar protokola. Ovaj zahtjev ne "
+"podržava navedenu radnju. To se rijetko događa i stoga upućuje na grešku u "
 "programiranju."
 
 #: core/job_error.cpp:762
@@ -1612,7 +1618,7 @@ msgstr "Nemogu pokrenuti Ulazno/izlazni uređaj"
 #: core/job_error.cpp:763
 #, kde-format
 msgid "Could Not Mount Device"
-msgstr "Ne mogu montirati uređaj"
+msgstr "Nije moguće montirati uređaj"
 
 #: core/job_error.cpp:765
 #, kde-format
@@ -1661,7 +1667,7 @@ msgstr "Nemogu pokrenuti ulazno/izlazni uređaj"
 #: core/job_error.cpp:787
 #, kde-format
 msgid "Could Not Unmount Device"
-msgstr "Ne mogu demontirati uređaj"
+msgstr "Nije moguće demontirati uređaj"
 
 #: core/job_error.cpp:789
 #, kde-format
@@ -1702,7 +1708,7 @@ msgstr "Provjerite, možda neki program koristi uređaj i zatim probajte ponovo.
 #: core/job_error.cpp:809
 #, kde-format
 msgid "Cannot Read From Resource"
-msgstr "Nemogu čitati iz resursa."
+msgstr "Nemogu čitati iz resursa"
 
 #: core/job_error.cpp:811
 #, kde-format
@@ -1740,12 +1746,12 @@ msgstr "Možda nemate ovlasti za pisanje u resurs."
 #: core/job_error.cpp:846 core/job_error.cpp:859
 #, kde-format
 msgid "Could Not Listen for Network Connections"
-msgstr "Nemogu osluškivati veze s mrežom."
+msgstr "Ne mogu osluškivati veze s mrežom"
 
 #: core/job_error.cpp:847
 #, kde-format
 msgid "Could Not Bind"
-msgstr "Ne mogu se vezati"
+msgstr "Vezanje nije moguće"
 
 #: core/job_error.cpp:849 core/job_error.cpp:862
 #, kde-format
@@ -1761,12 +1767,12 @@ msgstr ""
 #: core/job_error.cpp:860
 #, kde-format
 msgid "Could Not Listen"
-msgstr "Ne mogu slušati"
+msgstr "Nije moguće slušati"
 
 #: core/job_error.cpp:872
 #, kde-format
 msgid "Could Not Accept Network Connection"
-msgstr "Ne mogu primiti vezu sa mreže"
+msgstr "Nije moguće primiti vezu s mreže"
 
 #: core/job_error.cpp:874
 #, kde-format
@@ -1785,7 +1791,7 @@ msgstr "Nemate ovlasti za prihvat takvog mrežnog povezivanja."
 #: core/job_error.cpp:884
 #, kde-format
 msgid "Could Not Login: %1"
-msgstr "Ne mogu se prijaviti na: %1."
+msgstr "Prijava na %1 nije moguća"
 
 #: core/job_error.cpp:886
 #, kde-format
@@ -1801,7 +1807,7 @@ msgstr "Nisam mogao utrvditi stanje resrusa"
 #: core/job_error.cpp:903
 #, kde-format
 msgid "Could Not Stat Resource"
-msgstr "Ne mogu pratiti resurs"
+msgstr "Nije moguće potvrditi stanje resursa"
 
 #: core/job_error.cpp:905
 #, kde-format
@@ -1831,22 +1837,22 @@ msgstr "POPRAVIME: Dokumentiraj ovo"
 #: core/job_error.cpp:926
 #, kde-format
 msgid "Could Not Create Folder"
-msgstr "Ne mogu napraviti mapu"
+msgstr "Nije moguće napraviti mapu"
 
 #: core/job_error.cpp:927
 #, kde-format
 msgid "An attempt to create the requested folder failed."
-msgstr "Pokušaj pravljenja traženog direktorija nije uspio."
+msgstr "Pokušaj stvaranja tražene mape nije uspio."
 
 #: core/job_error.cpp:930
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
-msgstr "Lokacija gdje se traži stvaranje direktorija, ne postoji."
+msgstr "Lokacija gdje se traži stvaranje mape, ne postoji."
 
 #: core/job_error.cpp:939
 #, kde-format
 msgid "Could Not Remove Folder"
-msgstr "Ne mogu ukloniti mapu"
+msgstr "Nije moguće ukloniti mapu"
 
 #: core/job_error.cpp:941
 #, kde-format
@@ -1856,23 +1862,22 @@ msgstr "Pokušaj uklanjanja direkotorija <strong>%1</strong>, nije uspio."
 #: core/job_error.cpp:944
 #, kde-format
 msgid "The specified folder may not exist."
-msgstr "Navedeni direktorij vjerojatno ne postoji."
+msgstr "Navedena mapa možda ne postoji."
 
 #: core/job_error.cpp:944
 #, kde-format
 msgid "The specified folder may not be empty."
-msgstr "Navedeni direktorij vjerojatno nije prazan."
+msgstr "Navedena mapa vjerojatno nije prazan."
 
 #: core/job_error.cpp:949
 #, kde-format
 msgid "Ensure that the folder exists and is empty, and try again."
-msgstr ""
-"Provjerite postoji li direktorij i da li prazan, pa zatim pokušajte ponovo."
+msgstr "Provjerite postoji li mapa i je li prazna, zatim pokušajte ponovo."
 
 #: core/job_error.cpp:955
 #, kde-format
 msgid "Could Not Resume File Transfer"
-msgstr "Ne mogu nastaviti prijenos datoteke"
+msgstr "Nije moguće nastaviti prijenos datoteke"
 
 #: core/job_error.cpp:957
 #, kde-format
@@ -1896,7 +1901,7 @@ msgstr "Ponovite zahtjev bez traženja nastavljanja prijenosa datoteke."
 #: core/job_error.cpp:970
 #, kde-format
 msgid "Could Not Rename Resource"
-msgstr "Ne mogu promijeniti naziv resursa"
+msgstr "Nije moguće promijeniti naziv resursa"
 
 #: core/job_error.cpp:972
 #, kde-format
@@ -1906,7 +1911,7 @@ msgstr "Pokušaj preimovanja navedenog resursa <strong>%1</strong>, nije uspio."
 #: core/job_error.cpp:983
 #, kde-format
 msgid "Could Not Alter Permissions of Resource"
-msgstr "Ne mogu promijeniti ovlasti za resurs."
+msgstr "Nije moguće promijeniti ovlasti za resurs"
 
 #: core/job_error.cpp:985
 #, kde-format
@@ -1920,7 +1925,7 @@ msgstr ""
 #: core/job_error.cpp:993
 #, kde-format
 msgid "Could Not Change Ownership of Resource"
-msgstr "Nije moguće promijeniti vlasništvo resursa."
+msgstr "Nije moguće promijeniti vlasništvo resursa"
 
 #: core/job_error.cpp:995
 #, kde-format
@@ -1933,7 +1938,7 @@ msgstr ""
 #: core/job_error.cpp:1003
 #, kde-format
 msgid "Could Not Delete Resource"
-msgstr "Ne mogu izbrisati resurs"
+msgstr "Nije moguće izbrisati resurs"
 
 #: core/job_error.cpp:1005
 #, kde-format
@@ -1992,13 +1997,13 @@ msgid ""
 "problems recently, this is unlikely."
 msgstr ""
 "Čini sa da nešto nije u redu sa vašim mrežnim postavkama, odnosno imenom "
-"vašeg posrednika (proxy-a). Ako ste donedavno pristupali internetu bez "
-"problema, onda je vjerojatno nešto drugo uzrokovalo problem."
+"vašegproxyja. Ako ste donedavno pristupali internetu bez problema, onda je "
+"vjerojatno nešto drugo uzrokovalo problem."
 
 #: core/job_error.cpp:1046
 #, kde-format
 msgid "Double-check your proxy settings and try again."
-msgstr "Provjerite vaše postavke posrednika (proxy-a) i probajte ponovo."
+msgstr "Provjerite vaše postavke proxyja i probajte ponovo."
 
 #: core/job_error.cpp:1050
 #, kde-format
@@ -2089,7 +2094,7 @@ msgstr ""
 "odgovora: %2 sekundi</li> <li>Vremensko ograničenje za pristupanje proxy "
 "poslužitelju: %3 sekundi</li> </ul> Molim vas da primjetite da je moguće "
 "promijeniti ove postavke vremenskih ograničenja u Postavkama sustava KDE-a, "
-"odabirajući Postavke mreže → Podešavanje veze."
+"odabirajući Postavke mreže -> Podešavanje veze."
 
 #: core/job_error.cpp:1108
 #, kde-format
@@ -2128,7 +2133,7 @@ msgstr ""
 #: core/job_error.cpp:1138
 #, kde-format
 msgid "Could Not Delete Original File"
-msgstr "Ne mogu izbrisati izvornu datoteku "
+msgstr "Nije moguće izbrisati izvornu datoteku"
 
 #: core/job_error.cpp:1140
 #, kde-format
@@ -2144,7 +2149,7 @@ msgstr ""
 #: core/job_error.cpp:1149
 #, kde-format
 msgid "Could Not Delete Temporary File"
-msgstr "Ne mogu izbrisati privremenu datoteku"
+msgstr "Nije moguće izbrisati privremenu datoteku"
 
 #: core/job_error.cpp:1151
 #, kde-format
@@ -2160,7 +2165,7 @@ msgstr ""
 #: core/job_error.cpp:1161
 #, kde-format
 msgid "Could Not Rename Original File"
-msgstr "Ne mogu promijeniti naziv izvorne datoteke"
+msgstr "Nije moguće promijeniti naziv izvorne datoteke"
 
 #: core/job_error.cpp:1163
 #, kde-format
@@ -2174,7 +2179,7 @@ msgstr ""
 #: core/job_error.cpp:1172
 #, kde-format
 msgid "Could Not Rename Temporary File"
-msgstr "Ne mogu promijeniti naziv privremene datoteke"
+msgstr "Nije moguće promijeniti naziv privremene datoteke"
 
 #: core/job_error.cpp:1174
 #, kde-format
@@ -2188,7 +2193,7 @@ msgstr ""
 #: core/job_error.cpp:1183
 #, kde-format
 msgid "Could Not Create Link"
-msgstr "Ne mogu napraviti vezu"
+msgstr "Nije moguće napraviti vezu"
 
 #: core/job_error.cpp:1184
 #, kde-format
@@ -2305,13 +2310,13 @@ msgstr ""
 #, kde-format
 msgid "Try restarting your session, or look in the logs for errors from kiod."
 msgstr ""
-"Pokušaj ponovno pokrenuti sesiju ili pogledaj u logovima ima li grešaka u "
+"Pokušaj ponovno pokrenuti sesiju ili pogledaj u zapisnicima ima li grešaka u "
 "kiodu."
 
 #: core/job_error.cpp:1247
 #, kde-format
 msgid "Cannot Initiate the %1 Protocol"
-msgstr "Ne mogu pokrenuti protokol %1"
+msgstr "Nije moguće pokrenuti protokol %1"
 
 #: core/job_error.cpp:1248
 #, kde-format
@@ -2404,19 +2409,17 @@ msgstr "Nepoznati protokol '%1'."
 #: core/slave.cpp:440
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "Ne mogu pronaći KIO worker za protokol '%1'."
+msgstr "Nije moguće pronaći KIO worker za protokol '%1'."
 
 #: core/slave.cpp:448
 #, kde-format
 msgid "Can not create a socket for launching a KIO worker for protocol '%1'."
-msgstr ""
-"Ne može se stvoriti socket za pokretanje KIO worker-a za protokol '%1'."
+msgstr "Ne može se stvoriti socket za pokretanje KIO workera za protokol '%1'."
 
 #: core/slave.cpp:488
-#, fuzzy, kde-format
-#| msgid "Can not find io-slave for protocol '%1'."
+#, kde-format
 msgid "Can not find 'kioslave5' executable at '%1'"
-msgstr "Ne mogu pronaći podređeni-iu  za protokol '%1'."
+msgstr "Nije moguće pronaći izvršnu datoteku 'kioslave5' u %1'"
 
 #: core/slavebase.cpp:882
 #, kde-format
@@ -2441,12 +2444,12 @@ msgstr "Pisanje u %1 nije podržano."
 #: core/slavebase.cpp:890
 #, kde-format
 msgid "There are no special actions available for protocol %1."
-msgstr "Nema dostupnih posebnih akcija za protokol %1."
+msgstr "Nema dostupnih radnja za protokol %1."
 
 #: core/slavebase.cpp:892
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
-msgstr "Listanje mapa nije podržano protokolom %1."
+msgstr "Popisivanje mapa nije podržano protokolom %1."
 
 #: core/slavebase.cpp:894
 #, kde-format
@@ -2511,7 +2514,7 @@ msgstr "Otvaranje datoteka nije podržano protokolom %1."
 #: core/slavebase.cpp:918
 #, kde-format
 msgid "Protocol %1 does not support action %2."
-msgstr "Protokol %1 ne podržava akciju %2."
+msgstr "Protokol %1 ne podržava radnju %2."
 
 #: core/slavebase.cpp:1093
 #, kde-format
@@ -2551,7 +2554,7 @@ msgstr "&Nastavi"
 #: core/tcpworkerbase.cpp:544 widgets/sslui.cpp:106
 #, kde-format
 msgid "&Current Session only"
-msgstr "Samo trenutna s&jednica"
+msgstr "&Samo trenutna sesija"
 
 #: core/tcpslavebase.cpp:287 core/tcpworkerbase.cpp:278
 #, kde-format
@@ -2629,7 +2632,7 @@ msgstr "Datoteka ili mapa naziva %1 već postoji."
 #: filewidgets/kdiroperator.cpp:751
 #, kde-format
 msgid "You do not have permission to create that folder."
-msgstr "Nemate dozvolu stvoriti taj direktorij."
+msgstr "Nemate ovlasti stvoriti tu mapu."
 
 #: filewidgets/kdiroperator.cpp:764 filewidgets/kdiroperator.cpp:796
 #, kde-format
@@ -2654,7 +2657,7 @@ msgstr "Nema ništa za bacanje u smeće"
 #: filewidgets/kdiroperator.cpp:988 filewidgets/kdiroperator.cpp:1120
 #, kde-format
 msgid "The specified folder does not exist or was not readable."
-msgstr "Naveden direktorij ne postoji ili nije čitljiv."
+msgstr "Navedena mapa ne postoji ili nije čitljiv."
 
 #: filewidgets/kdiroperator.cpp:2022
 #, kde-format
@@ -2839,7 +2842,7 @@ msgstr "&View Mode"
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
-msgstr "Z-A"
+msgstr "Ž-A"
 
 #: filewidgets/kdiroperator.cpp:2488 filewidgets/kdiroperator.cpp:2500
 #, kde-format
@@ -2915,11 +2918,10 @@ msgid "Root Folder"
 msgstr "Korijenska mapa"
 
 #: filewidgets/kfilecopytomenu.cpp:146
-#, fuzzy, kde-format
-#| msgid "&Browse..."
+#, kde-format
 msgctxt "@title:menu in Copy To or Move To submenu"
 msgid "Browse..."
-msgstr "Po&traži…"
+msgstr "Pretraga…"
 
 #: filewidgets/kfilecopytomenu.cpp:225
 #, kde-format
@@ -2973,7 +2975,7 @@ msgid ""
 "this entry refers to. If you do not enter a label, it will be derived from "
 "the location's URL.</qt>"
 msgstr ""
-"<qt>Ovo je tekst koji će se pojaviti u panelu Mjesta.<br /><br />Natpis bi "
+"<qt>Ovo je tekst koji će se pojaviti u sučelju Mjesta.<br /><br />Natpis bi "
 "se trebao sastojati od riječi koje će vam pomoći da se prisjetite na što se "
 "ovaj unos odnosi. Ukoliko ne unesete natips, on će se izvesti iz URL "
 "lokacije.</qt>"
@@ -3012,8 +3014,8 @@ msgid ""
 "<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
 "on the button to select a different icon.</qt>"
 msgstr ""
-"<qt>Ovo je ikona koja će se pojaviti u panelu Mjesta.<br /><br />Kliknite na "
-"gumb da biste odabrali drugačiju ikonu.</qt>"
+"<qt>Ovo je ikona koja će se pojaviti u sučelju Mjesta.<br /><br />Kliknite "
+"na gumb da biste odabrali drugačiju ikonu.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:126
 #, kde-format
@@ -3154,12 +3156,12 @@ msgstr "Jučer modificirano"
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
-msgstr "Nisam mogao dodati na panel Places: %1"
+msgstr "Nisam mogao dodati na sučelje Mjesta: %1"
 
 #: filewidgets/kfileplacesmodel.cpp:1151
 #, kde-format
 msgid "Only folders can be added to the Places panel."
-msgstr "Samo mape mogu se dodati u panel Places."
+msgstr "Samo mape mogu se dodati u sučelje Mjesta."
 
 #: filewidgets/kfileplacesmodel.cpp:1415
 #, kde-format
@@ -3289,8 +3291,7 @@ msgid "&Edit…"
 msgstr "Ur&edi…"
 
 #: filewidgets/kfileplacesview.cpp:1168
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove"
 msgstr "Ukloni"
@@ -3405,14 +3406,13 @@ msgid ""
 "folders, so it is not possible to decide which one to enter. Please select "
 "only one folder to list it."
 msgstr ""
-"Odabrano je više od jednog direktorija, a ovaj dijalog ne prihvaća "
-"direktorije, pa zato nije moguće odlučiti u kojega treba ući. Molim "
-"odaberite jedan direktorij da ga prikažem."
+"Odabrano je više od jednoe mape, a ovaj dijalog ne prihvaća mape, zato nije "
+"moguće odrediti u koju treba ući. Odaberite jednu mapu za prikaz."
 
 #: filewidgets/kfilewidget.cpp:883
 #, kde-format
 msgid "More than one folder provided"
-msgstr "Pruženo je više od jednog direktorija"
+msgstr "Pruženo je više od jedne mape"
 
 #: filewidgets/kfilewidget.cpp:893
 #, kde-format
@@ -3420,13 +3420,13 @@ msgid ""
 "At least one folder and one file has been selected. Selected files will be "
 "ignored and the selected folder will be listed"
 msgstr ""
-"Barem je jedan direktorij i jedna datoteka odabrana. Odabrane datoteke bit "
-"će zanemarene, a odabrani direktorij bit će izlistan"
+"Barem je jedna datoteka i mapa odabrana. Odabrane datoteke bit će "
+"zanemarene, a odabrane mape bit će ispisane"
 
 #: filewidgets/kfilewidget.cpp:894
 #, kde-format
 msgid "Files and folders selected"
-msgstr "Odabrane su datoteke i direktoriji"
+msgstr "Odabrane su datoteke i mape"
 
 #: filewidgets/kfilewidget.cpp:912
 #, kde-format
@@ -3445,9 +3445,9 @@ msgid ""
 "if the current location is file:/home/konqi clicking this button will take "
 "you to file:/home.</qt>"
 msgstr ""
-"<qt>Kliknite ovaj gumb za ulazak u roditeljsku mapu.<br /><br />Na primjer, "
-"ako je trenutna lokacija file:/home/konqi, klikom na ovaj gumb odvest ćete "
-"se na file:/home.</qt>"
+"<qt>Pritisnite ovaj gumb za ulazak u roditeljsku mapu.<br /><br />Na "
+"primjer, ako je trenutna lokacija file:/home/konqi, pritiskom na ovaj gumb "
+"odvest ćete se na file:/home.</qt>"
 
 #: filewidgets/kfilewidget.cpp:1318
 #, kde-format
@@ -3470,18 +3470,17 @@ msgstr "Klik na ovaj gumb ponovno učitava sadržaja trenute lokacije."
 #: filewidgets/kfilewidget.cpp:1323
 #, kde-format
 msgid "Click this button to create a new folder."
-msgstr "Klik na ovaj gumb stvara novi direktorij."
+msgstr "Pritisnite ovdje da biste stvorili novu mapu."
 
 #: filewidgets/kfilewidget.cpp:1325
 #, kde-format
 msgid "Show Places Panel"
-msgstr "Prikaži Places panel"
+msgstr "Prikaži sučelje Mjesta"
 
 #: filewidgets/kfilewidget.cpp:1336
-#, fuzzy, kde-format
-#| msgid "Show Bookmarks"
+#, kde-format
 msgid "Show Bookmarks Button"
-msgstr "Prikaži oznake"
+msgstr "Prikaži gumb oznaka"
 
 #: filewidgets/kfilewidget.cpp:1347
 #, kde-format
@@ -3499,10 +3498,9 @@ msgid ""
 msgstr ""
 "<qt>Ovo je izbornik postavki za datotečni dijalog. Iz njega možete "
 "pristupiti raznim opcijama uključujući: <ul><li>način na koji su datoteke "
-"sortirane u listi</li><li>tipovi prikaza, uključujući ikone i listu</"
-"li><li>prikaz skrivenih datoteka</li><li>Places navigacijski panel</"
-"li><li>pregled datoteka</li><li>odvajanje direktorija od datoteka</li></ul></"
-"qt>"
+"sortirane u popisu</li><li>tipovi prikaza, uključujući ikone i popise</"
+"li><li>prikaz skrivenih datoteka</li><li>navigacijsko sučelje Mjesta</"
+"li><li>pregled datoteka</li><li>odvajanje mapa od datoteka</li></ul></qt>"
 
 #: filewidgets/kfilewidget.cpp:1373
 #, kde-format
@@ -3551,8 +3549,8 @@ msgid ""
 "This is the list of files to open. More than one file can be specified by "
 "listing several files, separated by spaces."
 msgstr ""
-"Ovo je lista datoteka koje treba otvoriti. Više od jedne datoteke može se "
-"odrediti izlistavanjem nekoliko datoteka, odvojenih razmacima.  "
+"Ovo je popis datoteka koje treba otvoriti. Više od jedne datoteke može se "
+"odrediti ispisavanjem nekoliko datoteka, odvojenih razmacima."
 
 #: filewidgets/kfilewidget.cpp:1510
 #, kde-format
@@ -3588,7 +3586,7 @@ msgstr "Udaljene datoteke nisu prihvatljive"
 #: filewidgets/kfilewidget.cpp:2071
 #, kde-format
 msgid "*|All Folders"
-msgstr "*|Svi direktoriji"
+msgstr "*|Sve mape"
 
 #: filewidgets/kfilewidget.cpp:2073
 #, kde-format
@@ -3651,7 +3649,7 @@ msgstr ""
 "datoteke, možete ili ugasiti tu opciju ili ju zaobići tako da dodate točku "
 "(.) na kraj imena datoteke (točka će automatski biti maknuta).</li></ol>Ako "
 "niste sigurni, ostavite ovu opciju uključenom kako bi ste imali veću "
-"preglednost nad Vašim datotekama."
+"preglednost nad vašim datotekama."
 
 #: filewidgets/kfilewidget.cpp:2945
 #, kde-format
@@ -3680,9 +3678,9 @@ msgid ""
 "filters in the drop down menu, or you may enter a custom filter directly "
 "into the text area.</p><p>Wildcards such as * and ? are allowed.</p></qt>"
 msgstr ""
-"<qt>Ovo je filtar koji se primjenjuje na listu datoteka. Imena datoteka koja "
+"<qt>Ovo je filtar koji se primjenjuje na popis datoteka. Imena datoteka koja "
 "se ne podudaraju s filtrom neće biti prikazane.<p>Možete odabrati jedan od "
-"zadanih filtera iz padajućeg izbornika ili možete unijeti vlastiti filtar "
+"zadanih filtara iz padajućeg izbornika ili možete unijeti vlastiti filtar "
 "izravno u polje za unos teksta</p><p>Dozvoljeni su višeznačnici poput * i ?."
 "</p></qt>"
 
@@ -3776,7 +3774,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
-msgstr "Direktorij s nazivom <filename>%1</filename> već postoji."
+msgstr "Mapa s nazivom <filename>%1</filename> već postoji."
 
 #: filewidgets/knewfilemenu.cpp:1296
 #, kde-kuit-format
@@ -3814,7 +3812,7 @@ msgstr "Stvori novu mapu u %1:"
 #: filewidgets/kstatusbarofflineindicator.cpp:54
 #, kde-format
 msgid "The desktop is offline"
-msgstr "Radna površina je izvan mreže."
+msgstr "Radna površina je izvan mreže"
 
 #. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
 #. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
@@ -3892,12 +3890,12 @@ msgstr "Način uređivanja"
 #: filewidgets/kurlnavigatortogglebutton.cpp:89
 #, kde-format
 msgid "Click for Location Navigation"
-msgstr "Kliknite za navigaciju prema lokaciji"
+msgstr "Pritisnite ovdje za navigaciju prema lokaciji"
 
 #: filewidgets/kurlnavigatortogglebutton.cpp:91
 #, kde-format
 msgid "Click to Edit Location"
-msgstr "Kliknite za uređivanje lokacije"
+msgstr "Pritisnite ovdje za uređivanje lokacije"
 
 #: gui/applicationlauncherjob.cpp:111 gui/kprocessrunner.cpp:229
 #, kde-format
@@ -3916,7 +3914,7 @@ msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
 "%2."
 msgstr ""
-"Ne mogu učiniti uslugu %1 izvršnom, prekidam izvršenje.\n"
+"Nije moguće učiniti uslugu %1 izvršnom, prekidam izvršenje.\n"
 "%2."
 
 #: gui/applicationlauncherjob.cpp:274 gui/openurljob.cpp:627
@@ -4067,7 +4065,7 @@ msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr ""
-"Ne mogu promijeniti ovlasti za\n"
+"Nije moguće promijeniti ovlasti za\n"
 "%1"
 
 #: ioslaves/file/file.cpp:746
@@ -4081,10 +4079,9 @@ msgstr ""
 "%1"
 
 #: ioslaves/file/file.cpp:828
-#, fuzzy, kde-format
-#| msgid "mounting is not supported by wince."
+#, kde-format
 msgid "mounting is not supported by Windows CE."
-msgstr "Sustav wince ne podržava montiranje."
+msgstr "montiranje nije podržavno na Windows CEu."
 
 #: ioslaves/file/file.cpp:858
 #, kde-format
@@ -4092,10 +4089,9 @@ msgid "Could not find program \"mount\""
 msgstr "Nije moguće pronaći program \"mount\""
 
 #: ioslaves/file/file.cpp:925
-#, fuzzy, kde-format
-#| msgid "mounting is not supported by wince."
+#, kde-format
 msgid "unmounting is not supported by Windows CE."
-msgstr "Sustav wince ne podržava montiranje."
+msgstr "demontiranje nije podržavno na Windows CEu."
 
 #: ioslaves/file/file.cpp:940
 #, kde-format
@@ -4103,93 +4099,79 @@ msgid "Could not find program \"umount\""
 msgstr "Nije moguće pronaći program \"umount\""
 
 #: ioslaves/file/file_unix.cpp:102
-#, fuzzy, kde-format
-#| msgid "Advanced Permissions"
+#, kde-format
 msgid "Change File Permissions"
-msgstr "Napredne dozvole"
+msgstr "Promijeni dozvole datoteka"
 
 #: ioslaves/file/file_unix.cpp:103
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Permissions"
+#, kde-format
 msgid "New Permissions: %1"
-msgstr "Dozvole"
+msgstr "Nove dozvole: %1"
 
 #: ioslaves/file/file_unix.cpp:106
 #, kde-format
 msgid "Change File Owner"
-msgstr ""
+msgstr "Promijeni vlasnika datoteke"
 
 #: ioslaves/file/file_unix.cpp:107
 #, kde-format
 msgid "New Owner: UID=%1, GID=%2"
-msgstr ""
+msgstr "Novi vlasnik: UID=%1, GID=%2"
 
 #: ioslaves/file/file_unix.cpp:110
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove File"
-msgstr "Ukloni"
+msgstr "Ukloni datoteku"
 
 #: ioslaves/file/file_unix.cpp:113
-#, fuzzy, kde-format
-#| msgid "Directory"
+#, kde-format
 msgid "Remove Directory"
-msgstr "Direktorij"
+msgstr "Izbriši mapu"
 
 #: ioslaves/file/file_unix.cpp:116
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Create directory"
+#, kde-format
 msgid "Create Directory"
-msgstr "Stvori direktorij"
+msgstr "Stvori mapu"
 
 #: ioslaves/file/file_unix.cpp:117
-#, fuzzy, kde-format
-#| msgctxt "@title:column"
-#| msgid "Permissions"
+#, kde-format
 msgid "Directory Permissions: %1"
-msgstr "Dozvole"
+msgstr "Dozvole mape: %1"
 
 #: ioslaves/file/file_unix.cpp:120
-#, fuzzy, kde-format
-#| msgid "Open File Manager"
+#, kde-format
 msgid "Open File"
-msgstr "Otvori upravitelja datoteka"
+msgstr "Otvori datoteku"
 
 #: ioslaves/file/file_unix.cpp:123
-#, fuzzy, kde-format
-#| msgid "Directory"
+#, kde-format
 msgid "Open Directory"
-msgstr "Direktorij"
+msgstr "Otvori mapu"
 
 #: ioslaves/file/file_unix.cpp:127
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "New Filename: %1"
-msgstr "Naziv datoteke:"
+msgstr "Nova datoteka: %1"
 
 #: ioslaves/file/file_unix.cpp:131
-#, fuzzy, kde-format
-#| msgid "Drive: %1"
+#, kde-format
 msgid "Target: %1"
-msgstr "Pogon: %1"
+msgstr "Cilj: %1"
 
 #: ioslaves/file/file_unix.cpp:134
 #, kde-format
 msgid "Change Timestamp"
-msgstr ""
+msgstr "Promijeni vremensku oznaku"
 
 #: ioslaves/file/file_unix.cpp:138
 #, kde-format
 msgid "From: %1, To: %2"
-msgstr ""
+msgstr "Iz: %1, Do: %2"
 
 #: ioslaves/file/file_unix.cpp:141
-#, fuzzy, kde-format
-#| msgid "Unknown Interruption"
+#, kde-format
 msgid "Unknown Action"
-msgstr "Nepoznat prekid"
+msgstr "Nepoznata radnja"
 
 #: ioslaves/file/file_unix.cpp:146
 #, kde-format
@@ -4198,6 +4180,9 @@ msgid ""
 "Source: %2\n"
 "%3"
 msgstr ""
+"Radnja: %1\n"
+"Izvor: %2\n"
+"%3"
 
 #: ioslaves/file/file_unix.cpp:853
 #, kde-format
@@ -4220,11 +4205,9 @@ msgid "Could not get group id for given group name %1"
 msgstr "Nije moguće dobiti ID grupe za dan naziv grupe %1"
 
 #: ioslaves/trash/kcmtrash.cpp:132
-#, fuzzy, kde-format
-#| msgid "1 day %2"
-#| msgid_plural "%1 days %2"
+#, kde-format
 msgid " days"
-msgstr "%1 dan %2"
+msgstr " dani"
 
 #: ioslaves/trash/kcmtrash.cpp:197
 #, kde-format
@@ -4232,6 +4215,8 @@ msgid ""
 "<para>KDE's wastebin is configured to use the <b>Finder</b>'s Trash.<br></"
 "para>"
 msgstr ""
+"<para>KDE-ov koš za smeće koristi koš za smeće programa <b>Finder</b>.<br></"
+"para>"
 
 #: ioslaves/trash/kcmtrash.cpp:199
 #, kde-format
@@ -4242,12 +4227,14 @@ msgid ""
 "para><para>KDE's trash items will show up in a folder called KDE.trash, in "
 "the Trash can.</para>"
 msgstr ""
+"<para>Čišćenje KDE-ovog koša za smeće briše samo stavke smeća KDE-a, dok<br> "
+"čišćenje smeća kroz Finder briše sve stavke.</para><para>KDE-ove stavke "
+"smeća možete pronaći u mapi \"KDE.trash\", u Košu za sme će.</para>"
 
 #: ioslaves/trash/kcmtrash.cpp:234
-#, fuzzy, kde-format
-#| msgid "Delete Folder"
+#, kde-format
 msgid "Delete files older than"
-msgstr "Izbriši direktorij"
+msgstr "Izbriši datoteke starije od"
 
 #: ioslaves/trash/kcmtrash.cpp:237
 #, kde-kuit-format
@@ -4258,16 +4245,19 @@ msgid ""
 "disabled to <emphasis strong='true'>not</emphasis> automatically delete any "
 "items after a certain timespan</para>"
 msgstr ""
+"<para>Označite ovaj okvir kako biste omogućili <emphasis "
+"strong='true'>automatsko brisanje</emphasis> datoteka starijih od navedene "
+"vrijednosti. Ostavite ovu opciju isključenom ako <emphasis strong='true'>ne</"
+"emphasis> želite automatski brisati stavke nakon određenog vremenskog "
+"razdoblja.</para>"
 
 #: ioslaves/trash/kcmtrash.cpp:244
-#, fuzzy, kde-format
-#| msgid "1 day %2"
-#| msgid_plural "%1 days %2"
+#, kde-format
 msgid " day"
 msgid_plural " days"
-msgstr[0] "%1 dan %2"
-msgstr[1] "%1 dana %2"
-msgstr[2] "%1 dana %2"
+msgstr[0] " dan"
+msgstr[1] " dana"
+msgstr[2] " dana"
 
 #: ioslaves/trash/kcmtrash.cpp:246
 #, kde-kuit-format
@@ -4276,16 +4266,18 @@ msgid ""
 "<para>Set the number of days that files can remain in the trash. Any files "
 "older than this will be automatically deleted.</para>"
 msgstr ""
+"<para>Postavi koliko dana datoteke mogu biti u smeću. Sve datoteke starije "
+"od postavljenog broja dana biti će automatski brisane.</para>"
 
 #: ioslaves/trash/kcmtrash.cpp:250
 #, kde-format
 msgid "Cleanup:"
-msgstr ""
+msgstr "Čišćenje:"
 
 #: ioslaves/trash/kcmtrash.cpp:253
 #, kde-format
 msgid "Limit to"
-msgstr ""
+msgstr "Ograniči na"
 
 #: ioslaves/trash/kcmtrash.cpp:255
 #, kde-kuit-format
@@ -4294,6 +4286,9 @@ msgid ""
 "<para>Check this box to limit the trash to the maximum amount of disk space "
 "that you specify below. Otherwise, it will be unlimited.</para>"
 msgstr ""
+"<para>Označite ovdje da biste postavili maksimalnu veličinu prostora koje "
+"može biti u smeću. Ako ostane odznačene, veličina smeće neće biti ograničena."
+"</para>"
 
 #. i18n: ectx: property (text), widget (QLabel, sizeLabelLeft)
 #: ioslaves/trash/kcmtrash.cpp:258 widgets/kfilepropspluginwidget.ui:287
@@ -4308,6 +4303,8 @@ msgid ""
 "<para>This is the maximum percent of disk space that will be used for the "
 "trash.</para>"
 msgstr ""
+"<para>Ovo je maksimalni postotak prostora na disku koji će se kor istiti za "
+"smeće.</para>"
 
 #: ioslaves/trash/kcmtrash.cpp:270
 #, kde-kuit-format
@@ -4316,25 +4313,23 @@ msgid ""
 "<para>This is the calculated amount of disk space that will be allowed for "
 "the trash, the maximum.</para>"
 msgstr ""
+"<para>Ovo je izračunata najveća veličina prostora na disku koja će se "
+"koristiti za smeće.</para>"
 
 #: ioslaves/trash/kcmtrash.cpp:274
-#, fuzzy, kde-format
-#| msgctxt "Warning about executing unknown .desktop file"
-#| msgid "Warning"
+#, kde-format
 msgid "Show a Warning"
-msgstr "Upozorenje"
+msgstr "Prikaži upozorenje"
 
 #: ioslaves/trash/kcmtrash.cpp:275
-#, fuzzy, kde-format
-#| msgid "Delete File(s) Progress"
+#, kde-format
 msgid "Delete Oldest Files From Trash"
-msgstr "Napredak brisanja datoteke/a"
+msgstr "Izbriši najstarije datoteke iz smeća"
 
 #: ioslaves/trash/kcmtrash.cpp:276
-#, fuzzy, kde-format
-#| msgid "Delete File(s) Progress"
+#, kde-format
 msgid "Delete Biggest Files From Trash"
-msgstr "Napredak brisanja datoteke/a"
+msgstr "Izbriši najveće datoteke iz smeća"
 
 #: ioslaves/trash/kcmtrash.cpp:278
 #, kde-kuit-format
@@ -4344,13 +4339,14 @@ msgid ""
 "files that you specify, first. If this is set to warn you, it will do so "
 "instead of automatically deleting files.</para>"
 msgstr ""
+"<para>Kada se dosegne ograničenje veličine, prvo će se brisati tipovi "
+"datoteka koje ste odredili. Ako je postavljeno upozorenje, biti ćete "
+"obaviješteni umjesto automatskog brisanja datoteka.</para>"
 
 #: ioslaves/trash/kcmtrash.cpp:280
-#, fuzzy, kde-format
-#| msgctxt "KFile System Bookmarks"
-#| msgid "Trash"
+#, kde-format
 msgid "Full Trash:"
-msgstr "Smeće"
+msgstr "Puno smeće:"
 
 #: ioslaves/trash/kio_trash.cpp:110 ioslaves/trash/kio_trash.cpp:154
 #: ioslaves/trash/kio_trash.cpp:212 ioslaves/trash/kio_trash.cpp:386
@@ -4368,9 +4364,9 @@ msgid ""
 "and use the restore operation again, or drag the item anywhere else to "
 "restore it."
 msgstr ""
-"Direktorij %1 više ne postoji, pa nije moguće vratiti ovu stavku na izvornu "
-"lokaciju. Možete ili ponovno stvoriti taj direktorij i ponovno koristiti "
-"operaciju vraćanja, ili povući predmet bilo gdje drugdje da ga vratite."
+"Mapa %1 više ne postoji, pa nije moguće vratiti ovu stavku na izvornu "
+"lokaciju. Možete ponovno stvoriti tu mapu i ponovno koristiti radnju "
+"vraćanja, ili povući predmet bilo gdje drugdje da ga vratite."
 
 #: ioslaves/trash/kio_trash.cpp:180 ioslaves/trash/kio_trash.cpp:201
 #, kde-format
@@ -4429,23 +4425,7 @@ msgid "&Management"
 msgstr "&Vođenje"
 
 #: kcms/cookies/kcookiesmain.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><h1>Cookies</h1> Cookies contain information that Konqueror (or other "
-#| "KDE applications using the HTTP protocol) stores on your computer, "
-#| "initiated by a remote Internet server. This means that a web server can "
-#| "store information about you and your browsing activities on your machine "
-#| "for later use. You might consider this an invasion of privacy.</p><p> "
-#| "However, cookies are useful in certain situations. For example, they are "
-#| "often used by Internet shops, so you can 'put things into a shopping "
-#| "basket'. Some sites require you have a browser that supports cookies.</"
-#| "p><p> Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, KDE offers you the ability to customize the way "
-#| "it handles cookies. So you might want to set KDE's default policy to ask "
-#| "you whenever a server wants to set a cookie, allowing you to decide. For "
-#| "your favorite shopping web sites that you trust, you might want to set "
-#| "the policy to accept, then you can access the web sites without being "
-#| "prompted every time KDE receives a cookie.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE applications using "
 "the HTTP protocol (like Konqueror) store on your computer, initiated by a "
@@ -4463,22 +4443,21 @@ msgid ""
 "can access the web sites without being prompted every time a cookie is "
 "received.</p>"
 msgstr ""
-"<p> <h1>Kolačići</h1>  Kolačići sadrže informacije koje Konqueror (ili druga "
-"KDE aplikacija koja koristi HTTP protokol) spremi na Vaše računalo, a "
-"poslane su od udaljenog Internet poslužitelja. To znači da web poslužitelj "
-"može spremiti informacije o Vama i vašim aktivnostima na Internetu na Vaše "
-"računalo za kasniju upotrebu. Ovo možete smatrati narušavanjem privatnosti.</"
-"p> <p>Međutim, kolačići su korisni u nekim situacijama. Na primjer, često se "
-"koriste u Internet dućanima, gdje možete 'staviti stvari u košaricu'. Neke "
-"web stranice zahtijevaju pregledavanje preglednikom koji podržava kolačiće.</"
-"p> <p>Budući da većina ljudi želi kompromis između privatnosti i prednosti "
-"koje kolačići nude, KDE Vam nudi mogućnost da odredite naćin upravljanja "
-"kolačićima. Tako možda želite postaviti KDE-ovu uobičajenu politiku da Vas "
-"se pita svaki put kad poslužitelj želi postaviti kolačić, što Vam omogućuje "
-"odlučivanje. Za Vaše omiljene Internet dućane kojima vjerujete, možda želite "
-"postaviti politiku da se prihvaćaju svi kolačići, pa ćete tada moći "
-"pristupati tim web stranicama bez da Vas se svaki put pita kada KDE primi "
-"kolačić-</p>"
+"<h1>Kolačići</h1><p>Kolači sadrženformacije KDE aplikacija koja koriste HTTP "
+"protokol ( npr. Konqueror) spremi na vaše računalo, a poslane su od "
+"udaljenog internet poslužitelja. To znači da mrežni poslužitelj može "
+"spremiti informacije o vama i vašim aktivnostima na Internetu na vaše "
+"računalo za kasniju upotrebu. Ovo možda smatrate narušavanjem privatnosti.</"
+"p><p>Međutim, kolačići su korisni u nekim situacijama. Na primjer, često ih "
+"koriste interent trgovci, gdje možete 'staviti stvari u košaricu'. Neke web "
+"stranice zahtijevaju preglednik koji podržava kolačiće.</p><p>Budući da "
+"većina ljudi želi kompromis između privatnosti i prednosti koje kolačići "
+"nude, HTTP KIO worker vam nudi mogućnost da odredite naćin upravljanj a "
+"kolačićima. Tako možete postaviti zadana pravila da vas se pita svakiput kad "
+"poslužitelj želi postaviti kolačić, što vam omogućuje izbor. Zavaše omiljene "
+"interet trgovce kojima vjerujete, možete postaviti praviloprihvaćanja svih "
+"kolačića, pa ćete tada moći pristupati tim web stranicama bez da vas se "
+"svaki put pita kada kolačići bude primljen.</p>"
 
 #: kcms/cookies/kcookiesmanagement.cpp:126
 #: kcms/cookies/kcookiesmanagement.cpp:143
@@ -4553,28 +4532,26 @@ msgstr "Naziv kolačića"
 #: kcms/cookies/kcookiesmanagement.ui:56 kcms/cookies/kcookiespolicies.ui:190
 #, kde-format
 msgid "D&elete"
-msgstr "O&briši"
+msgstr "&Obriši"
 
 #. i18n: ectx: property (text), widget (QPushButton, pbDeleteAll)
 #. i18n: ectx: property (text), widget (QPushButton, deleteAllButton)
 #: kcms/cookies/kcookiesmanagement.ui:63 kcms/cookies/kcookiespolicies.ui:197
 #, kde-format
 msgid "Delete A&ll"
-msgstr "O&briši sve"
+msgstr "Obriši &sve"
 
 #. i18n: ectx: property (text), widget (QPushButton, configPolicyButton)
 #: kcms/cookies/kcookiesmanagement.ui:70
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure..."
+#, kde-format
 msgid "Configure &Policy..."
-msgstr "Podešavanje…"
+msgstr "Postavi &pravila..."
 
 #. i18n: ectx: property (text), widget (QPushButton, reloadButton)
 #: kcms/cookies/kcookiesmanagement.ui:77
 #, kde-format
 msgid "&Reload List"
-msgstr "P&onovo učitaj – popis"
+msgstr "P&onovo učitaj popis"
 
 #. i18n: ectx: property (title), widget (QGroupBox, detailsGroupBox)
 #: kcms/cookies/kcookiesmanagement.ui:97
@@ -4662,32 +4639,11 @@ msgid ""
 "Unable to communicate with the cookie handler service.\n"
 "Any changes you made will not take effect until the service is restarted."
 msgstr ""
-"Ne mogu pokrenuti servis koji upravlja cookie-ima.\n"
-"Nećete moći upravljati cookie-ima spremljenim na vašem računalu."
+"Nije moguće pokrenuti servis koji upravlja kolačićima.\n"
+"Nećete moći upravljati kolačićima spremljenim na vašem računalu."
 
 #: kcms/cookies/kcookiespolicies.cpp:430
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><h1>Cookies</h1> Cookies contain information that Konqueror (or any "
-#| "other KDE application using the HTTP protocol) stores on your computer "
-#| "from a remote Internet server. This means that a web server can store "
-#| "information about you and your browsing activities on your machine for "
-#| "later use. You might consider this an invasion of privacy.</p><p>However, "
-#| "cookies are useful in certain situations. For example, they are often "
-#| "used by Internet shops, so you can 'put things into a shopping basket'. "
-#| "Some sites require you have a browser that supports cookies.</"
-#| "p><p>Because most people want a compromise between privacy and the "
-#| "benefits cookies offer, KDE offers you the ability to customize the way "
-#| "it handles cookies. You might, for example want to set KDE's default "
-#| "policy to ask you whenever a server wants to set a cookie or simply "
-#| "reject or accept everything. For example, you might choose to accept all "
-#| "cookies from your favorite shopping web site. For this all you have to do "
-#| "is either browse to that particular site and when you are presented with "
-#| "the cookie dialog box, click on <i> This domain </i> under the 'apply to' "
-#| "tab and choose accept or simply specify the name of the site in the <i> "
-#| "Domain Specific Policy </i> tab and set it to accept. This enables you to "
-#| "receive cookies from trusted web sites without being asked every time KDE "
-#| "receives a cookie.</p>"
+#, kde-format
 msgid ""
 "<h1>Cookies</h1><p>Cookies contain information that KDE application using "
 "the HTTP protocol (like Konqueror) stores on your computer from a remote "
@@ -4709,26 +4665,25 @@ msgid ""
 "receive cookies from trusted web sites without being asked every time KDE "
 "receives a cookie.</p>"
 msgstr ""
-"<p> <h1>Kolačići</h1>  Kolačići sadrže informacije koje Konqueror (ili druga "
-"KDE aplikacija koja koristi HTTP protokol) spremi na Vaše računalo, a "
-"poslane su od udaljenog Internet poslužitelja. To znači da web poslužitelj "
-"može spremiti informacije o Vama i vašim aktivnostima na Internetu na Vaše "
-"računalo za kasniju upotrebu. Ovo možete smatrati narušavanjem privatnosti.</"
-"p> <p>Međutim, kolačići su korisni u nekim situacijama. Na primjer, često se "
+"<h1>Kolačići</h1><p>Kolači sadrže informacije KDE aplikacija koja koriste "
+"HTTP protokol (npr. Konqueror) spremi na vaše računalo, a poslane su od "
+"udaljenog internet poslužitelja. To znači da mrežni poslužitelj može "
+"spremiti informacije o vama i vašim aktivnostima na Internetu na vaše "
+"računalo za kasniju upotrebu. Ovo možda smatrate narušavanjem privatnosti</"
+"p><p>Međutim, kolačići su korisni u nekim situacijama. Na primjer, često se "
 "koriste u Internet dućanima, gdje možete 'staviti stvari u košaricu'. Neke "
 "web stranice zahtijevaju pregledavanje preglednikom koji podržava kolačiće.</"
-"p> <p>Budući da većina ljudi želi kompromis između privatnosti i prednosti "
+"p><p>Budući da većina ljudi želi kompromis između privatnosti i prednosti "
 "koje kolačići nude, KDE Vam nudi mogućnost da odredite naćin upravljanja "
-"kolačićima. Možete, na primjer postaviti KDE-ovu uobičajenu politiku da Vas "
-"se pita svaki put kad KDE primi kolačić ili da se jednostavno svi kolačići "
-"prihvate ili odbiju. Na primjer, možete odrediti da se uvijek prihvate svi "
-"kolačići sa vašeg omiljenog Internet dućana. Da biste to postavili, sve što "
-"moate učiniti jest ili otići na željenu stranicu i kad Vas se pita za "
-"kolačić, kliknite na <i>Ovu domenu</i> u kartici 'primijeni na' i odaberite "
-"'prihvati' ili jednostavno definirajte ime web stranice u kartici "
-"<i>Politika određene domene</i> i postavite da se prihvaća. To će omogućiti "
-"prihvaćanje kolačića iz povjerenih web stranica bez da Vas se pita svaki put "
-"kad KDE primi kolačić.</p>"
+"kolačićima. Možete, na primjer postaviti zadana pravila KDE-a da vas se pita "
+"svaki put kad KDE primi kolačić ili da se jednostavno svi kolačići prihvate "
+"ili odbiju. Na primjer, možete odrediti da se uvijek prihvate svi kolačići "
+"sa vašeg omiljenog interenet trgovca. Da biste to postavili, morate otići na "
+"željenu stranicu  i kad vas se pita za kolačić, pritisnite na <i>Ovu domenu</"
+"i> u kartici 'primijeni na' i odaberite 'prihvati' ili jednostavno "
+"definirajte ime web stranice u kartici <i>Politika određene domene</i> i "
+"postavite da se prihvaća. To će omogućiti prihvaćanje kolačića iz povjerenih "
+"web stranica bez da vas se pita svaki put kad KDE primi kolačić.</p>"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbEnableCookies)
 #: kcms/cookies/kcookiespolicies.ui:20
@@ -4752,7 +4707,7 @@ msgstr ""
 #: kcms/cookies/kcookiespolicies.ui:23
 #, kde-format
 msgid "Enable coo&kies"
-msgstr "&Prihvati kolačiće"
+msgstr "Omo&gući kolačiće"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbRejectCrossDomainCookies)
 #: kcms/cookies/kcookiespolicies.ui:35
@@ -4768,19 +4723,19 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Odbijanje tzv. \"third-party\" kolačića. Ovi kolačići stižu sa drugih "
-"stranica od onih koje trenutno pregledavate. Na primjer, ako posjetite "
-"<b>www.klik.hr</b>, a ova opcija je uključena, samo kolačići koji stižu sa "
-"tih stranica bit će obrađeni prema vašim postavkama. Kolačići s bilo koje "
-"druge adrese bit će odbijeni. Ova opcija smanjuje mogućnost vlasnika "
-"stranica da izrade profil vaših dnevnih navika pregledavanja web stranica.\n"
+"Odbijanje tzv. kolačića trećih strana. Ovi kolačići stižu sa drugih stranica "
+"od onih koje trenutno pregledavate. Na primjer, ako posjetite <b>www.hrt.hr</"
+"b>, a ova opcija je uključena, samo kolačići koji stižu s www.hrt.hr biti će "
+"obrađeni prema vašim postavkama. Kolačići s bilo koje druge adrese biti će "
+"odbijeni. Ova opcija smanjuje mogućnost vlasnika stranica da izrade profil "
+"vaših dnevnih navika korištenja tih stranica.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbRejectCrossDomainCookies)
 #: kcms/cookies/kcookiespolicies.ui:38
 #, kde-format
 msgid "Only acce&pt cookies from originating server"
-msgstr "&Prihvati kolačiće samo s izvornog poslužitelja"
+msgstr "Prihvati kolačiće samo s izvornog &poslužitelja"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, cbAutoAcceptSessionCookies)
 #: kcms/cookies/kcookiespolicies.ui:46
@@ -4794,12 +4749,17 @@ msgid ""
 "this option overrides your default as well as site specific cookie policies "
 "for session cookies.</p>"
 msgstr ""
+"<p>\n"
+"Automatski prihvati privremene kolačiće koji istječu na kraju trenutne "
+"sesije. Takvi kolačići se ne pohranjuju na vaše računalo, već se brišu kada "
+"zatvorite programe koje ih koriste.</p> <p><u>POZOR</u>Ova postavka "
+"poništava vaša zadana i mrežna prav ila kolačića.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
 #: kcms/cookies/kcookiespolicies.ui:49
 #, kde-format
 msgid "Automaticall&y accept session cookies"
-msgstr "A&Utomatski prihvati kolačići"
+msgstr "A&utomatski prihvati kolačići"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, bgDefault)
 #: kcms/cookies/kcookiespolicies.ui:68
@@ -4821,24 +4781,39 @@ msgid ""
 "precedence over the default policy.</p>\n"
 "</qt>"
 msgstr ""
+"<qt>\n"
+"Određuje kako postupati s kolačićima primljenim s udaljenih računala:\n"
+"<ul>\n"
+"<li><b>Pitaj za potvrdu</b> uzrokovat će da KDE traži vašu potvrdu svaki put "
+"kada poslužitelj želi postaviti kolačiće.</li>\n"
+"<li><b>Prihvati sve kolačiće</b> uzrokovat će da svi kolačići budu "
+"prihvaćeni bez vaše potvrde.</li>\n"
+"<li><b>Prihvati do kraja sesije</b> uzrokovat će da kolačići budu "
+"prihvaćeni, s time da će istječi na kraju sesije.</li>\n"
+"<li><b>Odbij sve kolačiće</b> uzrokovat će da svi kolačići budu odbačeni.</"
+"li>\n"
+"</ul><p>\n"
+"<u>BILJEŠKA:</u> Pravila domena, koje možete postaviti ispod, imaju prednost "
+"nad zadanim pravilima.</p>\n"
+"</qt>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
 #: kcms/cookies/kcookiespolicies.ui:71
 #, kde-format
 msgid "Default Policy"
-msgstr "Uobičajena pravila"
+msgstr "Zadana pravila"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
 #: kcms/cookies/kcookiespolicies.ui:77
 #, kde-format
 msgid "Accep&t all cookies"
-msgstr "Pri&mi sve kolačiće"
+msgstr "Prih&vati sve kolačiće"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAcceptForSession)
 #: kcms/cookies/kcookiespolicies.ui:84
 #, kde-format
 msgid "Accept &until end of session"
-msgstr ""
+msgstr "Prihvati do &kraja sesije"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAsk)
 #: kcms/cookies/kcookiespolicies.ui:91
@@ -4850,7 +4825,7 @@ msgstr "Pi&taj za potvrdu"
 #: kcms/cookies/kcookiespolicies.ui:98
 #, kde-format
 msgid "Re&ject all cookies"
-msgstr "Odba&ci sve kolačiće"
+msgstr "Odbi&j sve kolačiće"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, gbDomainSpecific)
 #: kcms/cookies/kcookiespolicies.ui:123
@@ -4869,7 +4844,7 @@ msgstr ""
 "Za dodavanje nove politike, jednostavno kliknite na gumb <b>Dodaj…</b> i "
 "dajte potrebne informacije. Da biste promijenili trenutnu politiku, "
 "jednostavno koristite gumb <b>Promijeni</b> i odaberite novu politiku iz "
-"dialoga sa politikama. Ako kliknete na gumb <b>Izbriši</b>, onda ćete "
+"dialoga sa politikama. Ako pritisnite na gumb <b>Izbriši</b>, onda ćete "
 "izbrisati trenutno postavljenu politiku pa će za tu domenu biti korištena "
 "uobičajena politika, dok će <b>Izbriši sve</b> gumb izbrisati sve specifične "
 "politike.\n"
@@ -4879,7 +4854,7 @@ msgstr ""
 #: kcms/cookies/kcookiespolicies.ui:126
 #, kde-format
 msgid "Site Policy"
-msgstr "Lokacijsko pravilo"
+msgstr "Pravilo stranica"
 
 #. i18n: ectx: property (toolTip), widget (KTreeWidgetSearchLine, kListViewSearchLine)
 #: kcms/cookies/kcookiespolicies.ui:135
@@ -4889,10 +4864,9 @@ msgstr "Interaktivno traži domene"
 
 #. i18n: ectx: property (placeholderText), widget (KTreeWidgetSearchLine, kListViewSearchLine)
 #: kcms/cookies/kcookiespolicies.ui:138
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgid "Search..."
-msgstr "Traži"
+msgstr "Traži..."
 
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, policyTreeWidget)
 #: kcms/cookies/kcookiespolicies.ui:147
@@ -4925,13 +4899,13 @@ msgstr "Pravilo"
 #: kcms/cookies/kcookiespolicies.ui:176 urifilters/ikws/ikwsopts_ui.ui:74
 #, kde-format
 msgid "&New..."
-msgstr "&Novi …"
+msgstr "&Dodaj..."
 
 #. i18n: ectx: property (text), widget (QPushButton, pbChange)
 #: kcms/cookies/kcookiespolicies.ui:183 urifilters/ikws/ikwsopts_ui.ui:87
 #, kde-format
 msgid "Chan&ge..."
-msgstr "Promjena …"
+msgstr "Pro&mijeni..."
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:26
@@ -4941,17 +4915,15 @@ msgid "Accept"
 msgstr "Prihvati"
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:28
-#, fuzzy
-#| msgid "End of Session"
 msgid "Accept For Session"
-msgstr "Kraj korištenja"
+msgstr "Prihvati za ovu sesiju"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:30
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:91
 #, kde-format
 msgid "Reject"
-msgstr "Odbaci"
+msgstr "Odbij"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.h:32
@@ -4961,10 +4933,8 @@ msgid "Ask"
 msgstr "Pitaj"
 
 #: kcms/cookies/kcookiespolicyselectiondlg.h:34
-#, fuzzy
-#| msgid "Do Not Store"
 msgid "Do Not Know"
-msgstr "Ne pohranjuj"
+msgstr "Nije poznato"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbDomain)
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:22
@@ -4982,16 +4952,17 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, lbDomain)
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:25
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Site name:"
-msgstr "Naziv datoteke:"
+msgstr "Naziv stranice:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, leDomain)
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:38
 #, kde-format
 msgid "Enter the host or domain name, e.g. .kde.org, this policy applies to."
 msgstr ""
+"Unesite poslužitelja ili domenu, npr. .kde.org, na koju će se ovo pravilo "
+"primjenjivati."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbPolicy)
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cbPolicy)
@@ -5010,18 +4981,28 @@ msgid ""
 "</ul>\n"
 "</qt>"
 msgstr ""
+"<qt>\n"
+"Odaberite željeno pravilo:\n"
+"<ul>\n"
+"<li><b>Prihvati</b> - Dopusti ovoj stranici da sprema kolačiće</li>\n"
+"<li><b>Prihvati do kraja sesije</b> - Dopusti stranici da sprema kolači će "
+"do isteka sesije.</li>\n"
+"<li><b>Odbij</b> - Nemoj dopustiti stranici da sprema kolačiće</li>\n"
+"<li><b>Pitaj me</b> - Upita kada stranica pokuša spremiti kolačiće</li>\n"
+"</ul>\n"
+"</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, lbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:56
 #, kde-format
 msgid "Policy:"
-msgstr ""
+msgstr "Pravilo:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cbPolicy)
 #: kcms/cookies/kcookiespolicyselectiondlg.ui:86
 #, kde-format
 msgid "Accept until end of session"
-msgstr ""
+msgstr "Prihvati do kraja sesije"
 
 #: kcms/ksaveioconfig.cpp:212
 #, kde-format
@@ -5064,7 +5045,7 @@ msgstr ""
 #: kcms/netpref/kio_ftprc.kcfg:16 kcms/netpref/kioslave.kcfg:34
 #, kde-format
 msgid "Mark partially uploaded files"
-msgstr "Označi djelomično uploadane datoteke."
+msgstr "Označi djelomično uploadane datoteke"
 
 #. i18n: ectx: whatsthis, entry (MarkPartial), group (DesktopIcons)
 #. i18n: ectx: whatsthis, entry (MarkPartial), group (Global Options)
@@ -5130,39 +5111,34 @@ msgid "&Server response:"
 msgstr "Odgovor poslužitelja:"
 
 #: kcms/netpref/netpref.cpp:67
-#, fuzzy, kde-format
-#| msgid "Options"
+#, kde-format
 msgid "Global Options"
-msgstr "Opcije"
+msgstr "Opće postavke"
 
 #: kcms/netpref/netpref.cpp:71 kcms/netpref/netpref.cpp:106
 #, kde-format
 msgid "Mark &partially uploaded files"
-msgstr "Označi &djelomično uploadane datoteke."
+msgstr "Označi &djelomično uploadane datoteke"
 
 #: kcms/netpref/netpref.cpp:73
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Marks partially uploaded FTP files.</p><p>When this option is enabled, "
-#| "partially uploaded files will have a \".part\" extension. This extension "
-#| "will be removed once the transfer is complete.</p>"
+#, kde-format
 msgid ""
 "<p>Marks partially uploaded files through SMB, SFTP and other protocols.</"
 "p><p>When this option is enabled, partially uploaded files will have a \"."
 "part\" extension. This extension will be removed once the transfer is "
 "complete.</p>"
 msgstr ""
-"<p>Označi djelomično uploadane FTP datoteke</p> <p>Ako je ova opcija "
-"omogućena, djelomično uploadane datoteke će imati ekstenziju \".part\". "
-"Ekstenzija će biti maknuta kad prijenos završi.</p>"
+"<p>Označuje djelomično prenesene datoteke koje koriste SMB, SFTP i slične "
+"protokole</p><p>Ako je ova značajka omogućena, djelomično prenesene datoteke "
+"će imati nastavak \".part\". Nastavak će se maknuti kad prijenos završi.</p>"
 
 #: kcms/netpref/netpref.cpp:90
 #, kde-format
 msgid " byte"
 msgid_plural " bytes"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] " bajt"
+msgstr[1] " bajta"
+msgstr[2] " bajtova"
 
 #: kcms/netpref/netpref.cpp:92
 #, kde-format
@@ -5170,6 +5146,8 @@ msgctxt "@label:spinbox"
 msgid ""
 "If cancelled, automatically delete partially uploaded files smaller than:"
 msgstr ""
+"U slučaju otkazivanja, automatski izbriši djelomično prenesene datoteke "
+"manje od:"
 
 #: kcms/netpref/netpref.cpp:94
 #, kde-format
@@ -5209,9 +5187,9 @@ msgid ""
 "use a modem to connect to the Internet, you might want to adjust these "
 "settings."
 msgstr ""
-"<h1>Postavke mreže</h1> Ovdje možete definirati ponašanje KDE programa dok "
-"korite Internet i mrežne veze. Ako koristite modem za spajanje na Internet "
-"ili Vam mreža ne radi kako želite, ovdje možete promijeniti te postavke."
+"<h1>Postavke mreže</h1>Ovdje možete definirati ponašanje KDE programa dok "
+"korite internet i mrežne veze. Ako koristite modem za spajanje na Internet "
+"ili vam mreža ne radi kako želite, ovdje možete promijeniti te postavke."
 
 #: kcms/proxy/kproxydlg.cpp:193
 #, kde-kuit-format
@@ -5226,6 +5204,14 @@ msgid ""
 "settings. Some applications may allow the proxy to be configured in their "
 "own settings."
 msgstr ""
+"Neke aplikacije neće koristiti ove proxy postavke. Znatno: "
+"<application>Firefox</application> i <application>Chromium</application> i "
+"sve ostalo što se temelji na njima, sve što koristi "
+"<application>QtWebEngine</application>&nbsp;- što uključuje "
+"<application>Konqueror</application> koji koristi "
+"<application>WebEnginePart</application>, <application>Akregator</"
+"application> and <application>Falkon</application>&nbsp;- neće koristiti ove "
+"postavke. Neke aplikacije imaju vlastite postavke proxyja."
 
 #: kcms/proxy/kproxydlg.cpp:545
 #, kde-format
@@ -5238,14 +5224,14 @@ msgid ""
 "to block out requests for ads, spam, or anything else you want to block.</"
 "p><p><u>Note:</u> Some proxy servers provide both services.</p>"
 msgstr ""
-"<h1>Posrednik</h1><p>Poslužitelj-posrednik je posredovni program koji stoji "
-"između vašeg računala i Interneta, te pruža usluge poput predmemoriranja web "
-"stranica ili filtriranja.</p><p>Poslužitelji-posrednici za predmemoriranje "
-"Vam omogućuju brži pristup stranicama koje ste već posjetili tako da lokalno "
-"spreme ili predmemoriraju sadržaj tih stranica; s druge strane, filtrirajući "
-"poslužitelji-posrednici Vam pružaju mogućnost blokiranja reklama ili bilo "
-"čega što Vas nervira.</p> <p><u>Napomena:</u>Neki poslužitelji-posrednici "
-"pružaju obje usluge.</p>"
+"<h1>Proxy</h1><p>Proxy poslužitelj je posredovni program koji stoji između "
+"vašeg računala i interneta, te pruža usluge poput predmemoriranja web "
+"stranica ili filtriranja.</p><p>Proxy poslužitelji za predmemoriranje vam "
+"omogućuju brži pristup stranicama koje ste već posjetili tako da lokalno "
+"spreme ili predmemoriraju sadržajtih stranica; s druge strane, filtrirajući "
+"proxy poslužitelji vam pružaju mogućnost blokiranja oglasa i sveg ostalog "
+"što želite blokirati.</p><p><u>Napomena:</u>Neki proxy poslužitelji pružaju "
+"obje usluge.</p>"
 
 #. i18n: ectx: property (whatsThis), widget (QWidget, ProxyDialogUI)
 #: kcms/proxy/kproxydlg.ui:20
@@ -5267,45 +5253,35 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Podešavanje poslužitelja-posrednika.\n"
+"Postavke proxy poslužitelja.\n"
 "<p>\n"
-"Poslužitelj-posrednik je posredovno računalo koje stoji između Vašeg "
-"računala i Interneta, te pruža usluge poput predmemoriranja web stranica ili "
-"filtriranja. Poslužitelji-posrednici za predmemoriranje Vam omogućuju brži "
+"Proxy poslužitelj je posredovno računalo koje stoji između vašeg računala i "
+"interneta, te pruža usluge poput predmemoriranja mrežnih stranica ili "
+"filtriranja. Proxy poslužitelji za predmemoriranje vam omogućuju brži "
 "pristup već posjećenim web stranicama tako da ih lokalno spremi ili "
-"predmemorira; filtrirajući poslužitelji-posrednici obično omogućuju "
-"blokiranje reklama ili bilo čega što Vas nervira.\n"
+"predmemorira; filtrirajući proxy poslužitelj obično omogućuju blokiranje "
+"oglasa i ostalog nepotrebnog sadržaja.\n"
 "<p>\n"
-"Ako niste sigurni treba li vam poslužitelj-posrednik za pristup Internetu, "
-"provjerite upute vašeg pružatelja Internet usluga ili potražite savjet vašeg "
-"upravitelja sustava.\n"
+"Ako niste sigurni treba li vam proxy poslužitelj za pristup internetu, "
+"provjerite s vašeim pružateljom internet usluga ili potražite savjet upra "
+"vitelja sustava.\n"
 "</qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, noProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:26
 #, kde-format
 msgid "Connect to the Internet directly."
-msgstr "Izravno povezivanje na Internet"
+msgstr "Izravno povezivanje na Internet."
 
 #. i18n: ectx: property (text), widget (QRadioButton, noProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:29
-#, fuzzy, kde-format
-#| msgid "Proxy:"
+#, kde-format
 msgid "No Proxy"
-msgstr "Proxy:"
+msgstr "Bez korištenja proxyja"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:46
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Automatically detect and configure the proxy settings.<p>\n"
-#| "Automatic detection is performed using the <b>Web Proxy Auto-Discovery "
-#| "Protocol (WPAD)</b>.<p>\n"
-#| "<b>NOTE:</b> This option might not work properly or not work at all in "
-#| "some UNIX/Linux distributions. If you encounter a problem when using this "
-#| "option, please check the FAQ section at http://konqueror.kde.org.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Automatically detect and configure the proxy settings.<p>\n"
@@ -5316,43 +5292,36 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Automatski otkrij i postavi postavke posrednika. <p>\n"
+"Automatski otkrij i postavi postavke proxyja.<p>\n"
 "Automatsko otkrivanje se izvodi pomoću <b>Protokola za automatsko otkrivanje "
-"web posrednika (WPAD – Web Proxy Auto-Discovery Protocol)</b>. <p>\n"
-"<b>NAPOMENA:</b>Ova opcija možda neće pravilno ili u potpunosti raditi na "
-"nekim UNIX/Linux distribucijama. Ako naiđete na problem prilikom korištenja "
-"ove opcije, molim provjerite FAQ dio na http://konqueror.kde.org\n"
+"web proxyja (WPAD – Web Proxy Auto-Discovery Protocol)</b>.<p>\n"
+"<b>NAPOMENA:</b>Ova postavka možda neće pravilno ili u potpunosti raditi na "
+"nekim UNIX/Linux distribucijama.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoDiscoverProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:49
-#, fuzzy, kde-format
-#| msgid ""
-#| "The proxy configuration script is invalid:\n"
-#| "%1"
+#, kde-format
 msgid "Detect proxy configuration automatically"
-msgstr ""
-"Skripta za podešenje proxyja je neispravna:\n"
-"%1"
+msgstr "Automatski otkrij proxy postavke"
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, autoScriptProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:59
 #, kde-format
 msgid "Use the specified proxy script to configure the proxy settings."
-msgstr ""
+msgstr "Koristi navedenu proxy skriptu kako bi se postavio proxy."
 
 #. i18n: ectx: property (text), widget (QRadioButton, autoScriptProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:62
-#, fuzzy, kde-format
-#| msgid "Reload configuration file"
+#, kde-format
 msgid "Use proxy auto configuration URL:"
-msgstr "Ponovno učitaj konfiguracijsku datoteku"
+msgstr "Koristi URL za automatsko postavljanje proxy poslužitelja:"
 
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, proxyScriptUrlRequester)
 #: kcms/proxy/kproxydlg.ui:93
 #, kde-format
 msgid "Enter the address for the proxy configuration script."
-msgstr "Unesite adresu HTTP proxy skripte."
+msgstr "Unesite URL skripte koja sadrži postavke proxy poslužitelja."
 
 #. i18n: ectx: property (whatsThis), widget (QRadioButton, systemProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:117
@@ -5369,13 +5338,22 @@ msgid ""
 "<b>FTP_PROXY</b>, <b>NO_PROXY</b>.</p>\n"
 "</qt>"
 msgstr ""
+"<qt><p>Koristi proxy postavke koje su postavljene na sustavu.</p>\n"
+"<p>Neke platfore nude proxy postavke koje se primjenjuju na cijeli sustav i "
+"odabirom ove značajke omogućuje vam korištenje tih postavki.</p>\n"
+"<p>Na Mac platformama</p>\n"
+"<p>Na Windows platformama</p>\n"
+"<p>Na Unix i Linux platformama, sustavne proxy postavke se uobičajeno "
+"oređuju u varijablama okoline. Sljedeće varijable okoline se primijenjuju "
+"ako postoje: <b>H TTP_PROXY</b>, <b>HTTPS_PROXY</b>, <b>FTP_PROXY</b>, "
+"<b>NO_PROXY</b>.</p>\n"
+"</qt>"
 
 #. i18n: ectx: property (text), widget (QRadioButton, systemProxyRadioButton)
 #: kcms/proxy/kproxydlg.ui:120
-#, fuzzy, kde-format
-#| msgid "Updating system configuration."
+#, kde-format
 msgid "Use system proxy configuration:"
-msgstr "Obnova postavki sustava."
+msgstr "Koristi sustavne postavke proxyja:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, autoDetectButton)
 #: kcms/proxy/kproxydlg.ui:127
@@ -5386,8 +5364,8 @@ msgid ""
 "for commonly used variable names such as HTTP_PROXY, FTP_PROXY and NO_PROXY."
 "</qt>"
 msgstr ""
-"<qt>Pokušaj automatskog otkrivanja varijabli okoline koje se koriste za "
-"postavljanje sustavskih informacija o posrednicima. <p>Ova mogućnost radi za "
+"<qt>Pokuša automatski otkriti varijable okoline koje se koriste za "
+"postavljanje sustavnih informacija o proxyjima. <p>Ova mogućnost radi za "
 "pretragu često korištenih varijabli poput HTTP_PROXY, FTP_PROXY i NO_PROXY.</"
 "qt>"
 
@@ -5395,19 +5373,12 @@ msgstr ""
 #: kcms/proxy/kproxydlg.ui:130
 #, kde-format
 msgid "Auto D&etect"
-msgstr ""
+msgstr "Automatsko o&tkrivanje"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpEdit)
 #: kcms/proxy/kproxydlg.ui:158 kcms/proxy/kproxydlg.ui:183
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used "
-#| "to store the address of the HTTP proxy server.<p>\n"
-#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#| "attempt automatic discovery of this variable.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Enter the name of the environment variable, e.g. <b>HTTP_PROXY</b>, used to "
@@ -5418,30 +5389,22 @@ msgid ""
 msgstr ""
 "<qt>\n"
 "Unesite ime varijable okoline, npr. <b>HTTP_PROXY</b>, koja će se koristiti "
-"za spremanje adrese HTTP posredničkog poslužitelja. <p>\n"
+"za spremanje adrese HTTP proxy poslužitelja. <p>\n"
 "Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
-"biste pokrenuli automatsko otkrivanje te varijable.\n"
+"biste pokrenuli automatsko otkrivanje te varijable.</p> \n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, systemProxyHttpLabel)
 #. i18n: ectx: property (text), widget (QLabel, manualProxyHttpEditLabel)
 #: kcms/proxy/kproxydlg.ui:161 kcms/proxy/kproxydlg.ui:383
-#, fuzzy, kde-format
-#| msgid "Proxy:"
+#, kde-format
 msgid "HTTP Proxy:"
-msgstr "Proxy:"
+msgstr "HTTP Proxy:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyHttpsLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyHttpsEdit)
 #: kcms/proxy/kproxydlg.ui:193 kcms/proxy/kproxydlg.ui:218
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
-#| "to store the address of the HTTPS proxy server.<p>\n"
-#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#| "attempt an automatic discovery of this variable.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used to "
@@ -5451,31 +5414,23 @@ msgid ""
 "</qt>"
 msgstr ""
 "<qt>\n"
-"Unesite ime varijable okoline, npr. <b>HTTP_PROXY</b>, koja će se koristiti "
-"za spremanje adrese HTTP posredničkog poslužitelja. <p>\n"
+"Unesite ime varijable okoline, npr. <b>HTTPS_PROXY</b>, koja će se koristiti "
+"za spremanje adrese HTTPS proxy poslužitelja. <p>\n"
 "Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
-"biste pokrenuli automatsko otkrivanje te varijable.\n"
+"biste pokrenuli automatsko otkrivanje te varijable.</p> \n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, systemProxyHttpsLabel)
 #. i18n: ectx: property (text), widget (QLabel, manualProxyHttpsEditLabel)
 #: kcms/proxy/kproxydlg.ui:196 kcms/proxy/kproxydlg.ui:449
-#, fuzzy, kde-format
-#| msgid "Proxy:"
+#, kde-format
 msgid "SSL Proxy:"
-msgstr "Proxy:"
+msgstr "SSL Proxy:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, systemProxyFtpLabel)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxyFtpEdit)
 #: kcms/proxy/kproxydlg.ui:228 kcms/proxy/kproxydlg.ui:253
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used "
-#| "to store the address of the FTP proxy server.<p>\n"
-#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#| "attempt an automatic discovery of this variable.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>\n"
 "Enter the name of the environment variable, e.g. <b>FTP_PROXY</b>, used to "
@@ -5486,18 +5441,17 @@ msgid ""
 msgstr ""
 "<qt>\n"
 "Unesite ime varijable okoline, npr. <b>FTP_PROXY</b>, koja će se koristiti "
-"za spremanje adrese FTP posredničkog poslužitelja. <p>\n"
+"za spremanje adrese FTP proxy poslužitelja. <p>\n"
 "Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
-"biste pokrenuli automatsko otkrivanje te varijable.\n"
+"biste pokrenuli automatsko otkrivanje te varijable.</p> \n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, systemProxyFtpLabel)
 #. i18n: ectx: property (text), widget (QLabel, manualProxyFtpEditLabel)
 #: kcms/proxy/kproxydlg.ui:231 kcms/proxy/kproxydlg.ui:499
-#, fuzzy, kde-format
-#| msgid "Proxy:"
+#, kde-format
 msgid "FTP Proxy:"
-msgstr "Proxy:"
+msgstr "FTP Proxy:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, systemProxySocksLabel)
 #: kcms/proxy/kproxydlg.ui:263
@@ -5510,37 +5464,33 @@ msgid ""
 "an automatic discovery of this variable.</p>\n"
 "</qt>"
 msgstr ""
+"<qt>\n"
+"Unesite ime varijable okoline, npr. <b>SOCKS_PROXY</b>, koja će se koristiti "
+"za spremanje adrese SOCKS proxy poslužitelja. <p>\n"
+"Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
+"biste pokrenuli automatsko otkrivanje te varijable.</p>\n"
+"</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, systemProxySocksLabel)
 #. i18n: ectx: property (text), widget (QLabel, manualProxySocksEditLabel)
 #: kcms/proxy/kproxydlg.ui:266 kcms/proxy/kproxydlg.ui:552
-#, fuzzy, kde-format
-#| msgid "Proxy:"
+#, kde-format
 msgid "SOCKS Proxy:"
-msgstr "Proxy:"
+msgstr "SOCKS Proxy:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemProxySocksEdit)
 #: kcms/proxy/kproxydlg.ui:285
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Enter the name of the environment variable, e.g. <b>HTTPS_PROXY</b>, used "
-#| "to store the address of the HTTPS proxy server.<p>\n"
-#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#| "attempt an automatic discovery of this variable.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>Enter the name of the environment variable, e.g. <b>SOCKS_PROXY</b>, "
 "used to store the address of the SOCKS proxy server.<p>Alternatively, you "
 "can click on the <b>&quot;Auto Detect&quot;</b> button to attempt an "
 "automatic discovery of this variable.</p></qt>"
 msgstr ""
-"<qt>\n"
-"Unesite ime varijable okoline, npr. <b>HTTP_PROXY</b>, koja će se koristiti "
-"za spremanje adrese HTTP posredničkog poslužitelja. <p>\n"
-"Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
-"biste pokrenuli automatsko otkrivanje te varijable.\n"
-"</qt>"
+"<qt>Unesite ime varijable okoline, npr. <b>SOCKS_PROXY</b>, koja će se "
+"koristiti za spremanje adrese SOCKS proxy poslužitelja. <p>Alternativno, "
+"možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da biste pokrenuli "
+"automatsko otkrivanje te varijable.</p></qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, sysNoProxyLabel)
 #. i18n: ectx: property (whatsThis), widget (QLabel, manNoProxyLabel)
@@ -5565,34 +5515,23 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, sysNoProxyLabel)
 #. i18n: ectx: property (text), widget (QLabel, manNoProxyLabel)
 #: kcms/proxy/kproxydlg.ui:298 kcms/proxy/kproxydlg.ui:602
-#, fuzzy, kde-format
-#| msgid "Encryption:"
+#, kde-format
 msgid "Exceptions:"
-msgstr "Šifriranje:"
+msgstr "Iznimke:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, systemNoProxyEdit)
 #: kcms/proxy/kproxydlg.ui:317
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>\n"
-#| "Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
-#| "addresses of sites for which the proxy server should not be used.<p>\n"
-#| "Alternatively, you can click on the <b>\"Auto Detect\"</b> button to "
-#| "attempt an automatic discovery of this variable.\n"
-#| "</qt>"
+#, kde-format
 msgid ""
 "<qt>Enter the environment variable, e.g. <b>NO_PROXY</b>, used to store the "
 "addresses of sites for which the above proxy settings should not be used."
 "<p>Alternatively, you can click on the <b>&quot;Auto Detect&quot;</b> button "
 "to attempt an automatic discovery of this variable.</p></qt>"
 msgstr ""
-"<qt>\n"
-"Unesite ime varijable okoline, npr. <b>NO_PROXY</b>, koja će se koristiti za "
-"spremanje adrese web stranica za koje neće biti korišten posrednički "
-"poslužitelj. <p>\n"
-"Alternativno, možete kliknuti na gumb <b>\"Automatsko otkrivanje\"</b> da "
-"biste pokrenuli automatsko otkrivanje te varijable.\n"
-"</qt>"
+"<qt>Unesite ime varijable okoline, npr. <b>NO_PROXY</b>, koja će se "
+"koristiti za spremanje adrese HTTP proxy poslužitelja. <p>Alternativno, "
+"možete kliknuti na gumb <b>&quot;Automatsko otkrivanje&quot;</b> da biste "
+"pokrenuli automatsko otkrivanje te varijable.</p> </qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, showEnvValueCheckBox)
 #: kcms/proxy/kproxydlg.ui:324
@@ -5610,7 +5549,7 @@ msgstr "Ručno unesite podatke za podešavanje poslužitelja-posrednika."
 #: kcms/proxy/kproxydlg.ui:346
 #, kde-format
 msgid "Use manually specified proxy configuration:"
-msgstr ""
+msgstr "Koristi ručno određene postavke proxyja:"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpEdit)
 #: kcms/proxy/kproxydlg.ui:398
@@ -5626,19 +5565,19 @@ msgstr "Unesite adresu HTTP proxy poslužitelja."
 #: kcms/proxy/kproxydlg.ui:524 kcms/proxy/kproxydlg.ui:574
 #, kde-format
 msgid "Port:"
-msgstr ""
+msgstr "Priključak:"
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxyHttpSpinBox)
 #: kcms/proxy/kproxydlg.ui:421
 #, kde-format
 msgid "Enter the port number of the HTTP proxy server."
-msgstr ""
+msgstr "Unesite broj priključka HTTP proxy poslužitelja."
 
 #. i18n: ectx: property (text), widget (QCheckBox, useSameProxyCheckBox)
 #: kcms/proxy/kproxydlg.ui:436
 #, kde-format
 msgid "Use this proxy server for a&ll protocols"
-msgstr ""
+msgstr "Koristi ovaj proxy poslužitelj za s&ve protokole"
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyHttpsEdit)
 #: kcms/proxy/kproxydlg.ui:464
@@ -5650,7 +5589,7 @@ msgstr "Unesite adresu HTTPS proxy poslužitelja."
 #: kcms/proxy/kproxydlg.ui:481
 #, kde-format
 msgid "Enter the port number of the HTTPS proxy server."
-msgstr ""
+msgstr "Unesite broj priključka HTTPS proxy poslužitelja."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxyFtpEdit)
 #: kcms/proxy/kproxydlg.ui:517
@@ -5662,19 +5601,19 @@ msgstr "Unesite adresu FTP posrednika.."
 #: kcms/proxy/kproxydlg.ui:534
 #, kde-format
 msgid "Enter the port number of the FTP proxy server."
-msgstr ""
+msgstr "Unesite broj priključka FTP proxy poslužitelja."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualProxySocksEdit)
 #: kcms/proxy/kproxydlg.ui:567
 #, kde-format
 msgid "Enter the address of the SOCKS proxy server."
-msgstr ""
+msgstr "Unesite adresu SOCKS proxy poslužitelja."
 
 #. i18n: ectx: property (whatsThis), widget (QSpinBox, manualProxySocksSpinBox)
 #: kcms/proxy/kproxydlg.ui:584
 #, kde-format
 msgid "Enter the port number of the SOCKS proxy server."
-msgstr ""
+msgstr "Unesite broj priključka SOCKS proxy poslužitelja."
 
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, manualNoProxyEdit)
 #: kcms/proxy/kproxydlg.ui:628
@@ -5691,6 +5630,16 @@ msgid ""
 "addresses with a subnet, e.g. 192.168.0.1/24.</p>\n"
 "</qt>"
 msgstr ""
+"<qt>\n"
+"<p>Unesite imena odredišta ili IP adresa odvojenih zarezom koja bi trebale "
+"biti isključene iz korištenja gornjih postavki proxyja. </p>\n"
+"<p>Ako želite isključiti sva odredšita za određenu domenu, unesite naziv "
+"domene koji prethodi točka. Na primjer, da biste isključili sva odredi šta "
+"za <i>kde.org</i>, unesite <i>.kde.org</i>. Zamjenski znakovi kao što su \"*"
+"\" ili \" ?\" nisu podržani i ne čine ništa.</p>\n"
+"<p>Isto tako možete i unjeti IP adrese, npr. 127.0.0.1 i IP adrese s "
+"podmrežom, npr. 192.168.0.1/24.</p> \n"
+"</qt>"
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, useReverseProxyCheckBox)
 #: kcms/proxy/kproxydlg.ui:639
@@ -5700,12 +5649,15 @@ msgid ""
 "Check this box if you want the above proxy settings to apply only to the "
 "addresses listed in the <i>Exceptions</i> list.</qt>"
 msgstr ""
+"<qt>\n"
+"Označite ovdje ako želite da se gornje proxy postavke jedino primjenjuju na "
+"adrese u popisu <i>iznimaka.</i></qt>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, useReverseProxyCheckBox)
 #: kcms/proxy/kproxydlg.ui:642
 #, kde-format
 msgid "Use proxy settings only for addresses in the Exceptions list"
-msgstr ""
+msgstr "Primijeni postavke proxyja samo na adrese na popisu iznimaka"
 
 #: kcms/smb/smbrodlg.cpp:27
 #, kde-format
@@ -5733,19 +5685,23 @@ msgid ""
 "may not want to do that, as entries with passwords are clearly indicated as "
 "such.</p>"
 msgstr ""
+"<h1>Windows dijeljeni resursi</h1><p>Aplikacije koje koriste SMB KIO workera "
+"(npr. Konqueror) mogu pristupiti mrežnim datotečnim sustavima Microsoft "
+"Windowsa, ako je sve točno postav ljeno.</p><p>Ovdje možete odrediti "
+"vjerodajnice koje se koriste za pristup dijeljenim resursima. Zaporke se "
+"spremaju i izmiješavaju tako da postanu nečitljive ljudskom oku lokalno na "
+"računalu. Sa sigurnosnog stajališta, možda to ne biste trebali učiniti jer "
+"je jasno nazna čeno da su to zaporke.</p>"
 
 #: kcms/webshortcuts/main.cpp:28
-#, fuzzy, kde-format
-#| msgid "Search"
+#, kde-format
 msgid "Web Search Keywords"
-msgstr "Traži"
+msgstr "Ključne riječi mrežne pretrage"
 
 #: kcms/webshortcuts/main.cpp:30
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Configure Shown Data"
+#, kde-format
 msgid "Configure enhanced browsing features"
-msgstr "Podešavanje prikazanih podataka"
+msgstr "Podešavanje značajka pobošanog pregledavanja"
 
 #: kcms/webshortcuts/main.cpp:39
 #, kde-format
@@ -5758,22 +5714,22 @@ msgid ""
 "changed this keyboard shortcut) and enter the shortcut in the Run Command "
 "dialog."
 msgstr ""
+"<h1>Poboljšano pregledavanje</h1> U ovom modulu možete podesiti značajke "
+"poboljšanog pregledavanja KDE-a. <h2>Ključne riječi mrežne pretrage</"
+"h2>Ključne riječi mrežne pretrage su brz način korištenja mrežnih tražilica. "
+"Ako unesete \"duckduckgo:frobozz\" ili \"dd:frobozz\" internet preglednik će "
+"napraviti pretragu na tražilici DuckDuckGo za \"frobozz\". Isto tako možete "
+"pritisnuti Alt+F2 (ako niste promijenili ovaj prečac) i unijeti ključne "
+"riječi u prozoru za unos upita."
 
 #: kioexec/kioexecd.cpp:85
-#, fuzzy, kde-format
-#| msgid ""
-#| "The file\n"
-#| "%1\n"
-#| "has been modified.\n"
-#| "Do you want to upload the changes?"
+#, kde-format
 msgid ""
 "The file %1\n"
 "has been modified. Do you want to upload the changes?"
 msgstr ""
-"Datoteka \n"
-"%1\n"
-"je izmjenjena. \n"
-"Želite li dignuti izmjene?"
+"Datoteka %1\n"
+"je izmjenjena. Želite li prenijeti izmjene?"
 
 #: kioexec/kioexecd.cpp:86 kioexec/main.cpp:237 kioexec/main.cpp:247
 #, kde-format
@@ -5970,7 +5926,7 @@ msgstr "Prijava u redu"
 #: kioworkers/ftp/ftp.cpp:677
 #, kde-format
 msgid "Could not login to %1."
-msgstr "Ne mogu se prijaviti na %1."
+msgstr "Nije moguće se prijaviti na %1."
 
 #: kioworkers/ftp/ftp.cpp:1054
 #, kde-format
@@ -5988,8 +5944,8 @@ msgid ""
 "You need to supply a username and a password for the proxy server listed "
 "below before you are allowed to access any sites."
 msgstr ""
-"Trebate upisati korisničko ime i zaporku za proxy poslužitelj izlistan niže "
-"dolje prije nego što vam on dozvoli pristup bilo kojim stranicama."
+"Trebate upisati korisničko ime i zaporku za proxy poslužitelj ispisan ispod  "
+"prije nego što vam on dozvoli pristup bilo kojoj stranici."
 
 #: kioworkers/ftp/ftp.cpp:2513 kioworkers/http/http.cpp:5173
 #: kioworkers/http/http.cpp:5307
@@ -6159,7 +6115,7 @@ msgid ""
 "intermediate collections (folders) have been created."
 msgstr ""
 "Resurs nije moguće stvoriti na odredištu sve dok jedna ili više privremenih "
-"kolekcija (direktorija) nije stvorena."
+"kolekcija (mapa) nije stvorena."
 
 #: kioworkers/http/http.cpp:1699
 #, kde-format
@@ -6195,7 +6151,7 @@ msgstr "Nije moguće %1, jer je resurs zaključan."
 #: kioworkers/http/http.cpp:1722
 #, kde-format
 msgid "This action was prevented by another error."
-msgstr "Postupak je spreiječen od strane druge greške."
+msgstr "Radnja je spreiječena od strane druge greške."
 
 #: kioworkers/http/http.cpp:1729 kioworkers/http/http.cpp:1834
 #, kde-format
@@ -6246,6 +6202,10 @@ msgid ""
 "the website does not require authentication. This may be an attempt to trick "
 "you.</p><p>Is \"%1\" the site you want to visit?</p>"
 msgstr ""
+"<p>Prijavit ćete se na stranicu \"%1\" s korisničkim imenom \"%2\", ali "
+"tastranica ne zahtijeva prijavu. Postoji mogućnost da vas netko pokušava "
+"prevariti .</p><p>Jeste li sigurni da je \"%1\" stranica koju želite "
+"pristupiti?</p>"
 
 #: kioworkers/http/http.cpp:2992
 #, kde-format
@@ -6276,7 +6236,7 @@ msgstr "<b>%1</b> na <b>%2</b>"
 #: kioworkers/http/http.cpp:5322
 #, kde-format
 msgid "Authentication Failed."
-msgstr "Neuspjela autentikacija"
+msgstr "Neuspjela autentikacija."
 
 #: kioworkers/http/http.cpp:5449
 #, kde-format
@@ -6291,30 +6251,23 @@ msgstr "Nepoznata autorizacijska metoda."
 #: kioworkers/http/httpfilter.cpp:175
 #, kde-format
 msgid "Receiving corrupt data."
-msgstr ""
+msgstr "Dobivanje oštećenih podataka."
 
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:47
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, fuzzy, kde-format
-#| msgid "Cannot open file"
+#, kde-format
 msgid "Cannot Save Cookies"
-msgstr "Nije moguće otvoriti datoteku"
+msgstr "Nije moguće spremiti kolačiće"
 
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:47
-#, fuzzy, kde-format
-#| msgid ""
-#| "Could not create symlink %1.\n"
-#| "Please check permissions."
+#, kde-format
 msgid "Could not remove %1, check permissions"
-msgstr ""
-"Ne mogu stvoriti simboličku vezu %1.\n"
-"Molim provjerite ovlasti."
+msgstr "Nije moguće izbrisati %1, provjerite ovlasti"
 
 #: kioworkers/http/kcookiejar/kcookieserver.cpp:55
-#, fuzzy, kde-format
-#| msgid "Could not write to %1."
+#, kde-format
 msgid "Could not create directory %1"
-msgstr "Nije moguće pisati u %1."
+msgstr "Nije moguće stvoriti mapu %1"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:45
 #, kde-format
@@ -6331,15 +6284,20 @@ msgid_plural ""
 "<p>You received %1 cookies from<br/><b>%2%3</b><br/>Do you want to accept or "
 "reject these cookies?</p>"
 msgstr[0] ""
+"<p>Primili ste %1 kolačić od<br/><b>%2%3</b><br/>Želite li prihvatiti ili "
+"odbiti ovaj kolačić?</p>"
 msgstr[1] ""
+"<p>Primili ste %1 kolačića od<br/><b>%2%3</b><br/>Želite li prihvatiti ili "
+"odbiti te kolačiće?</p>"
 msgstr[2] ""
+"<p>Primili ste %1 kolačića od<br/><b>%2%3</b><br/>Želite li prihvatiti ili "
+"odbiti te kolačiće?</p>"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:78
-#, fuzzy, kde-format
-#| msgid " <b>[Cross Domain]</b>"
+#, kde-format
 msgctxt "@item:intext cross domain cookie"
 msgid " [Cross Domain]"
-msgstr " <b>[Križna domena]</b>"
+msgstr " [višedomenski]"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:93
 #, kde-format
@@ -6349,12 +6307,12 @@ msgstr "Prikaži ili izmijeni podatke o kolačiću"
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:98
 #, kde-format
 msgid "Accept for this &session"
-msgstr ""
+msgstr "Prihvati za ovu &sesiju"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:101
 #, kde-format
 msgid "Accept cookie(s) until the end of the current session"
-msgstr ""
+msgstr "Prihvati kolačiće do kraja trenutačne sesije"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:111
 #, kde-format
@@ -6382,31 +6340,22 @@ msgid "&Only these cookies"
 msgstr "&Samo ovi kolačići"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:158
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject only this cookie. You will be "
-#| "prompted if another cookie is received. <em>(see WebBrowsing/Cookies in "
-#| "the System Settings)</em>."
+#, kde-format
 msgid ""
 "Select this option to only accept or reject this cookie. You will be "
 "prompted again if you receive another cookie."
 msgstr ""
-"Odaberite ovu opciju za prihvaćanje/odbijanje samo ovog kolačića. Sustav će "
-"tražiti potvrdu ako dobijete nove kolačiće. <em>(pogledajte pod "
+"Odaberite ovu značajku za prihvaćanje/odbijanje samo ovog kolačića. Sustav "
+"će tražiti potvrdu ako dobijete nove kolačiće. <em>(pogledajte pod "
 "Pretraživanje/Kolačići u Postavkama sustava)</em>."
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:161
 #, kde-format
 msgid "All cookies from this do&main"
-msgstr "Sve kolačiće iz ove do&mene"
+msgstr "Sve kolačiće s ove do&mene"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:165
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject all cookies from this site. Choosing "
-#| "this option will add a new policy for the site this cookie originated "
-#| "from. This policy will be permanent until you manually change it from the "
-#| "Control Center <em>(see WebBrowsing/Cookies in the Control Center)</em>."
+#, kde-format
 msgid ""
 "Select this option to accept or reject all cookies from this site. Choosing "
 "this option will add a new policy for the site this cookie originated from. "
@@ -6415,8 +6364,8 @@ msgid ""
 msgstr ""
 "Odaberite mogućnost primanja/odbijanja svih kolačića s ovog poslužitelja. "
 "Odabiranje će postaviti novo pravilo za poslužitelj koji je poslao kolačić. "
-"Ovo pravilo će biti stalno važeće, dok ga ručno ne promijenite u Kontrolnom "
-"centru <em>(pogledajte pod Pretraživanje/Kontrolni centar)</em>."
+"Ovo pravilo će biti stalno važeće, dok ga ručno ne promijenite u Postavkama "
+"sustava."
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:170
 #, kde-format
@@ -6424,12 +6373,7 @@ msgid "All &cookies"
 msgstr "Sve &kolačiće"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:174
-#, fuzzy, kde-format
-#| msgid ""
-#| "Select this option to accept/reject all cookies from anywhere. Choosing "
-#| "this option will change the global cookie policy set in the Control "
-#| "Center for all cookies <em>(see WebBrowsing/Cookies in the Control "
-#| "Center)</em>."
+#, kde-format
 msgid ""
 "Select this option to accept/reject all cookies from anywhere. Choosing this "
 "option will change the global cookie policy for all cookies until you "
@@ -6437,17 +6381,15 @@ msgid ""
 msgstr ""
 "Odaberite mogućnost primanja/odbijanja svih kolačića sa svih poslužitelja. "
 "Odabiranje će postaviti novo pravilo za sve poslužitelje. Ovo pravilo će "
-"biti stalno važeće, dok ga ručno ne promijenite u Kontrolnom centru "
-"<em>(pogledajte pod Pretraživanje/Kontrolni centar)</em>."
+"biti stalno važeće, dok ga ručno ne promijenite u Postavkama sustava."
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:240
 #, kde-format
 msgid "Cookie Details"
-msgstr "Detalji o kolačiću"
+msgstr "Detalji kolačića"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:281
-#, fuzzy, kde-format
-#| msgid "Exposure:"
+#, kde-format
 msgctxt ""
 "@label a description string of how 'accessible' the cookie is (e.g. see "
 "exposure string in this file)"
@@ -6466,29 +6408,25 @@ msgid "Show details of the next cookie"
 msgstr "Prikaži detalje za sljedeći kolačić"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:322
-#, fuzzy, kde-format
-#| msgid "Not specified"
+#, kde-format
 msgctxt "@label cookie has no explicit 'Domain' value specified"
 msgid "Not specified"
 msgstr "Nije navedeno"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:331
-#, fuzzy, kde-format
-#| msgid "End of Session"
+#, kde-format
 msgctxt "@label the cookie expires when the browser session ends"
 msgid "End of Session"
-msgstr "Kraj korištenja"
+msgstr "Kraj sesije"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:336
-#, fuzzy, kde-format
-#| msgid "Secure servers only"
+#, kde-format
 msgctxt "@label exposure string - the cookie may only be used by https servers"
 msgid "Secure servers only"
 msgstr "Samo sigurni poslužitelji"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:338
-#, fuzzy, kde-format
-#| msgid "Secure servers, page scripts"
+#, kde-format
 msgctxt ""
 "@label exposure string - the cookie may be used by https servers AND client-"
 "side javascripts"
@@ -6496,15 +6434,13 @@ msgid "Secure servers, page scripts"
 msgstr "Sigurni poslužitelj, stranice skripti"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:342
-#, fuzzy, kde-format
-#| msgid "Servers"
+#, kde-format
 msgctxt "@label exposure string - the cookie may only be used by http servers"
 msgid "Servers"
 msgstr "Poslužitelji"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:344
-#, fuzzy, kde-format
-#| msgid "Servers, page scripts"
+#, kde-format
 msgctxt ""
 "@label exposure string - the cookie may be used by http servers AND client-"
 "side javascripts"
@@ -6512,8 +6448,7 @@ msgid "Servers, page scripts"
 msgstr "Poslužitelj, stranice skripti"
 
 #: kioworkers/http/kcookiejar/kcookiewin.cpp:359
-#, fuzzy, kde-format
-#| msgid "Details"
+#, kde-format
 msgctxt ""
 "@action:button show details about a cookie that needs approval. This string "
 "gets >> and << appended, to visualize if the dialog expands or compacts!"
@@ -6528,7 +6463,8 @@ msgstr "Mreža"
 #: kpac/discovery.cpp:96
 #, kde-format
 msgid "Could not find a usable proxy configuration script"
-msgstr "Ne mogu pronaći upotrebljivu datoteku sa postavkama proxy poslužitelja"
+msgstr ""
+"Nije moguće pronaći upotrebljivu datoteku s postavkama proxy poslužitelja"
 
 #: kpac/downloader.cpp:77
 #, kde-format
@@ -6536,13 +6472,13 @@ msgid ""
 "Could not download the proxy configuration script:\n"
 "%1"
 msgstr ""
-"Ne mogu preuzeti datoteku s skriptom proxy postavki:\n"
+"Nije moguće preuzeti datoteku sa skriptom proxy postavki:\n"
 "%1"
 
 #: kpac/downloader.cpp:79
 #, kde-format
 msgid "Could not download the proxy configuration script"
-msgstr "Ne mogu preuzeti datoteku sa postavkama proxy poslužitelja"
+msgstr "Nije moguće preuzeti datoteku s postavkama proxy poslužitelja"
 
 #: kpac/proxyscout.cpp:270
 #, kde-format
@@ -6568,10 +6504,9 @@ msgid "Could not find 'FindProxyForURL' or 'FindProxyForURLEx'"
 msgstr "Nije moguće pronaći 'FindProxyForURL' ili 'FindProxyForURLEx'"
 
 #: kpac/script.cpp:692
-#, fuzzy, kde-format
-#| msgid "Got an invalid reply when calling %1"
+#, kde-format
 msgid "Got an invalid reply when calling %1 -> %2"
-msgstr "Dobiven je neispravan odgovor pri pozivu %1"
+msgstr "Dobiven je nevažeći odgovor pri pozivu %1 -> %2"
 
 #: kpasswdserver/kpasswdserver.cpp:521
 #, kde-format
@@ -6605,23 +6540,22 @@ msgid "You do not have permission to access the %1 protocol."
 msgstr "Nemate ovlasti za pristup protokolu %1."
 
 #: urifilters/ikws/ikwsopts.cpp:39
-#, fuzzy, kde-format
-#| msgid "Name"
+#, kde-format
 msgctxt "@title:column Name label from web search keyword column"
 msgid "Name"
-msgstr "Ime"
+msgstr "Naziv"
 
 #: urifilters/ikws/ikwsopts.cpp:41
 #, kde-format
 msgctxt "@title:column"
 msgid "Keywords"
-msgstr ""
+msgstr "Ključne riječi"
 
 #: urifilters/ikws/ikwsopts.cpp:43
 #, kde-format
 msgctxt "@title:column"
 msgid "Preferred"
-msgstr ""
+msgstr "Označeno"
 
 #: urifilters/ikws/ikwsopts.cpp:102
 #, kde-kuit-format
@@ -6631,10 +6565,12 @@ msgid ""
 ">Preferred web search keywords are used in places where only a few select "
 "keywords can be shown at one time."
 msgstr ""
+"Pritisnite ovdje kako biste označili odabranu ključnu riječ.<nl/> Označene "
+"ključne riječi se koristi na mjestima gdje se istovremeno može prikazati "
+"samo manji broj ključnih riječi."
 
 #: urifilters/ikws/ikwsopts.cpp:203
-#, fuzzy, kde-format
-#| msgid "None"
+#, kde-format
 msgctxt "@item:inlistbox No default web search keyword"
 msgid "None"
 msgstr "Nijedna"
@@ -6642,7 +6578,7 @@ msgstr "Nijedna"
 #: urifilters/ikws/ikwsopts.cpp:247 urifilters/ikws/kurisearchfilter.cpp:83
 #, kde-format
 msgid "Search F&ilters"
-msgstr ""
+msgstr "Pretraži fil&tere"
 
 #: urifilters/ikws/ikwsopts.cpp:275
 #, kde-kuit-format
@@ -6657,6 +6593,14 @@ msgid ""
 "them into the input widget of applications that have built-in support for "
 "such a feature, e.g Konqueror.</para>"
 msgstr ""
+"<para>U ovom modulu možete postaviti značajku ključnih riječi mrežne "
+"pretrage. Ključne riječi mrežene pretrage vam omogućuju brzu pretragu "
+"interentom. Na primjer, da biste pretražili informacije povezane s KDE "
+"projektom na tražilici Google, jednostavno upišite <emphasis>gg:KDE</"
+"emphasis> ili <emphasis>google:KDE</emphasis>.</para> <para>Izborom zadane "
+"tražilice možete pretraživati obične riječi ili fraze samo tako da ih "
+"upišete u unosna polja programa koji imaju ugrađenu podršku za ovu značajku. "
+"(Npr. Konqueror)</para>"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:17
@@ -6670,42 +6614,50 @@ msgid ""
 "delimiter and the search term, e.g. <span style=\" font-weight:600;\">gg:"
 "KDE</span>.</p></body></html>"
 msgstr ""
+"<html><head/><body><p>Omogućite ili onemogućite ključne riječi mrežnog "
+"pretraživanja.</p><p>Ključne riječi mrežnog pretraživanja omogućuju vam brz "
+"pristup i pretraživanje podataka koji se nalaze na mreži ili na vašem "
+"računalu. </p><p>KDE dolazi s mnoštvom unaprijed definiranih ključnih "
+"riječi. Jedna od tih ključnih riječi koristi za pretraživanje Google (TM) "
+"tražilice. Da biste je koristili, jednostavno upišite 'gg' "
+"praćenorazdjelnikom i pojom kojeg želite pretražiti, npr. <span style=\" "
+"font-weight:600;\">gg:KDE</span>.</p></body></html>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbEnableShortcuts)
 #: urifilters/ikws/ikwsopts_ui.ui:20
 #, kde-format
 msgid "&Enable Web search keywords"
-msgstr ""
+msgstr "&Omogući ključne riječi mrežnog pretraživanja"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbUseSelectedShortcutsOnly)
 #: urifilters/ikws/ikwsopts_ui.ui:30
 #, kde-format
 msgid "&Use preferred keywords only"
-msgstr ""
+msgstr "&Koristiti samo označene ključne riječi"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, searchLineEdit)
 #: urifilters/ikws/ikwsopts_ui.ui:37
 #, kde-format
 msgid "Search for web search keywords"
-msgstr ""
+msgstr "Pretraži ključne riječi"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbNew)
 #: urifilters/ikws/ikwsopts_ui.ui:71
 #, kde-format
 msgid "Add a new Web search keyword"
-msgstr ""
+msgstr "Dodaj novu ključnu riječ"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbChange)
 #: urifilters/ikws/ikwsopts_ui.ui:84
 #, kde-format
 msgid "Modify the highlighted Web search keyword"
-msgstr ""
+msgstr "Promijeni odabranu ključnu riječ"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbDelete)
 #: urifilters/ikws/ikwsopts_ui.ui:97
 #, kde-format
 msgid "Delete the highlighted Web search keyword"
-msgstr ""
+msgstr "Izbriši odbranu ključnu riječ"
 
 #. i18n: ectx: property (text), widget (QPushButton, pbDelete)
 #: urifilters/ikws/ikwsopts_ui.ui:100
@@ -6723,13 +6675,17 @@ msgid ""
 "To disable this feature select <b>None</b> from the list.\n"
 "</qt>"
 msgstr ""
+"<qt>\n"
+"Izaberite tražilicu koja će koristiti kada unesite obične riječi ili fraze "
+"umjesto URL-a. Da biste onemogućili ovu značajku odaberite <b>Nijedna</b> iz "
+"popisa.\n"
+"</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, lbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:141
-#, fuzzy, kde-format
-#| msgid "Default password:"
+#, kde-format
 msgid "Default Web &search keyword:"
-msgstr "Uobičajena šifra:"
+msgstr "&Zadana ključna riječ mrežnog pretraživanja:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:166
@@ -6741,6 +6697,11 @@ msgid ""
 "p><p>To disable this functionality select <span style=\" font-weight:600;"
 "\">None</span> from the list. </p></body></html>"
 msgstr ""
+"<html><head/><body><p>Izaberite zadanu ključnu riječ mrežnog pretraživanja. "
+"</p><p>Ovo omogućuje programima da automatski pretvore unesene riječi ili "
+"fraze u mrežne pretrage ako nije unesen ispravan URL. </p><p>Da biste "
+"isključili ovo izaberite <span style=\" font-weight:600;\">Nijedna</span> iz "
+"popisa. </p></body></html>"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:182
@@ -6749,32 +6710,34 @@ msgid ""
 "Choose the delimiter that separates the keyword from the phrase or word to "
 "be searched."
 msgstr ""
+"Odaberite razdjelnik koji odvaja ključnu riječ od fraze ili riječi koju "
+"želite pretražiti."
 
 #. i18n: ectx: property (text), widget (QLabel, lbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:185
 #, kde-format
 msgid "&Keyword delimiter:"
-msgstr ""
+msgstr "&Razdjelnik ključnih riječi:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, cmbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:204
 #, kde-format
 msgid "Choose a delimiter to mark the Web search keyword."
-msgstr ""
+msgstr "Odaberite razdjelnik za označivanje ključne riječi mrežne pretrage."
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:208
 #, kde-format
 msgctxt "Colon as keyword delimiter"
 msgid "Colon"
-msgstr ""
+msgstr "Dvotočka"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cmbDelimiter)
 #: urifilters/ikws/ikwsopts_ui.ui:213
 #, kde-format
 msgctxt "Space as keyword delimiter"
 msgid "Space"
-msgstr ""
+msgstr "Razmak"
 
 #: urifilters/ikws/kuriikwsfilter.cpp:104
 #, kde-format
@@ -6787,8 +6750,7 @@ msgid "No search providers were found."
 msgstr "Nisu pronađeni pružatelji pretraživanja."
 
 #: urifilters/ikws/searchproviderdlg.cpp:49
-#, fuzzy, kde-format
-#| msgid "Default"
+#, kde-format
 msgctxt "@item:inlistbox The default character set"
 msgid "Default"
 msgstr "Zadano"
@@ -6796,27 +6758,25 @@ msgstr "Zadano"
 #: urifilters/ikws/searchproviderdlg.cpp:52
 #, kde-format
 msgid "Modify Web Shortcut"
-msgstr ""
+msgstr "Promijeni mrežni prečac"
 
 #: urifilters/ikws/searchproviderdlg.cpp:60
 #, kde-format
 msgid "New Web Shortcut"
-msgstr ""
+msgstr "Novi mrežni prečac"
 
 #: urifilters/ikws/searchproviderdlg.cpp:121
 #, kde-format
 msgid ""
 "The shortcut \"%1\" is already assigned to \"%2\". Please choose a different "
 "one."
-msgstr ""
+msgstr "Prečac \"%1\" je već dodijeljen \"%2\". Odaberite drugi."
 
 #: urifilters/ikws/searchproviderdlg.cpp:126
-#, fuzzy, kde-format
-#| msgctxt "items: folders, files (size)"
-#| msgid "%1: %2"
+#, kde-format
 msgctxt "- web short cut (e.g. gg): what it refers to (e.g. Google)"
 msgid "- %1: \"%2\""
-msgstr "%1: %2"
+msgstr "- %1: \"%2\""
 
 #: urifilters/ikws/searchproviderdlg.cpp:130
 #, kde-format
@@ -6824,6 +6784,8 @@ msgid ""
 "The following shortcuts are already assigned. Please choose different ones.\n"
 "%1"
 msgstr ""
+"Sljedeći prečaci već su dodijeljeni. Molimo vas da odaberite druge.\n"
+"%1"
 
 #: urifilters/ikws/searchproviderdlg.cpp:143
 #, kde-format
@@ -6832,23 +6794,26 @@ msgid ""
 "This means that the same page is always going to be visited, regardless of "
 "the text typed in with the shortcut."
 msgstr ""
+"URL prečaca ne sadrži \\{...} oznaku upita.\n"
+"To znači da će istra stranica uvijek biti učitana, zanemarujući sav tekst "
+"unesen prečacem."
 
 #: urifilters/ikws/searchproviderdlg.cpp:147
 #, kde-format
 msgid "Keep It"
-msgstr ""
+msgstr "Spremi"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbName)
 #: urifilters/ikws/searchproviderdlg_ui.ui:17
 #, kde-format
 msgid "Enter the human-readable name of the search provider here."
-msgstr ""
+msgstr "Ovdje unesite ljudski čitljiv naziv pružitelja pretraživanja."
 
 #. i18n: ectx: property (text), widget (QLabel, lbName)
 #: urifilters/ikws/searchproviderdlg_ui.ui:23
 #, kde-format
 msgid "Shortcut &name:"
-msgstr ""
+msgstr "&Naziv prečaca:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbQuery)
 #. i18n: ectx: property (toolTip), widget (QLineEdit, leQuery)
@@ -6872,18 +6837,32 @@ msgid ""
 "nothing matches from the left of the reference list.\n"
 "</qt>"
 msgstr ""
+"<qt>\n"
+"Unesite URI kojim će se vršiti pretrage pomuću tražilice ovdje.<br/> Cijeli "
+"tekst koji će biti pretražen može se odrediti kao \\{@} ili \\{0}.<br/>\n"
+"Preporučeno je \\{@}, jer uklanja sve varijable iz upita (ime=vrijednost)."
+"Ako koristite \\{0}, upit za pretraživanje ostat će nepromijenjen.<br/>Da "
+"biste odredili neke riječi iz upita možete koristiti \\{1} ... \\{n}.S "
+"\\{name} možete odrediti vrijednost datu od \"ime=vrijednost\" upita.<br/"
+">Isto tako je moguće odrediti više istovremenih referenci (imena, brojevi i "
+"nizovi) s (\\{name1,name2,...,\"string\"}).<br/>Prva odgovarajuća vrijednost "
+"(slijeva) koristit će se kao zamjenska vrijednostu konačnom URI-u.<br/"
+">Navedeni niz se može koristiti kao zadana vrijednost ako slijeva ništa "
+"neodgovora.\n"
+"</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, lbQuery)
 #: urifilters/ikws/searchproviderdlg_ui.ui:48
 #, kde-format
 msgid "Shortcut &URL:"
-msgstr ""
+msgstr "&URL prečaca:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cbCharset)
 #: urifilters/ikws/searchproviderdlg_ui.ui:83
 #, kde-format
 msgid "Select the character set that will be used to encode your search query."
 msgstr ""
+"Odaberite znakovni skup koji će se koristiti za kodiranje vaše pretrage."
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, leShortcut)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, leShortcut)
@@ -6899,6 +6878,11 @@ msgid ""
 "b>\n"
 "</qt>"
 msgstr ""
+"<qt>\n"
+"Prečaci uneseni ovdje mogu se koristiti kao pseudo-URI sheme u KDE-u. Na "
+"primjer, prečac <b>av</b> se može koristiti kao u <b>av</b>:<b>moja "
+"pretraga<b>\n"
+"</qt>"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, leName)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, leName)
@@ -6909,32 +6893,33 @@ msgid ""
 "<html><head/><body><p>Enter the human-readable name of the web shortcut here."
 "</p></body></html>"
 msgstr ""
+"<html><head/><body> <p>Ovdje unesite ljudski čitljivo ime mrežnog prečaca.</"
+"p></body></html>"
 
 #. i18n: ectx: property (text), widget (QLabel, lbShortcut)
 #: urifilters/ikws/searchproviderdlg_ui.ui:119
 #, kde-format
 msgid "&Shortcuts:"
-msgstr ""
+msgstr "&Prečaci:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, lbCharset)
 #: urifilters/ikws/searchproviderdlg_ui.ui:132
 #, kde-format
 msgid "Select the character set that will be used to encode your search query"
 msgstr ""
+"Odaberite znakovni skup koji će se koristiti za kodiranje vaše pretrage"
 
 #. i18n: ectx: property (text), widget (QLabel, lbCharset)
 #: urifilters/ikws/searchproviderdlg_ui.ui:135
 #, kde-format
 msgid "&Charset:"
-msgstr ""
+msgstr "&Znakovni skup:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, pbPaste)
 #: urifilters/ikws/searchproviderdlg_ui.ui:158
-#, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Interlace Mode"
+#, kde-format
 msgid "Insert query placeholder"
-msgstr "Način ispreplitanja"
+msgstr "Umetnite oznaku upita"
 
 #: urifilters/shorturi/kshorturifilter.cpp:251
 #, kde-format
@@ -6990,7 +6975,7 @@ msgstr "Odjel:"
 #: widgets/certificateparty.ui:78
 #, kde-format
 msgid "Fraud Department"
-msgstr "Odjel za prijevare:"
+msgstr "Odjel za prijevare"
 
 #. i18n: ectx: property (text), widget (QLabel, countryTag)
 #: widgets/certificateparty.ui:88
@@ -7050,7 +7035,8 @@ msgstr "Očekivani kontrolni zbroj (MD5, SHA1, SHA256 ili SHA512)..."
 #, kde-format
 msgid "Click to paste the checksum from the clipboard to the input field."
 msgstr ""
-"Kliknite za lijepljenje kontrolnog zbroja iz međuspremnika u polje za unos."
+"Pritisnite ovdje za lijepljenje kontrolnog zbroja iz međuspremnika u polje "
+"za unos."
 
 #. i18n: MD5 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, md5Label)
@@ -7100,7 +7086,7 @@ msgstr "Izračunaj"
 #: widgets/checksumswidget.ui:188 widgets/checksumswidget.ui:225
 #, kde-format
 msgid "Click to copy the checksum to the clipboard."
-msgstr "Kliknite za kopiranje kontrolnog zbroja u međuspremnik."
+msgstr "Pritisnite ovdje za kopiranje kontrolnog zbroja u međuspremnik."
 
 #: widgets/dropjob.cpp:181
 #, kde-format
@@ -7133,26 +7119,27 @@ msgid "Do not ask again"
 msgstr "Ne pitaj ponovno"
 
 #: widgets/executablefileopendialog.cpp:34
-#, fuzzy, kde-format
-#| msgid "E&xecute"
+#, kde-format
 msgid "&Execute"
 msgstr "I&zvrši"
 
 #: widgets/fileundomanager.cpp:118
 #, kde-format
 msgid "Undo Changes"
-msgstr ""
+msgstr "Poništi promjene"
 
 #: widgets/fileundomanager.cpp:119
 #, kde-format
 msgid ""
 "Undoing this operation requires root privileges. Do you want to continue?"
 msgstr ""
+"Za poništavanje ove radnje potrebne su korijenske ovlasti. Želite li "
+"nastaviti?"
 
 #: widgets/fileundomanager.cpp:132
 #, kde-format
 msgid "Creating directory"
-msgstr "Stvaranje direktorija"
+msgstr "Stvaranje mape"
 
 #: widgets/fileundomanager.cpp:141
 #, kde-format
@@ -7235,7 +7222,7 @@ msgstr ""
 #: widgets/fileundomanager.cpp:736
 #, kde-format
 msgid "Undo File Copy Confirmation"
-msgstr "Poništi potvrdu o kopiranju datoteka."
+msgstr "Poništi potvrdu o kopiranju datoteka"
 
 #: widgets/jobuidelegate.cpp:280
 #, kde-kuit-format
@@ -7317,7 +7304,7 @@ msgstr[2] "Želite li zaista premjestiti ovih %1 stavki u smeće?"
 #: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:529
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
-msgstr "Čini se da je SSL potvrda treće osobe pokvarena."
+msgstr "Čini se da je SSL potvrda treće osobe oštećena."
 
 #: widgets/jobuidelegate.cpp:456 widgets/widgetsaskuseractionhandler.cpp:532
 #, kde-format
@@ -7325,18 +7312,16 @@ msgid "SSL"
 msgstr "SSL"
 
 #: widgets/kacleditwidget.cpp:71
-#, fuzzy, kde-format
-#| msgid "Add..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Add..."
 msgstr "Dodaj…"
 
 #: widgets/kacleditwidget.cpp:75
-#, fuzzy, kde-format
-#| msgid "Edit"
+#, kde-format
 msgctxt "@action:button"
 msgid "Edit..."
-msgstr "Uređuj"
+msgstr "Uredi..."
 
 #: widgets/kacleditwidget.cpp:79
 #, kde-format
@@ -7392,7 +7377,7 @@ msgstr "Tip unosa"
 #: widgets/kacleditwidget.cpp:393
 #, kde-format
 msgid "Default for new files in this folder"
-msgstr "Uobičajeno za nove datoteke u ovom direktoriju"
+msgstr "Zadano za nove datoteke u ovoj mapi"
 
 #: widgets/kacleditwidget.cpp:400
 #, kde-format
@@ -7427,12 +7412,12 @@ msgstr "Imenovana grupa"
 #: widgets/kacleditwidget.cpp:443
 #, kde-format
 msgid "User: "
-msgstr "Korisnik:"
+msgstr "Korisnik: "
 
 #: widgets/kacleditwidget.cpp:457
 #, kde-format
 msgid "Group: "
-msgstr "Grupa:"
+msgstr "Grupa: "
 
 #: widgets/kacleditwidget.cpp:595
 #, kde-format
@@ -7470,7 +7455,7 @@ msgstr "Efektivno"
 #: widgets/kbuildsycocaprogressdialog.cpp:32
 #, kde-format
 msgid "Updating System Configuration"
-msgstr "Obnova postavki sustava."
+msgstr "Obnova postavki sustava"
 
 #: widgets/kbuildsycocaprogressdialog.cpp:32
 #, kde-format
@@ -7567,15 +7552,13 @@ msgstr "%1|/|$[gen %1]"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
-msgstr "&Akcije"
+msgstr "&Radnje"
 
 #: widgets/kfileitemactions.cpp:858
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open With..."
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With..."
-msgstr "&Otvori pomoću…"
+msgstr "&Otvori mapu s..."
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -7606,11 +7589,10 @@ msgid "&Open With"
 msgstr "&Otvori pomoću"
 
 #: widgets/kfileitemactions.cpp:940
-#, fuzzy, kde-format
-#| msgid "&Application"
+#, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application..."
-msgstr "&Aplikacija"
+msgstr "&Ostale aplikacije..."
 
 #: widgets/kfileitemdelegate.cpp:209
 #, kde-format
@@ -7641,16 +7623,15 @@ msgstr "Istražite u Filelightu"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:131
-#, fuzzy, kde-format
-#| msgid "Mounted on:"
+#, kde-format
 msgid "Mounted From:"
-msgstr "Montiran na:"
+msgstr "Montirano iz:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:207
 #, kde-format
 msgid "Free Space:"
-msgstr ""
+msgstr "Slobodan prostor:"
 
 #. i18n: ectx: property (text), widget (QLabel, typeLabel)
 #: widgets/kfilepropspluginwidget.ui:244
@@ -7696,10 +7677,9 @@ msgstr "Stvoreno:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:400
-#, fuzzy, kde-format
-#| msgid "File system:"
+#, kde-format
 msgid "File System:"
-msgstr "Datotečni sustav"
+msgstr "Datotečni sustav:"
 
 #. i18n: ectx: property (text), widget (KCapacityBar, capacityBar)
 #: widgets/kfilepropspluginwidget.ui:430
@@ -7709,10 +7689,9 @@ msgstr "Nepoznata veličina"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:453
-#, fuzzy, kde-format
-#| msgid "Mounted on:"
+#, kde-format
 msgid "Mounted On:"
-msgstr "Montiran na:"
+msgstr "Montirano na:"
 
 #. i18n: ectx: property (text), widget (QLabel, accessTimeLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:473
@@ -7722,10 +7701,9 @@ msgstr "Pristupljeno:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:483
-#, fuzzy, kde-format
-#| msgid "Open With"
+#, kde-format
 msgid "Open With:"
-msgstr "Otvori pomoću"
+msgstr "Otvori s:"
 
 #: widgets/kopenwithdialog.cpp:298
 #, kde-format
@@ -7744,8 +7722,8 @@ msgid ""
 "is not listed, enter the name or click the browse button.</qt>"
 msgstr ""
 "<qt>Odaberite program koji će biti korišten za otvaranje <b>%1</b>. Ako "
-"program nije na popisu, unesite naziv ili kliknite na gumb za pregledavanje."
-"</qt>"
+"program nije na popisu, unesite naziv ili pritisnite na gumb za "
+"pregledavanje.</qt>"
 
 #: widgets/kopenwithdialog.cpp:568
 #, kde-format
@@ -7787,7 +7765,7 @@ msgid ""
 "listed, enter the name or click the browse button.</qt>"
 msgstr ""
 "<qt>Odaberite program koji ćete povezati sa datotekama tipa: <b>%1</b>. Ako "
-"nije naveden program, upišite naziv ili kliknite gumb Potraži.</qt>"
+"nije naveden program, upišite naziv ili pritisnite gumb Potraži.</qt>"
 
 #: widgets/kopenwithdialog.cpp:629
 #, kde-format
@@ -7796,7 +7774,7 @@ msgid ""
 "the browse button.</qt>"
 msgstr ""
 "<qt>Odaberite željenu aplikaciju. Ako željena aplikacija nije u popisu, "
-"upišite njen naziv ili kliknite gumb Potraži.</qt>"
+"upišite njen naziv ili pritisnite gumb Potraži.</qt>"
 
 #: widgets/kopenwithdialog.cpp:675
 #, kde-format
@@ -7824,15 +7802,15 @@ msgid ""
 "%m - the mini-icon\n"
 "%c - the comment"
 msgstr ""
-"Slijedeći naredbu,  možete imati nekoliko stavki koje će se zamjeniti sa "
+"Slijedeći naredbu, možete imati nekoliko stavki koje će se zamjeniti s "
 "pravim vrijednostima kad se pravi program pokrene:\n"
 " %f – jedno ime datoteke\n"
 "%F – lista datoteka; upotrijebiti za aplikacije that koje mogu otvoriti "
-"nekoliko lokalnih datotekaodjednom\n"
+"nekoliko lokalnih datoteka odjednom\n"
 "%u – jedan URL\n"
-"%U – lista URLova\n"
-"%d – direktorij datoteke koju treba otvoriti\n"
-"%D – lista direktorija\n"
+"%U – popis URL-ova\n"
+"%d – mapa datoteke koju treba otvoriti\n"
+"%D – popis mapa\n"
 "%i – ikona\n"
 "%m – mini-ikona\n"
 "%c – komentar"
@@ -7877,7 +7855,7 @@ msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
 msgstr ""
-"Ne mogu izvući naziv izvršne datoteke iz '%1'. Molim upišite valjani naziv "
+"Nije moguće izvući naziv izvršne datoteke iz '%1'. Upišite valjani naziv "
 "programa."
 
 #: widgets/kopenwithdialog.cpp:1034
@@ -7913,7 +7891,7 @@ msgid ""
 "application or if you want the information that is provided by the terminal "
 "emulator window."
 msgstr ""
-"Odaberite ovu opciju ako je aplikacija koju želite pokrenuti tekst mod "
+"Označite ovu opciju ako je aplikacija koju želite pokrenuti tekst mod "
 "aplikacija ili ako želite vidjeti informaciju koju pruža prozor terminal "
 "emulatora."
 
@@ -7937,9 +7915,9 @@ msgid ""
 "on exit. Keeping the terminal emulator open allows you to retrieve this "
 "information."
 msgstr ""
-"Odaberite ovu opciju ako tekst mod aplikacija nudi relevantne informacije "
-"pri izlasku. Držanje terminal emulatora otvorenim dozvoljava vam da uzmete "
-"ovu informaciju. "
+"Označite ovu opciju ako tekst mod aplikacija nudi relevantne informacije pri "
+"izlasku. Držanje terminal emulatora otvorenim dozvoljava vam da uzmete ovu "
+"informaciju."
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:74
@@ -7968,7 +7946,7 @@ msgstr ""
 "Označite ovu opciju ako želite pokrenuti ovu aplikaciju a drugačijim "
 "korisničkim identitetom. Svaki proces ima drugačiji korisnički identifikator "
 "s kojim je povezan.  Ovaj identifikator određuje dozvole pristupa datotekama "
-"i druge dozvole. Zaporka korisnika je potrebna za korištenje ove opcije. "
+"i druge dozvole. Zaporka korisnika je potrebna za korištenje ove opcije."
 
 #. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:96
@@ -8022,9 +8000,9 @@ msgid ""
 "Check this option if you want to make clear that your application has "
 "started. This visual feedback may appear as a busy cursor or in the taskbar."
 msgstr ""
-"Odaberite ovu opciju ako želite pojasniti da je vaša aplikacija pokrenuta. "
+"Označite ovu opciju ako želite pojasniti da je vaša aplikacija pokrenuta. "
 "Ova vizualna povratna informacija se može prikazati kao pokazivač zauzetosti "
-"ili u programskoj traci. "
+"ili u programskoj traci."
 
 #. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:167
@@ -8076,30 +8054,14 @@ msgstr "&Komentar:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:82
-#, fuzzy, kde-format
-#| msgid "Use preset proxy environment &variables"
+#, kde-format
 msgid "Environment Variables:"
-msgstr "Morate definirati barem jednu valjanu okolišnu varijablu za proxy."
+msgstr "Varijable okoline:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel4)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, programEdit)
 #: widgets/kpropertiesdesktopbase.ui:105 widgets/kpropertiesdesktopbase.ui:130
-#, fuzzy, no-c-format, kde-format
-#| msgid ""
-#| "Type the command to start this application here.\n"
-#| "\n"
-#| "Following the command, you can have several place holders which will be "
-#| "replaced with the actual values when the actual program is run:\n"
-#| "%f - a single file name\n"
-#| "%F - a list of files; use for applications that can open several local "
-#| "files at once\n"
-#| "%u - a single URL\n"
-#| "%U - a list of URLs\n"
-#| "%d - the directory of the file to open\n"
-#| "%D - a list of directories\n"
-#| "%i - the icon\n"
-#| "%m - the mini-icon\n"
-#| "%c - the caption"
+#, no-c-format, kde-format
 msgid ""
 "Type the command to start this application here.\n"
 "\n"
@@ -8117,14 +8079,14 @@ msgstr ""
 "Ovdje unesite naredbu za pokretanje ovog programa.\n"
 "\n"
 "Prateći naredbu, možete imati više simbola koji će prilikom pokretanja "
-"programa biti zamjenjeni stvarnim vrijednostima:\n"
+"program a biti zamjenjeni stvarnim vrijednostima:\n"
 "%f – ime datoteke\n"
 "%F – popis datoteka koristi se za programe koji mogu otvoriti više lokalnih "
 "datoteka odjednom\n"
 "%u – jedan URL\n"
 "%U – popis URL-ova\n"
-"%d – direktorij datoteke za otvaranje\n"
-"%D – popis direktorija\n"
+"%d – mapa datoteke za otvaranje\n"
+"%D – popis mapa\n"
 "%i – sličica\n"
 "%m – mini sličica\n"
 "%c – komentar"
@@ -8149,14 +8111,14 @@ msgstr ""
 #: widgets/kpropertiesdesktopbase.ui:140
 #, kde-format
 msgid "&Browse..."
-msgstr "Po&traži…"
+msgstr "Pr&etraga..."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel5)
 #. i18n: ectx: property (whatsThis), widget (KUrlRequester, pathEdit)
 #: widgets/kpropertiesdesktopbase.ui:149 widgets/kpropertiesdesktopbase.ui:162
 #, kde-format
 msgid "Sets the working directory for your application."
-msgstr "Postavlja radni direktorij za vašu aplikaciju."
+msgstr "Postavlja radnu mapu za vašu aplikaciju."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel5)
 #: widgets/kpropertiesdesktopbase.ui:152
@@ -8166,10 +8128,9 @@ msgstr "&Radna putanja:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/kpropertiesdesktopbase.ui:169
-#, fuzzy, kde-format
-#| msgid "FIXME: Document this"
+#, kde-format
 msgid "Arguments:"
-msgstr "POPRAVIME: Dokumentiraj ovo"
+msgstr "Argumenti:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel7)
 #. i18n: ectx: property (whatsThis), widget (QTreeWidget, filetypeList)
@@ -8191,7 +8152,7 @@ msgid ""
 "remove them from the list clicking on the button <b>Remove</b> below.</p></"
 "qt>"
 msgstr ""
-"<qt><p>Ova lista bi trebala pokazivati tipove datoteka koje Vaša aplikacija "
+"<qt><p>Ovaj popis bi trebala pokazivati tipove datoteka koje vaša aplikacija "
 "može koristiti. Popis je organiziran po <u>mimetipovima</u>.</p>\n"
 "<p>MIME, Multipurpose Internet (e)Mail Extension (Višesvrhni dodatak "
 "internet pošti) je standardni protokol za određivanje tipova podataka prema "
@@ -8203,7 +8164,7 @@ msgstr ""
 "<p>Ako želite pridružiti ovoj aplikaciji jedan ili više mimetipova koji nisu "
 "na ovome popisu, kliknite na gumb <b>Dodaj</b>. Ako je naveden jedan ili "
 "više mimetipova koje ova aplikacija ne može koristiti, možda ćete htjeti "
-"maknuti ih s popisa tako da kliknete na gumb <b>Makni</b>.</p></qt>"
+"maknuti ih s popisa tako da pritisnite na gumb <b>Makni</b>.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
 #: widgets/kpropertiesdesktopbase.ui:189
@@ -8246,8 +8207,8 @@ msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
 "handle, select the mimetype in the list above and click on this button."
 msgstr ""
-"Ako želite da uklonite tip datoteke (mime tip) sa kojim vaš program ne može "
-"raditi, odaberite mime tip iz gornje liste i  pritisnite ovaj gumb."
+"Ako želite ukloniti tip datoteke (mime tip) s kojim vaš program ne "
+"funkcionira, odaberite mime tip iz gornjeg popisa i pritisnite ovaj gumb."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
 #: widgets/kpropertiesdesktopbase.ui:248
@@ -8431,7 +8392,7 @@ msgstr "Može pregledavati/čitati i mijenjati/pisati"
 #: widgets/kpropertiesdialog.cpp:1861
 #, kde-format
 msgid "&Permissions"
-msgstr "&Ovlasti"
+msgstr "Ovla&sti"
 
 #: widgets/kpropertiesdialog.cpp:1873 widgets/kpropertiesdialog.cpp:2069
 #, kde-format
@@ -8449,7 +8410,7 @@ msgstr[2] "Sve ove datoteke su poveznice i nemaju dozvole."
 #: widgets/kpropertiesdialog.cpp:1884
 #, kde-format
 msgid "Only the owner can change permissions."
-msgstr "Samo vlasnik može promjeniti ovlasti "
+msgstr "Samo vlasnik može promijeniti ovlasti."
 
 #: widgets/kpropertiesdialog.cpp:1888
 #, kde-format
@@ -8459,7 +8420,7 @@ msgstr "&Vlasnik:"
 #: widgets/kpropertiesdialog.cpp:1894
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
-msgstr "Opisuje posupke koji su dozvoljeni vlasniku."
+msgstr "Opisuje radnje koje su dozvoljene vlasniku."
 
 #: widgets/kpropertiesdialog.cpp:1896
 #, kde-format
@@ -8469,7 +8430,7 @@ msgstr "Gr&upa:"
 #: widgets/kpropertiesdialog.cpp:1902
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
-msgstr "Opisuje postupke koji su dozvoljeni članovima grupe."
+msgstr "Opisuje radnje koje su dozvoljene članovima grupe."
 
 #: widgets/kpropertiesdialog.cpp:1904
 #, kde-format
@@ -8482,8 +8443,8 @@ msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
 "group, are allowed to do."
 msgstr ""
-"Opisuje postupke koji su dozvoljeni svim korisnicima, koji nisu niti "
-"vlasnici niti članovi grupe. "
+"Opisuje radnje koje su dozvoljene svim korisnicima, koji nisu niti vlasnici "
+"niti članovi grupe."
 
 #: widgets/kpropertiesdialog.cpp:1915
 #, kde-format
@@ -8538,7 +8499,7 @@ msgstr "Grupa:"
 #: widgets/kpropertiesdialog.cpp:2018
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
-msgstr "Primijeni promjene na sve poddirektorije i njihov sadržaj"
+msgstr "Primijeni promjene na sve podmape i njihov sadržaj"
 
 #: widgets/kpropertiesdialog.cpp:2060
 #, kde-format
@@ -8562,7 +8523,7 @@ msgstr ""
 #: widgets/kpropertiesdialog.cpp:2085
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
-msgstr "Ova zastavica omogućava pregledavanje sadržaja direktorija."
+msgstr "Ova zastavica omogućava pregledavanje sadržaja mape."
 
 #: widgets/kpropertiesdialog.cpp:2087
 #, kde-format
@@ -8601,7 +8562,7 @@ msgstr "Zapiši"
 #: widgets/kpropertiesdialog.cpp:2100
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
-msgstr "Piši zastavica dozvoljava mijenjanje sadržaja datoteke. "
+msgstr "Piši zastavica dozvoljava mijenjanje sadržaja datoteke."
 
 #: widgets/kpropertiesdialog.cpp:2106
 #, kde-format
@@ -8635,8 +8596,8 @@ msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
 "be seen in the right hand column."
 msgstr ""
-"Specijalna privilegija. Važi za cijeli direktorij, točno značenje "
-"privilegije možete vidjeti u desnom stupcu."
+"Specijalna zastavica. Vrijedi za cijelu mapu, točno značenje zastavice "
+"možete vidjeti u desnom stupcu."
 
 #: widgets/kpropertiesdialog.cpp:2127
 #, kde-format
@@ -8707,8 +8668,8 @@ msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
 "systems"
 msgstr ""
-"Sticky zastavica na datoteci je ignorirana na Linuxu, ali se moždakoristi na "
-"drugim sustavima "
+"Sticky zastavica na datoteci je ignorirana na Linuxu, ali se možda koristi "
+"na drugim sustavima"
 
 #: widgets/kpropertiesdialog.cpp:2235
 #, kde-format
@@ -8740,7 +8701,7 @@ msgstr "Promijenjljiv (Bez promjene)"
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
-msgstr[0] "Ova datoteka koristi napredne dozvole."
+msgstr[0] "Ova datoteka koristi napredne dozvole"
 msgstr[1] "Ove datoteke koriste napredne dozvole."
 msgstr[2] "Ove datoteke koriste napredne dozvole."
 
@@ -8765,8 +8726,7 @@ msgstr "Ko&ntrolni zbroj"
 
 #: widgets/kpropertiesdialog.cpp:2828 widgets/kpropertiesdialog.cpp:2839
 #: widgets/kpropertiesdialog.cpp:2850 widgets/kpropertiesdialog.cpp:2861
-#, fuzzy, kde-format
-#| msgid "Calculating..."
+#, kde-format
 msgctxt "@action:button"
 msgid "Calculating..."
 msgstr "Računam…"
@@ -8814,7 +8774,7 @@ msgstr "Izračunati kontrolni zbroj i očekivani kontrolni zbroj razlikuju se."
 #, kde-format
 msgctxt "notify the user about a computation in the background"
 msgid "Verifying checksum..."
-msgstr ""
+msgstr "Provjerava kontrolnog zbroja…"
 
 #: widgets/kpropertiesdialog.cpp:3148
 #, kde-format
@@ -8865,14 +8825,13 @@ msgid ""
 "<qt>Unable to run the command specified. The file or folder <b>%1</b> does "
 "not exist.</qt>"
 msgstr ""
-"<qt>Ne mogu pokrenuti naredbu koju ste naveli. Datoteka/direktorij <b>%1</b> "
-"ne postoji.</qt>"
+"<qt>Nije moguće pokrenuti naredbu koju ste naveli. Datoteka ili mapa <b>%1</"
+"b> ne postoji.</qt>"
 
 #: widgets/krun.cpp:492
-#, fuzzy, kde-format
-#| msgid "Could not change ownership for %1."
+#, kde-format
 msgid "Could not find any application or handler for %1"
-msgstr "Nije moguće promijeniti vlasništvo od %1."
+msgstr "Nije moguće pronaći aplikaciju ili rukovatelj za %1"
 
 #: widgets/ksslinfodialog.cpp:39
 #, kde-format
@@ -8889,7 +8848,7 @@ msgstr "Predmet"
 #, kde-format
 msgctxt "The authority that issued the SSL certificate"
 msgid "Issuer"
-msgstr "Izdavatelj:"
+msgstr "Izdavatelj"
 
 #: widgets/ksslinfodialog.cpp:83
 #, kde-format
@@ -8966,11 +8925,9 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Configure..."
+#, kde-format
 msgid "Configure Web Shortcuts..."
-msgstr "Podešavanje…"
+msgstr "Postavi mrežne prečace..."
 
 #: widgets/kurlrequester.cpp:395
 #, kde-format
@@ -9040,11 +8997,10 @@ msgstr[1] "Zalijepi %1 stavke"
 msgstr[2] "Zalijepi %1 stavki"
 
 #: widgets/paste.cpp:335
-#, fuzzy, kde-format
-#| msgid "&Paste Clipboard Contents"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents..."
-msgstr "&Zalijepi sadržaje odlagališta"
+msgstr "Zalijepi sadržaj međuspremnika..."
 
 #: widgets/paste.cpp:339
 #, kde-format
@@ -9078,22 +9034,17 @@ msgid "Appl&y to All"
 msgstr "Primijeni na &sve"
 
 #: widgets/renamedialog.cpp:227
-#, fuzzy, kde-format
-#| msgid ""
-#| "Files and folders will be copied into the existing directory, alongside "
-#| "its existing contents.\n"
-#| "You will be prompted again in case of a conflict with an existing file in "
-#| "the directory."
+#, kde-format
 msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
-"Datoteke i mape bit će kopirane u bilo koji postojeći direktorij zajedno s "
-"postojećim sadržajem.\n"
-"Sustav će vas opet tražiti potvrdu ukoliko dođe do sukoba s postojećom "
-"datotekom u direktoriju."
+"Kada je ovo označeno, pritisnuti gumb će se primijeniti na sve sljedeće "
+"sukob e mapa za ostatak trenutnog zadatka.\n"
+"Osim ako ne pritisnete Preskoči, i dalje ćete biti upitani u slučaju sukoba "
+"s postojećom datotekom u mapi."
 
 #: widgets/renamedialog.cpp:231
 #, kde-format
@@ -9101,6 +9052,8 @@ msgid ""
 "When this is checked the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
 msgstr ""
+"Kada je ovo označeno, pritisnuti gumb će se primijeniti na sve sljedeće suko "
+"be za ostatak trenutnog zadatka."
 
 #: widgets/renamedialog.cpp:237
 #, kde-format
@@ -9121,15 +9074,15 @@ msgstr "Pre&skoči"
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr ""
-"Ne kopiraj niti ne premještaj ovu mapu, umjesto toga preskoći na sljedeću "
-"stavku."
+"Ne kopiraj niti ne premještaj ovu mapu, umjesto toga preskoči na sljedeću "
+"stavku"
 
 #: widgets/renamedialog.cpp:247
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr ""
-"Ne kopiraj niti ne premještaj ovu datoteku, umjesto toga preskoći na "
-"sljedeću stavku."
+"Ne kopiraj niti ne premještaj ovu datoteku, umjesto toga preskoči na "
+"sljedeću stavku"
 
 #: widgets/renamedialog.cpp:258
 #, kde-format
@@ -9145,10 +9098,10 @@ msgid ""
 "You will be prompted again in case of a conflict with an existing file in "
 "the directory."
 msgstr ""
-"Datoteke i mape bit će kopirane u bilo koji postojeći direktorij zajedno s "
-"postojećim sadržajem.\n"
+"Datoteke i mape bit će kopirane u postojeću mapu zajedno s postojećim "
+"sadržajem.\n"
 "Sustav će vas opet tražiti potvrdu ukoliko dođe do sukoba s postojećom "
-"datotekom u direktoriju."
+"datotekom u mapi."
 
 #: widgets/renamedialog.cpp:266
 #, kde-format
@@ -9176,8 +9129,8 @@ msgid ""
 "This action would overwrite '%1' with itself.\n"
 "Please enter a new file name:"
 msgstr ""
-"Ovaj postupak će prepisati '%1' samim sobom.\n"
-"Molim Vas, unesite novi naziv datoteke:"
+"Ova radnja bi prepisala '%1' samim sobom.\n"
+"Unesite novi naziv datoteke:"
 
 #: widgets/renamedialog.cpp:297
 #, kde-format
@@ -9202,36 +9155,32 @@ msgstr "Odredište"
 #: widgets/renamedialog.cpp:397
 #, kde-format
 msgid "Differences"
-msgstr ""
+msgstr "Razlike"
 
 #: widgets/renamedialog.cpp:418
-#, fuzzy, kde-format
-#| msgid "Warning, the destination is more recent."
+#, kde-format
 msgid "The destination is <b>smaller by %1</b>"
-msgstr "Oprez, odredište je novije."
+msgstr "Odredište je <b>manje za %1</b>"
 
 #: widgets/renamedialog.cpp:421
-#, fuzzy, kde-format
-#| msgid "the extension <b>%1</b>"
+#, kde-format
 msgid "The destination is <b>bigger by %1</b>"
-msgstr "dodatak <b>%1</b>"
+msgstr "Odredište je <b>veće za %1</b>"
 
 #: widgets/renamedialog.cpp:435
-#, fuzzy, kde-format
-#| msgid "The new file name is empty."
+#, kde-format
 msgid "The files are identical."
-msgstr "Novi naziv datoteke je prazan."
+msgstr "Datoteke su iste."
 
 #: widgets/renamedialog.cpp:438
 #, kde-format
 msgid "The files seem identical."
-msgstr ""
+msgstr "Ove datoteke izgledaju identično."
 
 #: widgets/renamedialog.cpp:441
-#, fuzzy, kde-format
-#| msgid "The new file name is empty."
+#, kde-format
 msgid "The files are different."
-msgstr "Novi naziv datoteke je prazan."
+msgstr "Datoteke su drugačije."
 
 #: widgets/renamedialog.cpp:449
 #, kde-format
@@ -9448,26 +9397,19 @@ msgstr[2] ""
 "strong='true'>Ova se radnja ne može poništiti.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:254
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you want to permanently delete all items from Trash? This action "
-#| "cannot be undone."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this item to Trash failed as it is too large. Permanently delete it "
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Želite li trajno obrisati sve stavke iz vašeg otpada? Ova radnja ne može "
-"biti poništena."
+"Premještanje ove stavke u smeće nije uspjelo jer je prevelika. Želite li ju "
+"trajno izbrisati?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>Ova radnja se ne može poništiti.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:261
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Do you want to permanently delete all items from Trash? This action "
-#| "cannot be undone."
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "Moving this %1 item to Trash failed as it is too large. Permanently delete "
@@ -9478,14 +9420,17 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Želite li trajno obrisati sve stavke iz vašeg otpada? Ova radnja ne može "
-"biti poništena."
+"Premještanje datoteke %1 u smeće nije uspjelo jer je prevelika. Želite li ju "
+"trajno izbrisati?<nl/> <emphasis strong='true'>Ova radnja se ne može "
+"poništiti.</emphasis>"
 msgstr[1] ""
-"Želite li trajno obrisati sve stavke iz vašeg otpada? Ova radnja ne može "
-"biti poništena."
+"Premještanje datoteke %1 u smeće nije uspjelo jer su prevelike. Želite li ih "
+"trajno izbrisati?<nl/> <emphasis strong='true'>Ova radnja se ne može "
+"poništiti.</emphasis>"
 msgstr[2] ""
-"Želite li trajno obrisati sve stavke iz vašeg otpada? Ova radnja ne može "
-"biti poništena."
+"Premještanje datoteka %1 u smeće nije uspjelo jer su prevelike. Želite li ih "
+"trajno izbrisati?<nl/> <emphasis strong='true'>Ova radnja se ne može "
+"poništiti.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:289
 #, kde-kuit-format
@@ -9529,7 +9474,7 @@ msgstr "Ovo će pokrenuti program:"
 #: widgets/widgetsuntrustedprogramhandler.cpp:131
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
-msgstr "Ako ne vjerujete ovom programu, kliknite Prekinuti"
+msgstr "Ako ne vjerujete ovom programu, pritisnite Otkaži"
 
 #~ msgid "None"
 #~ msgstr "Nijedna"

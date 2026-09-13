@@ -90,7 +90,7 @@ or file dialog manual -->
 
 <important
 ><para
->Si bé és molt còmode que el &kde; desi les vostres contrasenyes &SMB;, això pot resultar en un problema de seguretat. Si utilitzeu el &SMB; en un entorn insegur, no hauríeu de desar les vostres contrasenyes, sinó introduir-les cada vegada que necessiteu accedir a una màquina &SMB;.</para
+>Si bé és molt còmode que el &kde; desi les vostres contrasenyes &SMB;, això pot provocar un problema de seguretat. Si utilitzeu el &SMB; en un entorn insegur, no hauríeu de desar les vostres contrasenyes, sinó introduir-les cada vegada que necessiteu accedir a una màquina &SMB;.</para
 ></important>
 
 </sect2>
