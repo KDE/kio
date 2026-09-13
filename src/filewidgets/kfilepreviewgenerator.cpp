@@ -229,6 +229,11 @@ public:
     bool m_iconUpdatesPaused = false;
 
     /*
+     * True if the app is watched for palette changes, not some widget
+     */
+    bool m_appPaletteWatched = false;
+
+    /*
      * If the value is 0, the slot
      * updateIcons(const QModelIndex&, const QModelIndex&) has
      * been triggered by an external data change.
@@ -1152,15 +1157,37 @@ KFilePreviewGenerator::KFilePreviewGenerator(QAbstractItemView *parent)
     , d(new KFilePreviewGeneratorPrivate(this, new KIO::DefaultViewAdapter(parent, this), parent->model()))
 {
     d->m_itemView = parent;
+    d->m_appPaletteWatched = false;
+    parent->installEventFilter(this);
 }
 
 KFilePreviewGenerator::KFilePreviewGenerator(KAbstractViewAdapter *parent, QAbstractProxyModel *model)
     : QObject(parent)
     , d(new KFilePreviewGeneratorPrivate(this, parent, model))
 {
+    d->m_appPaletteWatched = true;
+    qApp->installEventFilter(this);
 }
 
 KFilePreviewGenerator::~KFilePreviewGenerator() = default;
+
+// TODO: add instead a signal paletteChanged to KAbstractViewAdapter and have the adapter watch out for changes
+// avoids the expensive filtering on the app instance (gets all the events of all UI tree objects)
+bool KFilePreviewGenerator::eventFilter(QObject *watched, QEvent *event)
+{
+    if (d->m_appPaletteWatched ? ((watched == qApp) && (event->type() == QEvent::ApplicationPaletteChange))
+                               : ((watched == d->m_itemView) && (event->type() == QEvent::PaletteChange))) {
+        if (d->m_previewShown) {
+            // Only folder thumbnails might need to be reset here,
+            // given the icon used as background can be rendered based on app color palette.
+            // For simple code and as a app color palette changes do not often happen,
+            // the whole cache is discarded here.
+            updateIcons();
+        }
+    }
+
+    return QObject::eventFilter(watched, event);
+}
 
 void KFilePreviewGenerator::setPreviewShown(bool show)
 {
