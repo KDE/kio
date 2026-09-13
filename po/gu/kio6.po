@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-10 00:41+0000\n"
+"POT-Creation-Date: 2026-09-13 00:41+0000\n"
 "PO-Revision-Date: 2026-03-31 23:12+0530\n"
 "Last-Translator: CrazyCourt651 <CrazyCourt651@gmail.com>\n"
 "Language-Team: Gujarati\n"
@@ -4169,27 +4169,27 @@ msgstr "આપેલ વપરાશકર્તા નામ %1 માટે �
 msgid "Could not get group id for given group name %1"
 msgstr "આપેલ સમૂહ નામ %1 માટે સમૂહ ઓળ મેળવી શકાતી નથી"
 
-#: kioworkers/ftp/ftp.cpp:354
+#: kioworkers/ftp/ftp.cpp:361
 #, kde-format
 msgid "Opening connection to host %1"
 msgstr "યજમાન %1 સાથે જોડાણ ખોલે છે"
 
-#: kioworkers/ftp/ftp.cpp:369
+#: kioworkers/ftp/ftp.cpp:376
 #, kde-format
 msgid "Connected to host %1"
 msgstr "યજમાન %1 સાથે જોડાયેલ છે"
 
-#: kioworkers/ftp/ftp.cpp:477
+#: kioworkers/ftp/ftp.cpp:484
 #, kde-format
 msgid "%1 (Error %2)"
 msgstr "%1 (ભૂલ %2)"
 
-#: kioworkers/ftp/ftp.cpp:507
+#: kioworkers/ftp/ftp.cpp:514
 #, kde-format
 msgid "Sending login information"
 msgstr "લોગીન માહિતી મોકલે છે"
 
-#: kioworkers/ftp/ftp.cpp:557
+#: kioworkers/ftp/ftp.cpp:564
 #, kde-format
 msgid ""
 "Message sent:\n"
@@ -4206,32 +4206,32 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:199
+#: kioworkers/ftp/ftp.cpp:575 kioworkers/http/http.cpp:199
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "આ સાઇટ જોવા માટે તમારે વપરાશકર્તા નામ અને પાસવર્ડ આપવો પડશે."
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:201
+#: kioworkers/ftp/ftp.cpp:577 kioworkers/http/http.cpp:201
 #, kde-format
 msgid "Site:"
 msgstr "સાઇટ:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2498
+#: kioworkers/ftp/ftp.cpp:578 kioworkers/ftp/ftp.cpp:2634
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:664
+#: kioworkers/ftp/ftp.cpp:671
 #, kde-format
 msgid "Login OK"
 msgstr "પ્રવેશ બરાબર"
 
-#: kioworkers/ftp/ftp.cpp:689
+#: kioworkers/ftp/ftp.cpp:699
 #, kde-format
 msgid "Could not login to %1."
 msgstr "%1 પર પ્રવેશ કરી શકતું નથી."
 
-#: kioworkers/ftp/ftp.cpp:1045
+#: kioworkers/ftp/ftp.cpp:1084
 #, kde-format
 msgid ""
 "\n"
@@ -4240,7 +4240,7 @@ msgstr ""
 "\n"
 "સર્વરે કહ્યું: \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2493 kioworkers/http/http.cpp:223
+#: kioworkers/ftp/ftp.cpp:2629 kioworkers/http/http.cpp:223
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4249,12 +4249,12 @@ msgstr ""
 "કોઈપણ સાઇટની ઍક્સેસ મેળવતા પહેલા તમારે નીચે સૂચિબદ્ધ પ્રોક્સી સર્વર માટે વપરાશકર્તા નામ "
 "(username) અને પાસવર્ડ (password) આપવો આવશ્યક છે."
 
-#: kioworkers/ftp/ftp.cpp:2497 kioworkers/http/http.cpp:227
+#: kioworkers/ftp/ftp.cpp:2633 kioworkers/http/http.cpp:227
 #, kde-format
 msgid "Proxy:"
 msgstr "પ્રોક્સી:"
 
-#: kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:2636
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "પ્રોક્સી સત્તાધિકરણ નિષ્ફળ."

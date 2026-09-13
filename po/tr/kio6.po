@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-10 00:41+0000\n"
+"POT-Creation-Date: 2026-09-13 00:41+0000\n"
 "PO-Revision-Date: 2026-09-08 18:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -4189,27 +4189,27 @@ msgstr "Verilen %1 kullanıcı adı için kullanıcı kimliği alınamadı"
 msgid "Could not get group id for given group name %1"
 msgstr "Verilen %1 grup adı için grup kimliği alınamadı"
 
-#: kioworkers/ftp/ftp.cpp:354
+#: kioworkers/ftp/ftp.cpp:361
 #, kde-format
 msgid "Opening connection to host %1"
 msgstr "%1 makinesine bağlantı kuruluyor"
 
-#: kioworkers/ftp/ftp.cpp:369
+#: kioworkers/ftp/ftp.cpp:376
 #, kde-format
 msgid "Connected to host %1"
 msgstr "%1 bilgisayarına bağlanıldı"
 
-#: kioworkers/ftp/ftp.cpp:477
+#: kioworkers/ftp/ftp.cpp:484
 #, kde-format
 msgid "%1 (Error %2)"
 msgstr "%1 (Hata %2)"
 
-#: kioworkers/ftp/ftp.cpp:507
+#: kioworkers/ftp/ftp.cpp:514
 #, kde-format
 msgid "Sending login information"
 msgstr "Oturum açma bilgisi gönderiliyor"
 
-#: kioworkers/ftp/ftp.cpp:557
+#: kioworkers/ftp/ftp.cpp:564
 #, kde-format
 msgid ""
 "Message sent:\n"
@@ -4226,32 +4226,32 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:199
+#: kioworkers/ftp/ftp.cpp:575 kioworkers/http/http.cpp:199
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "Bu adrese girmek için bir kullanıcı adı ve parolası vermelisiniz."
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:201
+#: kioworkers/ftp/ftp.cpp:577 kioworkers/http/http.cpp:201
 #, kde-format
 msgid "Site:"
 msgstr "Adres:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2498
+#: kioworkers/ftp/ftp.cpp:578 kioworkers/ftp/ftp.cpp:2634
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:664
+#: kioworkers/ftp/ftp.cpp:671
 #, kde-format
 msgid "Login OK"
 msgstr "Oturum açma onaylandı"
 
-#: kioworkers/ftp/ftp.cpp:689
+#: kioworkers/ftp/ftp.cpp:699
 #, kde-format
 msgid "Could not login to %1."
 msgstr "%1 adresine girilemedi."
 
-#: kioworkers/ftp/ftp.cpp:1045
+#: kioworkers/ftp/ftp.cpp:1084
 #, kde-format
 msgid ""
 "\n"
@@ -4260,7 +4260,7 @@ msgstr ""
 "\n"
 "Sunucu dedi ki: “%1”"
 
-#: kioworkers/ftp/ftp.cpp:2493 kioworkers/http/http.cpp:223
+#: kioworkers/ftp/ftp.cpp:2629 kioworkers/http/http.cpp:223
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4269,12 +4269,12 @@ msgstr ""
 "Herhangi bir siteye girmeden önce aşağıda listelenen vekil sunucular için "
 "bir kullanıcı adı ve parola girmelisiniz."
 
-#: kioworkers/ftp/ftp.cpp:2497 kioworkers/http/http.cpp:227
+#: kioworkers/ftp/ftp.cpp:2633 kioworkers/http/http.cpp:227
 #, kde-format
 msgid "Proxy:"
 msgstr "Vekil:"
 
-#: kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:2636
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Vekil Sunucu Kimlik Doğrulaması Başarısız."

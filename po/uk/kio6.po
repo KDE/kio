@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-10 00:41+0000\n"
+"POT-Creation-Date: 2026-09-13 00:41+0000\n"
 "PO-Revision-Date: 2026-09-08 17:11+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -4250,27 +4250,27 @@ msgstr "Не вдалося дістати ІД користувача для %1
 msgid "Could not get group id for given group name %1"
 msgstr "Не вдалося дістати ІД групи для %1"
 
-#: kioworkers/ftp/ftp.cpp:354
+#: kioworkers/ftp/ftp.cpp:361
 #, kde-format
 msgid "Opening connection to host %1"
 msgstr "Відкривається з'єднання з машиною %1"
 
-#: kioworkers/ftp/ftp.cpp:369
+#: kioworkers/ftp/ftp.cpp:376
 #, kde-format
 msgid "Connected to host %1"
 msgstr "Приєднано до машини %1"
 
-#: kioworkers/ftp/ftp.cpp:477
+#: kioworkers/ftp/ftp.cpp:484
 #, kde-format
 msgid "%1 (Error %2)"
 msgstr "%1 (помилка %2)"
 
-#: kioworkers/ftp/ftp.cpp:507
+#: kioworkers/ftp/ftp.cpp:514
 #, kde-format
 msgid "Sending login information"
 msgstr "Надіслати реєстраційні дані"
 
-#: kioworkers/ftp/ftp.cpp:557
+#: kioworkers/ftp/ftp.cpp:564
 #, kde-format
 msgid ""
 "Message sent:\n"
@@ -4287,32 +4287,32 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:199
+#: kioworkers/ftp/ftp.cpp:575 kioworkers/http/http.cpp:199
 #, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr "Щоб дістатися цього сайта, потрібно надати ім'я користувача та пароль."
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:201
+#: kioworkers/ftp/ftp.cpp:577 kioworkers/http/http.cpp:201
 #, kde-format
 msgid "Site:"
 msgstr "Сайт:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2498
+#: kioworkers/ftp/ftp.cpp:578 kioworkers/ftp/ftp.cpp:2634
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:664
+#: kioworkers/ftp/ftp.cpp:671
 #, kde-format
 msgid "Login OK"
 msgstr "Реєстрацію виконано"
 
-#: kioworkers/ftp/ftp.cpp:689
+#: kioworkers/ftp/ftp.cpp:699
 #, kde-format
 msgid "Could not login to %1."
 msgstr "Помилка реєстрації в %1."
 
-#: kioworkers/ftp/ftp.cpp:1045
+#: kioworkers/ftp/ftp.cpp:1084
 #, kde-format
 msgid ""
 "\n"
@@ -4321,7 +4321,7 @@ msgstr ""
 "\n"
 "Повідомлення сервера: «%1»"
 
-#: kioworkers/ftp/ftp.cpp:2493 kioworkers/http/http.cpp:223
+#: kioworkers/ftp/ftp.cpp:2629 kioworkers/http/http.cpp:223
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4330,12 +4330,12 @@ msgstr ""
 "Ви повинні надати ім'я користувача та пароль для сервера проксі, вказаного "
 "нижче, перед тим, як отримати дозвіл на доступ до будь-яких сайтів."
 
-#: kioworkers/ftp/ftp.cpp:2497 kioworkers/http/http.cpp:227
+#: kioworkers/ftp/ftp.cpp:2633 kioworkers/http/http.cpp:227
 #, kde-format
 msgid "Proxy:"
 msgstr "Проксі:"
 
-#: kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:2636
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Помилка розпізнавання на проксі-сервері."

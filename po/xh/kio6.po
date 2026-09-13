@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-10 00:41+0000\n"
+"POT-Creation-Date: 2026-09-13 00:41+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -4321,27 +4321,27 @@ msgstr "Ayinakungena kulawulo %1"
 msgid "Could not get group id for given group name %1"
 msgstr ""
 
-#: kioworkers/ftp/ftp.cpp:354
+#: kioworkers/ftp/ftp.cpp:361
 #, fuzzy, kde-format
 msgid "Opening connection to host %1"
 msgstr "Ivula unxubelelwaniso nomamkeli <b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:369
+#: kioworkers/ftp/ftp.cpp:376
 #, fuzzy, kde-format
 msgid "Connected to host %1"
 msgstr "Inxutyelelaniswe kumamkeli <b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:477
+#: kioworkers/ftp/ftp.cpp:484
 #, fuzzy, kde-format
 msgid "%1 (Error %2)"
 msgstr "%1 (ufako %2)"
 
-#: kioworkers/ftp/ftp.cpp:507
+#: kioworkers/ftp/ftp.cpp:514
 #, kde-format
 msgid "Sending login information"
 msgstr "Ithumela ulwazi lwegama elithile"
 
-#: kioworkers/ftp/ftp.cpp:557
+#: kioworkers/ftp/ftp.cpp:564
 #, fuzzy, kde-format
 msgid ""
 "Message sent:\n"
@@ -4359,41 +4359,41 @@ msgstr ""
 "%2\n"
 "\n"
 
-#: kioworkers/ftp/ftp.cpp:568 kioworkers/http/http.cpp:199
+#: kioworkers/ftp/ftp.cpp:575 kioworkers/http/http.cpp:199
 #, fuzzy, kde-format
 msgid "You need to supply a username and a password to access this site."
 msgstr ""
 "Kufuneka unikezele ngegama lomsebenzisi kunye negama lokugqitha kolunikezelo "
 "lweli nxuwa."
 
-#: kioworkers/ftp/ftp.cpp:570 kioworkers/http/http.cpp:201
+#: kioworkers/ftp/ftp.cpp:577 kioworkers/http/http.cpp:201
 #, kde-format
 msgid "Site:"
 msgstr "Inxuwa:"
 
-#: kioworkers/ftp/ftp.cpp:571 kioworkers/ftp/ftp.cpp:2498
+#: kioworkers/ftp/ftp.cpp:578 kioworkers/ftp/ftp.cpp:2634
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
 
-#: kioworkers/ftp/ftp.cpp:664
+#: kioworkers/ftp/ftp.cpp:671
 #, kde-format
 msgid "Login OK"
 msgstr "Igama elithile Lilungile"
 
-#: kioworkers/ftp/ftp.cpp:689
+#: kioworkers/ftp/ftp.cpp:699
 #, kde-format
 msgid "Could not login to %1."
 msgstr "Ayinakungena kwi %1."
 
-#: kioworkers/ftp/ftp.cpp:1045
+#: kioworkers/ftp/ftp.cpp:1084
 #, fuzzy, kde-format
 msgid ""
 "\n"
 "The server said: \"%1\""
 msgstr "Inyusa %1"
 
-#: kioworkers/ftp/ftp.cpp:2493 kioworkers/http/http.cpp:223
+#: kioworkers/ftp/ftp.cpp:2629 kioworkers/http/http.cpp:223
 #, fuzzy, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4403,12 +4403,12 @@ msgstr ""
 "lomncedisi onegunya lokusebenzela omnye kuluhlu olungezantsi phambi kokuba "
 "uvunyelwe ukusebenzisa naliphi na inxuwa."
 
-#: kioworkers/ftp/ftp.cpp:2497 kioworkers/http/http.cpp:227
+#: kioworkers/ftp/ftp.cpp:2633 kioworkers/http/http.cpp:227
 #, kde-format
 msgid "Proxy:"
 msgstr "Umntu onegunya lokusebenzela omnye:"
 
-#: kioworkers/ftp/ftp.cpp:2500
+#: kioworkers/ftp/ftp.cpp:2636
 #, fuzzy, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Igunya lokusebenzela omnye lobubhali Aliphumelelanga!"
