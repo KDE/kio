@@ -108,6 +108,9 @@ public Q_SLOTS:
     /*! Cancels all pending previews. */
     void cancelPreviews();
 
+protected:
+    bool eventFilter(QObject *watched, QEvent *event) override;
+
 private:
     friend class KFilePreviewGeneratorPrivate;
     std::unique_ptr<KFilePreviewGeneratorPrivate> const d;
