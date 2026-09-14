@@ -119,6 +119,10 @@
                 "נתיב מקורי",
                 "תאריך מחיקה"
             ],
+            "ExtraNames[hr]": [
+                "Izvorna putanja",
+                "Datum brisanja"
+            ],
             "ExtraNames[hu]": [
                 "Eredeti elérési út",
                 "Törlési dátum"
