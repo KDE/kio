@@ -36,7 +36,7 @@
             ],
             "ExtraNames[ca@valencia]": [
                 "Camí original",
-                "Data d'esborrat"
+                "Data de supressió"
             ],
             "ExtraNames[ca]": [
                 "Camí original",
@@ -109,6 +109,10 @@
             "ExtraNames[he]": [
                 "נתיב מקורי",
                 "תאריך מחיקה"
+            ],
+            "ExtraNames[hr]": [
+                "Izvorna putanja",
+                "Datum brisanja"
             ],
             "ExtraNames[hu]": [
                 "Eredeti elérési út",
