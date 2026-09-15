@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-13 00:41+0000\n"
-"PO-Revision-Date: 2024-08-11 20:21+0200\n"
-"Last-Translator: Matej Mrenica <matejm98mthw@gmail.com>\n"
+"PO-Revision-Date: 2026-09-14 20:10+0200\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -4007,7 +4007,7 @@ msgstr "Program „%1“ sa nepodarilo spustiť."
 #: gui/systemd/systemdprocessrunner.cpp:200
 #, kde-format
 msgid "Failed to launch process (status code: %1)"
-msgstr ""
+msgstr "Nepodarilo sa spustiť proces (stavový kód: %1)"
 
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
@@ -5395,7 +5395,7 @@ msgstr "Veľkosť:"
 #: widgets/kfilepropspluginwidget.ui:259
 #, kde-format
 msgid "Size on disk:"
-msgstr ""
+msgstr "Veľkosť na disku:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:308
@@ -6024,23 +6024,20 @@ msgstr ""
 "><filename>%1</filename>."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:159
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt ""
 "@label the size of a file or folder, first rounded and then to the byte"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:161
-#, fuzzy, kde-format
-#| msgid " byte"
-#| msgid_plural " bytes"
+#, kde-format
 msgctxt "@item the exact size of a file or folder"
 msgid "%1 byte"
 msgid_plural "%1 bytes"
-msgstr[0] " bajt"
-msgstr[1] " bajty"
-msgstr[2] " bajtov"
+msgstr[0] "%1 bajt"
+msgstr[1] "%1 bajty"
+msgstr[2] "%1 bajtov"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:263
 #, kde-format
@@ -6091,16 +6088,13 @@ msgid "Unknown size"
 msgstr "Neznáma veľkosť"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:739
-#, fuzzy, kde-format
-#| msgid ""
-#| "Calculating... %1 (%2)\n"
-#| "%3, %4"
+#, kde-format
 msgid ""
 "Calculating... %1\n"
 "%2, %3"
 msgstr ""
-"Vypočítava sa... %1 (%2)\n"
-"%3, %4"
+"Vypočítava sa... %1\n"
+"%2, %3"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:741
 #: widgets/kpropertiesdialogbuiltin_p.cpp:756
@@ -7207,12 +7201,10 @@ msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "Súbor <filename>%1</filename> nemožno premenovať na prázdny názov."
 
 #: widgets/renamefilewarningdialog.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
-msgstr "Premenovať položku"
+msgstr "Premenovať a skryť"
 
 #: widgets/renamefilewarningdialog.cpp:50
 #, kde-format
@@ -7221,6 +7213,8 @@ msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Pridanie bodky na začiatok názvu priečinku ho skryje pred zobrazením.\n"
+"Chcete ho napriek tomu premenovať?"
 
 #: widgets/renamefilewarningdialog.cpp:51
 #, kde-format
@@ -7229,19 +7223,20 @@ msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Pridanie bodky na začiatok názvu súboru ho skryje pred zobrazením.\n"
+"Chcete ho napriek tomu premenovať?"
 
 #: widgets/renamefilewarningdialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Home Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
-msgstr "Domovský priečinok"
+msgstr "Skryť tento priečinok?"
 
 #: widgets/renamefilewarningdialog.cpp:52
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
-msgstr ""
+msgstr "Skryť tento súbor?"
 
 #: widgets/renamefilewarningdialog.cpp:58
 #: widgets/renamefilewarningdialog.cpp:108
@@ -7252,8 +7247,7 @@ msgid "Do not ask again"
 msgstr "Viac sa nepýtať"
 
 #: widgets/renamefilewarningdialog.cpp:89
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename"
 msgstr "Premenovať"
@@ -7267,6 +7261,10 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"This will make the file type unknown.\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
 
 #: widgets/renamefilewarningdialog.cpp:98
 #, kde-format
@@ -7277,13 +7275,16 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"This will change the file type from \"%1\" to \"%2\".\n"
+"The file's content won't change but applications may no longer recognize "
+"it.\n"
+"Do you still want to rename it?"
 
 #: widgets/renamefilewarningdialog.cpp:105
-#, fuzzy, kde-format
-#| msgid "Change File Owner"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"
-msgstr "Zmeniť vlastníka súboru"
+msgstr "Zmeniť typ súboru"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
