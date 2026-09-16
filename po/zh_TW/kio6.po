@@ -17,14 +17,14 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-13 00:41+0000\n"
-"PO-Revision-Date: 2026-06-17 13:01+0900\n"
+"PO-Revision-Date: 2026-09-15 17:43+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 26.07.70\n"
+"X-Generator: Lokalize 26.11.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -3438,11 +3438,10 @@ msgid "Create link to URL"
 msgstr "建立網址連結"
 
 #: filewidgets/knewfilemenu.cpp:650
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
-msgstr "新增"
+msgstr "新增%1"
 
 #: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
 #, kde-format
@@ -3860,7 +3859,7 @@ msgstr "程式「%1」無法啟動。"
 #: gui/systemd/systemdprocessrunner.cpp:200
 #, kde-format
 msgid "Failed to launch process (status code: %1)"
-msgstr ""
+msgstr "啟動行程失敗（狀態代碼：%1）"
 
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
@@ -5224,7 +5223,7 @@ msgstr "大小："
 #: widgets/kfilepropspluginwidget.ui:259
 #, kde-format
 msgid "Size on disk:"
-msgstr ""
+msgstr "磁碟上的大小："
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:308
@@ -5829,21 +5828,18 @@ msgstr ""
 "無法儲存屬性。沒有足夠的存取權來寫入檔案：<nl/><filename>%1</filename>。"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:159
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt ""
 "@label the size of a file or folder, first rounded and then to the byte"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:161
-#, fuzzy, kde-format
-#| msgid " byte"
-#| msgid_plural " bytes"
+#, kde-format
 msgctxt "@item the exact size of a file or folder"
 msgid "%1 byte"
 msgid_plural "%1 bytes"
-msgstr[0] " 位元組"
+msgstr[0] "%1 位元組"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:263
 #, kde-format
@@ -5894,16 +5890,13 @@ msgid "Unknown size"
 msgstr "未知的大小"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:739
-#, fuzzy, kde-format
-#| msgid ""
-#| "Calculating... %1 (%2)\n"
-#| "%3, %4"
+#, kde-format
 msgid ""
 "Calculating... %1\n"
 "%2, %3"
 msgstr ""
-"計算中... %1 (%2)\n"
-"%3, %4"
+"計算中... %1\n"
+"%2, %3"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:741
 #: widgets/kpropertiesdialogbuiltin_p.cpp:756
@@ -6954,12 +6947,10 @@ msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "<filename>%1</filename> 無法重新命名為空白的檔案名稱。"
 
 #: widgets/renamefilewarningdialog.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
-msgstr "重新命名項目"
+msgstr "重新命名並隱藏"
 
 #: widgets/renamefilewarningdialog.cpp:50
 #, kde-format
@@ -6968,6 +6959,8 @@ msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"在資料夾名稱開頭加個點 (.) 會將該資料夾從檢視中隱藏。\n"
+"仍然重新命名？"
 
 #: widgets/renamefilewarningdialog.cpp:51
 #, kde-format
@@ -6976,19 +6969,20 @@ msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"在檔案名稱開頭加個點 (.) 會將該檔案從檢視中隱藏。\n"
+"仍然重新命名？"
 
 #: widgets/renamefilewarningdialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Home Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
-msgstr "家資料夾"
+msgstr "隱藏此資料夾？"
 
 #: widgets/renamefilewarningdialog.cpp:52
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
-msgstr ""
+msgstr "隱藏此檔案？"
 
 #: widgets/renamefilewarningdialog.cpp:58
 #: widgets/renamefilewarningdialog.cpp:108
@@ -6999,8 +6993,7 @@ msgid "Do not ask again"
 msgstr "不要再詢問"
 
 #: widgets/renamefilewarningdialog.cpp:89
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename"
 msgstr "重新命名"
@@ -7014,6 +7007,9 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"這會使檔案型態變為未知。\n"
+"檔案的內容不會改變，但是別的應用程式可能會無法辨別它。\n"
+"您確定還是要重新命名它嗎？"
 
 #: widgets/renamefilewarningdialog.cpp:98
 #, kde-format
@@ -7024,13 +7020,15 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"這會使檔案型態從「%1」變為「%2」。\n"
+"檔案的內容不會改變，但是別的應用程式可能會無法辨別它。\n"
+"您確定還是要重新命名它嗎？"
 
 #: widgets/renamefilewarningdialog.cpp:105
-#, fuzzy, kde-format
-#| msgid "Change File Owner"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"
-msgstr "變更檔案擁有者"
+msgstr "變更檔案型態"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
