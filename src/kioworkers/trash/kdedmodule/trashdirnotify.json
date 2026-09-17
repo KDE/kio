@@ -24,6 +24,7 @@
         "Description[tr]": "Çöp kutusu için değişiklik bildirimleri sağlar",
         "Description[uk]": "Сповіщення про зміну стану смітника",
         "Description[zh_CN]": "提供回收站变动的通知",
+        "Description[zh_TW]": "為垃圾桶提供變更通知",
         "Name": "Trash Change Notifier",
         "Name[ar]": "مُنبِّه تغيير سلة المهملات",
         "Name[bg]": "Уведомител за промени в Кошчето",
@@ -47,7 +48,8 @@
         "Name[sv]": "Ändringsunderrättelse för papperskorgen",
         "Name[tr]": "Çöp Kutusu Değişim Bildiricisi",
         "Name[uk]": "Сповіщення про зміну смітника",
-        "Name[zh_CN]": "回收站变动通知"
+        "Name[zh_CN]": "回收站变动通知",
+        "Name[zh_TW]": "垃圾桶變更通知工具"
     },
     "X-KDE-Kded-autoload": true,
     "X-KDE-Kded-load-on-demand": true
