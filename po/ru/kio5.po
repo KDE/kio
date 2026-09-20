@@ -9276,7 +9276,7 @@ msgstr "&Переименовать"
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
-msgstr "Не удалось передать <filename>%1</filename> в:"
+msgstr "Переименовать объект <filename>%1</filename> в:"
 
 #: widgets/renamefiledialog.cpp:87
 #, kde-format
