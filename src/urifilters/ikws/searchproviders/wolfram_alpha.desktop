@@ -79,7 +79,6 @@ Name[tg]=Wolfram Alpha
 Name[th]=Wolfram Alpha
 Name[tok]=ilo pi nasin nanpa WolframAlpha
 Name[tr]=Tungsten Işığı
-Name[ug]=Wolfram Alpha
 Name[uk]=Wolfram Alpha
 Name[vi]=Wolfram Alpha
 Name[wa]=Wolfram Alpha
@@ -156,7 +155,6 @@ Query[tg]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[th]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[tok]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[tr]=https://www.wolframalpha.com/input/?i=\\{@}
-Query[ug]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[uk]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[vi]=https://www.wolframalpha.com/input/?i=\\{@}
 Query[wa]=https://www.wolframalpha.com/input/?i=\\{@}

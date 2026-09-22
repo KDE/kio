@@ -155,7 +155,6 @@ Query[tg]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[th]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[tok]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[tr]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
-Query[ug]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[uk]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr
 Query[vi]=https://maps.google.com/maps?hl=vi&q=\\{@}&ie=UTF8&iwloc=addr
 Query[wa]=https://maps.google.com/maps?q=\\{@}&ie=UTF8&iwloc=addr

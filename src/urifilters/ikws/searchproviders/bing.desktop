@@ -76,7 +76,6 @@ Name[tg]=Bing
 Name[th]=Bing
 Name[tok]=ilo alasa Bing
 Name[tr]=Bing
-Name[ug]=Bing
 Name[uk]=Bing
 Name[vi]=Bing
 Name[wa]=Bing
@@ -145,7 +144,6 @@ Query[tg]=https://www.bing.com/search?q=\\{@}
 Query[th]=https://www.bing.com/search?q=\\{@}
 Query[tok]=https://www.bing.com/search?q=\\{@}
 Query[tr]=https://www.bing.com/search?q=\\{@}
-Query[ug]=https://www.bing.com/search?q=\\{@}
 Query[uk]=https://www.bing.com/search?q=\\{@}
 Query[vi]=https://www.bing.com/search?q=\\{@}
 Query[zh_CN]=https://www.bing.com/search?q=\\{@}

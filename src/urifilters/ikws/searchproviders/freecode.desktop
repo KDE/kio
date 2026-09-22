@@ -71,7 +71,6 @@ Name[tg]=Freecode
 Name[th]=Freecode
 Name[tok]=ilo Freecode
 Name[tr]=Freecode
-Name[ug]=Freecode
 Name[uk]=Freecode
 Name[vi]=Freecode
 Name[wa]=Freecode
@@ -148,7 +147,6 @@ Query[tg]=http://freecode.com/search?q=\\{@}
 Query[th]=http://freecode.com/search?q=\\{@}
 Query[tok]=http://freecode.com/search?q=\\{@}
 Query[tr]=http://freecode.com/search?q=\\{@}
-Query[ug]=http://freecode.com/search?q=\\{@}
 Query[uk]=http://freecode.com/search?q=\\{@}
 Query[vi]=http://freecode.com/search?q=\\{@}
 Query[wa]=http://freecode.com/search?q=\\{@}

@@ -92,7 +92,6 @@ Name[tg]=Feedster
 Name[th]=Feedster หาบล็อก
 Name[tok]=ilo Feedster
 Name[tr]=Feedster
-Name[ug]=Feedster
 Name[uk]=Feedster
 Name[uz]=Feedster
 Name[uz@cyrillic]=Feedster
@@ -162,7 +161,6 @@ Query[tg]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{
 Query[th]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[tok]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[tr]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
-Query[ug]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[uk]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[vi]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}
 Query[zh_CN]=https://www.feedster.com/index.php?page=search/web&type=Web&search=\\{@}

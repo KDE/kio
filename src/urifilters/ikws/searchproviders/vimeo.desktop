@@ -79,7 +79,6 @@ Name[tg]=Vimeo
 Name[th]=Vimeo
 Name[tok]=ilo pi sitelen tawa Vimeo
 Name[tr]=Vimeo
-Name[ug]=Vimeo
 Name[uk]=Vimeo
 Name[vi]=Vimeo
 Name[wa]=Vimeo
@@ -146,7 +145,6 @@ Query[tg]=https://vimeo.com/search?q=\\{@}
 Query[th]=https://vimeo.com/search?q=\\{@}
 Query[tok]=https://vimeo.com/search?q=\\{@}
 Query[tr]=https://vimeo.com/search?q=\\{@}
-Query[ug]=https://vimeo.com/search?q=\\{@}
 Query[uk]=https://vimeo.com/search?q=\\{@}
 Query[vi]=https://vimeo.com/search?q=\\{@}
 Query[zh_CN]=https://vimeo.com/search?q=\\{@}

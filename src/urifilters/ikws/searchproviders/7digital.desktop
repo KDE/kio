@@ -79,7 +79,6 @@ Name[tg]=7Digital
 Name[th]=7Digital
 Name[tok]=ilo alasa 7Digital
 Name[tr]=7Digital
-Name[ug]=7Digital
 Name[uk]=7Digital
 Name[vi]=7Digital
 Name[wa]=7Digital
@@ -147,7 +146,6 @@ Query[tg]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[th]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[tok]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[tr]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
-Query[ug]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[uk]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[vi]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[zh_CN]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

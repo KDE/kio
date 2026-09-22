@@ -47,7 +47,6 @@ Name[sl]=DuckDuckGo
 Name[sv]=DuckDuckGo
 Name[th]=DuckDuckGo
 Name[tr]=DuckDuckGo
-Name[ug]=DuckDuckGo
 Name[uk]=DuckDuckGo
 Name[zh_CN]=DuckDuckGo
 Name[zh_TW]=DuckDuckGo
@@ -121,7 +120,6 @@ Query[tg]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[th]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[tok]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[tr]=https://duckduckgo.com/?q=\\{@}&t=kde
-Query[ug]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[uk]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[vi]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[wa]=https://duckduckgo.com/?q=\\{@}&t=kde

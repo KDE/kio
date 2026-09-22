@@ -79,7 +79,6 @@ Name[tg]=GitHub
 Name[th]=GitHub
 Name[tok]=ilo GitHub
 Name[tr]=GitHub
-Name[ug]=GitHub
 Name[uk]=GitHub
 Name[vi]=GitHub
 Name[wa]=GitHub
@@ -156,7 +155,6 @@ Query[tg]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[th]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[tok]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[tr]=https://github.com/search?q=\\{@}&x=0&y=0
-Query[ug]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[uk]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[vi]=https://github.com/search?q=\\{@}&x=0&y=0
 Query[wa]=https://github.com/search?q=\\{@}&x=0&y=0

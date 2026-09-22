@@ -95,7 +95,6 @@ Query[sl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\
 Query[sv]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[th]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[tr]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
-Query[ug]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[uk]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[zh_CN]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[zh_TW]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}

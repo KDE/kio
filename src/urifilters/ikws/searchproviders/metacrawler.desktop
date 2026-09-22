@@ -92,7 +92,6 @@ Name[tg]=MetaCrawler
 Name[th]=บริการ MetaCrawler
 Name[tok]=ilo alasa MetaCrawler
 Name[tr]=MetaCrawler
-Name[ug]=MetaCrawler
 Name[uk]=MetaCrawler
 Name[uz]=MetaCrawler
 Name[uz@cyrillic]=MetaCrawler
@@ -163,7 +162,6 @@ Query[tg]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[th]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[tok]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[tr]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
-Query[ug]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[uk]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[vi]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[zh_CN]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}

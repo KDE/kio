@@ -79,7 +79,6 @@ Name[tg]=Magnatune
 Name[th]=Magnatune
 Name[tok]=ilo pi kalama musi Magnatune
 Name[tr]=Magnatune
-Name[ug]=Magnatune
 Name[uk]=Magnatune
 Name[vi]=Magnatune
 Name[wa]=Magnatune
@@ -147,7 +146,6 @@ Query[tg]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[th]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[tok]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[tr]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
-Query[ug]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[uk]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[vi]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0
 Query[zh_CN]=https://my.magnatune.com/search?w=\\{@}&t=m&x=0&y=0

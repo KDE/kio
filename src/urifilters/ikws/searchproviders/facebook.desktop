@@ -79,7 +79,6 @@ Name[tg]=Facebook
 Name[th]=เฟซบุ้ค
 Name[tok]=ilo Facebook
 Name[tr]=Facebook
-Name[ug]=Facebook
 Name[uk]=Facebook
 Name[vi]=Facebook
 Name[wa]=Facebook
@@ -155,7 +154,6 @@ Query[tg]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[th]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[tok]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[tr]=https://www.facebook.com/search/?q=\\{@}&init=quick
-Query[ug]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[uk]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[vi]=https://www.facebook.com/search/?q=\\{@}&init=quick
 Query[wa]=https://www.facebook.com/search/?q=\\{@}&init=quick

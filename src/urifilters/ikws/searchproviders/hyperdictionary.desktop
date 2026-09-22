@@ -92,7 +92,6 @@ Name[tg]=HyperDictionary.com
 Name[th]=HyperDictionary.com
 Name[tok]=lipu nimi HyperDictionary.com
 Name[tr]=HyperDictionary.com
-Name[ug]=HyperDictionary.com
 Name[uk]=HyperDictionary.com
 Name[uz]=HyperDictionary.com
 Name[uz@cyrillic]=HyperDictionary.com
@@ -192,7 +191,6 @@ Query[tg]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[th]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[tok]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[tr]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
-Query[ug]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[uk]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[uz]=http://www.hyperdictionary.com/search.aspx?define=\\{@}
 Query[uz@cyrillic]=http://www.hyperdictionary.com/search.aspx?define=\\{@}

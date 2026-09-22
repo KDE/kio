@@ -92,7 +92,6 @@ Name[tg]=Телевизиони хонагӣ
 Name[th]=TV Tome
 Name[tok]=lipu TV Tome
 Name[tr]=TV Kanalları
-Name[ug]=TV Tome
 Name[uk]=TV Tome
 Name[uz]=TV Tome
 Name[uz@cyrillic]=TV Tome
@@ -161,7 +160,6 @@ Query[tg]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[th]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[tok]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[tr]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
-Query[ug]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[uk]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[vi]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0
 Query[zh_CN]=https://www.tv.com/search.php?type=11&stype=all&qs=\\{@}&x=0&y=0

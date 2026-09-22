@@ -123,7 +123,6 @@ Query[sq]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[sv]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[th]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[tr]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
-Query[ug]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[uk]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[vi]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[zh_CN]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}

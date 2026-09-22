@@ -92,7 +92,6 @@ Name[tg]=FreeDB
 Name[th]=FreeDB
 Name[tok]=ilo FreeDB
 Name[tr]=FreeDB
-Name[ug]=FreeDB
 Name[uk]=FreeDB
 Name[uz]=FreeDB
 Name[uz@cyrillic]=FreeDB
@@ -192,7 +191,6 @@ Query[tg]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[th]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[tok]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[tr]=http://www.freedb.org/freedb_search.php?words=\\{@}
-Query[ug]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[uk]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[uz]=http://www.freedb.org/freedb_search.php?words=\\{@}
 Query[uz@cyrillic]=http://www.freedb.org/freedb_search.php?words=\\{@}

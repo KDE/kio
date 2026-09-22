@@ -79,7 +79,6 @@ Name[tg]=YouTube
 Name[th]=บริการวีดิโอผ่าน YouTube
 Name[tok]=ilo YouTube
 Name[tr]=YouTube
-Name[ug]=YouTube
 Name[uk]=YouTube
 Name[vi]=YouTube
 Name[wa]=YouTube
@@ -156,7 +155,6 @@ Query[tg]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[th]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[tok]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[tr]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
-Query[ug]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[uk]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[vi]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
 Query[wa]=https://www.youtube.com/results?search_query=\\{@}&search_type=&aq=f
