@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-13 00:41+0000\n"
+"POT-Creation-Date: 2026-09-22 15:56+0000\n"
 "PO-Revision-Date: 2026-09-08 18:19+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -4236,7 +4236,7 @@ msgstr "Bu adrese girmek için bir kullanıcı adı ve parolası vermelisiniz."
 msgid "Site:"
 msgstr "Adres:"
 
-#: kioworkers/ftp/ftp.cpp:578 kioworkers/ftp/ftp.cpp:2634
+#: kioworkers/ftp/ftp.cpp:578 kioworkers/ftp/ftp.cpp:2652
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4260,7 +4260,7 @@ msgstr ""
 "\n"
 "Sunucu dedi ki: “%1”"
 
-#: kioworkers/ftp/ftp.cpp:2629 kioworkers/http/http.cpp:223
+#: kioworkers/ftp/ftp.cpp:2647 kioworkers/http/http.cpp:223
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4269,12 +4269,12 @@ msgstr ""
 "Herhangi bir siteye girmeden önce aşağıda listelenen vekil sunucular için "
 "bir kullanıcı adı ve parola girmelisiniz."
 
-#: kioworkers/ftp/ftp.cpp:2633 kioworkers/http/http.cpp:227
+#: kioworkers/ftp/ftp.cpp:2651 kioworkers/http/http.cpp:227
 #, kde-format
 msgid "Proxy:"
 msgstr "Vekil:"
 
-#: kioworkers/ftp/ftp.cpp:2636
+#: kioworkers/ftp/ftp.cpp:2654
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Vekil Sunucu Kimlik Doğrulaması Başarısız."

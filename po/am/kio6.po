@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-13 00:41+0000\n"
+"POT-Creation-Date: 2026-09-22 15:56+0000\n"
 "PO-Revision-Date: 2026-05-04 17:15+0300\n"
 "Last-Translator: Wesenseged <kde-i18n-de@kde.org>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -4129,7 +4129,7 @@ msgstr "ወደዚህ ጣቢያ ለመድረስ የተጠቃሚ ስም እና የ
 msgid "Site:"
 msgstr "ጣቢያ፦"
 
-#: kioworkers/ftp/ftp.cpp:578 kioworkers/ftp/ftp.cpp:2634
+#: kioworkers/ftp/ftp.cpp:578 kioworkers/ftp/ftp.cpp:2652
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4153,7 +4153,7 @@ msgstr ""
 "\n"
 "ሰርቨሩ እንዲህ ብሏል፦ \"%1\""
 
-#: kioworkers/ftp/ftp.cpp:2629 kioworkers/http/http.cpp:223
+#: kioworkers/ftp/ftp.cpp:2647 kioworkers/http/http.cpp:223
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4162,12 +4162,12 @@ msgstr ""
 "ወደ ማንኛውም ድረ-ገጽ ከመድረስዎ በፊት ከዚህ በታች ለተዘረዘሩት የፕርክሲ ሰርቨር የተጠቃሚ ስም እና የይለፍ ቃል "
 "ማቅረብ ያስፈልግዎታል።"
 
-#: kioworkers/ftp/ftp.cpp:2633 kioworkers/http/http.cpp:227
+#: kioworkers/ftp/ftp.cpp:2651 kioworkers/http/http.cpp:227
 #, kde-format
 msgid "Proxy:"
 msgstr "ፕሮክሲ፦"
 
-#: kioworkers/ftp/ftp.cpp:2636
+#: kioworkers/ftp/ftp.cpp:2654
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "ፕሮክሲ ማረጋገጫ አልተሳካም።"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-13 00:41+0000\n"
+"POT-Creation-Date: 2026-09-22 15:56+0000\n"
 "PO-Revision-Date: 2026-09-08 11:35+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -4332,7 +4332,7 @@ msgstr ""
 msgid "Site:"
 msgstr "Sitio:"
 
-#: kioworkers/ftp/ftp.cpp:578 kioworkers/ftp/ftp.cpp:2634
+#: kioworkers/ftp/ftp.cpp:578 kioworkers/ftp/ftp.cpp:2652
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4356,7 +4356,7 @@ msgstr ""
 "\n"
 "El servidor ha respondido: «%1»"
 
-#: kioworkers/ftp/ftp.cpp:2629 kioworkers/http/http.cpp:223
+#: kioworkers/ftp/ftp.cpp:2647 kioworkers/http/http.cpp:223
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4365,12 +4365,12 @@ msgstr ""
 "Debe suministrar un nombre de usuario y una contraseña para el servidor "
 "proxy listado abajo, antes de que se le permita acceder a cualquier sitio."
 
-#: kioworkers/ftp/ftp.cpp:2633 kioworkers/http/http.cpp:227
+#: kioworkers/ftp/ftp.cpp:2651 kioworkers/http/http.cpp:227
 #, kde-format
 msgid "Proxy:"
 msgstr "Proxy:"
 
-#: kioworkers/ftp/ftp.cpp:2636
+#: kioworkers/ftp/ftp.cpp:2654
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "La autenticación del proxy ha fallado."
