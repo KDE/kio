@@ -5,6 +5,7 @@
 */
 
 #include <kio/copyjob.h>
+#include <kio/listjob.h>
 #include <kio/storedtransferjob.h>
 
 #include <QBuffer>
@@ -214,6 +215,25 @@ private Q_SLOTS:
         QVERIFY(file.exists());
         QVERIFY(file.open(QFile::ReadOnly));
         QCOMPARE(file.readAll(), QByteArray("testOverwriteCopy1\n")); // not 2!
+    }
+
+    void testDotEntry()
+    {
+        const QString path("/");
+        const auto url = this->url(path);
+
+        QStringList entryNames;
+        auto job = KIO::listDir(url);
+        job->setUiDelegate(nullptr);
+        connect(job, &KIO::ListJob::entries, this, [&entryNames](KIO::Job *, const KIO::UDSEntryList &list) {
+            for (const auto &entry : list) {
+                entryNames << entry.stringValue(KIO::UDSEntry::UDS_NAME);
+            }
+        });
+
+        QVERIFY2(job->exec(), qUtf8Printable(job->errorString()));
+        QCOMPARE(job->error(), 0);
+        QVERIFY(entryNames.contains(QStringLiteral(".")));
     }
 };
 

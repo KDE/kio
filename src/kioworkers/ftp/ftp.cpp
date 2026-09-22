@@ -1546,6 +1546,9 @@ Result FtpInternal::listDir(const QUrl &url)
     UDSEntry entry;
     FtpEntry ftpEnt;
     QList<FtpEntry> ftpValidateEntList;
+
+    bool hasDot = false;
+
     while (ftpReadDir(ftpEnt)) {
         qCDebug(KIO_FTP) << ftpEnt.name;
         // Q_ASSERT( !ftpEnt.name.isEmpty() );
@@ -1553,6 +1556,11 @@ Result FtpInternal::listDir(const QUrl &url)
             if (ftpEnt.name.at(0).isSpace()) {
                 ftpValidateEntList.append(ftpEnt);
                 continue;
+            }
+
+            // track presence of "."
+            if (ftpEnt.name == QLatin1String(".")) {
+                hasDot = true;
             }
 
             // if ( S_ISDIR( (mode_t)ftpEnt.type ) )
@@ -1563,6 +1571,16 @@ Result FtpInternal::listDir(const QUrl &url)
             q->listEntry(entry);
             entry.clear();
         }
+    }
+
+    // inject dot entry if it is missing
+    if (!hasDot) {
+        entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
+        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+        entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0755);
+        entry.fastInsert(KIO::UDSEntry::UDS_USER, m_user.isEmpty() ? QStringLiteral("anonymous") : m_user);
+        q->listEntry(entry);
+        entry.clear();
     }
 
     for (int i = 0, count = ftpValidateEntList.count(); i < count; ++i) {
