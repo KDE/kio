@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-13 00:41+0000\n"
+"POT-Creation-Date: 2026-09-22 15:56+0000\n"
 "PO-Revision-Date: 2025-09-13 12:21+0200\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@nuug.no>\n"
@@ -3023,8 +3023,6 @@ msgstr "Du kan bare legge mapper til «Steder»-panelet."
 
 #: filewidgets/kfileplacesmodel.cpp:1384
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
 msgctxt "@action:inmenu"
 msgid "Configure…"
 msgstr "Sett opp nettsnarveier …"
@@ -3326,7 +3324,6 @@ msgstr "Vis «Steder»-panel"
 
 #: filewidgets/kfilewidget.cpp:1234
 #, fuzzy, kde-format
-#| msgid "Show Hidden Files"
 msgid "Show Quick Filter"
 msgstr "Vis skjulte filer"
 
@@ -3382,7 +3379,6 @@ msgstr "Angre endring av filnavn"
 
 #: filewidgets/kfilewidget.cpp:1393
 #, fuzzy, kde-format
-#| msgid "Open Containing Folder"
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr "Åpne overmappa"
@@ -3394,7 +3390,6 @@ msgstr ""
 
 #: filewidgets/kfilewidget.cpp:1405
 #, fuzzy, kde-format
-#| msgid "Hidden Files Last"
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "Skjulte filer sist"
@@ -3463,7 +3458,6 @@ msgstr "Alle mapper"
 
 #: filewidgets/kfilewidget.cpp:2079
 #, fuzzy, kde-format
-#| msgid "Creating directory"
 msgid "Current Directory: %1"
 msgstr "Lager mappe"
 
@@ -3540,9 +3534,6 @@ msgstr ""
 
 #: filewidgets/kfilewidget.cpp:2970
 #, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
@@ -3583,7 +3574,6 @@ msgstr "Opprett en lenke til URL"
 
 #: filewidgets/knewfilemenu.cpp:650
 #, fuzzy, kde-format
-#| msgid "Create New"
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
 msgstr "Lag ny"
@@ -3701,15 +3691,12 @@ msgstr "Lag ny mappe i %1:"
 
 #: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Skriv inn %1 filnavn."
 
 #: filewidgets/knewfilemenu.cpp:1531
 #, fuzzy, kde-format
-#| msgid "Owner (Default)"
 msgid "Default"
 msgstr "Eier (standard)"
 
@@ -3723,22 +3710,18 @@ msgstr "Lag ny fil"
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:57
 #, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
 msgid "Enter file name"
 msgstr "Skriv inn %1 filnavn."
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:79
 #, fuzzy, kde-format
-#| msgid "Choose Application for %1"
 msgid "Choose custom icon or color"
 msgstr "Velg program for %1"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
 #, fuzzy, kde-format
-#| msgid "Choose an &icon:"
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
 msgstr "Velg et &ikon:"
@@ -3814,8 +3797,6 @@ msgstr "Gå til plasseringa i adressen"
 
 #: filewidgets/kurlnavigatorplacesselector.cpp:49
 #, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Places"
 msgctxt ""
 "@action:button accessible name for the places selector in the URL navigator"
 msgid "Places"
@@ -4190,7 +4171,6 @@ msgstr ""
 
 #: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
 #, fuzzy, kde-format
-#| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "Klarte ikke endre navnet på den midlertidige fila"
 
@@ -4267,7 +4247,7 @@ msgstr ""
 msgid "Site:"
 msgstr "Nettsted:"
 
-#: kioworkers/ftp/ftp.cpp:578 kioworkers/ftp/ftp.cpp:2634
+#: kioworkers/ftp/ftp.cpp:578 kioworkers/ftp/ftp.cpp:2652
 #, kde-format
 msgid "<b>%1</b>"
 msgstr "<b>%1</b>"
@@ -4291,7 +4271,7 @@ msgstr ""
 "\n"
 "Tjeneren sa: «%1»"
 
-#: kioworkers/ftp/ftp.cpp:2629 kioworkers/http/http.cpp:223
+#: kioworkers/ftp/ftp.cpp:2647 kioworkers/http/http.cpp:223
 #, kde-format
 msgid ""
 "You need to supply a username and a password for the proxy server listed "
@@ -4300,12 +4280,12 @@ msgstr ""
 "Du må oppgi brukernavn og passord for mellomtjeneren under, før du får "
 "tilgang til noen nettsteder."
 
-#: kioworkers/ftp/ftp.cpp:2633 kioworkers/http/http.cpp:227
+#: kioworkers/ftp/ftp.cpp:2651 kioworkers/http/http.cpp:227
 #, kde-format
 msgid "Proxy:"
 msgstr "Mellomtjener:"
 
-#: kioworkers/ftp/ftp.cpp:2636
+#: kioworkers/ftp/ftp.cpp:2654
 #, kde-format
 msgid "Proxy Authentication Failed."
 msgstr "Mislykket mellomtjenerautentisering."
@@ -5327,7 +5307,6 @@ msgstr "&Åpne med …"
 
 #: widgets/kfileitemactions.cpp:826
 #, fuzzy, kde-format
-#| msgid "Execute:"
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "Kjør:"
@@ -5389,7 +5368,6 @@ msgstr "Innhold:"
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
 #, fuzzy, kde-format
-#| msgid "Open With:"
 msgid "Open with:"
 msgstr "Åpne med:"
 
@@ -5450,7 +5428,6 @@ msgstr "Peker til:"
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:387
 #, fuzzy, kde-format
-#| msgid "Show Preview"
 msgid "Show target"
 msgstr "Forhåndsvisning"
 
@@ -5481,21 +5458,18 @@ msgstr "Filsystemer:"
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
 #, fuzzy, kde-format
-#| msgid "Mounted On:"
 msgid "Mounted on:"
 msgstr "Montert på:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:533
 #, fuzzy, kde-format
-#| msgid "Mounted From:"
 msgid "Mounted from:"
 msgstr "Montert fra:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:559
 #, fuzzy, kde-format
-#| msgid "Free Space:"
 msgid "Free space:"
 msgstr "Ledig plass:"
 
@@ -5798,9 +5772,6 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
 #, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
@@ -5818,9 +5789,6 @@ msgstr "&Generisk navn:"
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
 #, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
@@ -6050,7 +6018,6 @@ msgstr ""
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:159
 #, fuzzy, kde-format
-#| msgid "%1 (%2)"
 msgctxt ""
 "@label the size of a file or folder, first rounded and then to the byte"
 msgid "%1 (%2)"
@@ -6114,9 +6081,6 @@ msgstr "Ukjent størrelse"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:739
 #, fuzzy, kde-format
-#| msgid ""
-#| "Calculating... %1 (%2)\n"
-#| "%3, %4"
 msgid ""
 "Calculating... %1\n"
 "%2, %3"
@@ -6604,13 +6568,11 @@ msgstr "Verifiserer sjekksummer …"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2499
 #, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
 msgid "The checksums of all files are identical."
 msgstr "Filene er <b>helt like</b>."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2504
 #, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
 msgid "The selected files have different checksums."
 msgstr "Filene er <b>forskjellige</b>."
 
@@ -6776,8 +6738,6 @@ msgstr "Lim inn én fil"
 
 #: widgets/paste.cpp:79 widgets/paste.cpp:113
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "Lim inn fra utklippstavla …"
@@ -6825,7 +6785,6 @@ msgstr "Lim inn"
 
 #: widgets/pastedialog.cpp:57
 #, fuzzy, kde-format
-#| msgid "Data format:"
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Dataformat:"
@@ -6862,11 +6821,6 @@ msgstr "Br&uk på alle"
 
 #: widgets/renamedialog.cpp:280
 #, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "folder conflicts for the remainder of the current job.\n"
-#| "Unless you press Skip you will still be prompted in case of a conflict "
-#| "with an existing file in the directory."
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
@@ -6880,9 +6834,6 @@ msgstr ""
 
 #: widgets/renamedialog.cpp:284
 #, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "conflicts for the remainder of the current job."
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
@@ -7025,7 +6976,6 @@ msgstr ""
 
 #: widgets/renamedialog.cpp:520
 #, fuzzy, kde-format
-#| msgid "Compact View"
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "Kompakt visning"
@@ -7058,16 +7008,12 @@ msgstr "Endre navn på elementet <filename>%1</filename> til:"
 
 #: widgets/renamefiledialog.cpp:181 widgets/renamefiledialog.cpp:523
 #, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "Det finnes allerede en fil med navnet <filename>%1</filename>."
 
 #: widgets/renamefiledialog.cpp:184
 #, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> ser ikke ut til å være en kjørbar programfil."
@@ -7104,9 +7050,6 @@ msgstr ""
 
 #: widgets/renamefiledialog.cpp:350
 #, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
@@ -7115,7 +7058,6 @@ msgstr[1] "Endre navn på de %1 valgte elementene til:"
 
 #: widgets/renamefiledialog.cpp:354
 #, fuzzy, kde-format
-#| msgid "Replace"
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
 msgstr "Erstatt"
@@ -7128,14 +7070,12 @@ msgstr ""
 
 #: widgets/renamefiledialog.cpp:360
 #, fuzzy, kde-format
-#| msgid "Open With:"
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
 msgstr "Åpne med:"
 
 #: widgets/renamefiledialog.cpp:362
 #, fuzzy, kde-format
-#| msgid "Replace"
 msgctxt "@info placeholder text"
 msgid "Replacement"
 msgstr "Erstatt"
@@ -7156,9 +7096,6 @@ msgstr ""
 
 #: widgets/renamefiledialog.cpp:444
 #, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
@@ -7179,16 +7116,12 @@ msgstr ""
 
 #: widgets/renamefiledialog.cpp:454
 #, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
 msgstr "Skriv inn %1 filnavn."
 
 #: widgets/renamefiledialog.cpp:455
 #, fuzzy, kde-format
-#| msgctxt "@label:textbox Prompt for new file of type"
-#| msgid "Enter %1 filename:"
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
 msgstr "Skriv inn %1 filnavn."
@@ -7213,7 +7146,6 @@ msgstr "&Endre navn"
 
 #: widgets/renamefiledialog.cpp:592
 #, fuzzy, kde-format
-#| msgid "Delete or rename:"
 msgctxt "@info"
 msgid "How to rename:"
 msgstr "Slett eller endre navn:"
@@ -7226,7 +7158,6 @@ msgstr ""
 
 #: widgets/renamefiledialog.cpp:596
 #, fuzzy, kde-format
-#| msgid "Replace"
 msgctxt "@info renaming operation"
 msgid "Replace text"
 msgstr "Erstatt"
@@ -7239,23 +7170,18 @@ msgstr ""
 
 #: widgets/renamefiledialog.cpp:613
 #, fuzzy, kde-format
-#| msgid "Show Preview"
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
 msgstr "Forhåndsvisning"
 
 #: widgets/renamefiledialog.cpp:736
 #, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "<filename>%1</filename> ser ikke ut til å være en kjørbar programfil."
 
 #: widgets/renamefilewarningdialog.cpp:48
 #, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
 msgctxt "@action:button"
 msgid "Rename and Hide"
 msgstr "Endre navn på element"
@@ -7278,7 +7204,6 @@ msgstr ""
 
 #: widgets/renamefilewarningdialog.cpp:52
 #, fuzzy, kde-format
-#| msgid "Home Folder"
 msgctxt "@title:window"
 msgid "Hide this Folder?"
 msgstr "Hjemmemappe"
@@ -7299,7 +7224,6 @@ msgstr "Ikke spør igjen"
 
 #: widgets/renamefilewarningdialog.cpp:89
 #, fuzzy, kde-format
-#| msgid "&Rename"
 msgctxt "@action:button"
 msgid "Rename"
 msgstr "End&re navn"
@@ -7481,11 +7405,6 @@ msgstr[1] ""
 
 #: widgets/widgetsaskuseractionhandler.cpp:253
 #, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
@@ -7498,15 +7417,6 @@ msgstr ""
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
 #, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7526,11 +7436,6 @@ msgstr[1] ""
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
 #, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
@@ -7543,15 +7448,6 @@ msgstr ""
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
 #, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "
