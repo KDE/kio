@@ -9,7 +9,9 @@
 
 #include <QCryptographicHash>
 #include <QDateTime>
+#include <QDir>
 #include <QFile>
+#include <QFileInfo>
 #include <QStandardPaths>
 
 #include <algorithm>
@@ -21,7 +23,31 @@ namespace ThumbnailCache
 
 QString rootPath()
 {
-    return QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails/");
+    // XDG_CACHE_HOME is taken as it is set, so a trailing slash in it would put a doubled one in
+    // the root and no path of a file in the cache would start with it.
+    return QDir::cleanPath(QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QLatin1String("/thumbnails")) + QLatin1Char('/');
+}
+
+bool contains(const QString &localPath, const QString &thumbRoot)
+{
+    if (localPath.isEmpty() || thumbRoot.isEmpty()) {
+        return false;
+    }
+    const QString cleanThumbRootPath = QDir::cleanPath(thumbRoot) + QLatin1Char('/');
+    const QString cleanLocalPath = QDir::cleanPath(localPath);
+    if (cleanLocalPath.startsWith(cleanThumbRootPath)) {
+        return true;
+    }
+    // The cache or the file may be reached through a symbolic link.
+    const QString canonicalLocalPath = QFileInfo(cleanLocalPath).canonicalFilePath();
+    if (canonicalLocalPath.isEmpty()) {
+        return false;
+    }
+    if (canonicalLocalPath.startsWith(cleanThumbRootPath)) {
+        return true;
+    }
+    const QString canonicalThumbRoot = QDir(thumbRoot).canonicalPath();
+    return !canonicalThumbRoot.isEmpty() && canonicalLocalPath.startsWith(canonicalThumbRoot + QLatin1Char('/'));
 }
 
 short cacheSize(const QSize &size)

@@ -27,6 +27,12 @@ namespace ThumbnailCache
 /*! Root of the cache, holding one directory per thumbnail size. */
 QString rootPath();
 
+/*!
+ * Whether the local file \a localPath lies in the cache rooted at \a thumbRoot, however either
+ * path is spelled. Such a file is a thumbnail itself and must not get one in turn.
+ */
+bool contains(const QString &localPath, const QString &thumbRoot);
+
 /*! The size a thumbnail of \a size is generated and cached at: 128, 256, 512 or 1024. */
 short cacheSize(const QSize &size);
 

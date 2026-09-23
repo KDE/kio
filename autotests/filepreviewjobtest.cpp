@@ -19,6 +19,7 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QImage>
+#include <QJsonObject>
 #include <QSignalSpy>
 #include <QSize>
 #include <QStandardPaths>
@@ -517,4 +518,180 @@ void FilePreviewJobTest::testAMissedCacheLookupKeepsItsPlaceInTheQueue()
     // It was asked for first, so it is not left until after the rest.
     QVERIFY2(place < outcomes.count() / 2,
              qPrintable(QStringLiteral("dealt with %1 of %2: %3").arg(place + 1).arg(outcomes.count()).arg(outcomes.join(QLatin1Char(' ')))));
+}
+
+void FilePreviewJobTest::testRootPathIsClean()
+{
+    const QString root = ThumbnailCache::rootPath();
+    QVERIFY(root.endsWith(QLatin1String("/thumbnails/")));
+    QCOMPARE(QDir::cleanPath(root) + QLatin1Char('/'), root);
+}
+
+void FilePreviewJobTest::testCacheContains_data()
+{
+    QTest::addColumn<QString>("relativePath"); // of the file, from the directory the cache lies in
+    QTest::addColumn<QString>("rootSpelling"); // how the root of the cache is written, %1 the directory
+    QTest::addColumn<bool>("expected");
+
+    QTest::newRow("thumbnail") << QStringLiteral("thumbnails/normal/a.png") << QStringLiteral("%1/thumbnails/") << true;
+    QTest::newRow("tier directory") << QStringLiteral("thumbnails/normal") << QStringLiteral("%1/thumbnails/") << true;
+    QTest::newRow("root without trailing slash") << QStringLiteral("thumbnails/normal/a.png") << QStringLiteral("%1/thumbnails") << true;
+    // XDG_CACHE_HOME=~/.cache/ gives a root of ~/.cache//thumbnails/, bug of thumbnails of thumbnails
+    QTest::newRow("doubled slash in root") << QStringLiteral("thumbnails/normal/a.png") << QStringLiteral("%1//thumbnails/") << true;
+#ifndef Q_OS_WIN
+    // QFile::link() makes a .lnk shortcut on Windows, which no path is resolved through
+    QTest::newRow("through a symlink") << QStringLiteral("link/normal/a.png") << QStringLiteral("%1/thumbnails/") << true;
+    QTest::newRow("root through a symlink") << QStringLiteral("thumbnails/normal/a.png") << QStringLiteral("%1/link/") << true;
+#endif
+    QTest::newRow("the cache directory itself") << QStringLiteral("thumbnails") << QStringLiteral("%1/thumbnails/") << false;
+    QTest::newRow("sibling with the same prefix") << QStringLiteral("thumbnails-old/normal/a.png") << QStringLiteral("%1/thumbnails/") << false;
+    QTest::newRow("elsewhere") << QStringLiteral("pictures/a.png") << QStringLiteral("%1/thumbnails/") << false;
+}
+
+void FilePreviewJobTest::testCacheContains()
+{
+    QFETCH(QString, relativePath);
+    QFETCH(QString, rootSpelling);
+    QFETCH(bool, expected);
+
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    QVERIFY(QDir().mkpath(dir.filePath(QStringLiteral("thumbnails/normal"))));
+    QVERIFY(QDir().mkpath(dir.filePath(QStringLiteral("thumbnails-old/normal"))));
+    QVERIFY(QDir().mkpath(dir.filePath(QStringLiteral("pictures"))));
+    // A path is only resolved through a symlink when the file exists, as the file of a preview does
+    for (const QString &path : {QStringLiteral("thumbnails/normal/a.png"), QStringLiteral("thumbnails-old/normal/a.png"), QStringLiteral("pictures/a.png")}) {
+        QFile file(dir.filePath(path));
+        QVERIFY(file.open(QIODevice::WriteOnly));
+    }
+#ifndef Q_OS_WIN
+    QVERIFY(QFile::link(dir.filePath(QStringLiteral("thumbnails")), dir.filePath(QStringLiteral("link"))));
+#endif
+
+    QCOMPARE(ThumbnailCache::contains(dir.filePath(relativePath), rootSpelling.arg(dir.path())), expected);
+}
+
+void FilePreviewJobTest::testCacheContainsWithoutTheFilesystem_data()
+{
+    QTest::addColumn<QString>("relativePath"); // of the file, from the directory the cache lies in
+    QTest::addColumn<QString>("rootSpelling"); // how the root of the cache is written, %1 the directory
+    QTest::addColumn<bool>("expected");
+
+    QTest::newRow("thumbnail") << QStringLiteral("thumbnails/normal/a.png") << QStringLiteral("%1/thumbnails/") << true;
+    QTest::newRow("doubled slash in root") << QStringLiteral("thumbnails/normal/a.png") << QStringLiteral("%1//thumbnails/") << true;
+    QTest::newRow("doubled slash in path") << QStringLiteral("thumbnails//normal/a.png") << QStringLiteral("%1/thumbnails/") << true;
+    QTest::newRow("dot in path") << QStringLiteral("thumbnails/./normal/a.png") << QStringLiteral("%1/thumbnails/") << true;
+    QTest::newRow("dot-dot in path") << QStringLiteral("pictures/../thumbnails/normal/a.png") << QStringLiteral("%1/thumbnails/") << true;
+    QTest::newRow("dot-dot out of the cache") << QStringLiteral("thumbnails/../pictures/a.png") << QStringLiteral("%1/thumbnails/") << false;
+    QTest::newRow("dot-dot in root") << QStringLiteral("thumbnails/normal/a.png") << QStringLiteral("%1/pictures/../thumbnails") << true;
+    QTest::newRow("sibling with the same prefix") << QStringLiteral("thumbnails-old/normal/a.png") << QStringLiteral("%1/thumbnails/") << false;
+}
+
+/**
+ * Whether a path lies in the cache is settled on its spelling alone wherever it can be, before
+ * anything is looked up on a filesystem that may be remote and slow: none of these paths exist.
+ */
+void FilePreviewJobTest::testCacheContainsWithoutTheFilesystem()
+{
+    QFETCH(QString, relativePath);
+    QFETCH(QString, rootSpelling);
+    QFETCH(bool, expected);
+
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QString missing = dir.filePath(QStringLiteral("missing"));
+    QVERIFY(!QFileInfo::exists(missing));
+
+    QCOMPARE(ThumbnailCache::contains(missing + QLatin1Char('/') + relativePath, rootSpelling.arg(missing)), expected);
+}
+
+#ifndef Q_OS_WIN
+void FilePreviewJobTest::testCacheContainsThroughSymlinks_data()
+{
+    QTest::addColumn<QString>("relativePath"); // of the file, from the directory the cache lies in
+    QTest::addColumn<QString>("rootSpelling"); // how the root of the cache is written, %1 the directory
+    QTest::addColumn<bool>("expected");
+
+    // Only the file needs resolving, the root is spelled as it is on disk
+    QTest::newRow("file through a symlink") << QStringLiteral("link/normal/a.png") << QStringLiteral("%1/thumbnails/") << true;
+    // The file needs no resolving, the root does
+    QTest::newRow("root through a symlink") << QStringLiteral("thumbnails/normal/a.png") << QStringLiteral("%1/link/") << true;
+    QTest::newRow("both through a symlink") << QStringLiteral("link/normal/a.png") << QStringLiteral("%1/link/") << true;
+    QTest::newRow("file right in the root through a symlink") << QStringLiteral("link/a.png") << QStringLiteral("%1/thumbnails/") << true;
+    // A file that does not exist cannot be resolved, so no symlink leads it into the cache
+    QTest::newRow("missing file through a symlink") << QStringLiteral("link/normal/missing.png") << QStringLiteral("%1/thumbnails/") << false;
+    QTest::newRow("missing file, root through a symlink") << QStringLiteral("thumbnails/normal/missing.png") << QStringLiteral("%1/link/") << false;
+    QTest::newRow("elsewhere, root through a symlink") << QStringLiteral("pictures/a.png") << QStringLiteral("%1/link/") << false;
+    QTest::newRow("root is a dangling symlink") << QStringLiteral("thumbnails/normal/a.png") << QStringLiteral("%1/dangling/") << false;
+    // The image itself is a symlink, rather than a directory on its path
+    QTest::newRow("image is a symlink into the cache") << QStringLiteral("pictures/into-cache.png") << QStringLiteral("%1/thumbnails/") << true;
+    QTest::newRow("image is a symlink into the cache, root through a symlink")
+        << QStringLiteral("pictures/into-cache.png") << QStringLiteral("%1/link/") << true;
+    QTest::newRow("image is a symlink elsewhere") << QStringLiteral("pictures/elsewhere.png") << QStringLiteral("%1/thumbnails/") << false;
+    QTest::newRow("image is a symlink elsewhere, root through a symlink") << QStringLiteral("pictures/elsewhere.png") << QStringLiteral("%1/link/") << false;
+}
+
+/**
+ * The cache or the file may be reached through a symbolic link; as the file of a preview exists,
+ * resolving it finds where it lies.
+ */
+void FilePreviewJobTest::testCacheContainsThroughSymlinks()
+{
+    QFETCH(QString, relativePath);
+    QFETCH(QString, rootSpelling);
+    QFETCH(bool, expected);
+
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+    // The temporary directory may itself be reached through a symlink, as /tmp is on some systems
+    const QString dir = QDir(tempDir.path()).canonicalPath();
+    QVERIFY(QDir().mkpath(dir + QStringLiteral("/thumbnails/normal")));
+    QVERIFY(QDir().mkpath(dir + QStringLiteral("/pictures")));
+    QVERIFY(QFile::link(dir + QStringLiteral("/thumbnails"), dir + QStringLiteral("/link")));
+    QVERIFY(QFile::link(dir + QStringLiteral("/nowhere"), dir + QStringLiteral("/dangling")));
+    for (const QString &path : {QStringLiteral("/thumbnails/a.png"), QStringLiteral("/thumbnails/normal/a.png"), QStringLiteral("/pictures/a.png")}) {
+        QFile file(dir + path);
+        QVERIFY(file.open(QIODevice::WriteOnly));
+    }
+    QVERIFY(QFile::link(dir + QStringLiteral("/thumbnails/normal/a.png"), dir + QStringLiteral("/pictures/into-cache.png")));
+    QVERIFY(QFile::link(dir + QStringLiteral("/pictures/a.png"), dir + QStringLiteral("/pictures/elsewhere.png")));
+
+    QCOMPARE(ThumbnailCache::contains(dir + QLatin1Char('/') + relativePath, rootSpelling.arg(dir)), expected);
+}
+#endif
+
+/**
+ * A file of the thumbnail cache gets a preview, but it is not written to the cache: it would be a
+ * thumbnail of a thumbnail, and looking at the cache would fill it with ever more of them.
+ */
+void FilePreviewJobTest::testFileOfTheCacheIsNotCached()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QString cacheDir = dir.filePath(QStringLiteral("thumbnails/normal"));
+    QVERIFY(QDir().mkpath(cacheDir));
+    QVERIFY(QDir().mkpath(dir.filePath(QStringLiteral("pictures"))));
+
+    PreviewOptions options;
+    options.size = QSize(128, 128);
+
+    PreviewSetupData setupData;
+    // Spelled as a trailing slash in XDG_CACHE_HOME spells it
+    setupData.thumbRoot = dir.path() + QStringLiteral("//thumbnails/");
+    const KPluginMetaData plugin(QJsonObject{{QStringLiteral("KPlugin"), QJsonObject{{QStringLiteral("Id"), QStringLiteral("testthumbnail")}}}},
+                                 QStringLiteral("testthumbnail"));
+    setupData.pluginByMimeTable.insert(QStringLiteral("image/png"), plugin);
+
+    auto thumbPathFor = [&](const QString &path) {
+        const KFileItem item = makeFileItem(path);
+        FilePreviewJob job(item, FilePreviewJob::UnknownDeviceId, options, setupData);
+        job.setAutoDelete(false);
+        if (!job.preparePluginForMimetype(QStringLiteral("image/png"))) {
+            return QStringLiteral("<no plugin>");
+        }
+        return job.m_thumbPath;
+    };
+
+    QCOMPARE(thumbPathFor(cacheDir + QStringLiteral("/0123456789abcdef.png")), QString());
+    QVERIFY(!thumbPathFor(dir.filePath(QStringLiteral("pictures/photo.png"))).isEmpty());
 }

@@ -34,6 +34,17 @@ private Q_SLOTS:
     void testCachedPreviewFoundAtDevicePixelRatio();
     void testNoCacheBucketLeavesTheCacheAlone();
     void testAMissedCacheLookupKeepsItsPlaceInTheQueue();
+    void testRootPathIsClean();
+    void testCacheContains_data();
+    void testCacheContains();
+    void testCacheContainsWithoutTheFilesystem_data();
+    void testCacheContainsWithoutTheFilesystem();
+#ifndef Q_OS_WIN
+    // QFile::link() makes a .lnk shortcut on Windows, which no path is resolved through
+    void testCacheContainsThroughSymlinks_data();
+    void testCacheContainsThroughSymlinks();
+#endif
+    void testFileOfTheCacheIsNotCached();
 };
 
 #endif

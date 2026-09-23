@@ -199,8 +199,7 @@ bool FilePreviewJob::preparePluginForMimetype(const QString &mimeType)
         m_thumbnailWorkerMetaData.insert(QStringLiteral("handlesSequences"), QString::number(m_plugin.value(QStringLiteral("HandleSequences"), false)));
 
         if (m_options.scaleType == PreviewJob::ScaleType::ScaledAndCached && plugin.value(QStringLiteral("CacheThumbnail"), true)) {
-            const QUrl url = m_fileItem.targetUrl();
-            if (!url.isLocalFile() || !url.adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(m_setupData.thumbRoot)) {
+            if (!ThumbnailCache::contains(m_fileItem.localPath(), m_setupData.thumbRoot)) {
                 setUpCaching();
             }
         }
@@ -620,7 +619,8 @@ void FilePreviewJob::saveThumbnailData(QImage &thumb)
 {
     const bool save = m_options.scaleType == PreviewJob::ScaledAndCached && !m_options.sequenceIndex && m_currentDeviceCachePolicy == CachePolicy::Allow
         && m_plugin.value(QStringLiteral("CacheThumbnail"), true)
-        && (!m_fileItem.targetUrl().isLocalFile() || !m_fileItem.targetUrl().adjusted(QUrl::RemoveFilename).toLocalFile().startsWith(m_setupData.thumbRoot));
+        // Empty when preparePluginForMimetype() found nothing to cache in, as for a file of the cache itself
+        && !m_thumbPath.isEmpty();
 
     if (save) {
         thumb.setText(QStringLiteral("Thumb::URI"), QString::fromUtf8(m_origName));
