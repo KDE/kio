@@ -45,11 +45,10 @@
 <para
 >&FTP; используется для получения информации и программного обеспечения, хранящихся в файлах на серверах по всему миру. </para>
 
-
 <para
->Источник: на основе <ulink url="http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm"
-> http://tlc.nlm.nih.gov/resources/tutorials/internetdistlrn/ftpdef.htm</ulink
-> </para>
+>Смотрите также RFC: <ulink url="https://datatracker.ietf.org/doc/html/rfc959"
+>https://datatracker.ietf.org/doc/html/rfc959</ulink
+>.</para>
 
 <para
 >Смотрите также руководство: <ulink url="man:/ftp"
