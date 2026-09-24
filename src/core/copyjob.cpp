@@ -10,6 +10,7 @@
 
 #include "copyjob.h"
 #include "../utils_p.h"
+#include "copyjob_p.h"
 #include "deletejob.h"
 #include "filecopyjob.h"
 #include "global.h"
@@ -223,6 +224,13 @@ static QString invalidCharsSupportMsg(const QString &path, const QString &fsName
 
     return msg;
 }
+
+#ifdef BUILD_TESTING
+void KIO::TestPrivate::setReportTimeout(std::chrono::milliseconds timeout)
+{
+    s_reportTimeout = timeout;
+}
+#endif
 
 struct CopyInfo {
     QUrl uSource;
@@ -742,13 +750,6 @@ void CopyJobPrivate::sourceStated(const UDSEntry &entry, const QUrl &sourceUrl)
         statNextSrc();
     }
 }
-
-#ifdef BUILD_TESTING
-void CopyJob::setReportTimeout(std::chrono::milliseconds timeout)
-{
-    s_reportTimeout = timeout;
-}
-#endif
 
 bool CopyJob::doSuspend()
 {

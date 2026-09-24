@@ -7,6 +7,7 @@
 
 #include "jobtest.h"
 #include "../src/core/config-stat-unix.h"
+#include "copyjob_p.h"
 #include "mockcoredelegateextensions.h"
 
 #include <config-kiocore.h> // HAVE_POSIX_ACL
@@ -2820,11 +2821,11 @@ void JobTest::moveRenameOnlyPercentClimbs()
     ScopedCleaner cleaner([&] {
         QDir(srcDir).removeRecursively();
         QDir(destDir).removeRecursively();
-        KIO::CopyJob::setReportTimeout(std::chrono::milliseconds(200));
+        KIO::TestPrivate::setReportTimeout(std::chrono::milliseconds(200));
     });
 
     // Reports come every 200ms otherwise, which a job this size finishes well inside of.
-    KIO::CopyJob::setReportTimeout(std::chrono::milliseconds(1));
+    KIO::TestPrivate::setReportTimeout(std::chrono::milliseconds(1));
 
     QList<unsigned long> reported;
     KIO::CopyJob *job = KIO::move(urls, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
@@ -2868,11 +2869,11 @@ void JobTest::copyPercentExcludesTheFileInHand()
     ScopedCleaner cleaner([&] {
         QDir(srcDir).removeRecursively();
         QDir(destDir).removeRecursively();
-        KIO::CopyJob::setReportTimeout(std::chrono::milliseconds(200));
+        KIO::TestPrivate::setReportTimeout(std::chrono::milliseconds(200));
     });
 
     // Reports come every 200ms otherwise, which a job this size finishes well inside of.
-    KIO::CopyJob::setReportTimeout(std::chrono::milliseconds(1));
+    KIO::TestPrivate::setReportTimeout(std::chrono::milliseconds(1));
 
     KIO::CopyJob *job = KIO::copy(urls, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
