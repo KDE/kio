@@ -92,6 +92,10 @@ static bool isDefaultFolderIcon(const QString &iconName)
     return iconName.isEmpty() || iconName == QLatin1String("folder") || iconName == QLatin1String("inode-directory");
 }
 
+/// How long the dialog waits for a free name before it opens with the plain one. Short enough
+/// not to be felt, and long enough for a stat or two over a local network.
+static constexpr int s_nameSearchTimeoutMs = 300;
+
 static bool canPickFolderIcon(const QUrl &url)
 {
     // TODO mostLocalUrl? But that would mean stat'ing when opening the dialog as opposed to only when accepting.
@@ -398,6 +402,12 @@ public:
      */
     void _k_slotTextChanged(const QString &text);
 
+    /// Shows that a worker is being waited on, in the dialog when there is one and on the window
+    /// the menu belongs to before that.
+    void setDialogBusy(const QString &text);
+    void clearDialogBusy();
+    void setWindowBusy(bool busy);
+
     /*
      * Callback in KNewFileMenu for the Symlink Dialog. Handles dialog input and gives over
      * to executeStrategy()
@@ -434,6 +444,8 @@ public:
     int m_menuItemsVersion = 0;
     QAction *m_newDirAction = nullptr;
     QDialog *m_fileDialog = nullptr;
+    QWidget *m_busyRow = nullptr;
+    QLabel *m_busyLabel = nullptr;
     KMessageWidget *m_messageWidget = nullptr;
     QLabel *m_label = nullptr;
     QLabel *m_iconLabel = nullptr;
@@ -495,6 +507,7 @@ void KNewFileMenuPrivate::_k_slotAccepted()
         // stat is running or _k_slotTextChanged has not been called already
         // delay accept until stat has been run
         m_acceptedPressed = true;
+        setDialogBusy(i18nc("@info:progress", "Checking whether the name is free…"));
 
         if (m_delayedSlotTextChangedTimer->isActive()) {
             m_delayedSlotTextChangedTimer->stop();
@@ -502,6 +515,33 @@ void KNewFileMenuPrivate::_k_slotAccepted()
         }
     } else {
         m_fileDialog->accept();
+    }
+}
+
+void KNewFileMenuPrivate::setDialogBusy(const QString &text)
+{
+    // Only the dialog asks for this, so it is up and the row is there.
+    Q_ASSERT(m_busyRow);
+    m_busyLabel->setText(text);
+    m_busyRow->show();
+}
+
+void KNewFileMenuPrivate::clearDialogBusy()
+{
+    if (m_busyRow) {
+        m_busyRow->hide();
+    }
+}
+
+void KNewFileMenuPrivate::setWindowBusy(bool busy)
+{
+    if (!m_parentWidget) {
+        return;
+    }
+    if (busy) {
+        m_parentWidget->setCursor(Qt::BusyCursor);
+    } else {
+        m_parentWidget->unsetCursor();
     }
 }
 
@@ -522,12 +562,15 @@ void KNewFileMenuPrivate::initDialog()
     m_folderIconGrid = ui.folderIconGrid;
     m_buttonBox = ui.buttonBox;
     m_chooseIconButton = ui.chooseIconButton;
+    m_busyRow = ui.busyRow;
+    m_busyLabel = ui.busyLabel;
 
     ui.iconHintLabel->setFont(QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont));
 
     m_iconLabel->hide();
     m_chooseIconBox->hide();
     m_messageWidget->hide();
+    m_busyRow->hide();
 
     QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, [this]() {
         _k_slotAccepted();
@@ -1255,6 +1298,7 @@ void KNewFileMenu::setSelectDirWhenAlreadyExist(bool shouldSelectExistingDir)
 void KNewFileMenuPrivate::_k_slotStatResult(KJob *job)
 {
     m_statRunning = false;
+    clearDialogBusy();
     KIO::StatJob *statJob = static_cast<KIO::StatJob *>(job);
     // ignore stat Result when the lineEdit has changed
     const QUrl url = statJob->url().adjusted(QUrl::StripTrailingSlash);
@@ -1450,8 +1494,32 @@ void KNewFileMenu::createDirectory()
 
     QString name = !d->m_text.isEmpty() ? d->m_text : i18nc("Default name for a new folder", "New Folder");
 
+    d->setWindowBusy(true);
+
     auto nameJob = new KIO::NameFinderJob(d->m_baseUrl, name, this);
-    connect(nameJob, &KJob::result, this, [nameJob, name, this]() mutable {
+
+    // The job is left running rather than killed on timeout. Killing it tears the worker down,
+    // and for a worker that runs in this process that waits for its thread, which is exactly the
+    // wait being avoided.
+    auto dialogShown = std::make_shared<bool>(false);
+
+    auto *nameTimeout = new QTimer(nameJob);
+    nameTimeout->setSingleShot(true);
+    connect(nameTimeout, &QTimer::timeout, this, [name, dialogShown, this]() {
+        // The job result stops this timer, so the dialog cannot be up yet when it fires.
+        Q_ASSERT(!*dialogShown);
+        *dialogShown = true;
+        d->setWindowBusy(false);
+        d->showNewDirNameDlg(name);
+    });
+
+    connect(nameJob, &KJob::result, this, [nameJob, nameTimeout, name, dialogShown, this]() mutable {
+        nameTimeout->stop();
+        d->setWindowBusy(false);
+        if (*dialogShown) {
+            return;
+        }
+        *dialogShown = true;
         if (!nameJob->error()) {
             d->m_baseUrl = nameJob->baseUrl();
             name = nameJob->finalName();
@@ -1459,6 +1527,7 @@ void KNewFileMenu::createDirectory()
         d->showNewDirNameDlg(name);
     });
     nameJob->start();
+    nameTimeout->start(s_nameSearchTimeoutMs);
     Q_EMIT directoryCreationStarted(d->m_baseUrl);
 }
 

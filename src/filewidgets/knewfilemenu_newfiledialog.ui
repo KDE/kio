@@ -74,6 +74,53 @@
     </widget>
    </item>
    <item>
+    <widget class="QWidget" name="busyRow" native="true">
+     <layout class="QHBoxLayout" name="busyLayout">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="KBusyIndicatorWidget" name="busyIndicator"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="busyLabel">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::TextFormat::PlainText</enum>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="busySpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <widget class="KCollapsibleGroupBox" name="chooseIconBox">
      <property name="title">
       <string>Choose custom icon or color</string>
@@ -172,6 +219,11 @@
    <extends>QWidget</extends>
    <header>kcollapsiblegroupbox.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>KBusyIndicatorWidget</class>
+   <extends>QWidget</extends>
+   <header>kbusyindicatorwidget.h</header>
   </customwidget>
   <customwidget>
    <class>KMessageWidget</class>
