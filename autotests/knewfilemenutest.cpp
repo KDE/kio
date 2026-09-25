@@ -7,6 +7,9 @@
 
 #include <QTest>
 
+#include "worker_p.h"
+#include "workerbase.h"
+#include "workerfactory.h"
 #include <KCollapsibleGroupBox>
 #include <KConfigGroup>
 #include <KDesktopFile>
@@ -21,6 +24,7 @@
 #include <knewfilemenu.h>
 #include <kpropertiesdialog.h>
 
+#include <QElapsedTimer>
 #include <QFileInfo>
 #include <QGridLayout>
 #include <QLabel>
@@ -28,6 +32,7 @@
 #include <QSignalSpy>
 #include <QStandardPaths>
 #include <QTemporaryDir>
+#include <QThread>
 
 #ifdef Q_OS_UNIX
 #include <sys/stat.h>
@@ -624,6 +629,126 @@ private Q_SLOTS:
         QCOMPARE(folderSpy.count(), 0);
         QCOMPARE(dirCreationRejectedSpy.count(), 1);
         QCOMPARE(fileCreationRejectedSpy.count(), 0);
+    }
+
+    void testTheDialogDoesNotWaitForASlowFilesystem()
+    {
+        // Before the dialog opens, KNewFileMenu looks for a name that is free, which is one stat
+        // per name that is taken. A network or a fuse filesystem answers those in its own time,
+        // and until this was fixed the window showed nothing at all in the meantime.
+        class Factory : public KIO::WorkerFactory
+        {
+        public:
+            using KIO::WorkerFactory::WorkerFactory;
+            std::unique_ptr<KIO::WorkerBase> createWorker(const QByteArray &pool, const QByteArray &app) override
+            {
+                class SlowWorker : public KIO::WorkerBase
+                {
+                public:
+                    SlowWorker(const QByteArray &pool, const QByteArray &app)
+                        : WorkerBase(QByteArrayLiteral("kio-test"), pool, app)
+                    {
+                    }
+
+                    Q_REQUIRED_RESULT KIO::WorkerResult stat(const QUrl &url) override
+                    {
+                        // Long enough to outlast the wait, and on a thread of its own so that the
+                        // event loop of the test keeps running.
+                        QThread::msleep(4000);
+                        return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toString());
+                    }
+                };
+                return std::unique_ptr<KIO::WorkerBase>(new SlowWorker(pool, app));
+            }
+        };
+        auto factory = std::make_shared<Factory>();
+        KIO::Worker::setTestWorkerFactory(factory);
+
+        QWidget parentWidget;
+        KNewFileMenu menu(this);
+        menu.setModal(false);
+        menu.setParentWidget(&parentWidget);
+        menu.setWorkingDirectory(QUrl(QStringLiteral("kio-test://host/dir")));
+
+        menu.createDirectory();
+
+        // The window says it is working on it, rather than looking like the action was dropped.
+        QCOMPARE(parentWidget.cursor().shape(), Qt::BusyCursor);
+
+        // And the dialog opens without the answer, well before the worker gets around to it.
+        QElapsedTimer elapsed;
+        elapsed.start();
+        QTRY_VERIFY_WITH_TIMEOUT(parentWidget.findChild<QDialog *>() != nullptr, 2000);
+        QVERIFY2(elapsed.elapsed() < 2000, qPrintable(QStringLiteral("waited %1 ms").arg(elapsed.elapsed())));
+        QCOMPARE(parentWidget.cursor().shape(), Qt::ArrowCursor);
+
+        QLineEdit *lineEdit = parentWidget.findChild<QDialog *>()->findChild<QLineEdit *>();
+        QVERIFY(lineEdit);
+        QCOMPARE(lineEdit->text(), QStringLiteral("New Folder"));
+    }
+
+    void testTheDialogSaysWhenItIsCheckingTheName()
+    {
+        // Pressing Create holds the dialog until the stat that checks whether the name is taken
+        // comes back. On a slow filesystem that is seconds, and a button that has visibly been
+        // pressed with nothing happening afterwards reads as a dialog that has hung. The dialog
+        // says what it is waiting for instead, next to a spinner.
+        class Factory : public KIO::WorkerFactory
+        {
+        public:
+            using KIO::WorkerFactory::WorkerFactory;
+            std::unique_ptr<KIO::WorkerBase> createWorker(const QByteArray &pool, const QByteArray &app) override
+            {
+                class SlowWorker : public KIO::WorkerBase
+                {
+                public:
+                    SlowWorker(const QByteArray &pool, const QByteArray &app)
+                        : WorkerBase(QByteArrayLiteral("kio-test"), pool, app)
+                    {
+                    }
+
+                    Q_REQUIRED_RESULT KIO::WorkerResult stat(const QUrl &url) override
+                    {
+                        QThread::msleep(4000);
+                        return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toString());
+                    }
+                };
+                return std::unique_ptr<KIO::WorkerBase>(new SlowWorker(pool, app));
+            }
+        };
+        auto factory = std::make_shared<Factory>();
+        KIO::Worker::setTestWorkerFactory(factory);
+
+        QWidget parentWidget;
+        KNewFileMenu menu(this);
+        menu.setModal(false);
+        menu.setParentWidget(&parentWidget);
+        menu.setWorkingDirectory(QUrl(QStringLiteral("kio-test://host/dir")));
+
+        menu.createDirectory();
+
+        QDialog *dialog = nullptr;
+        QTRY_VERIFY_WITH_TIMEOUT((dialog = parentWidget.findChild<QDialog *>()) != nullptr, 2000);
+
+        QWidget *busyRow = dialog->findChild<QWidget *>(QStringLiteral("busyRow"));
+        QVERIFY(busyRow);
+        QLabel *busyLabel = dialog->findChild<QLabel *>(QStringLiteral("busyLabel"));
+        QVERIFY(busyLabel);
+        // Nothing is being waited on that the user asked for yet.
+        QVERIFY(!busyRow->isVisibleTo(dialog));
+
+        const auto buttonsList = dialog->findChildren<QPushButton *>();
+        auto it = std::find_if(buttonsList.cbegin(), buttonsList.cend(), [](const QPushButton *button) {
+            return button->text().contains("OK");
+        });
+        QVERIFY(it != buttonsList.cend());
+
+        // The stat started when the dialog opened is still out with the worker, so the dialog
+        // cannot accept yet.
+        (*it)->click();
+
+        QVERIFY(busyRow->isVisibleTo(dialog));
+        QVERIFY(!busyLabel->text().isEmpty());
     }
 
     // TODO test custom folder icon and that it remembers it.
