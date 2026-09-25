@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 15:56+0000\n"
+"POT-Creation-Date: 2026-09-25 00:41+0000\n"
 "PO-Revision-Date: 2025-12-07 00:08-0500\n"
 "Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
 "Language-Team: sq\n"
@@ -44,7 +44,7 @@ msgstr ""
 "S’u ndryshua dot pronësia e kartelës <filename>%1</filename>. S’keni leje të "
 "mjaftueshme mbi skedarin, për të kryer ndryshimin."
 
-#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:595
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:595
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -56,7 +56,7 @@ msgstr ""
 "S’u krijua dot simlidhje “%1”.\n"
 "Sistemi vendmbërritje i kartelave (%2) s’mbulon simlidhje."
 
-#: core/copyjob.cpp:208
+#: core/copyjob.cpp:209
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -71,7 +71,7 @@ msgstr ""
 "Përzgjedhja e “Zëvendësoje” do të zëvendësojë çfarëdo shenjash të pavlefshme "
 "(te emri i dosjes vendmbërritje) me një nënvijë “_”."
 
-#: core/copyjob.cpp:216
+#: core/copyjob.cpp:217
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -86,23 +86,23 @@ msgstr ""
 "Përzgjedhja e “Zëvendësoje” do të zëvendësojë çfarëdo shenjash të pavlefshme "
 "(te emri i kartelës vendmbërritje) me një nënvijë “_”."
 
-#: core/copyjob.cpp:1490 core/job_error.cpp:588
+#: core/copyjob.cpp:1491 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Dosja Ekziston Tashmë"
 
-#: core/copyjob.cpp:1826 core/copyjob.cpp:2560 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1827 core/copyjob.cpp:2561 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Skeda ekziston që më parë"
 
-#: core/copyjob.cpp:1826 core/copyjob.cpp:2560
+#: core/copyjob.cpp:1827 core/copyjob.cpp:2561
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Ekziston Tashmë si Skedar"
 
-#: core/copyjob.cpp:1984 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1985 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr ""

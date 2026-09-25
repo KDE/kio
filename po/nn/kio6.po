@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 15:56+0000\n"
+"POT-Creation-Date: 2026-09-25 00:41+0000\n"
 "PO-Revision-Date: 2026-09-19 17:49+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -47,7 +47,7 @@ msgstr ""
 "Klarte ikkje endra eigarskapen til fila <filename>%1</filename>. Du har "
 "ikkje tilstrekkeleg løyve til å utføra endringa."
 
-#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:595
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:595
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -59,7 +59,7 @@ msgstr ""
 "Klarte ikkje oppretta symbolsk lenkje «%1».\n"
 "Filsystemet du overfører til (%2) støttar ikkje symbolske lenkjer."
 
-#: core/copyjob.cpp:208
+#: core/copyjob.cpp:209
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -72,7 +72,7 @@ msgstr ""
 "Filsystemet (%2) til målmappa godtek ikkje desse teikna i mappenamn: %3\n"
 "Vel «Byt ut» for å byta ut ugyldige teikn (i målmappa) med underteikn («_»)."
 
-#: core/copyjob.cpp:216
+#: core/copyjob.cpp:217
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -85,23 +85,23 @@ msgstr ""
 "Filsystemet (%2) til målfila godtek ikkje desse teikna i filnamn: %3\n"
 "Vel «Byt ut» for å byta ut ugyldige teikn (i målfila) med underteikn («_»)."
 
-#: core/copyjob.cpp:1490 core/job_error.cpp:588
+#: core/copyjob.cpp:1491 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Mappa finst frå før"
 
-#: core/copyjob.cpp:1826 core/copyjob.cpp:2560 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1827 core/copyjob.cpp:2561 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fila finst frå før"
 
-#: core/copyjob.cpp:1826 core/copyjob.cpp:2560
+#: core/copyjob.cpp:1827 core/copyjob.cpp:2561
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Finst frå før som mappe"
 
-#: core/copyjob.cpp:1984 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1985 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Papirkorg"

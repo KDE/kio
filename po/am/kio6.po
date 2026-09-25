@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 15:56+0000\n"
+"POT-Creation-Date: 2026-09-25 00:41+0000\n"
 "PO-Revision-Date: 2026-05-04 17:15+0300\n"
 "Last-Translator: Wesenseged <kde-i18n-de@kde.org>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 "የፋይል <filename>%1</filename> ባለቤትነትን መቀየር አልተቻለም። ለውጡን ለማከናወን ፋይሉን የመጠቀም በቂ "
 "ፈቃድ የሎትም።"
 
-#: core/copyjob.cpp:196 kioworkers/file/file_unix.cpp:595
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:595
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -53,7 +53,7 @@ msgstr ""
 "ምልክታዊ ትስስር \"%1\" መፍጠር አልተቻለም።\n"
 "መድረሻው ፋይል ስርአት (%2) ምልክታዊ ትስስሮችን አይደግፍም።"
 
-#: core/copyjob.cpp:208
+#: core/copyjob.cpp:209
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -67,7 +67,7 @@ msgstr ""
 "\"ተካ\" የሚለውን መምረጥ ማንኛውንም የማይፈቀዱ ቁምፊዎችን (በመድረሻው አቃፊ ስም ውስጥ ያሉትን) በታች መስመር \"_"
 "\" ይተካቸዋል።"
 
-#: core/copyjob.cpp:216
+#: core/copyjob.cpp:217
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -81,23 +81,23 @@ msgstr ""
 "\"ተካ\" የሚለውን መምረጥ ማንኛውንም የማይፈቀዱ ቁምፊዎችን (በመድረሻው ፋይል ስም ውስጥ ያሉትን) በታች መስመር \"_"
 "\" ይተካቸዋል።"
 
-#: core/copyjob.cpp:1490 core/job_error.cpp:588
+#: core/copyjob.cpp:1491 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "አቃፊ አስቀድሞ አለ"
 
-#: core/copyjob.cpp:1826 core/copyjob.cpp:2560 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1827 core/copyjob.cpp:2561 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "ፋይል አስቀድሞ አለ"
 
-#: core/copyjob.cpp:1826 core/copyjob.cpp:2560
+#: core/copyjob.cpp:1827 core/copyjob.cpp:2561
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "እንደ አቃፊ አስቀድሞ አለ"
 
-#: core/copyjob.cpp:1984 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1985 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "መጣያ"
