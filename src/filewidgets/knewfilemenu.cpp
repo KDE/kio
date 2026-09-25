@@ -723,10 +723,15 @@ void KNewFileMenuPrivate::executeStrategy()
     }
     QUrl uSrc(QUrl::fromLocalFile(src));
 
-    // In case the templates/.source directory contains symlinks, resolve
-    // them to the target files. Fixes bug #149628.
+    // Resolve symlink targets, including paths through a symlinked directory.
+    // Fixes bug #525084.
     QFileInfo info(src);
-    if (info.isSymLink()) {
+    const QString canonicalPath = m_copyData.m_isSymlink && QDir::isAbsolutePath(src) ? info.canonicalFilePath() : QString();
+    if (!canonicalPath.isEmpty()) {
+        uSrc = QUrl::fromLocalFile(canonicalPath);
+    } else if (info.isSymLink()) {
+        // In case the templates/.source directory contains symlinks, resolve
+        // them to the target files. Fixes bug #149628.
         uSrc = QUrl::fromLocalFile(info.symLinkTarget());
     }
 

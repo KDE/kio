@@ -329,6 +329,37 @@ private Q_SLOTS:
         QCOMPARE(emittedUrl.toLocalFile(), path);
     }
 
+    void testSymlinkTargetThroughSymlinkedDirectory()
+    {
+        QTemporaryDir testDir;
+        QVERIFY(testDir.isValid());
+
+        const QString realDir = testDir.path() + QStringLiteral("/real");
+        const QString aliasDir = testDir.path() + QStringLiteral("/alias");
+        QVERIFY(QDir().mkdir(realDir));
+        QFile target(realDir + QStringLiteral("/target.txt"));
+        QVERIFY(target.open(QIODevice::WriteOnly));
+        target.close();
+        QVERIFY(QFile::link(realDir, aliasDir));
+
+        QWidget parentWidget;
+        KNewFileMenu menu(&parentWidget);
+        menu.setModal(false);
+        menu.setWorkingDirectory(QUrl::fromLocalFile(aliasDir));
+        menu.checkUpToDate();
+        openActionText(&menu, QStringLiteral("Link to File"));
+
+        KNameAndUrlInputDialog *dialog = nullptr;
+        QTRY_VERIFY(dialog = parentWidget.findChild<KNameAndUrlInputDialog *>());
+        dialog->setSuggestedName(QStringLiteral("linked.txt"));
+        dialog->setSuggestedUrl(QUrl::fromLocalFile(aliasDir + QStringLiteral("/target.txt")));
+
+        QSignalSpy createdSpy(&menu, &KNewFileMenu::fileCreated);
+        dialog->accept();
+        QTRY_COMPARE(createdSpy.count(), 1);
+        QCOMPARE(QFileInfo(realDir + QStringLiteral("/linked.txt")).symLinkTarget(), target.fileName());
+    }
+
     void testParsingUserDirs()
     {
         KNewFileMenu menu(this);
