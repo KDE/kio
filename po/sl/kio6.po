@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:41+0000\n"
+"POT-Creation-Date: 2026-09-26 00:41+0000\n"
 "PO-Revision-Date: 2026-09-08 10:23+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -3602,13 +3602,13 @@ msgctxt "@title:window New link to a program"
 msgid "Create New %1"
 msgstr "Ustvari novo %1"
 
-#: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
+#: filewidgets/knewfilemenu.cpp:784 filewidgets/knewfilemenu.cpp:806
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1126
+#: filewidgets/knewfilemenu.cpp:1131
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3618,7 +3618,7 @@ msgstr ""
 "Imena <filename>%1</filename> ni mogoče uporabiti, ker je rezervirano za "
 "rabo v operacijskem sistemu."
 
-#: filewidgets/knewfilemenu.cpp:1134
+#: filewidgets/knewfilemenu.cpp:1139
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3627,7 +3627,7 @@ msgid ""
 msgstr ""
 "Ime <filename>%1</filename> se začne s piko, zato bo mapa privzeto skrita."
 
-#: filewidgets/knewfilemenu.cpp:1142
+#: filewidgets/knewfilemenu.cpp:1147
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3639,27 +3639,27 @@ msgstr ""
 "prikaže pred drugimi, če so datoteke urejene po abecedi med morebiti še "
 "drugimi nenavadnostmi."
 
-#: filewidgets/knewfilemenu.cpp:1160
+#: filewidgets/knewfilemenu.cpp:1165
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Uporaba poševnice v imenih map bo ustvarila podmape, kot so:"
 
-#: filewidgets/knewfilemenu.cpp:1174
+#: filewidgets/knewfilemenu.cpp:1179
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Uporaba poševnice v imenih map bo ustvarila podmape."
 
-#: filewidgets/knewfilemenu.cpp:1186
+#: filewidgets/knewfilemenu.cpp:1191
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Poševnice na morejo biti uporabljene v imenih datotek in map."
 
-#: filewidgets/knewfilemenu.cpp:1191
+#: filewidgets/knewfilemenu.cpp:1196
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Povratne poševnice na morejo biti uporabljene v imenih datotek in map."
 
-#: filewidgets/knewfilemenu.cpp:1205
+#: filewidgets/knewfilemenu.cpp:1210
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3669,7 +3669,7 @@ msgstr ""
 "Kreiranje datoteke ali mape z imenom <filename>%1</filename> ni mogoče, ker "
 "bi se prekrivala z lokacijo uporabnikove domače mape."
 
-#: filewidgets/knewfilemenu.cpp:1214
+#: filewidgets/knewfilemenu.cpp:1219
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3678,47 +3678,47 @@ msgstr ""
 "Začeti ime datoteke ali mape s tildo ni priporočljivo, ker je lahko dvoumno "
 "ali nevarno, če uporabite terminal za brisanje stvari."
 
-#: filewidgets/knewfilemenu.cpp:1286
+#: filewidgets/knewfilemenu.cpp:1291
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Imenik z imenom <filename>%1</filename> že obstaja."
 
-#: filewidgets/knewfilemenu.cpp:1288
+#: filewidgets/knewfilemenu.cpp:1293
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Datoteka z imenom <filename>%1</filename> že obstaja."
 
-#: filewidgets/knewfilemenu.cpp:1374
+#: filewidgets/knewfilemenu.cpp:1379
 #, kde-format
 msgid "Create New"
 msgstr "Ustvari novo"
 
-#: filewidgets/knewfilemenu.cpp:1446
+#: filewidgets/knewfilemenu.cpp:1451
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nova mapa"
 
-#: filewidgets/knewfilemenu.cpp:1469
+#: filewidgets/knewfilemenu.cpp:1474
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Ustvari novo mapo"
 
-#: filewidgets/knewfilemenu.cpp:1471
+#: filewidgets/knewfilemenu.cpp:1476
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "Ustvari novo mapo v: %1:"
 
-#: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Vnesite ime mape"
 
-#: filewidgets/knewfilemenu.cpp:1531
+#: filewidgets/knewfilemenu.cpp:1536
 #, kde-format
 msgid "Default"
 msgstr "Privzeto"
@@ -3857,18 +3857,18 @@ msgstr "Kliknite za krmarjenje po mestih"
 msgid "Click to Edit Location"
 msgstr "Kliknite za urejanje mesta"
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:250
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:256
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "Nimate dovoljenja za izvajanje te datoteke."
 
-#: gui/applicationlauncherjob.cpp:136 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:141 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "Zaganjanje %1"
 
-#: gui/applicationlauncherjob.cpp:173
+#: gui/applicationlauncherjob.cpp:178
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
@@ -3877,12 +3877,12 @@ msgstr ""
 "Storitve %1 ni mogoče napraviti izvedljive, prekinjam izvajanje.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:686
+#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:689
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Nimate dovoljenja, da bi izbrali program za odpiranje te datoteke."
 
-#: gui/applicationlauncherjob.cpp:299
+#: gui/applicationlauncherjob.cpp:310
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
@@ -3911,7 +3911,7 @@ msgstr "Napaka med shranjevanjem slike v %1"
 msgid "Icon file too big, download aborted"
 msgstr "Datoteka z ikono je prevelika, zato je bil prejem prekinjen"
 
-#: gui/filepreviewjob.cpp:256
+#: gui/filepreviewjob.cpp:255
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -3924,7 +3924,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "Ni mogoče najti odjemalca elektronske pošte"
 
-#: gui/kprocessrunner.cpp:125
+#: gui/kprocessrunner.cpp:127
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3935,12 +3935,12 @@ msgstr ""
 "%1\n"
 "ni veljavna."
 
-#: gui/kprocessrunner.cpp:297
+#: gui/kprocessrunner.cpp:303
 #, kde-format
 msgid "Launching %1"
 msgstr "Zaganjanje %1"
 
-#: gui/kprocessrunner.cpp:481
+#: gui/kprocessrunner.cpp:487
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -3956,7 +3956,7 @@ msgstr "Ni mogoče najti emulatorja terminala"
 msgid "Failed to open %1"
 msgstr "Ni bilo mogoče odpreti %1"
 
-#: gui/openurljob.cpp:318
+#: gui/openurljob.cpp:321
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3967,7 +3967,7 @@ msgstr ""
 "%1\n"
 "je vrste Link (povezava), a nima vnosa URL=… ."
 
-#: gui/openurljob.cpp:402
+#: gui/openurljob.cpp:405
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3976,14 +3976,14 @@ msgstr ""
 "Datoteka izvedljivega programa »%1« se nahaja na oddaljenem datotečnem "
 "sistemu. Zaradi varnosti ne bo zagnan."
 
-#: gui/openurljob.cpp:443
+#: gui/openurljob.cpp:446
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 "Iz varnostnih razlogov zagon izvedljivih datotek v tem kontekstu ni dovoljen."
 
-#: gui/openurljob.cpp:473
+#: gui/openurljob.cpp:476
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -3991,7 +3991,7 @@ msgid ""
 msgstr ""
 "Program \"%1\" mora imeti dovoljenje za izvajanje, da ga bi ga lahko pognali."
 
-#: gui/openurljob.cpp:484
+#: gui/openurljob.cpp:487
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4000,12 +4000,12 @@ msgstr ""
 "Ni mogoče spremeniti datoteke %1 v izvajalno.\n"
 "%2."
 
-#: gui/openurljob.cpp:570
+#: gui/openurljob.cpp:573
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Datoteka z vnosi za namizje »%1« nima vnosa  za vrsto: Type=…."
 
-#: gui/openurljob.cpp:672
+#: gui/openurljob.cpp:675
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4016,12 +4016,12 @@ msgstr ""
 "Preverite vaše odprte aplikacije in področje obvestil za nedokončanimi "
 "opravili ali prenosi."
 
-#: gui/openurljob.cpp:698
+#: gui/openurljob.cpp:701
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Ni bilo mogoče odpreti datoteke."
 
-#: gui/openurljob.cpp:732
+#: gui/openurljob.cpp:735
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Programa »%1« ni bilo mogoče zagnati."

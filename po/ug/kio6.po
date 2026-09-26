@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:41+0000\n"
-"PO-Revision-Date: 2026-09-23 06:56+0900\n"
+"POT-Creation-Date: 2026-09-26 00:41+0000\n"
+"PO-Revision-Date: 2026-09-24 19:33-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
-"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
+"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,6 +39,8 @@ msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
 "insufficient access to the file to perform the change."
 msgstr ""
+"<filename>%1</filename> نىڭ ئىگىدارلىق ھوقۇقىنى ئۆزگەرتەلمىدى. بۇ "
+"ئۆزگەرتىشنى ئىجرا قىلىشقا يېتەرلىك ئىجازىتىڭىز يوق."
 
 #: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:595
 #, kde-format
@@ -49,6 +51,8 @@ msgid ""
 "Could not create symlink \"%1\".\n"
 "The destination filesystem (%2) doesn't support symlinks."
 msgstr ""
+"بەلگە ئۇلانما «%1» نى قۇرالمايدۇ.\n"
+"نىشان ھۆججەت سىستېمىسى (%2) بەلگە ئۇلانمىنى قوللىمايدۇ."
 
 #: core/copyjob.cpp:209
 #, kde-format
@@ -59,6 +63,11 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "folder name) with an underscore \"_\"."
 msgstr ""
+"«%1» نى قۇرالمايدۇ.\n"
+"نىشان ھۆججەت سىستېمىسى (%2) تۆۋەندىكى ھەرپنى قىسقۇچ ئىسمىغا ئىشلىتىشكە يول "
+"قويمايدۇ: %3\n"
+"ئالماشتۇر تاللانسا نىشان قىسقۇچ ئىسمىدىكى بارلىق ئىناۋەتسىز ھەرپنى ئاستى "
+"سىزىق «_» قا ئالماشتۇرىدۇ."
 
 #: core/copyjob.cpp:217
 #, kde-format
@@ -69,6 +78,11 @@ msgid ""
 "Selecting Replace will replace any invalid characters (in the destination "
 "file name) with an underscore \"_\"."
 msgstr ""
+"«%1» نى قۇرالمايدۇ.\n"
+"نىشان ھۆججەت سىستېمىسى (%2) تۆۋەندىكى ھەرپنى ھۆججەت ئىسمىغا ئىشلىتىشكە يول "
+"قويمايدۇ: %3\n"
+"ئالماشتۇر تاللانسا نىشان ھۆججەت ئىسمىدىكى بارلىق ئىناۋەتسىز ھەرپنى ئاستى "
+"سىزىق «_» قا ئالماشتۇرىدۇ."
 
 #: core/copyjob.cpp:1491 core/job_error.cpp:588
 #, kde-format
@@ -169,13 +183,13 @@ msgstr "%1، %2"
 #, kde-format
 msgctxt "files (size)"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: core/global.cpp:105
 #, kde-format
 msgctxt "items: folders, files (size)"
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: core/job.cpp:104
 #, kde-format
@@ -355,7 +369,7 @@ msgid ""
 "Could not write to %1."
 msgstr ""
 "زىيارەت رەت قىلىندى.\n"
-"%1 نى يازالمىدى."
+"%1 غا يازالمايدۇ."
 
 #: core/job_error.cpp:86
 #, kde-format
@@ -404,6 +418,9 @@ msgid ""
 "The reported error was:\n"
 "%1"
 msgstr ""
+"ئۈسكۈنىنى ئېگەرلىيەلمىدى.\n"
+"مەلۇم قىلغان خاتالىق:\n"
+"%1"
 
 #: core/job_error.cpp:113
 #, kde-format
@@ -412,6 +429,9 @@ msgid ""
 "The reported error was:\n"
 "%1"
 msgstr ""
+"ئۈسكۈنىنى ئېگەرسىزلىيەلمىدى.\n"
+"مەلۇم قىلغان خاتالىق:\n"
+"%1"
 
 #: core/job_error.cpp:116
 #, kde-format
@@ -494,7 +514,7 @@ msgid ""
 "Error. Out of memory.\n"
 "%1"
 msgstr ""
-"خاتا. Out of memory.\n"
+"خاتالىق. ئەسلەك يېتىشمىدى.\n"
 "%1"
 
 #: core/job_error.cpp:167
@@ -562,6 +582,8 @@ msgid ""
 "Could not delete original file %1.\n"
 "Please check permissions."
 msgstr ""
+"ئەسلى ھۆججەت %1 نى ئۆچۈرەلمىدى.\n"
+"ئىجازەتنى تەكشۈرۈڭ."
 
 #: core/job_error.cpp:202
 #, kde-format
@@ -569,6 +591,8 @@ msgid ""
 "Could not delete partial file %1.\n"
 "Please check permissions."
 msgstr ""
+"قىسمەن ھۆججەت %1 نى ئۆچۈرەلمىدى.\n"
+"ئىجازەتنى تەكشۈرۈڭ."
 
 #: core/job_error.cpp:205
 #, kde-format
@@ -576,6 +600,8 @@ msgid ""
 "Could not rename original file %1.\n"
 "Please check permissions."
 msgstr ""
+"ئەسلى ھۆججەت %1 نىڭ ئاتىنى ئۆزگەرتەلمىدى.\n"
+"ئىجازەتنى تەكشۈرۈڭ."
 
 #: core/job_error.cpp:208
 #, kde-format
@@ -583,6 +609,8 @@ msgid ""
 "Could not rename partial file %1.\n"
 "Please check permissions."
 msgstr ""
+"قىسمەن ھۆججەت %1 نىڭ ئاتىنى ئۆزگەرتەلمىدى.\n"
+"ئىجازەتنى تەكشۈرۈڭ."
 
 #: core/job_error.cpp:211
 #, kde-format
@@ -590,6 +618,8 @@ msgid ""
 "Could not create symlink %1.\n"
 "Please check permissions."
 msgstr ""
+"بەلگە ئۇلانما %1 نى قۇرالمىدى.\n"
+"ئىجازەتنى تەكشۈرۈڭ."
 
 #: core/job_error.cpp:214
 #, kde-format
@@ -597,6 +627,8 @@ msgid ""
 "Cannot create symlinks at %1.\n"
 "The destination filesystem doesn't support symlinks."
 msgstr ""
+"بەلگە ئۇلانما %1 نى قۇرالمايدۇ.\n"
+"نىشان ھۆججەت سىستېمىسى بەلگە ئۇلانمىنى قوللىمايدۇ."
 
 #: core/job_error.cpp:220
 #, kde-format
@@ -609,6 +641,8 @@ msgid ""
 "The source and destination are the same file.\n"
 "%1"
 msgstr ""
+"مەنبە بىلەن نىشان ئوخشاش ھۆججەت.\n"
+"%1"
 
 #: core/job_error.cpp:231
 #, kde-format
@@ -644,7 +678,7 @@ msgstr "يەرلىك ئىم مۇلازىمېتىرى بىلەن ئالاقە ق�
 #: core/job_error.cpp:249
 #, kde-format
 msgid "Unable to create KIO worker. %1"
-msgstr ""
+msgstr "KIO worker نى قۇرالمايدۇ. %1"
 
 #: core/job_error.cpp:253
 #, kde-kuit-format
@@ -653,6 +687,8 @@ msgid ""
 "Cannot transfer <filename>%1</filename> because it is too large. The "
 "destination filesystem only supports files up to 4GiB"
 msgstr ""
+"<filename>%1</filename> نى يەتكۈزەلمەيدۇ چۈنكى ئۇ بەك چوڭ. نىشان ھۆججەت "
+"سىستېمىسى پەقەت  4GiB دىن كىچىك ھۆججەتنىلا قوللايدۇ"
 
 #: core/job_error.cpp:258
 #, kde-format
@@ -661,6 +697,9 @@ msgid ""
 "'%1' is owned by the current user.\n"
 "Please retry after changing permissions."
 msgstr ""
+"ئىجازەتنى يۈكسەلدۈرۈش ھاجەتسىز چۈنكى \n"
+"«%1» نىڭ ئىگىدارى نۆۋەتتىكى ئىشلەتكۈچى.\n"
+"ئىجازەتنى ئۆزگەرتكەندىن كېيىن قايتا سىناڭ."
 
 #: core/job_error.cpp:261
 #, kde-format
@@ -693,7 +732,7 @@ msgstr "(يوچۇن)"
 #, kde-format
 msgctxt "@info %1 error name, %2 description"
 msgid "<qt><p><b>%1</b></p><p>%2</p></qt>"
-msgstr ""
+msgstr "<qt><p><b>%1</b></p><p>%2</p></qt>"
 
 #: core/job_error.cpp:308
 #, kde-format
@@ -804,6 +843,8 @@ msgid ""
 "This is most likely to be caused by a bug in the program. Please consider "
 "submitting a full bug report as detailed below."
 msgstr ""
+"مۇمكىنلىكى يۇقىرى سەۋەب پىروگراممىدىكى ئىۋەن كەلتۈرۈپ چىقارغان بولۇشى "
+"مۇمكىن. تەپسىلىي خاتالىق دوكلاتى يوللاشنى ئويلىشىڭ."
 
 #: core/job_error.cpp:402
 #, kde-format
@@ -811,6 +852,8 @@ msgid ""
 "Update your software to the latest version. Your distribution should provide "
 "tools to update your software."
 msgstr ""
+"يۇمشاق دېتالىڭىزنى ئەڭ يېڭى نەشرىگە يېڭىلاڭ. سىز ئىشلىتىۋاتقان تارقىتىلغان "
+"نەشرى يېڭىلاش قورالى بىلەن تەمىنلىگەن."
 
 #: core/job_error.cpp:405
 #, kde-format
@@ -823,6 +866,15 @@ msgid ""
 "website</a>. If not, take note of the details given above, and include them "
 "in your bug report, along with as many other details as you think might help."
 msgstr ""
+"باشقا ھەممە ئۇسۇللار كارغا كەلمىگەندە يۇقىرى سۈپەتلىك خاتالىق دوكلاتى يوللاپ "
+"خاتالىقنى مەلۇم قىلىپ KDE قوشۇنى ياكى بۇ يۇمشاق دېتالنىڭ ئۈچىنچى تەرەپ "
+"ئاسرىغۇچىسىغا ياردەم بېرىڭ. ئەگەر بۇ يۇمشاق دېتالنى ئۈچىنچى تەرەپ تەمىنلىگەن "
+"بولسا بىۋاسىتە ئۇلار بىلەن ئالاقە قىلىڭ. ئۇنداق بولمىسا ئالدى بىلەن ئوخشاش "
+"خاتالىقنى باشقىلار يوللىغان يوللىمىغانلىقىنى كۆرۈپ بېقىڭ. سىز <a href="
+"\"https://bugs.kde.org/\">KDE كەمتۈكلۈك دوكلاتى تور بېكىتى</a>دىن ئىزدەڭ. "
+"ئەگەر ئوخشاش خاتالىق بولمىسا يۇقىرىدا كۆرسىتىلگەن ئۇچۇرغا دىققەت قىلىپ، "
+"خاتالىق دوكلاتىدا ئاشۇ ئۇچۇرلارنى  ھەمدە ياردىمى تېگىدىغان باشقا "
+"تەپسىلاتلارنىمۇ قوشۇڭ."
 
 #: core/job_error.cpp:414
 #, kde-format
@@ -835,6 +887,8 @@ msgid ""
 "There may have been a problem with your network configuration. If you have "
 "been accessing the Internet with no problems recently, this is unlikely."
 msgstr ""
+"تور سەپلىمىڭىزدە خاتالىق بولۇشى مۇمكىن. ئەگەر يېقىندا تور زىيارەت قىلغاندا "
+"مەسىلە بولمىسا، بۇ ئانچە مۇمكىن ئەمەس."
 
 #: core/job_error.cpp:422
 #, kde-format
@@ -926,6 +980,8 @@ msgid ""
 "strong> protocol could not be found or started. This is usually due to "
 "technical reasons."
 msgstr ""
+"كومپيۇتېرىڭىزدىكى <strong>%1</strong> كېلىشىمنى تەمىنلەيدىغان پىروگرامما "
+"تېپىلمىدى ياكى قوزغىلالمىدى. بۇ ئادەتتە تېخنىكىلىق سەۋەبتىن بولىدۇ."
 
 #: core/job_error.cpp:468
 #, kde-format
@@ -934,6 +990,9 @@ msgid ""
 "been updated with your last update of KDE. This can cause the program to be "
 "incompatible with the current version and thus not start."
 msgstr ""
+"بۇ كېلىشىم بىلەن ماسلىشىشچانلىقنى تەمىنلەيدىغان پىروگرامما ئەڭ يېڭى KDE "
+"بىلەن بىللە يېڭىلانمىغان بولۇشى مۇمكىن. بۇ پىروگراممىنىڭ نۆۋەتتىكى نەشرى "
+"بىلەن ماسلاشماسلىقنى كەلتۈرۈپ چىقىرىدۇ شۇڭا قوزغاتقىلى بولمايدۇ."
 
 #: core/job_error.cpp:477
 #, kde-format
@@ -963,6 +1022,9 @@ msgid ""
 "password@www.example.org:port/folder/filename.extension?query=value</"
 "strong></blockquote>"
 msgstr ""
+"سىز كىرگۈزگەن ئورتاق مەنبە بېكىتىش بەلگىسى(<strong>URL</strong>) نىڭ پىچىمى "
+"ناتوغرا. URL نىڭ پىچىمى:  <blockquote><strong>protocol://user:password@www."
+"example.org:port/folder/filename.extension?query=value</strong></blockquote>"
 
 #: core/job_error.cpp:498
 #, kde-format
@@ -999,6 +1061,9 @@ msgid ""
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
+"سىز ئىنتېرنېتتىن بۇ كېلىشىمنى قوللايدىغان يۇمشاق دېتال قىستۇرمىسى («KIO "
+"worker» دەپ ئاتىلىدۇ) ئىزدىسىڭىز بولىدۇ. <a href=\"https://store.kde.org/"
+"\">https://store.kde.org</a> دىن ئىزدەش تەۋسىيە قىلىنىدۇ."
 
 #: core/job_error.cpp:517
 #, kde-format
@@ -1027,6 +1092,10 @@ msgid ""
 "one of these situations. This is a rare event, and is likely to indicate a "
 "programming error."
 msgstr ""
+"KDE كېلىشىمنىڭ ئىچىدىكى كېلىشىم ئارقىلىق ئالاقە قىلالايدۇ؛ بەلگىلەنگەن "
+"كېلىشىم پەقەت ئالاھىدە ئەھۋالدىلا ئىشلىتىلىدۇ ئەمما ھازىر ئۇ ئەھۋاللارنىڭ "
+"بىرى ئەمەس. بۇ خىل ئەھۋال ناھايىتى ئاز ئۇچرايدۇ، بەلكىم پىروگرامما تۈزۈش "
+"خاتالىقى كۆرۈلگەن بولۇشى مۇمكىن."
 
 #: core/job_error.cpp:532
 #, kde-format
@@ -1049,6 +1118,8 @@ msgid ""
 "information should give you more information than is available to the KDE "
 "input/output architecture."
 msgstr ""
+"بۇ خاتالىق KDE پىروگراممىسىغا تايىنىدۇ. نورمىدىن ئارتۇق ئۇچۇر سىزگە KDE نىڭ "
+"كىرگۈزۈش چىقىرىش سىستېمىسىدىنمۇ كۆپ ئۇچۇرنى تەمىنلەيدۇ."
 
 #: core/job_error.cpp:542
 #, kde-format
@@ -1251,6 +1322,9 @@ msgid ""
 "an infinite loop - i.e. the file was (perhaps in a roundabout way) linked to "
 "itself."
 msgstr ""
+"UNIX مۇھىتى ئادەتتە ھۆججەت ۋە قىسقۇچنى باشقا ئات ۋە ياكى ئورۇنغا ئۇلاشقا يول "
+"قويىدۇ. KDE ئۇلانمىنىڭ چەكسىز دەۋرىيلىك ئىكەنلىكىنى بايقىدى. يەنى، ھۆججەت "
+"(بەلكىم ۋاسىتىلىك بولۇشى مۇمكىن) ئۆزىگە ئۇلانغان."
 
 #: core/job_error.cpp:673 core/job_error.cpp:699
 #, kde-format
@@ -1289,6 +1363,10 @@ msgid ""
 "link or series of links that results in an infinite loop - i.e. the file was "
 "(perhaps in a roundabout way) linked to itself."
 msgstr ""
+"UNIX مۇھىتى ئادەتتە ھۆججەت ۋە قىسقۇچنى باشقا ئات ۋە ياكى ئورۇنغا ئۇلاشقا يول "
+"قويىدۇ. ئىلتىماس قىلغان كۆچۈرۈش جەريانىدا KDE ئۇلانمىنىڭ چەكسىز دەۋرىيلىك "
+"ئىكەنلىكىنى بايقىدى. يەنى، ھۆججەت (بەلكىم ۋاسىتىلىك بولۇشى مۇمكىن) ئۆزىگە "
+"ئۇلانغان."
 
 #: core/job_error.cpp:705
 #, kde-format
@@ -1411,6 +1489,10 @@ msgid ""
 "capable of such an action. This is a rare event, and is likely to indicate a "
 "programming error."
 msgstr ""
+"KDE كېلىشىمنىڭ ئىچىدىكى كېلىشىم ئارقىلىق ئالاقە قىلالايدۇ؛ بەلگىلەنگەن "
+"كېلىشىم ئالاھىدە ئەھۋالدىلا ئىشلىتىلىدۇ ئەمما ھازىر ئۇ ئەھۋاللارنىڭ بىرى "
+"ئەمەس. بۇ خىل ئەھۋال ناھايىتى ئاز ئۇچرايدۇ، بەلكىم پىروگرامما تۈزۈش خاتالىقى "
+"كۆرۈلگەن بولۇشى مۇمكىن."
 
 #: core/job_error.cpp:769
 #, kde-format
@@ -1428,6 +1510,8 @@ msgid ""
 "The requested device could not be initialized (\"mounted\"). The reported "
 "error was: <strong>%1</strong>"
 msgstr ""
+"ئىلتىماس قىلغان ئۈسكۈنە (\"ئېگەرلەنگەن\") قىلىپ دەسلەپلەشتۈرەلمىدى. مەلۇم "
+"قىلغان خاتالىق: <strong>%1</strong>"
 
 #: core/job_error.cpp:776
 #, kde-format
@@ -1447,6 +1531,9 @@ msgid ""
 "systems, often system administrator privileges are required to initialize a "
 "device."
 msgstr ""
+"سىزنىڭ بۇ ئۈسكۈنىنى («ئېگەرلە»)شنى دەسلەپلەشتۈرۈش ھوقۇقىڭىز بولماسلىقى "
+"مۇمكىن. UNIX سىستېمىسىدا ئۈسكۈنىنى دەسلەپلەشتۈرۈشتە باشقۇرغۇچى ھوقۇقى بولۇشى "
+"لازىم."
 
 #: core/job_error.cpp:786
 #, kde-format
@@ -1474,6 +1561,8 @@ msgid ""
 "The requested device could not be uninitialized (\"unmounted\"). The "
 "reported error was: <strong>%1</strong>"
 msgstr ""
+"ئىلتىماس قىلغان ئۈسكۈنىنى ئېگەرسىزلىيەلمىدى. مەلۇم قىلغان خاتالىق: <strong>"
+"%1</strong>"
 
 #: core/job_error.cpp:800
 #, kde-format
@@ -1482,6 +1571,9 @@ msgid ""
 "user. Even such things as having an open browser window on a location on "
 "this device may cause the device to remain in use."
 msgstr ""
+"بۇ ئۈسكۈنە ئالدىراش بولۇشى مۇمكىن، باشقا پىروگرامما ياكى ئىشلەتكۈچى "
+"ئىشلىتىۋاتىدۇ. ھەتتا بۇ ئۈسكۈنىدە توركۆرگۈ كۆزنىكىدىن بىرنى ئېچىشمۇ ئۇنىڭ "
+"ئىشلىتىش ھالىتىدە ئىكەنلىكىنى كەلتۈرۈپ چىقىرىشى مۇمكىن."
 
 #: core/job_error.cpp:805
 #, kde-format
@@ -1490,6 +1582,8 @@ msgid ""
 "UNIX systems, system administrator privileges are often required to "
 "uninitialize a device."
 msgstr ""
+"سىزنىڭ بۇ ئۈسكۈنىنى ئېگەرسىزلەش ھوقۇقىڭىز يوق. UNIX سىستېمىسىدا ئۈسكۈنىنى "
+"ئېگەرسىزلەشكە باشقۇرغۇچى ھوقۇقى بولۇشى كېرەك."
 
 #: core/job_error.cpp:810
 #, kde-format
@@ -1678,6 +1772,8 @@ msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
 "resumed at a certain point of the transfer. This was not possible."
 msgstr ""
+"بەلگىلەنگەن ئىلتىماس يوللىغان ھۆججەت <strong>%1</strong>نى كەلگەن جايدىن "
+"داۋاملاشتۇرۇشنى تەلەپ قىلدى. بۇ مۇمكىن ئەمەس."
 
 #: core/job_error.cpp:969
 #, kde-format
@@ -1774,6 +1870,9 @@ msgid ""
 "strong>, an Unknown Host error was encountered. An unknown host error "
 "indicates that the requested name could not be located on the Internet."
 msgstr ""
+"بەلگىلەنگەن ۋاكالەتچى ماشىنا <strong>%1</strong>نىڭ ئۇچۇرىغا ئېرىشىۋاتقاندا "
+"يوچۇن ماشىنا خاتالىقى كۆرۈلدى. يوچۇن ماشىنا خاتالىقى ئىنتېرنېتتىن ئىلتىماس "
+"قىلغان ئاتنى تاپالمىغانلىقىنى بىلدۈرىدۇ."
 
 #: core/job_error.cpp:1049
 #, kde-format
@@ -1782,6 +1881,9 @@ msgid ""
 "your proxy's hostname. If you have been accessing the Internet with no "
 "problems recently, this is unlikely."
 msgstr ""
+"تور سەپلىمىڭىزدە مەسىلە بولۇشى مۇمكىن، بولۇپمۇ ۋاكالەتچى ماشىنا ئاتىدا. "
+"ئەگەر سىز يېقىندا ئىنتېرنېتنى زىيارەت قىلغاندا مەسىلە كۆرۈلمىگەن بولسا "
+"بۇنداق بولۇشى مۇمكىن ئەمەس."
 
 #: core/job_error.cpp:1053
 #, kde-format
@@ -1838,6 +1940,8 @@ msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
 "consider submitting a full bug report as detailed below."
 msgstr ""
+"مۇمكىنلىكى يۇقىرى سەۋەب مۇلازىمېتىر پىروگرامما خاتالىقى بولۇشى مۇمكىن. تولۇق "
+"كەمتۈكلۈك دوكلاتىدىن بىرنى يوللاشنى ئويلىشىڭ، قەدەم باسقۇچلىرى تۆۋەندىكىدەك."
 
 #: core/job_error.cpp:1092
 #, kde-format
@@ -1914,6 +2018,9 @@ msgid ""
 "likely at the end of a file move operation. The original file <strong>%1</"
 "strong> could not be deleted."
 msgstr ""
+"تەلەپ قىلغان مەشغۇلات ئەسلى ھۆججەتنى ئۆچۈرۈشكە ئېھتىياجلىق، ھۆججەت يۆتكەش "
+"مەشغۇلاتىنىڭ ئەڭ ئاخىرقى باسقۇچى بولۇشى مۇمكىن. ئەسلى ھۆججەت <strong>%1</"
+"strong> نى ئۆچۈرەلمەيدۇ."
 
 #: core/job_error.cpp:1148
 #, kde-format
@@ -1927,6 +2034,8 @@ msgid ""
 "to save the new file while being downloaded. This temporary file <strong>%1</"
 "strong> could not be deleted."
 msgstr ""
+"تەلەپ قىلغان مەشغۇلات ۋاقىتلىق ھۆججەتتىن بىرنى قۇرۇپ چۈشۈرۈۋاتقان يېڭى "
+"ھۆججەتنى ساقلايدۇ. ۋاقىتلىق ھۆججەت <strong>%1</strong>نى ئۆچۈرەلمەيدۇ."
 
 #: core/job_error.cpp:1160
 #, kde-format
@@ -2091,6 +2200,8 @@ msgid ""
 "The KIO worker which provides access to the <strong>%1</strong> protocol "
 "could not be started. This is usually due to technical reasons."
 msgstr ""
+"<strong>%1</strong> كېلىشىمنى زىيارەت قىلىش ئىقتىدارى بىلەن تەمىنلەيدىغان "
+"KIO worker قوزغىلالمىدى. بۇ ئادەتتە تېخنىكىلىق سەۋەبتىن بولىدۇ."
 
 #: core/job_error.cpp:1254
 #, kde-format
@@ -2098,6 +2209,8 @@ msgid ""
 "klauncher could not find or start the plugin which provides the protocol. "
 "This means you may have an outdated version of the plugin."
 msgstr ""
+"klauncher كېلىشىم تەمىنلەيدىغان قىستۇرمىنى تاپالمىدى ياكى قوزغىلالمىدى. "
+"بەلكىم سىزدە ۋاقتى ئۆتكەن نەشرى بار بولۇشى مۇمكىن."
 
 #: core/job_error.cpp:1260
 #, kde-kuit-format
@@ -2359,7 +2472,7 @@ msgstr "بۇ تۈرلەر ئۈچۈن يېڭى قىسقۇچ قۇر"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:728 filewidgets/kdiroperator.cpp:761
 #, kde-format
@@ -2570,13 +2683,13 @@ msgstr "كۆرۈنۈش ھالىتى(&V)"
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
-msgstr ""
+msgstr "Z-A"
 
 #: filewidgets/kdiroperator.cpp:2390 filewidgets/kdiroperator.cpp:2402
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
-msgstr ""
+msgstr "A-Z"
 
 #: filewidgets/kdiroperator.cpp:2393
 #, kde-format
@@ -2673,7 +2786,7 @@ msgstr "*|بارلىق ھۆججەت"
 #, kde-format
 msgctxt "%1 is the mimetype name, %2 is the extensions"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: filewidgets/kfilefiltercombo.cpp:160
 #, kde-format
@@ -2704,6 +2817,10 @@ msgid ""
 "this entry refers to. If you do not enter a label, it will be derived from "
 "the location's URL.</qt>"
 msgstr ""
+"<qt>بۇ ئورۇن تاختىدا كۆرۈنىدىغان تېكىست.<br /><br />چۈشەندۈرۈش بىر ياكى "
+"ئىككى سۆزدىن تەشكىل تېپىپ، بۇ تۈرنىڭ مەنىسىنى ئەستە تۇتۇشقا ياردەملىشىدۇ. "
+"ئەگەر كىرگۈزمىسە ئۇنداقتا بۇ ئادرېسنىڭ URL غا ئاساسەن مەزمۇنغا ئۆزلۈكىدىن "
+"ئېرىشىدۇ.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:86
 #, kde-format
@@ -2723,6 +2840,10 @@ msgid ""
 "org/pub/kde/stable<br /><br />By clicking on the button next to the text "
 "edit box you can browse to an appropriate URL.</qt>"
 msgstr ""
+"<qt>بۇ مەزكۇر تۈر بىلەن باغلانغان ئورۇن، ھەر قانداق قانۇنلۇق URL نى "
+"ئىشلىتىشكە بولىدۇ. مەسىلەن:<br /><br />%1<br />http://www.kde.org<br />ftp://"
+"ftp.kde.org/pub/kde/stable<br /><br />تېكىست تەھرىر قۇتىسى گىرۋىكىنىڭ "
+"يېنىدىكى توپچە چېكىلسە مۇناسىپ URL نى زىيارەت قىلغىلى بولىدۇ.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:100
 #, kde-format
@@ -2817,7 +2938,7 @@ msgstr "ھەممە بەلگە"
 #: filewidgets/kfileplacesmodel.cpp:258
 msgctxt "KFile System Bookmarks"
 msgid "Home"
-msgstr "باش بەت"
+msgstr "باش مۇندەرىجە"
 
 #: filewidgets/kfileplacesmodel.cpp:267
 msgctxt "KFile System Bookmarks"
@@ -2987,7 +3108,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
-msgstr ""
+msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:360
 #: widgets/kpropertiesdialogbuiltin_p.cpp:722
@@ -3133,6 +3254,8 @@ msgid_plural ""
 "The selected URL uses an unsupported scheme. Please use one of the following "
 "schemes: %2"
 msgstr[0] ""
+"تاللانغان تور ئادرېسى قوللىمايدىغان لايىھەنى ئىشلەتكەن. تۆۋەندىكى لايىھەنى "
+"ئىشلىتىڭ: %2"
 
 #: filewidgets/kfilewidget.cpp:826
 #, kde-format
@@ -3204,6 +3327,11 @@ msgid ""
 "files</li><li>the Places panel</li><li>file previews</li><li>separating "
 "folders from files</li></ul></qt>"
 msgstr ""
+"<qt>بۇ ھۆججەت سۆزلەشكۈنىڭ سەپلىمە تىزىملىكى. بۇ تىزىملىكتە زىيارەت قىلغىلى "
+"بولىدىغان تاللانمىلار: <ul><li>تىزىمدىكى ھۆججەت قانداق تىزىلىدۇ</"
+"li><li>كۆرۈنۈش تۈرى، سىنبەلگە ۋە تىزىمنى ئۆز ئىچىگە ئالىدۇ</li><li>يوشۇرۇن "
+"ھۆججەتنى كۆرسىتەمدۇ يوق</li><li>ئورۇن كۆزنەكچىسى</li><li>ھۆججەتنى ئالدىن "
+"كۆزىتىش</li><li>قىسقۇچ ۋە ھۆججەتنى پەرقلەندۈرىدۇ</li></ul></qt>"
 
 #: filewidgets/kfilewidget.cpp:1264
 #, kde-format
@@ -3218,6 +3346,11 @@ msgid ""
 "bookmark.<br /><br />These bookmarks are specific to the file dialog, but "
 "otherwise operate like bookmarks elsewhere in KDE.</qt>"
 msgstr ""
+"<qt>بۇ توپچە بەلگىلەنگەن ئورۇننى خەتكۈشكە قوشۇشىڭىزغا يول قويىدۇ. بۇ توپچە "
+"چېكىلسە خەتكۈش تىزىملىكى ئېچىلىدۇ، ئۇنىڭغا خەتكۈش قوشۇپ، تەھرىرلەپ ياكى "
+"تاللىغىلى بولىدۇ.<br /><br />بۇ خەتكۈشلەر تېكىست سۆزلەشكۈگە مەخسۇس "
+"ئىشلىتىلىدۇ ئەمما KDE نىڭ باشقا ئورۇنلىرىدىكى خەتكۈشلەرگە ئوخشاش مەشغۇلات "
+"قىلىنىدۇ.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
 #: filewidgets/kfilewidget.cpp:1313 widgets/kpropertiesdesktopbase.ui:22
@@ -3256,6 +3389,9 @@ msgid ""
 "button and selecting a preferred mode from the <b>Text Completion</b> menu.</"
 "qt>"
 msgstr ""
+"<qt>تېكىست رايونىغا كىرگۈزگەندە ماس كەلگەن ئەسكەرتىشنى كۆرسىتىدۇ. بۇ "
+"ئىقتىدارنى تىزگىنلەشتە چاشقىنەك ئوڭ توپچىسىنى چېكىپ ئاندىن  <b>تېكىست "
+"تاماملا</b> تىزىملىكىدىن ئارزۇ قىلغان ھالەتنى تاللاڭ.</qt>"
 
 #: filewidgets/kfilewidget.cpp:1461
 #, kde-format
@@ -3268,6 +3404,8 @@ msgid ""
 "This is the list of files to open. More than one file can be specified by "
 "listing several files, separated by spaces."
 msgstr ""
+"بۇ ئاچماقچى بولغان ھۆججەت تىزىمى. كۆپ ھۆججەت بەلگىلەشتە بوشلۇق بىلەن "
+"ئايرىشقا بولىدۇ."
 
 #: filewidgets/kfilewidget.cpp:1469
 #, kde-format
@@ -3283,7 +3421,7 @@ msgstr "ئورۇن"
 #: filewidgets/kfilewidget.cpp:1763
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
-msgstr ""
+msgstr "ھۆججەت «%1» مەۋجۇت. قاپلامسىز؟"
 
 #: filewidgets/kfilewidget.cpp:1764
 #, kde-format
@@ -3355,6 +3493,18 @@ msgid ""
 "period will be automatically removed).</li></ol>If unsure, keep this option "
 "enabled as it makes your files more manageable."
 msgstr ""
+"بۇ تاللانما كېڭەيتىلگەن ئاتى بار ھۆججەتنى ساقلىغاندا بەزى قولاي "
+"ئالاھىدىلىكلىرىنى قوزغىتىدۇ:<br /><ol><li>ئەگەر ساقلىغان ھۆججەت تۈرىنى "
+"ئۆزگەرتكەن بولسىڭىز، <b>%1</b> تېكىست رايونىدا بەلگىلىگەن كېڭەيتىلگەن "
+"ئاتنىمۇ يېڭىلايدۇ.<br /><br /></li><li> <b>ساقلا</b> نى چەككەندە ئەگەر سىز  "
+"<b>%2</b> تېكىست رايونىدا كېڭەيتىلگەن ئات بەلگىلەنمىگەن بولسا ھۆججەت ئاتىنىڭ "
+"ئاخىرىغا %3 (ئەگەر ھۆججەت ئاتى مەۋجۇت بولمىسا)نى قوشىدۇ. كېڭەيتىلگەن ئات سىز "
+"تاللىغان ساقلاش تىپىنى ئاساس قىلىدۇ. <br /><br />ئەگەر سىز  KDE نىڭ ھۆججەت "
+"ئاتىغا كېڭەيتىلگەن ئات تەمىنلەشنى خالىمىسىڭىز، بۇ تاللانمىنى تاقىسىڭىز "
+"بولىدۇ ياكى ھۆججەت ئاتىنىڭ ئاخىرىغا چېكىت (.) (چېكىت ئۆزلۈكىدىن "
+"چىقىرىۋېتىلىدۇ).</li></ol>ئەگەر جەزملىيەلمىسىڭىز بۇ تاللانمىنىڭ "
+"ئىناۋەتلىكلىكىنى ساقلاپ قېلىڭ، بۇنداق بولغاندا ھۆججەتلىرىڭىزنى تېخىمۇ ئاسان "
+"باشقۇرالايسىز."
 
 #: filewidgets/kfilewidget.cpp:2964
 #, kde-format
@@ -3367,6 +3517,8 @@ msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
+"<qt>بۇ ھۆججەت تۈرىنى تاللىغۇچ. ئۇ ھۆججەتنىڭ ساقلاش پىچىمىنى تاللاشقا "
+"ئىشلىتىلىدۇ.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2970
 #, kde-format
@@ -3374,6 +3526,8 @@ msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
+"<qt>بۇ ھۆججەت تۈرىنى تاللىغۇچ. ئۇ ھۆججەتنىڭ كۆرسىتىش پىچىمىنى تاللاشقا "
+"ئىشلىتىلىدۇ.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:233
 #, kde-format
@@ -3410,15 +3564,15 @@ msgstr "تور ئادرېسقا ئۇلانما قۇر"
 #, kde-format
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
-msgstr ""
+msgstr "يېڭى %1 نى قۇر"
 
-#: filewidgets/knewfilemenu.cpp:779 filewidgets/knewfilemenu.cpp:801
+#: filewidgets/knewfilemenu.cpp:784 filewidgets/knewfilemenu.cpp:806
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
-msgstr ""
+msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1126
+#: filewidgets/knewfilemenu.cpp:1131
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3428,7 +3582,7 @@ msgstr ""
 "بۇ <filename>%1</filename> ئىسىمنى ئىشلەتكىلى بولمايدۇ چۈنكى ئۇ مەشغۇلات "
 "سىستېمىسىنىڭ ئىشلىتىشىگە قالدۇرۇلغان."
 
-#: filewidgets/knewfilemenu.cpp:1134
+#: filewidgets/knewfilemenu.cpp:1139
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3438,7 +3592,7 @@ msgstr ""
 "<filename>%1</filename> ئات چېكىت بىلەن باشلانغان شۇڭا ئۇ كۆڭۈلدىكى ئەھۋالدا "
 "يوشۇرۇلىدۇ."
 
-#: filewidgets/knewfilemenu.cpp:1142
+#: filewidgets/knewfilemenu.cpp:1147
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3450,28 +3604,28 @@ msgstr ""
 "تىزىلغاندا باشقا تۈرلەرنىڭ ئالدىغا تىزىلىدۇ ئۇنىڭدىن باشقا تاسادىپىي "
 "ئەھۋاللارنى كەلتۈرۈپ چىقىرىشى مۇمكىن."
 
-#: filewidgets/knewfilemenu.cpp:1160
+#: filewidgets/knewfilemenu.cpp:1165
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 "قىسقۇچ ئىسمىدا يانتۇ سىزىق (/) ئىشلىتىلسە تارماق قىسقۇچ قۇرىدۇ، مەسىلەن:"
 
-#: filewidgets/knewfilemenu.cpp:1174
+#: filewidgets/knewfilemenu.cpp:1179
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "قىسقۇچ ئىسمىدا يانتۇ سىزىق (/) ئىشلىتىلسە تارماق قىسقۇچ قۇرىدۇ."
 
-#: filewidgets/knewfilemenu.cpp:1186
+#: filewidgets/knewfilemenu.cpp:1191
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "ھۆججەت ۋە قىسقۇچ ئاتى يانتۇ سىزىق (/) نى  ئۆز ئىچىگە ئالمايدۇ."
 
-#: filewidgets/knewfilemenu.cpp:1191
+#: filewidgets/knewfilemenu.cpp:1196
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "ھۆججەت ۋە قىسقۇچ ئاتى سول يانتۇ سىزىق (\\) نى  ئۆز ئىچىگە ئالمايدۇ."
 
-#: filewidgets/knewfilemenu.cpp:1205
+#: filewidgets/knewfilemenu.cpp:1210
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3481,7 +3635,7 @@ msgstr ""
 "<filename>%1</filename> ئاتلىق ھۆججەت ياكى قىسقۇچنى قۇرالمايدۇ چۈنكى ئۇ "
 "ئىشلەتكۈچىنىڭ باش قىسقۇچىنىڭ ئورنى بىلەن دەستىلىنىدۇ."
 
-#: filewidgets/knewfilemenu.cpp:1214
+#: filewidgets/knewfilemenu.cpp:1219
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3491,47 +3645,47 @@ msgstr ""
 "قىلىنمايدۇ، چۈنكى تېرمىنالدا مەزمۇن ئۆچۈرگەندە ئۇ مۈجمەللىك ياكى خەتەر پەيدا "
 "قىلىشى مۇمكىن."
 
-#: filewidgets/knewfilemenu.cpp:1286
+#: filewidgets/knewfilemenu.cpp:1291
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> ئاتلىق مۇندەرىجە مەۋجۇت."
 
-#: filewidgets/knewfilemenu.cpp:1288
+#: filewidgets/knewfilemenu.cpp:1293
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> ئاتلىق ھۆججەت مەۋجۇت."
 
-#: filewidgets/knewfilemenu.cpp:1374
+#: filewidgets/knewfilemenu.cpp:1379
 #, kde-format
 msgid "Create New"
 msgstr "يېڭىدىن قۇر"
 
-#: filewidgets/knewfilemenu.cpp:1446
+#: filewidgets/knewfilemenu.cpp:1451
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "يېڭى قىسقۇچ"
 
-#: filewidgets/knewfilemenu.cpp:1469
+#: filewidgets/knewfilemenu.cpp:1474
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "يېڭى قىسقۇچ قۇر"
 
-#: filewidgets/knewfilemenu.cpp:1471
+#: filewidgets/knewfilemenu.cpp:1476
 #, kde-format
 msgid "Create new folder in %1:"
 msgstr "يېڭى قىسقۇچنى %1 غا قۇرىدۇ:"
 
-#: filewidgets/knewfilemenu.cpp:1474 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "قىسقۇچ ئاتى كىرگۈزۈلىدۇ"
 
-#: filewidgets/knewfilemenu.cpp:1531
+#: filewidgets/knewfilemenu.cpp:1536
 #, kde-format
 msgid "Default"
 msgstr "كۆڭۈلدىكى"
@@ -3670,31 +3824,33 @@ msgstr "چېكىلسە ئورۇننى يېتەكلەيدۇ"
 msgid "Click to Edit Location"
 msgstr "چېكىلسە ئورۇننى تەھرىرلەيدۇ"
 
-#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:250
+#: gui/applicationlauncherjob.cpp:125 gui/kprocessrunner.cpp:256
 #, kde-format
 msgid "You are not authorized to execute this file."
 msgstr "سىزگە بۇ ھۆججەتنى ئىجرا قىلىش ئىجازىتى بېرىلمىگەن."
 
-#: gui/applicationlauncherjob.cpp:136 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:141 gui/commandlauncherjob.cpp:117
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
 msgstr "%1 قوزغىلىۋاتىدۇ"
 
-#: gui/applicationlauncherjob.cpp:173
+#: gui/applicationlauncherjob.cpp:178
 #, kde-format
 msgid ""
 "Unable to make the service %1 executable, aborting execution.\n"
 "%2."
 msgstr ""
+"%1 مۇلازىمەتنى ئىجرا قىلالمايدۇ، ئىجرا قىلىشنى توختىتىۋاتىدۇ.\n"
+"%2."
 
-#: gui/applicationlauncherjob.cpp:291 gui/openurljob.cpp:686
+#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:689
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
 "سىزگە قوللىنىشچان پىروگراممىنى تاللاپ بۇ ھۆججەتنى ئېچىش ھوقۇقى بېرىلمىگەن."
 
-#: gui/applicationlauncherjob.cpp:299
+#: gui/applicationlauncherjob.cpp:310
 #, kde-format
 msgid ""
 "Internal error: could not prompt the user for which application to start"
@@ -3722,7 +3878,7 @@ msgstr "سۈرەتنى %1 گە ساقلاۋاتقاندا خاتالىق كۆر�
 msgid "Icon file too big, download aborted"
 msgstr "سىنبەلگە ھۆججەت بەك چوڭ، چۈشۈرۈشنى توختاتتى"
 
-#: gui/filepreviewjob.cpp:256
+#: gui/filepreviewjob.cpp:255
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -3735,7 +3891,7 @@ msgstr ""
 msgid "No mail client found"
 msgstr "خەت خېرىدارى تېپىلمىدى"
 
-#: gui/kprocessrunner.cpp:125
+#: gui/kprocessrunner.cpp:127
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3746,12 +3902,12 @@ msgstr ""
 "%1\n"
 "ئىناۋەتسىز."
 
-#: gui/kprocessrunner.cpp:297
+#: gui/kprocessrunner.cpp:303
 #, kde-format
 msgid "Launching %1"
 msgstr "%1 قوزغىلىۋاتىدۇ"
 
-#: gui/kprocessrunner.cpp:481
+#: gui/kprocessrunner.cpp:487
 #, kde-kuit-format
 msgctxt "@info"
 msgid "The command <command>%1</command> could not be found."
@@ -3767,7 +3923,7 @@ msgstr "ھېچقانداق تېرمىنال تەقلىدلىگۈچنى تاپا�
 msgid "Failed to open %1"
 msgstr "%1‎‏ نى ئاچالمىدى"
 
-#: gui/openurljob.cpp:318
+#: gui/openurljob.cpp:321
 #, kde-format
 msgid ""
 "The desktop entry file\n"
@@ -3778,14 +3934,16 @@ msgstr ""
 "%1\n"
 "ئۇلانما تىپلىق ئەمما تور ئادرېسنى ئۆز ئىچىگە ئالمىغان=…تۈر."
 
-#: gui/openurljob.cpp:402
+#: gui/openurljob.cpp:405
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr ""
+"ئىجرا قىلىنىدىغان ھۆججەت «%1» يىراقتىكى ھۆججەت سىستېمىسىدا. بىخەتەرلىك "
+"سەۋەبىدىن ئۇنى قوزغاتمايدۇ."
 
-#: gui/openurljob.cpp:443
+#: gui/openurljob.cpp:446
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -3793,7 +3951,7 @@ msgstr ""
 "بىخەتەرلىك سەۋەبىدىن، بۇ ئەھۋالدا ئىجرا قىلىنىدىغان پىروگراممىنى ئىجرا "
 "قىلىشقا يول قويۇلمىغان."
 
-#: gui/openurljob.cpp:473
+#: gui/openurljob.cpp:476
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -3801,32 +3959,37 @@ msgid ""
 msgstr ""
 "بۇ «%1» پىروگرامما ئىجرا قىلىش ئىجازىتىگە ئىگە بولسا ئاندىن قوزغىلالايدۇ."
 
-#: gui/openurljob.cpp:484
+#: gui/openurljob.cpp:487
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
 "%2."
 msgstr ""
+"«%1» ھۆججەتكە ئىجرا قىلىش ئىجازىتىنى بەرگىلى بولمىدى.\n"
+"%2."
 
-#: gui/openurljob.cpp:570
+#: gui/openurljob.cpp:573
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "ئۈستەلئۈستى تۈرى ھۆججىتى %1 نىڭ تىپى يوق=…تۈر."
 
-#: gui/openurljob.cpp:672
+#: gui/openurljob.cpp:675
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
 "Check your open applications and the notification area for any pending tasks "
 "or downloads."
 msgstr ""
+"بۇ ھۆججەت مۇكەممەل ئەمەس، ئاچماسلىق كېرەك.\n"
+"ئوچۇق پىروگرامما ۋە ئۇقتۇرۇش رايونىنى تەكشۈرۈپ تېخى تاماملانمىغان ۋەزىپە "
+"ياكى چۈشۈرۈش ۋەزىپىسى بار يوقلۇقىنى تەكشۈرۈڭ."
 
-#: gui/openurljob.cpp:698
+#: gui/openurljob.cpp:701
 #, kde-format
 msgid "Failed to open the file."
 msgstr "ھۆججەتنى ئاچالمىدى."
 
-#: gui/openurljob.cpp:732
+#: gui/openurljob.cpp:735
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "«%1» پىروگراممىنى قوزغىتالمىدى."
@@ -3834,7 +3997,7 @@ msgstr "«%1» پىروگراممىنى قوزغىتالمىدى."
 #: gui/systemd/systemdprocessrunner.cpp:200
 #, kde-format
 msgid "Failed to launch process (status code: %1)"
-msgstr ""
+msgstr "جەرياننى قوزغىتالمىدى (ھالەت كودى: %1)"
 
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
@@ -3843,6 +4006,8 @@ msgid ""
 "The file <filename>%1</filename><nl/>has been modified. Do you want to "
 "upload the changes?"
 msgstr ""
+"بۇ <filename>%1</filename><nl/> ھۆججەت ئۆزگەرتىلىپتۇ. ئۆزگىرىشلەرنى "
+"يۈكلەمسىز؟"
 
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format
@@ -3895,6 +4060,10 @@ msgid ""
 "has been modified.\n"
 "Do you still want to delete it?"
 msgstr ""
+"قارىغاندا ۋاقىتلىق ھۆججەت\n"
+"%1\n"
+"ئۆزگەرتىلگەندەك قىلىدۇ.\n"
+"ئۇنى ئۆچۈرۈۋېرەمسىز؟"
 
 #: kioexec/main.cpp:242
 #, kde-format
@@ -3909,11 +4078,15 @@ msgid ""
 "has been modified.\n"
 "Do you want to upload the changes?"
 msgstr ""
+"ھۆججەت\n"
+"%1\n"
+"ئۆزگەرتىلىپتۇ.\n"
+"ئۆزگىرىشلەرنى يۈكلەمسىز؟"
 
 #: kioexec/main.cpp:302
 #, kde-format
 msgid "KIOExec"
-msgstr ""
+msgstr "KIOExec"
 
 #: kioexec/main.cpp:304
 #, kde-format
@@ -3929,27 +4102,27 @@ msgstr "(c) 1998-2000,2003 The KFM/Konqueror ئىجادكارلىرى"
 #: kioexec/main.cpp:307
 #, kde-format
 msgid "David Faure"
-msgstr ""
+msgstr "David Faure"
 
 #: kioexec/main.cpp:308
 #, kde-format
 msgid "Stephan Kulow"
-msgstr ""
+msgstr "Stephan Kulow"
 
 #: kioexec/main.cpp:309
 #, kde-format
 msgid "Bernhard Rosenkraenzer"
-msgstr ""
+msgstr "Bernhard Rosenkraenzer"
 
 #: kioexec/main.cpp:310
 #, kde-format
 msgid "Waldo Bastian"
-msgstr ""
+msgstr "Waldo Bastian"
 
 #: kioexec/main.cpp:311
 #, kde-format
 msgid "Oswald Buddenhagen"
-msgstr ""
+msgstr "Oswald Buddenhagen"
 
 #: kioexec/main.cpp:316
 #, kde-format
@@ -4073,7 +4246,7 @@ msgstr "تور بېكەت:"
 #: kioworkers/ftp/ftp.cpp:578 kioworkers/ftp/ftp.cpp:2652
 #, kde-format
 msgid "<b>%1</b>"
-msgstr ""
+msgstr "<b>%1</b>"
 
 #: kioworkers/ftp/ftp.cpp:671
 #, kde-format
@@ -4260,6 +4433,8 @@ msgid ""
 "An error occurred while attempting to %1, %2. A summary of the reasons is "
 "below."
 msgstr ""
+"%1, %2 نى ئېلىپ بېرىۋاتقاندا خاتالىق كۆرۈلدى. سەۋەبىنىڭ ئۈزۈمدىسى "
+"تۆۋەندىكىدەك."
 
 #: kioworkers/http/http.cpp:1544 kioworkers/http/http.cpp:1688
 #, kde-format
@@ -4285,16 +4460,16 @@ msgid ""
 "that files are not overwritten.\n"
 " %1"
 msgstr ""
-"The server was unable to maintain the liveness of the\n"
-"properties listed in the propertybehavior XML element\n"
-"or you attempted to overwrite a file while requesting\n"
-"that files are not overwritten.\n"
-" %1"
+"مۇلازىمېتىر «propertybehavior XML يەنى خاسلىق مەشغۇلاتى» XML ئېلېمېنتىدا "
+"مىسال كەلتۈرۈلگەن خاسلىقنىڭ ئاكتىپچانلىقى ياكى مەلۇم بىر ھۆججەتنى قاپلاشنى "
+"سىناشنى ساقلاپ قالالمىدى، شۇنىڭ بىلەن بىرگە ئۇ ھۆججەتنى قاپلىماسلىقنى تەلەپ "
+"قىلدى.\n"
+"%1"
 
 #: kioworkers/http/http.cpp:1575
 #, kde-format
 msgid "The requested lock could not be granted. %1"
-msgstr ""
+msgstr "تەلەپ قىلغان قۇلۇپلاشنى تاماملىيالمىدى. %1"
 
 #: kioworkers/http/http.cpp:1581
 #, kde-format
@@ -4369,6 +4544,9 @@ msgid ""
 "and use the restore operation again, or drag the item anywhere else to "
 "restore it."
 msgstr ""
+"مۇندەرىجە %1 ئەمدى مەۋجۇت ئەمەس، شۇڭا ھۆججەتنى ئەسلىدىكى ئورنىغا ئەسلىگە "
+"كەلتۈرگىلى بولمايدۇ. شۇڭا سىز مۇندەرىجە قۇرغاندىن كېيىن ئەسلىگە كەلتۈرۈش "
+"مەشغۇلاتى قىلسىڭىز ياكى ھۆججەتنى باشقا يەرگە سۆرەپ تاشلىسىڭىز بولىدۇ."
 
 #: kioworkers/trash/kio_trash.cpp:189 kioworkers/trash/kio_trash.cpp:210
 #, kde-format
@@ -4417,6 +4595,7 @@ msgstr "ئەخلەتخانىدىكى ھۆججەتنى ئەسلىدىكى ئور�
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
+"ئەخلەتخانا لىق. ئۇنى قولدا بوشىتىڭ ياكى ئۇنىڭدىكى تۈرلەرنى چىقىرىۋېتىڭ."
 
 #: kpasswdserver/kpasswdserver.cpp:529
 #, kde-format
@@ -4571,28 +4750,28 @@ msgstr ""
 #: widgets/checksumswidget.ui:70
 #, kde-format
 msgid "MD5:"
-msgstr ""
+msgstr "MD5:"
 
 #. i18n: SHA1 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha1Label)
 #: widgets/checksumswidget.ui:80
 #, kde-format
 msgid "SHA1:"
-msgstr ""
+msgstr "SHA1:"
 
 #. i18n: SHA256 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha256Label)
 #: widgets/checksumswidget.ui:90
 #, kde-format
 msgid "SHA256:"
-msgstr ""
+msgstr "SHA256:"
 
 #. i18n: SHA512 is the hashing algorithm
 #. i18n: ectx: property (text), widget (QLabel, sha512Label)
 #: widgets/checksumswidget.ui:100
 #, kde-format
 msgid "SHA512:"
-msgstr ""
+msgstr "SHA512:"
 
 #. i18n: ectx: property (text), widget (QPushButton, md5Button)
 #. i18n: ectx: property (text), widget (QPushButton, sha1Button)
@@ -4819,6 +4998,10 @@ msgid ""
 "Undoing the copy will delete the file, and all modifications will be lost.\n"
 "Are you sure you want to delete %4?"
 msgstr ""
+"%1 ھۆججەت %2 دىن كۆچۈرۈلدى، ئەمما ئۇ %3 دا ئۆزگەرتىلگەندەك تۇرىدۇ.\n"
+"كۆچۈرۈش مەشغۇلاتىدىن يېنىۋېلىنسا ئۇ ھۆججەت ئۆچۈرۈلىدۇ، ھەممە ئۆزگەرتىش "
+"يوقىلىدۇ.\n"
+"سىز %4 نى راستتىنلا ئۆچۈرەمسىز؟"
 
 #: widgets/fileundomanager.cpp:916
 #, kde-format
@@ -5017,19 +5200,19 @@ msgstr "ئاتى"
 #, kde-format
 msgctxt "read permission"
 msgid "r"
-msgstr ""
+msgstr "r"
 
 #: widgets/kacleditwidget.cpp:599
 #, kde-format
 msgctxt "write permission"
 msgid "w"
-msgstr ""
+msgstr "w"
 
 #: widgets/kacleditwidget.cpp:600
 #, kde-format
 msgctxt "execute permission"
 msgid "x"
-msgstr ""
+msgstr "x"
 
 #: widgets/kacleditwidget.cpp:601
 #, kde-format
@@ -5103,7 +5286,7 @@ msgstr "%1 دا ئاچ(&O)"
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
-msgstr ""
+msgstr "%1"
 
 #: widgets/kfileitemactions.cpp:768
 #, kde-format
@@ -5204,7 +5387,7 @@ msgstr "چوڭلۇقى:"
 #: widgets/kfilepropspluginwidget.ui:259
 #, kde-format
 msgid "Size on disk:"
-msgstr ""
+msgstr "دىسكىدىكى چوڭلۇقى:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:308
@@ -5306,6 +5489,8 @@ msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
 "is not listed, enter the name or click the browse button.</qt>"
 msgstr ""
+"<qt><b>%1</b> نى ئاچىدىغان پىروگرامما تاللىنىدۇ. ئەگەر پىروگرامما تىزىمدا "
+"يوق بولسا پىروگرامما ئاتى كىرگۈزۈلىدۇ ياكى كۆز يۈگۈرت توپچە چېكىلىدۇ.</qt>"
 
 #: widgets/kopenwithdialog.cpp:570
 #, kde-format
@@ -5340,6 +5525,9 @@ msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
 "listed, enter the name or click the browse button.</qt>"
 msgstr ""
+"<qt>ھۆججەت تۈرى: <b>%1</b> بولغان ھۆججەتنى ئاچىدىغان پىروگرامما تاللىنىدۇ. "
+"ئەگەر پىروگرامما تىزىملىكتە بولمىسا پىروگرامما ئاتىنى كىرگۈزۈلىدۇ ياكى كۆز "
+"يۈگۈرت توپچە چېكىلىدۇ.</qt>"
 
 #: widgets/kopenwithdialog.cpp:631
 #, kde-format
@@ -5347,6 +5535,8 @@ msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
 "the browse button.</qt>"
 msgstr ""
+"<qt>پىروگراممىدىن بىرى تاللىنىدۇ. ئەگەر پىروگرامما تىزىملىكتە بولمىسا "
+"پىروگرامما ئاتى كىرگۈزۈلىدۇ ياكى كۆز يۈگۈرت توپچە چېكىلىدۇ.</qt>"
 
 #: widgets/kopenwithdialog.cpp:677
 #, kde-format
@@ -5354,6 +5544,9 @@ msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
 "Press down arrow to navigate the results."
 msgstr ""
+"بۇ جايغا مەزمۇن كىرگۈزۈلسە تۆۋەندىكى پىروگراممىنى سۈزىدۇ ياكى بۇيرۇقنىڭ "
+"ئىسمىنى بەلگىلىگىلى بولىدۇ.\n"
+"ئاستى يا ئوق بېسىلسا نەتىجىنى كۆرسىتىدۇ."
 
 #: widgets/kopenwithdialog.cpp:700
 #, kde-format
@@ -5460,6 +5653,9 @@ msgid ""
 "on exit. Keeping the terminal emulator open allows you to retrieve this "
 "information."
 msgstr ""
+"ئەگەر تېكىست شەكلىدىكى پىروگرامما چېكىنگەندە مۇناسىۋەتلىك ئۇچۇرنى تەمىنلىسە "
+"بۇ تاللانمىنى تاللاڭ. تېرمىنال تەقلىدلىگۈچ ئوچۇق ھالەتتە تۇرغۇزۇلسا بۇ "
+"ئۇچۇرغا ئېرىشىشىڭىزگە يول قويىدۇ."
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCloseCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:62
@@ -5485,6 +5681,11 @@ msgid ""
 "determines file access and other permissions. The password of the user is "
 "required to use this option."
 msgstr ""
+"ئەگەر پىروگراممىنى ئوخشىمىغان ئىشلەتكۈچى كىملىكى(id)دە ئىجرا قىلماقچى "
+"بولسىڭىز، بۇ تاللانمىنى تاللاڭ. ھەر بىر جەرياننىڭ ماس ھالدىكى ئىشلەتكۈچى "
+"كىملىكى بار، بۇ كىملىك مۇناسىپ جەرياننىڭ ھۆججەت زىيارەت ھوقۇقى ۋە باشقا "
+"ھوقۇقلىرىنى بەلگىلەيدۇ. سىز بۇنىڭ ئۈچۈن شۇ ئىشلەتكۈچىنىڭ ئىمىنى تەمىنلىسىڭىز "
+"ئاندىن بۇ تاللانمىنى ئىشلىتەلەيسىز."
 
 #. i18n: ectx: property (text), widget (QCheckBox, suidCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:84
@@ -5539,6 +5740,9 @@ msgid ""
 "Check this option if you want to make clear that your application has "
 "started. This visual feedback may appear as a busy cursor or in the taskbar."
 msgstr ""
+"ئەگەر قوللىنىشچان پىروگراممىنىڭ قوزغىلىش جەريانىنى تېخىمۇ ئېنىق چۈشەنمەكچى "
+"بولسىڭىز بۇ تاللانمىنى تاللاڭ. بۇ كۆرۈنۈشچان ئىنكاس ئالدىراش سىنبەلگىدەك "
+"كۆرۈنۈشى مۇمكىن، ۋەزىپە بالداقتا ئىپادىلىنىشىمۇ مۇمكىن."
 
 #. i18n: ectx: property (text), widget (QCheckBox, startupInfoCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:155
@@ -5554,6 +5758,9 @@ msgid ""
 "Type the name you want to give to this application here. This application "
 "will appear under this name in the applications menu and in the panel."
 msgstr ""
+"بۇ قوللىنىشچان پىروگراممىغا قويماقچى بولغان ئاتنى بۇ جايغا كىرگۈزۈڭ. بۇ "
+"قوللىنىشچان پىروگرامما مۇشۇ ئاتتا قوللىنىشچان پىروگرامما تىزىملىك ۋە "
+"كۆزنەكچىدە كۆرۈنىدۇ."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
@@ -5563,6 +5770,8 @@ msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
 msgstr ""
+"بۇ جايغا ئادەتتىكى پىروگرامما ئىسمى كىرگۈزۈلىدۇ. مەسىلەن: سۈرەت كۆرۈش "
+"پىروگراممىسى «سۈرەت كۆرگۈچ» بولۇشى كېرەك."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
@@ -5578,6 +5787,9 @@ msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
 msgstr ""
+"بۇ جايغا ئىشلىتىش ئورنىغا ئاساسەن قوللىنىشچان پىروگراممىنىڭ چۈشەندۈرۈشى "
+"كىرگۈزۈلىدۇ. مەسىلەن: سۈرەت كۆرۈش پىروگراممىسى «سۈرەت كۆرسىتىپ ۋە تەھرىرلە» "
+"بولۇشى كېرەك."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel3)
 #: widgets/kpropertiesdesktopbase.ui:62
@@ -5638,6 +5850,19 @@ msgid ""
 "%c - the name of the .desktop file\n"
 "%k - the location of the .desktop file"
 msgstr ""
+"بۇ جايغا مەزكۇر قوللىنىشچان پىروگراممىنى قوزغىتىدىغان بۇيرۇقنىڭ ئۆزگەرگۈچىسى "
+"كىرگۈزۈلىدۇ.\n"
+"\n"
+"سىز بۇيرۇقنىڭ كەينىگە بىر قانچە ئورۇن بەلگىسىنى ئەگەشتۈرەلەيسىز، پىروگرامما "
+"ئىجرا قىلىنغاندا بۇ ئورۇن بەلگىلىرى ئەمەلىي قىممەتكە ئالماشتۇرۇلىدۇ:\n"
+"%f - يەككە ھۆججەت ئاتى\n"
+"%F - ھۆججەت تىزىمى؛ بىرلا ۋاقىتتا بىر قانچە يەرلىك ھۆججەتنى ئاچقىلى "
+"بولىدىغان قوللىنىشچان پىروگرامما\n"
+"%u - يەككە تور ئادرېسى\n"
+"%U - تور ئادرېس تىزىمى\n"
+"%i - .desktop ھۆججەتنىڭ سىنبەلگىسى\n"
+"%c - .desktop ھۆججەتنىڭ ئىسمى\n"
+"%k - .desktop ھۆججەتنىڭ ئورنى"
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:139
@@ -5678,6 +5903,20 @@ msgid ""
 "remove them from the list clicking on the button <b>Remove</b> below.</p></"
 "qt>"
 msgstr ""
+"<qt><p>بۇ جايدا قوللىنىشچان پىروگراممىڭىز بىر تەرەپ قىلالايدىغان بىر ياكى "
+"بىر قانچە ھۆججەت تۈرىنى تاللاڭ. بۇ تىزىم <u>mime تۈرى</u>بويىچە تەشكىللىنىدۇ."
+"</p>\n"
+"<p>MIME — كۆپ خىل ئىشلىتىلىدىغان ئىنتېرنېت خەت كېڭەيتىلمىسى بىر خىل "
+"كېڭەيتىلگە ئات ۋە مۇناسىپ <u>mime تۈرى </u>غا ئاساسەن سانلىق مەلۇمات تىپىنىڭ "
+"ئۆلچەملىك كېلىشىمىنى ئىپادىلەيدۇ. مەسىلەن:  flower.bmp  دىكى چېكىتنىڭ "
+"كەينىدىكى \"bmp\" بۆلىكى بۇنىڭ بىر خىل سۈرەت <u>image/x-bmp</u> ئىكەنلىكىنى "
+"ئىپادىلەيدۇ. قايسى قوللىنىشچان پىروگراممىنىڭ قايسى خىل ھۆججەتنى ئېچىشتا "
+"سىستېمىڭىز ھەر بىر قوللىنىشچان پىروگراممىنىڭ قايسى خىل كېڭەيتىلگەن ئات ۋە  "
+"mime تۈرىنى بىر تەرەپ قىلىدىغانلىقىنى ئۇقتۇتۇرىدۇ.</p>\n"
+"<p> ئەگەر بۇ قوللىنىشچان پىروگراممىنى بىر ياكى بىر قانچە  تىزىمدا يوق mime "
+"تۈرى بىلەن باغلاشتا تۆۋەندىكى <b>قوش</b> توپچىنى چېكىڭ. ئەگەر بۇ قوللىنىشچان "
+"پىروگراممىنىڭ بىر ياكى بىر قانچە ھۆججەت تۈرى بولسا سىز تۆۋەندىكى "
+"<b>چىقىرىۋەت</b> توپچىسىنى چېكىپ تىزىمدىن چىقىرىۋەتسىڭىز بولىدۇ.</p></qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel7)
 #: widgets/kpropertiesdesktopbase.ui:196
@@ -5781,7 +6020,7 @@ msgstr ""
 msgctxt ""
 "@label the size of a file or folder, first rounded and then to the byte"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:161
 #, kde-format
@@ -5830,7 +6069,7 @@ msgstr "<filename>%1</filename> نى كۆرسەت"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:607
 #, kde-format
 msgid "%1:"
-msgstr ""
+msgstr "%1:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:729
 #, kde-format
@@ -5844,6 +6083,8 @@ msgid ""
 "Calculating... %1\n"
 "%2, %3"
 msgstr ""
+"ھېسابلاۋاتىدۇ… %1\n"
+"%3، %2"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:741
 #: widgets/kpropertiesdialogbuiltin_p.cpp:756
@@ -6015,6 +6256,9 @@ msgid ""
 "contained files and folders. Other users can only add new files, which "
 "requires the 'Modify Content' permission."
 msgstr ""
+"بۇ تاللانما قوزغىتىلسا قىسقۇچ ئىگىدارى ھۆججەت ۋە قىسقۇچ ئاتىنى ئۆزگەرتىشكە "
+"يول قويىدۇ. باشقا ئىشلەتكۈچىلەر «مەزمۇن ئۆزگەرت»ئىش ھوقۇقىنى تەڭشىگەن "
+"ئەھۋالدا يېڭى ھۆججەت قوشالايدۇ."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1278
 #, kde-format
@@ -6022,6 +6266,9 @@ msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
+"بۇ تاللانما قوزغىتىلسا بۇ ھۆججەتكە ئىجراچان بەلگىسى قويۇلىدۇ. بۇ پەقەت "
+"پىروگرامما ۋە قوليازمىغىلا بولىدۇ. ئەگەر بۇ ھۆججەتنى ئىجرا قىلماقچى بولسىڭىز "
+"ئۇنداقتا بۇ تاللانمىنى تاللاڭ."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1282
 #, kde-format
@@ -6093,6 +6340,8 @@ msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
 "and renaming can be limited using the Sticky flag."
 msgstr ""
+"بۇ بايراق ھۆججەت قوشۇش، ئاتىنى ئۆزگەرتىش ۋە ئۆچۈرۈشكە يول قويىدۇ. دىققەت، "
+"ئۆچۈرۈش ۋە ئاتىنى ئۆزگەرتىشنى يېپىشقاق بەلگە ئارقىلىق چەكلىگىلى بولىدۇ."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1455
 #, kde-format
@@ -6136,6 +6385,8 @@ msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
 "be seen in the right hand column."
 msgstr ""
+"ئالاھىدە بايراق. پۈتكۈل قىسقۇچقىلا كۈچكە ئىگە، ئوڭ قول تەرەپتىكى رەتتىن ھەر "
+"بىر بايراقنىڭ مەنىسىنى كۆرەلەيسىز."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1483
 #, kde-format
@@ -6143,6 +6394,8 @@ msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
 "column."
 msgstr ""
+"ئالاھىدە بايراق. ئوڭ قول تەرەپتىكى رەتتىن ھەر بىر بايراقنىڭ مەنىسىنى "
+"كۆرەلەيسىز."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1488
 #, kde-format
@@ -6195,6 +6448,9 @@ msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
 "rename files. Otherwise everybody with write permissions can do this."
 msgstr ""
+"ئەگەر قىسقۇچقا يېپىشقاق بەلگە تەڭشەلسە، پەقەت ئىگىدار ۋە root لا ھۆججەتنى "
+"ئۆچۈرۈپ ياكى ئاتىنى ئۆزگەرتەلەيدۇ. ئۇنداق بولمىسا يېزىش ھوقۇقىغا ئىگە ھەممە "
+"كىشى ھۆججەتنى ئۆچۈرۈپ ياكى ئاتىنى ئۆزگەرتەلەيدۇ."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1530
 #, kde-format
@@ -6235,7 +6491,7 @@ msgstr "ئۆزگىرىش(ئۆزگىرىش يوق)"
 #, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
-msgstr[0] "بۇ ھۆججەت ئالىي ئىجازەت ئىشلىتىدۇ."
+msgstr[0] "بۇ ھۆججەت ئالىي ئىجازەت ئىشلىتىدۇ"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1878
 #, kde-format
@@ -6286,6 +6542,9 @@ msgid ""
 "downloading the file.<br/>If the verification still fails, contact the "
 "source of the file."
 msgstr ""
+"<p>مۇكەممەللىك يىغىندىسى ماس كەلمىدى.</p>بۇ بەلكىم ھۆججەتنى چۈشۈرۈش "
+"جەريانىدا خاتالىق كۆرۈلگەن بولۇشى مۇمكىن. ھۆججەتنى قايتا چۈشۈرۈپ سىناڭ. <br/"
+">ئەگەر يەنىلا دەلىللەش مەغلۇپ بولسا، ھۆججەتنى تەمىنلىگۈچى بىلەن ئالاقىلىشىڭ."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2462
 #, kde-format
@@ -6333,6 +6592,7 @@ msgstr "تور ئادرېسى:"
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
+"خاسلىقنى ساقلىيالمايدۇ. پەقەت يەرلىك ھۆججەت سىستېمىسىدىكى تۈرنىلا قوللايدۇ."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2767
 #, kde-format
@@ -6448,7 +6708,7 @@ msgstr "«%1» نى ئىزدەش ئۇسۇلى"
 #, kde-format
 msgctxt "@action:inmenu Search for <text> with"
 msgid "%1"
-msgstr ""
+msgstr "%1"
 
 #: widgets/kurifiltersearchprovideractions.cpp:94
 #, kde-format
@@ -6479,6 +6739,9 @@ msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
 "no longer applicable. Please copy again what you wanted to paste."
 msgstr ""
+"چاپلاش تاختىسى سىز «چاپلا»نى ئىشلەتكەندىن كېيىن ئۆزگەردى: تاللىغان سانلىق "
+"مەلۇماتنىڭ پىچىمىنى قوبۇل قىلالمايدۇ. چاپلىماقچى بولغان مەزمۇننى قايتا "
+"كۆچۈرۈڭ."
 
 #: widgets/paste.cpp:250
 #, kde-format
@@ -6520,7 +6783,7 @@ msgstr "سانلىق مەلۇمات پىچىمى:"
 #: widgets/pastedialog.cpp:68
 #, kde-format
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: widgets/pastejob.cpp:89
 #, kde-format
@@ -6555,6 +6818,10 @@ msgid ""
 "Unless you press Skip you will still be prompted in case of a conflict with "
 "an existing file in the directory."
 msgstr ""
+"ئەگەر بۇ توپچە چېكىلسە بۇ تاللانما نۆۋەتتىكى ۋەزىپىدىكى ئېشىپ قالغان توقۇنۇش "
+"بار قىسقۇچنىڭ ھەممىسىگە قوللىنىلىدۇ. سىز «ئاتلا»نى چەكمىسىڭىزلا "
+"مۇندەرىجىدىكى مەۋجۇت ھۆججەتكە مۇناسىۋەتلىك توقۇنۇش ئەسكەرتىشىنى قايتا "
+"كۆرىسىز."
 
 #: widgets/renamedialog.cpp:284
 #, kde-format
@@ -6604,6 +6871,10 @@ msgid ""
 "You will be prompted again in case of a conflict with an existing file in "
 "the directory."
 msgstr ""
+"ھۆججەت ۋە قىسقۇچ مەۋجۇت مۇندەرىجىگە كۆچۈرۈلىدۇ، مۇندەرىجىدە بىر قىسىم مەزمۇن "
+"بار. \n"
+"ئەگەر بىر مۇندەرىجىدە ئوخشاش ئاتلىق ھۆججەت توقۇنۇشى كۆرۈلسە، مۇناسىۋەتلىك "
+"ئۇچۇرنى قايتا كۆرىسىز."
 
 #: widgets/renamedialog.cpp:319
 #, kde-format
@@ -6631,6 +6902,8 @@ msgid ""
 "This action would overwrite '%1' with itself.\n"
 "Please enter a new file name:"
 msgstr ""
+"بۇ مەشغۇلات «%1» نى ئۆزى بىلەن قاپلىۋېتىدۇ.\n"
+"يېڭى بىر ھۆججەت ئاتى كىرگۈزۈڭ:"
 
 #: widgets/renamedialog.cpp:350
 #, kde-format
@@ -6911,6 +7184,8 @@ msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"قىسقۇچ ئاتىنىڭ بېشىغا ئىنگلىزچە چېكىتتىن بىرى قويۇلسا ئۇنى يوشۇرىدۇ.\n"
+"ئۇنىڭ ئاتىنى يەنىلا ئۆزگەرتەمسىز؟"
 
 #: widgets/renamefilewarningdialog.cpp:51
 #, kde-format
@@ -6919,6 +7194,8 @@ msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"ھۆججەت ئاتىنىڭ بېشىغا ئىنگلىزچە چېكىتتىن بىرى قويۇلسا ئۇنى يوشۇرىدۇ.\n"
+"ئۇنىڭ ئاتىنى يەنىلا ئۆزگەرتەمسىز؟"
 
 #: widgets/renamefilewarningdialog.cpp:52
 #, kde-format
@@ -6955,6 +7232,10 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"بۇ مەشغۇلات ھۆججەت تۈرىنى يوچۇنغا ئۆزگەرتىۋېتىدۇ.\n"
+"ھۆججەتنىڭ مەزمۇنى ئۆزگەرمەيدۇ ئەمما پىروگرامما ئەمدى ئۇنى تونۇيالماسلىقى "
+"مۇمكىن.\n"
+"ئۇنىڭ ئاتىنى يەنىلا ئۆزگەرتەمسىز؟"
 
 #: widgets/renamefilewarningdialog.cpp:98
 #, kde-format
@@ -6965,6 +7246,10 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"بۇ مەشغۇلات ھۆججەت تۈرىنى «%1» دىن «%2» غا ئۆزگەرتىۋېتىدۇ.\n"
+"ھۆججەتنىڭ مەزمۇنى ئۆزگەرمەيدۇ ئەمما پىروگرامما ئەمدى ئۇنى تونۇيالماسلىقى "
+"مۇمكىن.\n"
+"ئۇنىڭ ئاتىنى يەنىلا ئۆزگەرتەمسىز؟"
 
 #: widgets/renamefilewarningdialog.cpp:105
 #, kde-format
@@ -7081,6 +7366,9 @@ msgid ""
 "The remote host did not send any SSL certificates.\n"
 "Aborting because the identity of the host cannot be established."
 msgstr ""
+"يىراقتىكى ماشىنا ھېچقانداق SSL گۇۋاھنامە يوللىمىدى.\n"
+"شۇڭلاشقا ماشىنا بىلەن دەلىللەنگەن باغلىنىش قۇرالمايدۇ، مەشغۇلات بىكار "
+"قىلىندى."
 
 #: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:508
 #, kde-format
@@ -7123,6 +7411,9 @@ msgid ""
 "><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>This action "
 "cannot be undone.</emphasis>"
 msgstr ""
+"ئەخلەتخانىنىڭ قېپقالغان سىغىمىغا بۇ ھۆججەت سىغمايدۇ. ئۇنى مەڭگۈلۈك "
+"ئۆچۈرەمسىز؟<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
+"strong='true'>بۇ مەشغۇلاتتىن يېنىۋالغىلى بولمايدۇ.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:260
 #, kde-kuit-format
@@ -7135,6 +7426,9 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
+"ئەخلەتخانىنىڭ قېپقالغان سىغىمىغا %1 ھۆججەت سىغمايدۇ. ئۇنى مەڭگۈلۈك "
+"ئۆچۈرەمسىز؟<nl/><emphasis strong='true'>بۇ مەشغۇلاتتىن يېنىۋالغىلى بولمايدۇ."
+"</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
 #, kde-kuit-format
@@ -7144,6 +7438,9 @@ msgid ""
 "instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
+"ئەخلەتخانا بۇ تۈرنىڭ ئورنىنى ئىشلىتەلمەيدۇ. ئۇنى مەڭگۈلۈك ئۆچۈرەمسىز؟<nl/"
+"><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>بۇ "
+"مەشغۇلاتتىن يېنىۋالغىلى بولمايدۇ.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:282
 #, kde-kuit-format
@@ -7157,6 +7454,8 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
+"ئەخلەتخانا %1 تۈرنىڭ ئورنىنى ئىشلىتەلمەيدۇ. ئۇنى مەڭگۈلۈك ئۆچۈرەمسىز؟<nl/"
+"><emphasis strong='true'>بۇ مەشغۇلاتتىن يېنىۋالغىلى بولمايدۇ.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
@@ -7185,7 +7484,7 @@ msgstr "قارشى ئۇچتىكى SSL گۇۋاھنامىسى بۇزۇلغاند�
 #: widgets/widgetsaskuseractionhandler.cpp:577
 #, kde-format
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 #: widgets/widgetsuntrustedprogramhandler.cpp:110
 #, kde-format
