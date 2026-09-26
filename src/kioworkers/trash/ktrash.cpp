@@ -38,7 +38,10 @@ int main(int argc, char *argv[])
         // We use a kio job instead of linking to TrashImpl, for a smaller binary
         // (and the possibility of a central service at some point)
         KIO::Job *job = KIO::emptyTrash();
-        job->exec();
+        if (!job->exec()) {
+            qCritical() << job->errorString();
+            return 1;
+        }
         return 0;
     }
 
@@ -58,9 +61,9 @@ int main(int argc, char *argv[])
         QDataStream stream(&packedArgs, QIODevice::WriteOnly);
         stream << (int)3 << trashURL;
         KIO::Job *job = KIO::special(trashURL, packedArgs);
-        bool ok = job->exec() ? true : false;
-        if (!ok) {
+        if (!job->exec()) {
             qCritical() << job->errorString();
+            return 1;
         }
         return 0;
     }
