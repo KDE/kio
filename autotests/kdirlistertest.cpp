@@ -33,6 +33,63 @@ using namespace Qt::StringLiterals;
 
 QTEST_MAIN(KDirListerTest)
 
+namespace
+{
+// Lists the urls it is given the way a search result does: every entry carries UDS_URL, which
+// points at the real file, outside the listing. Each test needs a protocol of its own, since a
+// worker stays in the pool and is handed to the next listing of the same scheme.
+class SearchWorkerFactory : public KIO::WorkerFactory
+{
+public:
+    SearchWorkerFactory(const QByteArray &protocol, const QList<QUrl> &hits)
+        : m_protocol(protocol)
+        , m_hits(hits)
+    {
+    }
+
+    std::unique_ptr<KIO::WorkerBase> createWorker(const QByteArray &pool, const QByteArray &app) override
+    {
+        return std::make_unique<SearchWorker>(m_protocol, pool, app, m_hits);
+    }
+
+private:
+    class SearchWorker : public KIO::WorkerBase
+    {
+    public:
+        SearchWorker(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app, const QList<QUrl> &hits)
+            : WorkerBase(protocol, pool, app)
+            , m_hits(hits)
+        {
+        }
+
+        Q_REQUIRED_RESULT KIO::WorkerResult listDir(const QUrl &url) override
+        {
+            Q_UNUSED(url)
+            KIO::UDSEntry root;
+            root.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
+            root.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+            listEntry(root);
+
+            for (const QUrl &hit : std::as_const(m_hits)) {
+                KIO::UDSEntry entry;
+                entry.fastInsert(KIO::UDSEntry::UDS_NAME, hit.fileName());
+                entry.fastInsert(KIO::UDSEntry::UDS_URL, hit.toString());
+                entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 10);
+                entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456);
+                listEntry(entry);
+            }
+            return KIO::WorkerResult::pass();
+        }
+
+    private:
+        const QList<QUrl> m_hits;
+    };
+
+    const QByteArray m_protocol;
+    const QList<QUrl> m_hits;
+};
+}
+
 GlobalInits::GlobalInits()
 {
     // Must be done before the QSignalSpys connect
@@ -2000,50 +2057,14 @@ void KDirListerTest::testEntriesOfOneNameFromSeveralFolders()
     // A folder whose entries come from elsewhere, as a search result folder does, gives
     // each entry a url of its own, and several of those entries can carry the same name.
     // Every one of them is a file in its own right and belongs in the listing.
-    class Factory : public KIO::WorkerFactory
-    {
-    public:
-        using KIO::WorkerFactory::WorkerFactory;
-        std::unique_ptr<KIO::WorkerBase> createWorker(const QByteArray &pool, const QByteArray &app) override
-        {
-            class SearchWorker : public KIO::WorkerBase
-            {
-            public:
-                SearchWorker(const QByteArray &pool, const QByteArray &app)
-                    : WorkerBase(QByteArrayLiteral("kio-test-search"), pool, app)
-                {
-                }
-
-                Q_REQUIRED_RESULT KIO::WorkerResult listDir(const QUrl &url) override
-                {
-                    Q_UNUSED(url)
-                    KIO::UDSEntry root;
-                    root.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
-                    root.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
-                    listEntry(root);
-
-                    auto hit = [this](const QString &path) {
-                        const QUrl fileUrl = QUrl::fromLocalFile(path);
-                        KIO::UDSEntry entry;
-                        entry.fastInsert(KIO::UDSEntry::UDS_NAME, fileUrl.fileName());
-                        entry.fastInsert(KIO::UDSEntry::UDS_URL, fileUrl.url());
-                        entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 10);
-                        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456);
-                        listEntry(entry);
-                    };
-                    hit(QStringLiteral("/hits/one/testfile.txt"));
-                    hit(QStringLiteral("/hits/two/testfile.txt"));
-                    hit(QStringLiteral("/hits/three/testfile.txt"));
-                    // The same file reached twice, which is one hit.
-                    hit(QStringLiteral("/hits/two/testfile.txt"));
-                    return KIO::WorkerResult::pass();
-                }
-            };
-
-            return std::unique_ptr<KIO::WorkerBase>(new SearchWorker(pool, app));
-        }
+    const QList<QUrl> hits = {
+        QUrl::fromLocalFile(u"/hits/one/testfile.txt"_s),
+        QUrl::fromLocalFile(u"/hits/two/testfile.txt"_s),
+        QUrl::fromLocalFile(u"/hits/three/testfile.txt"_s),
+        // The same file reached twice, which is one hit.
+        QUrl::fromLocalFile(u"/hits/two/testfile.txt"_s),
     };
-    auto factory = std::make_shared<Factory>();
+    auto factory = std::make_shared<SearchWorkerFactory>(QByteArrayLiteral("kio-test-search"), hits);
     KIO::Worker::setTestWorkerFactory(factory);
 
     const QUrl testUrl(u"kio-test-search://results/testfile"_s);
@@ -2065,10 +2086,7 @@ void KDirListerTest::testEntriesOfOneNameFromSeveralFolders()
 
 void KDirListerTest::testUpdateSearchResultOnDeleteAndRename()
 {
-    // A search result view follows a file that is deleted or renamed elsewhere. The worker below
-    // lists entries with UDS_URL, as baloosearch:/ and filenamesearch:/ do. It answers for a
-    // scheme of its own, since a worker is kept in the pool and handed to the next test of the
-    // same scheme.
+    // A search result view follows a file that is deleted or renamed elsewhere.
     const QString fileA = tempPath() + QStringLiteral("search_hit_a");
     const QString fileB = tempPath() + QStringLiteral("search_hit_b");
     createTestFile(fileA);
@@ -2076,50 +2094,7 @@ void KDirListerTest::testUpdateSearchResultOnDeleteAndRename()
     const QUrl urlA = QUrl::fromLocalFile(fileA);
     const QUrl urlB = QUrl::fromLocalFile(fileB);
 
-    class Factory : public KIO::WorkerFactory
-    {
-    public:
-        using KIO::WorkerFactory::WorkerFactory;
-        std::unique_ptr<KIO::WorkerBase> createWorker(const QByteArray &pool, const QByteArray &app) override
-        {
-            class SearchWorker : public KIO::WorkerBase
-            {
-            public:
-                SearchWorker(const QByteArray &pool, const QByteArray &app, const QList<QUrl> &hits)
-                    : WorkerBase(QByteArrayLiteral("kio-test-search-hits"), pool, app)
-                    , m_hits(hits)
-                {
-                }
-
-                Q_REQUIRED_RESULT KIO::WorkerResult listDir(const QUrl &url) override
-                {
-                    Q_UNUSED(url)
-                    KIO::UDSEntry root;
-                    root.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("."));
-                    listEntry(root);
-                    // UDS_URL points at the real file, which lives outside this listing.
-                    for (const QUrl &hit : std::as_const(m_hits)) {
-                        KIO::UDSEntry entry;
-                        entry.fastInsert(KIO::UDSEntry::UDS_NAME, hit.fileName());
-                        entry.fastInsert(KIO::UDSEntry::UDS_URL, hit.toString());
-                        entry.fastInsert(KIO::UDSEntry::UDS_SIZE, 0);
-                        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, 123456);
-                        listEntry(entry);
-                    }
-                    return KIO::WorkerResult::pass();
-                }
-
-            private:
-                QList<QUrl> m_hits;
-            };
-
-            return std::unique_ptr<KIO::WorkerBase>(new SearchWorker(pool, app, m_hits));
-        }
-
-        QList<QUrl> m_hits;
-    };
-    auto factory = std::make_shared<Factory>();
-    factory->m_hits = {urlA, urlB};
+    auto factory = std::make_shared<SearchWorkerFactory>(QByteArrayLiteral("kio-test-search-hits"), QList<QUrl>{urlA, urlB});
     KIO::Worker::setTestWorkerFactory(factory);
 
     const QUrl searchUrl(u"kio-test-search-hits://search/?query=hit"_s);
