@@ -166,7 +166,11 @@ inline static uint64_t stat_mnt_id(const struct statx &buf)
 inline int LSTATAT(int dfd, const char *path, QT_STATBUF *buff, KIO::StatDetails details)
 {
     Q_UNUSED(details)
+#if defined(QT_LARGEFILE_SUPPORT) && defined(Q_OS_ANDROID)
+    return fstatat64(dfd, path, buff, AT_SYMLINK_NOFOLLOW);
+#else
     return fstatat(dfd, path, buff, AT_SYMLINK_NOFOLLOW);
+#endif
 }
 #endif
 
