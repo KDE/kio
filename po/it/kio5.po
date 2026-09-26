@@ -1,5 +1,4 @@
 # translation of kio4.po to Italian
-# SPDX-FileCopyrightText: 2008-2012, 2014-2026 Luigi Toscano <luigi.toscano@tiscali.it>
 # Daniele Medri <madrid@linuxmeeting.net>, 2003.
 # Federico Cozzi <federicocozzi@federicocozzi.it>, 2004.
 # Federico Zenith <federico.zenith@member.fsf.org>, 2004.
@@ -7,6 +6,7 @@
 # Nicola Ruggero <nixprog.adsl@tiscali.it>, 2005, 2006.
 # Giovanni Venturi <jumpyj@tiscali.it>, 2006.
 # Nicola Ruggero <nicola@nxnt.org>, 2006, 2007.
+# SPDX-FileCopyrightText: 2008-2012, 2014-2026 Luigi Toscano <luigi.toscano@tiscali.it>
 # Vincenzo Reale <smart2128vr@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
