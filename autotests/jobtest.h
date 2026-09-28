@@ -96,6 +96,7 @@ private Q_SLOTS:
     void stat();
     void statLocalhostHost_data();
     void statLocalhostHost();
+    void statDirTrailingSlash();
     void listLocalhostHost_data();
     void listLocalhostHost();
     void statDetailsBasic();

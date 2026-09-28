@@ -2253,6 +2253,31 @@ void JobTest::listLocalhostHost()
     QVERIFY2(item.isWritable(), qPrintable(item.url().toString()));
 }
 
+void JobTest::statDirTrailingSlash()
+{
+    // A directory URL often carries a trailing slash, for instance one that
+    // KIO::upUrl() produced or that another application put on the clipboard.
+    // The name in the UDSEntry must still be the name of the directory, or
+    // every caller that builds a KFileItem from the result gets an empty text.
+    const QString dirPath = homeTmpDir() + "dirFromHome";
+    createTestDirectory(dirPath);
+
+    QUrl url = QUrl::fromLocalFile(dirPath);
+    url.setPath(url.path() + QLatin1Char('/'));
+    QVERIFY(url.fileName().isEmpty());
+
+    KIO::StatJob *job = KIO::stat(url, KIO::HideProgressInfo);
+    QVERIFY(job);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    const KIO::UDSEntry &entry = job->statResult();
+    QVERIFY(entry.isDir());
+    QCOMPARE(entry.stringValue(KIO::UDSEntry::UDS_NAME), QStringLiteral("dirFromHome"));
+
+    const KFileItem item(entry, url, true /*delayed mime types*/);
+    QCOMPARE(item.text(), QStringLiteral("dirFromHome"));
+}
+
 void JobTest::statDetailsBasic()
 {
     const QString filePath = homeTmpDir() + "fileFromHome";

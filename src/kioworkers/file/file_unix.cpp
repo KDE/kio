@@ -805,13 +805,14 @@ WorkerResult FileProtocol::stat(const QUrl &url)
      * stat("/is/unaccessible/") -> EPERM            H.Z.
      * This is the reason for the -1
      */
-    const QString path(url.adjusted(QUrl::StripTrailingSlash).toLocalFile());
+    const QUrl strippedUrl = url.adjusted(QUrl::StripTrailingSlash);
+    const QString path(strippedUrl.toLocalFile());
     const QByteArray _path(QFile::encodeName(path));
 
     const KIO::StatDetails details = getStatDetails();
 
     UDSEntry entry;
-    if (!createUDSEntry(url.fileName(), _path, entry, details, path)) {
+    if (!createUDSEntry(strippedUrl.fileName(), _path, entry, details, path)) {
         return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, path);
     }
     statEntry(entry);
