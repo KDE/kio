@@ -1,0 +1,223 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY % Russian "INCLUDE"
+><!-- change language only here -->
+]>
+
+<refentry lang="&language;">
+
+<refentryinfo>
+<title
+>Руководство пользователя kcookiejar5</title>
+<author
+><firstname
+>Waldo</firstname
+> <surname
+> Bastian</surname
+> <affiliation
+> <address
+><email
+>bastian@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<author
+><firstname
+>Dawit</firstname
+> <surname
+>Alemayehu</surname
+> <affiliation
+> <address
+><email
+>adawit@kde.org</email
+></address>
+</affiliation>
+</author>
+
+<date
+>31 июля 2015 г.</date>
+<releaseinfo
+>Frameworks 5.13</releaseinfo>
+
+</refentryinfo>
+
+<refmeta>
+<refentrytitle
+><command
+>kcookiejar5</command
+></refentrytitle>
+<manvolnum
+>8</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname
+><command
+>kcookiejar5</command
+></refname>
+<refpurpose
+>Интерфейс командной строки к службе &HTTP;-кук &kde;</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<title
+>Обзор</title>
+
+<cmdsynopsis
+><command
+>kcookiejar5</command
+> <arg choice="opt"
+>-h, --help</arg
+> <arg choice="opt"
+>-v, --version</arg
+> <arg choice="opt"
+>--shutdown</arg
+> <arg choice="opt"
+>--remove<replaceable
+> домен</replaceable
+></arg
+> <arg choice="opt"
+>--remove-all</arg
+> <arg choice="opt"
+>--reload-config</arg
+> </cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1>
+<title
+>Описание</title>
+
+<para
+><command
+>kcookiejar5</command
+> — интерфейс командной строки к хранилищу &HTTP;-кук, которое использует &kde;: службе &DBus; для сохранения, получения и удаления кук. </para>
+</refsect1>
+
+<refsect1>
+<title
+>Параметры</title>
+
+<variablelist>
+
+<varlistentry>
+<term
+><option
+>-h</option
+><option
+>--help</option
+></term>
+<listitem>
+<para
+>Показать краткую справку о ключах и параметрах.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>-v</option
+><option
+>--version</option
+></term>
+<listitem>
+<para
+>Показать сведения о версии.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--shutdown</option
+></term>
+<listitem>
+<para
+>Завершить работу хранилища кук и службы &DBus;. </para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--remove</option
+> <parameter
+>домен</parameter
+></term>
+<listitem>
+<para
+>Удаляет из хранилища куки домена <parameter
+>domain</parameter
+>. </para>
+</listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term
+><option
+>--remove-all</option
+></term>
+<listitem>
+<para
+>Удаляет из хранилища все куки.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><option
+>--reaload-config</option
+></term>
+<listitem>
+<para
+>Перечитывает файл конфигурации. </para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</refsect1>
+
+<refsect1>
+<title
+>Использование</title>
+<para
+><command
+>kcookiejar5</command
+> — программа командной строки для обращения к модулю kded, который управляет куками в &konqueror; и других приложениях &kde;.</para>
+<para
+>При запуске без параметров загружает модуль kded, предоставляющий интерфейс &DBus; для хранения кук. </para>
+<para
+>Если <command
+>kcookiejar5</command
+> запущена с параметрами, она дополнительно выполняет действия над хранилищем кук — например, удаляет куки одного <parameter
+>domain</parameter
+>. </para>
+
+</refsect1>
+
+<refsect1>
+<title
+>Смотрите также</title>
+<para
+><replaceable
+>kf5options</replaceable
+>(7), <replaceable
+>qt5options</replaceable
+>(7) </para>
+</refsect1>
+
+<refsect1>
+<title
+>Ошибки</title>
+<para
+>Сообщайте об ошибках через <ulink url="https://bugs.kde.org"
+>систему отслеживания ошибок &kde;</ulink
+>.</para>
+</refsect1>
+
+</refentry>
+
+
+
