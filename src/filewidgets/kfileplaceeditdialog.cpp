@@ -14,6 +14,7 @@
 #include <KIconLoader>
 #include <KLineEdit> // For KUrlRequester::lineEdit()
 #include <KLocalizedString>
+#include <kfileitem.h>
 #include <kio/global.h>
 #include <kprotocolinfo.h>
 #include <kurlrequester.h>
@@ -184,14 +185,7 @@ QString KFilePlaceEditDialog::label() const
     }
 
     // derive descriptive label from the URL
-    QUrl url = m_urlEdit->url();
-    if (!url.fileName().isEmpty()) {
-        return url.fileName();
-    }
-    if (!url.host().isEmpty()) {
-        return url.host();
-    }
-    return url.scheme();
+    return KFileItem(m_urlEdit->url()).text();
 }
 
 QString KFilePlaceEditDialog::icon() const
