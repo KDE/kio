@@ -506,6 +506,9 @@ public:
      * Returns the text of the file item.
      *
      * It's not exactly the filename since some decoding happens ('%2F'->'/').
+     *
+     * When the item has no name, as for a url that ends in a slash, the url names the item
+     * instead: its last path segment, else its host, else its path or its scheme.
      */
     QString text() const;
 

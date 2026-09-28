@@ -24,6 +24,8 @@ private Q_SLOTS:
     void testBasicFile();
     void testBasicDirectory();
     void testRootDirectory();
+    void testTextWithoutAName_data();
+    void testTextWithoutAName();
     void testHiddenFile();
     void testMimeTypeOnDemand();
     void testCmp();

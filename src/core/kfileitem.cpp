@@ -43,6 +43,24 @@
 
 #define KFILEITEM_DEBUG 0
 
+// A url that ends in a slash has no file name, and a worker can report no name for such a
+// directory either. text() is what callers show to the user, so name the url itself.
+static QString textForUrl(const QUrl &url)
+{
+    const QUrl stripped = url.adjusted(QUrl::StripTrailingSlash);
+    if (!stripped.fileName().isEmpty()) {
+        return stripped.fileName();
+    }
+    if (!stripped.host().isEmpty()) {
+        // smb://server/ names the server and nothing else.
+        return stripped.host();
+    }
+    if (stripped.isLocalFile()) {
+        return stripped.toLocalFile(); // the root
+    }
+    return stripped.scheme();
+}
+
 class KFileItemPrivate : public QSharedData
 {
 public:
@@ -80,6 +98,10 @@ public:
             Q_ASSERT(!urlIsDirectory);
             m_strName = itemOrDirUrl.fileName();
             m_strText = KIO::decodeFileName(m_strName);
+        }
+
+        if (m_strText.isEmpty()) {
+            m_strText = textForUrl(m_url);
         }
     }
 

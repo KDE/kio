@@ -351,6 +351,42 @@ void KFileItemTest::testRootDirectory()
     QVERIFY(!fileItem.isDesktopFile());
 }
 
+void KFileItemTest::testTextWithoutAName_data()
+{
+    QTest::addColumn<QString>("url");
+    QTest::addColumn<QString>("expectedText");
+
+    // A url that ends in a slash has no file name, so the name comes from the stripped url.
+    QTest::newRow("folder with a trailing slash") << QStringLiteral("file:///usr/share/") << QStringLiteral("share");
+    QTest::newRow("folder with two trailing slashes") << QStringLiteral("file:///usr/share//") << QStringLiteral("share");
+    // The root has no name even once the trailing slash is gone, so the path names it.
+    QTest::newRow("root") << QStringLiteral("file:///") << QStringLiteral("/");
+    // A scheme on its own names itself.
+    QTest::newRow("trash") << QStringLiteral("trash:/") << QStringLiteral("trash");
+    // A server has no path at all. See bug 520090, where such a place was added with no label.
+    QTest::newRow("smb server") << QStringLiteral("smb://someserver.local/") << QStringLiteral("someserver.local");
+    QTest::newRow("smb share") << QStringLiteral("smb://workgroup/server/share/") << QStringLiteral("share");
+}
+
+void KFileItemTest::testTextWithoutAName()
+{
+    QFETCH(QString, url);
+    QFETCH(QString, expectedText);
+
+    const QUrl itemUrl(url);
+    QVERIFY(itemUrl.fileName().isEmpty() || itemUrl.fileName() == expectedText);
+
+    // Workers do not all report a name for these urls, so take the case where none is reported.
+    KIO::UDSEntry entry;
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR);
+    const KFileItem fromEntry(entry, itemUrl);
+    QCOMPARE(fromEntry.text(), expectedText);
+
+    // The same holds when the item is built from the url alone.
+    const KFileItem fromUrl(itemUrl, QString(), KFileItem::Unknown);
+    QCOMPARE(fromUrl.text(), expectedText);
+}
+
 void KFileItemTest::testHiddenFile()
 {
     QTemporaryDir tempDir;

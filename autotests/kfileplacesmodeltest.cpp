@@ -10,6 +10,7 @@
 #endif
 
 #include <QDebug>
+#include <QMimeData>
 #include <QObject>
 #include <QSignalSpy>
 #include <QTemporaryDir>
@@ -49,6 +50,7 @@ private Q_SLOTS:
     void cleanupTestCase();
 
     void testInitialList();
+    void testDroppedFolderGetsALabel();
     void testAddingInLaterVersion_data();
     void testAddingInLaterVersion();
     void testReparse();
@@ -1372,6 +1374,57 @@ void KFilePlacesModelTest::testPlaceCollapsedUrl()
     QFETCH(QString, result);
 
     QCOMPARE(m_places->placeCollapsedUrl(url), result);
+}
+
+static QModelIndex indexForUrl(KFilePlacesModel *places, const QUrl &url)
+{
+    const QUrl expected = url.adjusted(QUrl::StripTrailingSlash);
+    for (int i = 0; i < places->rowCount(); ++i) {
+        const QModelIndex index = places->index(i, 0);
+        if (places->url(index).adjusted(QUrl::StripTrailingSlash) == expected) {
+            return index;
+        }
+    }
+    return QModelIndex();
+}
+
+// A folder url that ends in a slash has no file name of its own, so the file worker has to take
+// the name from the stripped url. The root has no file name even then, and the model falls back
+// to the path. Either way the place must not be added with an empty label.
+void KFilePlacesModelTest::testDroppedFolderGetsALabel()
+{
+    QTemporaryDir tmpDir;
+    QVERIFY(tmpDir.isValid());
+    const QString folder = tmpDir.path() + QStringLiteral("/dropped folder");
+    QVERIFY(QDir().mkpath(folder));
+
+    QUrl folderUrl = QUrl::fromLocalFile(folder);
+    folderUrl.setPath(folderUrl.path() + QLatin1Char('/'));
+    QVERIFY(folderUrl.fileName().isEmpty());
+
+    const QUrl rootUrl(QStringLiteral("file:///"));
+    QVERIFY(rootUrl.fileName().isEmpty());
+
+    // A fresh model, so the test does not depend on the bookmark reloads the earlier tests left
+    // pending on the shared one. Its device rows arrive later, so count nothing and look the
+    // dropped places up by url.
+    KFilePlacesModel places;
+
+    QMimeData mimeData;
+    mimeData.setUrls({folderUrl, rootUrl});
+    QVERIFY(places.dropMimeData(&mimeData, Qt::CopyAction, -1, 0, QModelIndex()));
+
+    // The model reloads the bookmarks through KDirWatch, so the new rows do not appear at once.
+    QTRY_VERIFY(indexForUrl(&places, folderUrl).isValid());
+    QTRY_VERIFY(indexForUrl(&places, rootUrl).isValid());
+
+    QCOMPARE(places.text(indexForUrl(&places, folderUrl)), QStringLiteral("dropped folder"));
+    QCOMPARE(places.text(indexForUrl(&places, rootUrl)), QStringLiteral("/"));
+
+    places.removePlace(indexForUrl(&places, rootUrl));
+    places.removePlace(indexForUrl(&places, folderUrl));
+    QTRY_VERIFY(!indexForUrl(&places, folderUrl).isValid());
+    QTRY_VERIFY(!indexForUrl(&places, rootUrl).isValid());
 }
 
 QTEST_MAIN(KFilePlacesModelTest)
