@@ -14,6 +14,7 @@
 #include <QTemporaryDir>
 #include <QTemporaryFile>
 #include <QTest>
+#include <QTimer>
 #include <QUrl>
 
 #include <kio/deletejob.h>
@@ -205,8 +206,9 @@ void DeleteJobTest::killedRecursiveDeletionStopsEarly()
     const QString root = tempDir.path() + QStringLiteral("/tree");
     QVERIFY(QDir().mkpath(root));
 
+    constexpr int subdirectories = 50;
     int created = 0;
-    for (int d = 0; d < 50; ++d) {
+    for (int d = 0; d < subdirectories; ++d) {
         const QString sub = root + QStringLiteral("/sub%1").arg(d);
         QVERIFY(QDir().mkpath(sub));
         for (int f = 0; f < 300; ++f) {
@@ -218,31 +220,44 @@ void DeleteJobTest::killedRecursiveDeletionStopsEarly()
         }
     }
 
+    // The deletion reports the bytes it frees as it goes, and SlaveBase lets a report through only
+    // once 100 ms have passed since the last one. This worker served the tests before, so the
+    // window is given time to clear before the job starts or there is nothing to count.
+    QTest::qWait(150);
+
     KIO::SimpleJob *job = KIO::rmdir(QUrl::fromLocalFile(root));
     job->setUiDelegate(nullptr);
     job->addMetaData(QStringLiteral("recurse"), QStringLiteral("true"));
 
-    // Cancel once the worker says it has removed something, so the kill lands inside
-    // deleteRecursive() rather than before it begins. The worker is what is asked, rather than the
-    // tree, because reading the tree takes longer than emptying it and the cancel would come too late.
-    bool killed = false;
+    int byteReports = 0;
     connect(job, &KJob::processedAmountChanged, job, [&](KJob *, KJob::Unit unit, qulonglong amount) {
-        if (!killed && unit == KJob::Bytes && amount > 0) {
+        if (unit == KJob::Bytes && amount > 0) {
+            ++byteReports;
+        }
+    });
+
+    // A subdirectory goes once it is emptied, so one missing says the deletion is under way and a
+    // kill now lands inside deleteRecursive(). The tree is watched rather than the progress the
+    // worker reports, which SlaveBase holds back within 100 ms of the last one it let through.
+    bool killed = false;
+    QTimer watcher;
+    connect(&watcher, &QTimer::timeout, job, [&]() {
+        if (!killed && QDir(root).entryList(QDir::Dirs | QDir::NoDotAndDotDot).count() < subdirectories) {
             killed = true;
             job->kill(KJob::EmitResult);
         }
     });
+    watcher.start(1);
 
     QSignalSpy spy(job, &KJob::result);
     // kill(EmitResult) makes the job report almost immediately. A timeout here means the deletion
     // never started (so it was never cancelled) or the job did not finish at all.
     QVERIFY(spy.wait(10000));
-    QVERIFY(killed); // the deletion really started, otherwise the test proves nothing
+    QVERIFY2(byteReports > 0, "the deletion freed bytes without reporting any");
+    QVERIFY2(killed, qPrintable(QStringLiteral("no progress reported, so nothing was cancelled. Job error %1: %2").arg(job->error()).arg(job->errorString())));
 
-    // kill(EmitResult) makes the job report at once, but the in-process worker keeps running its
-    // deleteRecursive() until it returns (it is reaped asynchronously). Wait for the file count to
-    // settle so we observe the final state: with the fix the worker bailed out and files remain.
-    // Without it the worker keeps deleting in the background until the whole tree is gone.
+    // The job reports at once, but the worker runs on until deleteRecursive() returns. Wait for
+    // the count to settle, so that what is checked is where the worker stopped.
     int remaining = countFiles(root);
     int previous = -1;
     QElapsedTimer settle;
