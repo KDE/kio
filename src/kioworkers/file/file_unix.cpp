@@ -604,14 +604,6 @@ WorkerResult FileProtocol::symlink(const QString &target, const QUrl &_destUrl, 
     return WorkerResult::fail(KIO::ERR_CANNOT_SYMLINK, dest);
 }
 
-// Qt maps QT_STATBUF to struct stat64 under large file support, and there is no QT_FSTATAT, so the
-// same choice is made here for the directory-relative fstatat().
-#if defined(QT_USE_XOPEN_LFS_EXTENSIONS) && defined(QT_LARGEFILE_SUPPORT)
-#define FSTATAT ::fstatat64
-#else
-#define FSTATAT ::fstatat
-#endif
-
 WorkerResult FileProtocol::deleteUnder(int dfd, KIO::filesize_t &removed)
 {
     // fdopendir takes the descriptor over, so closedir is what closes it.

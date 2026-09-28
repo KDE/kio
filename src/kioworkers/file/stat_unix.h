@@ -32,6 +32,14 @@ using StatStruct = QT_STATBUF;
 // it makes no real difference since we need to concatenate a complete path anyway (for UDSEntry). The kernel seems
 // to not care much whether the input is relative or absolute either.
 
+// Qt maps QT_STATBUF to struct stat64 under large file support, and there is no QT_FSTATAT, so the
+// same choice is made here for the directory-relative fstatat().
+#if defined(QT_LARGEFILE_SUPPORT) && (defined(QT_USE_XOPEN_LFS_EXTENSIONS) || defined(Q_OS_ANDROID))
+#define FSTATAT ::fstatat64
+#else
+#define FSTATAT ::fstatat
+#endif
+
 #if HAVE_STATX
 // statx syscall is available
 inline uint32_t statxMask(KIO::StatDetails details)
@@ -166,11 +174,7 @@ inline static uint64_t stat_mnt_id(const struct statx &buf)
 inline int LSTATAT(int dfd, const char *path, QT_STATBUF *buff, KIO::StatDetails details)
 {
     Q_UNUSED(details)
-#if defined(QT_LARGEFILE_SUPPORT) && defined(Q_OS_ANDROID)
-    return fstatat64(dfd, path, buff, AT_SYMLINK_NOFOLLOW);
-#else
-    return fstatat(dfd, path, buff, AT_SYMLINK_NOFOLLOW);
-#endif
+    return FSTATAT(dfd, path, buff, AT_SYMLINK_NOFOLLOW);
 }
 #endif
 
