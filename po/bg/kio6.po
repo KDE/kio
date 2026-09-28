@@ -3756,7 +3756,7 @@ msgstr "Можете да промените иконата по-късно в �
 #, fuzzy, kde-format
 #| msgid "Location:"
 msgid "Copy Location"
-msgstr "Местоположение:"
+msgstr "Копиране на местоположение"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
 #: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42

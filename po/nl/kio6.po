@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-26 00:41+0000\n"
+"POT-Creation-Date: 2026-09-27 00:40+0000\n"
 "PO-Revision-Date: 2026-09-08 11:21+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -3814,16 +3814,11 @@ msgstr "Kies een ander pictogram…"
 msgid "You can change the icon later in folder properties."
 msgstr "U kunt het pictogram later in eigenschappen van map wijzigen."
 
-#. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
-#. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
-#. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
-#. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
-#: filewidgets/kurlnavigator.cpp:611 widgets/checksumswidget.ui:145
-#: widgets/checksumswidget.ui:192 widgets/checksumswidget.ui:239
-#: widgets/checksumswidget.ui:286
-#, kde-format
-msgid "Copy"
-msgstr "Kopiëren"
+#: filewidgets/kurlnavigator.cpp:611
+#, fuzzy, kde-format
+#| msgid "Location:"
+msgid "Copy Location"
+msgstr "Locatie:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
 #: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42
@@ -4888,6 +4883,16 @@ msgstr "Berekenen"
 #, kde-format
 msgid "Click to copy the checksum to the clipboard."
 msgstr "Klik om de controlesom naar het klembord te kopiëren."
+
+#. i18n: ectx: property (text), widget (QPushButton, md5CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha1CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha256CopyButton)
+#. i18n: ectx: property (text), widget (QPushButton, sha512CopyButton)
+#: widgets/checksumswidget.ui:145 widgets/checksumswidget.ui:192
+#: widgets/checksumswidget.ui:239 widgets/checksumswidget.ui:286
+#, kde-format
+msgid "Copy"
+msgstr "Kopiëren"
 
 #: widgets/dropjob.cpp:192
 #, kde-format

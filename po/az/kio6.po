@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-27 00:40+0000\n"
-"PO-Revision-Date: 2026-03-26 02:42+0400\n"
+"PO-Revision-Date: 2026-09-26 22:00+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
 "Language: az\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3582,11 +3582,10 @@ msgid "Create link to URL"
 msgstr "URL -da link yarat"
 
 #: filewidgets/knewfilemenu.cpp:650
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
-msgstr "Yenisini yarat"
+msgstr "Yeni %1 yaradın"
 
 #: filewidgets/knewfilemenu.cpp:784 filewidgets/knewfilemenu.cpp:806
 #, kde-format
@@ -3805,9 +3804,7 @@ msgid "Go to Location on Path"
 msgstr "Yoldakı yerə keçin"
 
 #: filewidgets/kurlnavigatorplacesselector.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Places"
+#, kde-format
 msgctxt ""
 "@action:button accessible name for the places selector in the URL navigator"
 msgid "Places"
@@ -4016,7 +4013,7 @@ msgstr "\"%1\" proqramı başladılmadı."
 #: gui/systemd/systemdprocessrunner.cpp:200
 #, kde-format
 msgid "Failed to launch process (status code: %1)"
-msgstr ""
+msgstr "Prosesi başlatmaq mümkün olmadı (vəziyyət kodu: %1)"
 
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
@@ -5387,8 +5384,7 @@ msgstr "Tərkibi:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgid "Open with:"
 msgstr "Bununla açın:"
 
@@ -5414,7 +5410,7 @@ msgstr "Ölçü:"
 #: widgets/kfilepropspluginwidget.ui:259
 #, kde-format
 msgid "Size on disk:"
-msgstr ""
+msgstr "Diskdəki ölçü:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:308
@@ -5478,22 +5474,19 @@ msgstr "Fayl sistemi:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
+#, kde-format
 msgid "Mounted on:"
 msgstr "Qoşulma nöqtəsi:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:533
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
+#, kde-format
 msgid "Mounted from:"
-msgstr "Buradan qoşuldu:"
+msgstr "Qoşulan cihaz:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:559
-#, fuzzy, kde-format
-#| msgid "Free Space:"
+#, kde-format
 msgid "Free space:"
 msgstr "Boş sahə:"
 
@@ -6040,22 +6033,19 @@ msgstr ""
 "<nl/><filename>%1</filename>."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:159
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt ""
 "@label the size of a file or folder, first rounded and then to the byte"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:161
-#, fuzzy, kde-format
-#| msgid " byte"
-#| msgid_plural " bytes"
+#, kde-format
 msgctxt "@item the exact size of a file or folder"
 msgid "%1 byte"
 msgid_plural "%1 bytes"
-msgstr[0] " bayt"
-msgstr[1] " bayt"
+msgstr[0] "%1 bayt"
+msgstr[1] "%1 bayt"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:263
 #, kde-format
@@ -6106,16 +6096,13 @@ msgid "Unknown size"
 msgstr "Naməlum ölçü"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:739
-#, fuzzy, kde-format
-#| msgid ""
-#| "Calculating... %1 (%2)\n"
-#| "%3, %4"
+#, kde-format
 msgid ""
 "Calculating... %1\n"
 "%2, %3"
 msgstr ""
-"Hesablanır...%1 (%2)\n"
-"%3,%4"
+"Hesablanır... %1\n"
+"%2, %3"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:741
 #: widgets/kpropertiesdialogbuiltin_p.cpp:756
@@ -7210,12 +7197,10 @@ msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "<filename>%1</filename> fayl adı boş ola bilməz."
 
 #: widgets/renamefilewarningdialog.cpp:48
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
-msgstr "Adını dəyişin"
+msgstr "Adını dəyişin və gizlədin"
 
 #: widgets/renamefilewarningdialog.cpp:50
 #, kde-format
@@ -7224,6 +7209,8 @@ msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Adın əvvəlinə nöqtə əlavə olunarsa qovluq gizlənəcəkdir.\n"
+"Adını dəyişmək istəyirsiniz?"
 
 #: widgets/renamefilewarningdialog.cpp:51
 #, kde-format
@@ -7232,19 +7219,20 @@ msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Adın əvvəlinə nöqtə əlavə olunarsa fayl gizlənəcəkdir.\n"
+"Adını dəyişmək istəyirsiniz?"
 
 #: widgets/renamefilewarningdialog.cpp:52
-#, fuzzy, kde-format
-#| msgid "Home Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
-msgstr "Ev Qovluğu"
+msgstr "Bu qovluğu gizlədək?"
 
 #: widgets/renamefilewarningdialog.cpp:52
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
-msgstr ""
+msgstr "Bu faylı gizlədək?"
 
 #: widgets/renamefilewarningdialog.cpp:58
 #: widgets/renamefilewarningdialog.cpp:108
@@ -7255,11 +7243,10 @@ msgid "Do not ask again"
 msgstr "Bir daha soruşmamaq"
 
 #: widgets/renamefilewarningdialog.cpp:89
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename"
-msgstr "Yenidən adlandır"
+msgstr "Adını dəyişin"
 
 #: widgets/renamefilewarningdialog.cpp:94
 #, kde-format
@@ -7270,6 +7257,9 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Bu faylı növünü naməlum edəcək.\n"
+"Faylın tərkibi dəyişməsə də, tətbiq artıq bu faylı tanımayacaq\n"
+"Hələ də onun adını dəyişmək istəyirsiniz?"
 
 #: widgets/renamefilewarningdialog.cpp:98
 #, kde-format
@@ -7280,13 +7270,15 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Bu, %1 fayl növünü %2 olaraq dəyişəcək.\n"
+"Faylın tərkibi dəyişməsə də tətbiq artıq onu tanımayacaq.\n"
+"Hələ də adını dəyişmək istəyirsiniz?"
 
 #: widgets/renamefilewarningdialog.cpp:105
-#, fuzzy, kde-format
-#| msgid "Change File Owner"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"
-msgstr "Faylın Sahibini Dəyişdirin"
+msgstr "Fayl növünü dəyişin"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format
