@@ -11,8 +11,14 @@
 #include <KPasswordDialog>
 
 #include <QApplication>
+#include <QDBusConnection>
+#include <QDBusContext>
 #include <QSignalSpy>
 #include <QTest>
+
+#ifdef HAVE_KF6WALLET
+#include <KWallet>
+#endif
 
 // For the retry dialog (and only that one)
 static QDialogButtonBox::StandardButton s_buttonYes = QDialogButtonBox::Yes;
@@ -29,6 +35,62 @@ static QString getUserNameFrom(const KIO::AuthInfo &auth)
 
     return auth.username;
 }
+
+// A kwalletd that takes the call to open a wallet and then says nothing, which is the state that
+// left kiod waiting for 24 days. Registered on the session bus so KWallet talks to this instead.
+class StalledWallet : public QObject, protected QDBusContext
+{
+    Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.kde.KWallet")
+
+public:
+    int openCalls = 0;
+    int keyDoesNotExistCalls = 0;
+
+    bool registerOnBus()
+    {
+        QDBusConnection bus = QDBusConnection::sessionBus();
+        return bus.registerService(QStringLiteral("org.kde.kwalletd6"))
+            && bus.registerObject(QStringLiteral("/modules/kwalletd6"), this, QDBusConnection::ExportAllSlots);
+    }
+
+public Q_SLOTS:
+    QString networkWallet()
+    {
+        return QStringLiteral("kdewallet");
+    }
+
+    // Answer this one, so the caller gets as far as opening the wallet.
+    bool keyDoesNotExist(const QString &wallet, const QString &folder, const QString &key)
+    {
+        Q_UNUSED(wallet)
+        Q_UNUSED(folder)
+        Q_UNUSED(key)
+        ++keyDoesNotExistCalls;
+        return false;
+    }
+
+    int openAsync(const QString &wallet, qlonglong wId, const QString &appid, bool handleSession)
+    {
+        Q_UNUSED(wallet)
+        Q_UNUSED(wId)
+        Q_UNUSED(appid)
+        Q_UNUSED(handleSession)
+        ++openCalls;
+        // Take the call, hand back a transaction id, and never emit walletAsyncOpened.
+        return 1;
+    }
+
+    int open(const QString &wallet, qlonglong wId, const QString &appid)
+    {
+        Q_UNUSED(wallet)
+        Q_UNUSED(wId)
+        Q_UNUSED(appid)
+        ++openCalls;
+        setDelayedReply(true);
+        return 0;
+    }
+};
 
 class KPasswdServerTest : public QObject
 {
@@ -330,6 +392,76 @@ private Q_SLOTS:
         QList<KIO::AuthInfo> results;
         concurrentQueryAuthWithDialog(server, authInfos, filledInfo, results);
     }
+
+#ifdef HAVE_KF6WALLET
+    // A kwalletd that never says whether the wallet opened must not stop kpasswdserver answering.
+    // See bug 526368, where kiod waited on it for the rest of the session and no password prompt
+    // appeared in any application again.
+    void testWalletThatNeverAnswers()
+    {
+        if (!KWallet::Wallet::isEnabled()) {
+            QSKIP("KWallet is switched off here, so the wallet is never asked anything.");
+        }
+
+        StalledWallet wallet;
+        if (!wallet.registerOnBus()) {
+            QSKIP("Could not take org.kde.kwalletd6 on the session bus.");
+        }
+
+        KPasswdServer server(this);
+        server.setWalletOpenTimeout(300); // rather than the half minute it waits for real
+
+        KIO::AuthInfo info;
+        info.url = QUrl(QStringLiteral("http://stalled.example.com"));
+
+        QSignalSpy spy(&server, &KPasswdServer::checkAuthInfoAsyncResult);
+        server.checkAuthInfoAsync(info, 42 /*windowId*/, 17 /*usertime*/);
+
+        // The answer waits for the wallet, but it does arrive.
+        if (spy.isEmpty()) {
+            QVERIFY(spy.wait(5000));
+        }
+        QCOMPARE(spy.count(), 1);
+        QVERIFY(wallet.openCalls > 0);
+
+        // Having once failed to answer, the wallet is left alone for the rest of the session.
+        const int openCalls = wallet.openCalls;
+        KIO::AuthInfo second;
+        second.url = QUrl(QStringLiteral("http://stalled2.example.com"));
+        QSignalSpy secondSpy(&server, &KPasswdServer::checkAuthInfoAsyncResult);
+        server.checkAuthInfoAsync(second, 42, 17);
+        if (secondSpy.isEmpty()) {
+            QVERIFY(secondSpy.wait(2000));
+        }
+        QCOMPARE(secondSpy.count(), 1);
+        QCOMPARE(wallet.openCalls, openCalls);
+    }
+
+    // A wallet that is not to be used is not asked anything, not even whether it holds the key.
+    void testUnusableWalletIsNotAsked()
+    {
+        StalledWallet wallet;
+        if (!wallet.registerOnBus()) {
+            QSKIP("Could not take org.kde.kwalletd6 on the session bus.");
+        }
+
+        KPasswdServer server(this);
+        server.setWalletDisabled(true);
+
+        KIO::AuthInfo info;
+        info.url = QUrl(QStringLiteral("http://unusable.example.com"));
+
+        QSignalSpy spy(&server, &KPasswdServer::checkAuthInfoAsyncResult);
+        server.checkAuthInfoAsync(info, 42, 17);
+        if (spy.isEmpty()) {
+            QVERIFY(spy.wait(2000));
+        }
+        QCOMPARE(spy.count(), 1);
+
+        QCOMPARE(wallet.openCalls, 0);
+        QCOMPARE(wallet.keyDoesNotExistCalls, 0);
+    }
+#endif
 
 private:
     // Checks that no auth is available for @p info
