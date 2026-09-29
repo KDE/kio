@@ -3744,10 +3744,9 @@ msgid "You can change the icon later in folder properties."
 msgstr "Ikonu lze změnit i později ve vlastnostech složky."
 
 #: filewidgets/kurlnavigator.cpp:611
-#, fuzzy, kde-format
-#| msgid "Location:"
+#, kde-format
 msgid "Copy Location"
-msgstr "Umístění:"
+msgstr "Kopírovat umístění"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
 #: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42

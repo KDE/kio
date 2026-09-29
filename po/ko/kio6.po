@@ -9,15 +9,15 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-27 00:40+0000\n"
-"PO-Revision-Date: 2026-09-21 23:54+0200\n"
-"Last-Translator: Shinjo Park <peremen@gmail.com>\n"
-"Language-Team: Korean\n"
+"PO-Revision-Date: 2026-09-29 00:48+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3664,10 +3664,9 @@ msgid "You can change the icon later in folder properties."
 msgstr "나중에 폴더 속성에서 아이콘을 변경할 수 있습니다."
 
 #: filewidgets/kurlnavigator.cpp:611
-#, fuzzy, kde-format
-#| msgid "Location:"
+#, kde-format
 msgid "Copy Location"
-msgstr "위치:"
+msgstr "위치 복사"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
 #: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42

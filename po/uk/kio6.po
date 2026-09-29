@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-27 00:40+0000\n"
-"PO-Revision-Date: 2026-09-08 17:11+0300\n"
+"PO-Revision-Date: 2026-09-28 09:21+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -3779,10 +3779,9 @@ msgid "You can change the icon later in folder properties."
 msgstr "Піктограму можна пізніше змінити у властивостях теки."
 
 #: filewidgets/kurlnavigator.cpp:611
-#, fuzzy, kde-format
-#| msgid "Location:"
+#, kde-format
 msgid "Copy Location"
-msgstr "Розташування:"
+msgstr "Копіювати адресу"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
 #: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42
