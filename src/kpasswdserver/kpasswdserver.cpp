@@ -308,13 +308,16 @@ qlonglong KPasswdServer::checkAuthInfoAsync(KIO::AuthInfo info, qlonglong window
 #ifdef HAVE_KF6WALLET
         if (!result && isWalletUsable() && (info.username.isEmpty() || info.password.isEmpty())
             && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(), makeWalletKey(key, info.realmValue))) {
-            QMap<QString, QString> knownLogins;
-            if (openWallet(windowId)) {
-                if (readFromWallet(m_wallet, key, info.realmValue, info.username, info.password, info.readOnly, knownLogins)) {
-                    info.setModified(true);
-                    // fall through
+            withWallet(windowId, [this, requestId, key, info](bool opened) mutable {
+                if (opened) {
+                    QMap<QString, QString> knownLogins;
+                    if (readFromWallet(m_wallet, key, info.realmValue, info.username, info.password, info.readOnly, knownLogins)) {
+                        info.setModified(true);
+                    }
                 }
-            }
+                Q_EMIT checkAuthInfoAsyncResult(requestId, m_seqNr, info);
+            });
+            return 0; // ignored, the answer is sent once the wallet has said whether it opened
         } else {
             info.setModified(false);
         }
@@ -422,13 +425,20 @@ void KPasswdServer::addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
     m_seqNr++;
 
 #ifdef HAVE_KF6WALLET
-    if (isWalletUsable() && openWallet(windowId) && storeInWallet(m_wallet, key, info)) {
-        // Since storing the password in the wallet succeeded, make sure the
-        // password information is stored in memory only for the duration the
-        // windows associated with it are still around.
-        KIO::AuthInfo authToken(info);
-        authToken.keepPassword = false;
-        addAuthInfoItem(key, authToken, windowId, m_seqNr, false);
+    if (isWalletUsable()) {
+        const qlonglong seqNr = m_seqNr;
+        withWallet(windowId, [this, key, info, windowId, seqNr](bool opened) {
+            if (opened && storeInWallet(m_wallet, key, info)) {
+                // Since storing the password in the wallet succeeded, make sure the
+                // password information is stored in memory only for the duration the
+                // windows associated with it are still around.
+                KIO::AuthInfo authToken(info);
+                authToken.keepPassword = false;
+                addAuthInfoItem(key, authToken, windowId, seqNr, false);
+                return;
+            }
+            addAuthInfoItem(key, info, windowId, seqNr, false);
+        });
         return;
     }
 #endif
@@ -481,6 +491,65 @@ bool KPasswdServer::isWalletUsable()
     return true;
 }
 
+void KPasswdServer::withWallet(qlonglong windowId, std::function<void(bool)> whenOpen)
+{
+    if (!isWalletUsable()) {
+        whenOpen(false);
+        return;
+    }
+
+    if (m_walletOpening) {
+        m_walletWaiters.append(std::move(whenOpen));
+        return;
+    }
+
+    if (m_wallet && !m_wallet->isOpen()) { // forced closed
+        delete m_wallet;
+        m_wallet = nullptr;
+    }
+    if (m_wallet) {
+        whenOpen(true);
+        return;
+    }
+
+    m_walletWaiters.append(std::move(whenOpen));
+    m_walletOpening = true;
+    m_wallet = KWallet::Wallet::openWallet(KWallet::Wallet::NetworkWallet(), static_cast<WId>(windowId), KWallet::Wallet::Asynchronous);
+    if (!m_wallet) {
+        walletOpened(false);
+        return;
+    }
+    connect(m_wallet, &KWallet::Wallet::walletOpened, this, &KPasswdServer::walletOpened);
+
+    // kwalletd can take the call and then say nothing, which would leave the request that is
+    // waiting for the wallet without an answer for as long as kiod lives.
+    QTimer::singleShot(m_walletOpenTimeout, this, [this] {
+        if (m_walletOpening) {
+            qCDebug(category) << "The wallet did not say whether it opened, giving up on it.";
+            walletOpened(false);
+        }
+    });
+}
+
+void KPasswdServer::walletOpened(bool opened)
+{
+    m_walletOpening = false;
+    if (!opened) {
+        qCDebug(category) << "The wallet did not open, leaving it alone for the rest of the session.";
+        delete m_wallet;
+        m_wallet = nullptr;
+        m_walletDisabled = true;
+    }
+
+    const QList<std::function<void(bool)>> waiters = std::move(m_walletWaiters);
+    m_walletWaiters.clear();
+    for (const auto &whenOpen : waiters) {
+        whenOpen(opened);
+    }
+}
+
+// Only the deprecated checkAuthInfo() still opens the wallet synchronously, because it has to
+// answer its caller before it returns.
 bool KPasswdServer::openWallet(qlonglong windowId)
 {
     if (!isWalletUsable()) {
@@ -756,10 +825,8 @@ void KPasswdServer::removeAuthForWindowId(qlonglong windowId)
 void KPasswdServer::showPasswordDialog(KPasswdServer::Request *request)
 {
     KIO::AuthInfo &info = request->info;
-    QString username = info.username;
-    QString password = info.password;
-    bool hasWalletData = false;
-    QMap<QString, QString> knownLogins;
+    const QString username = info.username;
+    const QString password = info.password;
 
 #ifdef HAVE_KF6WALLET
     const bool bypassCacheAndKWallet = info.getExtraField(QString::fromLatin1(s_bypassCacheAndKwallet)).toBool();
@@ -768,11 +835,32 @@ void KPasswdServer::showPasswordDialog(KPasswdServer::Request *request)
                                              KWallet::Wallet::PasswordFolder(),
                                              makeWalletKey(request->key, info.realmValue))) {
         // no login+pass provided, check if kwallet has one
-        if (openWallet(request->windowId)) {
-            hasWalletData = readFromWallet(m_wallet, request->key, info.realmValue, username, password, info.readOnly, knownLogins);
-        }
+        withWallet(request->windowId, [this, request, username, password](bool opened) {
+            // readFromWallet() fills in what it found, so it needs somewhere to write.
+            QString walletUsername = username;
+            QString walletPassword = password;
+            QMap<QString, QString> knownLogins;
+            bool hasWalletData = false;
+            if (opened) {
+                hasWalletData =
+                    readFromWallet(m_wallet, request->key, request->info.realmValue, walletUsername, walletPassword, request->info.readOnly, knownLogins);
+            }
+            showPasswordDialog(request, walletUsername, walletPassword, hasWalletData, knownLogins);
+        });
+        return;
     }
 #endif
+
+    showPasswordDialog(request, username, password, false, QMap<QString, QString>());
+}
+
+void KPasswdServer::showPasswordDialog(KPasswdServer::Request *request,
+                                       const QString &username,
+                                       const QString &password,
+                                       bool hasWalletData,
+                                       const QMap<QString, QString> &knownLogins)
+{
+    KIO::AuthInfo &info = request->info;
 
     // assemble dialog-flags
     KPasswordDialog::KPasswordDialogFlags dialogFlags;
