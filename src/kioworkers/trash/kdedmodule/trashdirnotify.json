@@ -2,6 +2,7 @@
     "KPlugin": {
         "Description": "Provides change notification for the trash",
         "Description[ar]": "يوفر إشعارًا بالتغييرات في سلة المحذوفات",
+        "Description[az]": "Səbətin vəziyyətindəki dəyişikliyi təqdim edir.",
         "Description[bg]": "Известява за промени в кошчето",
         "Description[ca@valencia]": "Proporciona notificacions de canvis a la paperera",
         "Description[ca]": "Proporciona notificacions de canvis a la paperera",
@@ -31,6 +32,7 @@
         "Description[zh_TW]": "為垃圾桶提供變更通知",
         "Name": "Trash Change Notifier",
         "Name[ar]": "مُنبِّه تغيير سلة المهملات",
+        "Name[az]": "Səbətdəki dəyişikliyi bildirmək",
         "Name[bg]": "Уведомител за промени в Кошчето",
         "Name[ca@valencia]": "Notificador de canvi de la paperera",
         "Name[ca]": "Notificador de canvi de la paperera",
