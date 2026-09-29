@@ -247,7 +247,7 @@ QByteArray KPasswdServer::checkAuthInfo(const QByteArray &data, qlonglong window
     const AuthInfoContainer *result = findAuthInfoItem(key, info);
     if (!result || result->isCanceled) {
 #ifdef HAVE_KF6WALLET
-        if (!result && !m_walletDisabled && (info.username.isEmpty() || info.password.isEmpty())
+        if (!result && isWalletUsable() && (info.username.isEmpty() || info.password.isEmpty())
             && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(), makeWalletKey(key, info.realmValue))) {
             QMap<QString, QString> knownLogins;
             if (openWallet(windowId)) {
@@ -306,7 +306,7 @@ qlonglong KPasswdServer::checkAuthInfoAsync(KIO::AuthInfo info, qlonglong window
     const AuthInfoContainer *result = findAuthInfoItem(key, info);
     if (!result || result->isCanceled) {
 #ifdef HAVE_KF6WALLET
-        if (!result && !m_walletDisabled && (info.username.isEmpty() || info.password.isEmpty())
+        if (!result && isWalletUsable() && (info.username.isEmpty() || info.password.isEmpty())
             && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(), KWallet::Wallet::PasswordFolder(), makeWalletKey(key, info.realmValue))) {
             QMap<QString, QString> knownLogins;
             if (openWallet(windowId)) {
@@ -422,7 +422,7 @@ void KPasswdServer::addAuthInfo(const KIO::AuthInfo &info, qlonglong windowId)
     m_seqNr++;
 
 #ifdef HAVE_KF6WALLET
-    if (!m_walletDisabled && openWallet(windowId) && storeInWallet(m_wallet, key, info)) {
+    if (isWalletUsable() && openWallet(windowId) && storeInWallet(m_wallet, key, info)) {
         // Since storing the password in the wallet succeeded, make sure the
         // password information is stored in memory only for the duration the
         // windows associated with it are still around.
@@ -469,14 +469,33 @@ void KPasswdServer::removeAuthInfo(const QString &host, const QString &protocol,
 }
 
 #ifdef HAVE_KF6WALLET
+bool KPasswdServer::isWalletUsable()
+{
+    if (m_walletDisabled) {
+        return false;
+    }
+    if (!KWallet::Wallet::isEnabled()) {
+        m_walletDisabled = true;
+        return false;
+    }
+    return true;
+}
+
 bool KPasswdServer::openWallet(qlonglong windowId)
 {
+    if (!isWalletUsable()) {
+        return false;
+    }
     if (m_wallet && !m_wallet->isOpen()) { // forced closed
         delete m_wallet;
         m_wallet = nullptr;
     }
     if (!m_wallet) {
         m_wallet = KWallet::Wallet::openWallet(KWallet::Wallet::NetworkWallet(), static_cast<WId>(windowId));
+        if (!m_wallet) {
+            qCDebug(category) << "The wallet did not open, leaving it alone for the rest of the session.";
+            m_walletDisabled = true;
+        }
     }
     return m_wallet != nullptr;
 }
@@ -744,7 +763,7 @@ void KPasswdServer::showPasswordDialog(KPasswdServer::Request *request)
 
 #ifdef HAVE_KF6WALLET
     const bool bypassCacheAndKWallet = info.getExtraField(QString::fromLatin1(s_bypassCacheAndKwallet)).toBool();
-    if (!bypassCacheAndKWallet && (username.isEmpty() || password.isEmpty()) && !m_walletDisabled
+    if (!bypassCacheAndKWallet && (username.isEmpty() || password.isEmpty()) && isWalletUsable()
         && !KWallet::Wallet::keyDoesNotExist(KWallet::Wallet::NetworkWallet(),
                                              KWallet::Wallet::PasswordFolder(),
                                              makeWalletKey(request->key, info.realmValue))) {
