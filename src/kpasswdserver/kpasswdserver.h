@@ -111,6 +111,11 @@ private:
     void updateAuthExpire(const QString &key, const AuthInfoContainer *, qlonglong windowId, bool keep);
 
 #ifdef HAVE_KF6WALLET
+    /**
+     * Whether kwalletd is worth asking. Every call into it blocks until it answers, so a wallet
+     * the user has turned off, or one that would not open, is not asked again for this session.
+     */
+    bool isWalletUsable();
     bool openWallet(qlonglong windowId);
 #endif
 
