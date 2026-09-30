@@ -313,3 +313,6 @@ target_link_libraries(udsentry_api_comparison_benchmark KF6::KIOCore KF6::KIOWid
 
 add_executable(udsentry_benchmark udsentry_benchmark.cpp)
 target_link_libraries(udsentry_benchmark KF6::KIOCore KF6::KIOWidgets Qt6::Test)
+
+add_executable(ksambashare_benchmark ksambashare_benchmark.cpp)
+target_link_libraries(ksambashare_benchmark KF6::KIOCore Qt6::Test)
