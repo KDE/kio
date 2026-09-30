@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:40+0000\n"
+"POT-Creation-Date: 2026-09-30 00:41+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -4236,12 +4236,12 @@ msgstr "មិន​អាច​រក​ឃើញ​កម្មវិធី \"
 msgid "No media in device for %1"
 msgstr "គ្មាន​ឧបករណ៍​ផ្ទុក​ក្នុង​ឧបករណ៍​សម្រាប់ %1 ឡើយ"
 
-#: kioworkers/file/file_unix.cpp:753
+#: kioworkers/file/file_unix.cpp:745
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "មិន​អាច​ទទួល​លេខសម្គាល់​អ្នក​ប្រើ​សម្រាប់​ឈ្មោះ​អ្នក​ប្រើ %1"
 
-#: kioworkers/file/file_unix.cpp:764
+#: kioworkers/file/file_unix.cpp:756
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "មិនអាច​យក​លេខសម្គាល់​ក្រុម​សម្រាប់​ឈ្មោះក្រុម %1 ដែលបាន​ផ្ដល់​ឲ្យទេ"

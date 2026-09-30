@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:40+0000\n"
+"POT-Creation-Date: 2026-09-30 00:41+0000\n"
 "PO-Revision-Date: 2026-05-26 22:49+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -4221,12 +4221,12 @@ msgstr "Az „umount” program nem található"
 msgid "No media in device for %1"
 msgstr "Nincs adathordozó az eszközben: %1"
 
-#: kioworkers/file/file_unix.cpp:753
+#: kioworkers/file/file_unix.cpp:745
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 felhasználónév azonosítóját"
 
-#: kioworkers/file/file_unix.cpp:764
+#: kioworkers/file/file_unix.cpp:756
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 csoport azonosítóját"

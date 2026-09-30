@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:40+0000\n"
-"PO-Revision-Date: 2026-09-08 09:00+0300\n"
+"POT-Creation-Date: 2026-09-30 00:41+0000\n"
+"PO-Revision-Date: 2026-09-27 09:15+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -3663,10 +3663,9 @@ msgid "You can change the icon later in folder properties."
 msgstr "אפשר לשנות את הסמל לאחר מכן במאפייני התיקייה."
 
 #: filewidgets/kurlnavigator.cpp:611
-#, fuzzy, kde-format
-#| msgid "Location:"
+#, kde-format
 msgid "Copy Location"
-msgstr "מקום:"
+msgstr "העתקת המקום"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
 #: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42
@@ -4106,12 +4105,12 @@ msgstr "אי אפשר למצוא את התוכנית „umount”"
 msgid "No media in device for %1"
 msgstr "אין מדיה בהתקן עבור %1"
 
-#: kioworkers/file/file_unix.cpp:753
+#: kioworkers/file/file_unix.cpp:745
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "אי אפשר לאתר את מזהה המשתמש של שם המשתמש שסופק %1"
 
-#: kioworkers/file/file_unix.cpp:764
+#: kioworkers/file/file_unix.cpp:756
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "אי אפשר לאתר את מזהה הקבוצה של שם הקבוצה שסופק %1"

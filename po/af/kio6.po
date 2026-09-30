@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:40+0000\n"
+"POT-Creation-Date: 2026-09-30 00:41+0000\n"
 "PO-Revision-Date: 2005-11-26 17:02+0200\n"
 "Last-Translator: Kobus <kabousv@therugby.co.za>\n"
 "Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
@@ -4447,13 +4447,13 @@ msgstr "Kon nie vind program \"ontheg\""
 msgid "No media in device for %1"
 msgstr "Geen media in toestel %1 gevind"
 
-#: kioworkers/file/file_unix.cpp:753
+#: kioworkers/file/file_unix.cpp:745
 #, fuzzy, kde-format
 #| msgid "Could not enter folder %1."
 msgid "Could not get user id for given user name %1"
 msgstr "Kon nie toegang tot gids %1 verkry nie"
 
-#: kioworkers/file/file_unix.cpp:764
+#: kioworkers/file/file_unix.cpp:756
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""

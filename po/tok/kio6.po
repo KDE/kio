@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:40+0000\n"
+"POT-Creation-Date: 2026-09-30 00:41+0000\n"
 "PO-Revision-Date: 2024-04-26 14:54-0400\n"
 "Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
 "Language-Team: C <kde-i18n-doc@kde.org>\n"
@@ -4034,12 +4034,12 @@ msgstr "mi ken ala alasa e ilo \"umount\""
 msgid "No media in device for %1"
 msgstr "ijo li lon ala ilo tawa %1"
 
-#: kioworkers/file/file_unix.cpp:753
+#: kioworkers/file/file_unix.cpp:745
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "mi ken ala kama jo e nanpa jan tan nimi jan %1"
 
-#: kioworkers/file/file_unix.cpp:764
+#: kioworkers/file/file_unix.cpp:756
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "mi ken ala kama jo e nanpa kulupu tan nimi kulupu %1"

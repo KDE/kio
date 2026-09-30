@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:40+0000\n"
-"PO-Revision-Date: 2026-09-10 14:00+0300\n"
+"POT-Creation-Date: 2026-09-30 00:41+0000\n"
+"PO-Revision-Date: 2026-09-30 01:26+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -3791,10 +3791,9 @@ msgid "You can change the icon later in folder properties."
 msgstr "Vėliau aplanko savybėse galite pakeisti piktogramą."
 
 #: filewidgets/kurlnavigator.cpp:611
-#, fuzzy, kde-format
-#| msgid "Location:"
+#, kde-format
 msgid "Copy Location"
-msgstr "Vieta:"
+msgstr "Kopijuoti vietą"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
 #: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42
@@ -4241,12 +4240,12 @@ msgstr "Nepavyksta rasti programos „umount“"
 msgid "No media in device for %1"
 msgstr "Įrenginyje nėra jokios laikmenos, skirtos %1"
 
-#: kioworkers/file/file_unix.cpp:753
+#: kioworkers/file/file_unix.cpp:745
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nepavyko gauti naudotojo id pateiktam naudotojui %1"
 
-#: kioworkers/file/file_unix.cpp:764
+#: kioworkers/file/file_unix.cpp:756
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nepavyko gauti nurodytos grupės pavadinimo %1 grupės ID"

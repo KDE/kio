@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:40+0000\n"
+"POT-Creation-Date: 2026-09-30 00:41+0000\n"
 "PO-Revision-Date: 2010-01-29 13:15+0530\n"
 "Last-Translator: Rajesh Ranjan <rajesh672@gmail.com>\n"
 "Language-Team: Maithili <maithili.sf.net>\n"
@@ -4153,12 +4153,12 @@ msgstr "प्रोग्राम \"umount\" नहि भेटल"
 msgid "No media in device for %1"
 msgstr "%1 क' लेल अओजार मे कोनो मीडिया नहि "
 
-#: kioworkers/file/file_unix.cpp:753
+#: kioworkers/file/file_unix.cpp:745
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "देल गेल प्रयोक्ता नाम %1 क' लेल प्रयोक्ता आईडी प्राप्त नहि कए सकल"
 
-#: kioworkers/file/file_unix.cpp:764
+#: kioworkers/file/file_unix.cpp:756
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "देल गेल समूह नाम %1 क' लेल समूह आईडी प्राप्त नहि कए सकल"

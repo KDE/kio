@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:40+0000\n"
+"POT-Creation-Date: 2026-09-30 00:41+0000\n"
 "PO-Revision-Date: 2026-07-03 22:06+0100\n"
 "Last-Translator: deck <altronic25@protonmail.com>\n"
 "Language-Team: English <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -4265,13 +4265,13 @@ msgstr "Níorbh fhéidir clár \"umount\" a aimsiú"
 msgid "No media in device for %1"
 msgstr "Níl meáin sa ghléas le haghaidh %1"
 
-#: kioworkers/file/file_unix.cpp:753
+#: kioworkers/file/file_unix.cpp:745
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 "Níorbh fhéidir aitheantas úsáideora a fháil don ainm úsáideora tugtha %1"
 
-#: kioworkers/file/file_unix.cpp:764
+#: kioworkers/file/file_unix.cpp:756
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Níorbh fhéidir aitheantas grúpa a fháil don ainm grúpa tugtha %1"

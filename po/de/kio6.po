@@ -6,7 +6,7 @@
 # SPDX-FileCopyrightText: 2010, 2023-2025 Johannes Obermayr <johannesobermayr@gmx.de>
 # SPDX-FileCopyrightText: 2010-2013, 2015-2018, 2020-2023 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2011 Panagiotis Papadopoulos <pano_90@gmx.net>
-# SPDX-FileCopyrightText: 2021 Frank Steinmetzger <dev@felsenfleischer.de>
+# SPDX-FileCopyrightText: 2021, 2026 Frank Steinmetzger <dev@felsenfleischer.de>
 # SPDX-FileCopyrightText: 2021 Kai Uwe Broulik <kde@privat.broulik.de>
 # SPDX-FileCopyrightText: 2024-2025 Flori G <Renner03@protonmail.com>
 # SPDX-FileCopyrightText: 2025 Oliver Schramm <oliver.schramm97@gmail.com>
@@ -17,9 +17,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:40+0000\n"
-"PO-Revision-Date: 2026-09-14 18:43+0200\n"
-"Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
+"POT-Creation-Date: 2026-09-30 00:41+0000\n"
+"PO-Revision-Date: 2026-09-23 22:16+0200\n"
+"Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -4299,14 +4299,14 @@ msgstr "Das Programm „umount“ wurde nicht gefunden"
 msgid "No media in device for %1"
 msgstr "Kein Medium im Gerät für %1"
 
-#: kioworkers/file/file_unix.cpp:753
+#: kioworkers/file/file_unix.cpp:745
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 "Die Benutzerkennung für den angegebenen Benutzer %1 kann nicht ermittelt "
 "werden."
 
-#: kioworkers/file/file_unix.cpp:764
+#: kioworkers/file/file_unix.cpp:756
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
@@ -7355,7 +7355,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
-msgstr "Umbenennen und ausblenden"
+msgstr "Umbenennen und verstecken"
 
 #: widgets/renamefilewarningdialog.cpp:50
 #, kde-format
@@ -7383,13 +7383,13 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
-msgstr "Diesen Ordner ausblenden?"
+msgstr "Diesen Ordner verstecken?"
 
 #: widgets/renamefilewarningdialog.cpp:52
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
-msgstr "Diese Datei ausblenden?"
+msgstr "Diese Datei verstecken?"
 
 #: widgets/renamefilewarningdialog.cpp:58
 #: widgets/renamefilewarningdialog.cpp:108

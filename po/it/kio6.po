@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:40+0000\n"
-"PO-Revision-Date: 2026-09-09 14:25+0200\n"
+"POT-Creation-Date: 2026-09-30 00:41+0000\n"
+"PO-Revision-Date: 2026-09-27 22:55+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -3814,10 +3814,9 @@ msgstr ""
 "È possibile cambiare successivamente l'icona della proprietà della cartella."
 
 #: filewidgets/kurlnavigator.cpp:611
-#, fuzzy, kde-format
-#| msgid "Location:"
+#, kde-format
 msgid "Copy Location"
-msgstr "Posizione:"
+msgstr "Copia posizione"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
 #: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42
@@ -4271,12 +4270,12 @@ msgstr "Impossibile trovare il programma «umount»"
 msgid "No media in device for %1"
 msgstr "Nessun supporto nel dispositivo per %1"
 
-#: kioworkers/file/file_unix.cpp:753
+#: kioworkers/file/file_unix.cpp:745
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Impossibile ottenere l'identificativo utente per l'utente %1"
 
-#: kioworkers/file/file_unix.cpp:764
+#: kioworkers/file/file_unix.cpp:756
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Impossibile ottenere l'identificativo di gruppo per il gruppo %1"

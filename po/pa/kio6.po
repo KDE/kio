@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:40+0000\n"
+"POT-Creation-Date: 2026-09-30 00:41+0000\n"
 "PO-Revision-Date: 2024-01-30 09:25-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -4045,12 +4045,12 @@ msgstr "ਪਰੋਗਰਾਮ \"umount\" ਨਹੀਂ ਮਿਲਿਆ ਹੈ"
 msgid "No media in device for %1"
 msgstr "%1 ਲਈ ਡਿਵਾਈਸ ਵਿੱਚ ਕੋਈ ਮੀਡਿਆ ਨਹੀਂ ਹੈ"
 
-#: kioworkers/file/file_unix.cpp:753
+#: kioworkers/file/file_unix.cpp:745
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ਦਿੱਤੇ ਵਰਤੋਂਕਾਰ ਨਾਂ %1 ਲਈ ਵਰਤੋਂਕਾਰ ID ਨਹੀਂ ਲਿਆ ਜਾ ਸਕਿਆ"
 
-#: kioworkers/file/file_unix.cpp:764
+#: kioworkers/file/file_unix.cpp:756
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ਦਿੱਤੇ ਗਰੁੱਪ ਨਾਂ %1 ਲਈ ਗਰੁੱਪ id ਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
