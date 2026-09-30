@@ -193,6 +193,7 @@ PUBLIC
  KF6::CoreAddons   # KJob
  Qt6::Network
 PRIVATE
+ Qt6::Concurrent # ksambashare.cpp loads in a worker thread
  Qt6::Xml # davjob.cpp uses QDom
  KF6::ConfigCore
  KF6::I18n

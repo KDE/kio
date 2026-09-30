@@ -272,7 +272,7 @@ ecm_add_test(
     ../src/core/kiocoredebug.cpp
     TEST_NAME ksambashareprivatetest
     NAME_PREFIX "kiocore-"
-    LINK_LIBRARIES KF6::KIOCore Qt6::Test Qt6::Network
+    LINK_LIBRARIES KF6::KIOCore Qt6::Test Qt6::Network Qt6::Concurrent
 )
 endif()
 

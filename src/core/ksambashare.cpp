@@ -18,6 +18,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QFileInfo>
+#include <QFutureWatcher>
 #include <QHostInfo>
 #include <QLoggingCategory>
 #include <QMap>
@@ -26,6 +27,7 @@
 #include <QStandardPaths>
 #include <QStringList>
 #include <QTextStream>
+#include <QtConcurrentRun>
 
 #include <KDirWatch>
 #include <KUser>
@@ -39,20 +41,109 @@ KSambaSharePrivate::KSambaSharePrivate(KSambaShare *parent)
     , userSharePath()
     , skipUserShare(false)
 {
-    setUserSharePath();
-    data = parse(getNetUserShareInfo());
+    startLoad();
 }
 
 KSambaSharePrivate::~KSambaSharePrivate()
 {
+    delete m_watcher;
+
+    if (!m_watchedPath.isEmpty() && KDirWatch::exists() && KDirWatch::self()->contains(m_watchedPath)) {
+        KDirWatch::self()->removeDir(m_watchedPath);
+    }
 }
 
-void KSambaSharePrivate::setUserSharePath()
+QString KSambaSharePrivate::userSharePathFromTestparm()
 {
     const QString rawString = testparmParamValue(QStringLiteral("usershare path"));
     const QFileInfo fileInfo(rawString);
-    if (fileInfo.isDir()) {
-        userSharePath = rawString;
+    return fileInfo.isDir() ? rawString : QString();
+}
+
+KSambaSharePrivate::LoadedShares KSambaSharePrivate::load(bool skipUserShare)
+{
+    LoadedShares loaded;
+    loaded.skipUserShare = skipUserShare;
+    loaded.userSharePath = userSharePathFromTestparm();
+    loaded.data = parse(getNetUserShareInfo(loaded.skipUserShare));
+    return loaded;
+}
+
+void KSambaSharePrivate::startLoad()
+{
+    Q_Q(KSambaShare);
+
+    if (m_watcher) {
+        // A reload can start while the previous one is still running, and its result
+        // is the stale one.
+        m_watcher->disconnect();
+        m_watcher->deleteLater();
+    }
+
+    m_loadPending = true;
+    m_future = QtConcurrent::run(&KSambaSharePrivate::load, skipUserShare);
+
+    m_watcher = new QFutureWatcher<LoadedShares>(q);
+    QObject::connect(m_watcher, &QFutureWatcherBase::finished, q, [this]() {
+        if (m_loadPending) {
+            applyLoaded(m_future.result());
+        }
+    });
+    m_watcher->setFuture(m_future);
+}
+
+void KSambaSharePrivate::pollLoad() const
+{
+    if (m_loadPending && m_future.isFinished()) {
+        const_cast<KSambaSharePrivate *>(this)->applyLoaded(m_future.result());
+    }
+}
+
+void KSambaSharePrivate::ensureLoaded() const
+{
+    if (m_loadPending) {
+        // QFuture::result() waits for the worker thread.
+        const_cast<KSambaSharePrivate *>(this)->applyLoaded(m_future.result());
+    }
+}
+
+void KSambaSharePrivate::applyLoaded(const LoadedShares &loaded)
+{
+    m_loadPending = false;
+    userSharePath = loaded.userSharePath;
+    skipUserShare = loaded.skipUserShare;
+    data = loaded.data;
+
+    updateWatch();
+
+    Q_Q(KSambaShare);
+    Q_EMIT q->changed();
+}
+
+void KSambaSharePrivate::updateWatch()
+{
+    if (userSharePath == m_watchedPath) {
+        return;
+    }
+
+    if (!m_watchedPath.isEmpty() && KDirWatch::self()->contains(m_watchedPath)) {
+        KDirWatch::self()->removeDir(m_watchedPath);
+    }
+    m_watchedPath.clear();
+
+    if (userSharePath.isEmpty() || !QFileInfo::exists(userSharePath)) {
+        return;
+    }
+
+    KDirWatch::self()->addDir(userSharePath, KDirWatch::WatchFiles);
+    m_watchedPath = userSharePath;
+
+    if (!m_watchConnected) {
+        Q_Q(KSambaShare);
+        QObject::connect(KDirWatch::self(), &KDirWatch::dirty, q, [this](const QString &path) {
+            slotFileChange(path);
+        });
+        m_watchConnected = true;
     }
 }
 
@@ -136,7 +227,7 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
     return QString();
 }
 
-QByteArray KSambaSharePrivate::getNetUserShareInfo()
+QByteArray KSambaSharePrivate::getNetUserShareInfo(bool &skipUserShare)
 {
     if (skipUserShare) {
         return QByteArray();
@@ -177,11 +268,14 @@ QByteArray KSambaSharePrivate::getNetUserShareInfo()
 
 QStringList KSambaSharePrivate::shareNames() const
 {
+    ensureLoaded();
     return data.keys();
 }
 
 QStringList KSambaSharePrivate::sharedDirs() const
 {
+    ensureLoaded();
+
     QStringList dirs;
 
     QMap<QString, KSambaShareData>::ConstIterator i;
@@ -196,11 +290,14 @@ QStringList KSambaSharePrivate::sharedDirs() const
 
 KSambaShareData KSambaSharePrivate::getShareByName(const QString &shareName) const
 {
+    ensureLoaded();
     return data.value(shareName);
 }
 
 QList<KSambaShareData> KSambaSharePrivate::getSharesByPath(const QString &path) const
 {
+    ensureLoaded();
+
     QList<KSambaShareData> shares;
 
     QMap<QString, KSambaShareData>::ConstIterator i;
@@ -222,6 +319,8 @@ bool KSambaSharePrivate::isShareNameValid(const QString &name) const
 
 bool KSambaSharePrivate::isDirectoryShared(const QString &path) const
 {
+    pollLoad();
+
     QMap<QString, KSambaShareData>::ConstIterator i;
     for (i = data.constBegin(); i != data.constEnd(); ++i) {
         if (i.value().path() == path) {
@@ -234,6 +333,7 @@ bool KSambaSharePrivate::isDirectoryShared(const QString &path) const
 
 bool KSambaSharePrivate::isShareNameAvailable(const QString &name) const
 {
+    ensureLoaded();
     // Samba does not allow to name a share with a user name registered in the system
     return (!KUser::allUserNames().contains(name) && !data.contains(name));
 }
@@ -292,6 +392,8 @@ KSambaShareData::UserShareError KSambaSharePrivate::guestsAllowed(const KSambaSh
 
 KSambaShareData::UserShareError KSambaSharePrivate::add(const KSambaShareData &shareData)
 {
+    ensureLoaded();
+
     // TODO:
     // * check for usershare max shares
 
@@ -343,6 +445,8 @@ KSambaShareData::UserShareError KSambaSharePrivate::add(const KSambaShareData &s
 
 KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData &shareData)
 {
+    ensureLoaded();
+
     const QString exec = QStandardPaths::findExecutable(QStringLiteral("net"));
     if (exec.isEmpty()) {
         qCDebug(KIO_CORE_SAMBASHARE) << "Could not find the 'net' tool, most likely samba-client isn't installed";
@@ -433,31 +537,18 @@ void KSambaSharePrivate::slotFileChange(const QString &path)
     if (path != userSharePath) {
         return;
     }
-    data = parse(getNetUserShareInfo());
     qCDebug(KIO_CORE) << "reloading data; path changed:" << path;
-    Q_Q(KSambaShare);
-    Q_EMIT q->changed();
+    startLoad();
 }
 
 KSambaShare::KSambaShare()
     : QObject(nullptr)
     , d_ptr(new KSambaSharePrivate(this))
 {
-    Q_D(KSambaShare);
-    if (!d->userSharePath.isEmpty() && QFileInfo::exists(d->userSharePath)) {
-        KDirWatch::self()->addDir(d->userSharePath, KDirWatch::WatchFiles);
-        connect(KDirWatch::self(), &KDirWatch::dirty, this, [d](const QString &path) {
-            d->slotFileChange(path);
-        });
-    }
 }
 
 KSambaShare::~KSambaShare()
 {
-    Q_D(const KSambaShare);
-    if (KDirWatch::exists() && KDirWatch::self()->contains(d->userSharePath)) {
-        KDirWatch::self()->removeDir(d->userSharePath);
-    }
     delete d_ptr;
 }
 

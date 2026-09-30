@@ -9,6 +9,7 @@
 #include <KSambaShare>
 #include <KSambaShareData>
 
+#include <QSignalSpy>
 #include <QTest>
 
 QTEST_MAIN(KSambaShareTest)
@@ -18,6 +19,18 @@ Q_DECLARE_METATYPE(KSambaShareData::UserShareError)
 void KSambaShareTest::initTestCase()
 {
     qRegisterMetaType<KSambaShareData::UserShareError>();
+}
+
+void KSambaShareTest::testInitialLoadEmitsChanged()
+{
+    // instance() starts the load in a worker thread and returns before it finishes,
+    // so the result is announced with changed() once it has been applied. Nothing has
+    // run the event loop yet at this point, so the signal cannot have been missed.
+    QSignalSpy changedSpy(KSambaShare::instance(), &KSambaShare::changed);
+    QCOMPARE(changedSpy.count(), 0);
+
+    QVERIFY(changedSpy.wait(10000));
+    QCOMPARE(changedSpy.count(), 1);
 }
 
 void KSambaShareTest::testAcl()
@@ -55,6 +68,18 @@ void KSambaShareTest::testOwnAcl()
         // KSambaShare reads acl from net usershare info's "usershare_acl" field with no validation
         QCOMPARE(shareData.setAcl(shareData.acl()), KSambaShareData::UserShareAclOk);
     }
+}
+
+void KSambaShareTest::testSharedDirectoriesAreShared()
+{
+    // sharedDirectories() waits for the load, isDirectoryShared() answers from what has
+    // already been applied. Once the load is in, the two agree.
+    const QStringList dirs = KSambaShare::instance()->sharedDirectories();
+    for (const QString &dir : dirs) {
+        QVERIFY(KSambaShare::instance()->isDirectoryShared(dir));
+    }
+
+    QVERIFY(!KSambaShare::instance()->isDirectoryShared(QStringLiteral("/kio-ksambasharetest-not-a-share")));
 }
 
 #include "moc_ksambasharetest.cpp"

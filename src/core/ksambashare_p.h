@@ -8,25 +8,44 @@
 #ifndef ksambashare_p_h
 #define ksambashare_p_h
 
+#include <QFuture>
+#include <QFutureWatcher>
 #include <QMap>
+#include <QString>
 
 #include "ksambasharedata.h"
 
-class QString;
 class KSambaShare;
 
 class KSambaSharePrivate
 {
 public:
+    // The output of one testparm and "net usershare info" run. Produced in a
+    // worker thread, applied in the thread that owns KSambaShare.
+    struct LoadedShares {
+        QString userSharePath;
+        QMap<QString, KSambaShareData> data;
+        bool skipUserShare = false;
+    };
+
     explicit KSambaSharePrivate(KSambaShare *parent);
     ~KSambaSharePrivate();
 
-    void setUserSharePath();
+    // Runs load() in a worker thread. The result is applied in the thread that
+    // owns KSambaShare, which then emits KSambaShare::changed().
+    void startLoad();
+    // Applies a load that has already finished. Does not block.
+    void pollLoad() const;
+    // Blocks until the running load has been applied.
+    void ensureLoaded() const;
+
+    static LoadedShares load(bool skipUserShare);
+    static QString userSharePathFromTestparm();
+    static QByteArray getNetUserShareInfo(bool &skipUserShare);
 
     static int runProcess(const QString &fullExecutablePath, const QStringList &args, QByteArray &stdOut, QByteArray &stdErr);
     static QString testparmParamValue(const QString &parameterName);
 
-    QByteArray getNetUserShareInfo();
     QStringList shareNames() const;
     QStringList sharedDirs() const;
     KSambaShareData getShareByName(const QString &shareName) const;
@@ -47,6 +66,9 @@ public:
     void slotFileChange(const QString &path);
 
 private:
+    void applyLoaded(const LoadedShares &loaded);
+    void updateWatch();
+
     KSambaShare *const q_ptr;
     Q_DECLARE_PUBLIC(KSambaShare)
 
@@ -55,6 +77,12 @@ private:
     QString userSharePath;
     bool skipUserShare;
     QByteArray m_stdErr;
+
+    QFuture<LoadedShares> m_future;
+    QFutureWatcher<LoadedShares> *m_watcher = nullptr;
+    bool m_loadPending = false;
+    bool m_watchConnected = false;
+    QString m_watchedPath;
 };
 
 #endif
