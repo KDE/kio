@@ -13,6 +13,8 @@
 #include "kiocore_export.h"
 #include <QObject>
 
+#include <memory>
+
 class KSambaShareData;
 class KSambaSharePrivate;
 
@@ -115,7 +117,7 @@ Q_SIGNALS:
 private:
     KIOCORE_NO_EXPORT KSambaShare();
 
-    KSambaSharePrivate *const d_ptr;
+    std::unique_ptr<KSambaSharePrivate> const d_ptr;
     Q_DECLARE_PRIVATE(KSambaShare)
     friend class KSambaShareData;
     friend class KSambaShareSingleton;
