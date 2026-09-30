@@ -547,10 +547,7 @@ KSambaShare::KSambaShare()
 {
 }
 
-KSambaShare::~KSambaShare()
-{
-    delete d_ptr;
-}
+KSambaShare::~KSambaShare() = default;
 
 bool KSambaShare::isDirectoryShared(const QString &path) const
 {
