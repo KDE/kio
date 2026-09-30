@@ -79,6 +79,9 @@ public:
 
     void clearFreeSpaceInfo();
 
+    /** The name of the place at @p index as it is drawn, which is elided where it does not fit. */
+    QString elidedName(const QPersistentModelIndex &index, const QString &name, const QStyleOptionViewItem &option, int width) const;
+
 protected:
     bool helpEvent(QHelpEvent *event, QAbstractItemView *view, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
@@ -116,7 +119,13 @@ private:
     mutable QTimer m_pollFreeSpace;
     mutable QMap<QPersistentModelIndex, PlaceFreeSpaceInfo> m_freeSpaceInfo;
 
-    mutable std::set<QPersistentModelIndex> m_elidedTexts;
+    struct ElidedName {
+        QString name;
+        QFont font;
+        int width = -1;
+        QString elided;
+    };
+    mutable QMap<QPersistentModelIndex, ElidedName> m_elidedNames;
 
     // constructing KColorScheme is expensive, cache the negative color
     mutable QColor m_warningCapacityBarColor;

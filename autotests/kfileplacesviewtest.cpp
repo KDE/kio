@@ -16,8 +16,12 @@
 #include <kfileplacesmodel.h>
 #include <kfileplacesview.h>
 
+#include <QApplication>
+#include <QHelpEvent>
+#include <QPixmap>
 #include <QSignalSpy>
 #include <QTest>
+#include <QToolTip>
 
 static QString bookmarksFile()
 {
@@ -36,6 +40,7 @@ private Q_SLOTS:
     void testUrlChanged();
     void testSetUrl_data();
     void testSetUrl();
+    void testElidedNameGetsATooltip();
 
 private:
     QTemporaryDir m_tmpHome;
@@ -135,6 +140,33 @@ void KFilePlacesViewTest::testSetUrl()
     QVERIFY(!selectionChangedSpy.isEmpty());
     const QList<QVariant> args = selectionChangedSpy.takeFirst();
     QVERIFY(args.at(0).value<QItemSelection>().indexes().contains(added));
+}
+
+void KFilePlacesViewTest::testElidedNameGetsATooltip()
+{
+    KFilePlacesModel model;
+    KFilePlacesView view;
+    view.setModel(&model);
+    // Narrow enough that no name of a place fits.
+    view.resize(60, 400);
+    view.show();
+    QVERIFY(QTest::qWaitForWindowExposed(&view));
+
+    // Not the first row of a section: the top of that one is the header area, which has a
+    // tooltip rule of its own.
+    const QModelIndex index = model.index(1, 0);
+    QVERIFY(index.isValid());
+    const QString name = index.data(Qt::DisplayRole).toString();
+
+    // The tooltip says what the row holds, which the delegate knows from having drawn it.
+    QPixmap target(view.viewport()->size());
+    view.viewport()->render(&target);
+
+    const QPoint pos = view.visualRect(index).center();
+    QHelpEvent event(QEvent::ToolTip, pos, view.viewport()->mapToGlobal(pos));
+    QApplication::sendEvent(view.viewport(), &event);
+
+    QTRY_VERIFY(QToolTip::text().contains(name));
 }
 
 QTEST_MAIN(KFilePlacesViewTest)

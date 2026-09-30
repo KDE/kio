@@ -289,17 +289,8 @@ void KFilePlacesViewDelegate::paint(QPainter *painter, const QStyleOptionViewIte
     }
 
     const QString text = index.model()->data(index).toString();
-    const QString elidedText = opt.fontMetrics.elidedText(text, Qt::ElideRight, rectText.width());
 
-    const bool isElided = (text != elidedText);
-
-    if (isElided) {
-        m_elidedTexts.insert(persistentIndex);
-    } else if (auto it = m_elidedTexts.find(persistentIndex); it != m_elidedTexts.end()) {
-        m_elidedTexts.erase(it);
-    }
-
-    painter->drawText(rectText, Qt::AlignLeft | Qt::AlignVCenter, elidedText);
+    painter->drawText(rectText, Qt::AlignLeft | Qt::AlignVCenter, elidedName(persistentIndex, text, opt, rectText.width()));
 
     painter->restore();
 }
@@ -333,7 +324,8 @@ bool KFilePlacesViewDelegate::helpEvent(QHelpEvent *event, QAbstractItemView *vi
             event->setAccepted(true);
             return true;
         } else {
-            const bool isElided = m_elidedTexts.find(QPersistentModelIndex(index)) != m_elidedTexts.end();
+            const auto elided = m_elidedNames.constFind(QPersistentModelIndex(index));
+            const bool isElided = elided != m_elidedNames.constEnd() && elided->elided != elided->name;
 
             const QString displayText = index.data(Qt::DisplayRole).toString();
             QString toolTipText = index.data(Qt::ToolTipRole).toString();
@@ -615,9 +607,22 @@ void KFilePlacesViewDelegate::checkFreeSpace(const QModelIndex &index) const
     startPollingFreeSpace();
 }
 
+QString KFilePlacesViewDelegate::elidedName(const QPersistentModelIndex &index, const QString &name, const QStyleOptionViewItem &option, int width) const
+{
+    ElidedName &known = m_elidedNames[index];
+    if (known.width != width || known.name != name || known.font != option.font) {
+        known.name = name;
+        known.font = option.font;
+        known.width = width;
+        known.elided = option.fontMetrics.elidedText(name, Qt::ElideRight, width);
+    }
+
+    return known.elided;
+}
+
 void KFilePlacesViewDelegate::clearFreeSpaceInfo()
 {
-    for (auto &info: m_freeSpaceInfo) {
+    for (auto &info : m_freeSpaceInfo) {
         delete info.job;
     }
     m_freeSpaceInfo.clear();
