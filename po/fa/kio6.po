@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-30 00:41+0000\n"
+"POT-Creation-Date: 2026-10-01 00:41+0000\n"
 "PO-Revision-Date: 2023-06-08 11:57+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -2268,17 +2268,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "خطای غیر مستند"
 
-#: core/kfileitem.cpp:1503
+#: core/kfileitem.cpp:1535
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(پیوند نمادی به %1)"
 
-#: core/kfileitem.cpp:1505
+#: core/kfileitem.cpp:1537
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1، پیوند به %2)"
 
-#: core/kfileitem.cpp:1508
+#: core/kfileitem.cpp:1540
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (به %1 اشاره می‌کند)"
@@ -2694,7 +2694,7 @@ msgstr "نمایش پیش‌‌نمایش"
 msgid "Open Containing Folder"
 msgstr "گشودن پروندهٔ محتوی"
 
-#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1269
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1274
 #, kde-format
 msgid "Properties"
 msgstr "ویژگیها"
@@ -3140,7 +3140,7 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr ""
 
-#: filewidgets/kfileplacesview.cpp:343
+#: filewidgets/kfileplacesview.cpp:335
 #, fuzzy, kde-format
 #| msgctxt "items: folders, files (size)"
 #| msgid "%1: %2"
@@ -3148,91 +3148,91 @@ msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:360
+#: filewidgets/kfileplacesview.cpp:352
 #: widgets/kpropertiesdialogbuiltin_p.cpp:722
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1‎ از %2‎ آزاد است (%3٪‎ استفاده شده است)"
 
-#: filewidgets/kfileplacesview.cpp:673
+#: filewidgets/kfileplacesview.cpp:678
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (نهفته)"
 
-#: filewidgets/kfileplacesview.cpp:1227
+#: filewidgets/kfileplacesview.cpp:1232
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "تخلیهٔ زباله‌دان"
 
-#: filewidgets/kfileplacesview.cpp:1252
+#: filewidgets/kfileplacesview.cpp:1257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "سوار کردن"
 
-#: filewidgets/kfileplacesview.cpp:1262
+#: filewidgets/kfileplacesview.cpp:1267
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "گشودن در زبانهٔ جدید"
 
-#: filewidgets/kfileplacesview.cpp:1265
+#: filewidgets/kfileplacesview.cpp:1270
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "گشودن در پنجرهٔ جدید"
 
-#: filewidgets/kfileplacesview.cpp:1274
+#: filewidgets/kfileplacesview.cpp:1279
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "افزودن ورودی…"
 
-#: filewidgets/kfileplacesview.cpp:1280
+#: filewidgets/kfileplacesview.cpp:1285
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&ویرایش…"
 
-#: filewidgets/kfileplacesview.cpp:1285
+#: filewidgets/kfileplacesview.cpp:1290
 #, fuzzy, kde-format
 #| msgid "Remove File"
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "برداشتن پرونده"
 
-#: filewidgets/kfileplacesview.cpp:1289
+#: filewidgets/kfileplacesview.cpp:1294
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&نهفتن"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1302
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "نهفتن بخش «%1»"
 
-#: filewidgets/kfileplacesview.cpp:1297
+#: filewidgets/kfileplacesview.cpp:1302
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "نهفتن بخش"
 
-#: filewidgets/kfileplacesview.cpp:1305
+#: filewidgets/kfileplacesview.cpp:1310
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&نمایش همه مدخلها‌"
 
-#: filewidgets/kfileplacesview.cpp:1310
+#: filewidgets/kfileplacesview.cpp:1315
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "اندازهٔ نقشک"
 
-#: filewidgets/kfileplacesview.cpp:1431
+#: filewidgets/kfileplacesview.cpp:1436
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3240,25 +3240,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "تغییر اندازهٔ خودکار"
 
-#: filewidgets/kfileplacesview.cpp:1451
+#: filewidgets/kfileplacesview.cpp:1456
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "کوچک (‎%1×%1)"
 
-#: filewidgets/kfileplacesview.cpp:1454
+#: filewidgets/kfileplacesview.cpp:1459
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "متوسط (‎%1×%1)"
 
-#: filewidgets/kfileplacesview.cpp:1457
+#: filewidgets/kfileplacesview.cpp:1462
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "بزرگ (‎%1×%1)"
 
-#: filewidgets/kfileplacesview.cpp:1460
+#: filewidgets/kfileplacesview.cpp:1465
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -7118,13 +7118,13 @@ msgstr "یک مورد جدیدتر با نام «%1» هم‌اکنون موجو
 msgid "Rename:"
 msgstr "تغییر نام‌:"
 
-#: widgets/renamefiledialog.cpp:131
+#: widgets/renamefiledialog.cpp:138
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
 msgstr "تغییر نام مورد <filename>%1</filename> به:"
 
-#: widgets/renamefiledialog.cpp:181 widgets/renamefiledialog.cpp:523
+#: widgets/renamefiledialog.cpp:188 widgets/renamefiledialog.cpp:574
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "A file with name <filename>%1</filename> already exists."
@@ -7132,7 +7132,7 @@ msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "هم‌اکنون پرونده‌ای با نام <filename>%1</filename> وجود دارد."
 
-#: widgets/renamefiledialog.cpp:184
+#: widgets/renamefiledialog.cpp:191
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "<filename>%1</filename> does not appear to be an executable program."
@@ -7140,7 +7140,7 @@ msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
 msgstr "به نظر نمی‌رسد <filename>%1</filename> برنامه‌ای اجرایی باشد."
 
-#: widgets/renamefiledialog.cpp:204
+#: widgets/renamefiledialog.cpp:211
 #, fuzzy, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
@@ -7148,13 +7148,50 @@ msgid_plural "Rename the %1 selected items to:"
 msgstr[0] "تغییر نام %1 مورد گزیده به:"
 msgstr[1] "تغییر نام %1 مورد گزیده به:"
 
-#: widgets/renamefiledialog.cpp:207
+#: widgets/renamefiledialog.cpp:214
 #, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
 msgstr "# جایگزین خواهد شد با اعداد افزایشی با شروع از:"
 
-#: widgets/renamefiledialog.cpp:216
+#: widgets/renamefiledialog.cpp:229
+#, fuzzy, kde-format
+#| msgid "Ru&n as a different user"
+msgctxt "@item:inlistbox the new name is the whole file name"
+msgid "Replace filename"
+msgstr "&اجرا به عنوان یک کار‌بر متفاوت‌"
+
+#: widgets/renamefiledialog.cpp:230
+#, fuzzy, kde-format
+#| msgid "Ru&n as a different user"
+msgctxt "@item:inlistbox as in insert the new name before the filename"
+msgid "Before filename"
+msgstr "&اجرا به عنوان یک کار‌بر متفاوت‌"
+
+#: widgets/renamefiledialog.cpp:231
+#, fuzzy, kde-format
+#| msgid "Ru&n as a different user"
+msgctxt "@item:inlistbox as in insert the new name after the filename"
+msgid "After filename"
+msgstr "&اجرا به عنوان یک کار‌بر متفاوت‌"
+
+#: widgets/renamefiledialog.cpp:284
+#, kde-format
+msgctxt ""
+"Template putting the number before the old file name, # is replaced by a "
+"number later"
+msgid "#_"
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:286
+#, kde-format
+msgctxt ""
+"Template putting the number after the old file name, # is replaced by a "
+"number later"
+msgid "_#"
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:288
 #, kde-format
 msgctxt ""
 "This a template for new filenames, # is replaced by a number later, must be "
@@ -7162,7 +7199,7 @@ msgctxt ""
 msgid "New name #"
 msgstr "نام جدید #"
 
-#: widgets/renamefiledialog.cpp:323
+#: widgets/renamefiledialog.cpp:372
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7170,7 +7207,7 @@ msgid ""
 "the files have different file extensions."
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:350
+#: widgets/renamefiledialog.cpp:401
 #, fuzzy, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
@@ -7178,40 +7215,40 @@ msgid_plural "Rename the %1 selected items by:"
 msgstr[0] "تغییر نام %1 مورد گزیده به:"
 msgstr[1] "تغییر نام %1 مورد گزیده به:"
 
-#: widgets/renamefiledialog.cpp:354
+#: widgets/renamefiledialog.cpp:405
 #, fuzzy, kde-format
 #| msgid "Replace"
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
 msgstr "جایگزینی"
 
-#: widgets/renamefiledialog.cpp:356
+#: widgets/renamefiledialog.cpp:407
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:360
+#: widgets/renamefiledialog.cpp:411
 #, fuzzy, kde-format
 #| msgid "Open With:"
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
 msgstr "گشودن با:"
 
-#: widgets/renamefiledialog.cpp:362
+#: widgets/renamefiledialog.cpp:413
 #, fuzzy, kde-format
 #| msgid "Replace"
 msgctxt "@info placeholder text"
 msgid "Replacement"
 msgstr "جایگزینی"
 
-#: widgets/renamefiledialog.cpp:409
+#: widgets/renamefiledialog.cpp:460
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:418
+#: widgets/renamefiledialog.cpp:469
 #, kde-kuit-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid ""
@@ -7219,7 +7256,7 @@ msgid ""
 "to have an empty file name."
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:444
+#: widgets/renamefiledialog.cpp:495
 #, fuzzy, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
@@ -7227,84 +7264,84 @@ msgid_plural "Rename the %1 selected items:"
 msgstr[0] "تغییر نام %1 مورد گزیده به:"
 msgstr[1] "تغییر نام %1 مورد گزیده به:"
 
-#: widgets/renamefiledialog.cpp:447
+#: widgets/renamefiledialog.cpp:498
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:449
+#: widgets/renamefiledialog.cpp:500
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:454
+#: widgets/renamefiledialog.cpp:505
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
 msgstr "&اجرا به عنوان یک کار‌بر متفاوت‌"
 
-#: widgets/renamefiledialog.cpp:455
+#: widgets/renamefiledialog.cpp:506
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
 msgstr "&اجرا به عنوان یک کار‌بر متفاوت‌"
 
-#: widgets/renamefiledialog.cpp:572
+#: widgets/renamefiledialog.cpp:623
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Item"
 msgstr "تغییر نام‌ مورد"
 
-#: widgets/renamefiledialog.cpp:572
+#: widgets/renamefiledialog.cpp:623
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Items"
 msgstr "تغییر نام‌ موارد"
 
-#: widgets/renamefiledialog.cpp:583
+#: widgets/renamefiledialog.cpp:634
 #, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
 msgstr "&تغییر نام‌"
 
-#: widgets/renamefiledialog.cpp:592
+#: widgets/renamefiledialog.cpp:643
 #, fuzzy, kde-format
 #| msgid "Default user name:"
 msgctxt "@info"
 msgid "How to rename:"
 msgstr "نام کاربری پیش‌گزیده:"
 
-#: widgets/renamefiledialog.cpp:596
+#: widgets/renamefiledialog.cpp:647
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:596
+#: widgets/renamefiledialog.cpp:647
 #, fuzzy, kde-format
 #| msgid "Replace"
 msgctxt "@info renaming operation"
 msgid "Replace text"
 msgstr "جایگزینی"
 
-#: widgets/renamefiledialog.cpp:596
+#: widgets/renamefiledialog.cpp:647
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:613
+#: widgets/renamefiledialog.cpp:664
 #, fuzzy, kde-format
 #| msgid "Show Preview"
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
 msgstr "نمایش پیش‌‌نمایش"
 
-#: widgets/renamefiledialog.cpp:736
+#: widgets/renamefiledialog.cpp:788
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "<filename>%1</filename> does not appear to be an executable program."
