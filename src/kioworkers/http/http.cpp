@@ -446,17 +446,6 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
         }
     }
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 9, 3)
-    // Older Qt sent "Content-Length: 0" for any device it was given, empty or not, which RFC 9110
-    // discourages for a method whose meaning does not anticipate a body. Drop the device instead so
-    // the header stays away. Qt 6.9.3 makes the same distinction itself, see QTBUG-138848, so this
-    // can go once that is the oldest Qt we build against.
-    const bool noBodyWhenEmpty = (method == KIO::HTTP_GET || method == KIO::HTTP_HEAD || method == KIO::HTTP_DELETE);
-    if (inputData && inputData->size() == 0 && noBodyWhenEmpty) {
-        inputData = nullptr;
-    }
-#endif
-
     if (inputData) {
         inputData->startTransaction(); // To be able to restart after redirects.
     }
