@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-01 00:41+0000\n"
-"PO-Revision-Date: 2026-09-28 08:21+0200\n"
+"PO-Revision-Date: 2026-10-01 09:31+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -7118,25 +7118,19 @@ msgid "# will be replaced by ascending numbers starting with:"
 msgstr "El caràcter «#» se substituirà per números ascendents començant per:"
 
 #: widgets/renamefiledialog.cpp:229
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#, kde-format
 msgctxt "@item:inlistbox the new name is the whole file name"
 msgid "Replace filename"
-msgstr "Abans del nom de fitxer"
+msgstr "Substitueix el nom de fitxer"
 
 #: widgets/renamefiledialog.cpp:230
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name before the filename"
 msgid "Before filename"
 msgstr "Abans del nom de fitxer"
 
 #: widgets/renamefiledialog.cpp:231
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text after filename"
-#| msgid "After filename"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name after the filename"
 msgid "After filename"
 msgstr "Després del nom de fitxer"
@@ -7147,7 +7141,7 @@ msgctxt ""
 "Template putting the number before the old file name, # is replaced by a "
 "number later"
 msgid "#_"
-msgstr ""
+msgstr "#_"
 
 #: widgets/renamefiledialog.cpp:286
 #, kde-format
@@ -7155,7 +7149,7 @@ msgctxt ""
 "Template putting the number after the old file name, # is replaced by a "
 "number later"
 msgid "_#"
-msgstr ""
+msgstr "_#"
 
 #: widgets/renamefiledialog.cpp:288
 #, kde-format
