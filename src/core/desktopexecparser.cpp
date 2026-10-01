@@ -9,10 +9,7 @@
 
 #include "desktopexecparser.h"
 
-#ifdef WITH_QTDBUS
-#include "kiofuse_interface.h"
-#include <optional>
-#endif
+#include "fusemountjob.h"
 
 #include <KApplicationTrader>
 #include <KConfigGroup>
@@ -24,11 +21,8 @@
 #include <KShell>
 #include <kprotocolinfo.h> // KF6 TODO remove after moving hasSchemeHandler to OpenUrlJob
 
-#ifdef WITH_QTDBUS
-#include <QDBusConnection>
-#include <QDBusReply>
-#endif
 #include <QDir>
+#include <QEventLoop>
 #include <QFile>
 #include <QProcessEnvironment>
 #include <QStandardPaths>
@@ -37,6 +31,11 @@
 #include <config-kiocore.h> // KDE_INSTALL_FULL_LIBEXECDIR_KF
 
 #include "kiocoredebug.h"
+
+#include <memory>
+#include <vector>
+
+static constexpr int s_kioFuseMountTimeout = 25000;
 
 class KRunMX1 : public KMacroExpanderBase
 {
@@ -406,12 +405,11 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
     // Check if we need kioexec, or KIOFuse
     bool useKioexec = false;
 
-    std::optional<org::kde::KIOFuse::VFS> kiofuse_iface;
     struct MountRequest {
-        QDBusPendingReply<QString> reply;
+        std::unique_ptr<KIO::FuseMountJob> job;
         int urlIndex;
     };
-    QList<MountRequest> requests;
+    std::vector<MountRequest> requests;
     requests.reserve(d->urls.count());
 
     const QStringList appSupportedProtocols = supportedProtocols(d->service);
@@ -429,18 +427,31 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
         // \sa https://pointieststick.com/2018/01/17/videos-on-samba-shares/
         // \sa https://bugs.kde.org/show_bug.cgi?id=330192
         if (!supported || (!url.userName().isEmpty() && url.password().isEmpty() && isNonKIO())) {
-            if (!kiofuse_iface) {
-                kiofuse_iface.emplace(QStringLiteral("org.kde.KIOFuse"), QStringLiteral("/org/kde/KIOFuse"), QDBusConnection::sessionBus());
-            }
-            requests.push_back({kiofuse_iface->mountUrl(url.toString()), i});
+            requests.push_back({std::make_unique<KIO::FuseMountJob>(url), i});
         }
     }
 
-    for (auto &request : requests) {
-        request.reply.waitForFinished();
+    QEventLoop loop;
+    auto pendingMounts = requests.size();
+    for (const auto &request : requests) {
+        request.job->setAutoDelete(false);
+        request.job->setTimeout(s_kioFuseMountTimeout);
+        QObject::connect(request.job.get(), &KJob::result, &loop, [&loop, &pendingMounts]() {
+            if (--pendingMounts == 0) {
+                loop.quit();
+            }
+        });
+        request.job->start();
+    }
+    if (pendingMounts > 0) {
+        loop.exec(QEventLoop::ExcludeUserInputEvents);
+    }
+    if (pendingMounts > 0) {
+        d->m_errorString = i18n("Mounting the network location was interrupted.");
+        return QStringList();
     }
     const bool fuseError = std::any_of(requests.cbegin(), requests.cend(), [](const MountRequest &request) {
-        return request.reply.isError();
+        return request.job->error() != KJob::NoError;
     });
 
     if (fuseError && useKioexec) {
@@ -460,9 +471,9 @@ QStringList KIO::DesktopExecParser::resultingArguments() const
 
     // At this point we know we're not using kioexec, so feel free to replace
     // KIO URLs with their KIOFuse local path.
-    for (const auto &request : std::as_const(requests)) {
-        if (!request.reply.isError()) {
-            d->urls[request.urlIndex] = QUrl::fromLocalFile(request.reply.value());
+    for (const auto &request : requests) {
+        if (!request.job->error()) {
+            d->urls[request.urlIndex] = QUrl::fromLocalFile(request.job->localPath());
         }
     }
 #endif

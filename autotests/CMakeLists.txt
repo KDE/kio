@@ -76,6 +76,13 @@ if (NOT WIN32)
   endif()
 endif()
 
+if (HAVE_QTDBUS)
+  ecm_add_test(
+    fusemountjobtest.cpp
+    LINK_LIBRARIES KF6::KIOCore Qt6::DBus Qt6::Test
+  )
+endif()
+
 ecm_add_test(
     connectionbackendtest.cpp
     ../src/core/connectionbackend.cpp

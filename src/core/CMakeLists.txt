@@ -56,6 +56,7 @@ target_sources(KF6KIOCore PRIVATE
   specialjob.cpp
   statjob.cpp
   namefinderjob.cpp
+  fusemountjob.cpp
   storedtransferjob.cpp
   transferjob.cpp
   filesystemfreespacejob.cpp
@@ -253,6 +254,7 @@ ecm_generate_headers(KIOCore_Namespaced_CamelCase_HEADERS
   SpecialJob
   StatJob
   NameFinderJob
+  FuseMountJob
   StoredTransferJob
   TransferJob
   AuthInfo

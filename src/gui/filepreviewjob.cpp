@@ -11,6 +11,7 @@
 #include "filepreviewjob.h"
 
 #include "filecopyjob.h"
+#include "fusemountjob.h"
 #include "kiogui_debug.h"
 #include "standardthumbnailjob_p.h"
 #include "statjob.h"
@@ -52,13 +53,6 @@
 #include <QTemporaryDir>
 #include <QTimer>
 #include <QtConcurrentRun>
-
-#ifdef WITH_QTDBUS
-#include <QDBusConnection>
-#include <QDBusError>
-
-#include "kiofuse_interface.h"
-#endif
 
 using namespace KIO;
 using namespace Qt::Literals;
@@ -442,19 +436,13 @@ void FilePreviewJob::getOrCreateThumbnail()
 
 void FilePreviewJob::createThumbnailViaFuse(const QUrl &fileUrl, const QUrl &localUrl)
 {
-#if defined(WITH_QTDBUS) && !defined(Q_OS_ANDROID)
-    org::kde::KIOFuse::VFS kiofuse_iface(QStringLiteral("org.kde.KIOFuse"), QStringLiteral("/org/kde/KIOFuse"), QDBusConnection::sessionBus());
-    kiofuse_iface.setTimeout(s_kioFuseMountTimeout);
-    QDBusPendingReply<QString> reply = kiofuse_iface.mountUrl(fileUrl.toString());
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+    auto *mountJob = new KIO::FuseMountJob(fileUrl, this);
+    mountJob->setTimeout(s_kioFuseMountTimeout);
 
-    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, localUrl](QDBusPendingCallWatcher *watcher) {
-        QDBusPendingReply<QString> reply = *watcher;
-        watcher->deleteLater();
-
-        if (reply.isError()) {
+    connect(mountJob, &KJob::result, this, [this, mountJob, localUrl]() {
+        if (mountJob->error()) {
             // Don't try kio-fuse again if it is not available
-            if (reply.error().type() == QDBusError::ServiceUnknown || reply.error().type() == QDBusError::NoReply) {
+            if (mountJob->error() == KIO::ERR_UNSUPPORTED_ACTION || mountJob->error() == KIO::ERR_SERVER_TIMEOUT) {
                 m_tryKioFuse = false;
             }
 
@@ -462,12 +450,10 @@ void FilePreviewJob::createThumbnailViaFuse(const QUrl &fileUrl, const QUrl &loc
             createThumbnailViaLocalCopy(localUrl);
         } else {
             // Use file exposed via the local fuse mount point
-            createThumbnail(reply.value());
+            createThumbnail(mountJob->localPath());
         }
     });
-#else
-    createThumbnailViaLocalCopy(localUrl);
-#endif
+    mountJob->start();
 }
 
 void FilePreviewJob::slotGetOrCreateThumbnail(KJob *job)
