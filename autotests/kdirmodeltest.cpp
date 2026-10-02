@@ -1311,11 +1311,21 @@ void KDirModelTest::testDotHiddenFile()
 
     const QString path = m_tempDir->path() + '/';
     const QString dotHiddenFile = path + ".hidden";
-    QTest::qWait(1000); // mtime-based cache, so we need to wait for 1 second
-    QFile dh(dotHiddenFile);
-    QVERIFY(dh.open(QIODevice::WriteOnly));
-    dh.write(fileContents.join('\n').toUtf8());
-    dh.close();
+    // The .hidden cache goes by the mtime of the file, so this one has to be newer than the one of the
+    // previous row. The file system clock moves in steps of a few milliseconds.
+    const QDateTime previousMTime = m_dotHiddenMTime;
+    QVERIFY(QTest::qWaitFor(
+        [&] {
+            QFile dh(dotHiddenFile);
+            if (!dh.open(QIODevice::WriteOnly)) {
+                return false;
+            }
+            dh.write(fileContents.join('\n').toUtf8());
+            dh.close();
+            m_dotHiddenMTime = QFileInfo(dotHiddenFile).lastModified();
+            return m_dotHiddenMTime > previousMTime;
+        },
+        1000));
 
     // Do it twice: once to read from the file and once to use the cache
     for (int i = 0; i < 2; ++i) {
@@ -1329,7 +1339,7 @@ void KDirModelTest::testDotHiddenFile()
         QCOMPARE(files, expectedListing);
     }
 
-    dh.remove();
+    QFile::remove(dotHiddenFile);
 }
 
 void KDirModelTest::testShowRoot()

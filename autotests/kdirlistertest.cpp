@@ -313,7 +313,7 @@ void KDirListerTest::testNewItems()
     for (int i = 50; i > 0; i--) {
         createSimpleFile(path + QString("toplevelfile_new_%1").arg(i));
     }
-    QTest::qWait(1000); // Create them with 1s difference
+    waitUntilMTimeChange(path); // Create them with 1s difference
     for (int i = 100; i > 50; i--) {
         createSimpleFile(path + QString("toplevelfile_new_%1").arg(i));
     }
@@ -362,7 +362,7 @@ void KDirListerTest::testNewItemByCopy()
     const QString path = tempPath();
     connect(&m_dirLister, &KCoreDirLister::newItems, this, &KDirListerTest::slotNewItems);
 
-    QTest::qWait(1000); // We need a 1s timestamp difference on the dir, otherwise FAM won't notice anything.
+    waitUntilMTimeChange(path);
 
     const QString fileName = QStringLiteral("toplevelfile_copy");
     const QUrl itemUrl = QUrl::fromLocalFile(path + fileName);
@@ -450,7 +450,7 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
     QTRY_COMPARE(m_items.count(), origItemCount);
     QTRY_VERIFY(dirLister2.isFinished());
 
-    QTest::qWait(1000); // We need a 1s timestamp difference on the dir, otherwise FAM won't notice anything.
+    waitUntilMTimeChange(path);
 
     qDebug() << "Creating new file";
     const QString fileName = QStringLiteral("toplevelfile_newinlink");
@@ -474,7 +474,7 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
     // Test file deletion
     {
         qDebug() << "Deleting" << (path + fileName);
-        QTest::qWait(1000); // for timestamp difference
+        waitUntilMTimeChange(path); // for timestamp difference
         QFile::remove(path + fileName);
         QTRY_COMPARE_WITH_TIMEOUT(dirLister2.spyItemsDeleted.count(), 1, 1000);
         QTRY_COMPARE_WITH_TIMEOUT(m_dirLister.spyItemsDeleted.count(), 1, 1000);
@@ -487,7 +487,7 @@ void KDirListerTest::testNewItemsInSymlink() // #213799
     // Test file deletion in symlink dir #469254
     {
         qDebug() << "Deleting" << (symPath + "/" + fileName2);
-        QTest::qWait(1000); // for timestamp difference
+        waitUntilMTimeChange(path); // for timestamp difference
         QFile::remove(symPath + "/" + fileName2);
 
         QTRY_COMPARE_WITH_TIMEOUT(m_dirLister.spyItemsDeleted.count(), 1, 1000);
@@ -830,7 +830,11 @@ void KDirListerTest::testConcurrentListing()
     QCOMPARE(m_items2.count(), origItemCount);
     if (!m_dirLister.isFinished()) { // false when an update is running because subdir is already in cache
         // TODO check why this fails QVERIFY(m_dirLister.spyCanceled.wait(1000));
-        QTest::qWait(1000);
+        QTest::qWaitFor(
+            [this] {
+                return m_dirLister.isFinished();
+            },
+            1000);
     }
 
     disconnect(&m_dirLister, nullptr, this, nullptr);
@@ -1135,7 +1139,7 @@ void KDirListerTest::testBug211472()
 
     // Now try to create a second file in 'newsubdir' and verify that the
     // dir lister notices it.
-    QTest::qWait(1000); // We need a 1s timestamp difference on the dir, otherwise FAM won't notice anything.
+    waitUntilMTimeChange(path);
 
     createTestFile(path + "newFile-2");
     QTRY_COMPARE(m_items.count(), 1);
