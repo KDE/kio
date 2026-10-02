@@ -19,10 +19,14 @@ private Q_SLOTS:
     void initTestCase();
 
 #ifndef Q_OS_WIN
+    void cleanup();
     void startKonsole_data();
     void startKonsole();
     void startXterm();
     void startFallbackToPath();
+#if WITH_QTDBUS
+    void testLaunchingIntent();
+#endif
 #else
     void startTerminal_data();
     void startTerminal();

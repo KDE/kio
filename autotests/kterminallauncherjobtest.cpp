@@ -12,12 +12,32 @@
 #include <KSharedConfig>
 #include <QStandardPaths>
 #include <QTest>
+#include <kapplicationtrader.h>
+#include <kdesktopfile.h>
+#include <qdbusconnection.h>
+#include <qdbusmetatype.h>
+#include <qdbusreply.h>
+#include <qprocess.h>
+#include <qsignalspy.h>
+#include <qtestcase.h>
+
+using namespace Qt::StringLiterals;
 
 QTEST_GUILESS_MAIN(KTerminalLauncherJobTest)
 
 void KTerminalLauncherJobTest::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
+    KConfigGroup confGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
+    confGroup.writeEntry("TerminalApplication", "");
+    confGroup.writeEntry("TerminalService", "");
+}
+
+void KTerminalLauncherJobTest::cleanup()
+{
+    KConfigGroup confGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
+    confGroup.writeEntry("TerminalApplication", "");
+    confGroup.writeEntry("TerminalService", "");
 }
 
 #ifndef Q_OS_WIN
@@ -102,6 +122,71 @@ void KTerminalLauncherJobTest::startFallbackToPath()
     QVERIFY(!job->fullCommand().isEmpty());
 }
 
+class IntentHandler : public QObject
+{
+    Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.freedesktop.Terminal1")
+public:
+    struct LaunchRequest {
+        const QList<QVariantMap> commands;
+        const QByteArray desktop_entry;
+        const QVariantMap options;
+        const QVariantMap platformData;
+    };
+    std::vector<LaunchRequest> launchrequests;
+public Q_SLOTS:
+    void LaunchCommand(const QList<QVariantMap> &commands, const QByteArray &desktop_entry, const QVariantMap &options, const QVariantMap &platformData)
+    {
+        launchrequests.push_back({commands, desktop_entry, options, platformData});
+    }
+};
+
+#if WITH_QTDBUS
+void KTerminalLauncherJobTest::testLaunchingIntent()
+{
+    const QString desktopFile =
+        QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation) + QLatin1Char('/') + u"org.kde.terminallaunchertest.desktop"_s;
+    KDesktopFile file(desktopFile);
+    file.desktopGroup().writeEntry("Name", "KTerminalLauncherJobTest");
+    file.desktopGroup().writeEntry("DBusActivatable", true);
+    file.desktopGroup().writeEntry("Implements", "org.freedesktop.Terminal1");
+
+    KConfigGroup confGroup(KSharedConfig::openConfig(), QStringLiteral("General"));
+    confGroup.writeEntry("TerminalService", "org.kde.terminallaunchertest.desktop");
+
+    KApplicationTrader::setPreferredServiceForIntent(u"org.freedesktop.Terminal1"_s, KService::serviceByDesktopName(u"org.kde.terminallaunchertest"_s));
+
+    IntentHandler handler;
+    QVERIFY(QDBusConnection::sessionBus().registerObject(u"/org/kde/terminallaunchertest"_s, &handler, QDBusConnection::ExportAllContents));
+    QVERIFY(QDBusConnection::sessionBus().registerService(u"org.kde.terminallaunchertest"_s));
+
+    KTerminalLauncherJob job(u"make cheese"_s);
+    job.setWorkingDirectory(u"/work"_s);
+    job.setStartupId("moo");
+    QProcessEnvironment env;
+    env.insert(u"environment"_s, u"hilly"_s);
+    job.setProcessEnvironment(env);
+
+    // QSignalSpy finishedSpy(&job, &KTerminalLauncherJob::finished);
+    // QVERIFY(finishedSpy.wait());
+    QVERIFY(job.exec());
+    QCOMPARE(job.errorString(), QString());
+
+    QCOMPARE(handler.launchrequests.size(), 1);
+    const auto &request = handler.launchrequests.front();
+    QCOMPARE(request.commands.size(), 1);
+    const auto command = request.commands.front();
+    auto fetchaay = [](const QVariant &v) {
+        return qdbus_cast<QList<QByteArray>>(v.value<QDBusArgument>());
+    };
+    QCOMPARE(fetchaay(command.value(u"exec"_s)), QList<QByteArray>({"make", "cheese"}));
+    QCOMPARE(fetchaay(command.value(u"env"_s)), QList<QByteArray>{"environment=hilly"});
+    QCOMPARE(command.value(u"working_directory"_s).toByteArray(), "/work");
+    QCOMPARE(request.desktop_entry, QByteArray());
+    QCOMPARE(request.options, QVariantMap({{u"keep-terminal-open"_s, false}}));
+}
+#endif
+
 #else
 
 void KTerminalLauncherJobTest::startTerminal_data()
@@ -161,4 +246,5 @@ void KTerminalLauncherJobTest::startTerminal()
 
 #endif
 
+#include "kterminallauncherjobtest.moc"
 #include "moc_kterminallauncherjobtest.cpp"

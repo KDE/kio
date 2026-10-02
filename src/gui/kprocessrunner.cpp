@@ -24,6 +24,7 @@
 #include <KDesktopFile>
 #include <KLocalizedString>
 #include <KSharedConfig>
+#include <KShell>
 #include <KWindowSystem>
 
 #if HAVE_WAYLAND
