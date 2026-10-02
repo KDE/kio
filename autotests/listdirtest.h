@@ -25,6 +25,8 @@ private Q_SLOTS:
     void detailsTestCase_data();
     void detailsTestCase();
 
+    void symlinksTestCase();
+
     void slotEntries(KIO::Job *job, const KIO::UDSEntryList &entries);
 
 private:

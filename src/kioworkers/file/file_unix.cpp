@@ -95,7 +95,8 @@ static QMimeDatabase::MatchMode mimeMatchModeFor(const StatStruct &buf, const QS
     return isSlowFs ? QMimeDatabase::MatchExtension : QMimeDatabase::MatchDefault;
 }
 
-static QByteArray readlinkToBuffer(const StatStruct &buf, const QByteArray &path)
+// path is relative to dirFd, which is AT_FDCWD for an absolute path
+static QByteArray readlinkToBuffer(const StatStruct &buf, int dirFd, const QByteArray &path)
 {
     // Use readlink on Unix because symLinkTarget turns relative targets into absolute (#352927)
     size_t size = stat_size(buf);
@@ -108,7 +109,7 @@ static QByteArray readlinkToBuffer(const StatStruct &buf, const QByteArray &path
     size_t bufferSize = qBound(lowerBound, size + 1, higherBound);
     QByteArray linkTargetBuffer(bufferSize, Qt::Initialization::Uninitialized);
     while (true) {
-        ssize_t n = readlink(path.constData(), linkTargetBuffer.data(), bufferSize);
+        ssize_t n = readlinkat(dirFd, path.constData(), linkTargetBuffer.data(), bufferSize);
         if (n < 0 && errno != ERANGE) {
             /* On AIX 5L v5.3 and HP-UX 11i v2 04/09, readlink returns -1
                with errno == ERANGE if the buffer is too small.
@@ -127,7 +128,15 @@ static QByteArray readlinkToBuffer(const StatStruct &buf, const QByteArray &path
     return linkTargetBuffer;
 }
 
-static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSEntry &entry, KIO::StatDetails details, const QString &fullPath)
+// name is relative to dirFd, so a listing does not resolve the directory again for every entry.
+// path is the absolute path of the same file.
+static bool createUDSEntry(const QString &filename,
+                           int dirFd,
+                           const QByteArray &name,
+                           const QByteArray &path,
+                           UDSEntry &entry,
+                           KIO::StatDetails details,
+                           const QString &fullPath)
 {
     assert(entry.count() == 0); // by contract :-)    assert(entry.count() == 0); // by contract :-)
     int numberEntries = 0;
@@ -186,11 +195,11 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
 
     StatStruct buff;
 
-    if (LSTAT(path.constData(), &buff, details) == 0) {
+    if (LSTATAT(dirFd, name.constData(), &buff, details) == 0) {
         if (Utils::isLinkMask(stat_mode(buff))) {
             QByteArray linkTargetBuffer;
             if (details & (KIO::StatBasic | KIO::StatResolveSymlink)) {
-                linkTargetBuffer = readlinkToBuffer(buff, path);
+                linkTargetBuffer = readlinkToBuffer(buff, dirFd, name);
                 if (linkTargetBuffer.isEmpty()) {
                     return false;
                 }
@@ -200,7 +209,7 @@ static bool createUDSEntry(const QString &filename, const QByteArray &path, UDSE
 
             // A symlink
             if (details & KIO::StatResolveSymlink) {
-                if (STAT(path.constData(), &buff, details) == -1) {
+                if (STATAT(dirFd, name.constData(), &buff, details) == -1) {
                     isBrokenSymLink = true;
                 } else {
 #if HAVE_POSIX_ACL
@@ -460,7 +469,8 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
             QString fullPath = Utils::slashAppended(path);
             fullPath += filename;
 
-            if (createUDSEntry(filename, encodedBasePath + QByteArray(ep->d_name), entry, details, fullPath)) {
+            const QByteArray name(ep->d_name);
+            if (createUDSEntry(filename, dirfd(dp), name, encodedBasePath + name, entry, details, fullPath)) {
 #if HAVE_SYS_XATTR_H && HAVE_DIRENT_D_TYPE
                 if (isNtfsHidden(filename)) {
                     bool ntfsHidden = true;
@@ -810,7 +820,7 @@ WorkerResult FileProtocol::stat(const QUrl &url)
     const KIO::StatDetails details = getStatDetails();
 
     UDSEntry entry;
-    if (!createUDSEntry(url.fileName(), _path, entry, details, path)) {
+    if (!createUDSEntry(url.fileName(), AT_FDCWD, _path, _path, entry, details, path)) {
         return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, path);
     }
     statEntry(entry);

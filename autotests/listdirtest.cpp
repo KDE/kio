@@ -96,6 +96,49 @@ void ListDirTest::detailsTestCase()
     }
 }
 
+void ListDirTest::symlinksTestCase()
+{
+#ifdef Q_OS_WIN
+    QSKIP("Symlinks are not listed with details on Windows");
+#endif
+
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+    const QString dir = tempDir.path() + QLatin1Char('/');
+
+    QFile target(dir + QStringLiteral("target.txt"));
+    QVERIFY(target.open(QIODevice::WriteOnly));
+    QCOMPARE(target.write("12345"), 5);
+    target.close();
+    // Relative targets, so a link only resolves from the listed directory
+    QVERIFY(QFile::link(QStringLiteral("target.txt"), dir + QStringLiteral("link")));
+    QVERIFY(QFile::link(QStringLiteral("missing.txt"), dir + QStringLiteral("broken_link")));
+
+    auto job = std::unique_ptr<KIO::ListJob>(KIO::listDir(QUrl::fromLocalFile(tempDir.path()), KIO::HideProgressInfo));
+    job->setDetails(KIO::StatBasic | KIO::StatResolveSymlink);
+    job->setUiDelegate(nullptr);
+
+    QHash<QString, KIO::UDSEntry> entriesByName;
+    connect(job.get(), &KIO::ListJob::entries, this, [&entriesByName](KIO::Job *, const KIO::UDSEntryList &entries) {
+        for (const KIO::UDSEntry &entry : entries) {
+            entriesByName.insert(entry.stringValue(KIO::UDSEntry::UDS_NAME), entry);
+        }
+    });
+    QSignalSpy spy(job.get(), &KJob::result);
+    QVERIFY(spy.wait(10000));
+    QCOMPARE(job->error(), 0);
+
+    const KIO::UDSEntry link = entriesByName.value(QStringLiteral("link"));
+    QCOMPARE(link.stringValue(KIO::UDSEntry::UDS_LINK_DEST), QStringLiteral("target.txt"));
+    QCOMPARE(link.numberValue(KIO::UDSEntry::UDS_FILE_TYPE), S_IFREG);
+    QCOMPARE(link.numberValue(KIO::UDSEntry::UDS_SIZE), 5);
+
+    const KIO::UDSEntry brokenLink = entriesByName.value(QStringLiteral("broken_link"));
+    QCOMPARE(brokenLink.stringValue(KIO::UDSEntry::UDS_LINK_DEST), QStringLiteral("missing.txt"));
+    QCOMPARE(brokenLink.numberValue(KIO::UDSEntry::UDS_FILE_TYPE), S_IFMT - 1);
+    QCOMPARE(brokenLink.numberValue(KIO::UDSEntry::UDS_SIZE), 0);
+}
+
 void ListDirTest::slotEntries(KIO::Job *, const KIO::UDSEntryList &entries)
 {
     m_receivedEntryCount += entries.count();
