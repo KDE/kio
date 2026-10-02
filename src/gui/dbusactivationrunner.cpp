@@ -84,6 +84,7 @@ void DBusActivationRunner::startProcess()
         auto pidWatcher = new QDBusPendingCallWatcher(call, this);
         connect(pidWatcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher *watcher) {
             m_finished = true;
+            // watcher->deleteLater();
             QDBusPendingReply<uint> reply = *watcher;
             if (reply.isError()) {
                 Q_EMIT error(watcher->error().message());
