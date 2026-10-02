@@ -748,7 +748,7 @@ bool KMountPoint::probablySlow() const
         || d->m_mountType == "autofs"_L1
         || d->m_mountType == "subfs"_L1
         // Naive check, would be better for KmountPoint to distinguish fuse blk from fuse dev itself in the future
-        || d->m_mountType.startsWith("fuse."_L1) && !d->m_mountedFrom.startsWith("/dev/"_L1);
+        || (d->m_mountType.startsWith("fuse."_L1) && !d->m_mountedFrom.startsWith("/dev/"_L1));
     /* clang-format on */
 }
 
