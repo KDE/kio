@@ -405,9 +405,6 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
     // qDebug() << "========= LIST " << url << "details=" << details << " =========";
     UDSEntry entry;
 
-#if !(HAVE_DIRENT_D_TYPE)
-    QT_STATBUF st;
-#endif
     QT_DIRENT *ep;
     while ((ep = QT_READDIR(dp)) != nullptr) {
         if (wasKilled()) {
@@ -431,17 +428,27 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
          */
         if (details == KIO::StatBasic) {
             entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
+            mode_t type = 0;
 #if HAVE_DIRENT_D_TYPE
-            entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, (ep->d_type == DT_DIR) ? S_IFDIR : S_IFREG);
-            const bool isSymLink = (ep->d_type == DT_LNK);
-#else
-            // oops, no fast way, we need to stat (e.g. on Solaris)
-            if (QT_LSTAT(ep->d_name, &st) == -1) {
-                continue; // how can stat fail?
+            if (ep->d_type == DT_DIR) {
+                type = S_IFDIR;
+            } else if (ep->d_type == DT_LNK) {
+                type = S_IFLNK;
+            } else if (ep->d_type != DT_UNKNOWN) {
+                type = S_IFREG;
             }
-            entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_ISDIR(st.st_mode) ? S_IFDIR : S_IFREG);
-            const bool isSymLink = S_ISLNK(st.st_mode);
 #endif
+            // Without d_type, or on a filesystem that leaves it DT_UNKNOWN (XFS without ftype, some FUSE and
+            // network filesystems), only a stat tells a directory from a file.
+            if (type == 0) {
+                StatStruct buff;
+                if (LSTATAT(dirfd(dp), ep->d_name, &buff, KIO::StatBasic) == -1) {
+                    continue;
+                }
+                type = stat_mode(buff) & S_IFMT;
+            }
+            entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, type == S_IFDIR ? S_IFDIR : S_IFREG);
+            const bool isSymLink = type == S_IFLNK;
             if (isSymLink) {
                 // for symlinks obey the UDSEntry contract and provide UDS_LINK_DEST
                 // even if we don't know the link dest (and DeleteJob doesn't care...)
