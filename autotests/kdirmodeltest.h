@@ -9,6 +9,7 @@
 
 #include <kdirmodel.h>
 
+#include <QDateTime>
 #include <QEventLoop>
 #include <QObject>
 #include <QTemporaryDir>
@@ -92,6 +93,7 @@ private:
 
 private:
     std::unique_ptr<QTemporaryDir> m_tempDir;
+    QDateTime m_dotHiddenMTime; // of the .hidden file the last row of testDotHiddenFile wrote
     KDirModel *m_dirModel;
     QModelIndex m_fileIndex;
     QModelIndex m_specialFileIndex;
