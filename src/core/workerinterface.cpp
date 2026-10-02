@@ -35,13 +35,6 @@ WorkerInterface::~WorkerInterface()
     delete m_connection;
 }
 
-static KIO::filesize_t readFilesize_t(QDataStream &stream)
-{
-    KIO::filesize_t result;
-    stream >> result;
-    return result;
-}
-
 bool WorkerInterface::dispatch()
 {
     Q_ASSERT(m_connection);
