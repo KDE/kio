@@ -20,25 +20,35 @@
 namespace KIO
 {
 
+class RenameFileWarningDialogPrivate
+{
+public:
+    KFileItem m_item;
+    QString m_newName;
+    QWidget *m_parent;
+    bool m_hiddenFilesVisible;
+};
+
 RenameFileWarningDialog::RenameFileWarningDialog(const KFileItem &item, const QString &newName, QWidget *parent, bool hiddenFilesVisible)
     : QObject(parent)
-    , m_item(item)
-    , m_newName(newName)
-    , m_parent(parent)
-    , m_hiddenFilesVisible(hiddenFilesVisible)
+    , d(std::make_unique<RenameFileWarningDialogPrivate>())
 {
+    d->m_item = item;
+    d->m_newName = newName;
+    d->m_parent = parent;
+    d->m_hiddenFilesVisible = hiddenFilesVisible;
 }
 
 RenameFileWarningDialog::~RenameFileWarningDialog() = default;
 
 void RenameFileWarningDialog::exec()
 {
-    const bool becomesHidden = m_newName.startsWith(QLatin1Char('.')) && !m_item.name().startsWith(QLatin1Char('.'));
+    const bool becomesHidden = d->m_newName.startsWith(QLatin1Char('.')) && !d->m_item.name().startsWith(QLatin1Char('.'));
 
     KSharedConfig::Ptr kioConfig = KSharedConfig::openConfig(QStringLiteral("kiorc"), KConfig::NoGlobals);
     KConfigGroup confirmGroup(kioConfig, QStringLiteral("Confirmations"));
 
-    if (!m_hiddenFilesVisible && becomesHidden) {
+    if (!d->m_hiddenFilesVisible && becomesHidden) {
         if (!confirmGroup.readEntry("ConfirmHide", true)) {
             Q_EMIT result(true);
             deleteLater();
@@ -46,12 +56,12 @@ void RenameFileWarningDialog::exec()
         }
 
         const KGuiItem renameAndHideGuiItem(i18nc("@action:button", "Rename and Hide"), QStringLiteral("view-hidden"));
-        const QString message = m_item.isDir()
+        const QString message = d->m_item.isDir()
             ? i18nc("@info", "Adding a dot to the beginning of this folder's name will hide it from view.\nDo you still want to rename it?")
             : i18nc("@info", "Adding a dot to the beginning of this file's name will hide it from view.\nDo you still want to rename it?");
-        const QString title = m_item.isDir() ? i18nc("@title:window", "Hide this Folder?") : i18nc("@title:window", "Hide this File?");
+        const QString title = d->m_item.isDir() ? i18nc("@title:window", "Hide this Folder?") : i18nc("@title:window", "Hide this File?");
 
-        auto *dialog = new KMessageDialog(KMessageDialog::QuestionTwoActions, message, m_parent);
+        auto *dialog = new KMessageDialog(KMessageDialog::QuestionTwoActions, message, d->m_parent);
         dialog->setWindowTitle(title);
         dialog->setButtons(renameAndHideGuiItem, KStandardGuiItem::cancel());
         dialog->setIcon(QIcon::fromTheme(QStringLiteral("dialog-question")));
@@ -74,7 +84,7 @@ void RenameFileWarningDialog::exec()
         return;
     }
 
-    if (m_item.isFile() && !becomesHidden) {
+    if (d->m_item.isFile() && !becomesHidden) {
         if (!confirmGroup.readEntry("ConfirmRenameFileType", true)) {
             Q_EMIT result(true);
             deleteLater();
@@ -82,8 +92,8 @@ void RenameFileWarningDialog::exec()
         }
 
         QMimeDatabase db;
-        const QMimeType oldMimeType = db.mimeTypeForFile(m_item.name(), QMimeDatabase::MatchExtension);
-        const QMimeType newMimeType = db.mimeTypeForFile(m_newName, QMimeDatabase::MatchExtension);
+        const QMimeType oldMimeType = db.mimeTypeForFile(d->m_item.name(), QMimeDatabase::MatchExtension);
+        const QMimeType newMimeType = db.mimeTypeForFile(d->m_newName, QMimeDatabase::MatchExtension);
 
         if (oldMimeType.isValid() && !oldMimeType.isDefault() && newMimeType.isValid() && newMimeType != oldMimeType) {
             const KGuiItem renameGuiItem(i18nc("@action:button", "Rename"), QStringLiteral("edit-rename"));
@@ -101,7 +111,7 @@ void RenameFileWarningDialog::exec()
                                                                    oldMimeType.comment(),
                                                                    newMimeType.comment());
 
-            auto *dialog = new KMessageDialog(KMessageDialog::QuestionTwoActions, prompt, m_parent);
+            auto *dialog = new KMessageDialog(KMessageDialog::QuestionTwoActions, prompt, d->m_parent);
             dialog->setWindowTitle(i18nc("@title:window", "Change File Type"));
             dialog->setButtons(renameGuiItem, KStandardGuiItem::cancel());
             dialog->setIcon(messageBoxIcon);

@@ -18,6 +18,7 @@ class QWidget;
 
 namespace KIO
 {
+class RenameFileWarningDialogPrivate;
 
 /*!
  * \class KIO::RenameFileWarningDialog
@@ -54,10 +55,7 @@ Q_SIGNALS:
     void result(bool accepted);
 
 private:
-    const KFileItem m_item;
-    const QString m_newName;
-    QWidget *const m_parent;
-    const bool m_hiddenFilesVisible;
+    const std::unique_ptr<RenameFileWarningDialogPrivate> d;
 };
 
 } // namespace KIO
