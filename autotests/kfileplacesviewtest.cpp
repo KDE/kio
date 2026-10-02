@@ -96,7 +96,7 @@ void KFilePlacesViewTest::testUrlChanged()
     QFETCH(QString, expectedUrl);
 
     KFilePlacesView pv;
-    pv.setModel(new KFilePlacesModel());
+    pv.setModel(new KFilePlacesModel(&pv));
 
     QSignalSpy urlChangedSpy(&pv, &KFilePlacesView::urlChanged);
     const QModelIndex targetIndex = pv.model()->index(row, 0);
