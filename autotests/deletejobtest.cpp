@@ -237,12 +237,12 @@ void DeleteJobTest::killedRecursiveDeletionStopsEarly()
     });
 
     // A subdirectory goes once it is emptied, so one missing says the deletion is under way and a
-    // kill now lands inside deleteRecursive(). The tree is watched rather than the progress the
-    // worker reports, which SlaveBase holds back within 100 ms of the last one it let through.
+    // kill now lands inside deleteRecursive(). The kill also waits for the first byte report, because
+    // the job drops the reports that it has not read from the worker when it is killed.
     bool killed = false;
     QTimer watcher;
     connect(&watcher, &QTimer::timeout, job, [&]() {
-        if (!killed && QDir(root).entryList(QDir::Dirs | QDir::NoDotAndDotDot).count() < subdirectories) {
+        if (!killed && byteReports > 0 && QDir(root).entryList(QDir::Dirs | QDir::NoDotAndDotDot).count() < subdirectories) {
             killed = true;
             job->kill(KJob::EmitResult);
         }
@@ -253,8 +253,10 @@ void DeleteJobTest::killedRecursiveDeletionStopsEarly()
     // kill(EmitResult) makes the job report almost immediately. A timeout here means the deletion
     // never started (so it was never cancelled) or the job did not finish at all.
     QVERIFY(spy.wait(10000));
-    QVERIFY2(byteReports > 0, "the deletion freed bytes without reporting any");
-    QVERIFY2(killed, qPrintable(QStringLiteral("no progress reported, so nothing was cancelled. Job error %1: %2").arg(job->error()).arg(job->errorString())));
+    QVERIFY2(killed,
+             qPrintable(QStringLiteral("the deletion ended before it reported freed bytes, so nothing was cancelled. Job error %1: %2")
+                            .arg(job->error())
+                            .arg(job->errorString())));
 
     // The job reports at once, but the worker runs on until deleteRecursive() returns. Wait for
     // the count to settle, so that what is checked is where the worker stopped.
