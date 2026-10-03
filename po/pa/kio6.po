@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-01 00:41+0000\n"
+"POT-Creation-Date: 2026-10-03 00:41+0000\n"
 "PO-Revision-Date: 2024-01-30 09:25-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -46,7 +46,7 @@ msgstr ""
 "ਫਾਇਲ <filename>%1</filename> ਦੀ ਓਨਰਸ਼ਿਪ ਬਦਲੀ ਨਹੀਂ ਜਾ ਸਕੀ ਹੈ, ਤੁਹਾਡੇ ਕੋਲ ਬਦਲਣ ਲਈ "
 "ਲੋੜੀਦੇ ਅਧਿਕਾਰ ਨਹੀਂ ਹਨ।"
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:595
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:612
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4040,17 +4040,17 @@ msgstr "ਪਰੋਗਰਾਮ \"mount\" ਨਹੀਂ ਮਿਲਿਆ ਹੈ"
 msgid "Could not find program \"umount\""
 msgstr "ਪਰੋਗਰਾਮ \"umount\" ਨਹੀਂ ਮਿਲਿਆ ਹੈ"
 
-#: kioworkers/file/file_unix.cpp:394
+#: kioworkers/file/file_unix.cpp:403
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 ਲਈ ਡਿਵਾਈਸ ਵਿੱਚ ਕੋਈ ਮੀਡਿਆ ਨਹੀਂ ਹੈ"
 
-#: kioworkers/file/file_unix.cpp:745
+#: kioworkers/file/file_unix.cpp:762
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ਦਿੱਤੇ ਵਰਤੋਂਕਾਰ ਨਾਂ %1 ਲਈ ਵਰਤੋਂਕਾਰ ID ਨਹੀਂ ਲਿਆ ਜਾ ਸਕਿਆ"
 
-#: kioworkers/file/file_unix.cpp:756
+#: kioworkers/file/file_unix.cpp:773
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ਦਿੱਤੇ ਗਰੁੱਪ ਨਾਂ %1 ਲਈ ਗਰੁੱਪ id ਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ"
@@ -4202,90 +4202,90 @@ msgstr "ਕੀ ਤੁਸੀਂ ਸਰਟੀਫਿਕੇਟ ਹਮੇਸ਼ਾ ਲ�
 msgid "Server Authentication"
 msgstr "ਸਰਵਰ ਪਰਮਾਣਕਿਤਾ"
 
-#: kioworkers/http/http.cpp:1453
+#: kioworkers/http/http.cpp:1442
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "ਨਹੀ ਤਾਂ, ਬੇਨਤੀ ਸਫਲ ਹੋਵੇਗੀ।"
 
-#: kioworkers/http/http.cpp:1456
+#: kioworkers/http/http.cpp:1445
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "ਵਿਸ਼ੇਸ਼ਤਾ ਮੁੱਲ ਪ੍ਰਾਪਤ"
 
-#: kioworkers/http/http.cpp:1458
+#: kioworkers/http/http.cpp:1447
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "ਵਿਸ਼ੇਸ਼ਤਾ ਮੁੱਲ ਦਿਓ"
 
-#: kioworkers/http/http.cpp:1460
+#: kioworkers/http/http.cpp:1449
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "ਲੋੜੀਦਾ ਫੋਲਡਰ ਬਣਾਓ"
 
-#: kioworkers/http/http.cpp:1462
+#: kioworkers/http/http.cpp:1451
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਦੀ ਕਾਪੀ ਕਰੋ"
 
-#: kioworkers/http/http.cpp:1464
+#: kioworkers/http/http.cpp:1453
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਭੇਜੋ"
 
-#: kioworkers/http/http.cpp:1466
+#: kioworkers/http/http.cpp:1455
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "ਖਾਸ ਫੋਲਡਰ ਵਿੱਚ ਖੋਜੋ"
 
-#: kioworkers/http/http.cpp:1468
+#: kioworkers/http/http.cpp:1457
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਲਾਕ ਕਰੋ"
 
-#: kioworkers/http/http.cpp:1470
+#: kioworkers/http/http.cpp:1459
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਅਣ-ਲਾਕ ਕਰੋ"
 
-#: kioworkers/http/http.cpp:1472
+#: kioworkers/http/http.cpp:1461
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਹਟਾਓ"
 
-#: kioworkers/http/http.cpp:1474
+#: kioworkers/http/http.cpp:1463
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "ਸਰਵਰ ਦੀ ਸਮਰੱਥਾ ਲਈ ਕਿਊਰੀ"
 
-#: kioworkers/http/http.cpp:1476
+#: kioworkers/http/http.cpp:1465
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "ਖਾਸ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਦੇ ਭਾਗ ਲਵੋ"
 
-#: kioworkers/http/http.cpp:1478
+#: kioworkers/http/http.cpp:1467
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "ਰਿਪੋਰਟ ਖਾਸ ਫੋਲਡਰ 'ਚ ਚਲਾਓ"
 
-#: kioworkers/http/http.cpp:1486
+#: kioworkers/http/http.cpp:1475
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "%2 ਦੀ ਕੋਸ਼ਿਸ ਕਰਨ ਦੌਰਾਨ ਅਣਜਾਣ ਗਲਤੀ (%1) ਆਈ ਹੈ।"
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1515
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4293,20 +4293,20 @@ msgid ""
 "below."
 msgstr "%1, %2 ਲਈ ਕੋਸ਼ਿਸ਼ ਕਰਨ ਦੌਰਾਨ ਇੱਕ ਗਲਤੀ ਆਈ ਹੈ। ਕਾਰਨਾਂ ਬਾਰੇ ਸੰਖੇਪ ਜਾਣਕਾਰੀ ਹੇਠ ਦਿੱਤੀ ਹੈ।"
 
-#: kioworkers/http/http.cpp:1544 kioworkers/http/http.cpp:1688
+#: kioworkers/http/http.cpp:1533 kioworkers/http/http.cpp:1677
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "%1 ਲਈ ਕੋਸ਼ਿਸ ਕਰਨ ਤੇ ਪਹੁੰਚ ਪਾਬੰਦੀ ਹੈ।"
 
-#: kioworkers/http/http.cpp:1558 kioworkers/http/http.cpp:1695
+#: kioworkers/http/http.cpp:1547 kioworkers/http/http.cpp:1684
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1567
+#: kioworkers/http/http.cpp:1556
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4316,28 +4316,28 @@ msgid ""
 " %1"
 msgstr ""
 
-#: kioworkers/http/http.cpp:1575
+#: kioworkers/http/http.cpp:1564
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "ਲੋੜੀਦੇ ਲਾਕ ਲਈ ਅਧਿਕਾਰ ਨਹੀਂ ਮਿਲ ਨਹੀਂ ਸਕੇ। %1"
 
-#: kioworkers/http/http.cpp:1581
+#: kioworkers/http/http.cpp:1570
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1586 kioworkers/http/http.cpp:1703
+#: kioworkers/http/http.cpp:1575 kioworkers/http/http.cpp:1692
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "%1 ਲਈ ਅਸਫਲ ਹੈ, ਕਿਉਕਿ ਸਰੋਤ ਲਾਕ ਹੈ।"
 
-#: kioworkers/http/http.cpp:1590
+#: kioworkers/http/http.cpp:1579
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "ਇਹ ਕਾਰਵਾਈ ਇੱਕ ਗਲਤੀ ਕਰਕੇ ਰੋਕੀ ਗਈ ਹੈ"
 
-#: kioworkers/http/http.cpp:1597 kioworkers/http/http.cpp:1710
+#: kioworkers/http/http.cpp:1586 kioworkers/http/http.cpp:1699
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4346,25 +4346,25 @@ msgid ""
 msgstr ""
 "%1 ਲਈ ਅਸਫਲ ਹੈ, ਕਿਉਕਿ ਨਿਯਤ ਸਰਵਰ ਨੇ ਫਾਇਲ ਜਾਂ ਫੋਲਡਰ ਸਵੀਕਾਰ ਕਰਨ ਤੋਂ ਇਨਕਾਰ ਕਰ ਦਿੱਤਾ ਹੈ।"
 
-#: kioworkers/http/http.cpp:1606 kioworkers/http/http.cpp:1719
+#: kioworkers/http/http.cpp:1595 kioworkers/http/http.cpp:1708
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
 "of the resource after the execution of this method."
 msgstr ""
 
-#: kioworkers/http/http.cpp:1659
+#: kioworkers/http/http.cpp:1648
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "ਸਰੋਤ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ।"
 
-#: kioworkers/http/http.cpp:1679
+#: kioworkers/http/http.cpp:1668
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "%1 ਅੱਪਲੋਡ"
 
-#: kioworkers/http/http.cpp:1730
+#: kioworkers/http/http.cpp:1719
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -7094,7 +7094,7 @@ msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "<filename>%1</filename> ਕੋਈ ਚੱਲਣਯੋਗ ਪਰੋਗਰਾਮ ਨਹੀਂ ਜਾਪਦਾ ਹੈ।"
 
-#: widgets/renamefilewarningdialog.cpp:48
+#: widgets/renamefilewarningdialog.cpp:58
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Rename Item"
@@ -7102,7 +7102,7 @@ msgctxt "@action:button"
 msgid "Rename and Hide"
 msgstr "ਆਈਟਮ ਦਾ ਨਾਂ ਬਦਲੋ"
 
-#: widgets/renamefilewarningdialog.cpp:50
+#: widgets/renamefilewarningdialog.cpp:60
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7110,7 +7110,7 @@ msgid ""
 "Do you still want to rename it?"
 msgstr ""
 
-#: widgets/renamefilewarningdialog.cpp:51
+#: widgets/renamefilewarningdialog.cpp:61
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7118,35 +7118,35 @@ msgid ""
 "Do you still want to rename it?"
 msgstr ""
 
-#: widgets/renamefilewarningdialog.cpp:52
+#: widgets/renamefilewarningdialog.cpp:62
 #, fuzzy, kde-format
 #| msgid "Home Folder"
 msgctxt "@title:window"
 msgid "Hide this Folder?"
 msgstr "ਘਰ ਫੋਲਡਰ"
 
-#: widgets/renamefilewarningdialog.cpp:52
+#: widgets/renamefilewarningdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
 msgstr ""
 
-#: widgets/renamefilewarningdialog.cpp:58
-#: widgets/renamefilewarningdialog.cpp:108
+#: widgets/renamefilewarningdialog.cpp:68
+#: widgets/renamefilewarningdialog.cpp:118
 #: widgets/widgetsaskuseractionhandler.cpp:411
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "ਮੁੜ ਨਾ ਪੁੱਛੋ"
 
-#: widgets/renamefilewarningdialog.cpp:89
+#: widgets/renamefilewarningdialog.cpp:99
 #, fuzzy, kde-format
 #| msgid "Rename"
 msgctxt "@action:button"
 msgid "Rename"
 msgstr "ਨਾਂ-ਬਦਲੋ"
 
-#: widgets/renamefilewarningdialog.cpp:94
+#: widgets/renamefilewarningdialog.cpp:104
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7156,7 +7156,7 @@ msgid ""
 "Do you still want to rename it?"
 msgstr ""
 
-#: widgets/renamefilewarningdialog.cpp:98
+#: widgets/renamefilewarningdialog.cpp:108
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7166,7 +7166,7 @@ msgid ""
 "Do you still want to rename it?"
 msgstr ""
 
-#: widgets/renamefilewarningdialog.cpp:105
+#: widgets/renamefilewarningdialog.cpp:115
 #, fuzzy, kde-format
 #| msgid "Change File Owner"
 msgctxt "@title:window"

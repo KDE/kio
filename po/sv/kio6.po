@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-01 00:41+0000\n"
-"PO-Revision-Date: 2026-09-27 14:44+0200\n"
+"POT-Creation-Date: 2026-10-03 00:41+0000\n"
+"PO-Revision-Date: 2026-10-02 21:26+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -48,7 +48,7 @@ msgstr ""
 "Kunde inte ändra ägare av filen <filename>%1</filename>. Du har otillräcklig "
 "behörighet för att kunna genomföra ändringen."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:595
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:612
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4215,17 +4215,17 @@ msgstr "Kunde inte hitta programmet \"mount\""
 msgid "Could not find program \"umount\""
 msgstr "Kunde inte hitta programmet \"umount\""
 
-#: kioworkers/file/file_unix.cpp:394
+#: kioworkers/file/file_unix.cpp:403
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Inget medium i enheten för %1"
 
-#: kioworkers/file/file_unix.cpp:745
+#: kioworkers/file/file_unix.cpp:762
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Kunde inte hämta användaridentifikation för angivet användarnamn %1"
 
-#: kioworkers/file/file_unix.cpp:756
+#: kioworkers/file/file_unix.cpp:773
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Kunde inte hämta gruppidentifikation för angivet gruppnamn %1"
@@ -4379,90 +4379,90 @@ msgstr ""
 msgid "Server Authentication"
 msgstr "Serverbehörighetskontroll"
 
-#: kioworkers/http/http.cpp:1453
+#: kioworkers/http/http.cpp:1442
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Annars skulle begäran ha lyckats."
 
-#: kioworkers/http/http.cpp:1456
+#: kioworkers/http/http.cpp:1445
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "hämta egenskapsvärden"
 
-#: kioworkers/http/http.cpp:1458
+#: kioworkers/http/http.cpp:1447
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "ange egenskapsvärden"
 
-#: kioworkers/http/http.cpp:1460
+#: kioworkers/http/http.cpp:1449
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "skapa den begärda katalogen"
 
-#: kioworkers/http/http.cpp:1462
+#: kioworkers/http/http.cpp:1451
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopiera den angivna filen eller katalogen"
 
-#: kioworkers/http/http.cpp:1464
+#: kioworkers/http/http.cpp:1453
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "flytta den angivna filen eller katalogen"
 
-#: kioworkers/http/http.cpp:1466
+#: kioworkers/http/http.cpp:1455
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "söka i den angivna katalogen"
 
-#: kioworkers/http/http.cpp:1468
+#: kioworkers/http/http.cpp:1457
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "låsa den angivna filen eller katalogen"
 
-#: kioworkers/http/http.cpp:1470
+#: kioworkers/http/http.cpp:1459
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "låsa upp den angivna filen eller katalogen"
 
-#: kioworkers/http/http.cpp:1472
+#: kioworkers/http/http.cpp:1461
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "ta bort den angivna filen eller katalogen"
 
-#: kioworkers/http/http.cpp:1474
+#: kioworkers/http/http.cpp:1463
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "fråga om serverns funktioner"
 
-#: kioworkers/http/http.cpp:1476
+#: kioworkers/http/http.cpp:1465
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "hämta innehållet i angiven fil eller katalog"
 
-#: kioworkers/http/http.cpp:1478
+#: kioworkers/http/http.cpp:1467
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "skapa en rapport i den angivna katalogen"
 
-#: kioworkers/http/http.cpp:1486
+#: kioworkers/http/http.cpp:1475
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Ett oväntat fel (%1) uppstod vid försök att %2."
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1515
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4472,13 +4472,13 @@ msgstr ""
 "Ett fel uppstod vid försök att %1, %2. En sammanfattning av orsakerna anges "
 "nedan."
 
-#: kioworkers/http/http.cpp:1544 kioworkers/http/http.cpp:1688
+#: kioworkers/http/http.cpp:1533 kioworkers/http/http.cpp:1677
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Åtkomst nekades vid försök att %1."
 
-#: kioworkers/http/http.cpp:1558 kioworkers/http/http.cpp:1695
+#: kioworkers/http/http.cpp:1547 kioworkers/http/http.cpp:1684
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4487,7 +4487,7 @@ msgstr ""
 "En resurs kan inte skapas på destinationen innan en eller flera "
 "mellanliggande samlingar (kataloger) har skapats."
 
-#: kioworkers/http/http.cpp:1567
+#: kioworkers/http/http.cpp:1556
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4502,28 +4502,28 @@ msgstr ""
 "begärde att filer inte ska skrivas över.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1575
+#: kioworkers/http/http.cpp:1564
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Den begärda låsningen kunde inte erhållas. %1"
 
-#: kioworkers/http/http.cpp:1581
+#: kioworkers/http/http.cpp:1570
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Servern stödjer inte typen av begäran i meddelandet."
 
-#: kioworkers/http/http.cpp:1586 kioworkers/http/http.cpp:1703
+#: kioworkers/http/http.cpp:1575 kioworkers/http/http.cpp:1692
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Kan inte %1 eftersom resursen är låst."
 
-#: kioworkers/http/http.cpp:1590
+#: kioworkers/http/http.cpp:1579
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Åtgärden förhindrades av ett annat fel."
 
-#: kioworkers/http/http.cpp:1597 kioworkers/http/http.cpp:1710
+#: kioworkers/http/http.cpp:1586 kioworkers/http/http.cpp:1699
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4532,7 +4532,7 @@ msgid ""
 msgstr ""
 "Kan inte %1 eftersom målservern vägrar att acceptera filen eller katalogen."
 
-#: kioworkers/http/http.cpp:1606 kioworkers/http/http.cpp:1719
+#: kioworkers/http/http.cpp:1595 kioworkers/http/http.cpp:1708
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4541,18 +4541,18 @@ msgstr ""
 "Målresursen har inte tillräckligt med utrymme för att registrera resursens "
 "tillstånd efter den här metoden har körts."
 
-#: kioworkers/http/http.cpp:1659
+#: kioworkers/http/http.cpp:1648
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Resursen kan inte tas bort."
 
-#: kioworkers/http/http.cpp:1679
+#: kioworkers/http/http.cpp:1668
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "ladda upp %1"
 
-#: kioworkers/http/http.cpp:1730
+#: kioworkers/http/http.cpp:1719
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -7072,25 +7072,19 @@ msgid "# will be replaced by ascending numbers starting with:"
 msgstr "# ersätts av nummer i stigande följd med början på:"
 
 #: widgets/renamefiledialog.cpp:229
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#, kde-format
 msgctxt "@item:inlistbox the new name is the whole file name"
 msgid "Replace filename"
-msgstr "Före filnamn"
+msgstr "Ersätt filnamn"
 
 #: widgets/renamefiledialog.cpp:230
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name before the filename"
 msgid "Before filename"
 msgstr "Före filnamn"
 
 #: widgets/renamefiledialog.cpp:231
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text after filename"
-#| msgid "After filename"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name after the filename"
 msgid "After filename"
 msgstr "Efter filnamn"
@@ -7101,7 +7095,7 @@ msgctxt ""
 "Template putting the number before the old file name, # is replaced by a "
 "number later"
 msgid "#_"
-msgstr ""
+msgstr "#_"
 
 #: widgets/renamefiledialog.cpp:286
 #, kde-format
@@ -7109,7 +7103,7 @@ msgctxt ""
 "Template putting the number after the old file name, # is replaced by a "
 "number later"
 msgid "_#"
-msgstr ""
+msgstr "_#"
 
 #: widgets/renamefiledialog.cpp:288
 #, kde-format
@@ -7263,13 +7257,13 @@ msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "Kan inte byta namn på <filename>%1</filename> till ett tomt filnamn."
 
-#: widgets/renamefilewarningdialog.cpp:48
+#: widgets/renamefilewarningdialog.cpp:58
 #, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
 msgstr "Byt namn och dölj"
 
-#: widgets/renamefilewarningdialog.cpp:50
+#: widgets/renamefilewarningdialog.cpp:60
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7280,7 +7274,7 @@ msgstr ""
 "från att visas.\n"
 "Vill du ändå byta namn på den?"
 
-#: widgets/renamefilewarningdialog.cpp:51
+#: widgets/renamefilewarningdialog.cpp:61
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7291,33 +7285,33 @@ msgstr ""
 "att visas.\n"
 "Vill du ändå byta namn på den?"
 
-#: widgets/renamefilewarningdialog.cpp:52
+#: widgets/renamefilewarningdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
 msgstr "Dölj katalogen?"
 
-#: widgets/renamefilewarningdialog.cpp:52
+#: widgets/renamefilewarningdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
 msgstr "Dölj filen?"
 
-#: widgets/renamefilewarningdialog.cpp:58
-#: widgets/renamefilewarningdialog.cpp:108
+#: widgets/renamefilewarningdialog.cpp:68
+#: widgets/renamefilewarningdialog.cpp:118
 #: widgets/widgetsaskuseractionhandler.cpp:411
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Fråga inte igen"
 
-#: widgets/renamefilewarningdialog.cpp:89
+#: widgets/renamefilewarningdialog.cpp:99
 #, kde-format
 msgctxt "@action:button"
 msgid "Rename"
 msgstr "Byt namn"
 
-#: widgets/renamefilewarningdialog.cpp:94
+#: widgets/renamefilewarningdialog.cpp:104
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7331,7 +7325,7 @@ msgstr ""
 "den.\n"
 "Vill du ändå byta namn på den?"
 
-#: widgets/renamefilewarningdialog.cpp:98
+#: widgets/renamefilewarningdialog.cpp:108
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7345,7 +7339,7 @@ msgstr ""
 "den.\n"
 "Vill du ändå byta namn på den?"
 
-#: widgets/renamefilewarningdialog.cpp:105
+#: widgets/renamefilewarningdialog.cpp:115
 #, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"

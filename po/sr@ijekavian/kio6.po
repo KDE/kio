@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-01 00:41+0000\n"
+"POT-Creation-Date: 2026-10-03 00:41+0000\n"
 "PO-Revision-Date: 2026-09-18 12:00+0200\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 "Не могу да промијеним власништво над фајлом <filename>%1</filename>. Немате "
 "довољно дозвола за овакву промјену."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:595
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:612
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4238,17 +4238,17 @@ msgstr "Не могу да пронађем наредбу mount"
 msgid "Could not find program \"umount\""
 msgstr "Не могу да пронађем наредбу umount"
 
-#: kioworkers/file/file_unix.cpp:394
+#: kioworkers/file/file_unix.cpp:403
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Нема медијума у уређају за %1"
 
-#: kioworkers/file/file_unix.cpp:745
+#: kioworkers/file/file_unix.cpp:762
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Не могу да добавим кориснички ИД за дато име корисника %1."
 
-#: kioworkers/file/file_unix.cpp:756
+#: kioworkers/file/file_unix.cpp:773
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Не могу да добавим групни ИД за дато име групе %1"
@@ -4402,13 +4402,13 @@ msgstr "Желите ли да прихватите овај сертифика�
 msgid "Server Authentication"
 msgstr "Аутентификација сервера"
 
-#: kioworkers/http/http.cpp:1453
+#: kioworkers/http/http.cpp:1442
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Иначе, захтјев би успио."
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1456
+#: kioworkers/http/http.cpp:1445
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
@@ -4417,7 +4417,7 @@ msgstr ""
 "могу да се добаве']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1458
+#: kioworkers/http/http.cpp:1447
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
@@ -4426,7 +4426,7 @@ msgstr ""
 "могу да се поставе']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1460
+#: kioworkers/http/http.cpp:1449
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
@@ -4435,7 +4435,7 @@ msgstr ""
 "направи']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1462
+#: kioworkers/http/http.cpp:1451
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
@@ -4444,7 +4444,7 @@ msgstr ""
 "фасцикла не може да се копира']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1464
+#: kioworkers/http/http.cpp:1453
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
@@ -4453,7 +4453,7 @@ msgstr ""
 "фасцикла не може да се помјери']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1466
+#: kioworkers/http/http.cpp:1455
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
@@ -4462,7 +4462,7 @@ msgstr ""
 "може да се тражи']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1468
+#: kioworkers/http/http.cpp:1457
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
@@ -4471,7 +4471,7 @@ msgstr ""
 "фасцикла не може да се закључа']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1470
+#: kioworkers/http/http.cpp:1459
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
@@ -4480,7 +4480,7 @@ msgstr ""
 "фасцикла не може да се откључа']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1472
+#: kioworkers/http/http.cpp:1461
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
@@ -4489,7 +4489,7 @@ msgstr ""
 "фасцикла не може да се обрише']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1474
+#: kioworkers/http/http.cpp:1463
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
@@ -4498,7 +4498,7 @@ msgstr ""
 "за способности']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1476
+#: kioworkers/http/http.cpp:1465
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
@@ -4507,7 +4507,7 @@ msgstr ""
 "наведеног фајла или фасцикле не може да се добави']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
-#: kioworkers/http/http.cpp:1478
+#: kioworkers/http/http.cpp:1467
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
@@ -4515,13 +4515,13 @@ msgstr ""
 "изврши извјештај у наведеној фасцикли|/|$[својства Не-може 'У наведеној "
 "фасцикли не може да се изврши извјештај']"
 
-#: kioworkers/http/http.cpp:1486
+#: kioworkers/http/http.cpp:1475
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Неочекивана грешка (%1) при покушају да се %2."
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1515
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4529,13 +4529,13 @@ msgid ""
 "below."
 msgstr "Грешка при покушају да се %1, %2. Сажетак разлога је дат испод."
 
-#: kioworkers/http/http.cpp:1544 kioworkers/http/http.cpp:1688
+#: kioworkers/http/http.cpp:1533 kioworkers/http/http.cpp:1677
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Одбијен је приступ при покушају да се %1."
 
-#: kioworkers/http/http.cpp:1558 kioworkers/http/http.cpp:1695
+#: kioworkers/http/http.cpp:1547 kioworkers/http/http.cpp:1684
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4544,7 +4544,7 @@ msgstr ""
 "Ресурс не може бити направљен на одредишту све док се једна или више "
 "посредишних збирки (фасцикли) не направи."
 
-#: kioworkers/http/http.cpp:1567
+#: kioworkers/http/http.cpp:1556
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4559,17 +4559,17 @@ msgstr ""
 "пребрисују.\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1575
+#: kioworkers/http/http.cpp:1564
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Тражено закључавање није било одобрено. %1"
 
-#: kioworkers/http/http.cpp:1581
+#: kioworkers/http/http.cpp:1570
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Сервер не подржава тип захтијева у телу."
 
-#: kioworkers/http/http.cpp:1586 kioworkers/http/http.cpp:1703
+#: kioworkers/http/http.cpp:1575 kioworkers/http/http.cpp:1692
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
@@ -4577,12 +4577,12 @@ msgstr ""
 "Не може да се %1 зато што је ресурс закључан.|/|$[Не-може %1] зато што је "
 "ресурс закључан."
 
-#: kioworkers/http/http.cpp:1590
+#: kioworkers/http/http.cpp:1579
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Ова радња је спријечена другом грешком."
 
-#: kioworkers/http/http.cpp:1597 kioworkers/http/http.cpp:1710
+#: kioworkers/http/http.cpp:1586 kioworkers/http/http.cpp:1699
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4593,7 +4593,7 @@ msgstr ""
 "фасциклу.|/|$[Не-може %1] зато што одредишни сервер одбија да прихвати фајл "
 "или фасциклу."
 
-#: kioworkers/http/http.cpp:1606 kioworkers/http/http.cpp:1719
+#: kioworkers/http/http.cpp:1595 kioworkers/http/http.cpp:1708
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4602,19 +4602,19 @@ msgstr ""
 "Одредишни ресурс нема довољно простора да запише стање ресурса послије "
 "извршења ове методе."
 
-#: kioworkers/http/http.cpp:1659
+#: kioworkers/http/http.cpp:1648
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Ресурс се не може обрисати."
 
 # У склопу реченице: „при покушају да се ...“ или „не може ...“
-#: kioworkers/http/http.cpp:1679
+#: kioworkers/http/http.cpp:1668
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "отпреми %1|/|$[својства Не-може %1' не може да се отпреми']"
 
-#: kioworkers/http/http.cpp:1730
+#: kioworkers/http/http.cpp:1719
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -7382,13 +7382,13 @@ msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "<filename>%1</filename> не може се преименовати у празно име."
 
-#: widgets/renamefilewarningdialog.cpp:48
+#: widgets/renamefilewarningdialog.cpp:58
 #, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
 msgstr "Преименуј и сакриј"
 
-#: widgets/renamefilewarningdialog.cpp:50
+#: widgets/renamefilewarningdialog.cpp:60
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7398,7 +7398,7 @@ msgstr ""
 "Тачка на почетку имена фасцикле сакриће је из приказа.\n"
 "Желите ли ипак да је преименујете?"
 
-#: widgets/renamefilewarningdialog.cpp:51
+#: widgets/renamefilewarningdialog.cpp:61
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7408,33 +7408,33 @@ msgstr ""
 "Тачка на почетку имена фајла сакриће га из приказа.\n"
 "Желите ли ипак да га преименујете?"
 
-#: widgets/renamefilewarningdialog.cpp:52
+#: widgets/renamefilewarningdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
 msgstr "Сакрити фасциклу?"
 
-#: widgets/renamefilewarningdialog.cpp:52
+#: widgets/renamefilewarningdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
 msgstr "Сакрити фајл?"
 
-#: widgets/renamefilewarningdialog.cpp:58
-#: widgets/renamefilewarningdialog.cpp:108
+#: widgets/renamefilewarningdialog.cpp:68
+#: widgets/renamefilewarningdialog.cpp:118
 #: widgets/widgetsaskuseractionhandler.cpp:411
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Не питај више"
 
-#: widgets/renamefilewarningdialog.cpp:89
+#: widgets/renamefilewarningdialog.cpp:99
 #, kde-format
 msgctxt "@action:button"
 msgid "Rename"
 msgstr "Преименуј"
 
-#: widgets/renamefilewarningdialog.cpp:94
+#: widgets/renamefilewarningdialog.cpp:104
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7448,7 +7448,7 @@ msgstr ""
 "препознају.\n"
 "Желите ли ипак да га преименујете?"
 
-#: widgets/renamefilewarningdialog.cpp:98
+#: widgets/renamefilewarningdialog.cpp:108
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7462,7 +7462,7 @@ msgstr ""
 "препознају.\n"
 "Желите ли ипак да га преименујете?"
 
-#: widgets/renamefilewarningdialog.cpp:105
+#: widgets/renamefilewarningdialog.cpp:115
 #, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"

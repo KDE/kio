@@ -14,20 +14,21 @@
 # Teemu Rytilahti <tpr@d5k.net>, 2008.
 # Teemu Rytilahti <teemu.rytilahti@d5k.net>, 2008.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2019.
+# SPDX-FileCopyrightText: 2026 Lasse Liehu-Inui <lasse.liehu@iki.fi>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-01 00:41+0000\n"
-"PO-Revision-Date: 2026-03-02 19:25+0200\n"
-"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
-"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"POT-Creation-Date: 2026-10-03 00:41+0000\n"
+"PO-Revision-Date: 2026-10-02 22:43+0300\n"
+"Last-Translator: Lasse Liehu-Inui <lasse.liehu@iki.fi>\n"
+"Language-Team: Finnish <kde-l10n-fi@kde.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -55,7 +56,7 @@ msgstr ""
 "Tiedoston <filename>%1</filename> omistajaa ei voitu muuttaa. Tiedostoon ei "
 "ole riittäviä käyttöoikeuksia."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:595
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:612
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3591,11 +3592,10 @@ msgid "Create link to URL"
 msgstr "Luo linkki verkko-osoitteeseen"
 
 #: filewidgets/knewfilemenu.cpp:650
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
-msgstr "Luo uusi"
+msgstr "Luo uusi %1"
 
 #: filewidgets/knewfilemenu.cpp:784 filewidgets/knewfilemenu.cpp:806
 #, kde-format
@@ -3811,9 +3811,7 @@ msgid "Go to Location on Path"
 msgstr "Siirry polun sijaintiin"
 
 #: filewidgets/kurlnavigatorplacesselector.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Places"
+#, kde-format
 msgctxt ""
 "@action:button accessible name for the places selector in the URL navigator"
 msgid "Places"
@@ -3911,6 +3909,8 @@ msgstr "Kuvaketiedosto on liian suuri; lataus keskeytettiin"
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
+"FilePreviewJob: sivuutetaan tyhjä tiedosto, voi olla rikkinäinen symlinkki: "
+"%1"
 
 #: gui/kemailclientlauncherjob.cpp:117
 #, kde-format
@@ -4024,7 +4024,7 @@ msgstr "Ohjelmaa ”%1” ei voitu käynnistää."
 #: gui/systemd/systemdprocessrunner.cpp:200
 #, kde-format
 msgid "Failed to launch process (status code: %1)"
-msgstr ""
+msgstr "Prosessin käynnistäminen epäonnistui (tilakoodi: %1)"
 
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
@@ -4207,17 +4207,17 @@ msgstr "Ohjelmaa ”mount” ei löytynyt"
 msgid "Could not find program \"umount\""
 msgstr "Ohjelmaa ”umount” ei löytynyt"
 
-#: kioworkers/file/file_unix.cpp:394
+#: kioworkers/file/file_unix.cpp:403
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Ei mediaa laitteessa %1"
 
-#: kioworkers/file/file_unix.cpp:745
+#: kioworkers/file/file_unix.cpp:762
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Käyttäjä-ID annetulle nimelle %1 ei saatavilla."
 
-#: kioworkers/file/file_unix.cpp:756
+#: kioworkers/file/file_unix.cpp:773
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Ryhmän %1 ryhmätunuksen selvittäminen epäonnistui."
@@ -4370,90 +4370,90 @@ msgstr "Haluatko hyväksyä varmenteen pysyvästi?"
 msgid "Server Authentication"
 msgstr "Palvelimen varmennus"
 
-#: kioworkers/http/http.cpp:1453
+#: kioworkers/http/http.cpp:1442
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Muuten pyyntö olisi onnistunut."
 
-#: kioworkers/http/http.cpp:1456
+#: kioworkers/http/http.cpp:1445
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
 msgstr "hae ominaisuusarvot"
 
-#: kioworkers/http/http.cpp:1458
+#: kioworkers/http/http.cpp:1447
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
 msgstr "aseta ominaisuusarvot"
 
-#: kioworkers/http/http.cpp:1460
+#: kioworkers/http/http.cpp:1449
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
 msgstr "luo pyydetty kansio"
 
-#: kioworkers/http/http.cpp:1462
+#: kioworkers/http/http.cpp:1451
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
 msgstr "kopioi tietty tiedosto tai kansio"
 
-#: kioworkers/http/http.cpp:1464
+#: kioworkers/http/http.cpp:1453
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr "siirrä tietty tiedosto tai kansio"
 
-#: kioworkers/http/http.cpp:1466
+#: kioworkers/http/http.cpp:1455
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
 msgstr "hae tietyssä kansiossa"
 
-#: kioworkers/http/http.cpp:1468
+#: kioworkers/http/http.cpp:1457
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
 msgstr "lukitse tietty tiedosto tai kansio"
 
-#: kioworkers/http/http.cpp:1470
+#: kioworkers/http/http.cpp:1459
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
 msgstr "poista lukitus tietystä tiedostosta tai kansiosta"
 
-#: kioworkers/http/http.cpp:1472
+#: kioworkers/http/http.cpp:1461
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
 msgstr "poista tietty tiedosto tai kansio"
 
-#: kioworkers/http/http.cpp:1474
+#: kioworkers/http/http.cpp:1463
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
 msgstr "kysele palvelimen kykyjä"
 
-#: kioworkers/http/http.cpp:1476
+#: kioworkers/http/http.cpp:1465
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
 msgstr "hae tietyn tiedoston tai kansion sisältö"
 
-#: kioworkers/http/http.cpp:1478
+#: kioworkers/http/http.cpp:1467
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "aja raportti määritetyssä kansiossa"
 
-#: kioworkers/http/http.cpp:1486
+#: kioworkers/http/http.cpp:1475
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
 msgstr "Odottamaton virhe (%1) tapahtui yritettäessä pyyntöä %2."
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1515
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4461,13 +4461,13 @@ msgid ""
 "below."
 msgstr "Tapahtui virhe yritettäessä %1, %2. Lyhyt yhteenveto syistä on alla."
 
-#: kioworkers/http/http.cpp:1544 kioworkers/http/http.cpp:1688
+#: kioworkers/http/http.cpp:1533 kioworkers/http/http.cpp:1677
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
 msgstr "Käsittely kielletty yritettäessä %1."
 
-#: kioworkers/http/http.cpp:1558 kioworkers/http/http.cpp:1695
+#: kioworkers/http/http.cpp:1547 kioworkers/http/http.cpp:1684
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4477,7 +4477,7 @@ msgstr ""
 "(kansio) on luotu."
 
 # Koska kehittäjä muutti ”propertybehavior” → ”property behavior”, niin oletin ettei ole kääntämättömissä oleva XML-elementin nimi (niissä ei voi olla välilyöntiä). ”Ominaisuuksien käyttäytyminen” heitetty, mutta sen voi ongelmatilanteessa kääntää helposti englanniksi.
-#: kioworkers/http/http.cpp:1567
+#: kioworkers/http/http.cpp:1556
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4492,28 +4492,28 @@ msgstr ""
 "korvata.\n"
 " %1"
 
-#: kioworkers/http/http.cpp:1575
+#: kioworkers/http/http.cpp:1564
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Pyydettyä lukkoa %1 ei voitu myöntää."
 
-#: kioworkers/http/http.cpp:1581
+#: kioworkers/http/http.cpp:1570
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Palvelin ei tue rungon pyyntötyyppiä."
 
-#: kioworkers/http/http.cpp:1586 kioworkers/http/http.cpp:1703
+#: kioworkers/http/http.cpp:1575 kioworkers/http/http.cpp:1692
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
 msgstr "Toimintoa %1 ei voida suorittaa, koska resurssi on lukittu."
 
-#: kioworkers/http/http.cpp:1590
+#: kioworkers/http/http.cpp:1579
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Toiminto estyi jonkin muun virheen vuoksi."
 
-#: kioworkers/http/http.cpp:1597 kioworkers/http/http.cpp:1710
+#: kioworkers/http/http.cpp:1586 kioworkers/http/http.cpp:1699
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4523,7 +4523,7 @@ msgstr ""
 "%1 ei onnistu, koska kohdepalvelin kieltäytyy hyväksymästä tiedostoa tai "
 "kansiota."
 
-#: kioworkers/http/http.cpp:1606 kioworkers/http/http.cpp:1719
+#: kioworkers/http/http.cpp:1595 kioworkers/http/http.cpp:1708
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4532,18 +4532,18 @@ msgstr ""
 "Kohderesurssissa ei ole riittävästi tilaa tallentaa resurssin tilaa metodin "
 "suorituksen jälkeen."
 
-#: kioworkers/http/http.cpp:1659
+#: kioworkers/http/http.cpp:1648
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Resurssia ei voida poistaa."
 
-#: kioworkers/http/http.cpp:1679
+#: kioworkers/http/http.cpp:1668
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
 msgstr "lähetetään tiedostoa %1"
 
-#: kioworkers/http/http.cpp:1730
+#: kioworkers/http/http.cpp:1719
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -5400,10 +5400,9 @@ msgstr "Sisältö:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Open with:"
+#, kde-format
 msgid "Open with:"
-msgstr "Avaa ohjelmalla:"
+msgstr "Avaa ohjelmaan:"
 
 #. i18n: ectx: property (text), widget (QPushButton, configureMimeBtn)
 #: widgets/kfilepropspluginwidget.ui:192
@@ -5427,7 +5426,7 @@ msgstr "Koko:"
 #: widgets/kfilepropspluginwidget.ui:259
 #, kde-format
 msgid "Size on disk:"
-msgstr ""
+msgstr "Koko levyllä:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:308
@@ -5486,29 +5485,25 @@ msgstr "Avattu:"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, fuzzy, kde-format
-#| msgid "File system:"
+#, kde-format
 msgid "File system:"
 msgstr "Tiedostojärjestelmä:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
+#, kde-format
 msgid "Mounted on:"
 msgstr "Liitospiste:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:533
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
+#, kde-format
 msgid "Mounted from:"
 msgstr "Liitoslähde:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:559
-#, fuzzy, kde-format
-#| msgid "Free Space:"
+#, kde-format
 msgid "Free space:"
 msgstr "Tilaa vapaana:"
 
@@ -6053,22 +6048,19 @@ msgstr ""
 "tiedostoon:<nl/><filename>%1</filename>."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:159
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt ""
 "@label the size of a file or folder, first rounded and then to the byte"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:161
-#, fuzzy, kde-format
-#| msgid " byte"
-#| msgid_plural " bytes"
+#, kde-format
 msgctxt "@item the exact size of a file or folder"
 msgid "%1 byte"
 msgid_plural "%1 bytes"
-msgstr[0] " tavu"
-msgstr[1] " tavua"
+msgstr[0] "1 tavu"
+msgstr[1] "%1 tavua"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:263
 #, kde-format
@@ -6119,16 +6111,13 @@ msgid "Unknown size"
 msgstr "Tuntematon koko"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:739
-#, fuzzy, kde-format
-#| msgid ""
-#| "Calculating... %1 (%2)\n"
-#| "%3, %4"
+#, kde-format
 msgid ""
 "Calculating... %1\n"
 "%2, %3"
 msgstr ""
-"Lasketaan… %1 (%2)\n"
-"%3, %4"
+"Lasketaan… %1\n"
+"%2, %3"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:741
 #: widgets/kpropertiesdialogbuiltin_p.cpp:756
@@ -6773,12 +6762,10 @@ msgid "pasted file"
 msgstr "liitetty tiedosto"
 
 #: widgets/paste.cpp:79 widgets/paste.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "Liitä leikepöydän sisältö…"
+msgstr "Liitä leikepöydän sisältö"
 
 #: widgets/paste.cpp:122
 #, kde-format
@@ -6823,8 +6810,7 @@ msgid "Paste"
 msgstr "Liitä"
 
 #: widgets/pastedialog.cpp:57
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Tietomuoto:"
@@ -7261,7 +7247,7 @@ msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "Tiedoston <filename>%1</filename> nimeä ei voi muuttaa tyhjäksi."
 
-#: widgets/renamefilewarningdialog.cpp:48
+#: widgets/renamefilewarningdialog.cpp:58
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Rename Item"
@@ -7269,7 +7255,7 @@ msgctxt "@action:button"
 msgid "Rename and Hide"
 msgstr "Muuta nimeä"
 
-#: widgets/renamefilewarningdialog.cpp:50
+#: widgets/renamefilewarningdialog.cpp:60
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7277,7 +7263,7 @@ msgid ""
 "Do you still want to rename it?"
 msgstr ""
 
-#: widgets/renamefilewarningdialog.cpp:51
+#: widgets/renamefilewarningdialog.cpp:61
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7285,35 +7271,35 @@ msgid ""
 "Do you still want to rename it?"
 msgstr ""
 
-#: widgets/renamefilewarningdialog.cpp:52
+#: widgets/renamefilewarningdialog.cpp:62
 #, fuzzy, kde-format
 #| msgid "Home Folder"
 msgctxt "@title:window"
 msgid "Hide this Folder?"
 msgstr "Kotikansio"
 
-#: widgets/renamefilewarningdialog.cpp:52
+#: widgets/renamefilewarningdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
 msgstr ""
 
-#: widgets/renamefilewarningdialog.cpp:58
-#: widgets/renamefilewarningdialog.cpp:108
+#: widgets/renamefilewarningdialog.cpp:68
+#: widgets/renamefilewarningdialog.cpp:118
 #: widgets/widgetsaskuseractionhandler.cpp:411
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Älä kysy uudelleen"
 
-#: widgets/renamefilewarningdialog.cpp:89
+#: widgets/renamefilewarningdialog.cpp:99
 #, fuzzy, kde-format
 #| msgid "Rename"
 msgctxt "@action:button"
 msgid "Rename"
 msgstr "Muuta nimeä"
 
-#: widgets/renamefilewarningdialog.cpp:94
+#: widgets/renamefilewarningdialog.cpp:104
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7323,7 +7309,7 @@ msgid ""
 "Do you still want to rename it?"
 msgstr ""
 
-#: widgets/renamefilewarningdialog.cpp:98
+#: widgets/renamefilewarningdialog.cpp:108
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7333,7 +7319,7 @@ msgid ""
 "Do you still want to rename it?"
 msgstr ""
 
-#: widgets/renamefilewarningdialog.cpp:105
+#: widgets/renamefilewarningdialog.cpp:115
 #, fuzzy, kde-format
 #| msgid "Change File Owner"
 msgctxt "@title:window"

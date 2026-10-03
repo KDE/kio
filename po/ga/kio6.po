@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-01 00:41+0000\n"
+"POT-Creation-Date: 2026-10-03 00:41+0000\n"
 "PO-Revision-Date: 2026-07-03 22:06+0100\n"
 "Last-Translator: deck <altronic25@protonmail.com>\n"
 "Language-Team: English <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -43,7 +43,7 @@ msgstr ""
 "Níorbh fhéidir úinéireacht an chomhaid <filename>%1</filename> a athrú. Níl "
 "rochtain leordhóthanach agat ar an gcomhad chun an t-athrú a dhéanamh."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:595
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:612
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4260,18 +4260,18 @@ msgstr "Níorbh fhéidir clár \"mount\" a aimsiú"
 msgid "Could not find program \"umount\""
 msgstr "Níorbh fhéidir clár \"umount\" a aimsiú"
 
-#: kioworkers/file/file_unix.cpp:394
+#: kioworkers/file/file_unix.cpp:403
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Níl meáin sa ghléas le haghaidh %1"
 
-#: kioworkers/file/file_unix.cpp:745
+#: kioworkers/file/file_unix.cpp:762
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 "Níorbh fhéidir aitheantas úsáideora a fháil don ainm úsáideora tugtha %1"
 
-#: kioworkers/file/file_unix.cpp:756
+#: kioworkers/file/file_unix.cpp:773
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Níorbh fhéidir aitheantas grúpa a fháil don ainm grúpa tugtha %1"
@@ -4426,13 +4426,13 @@ msgstr "An bhfuil fonn ort glacadh leis an teastas seo go buan gan fiafraí?"
 msgid "Server Authentication"
 msgstr "Fíordheimhniú den Fhreastalaí"
 
-#: kioworkers/http/http.cpp:1453
+#: kioworkers/http/http.cpp:1442
 #, kde-format
 msgid "Otherwise, the request would have succeeded."
 msgstr "Seachas sin, bheadh ​​an t-iarratas rathúil."
 
 # SEE BELOW - all "attempting to...", or "unable to..."
-#: kioworkers/http/http.cpp:1456
+#: kioworkers/http/http.cpp:1445
 #, kde-format
 msgctxt "request type"
 msgid "retrieve property values"
@@ -4442,7 +4442,7 @@ msgstr ""
 "             unable-to 'luachanna airíonna a fháil'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1458
+#: kioworkers/http/http.cpp:1447
 #, kde-format
 msgctxt "request type"
 msgid "set property values"
@@ -4452,7 +4452,7 @@ msgstr ""
 "             unable-to 'luachanna airíonna a shocrú'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1460
+#: kioworkers/http/http.cpp:1449
 #, kde-format
 msgctxt "request type"
 msgid "create the requested folder"
@@ -4462,7 +4462,7 @@ msgstr ""
 "             unable-to 'an fillteán iarrtha a chruthú'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1462
+#: kioworkers/http/http.cpp:1451
 #, kde-format
 msgctxt "request type"
 msgid "copy the specified file or folder"
@@ -4472,7 +4472,7 @@ msgstr ""
 "             unable-to 'an comhad nó fillteán sonraithe a chóipeáil'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1464
+#: kioworkers/http/http.cpp:1453
 #, kde-format
 msgctxt "request type"
 msgid "move the specified file or folder"
@@ -4482,7 +4482,7 @@ msgstr ""
 "             unable-to 'an comhad nó fillteán sonraithe a bhogadh'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1466
+#: kioworkers/http/http.cpp:1455
 #, kde-format
 msgctxt "request type"
 msgid "search in the specified folder"
@@ -4492,7 +4492,7 @@ msgstr ""
 "             unable-to 'an fillteán sonraithe a chuardach'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1468
+#: kioworkers/http/http.cpp:1457
 #, kde-format
 msgctxt "request type"
 msgid "lock the specified file or folder"
@@ -4502,7 +4502,7 @@ msgstr ""
 "             unable-to 'an comhad nó fillteán sonraithe a chur faoi ghlas'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1470
+#: kioworkers/http/http.cpp:1459
 #, kde-format
 msgctxt "request type"
 msgid "unlock the specified file or folder"
@@ -4513,7 +4513,7 @@ msgstr ""
 "oscailt'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1472
+#: kioworkers/http/http.cpp:1461
 #, kde-format
 msgctxt "request type"
 msgid "delete the specified file or folder"
@@ -4523,7 +4523,7 @@ msgstr ""
 "             unable-to 'an comhad nó an fillteán sonraithe a scriosadh'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1474
+#: kioworkers/http/http.cpp:1463
 #, kde-format
 msgctxt "request type"
 msgid "query the server's capabilities"
@@ -4533,7 +4533,7 @@ msgstr ""
 "             unable-to 'cumas an fhreastalaí a fháil amach'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1476
+#: kioworkers/http/http.cpp:1465
 #, kde-format
 msgctxt "request type"
 msgid "retrieve the contents of the specified file or folder"
@@ -4543,13 +4543,13 @@ msgstr ""
 "             unable-to 'inneachar an comhad nó fillteán sonraithe a fháil'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1478
+#: kioworkers/http/http.cpp:1467
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
 msgstr "rith tuarascáil sa bhfillteán sonraithe"
 
-#: kioworkers/http/http.cpp:1486
+#: kioworkers/http/http.cpp:1475
 #, kde-format
 msgctxt "%1: code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -4557,7 +4557,7 @@ msgstr ""
 "Tharla earráid gan súil léi (%1) nuair a bhíothas ag iarraidh %2.|/|Tharla "
 "earráid gan súil léi (%1) agus $[attempting-to %2]."
 
-#: kioworkers/http/http.cpp:1526
+#: kioworkers/http/http.cpp:1515
 #, kde-format
 msgctxt "%1: request type, %2: url"
 msgid ""
@@ -4567,7 +4567,7 @@ msgstr ""
 "Tharla earráid nuair a bhíothas ag iarraidh %1, %2.  Achoimre thíos.|/|"
 "Tharla earráid agus $[attempting-to %1], %2.  Achoimre thíos."
 
-#: kioworkers/http/http.cpp:1544 kioworkers/http/http.cpp:1688
+#: kioworkers/http/http.cpp:1533 kioworkers/http/http.cpp:1677
 #, kde-format
 msgctxt "%1: request type"
 msgid "Access was denied while attempting to %1."
@@ -4575,7 +4575,7 @@ msgstr ""
 "Rochtain diúltaithe nuair a bhíothas ag iarraidh %1.|/|Rochtain diúltaithe "
 "agus $[attempting-to %1]."
 
-#: kioworkers/http/http.cpp:1558 kioworkers/http/http.cpp:1695
+#: kioworkers/http/http.cpp:1547 kioworkers/http/http.cpp:1684
 #, kde-format
 msgid ""
 "A resource cannot be created at the destination until one or more "
@@ -4584,7 +4584,7 @@ msgstr ""
 "Ní féidir acmhainn a chruthú ag an gceann scríbe go dtí go mbeidh bailiúchán "
 "idirmheánach amháin nó níos mó (fillteáin) cruthaithe."
 
-#: kioworkers/http/http.cpp:1567
+#: kioworkers/http/http.cpp:1556
 #, kde-format
 msgid ""
 "The server was unable to maintain the liveness of the\n"
@@ -4599,17 +4599,17 @@ msgstr ""
 "nach ndéanfaí comhaid a athscríobh.\n"
 "%1"
 
-#: kioworkers/http/http.cpp:1575
+#: kioworkers/http/http.cpp:1564
 #, kde-format
 msgid "The requested lock could not be granted. %1"
 msgstr "Níorbh fhéidir an glas iarrtha a dheonú. %1"
 
-#: kioworkers/http/http.cpp:1581
+#: kioworkers/http/http.cpp:1570
 #, kde-format
 msgid "The server does not support the request type of the body."
 msgstr "Ní thacaíonn an freastalaí le cineál iarrata an choirp."
 
-#: kioworkers/http/http.cpp:1586 kioworkers/http/http.cpp:1703
+#: kioworkers/http/http.cpp:1575 kioworkers/http/http.cpp:1692
 #, kde-format
 msgctxt "%1: request type"
 msgid "Unable to %1 because the resource is locked."
@@ -4617,12 +4617,12 @@ msgstr ""
 "Ní féidir %1 toisc go bhfuil an acmhainn faoi ghlas.|/|Ní féidir $[unable-to "
 "%1] toisc go bhfuil an acmhainn faoi ghlas."
 
-#: kioworkers/http/http.cpp:1590
+#: kioworkers/http/http.cpp:1579
 #, kde-format
 msgid "This action was prevented by another error."
 msgstr "Cuireadh cosc ​​ar an ngníomh seo de bharr earráide eile."
 
-#: kioworkers/http/http.cpp:1597 kioworkers/http/http.cpp:1710
+#: kioworkers/http/http.cpp:1586 kioworkers/http/http.cpp:1699
 #, kde-format
 msgctxt "%1: request type"
 msgid ""
@@ -4633,7 +4633,7 @@ msgstr ""
 "leis an bhfillteán.|/|Ní féidir $[unable-to %1] toisc nach nglacann an "
 "freastalaí sprice leis an gcomhad nó leis an bhfillteán."
 
-#: kioworkers/http/http.cpp:1606 kioworkers/http/http.cpp:1719
+#: kioworkers/http/http.cpp:1595 kioworkers/http/http.cpp:1708
 #, kde-format
 msgid ""
 "The destination resource does not have sufficient space to record the state "
@@ -4642,12 +4642,12 @@ msgstr ""
 "Níl dóthain spáis ag an acmhainn cheann scríbe chun staid na hacmhainne a "
 "thaifeadadh tar éis fhorghníomhú an mhodha seo."
 
-#: kioworkers/http/http.cpp:1659
+#: kioworkers/http/http.cpp:1648
 #, kde-format
 msgid "The resource cannot be deleted."
 msgstr "Ní féidir an acmhainn a scriosadh."
 
-#: kioworkers/http/http.cpp:1679
+#: kioworkers/http/http.cpp:1668
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
@@ -4656,7 +4656,7 @@ msgstr ""
 "             unable-to %1' a uasluchtú'\n"
 "]"
 
-#: kioworkers/http/http.cpp:1730
+#: kioworkers/http/http.cpp:1719
 #, kde-format
 msgctxt "%1: response code, %2: request type"
 msgid "An unexpected error (%1) occurred while attempting to %2."
@@ -7480,7 +7480,7 @@ msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr ""
 "Ní féidir <filename>%1</filename> a athainmniú go hainm comhaid folamh."
 
-#: widgets/renamefilewarningdialog.cpp:48
+#: widgets/renamefilewarningdialog.cpp:58
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Rename Item"
@@ -7488,7 +7488,7 @@ msgctxt "@action:button"
 msgid "Rename and Hide"
 msgstr "Athainmnigh Mír"
 
-#: widgets/renamefilewarningdialog.cpp:50
+#: widgets/renamefilewarningdialog.cpp:60
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7496,7 +7496,7 @@ msgid ""
 "Do you still want to rename it?"
 msgstr ""
 
-#: widgets/renamefilewarningdialog.cpp:51
+#: widgets/renamefilewarningdialog.cpp:61
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7504,35 +7504,35 @@ msgid ""
 "Do you still want to rename it?"
 msgstr ""
 
-#: widgets/renamefilewarningdialog.cpp:52
+#: widgets/renamefilewarningdialog.cpp:62
 #, fuzzy, kde-format
 #| msgid "Home Folder"
 msgctxt "@title:window"
 msgid "Hide this Folder?"
 msgstr "Fillteán Baile"
 
-#: widgets/renamefilewarningdialog.cpp:52
+#: widgets/renamefilewarningdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
 msgstr ""
 
-#: widgets/renamefilewarningdialog.cpp:58
-#: widgets/renamefilewarningdialog.cpp:108
+#: widgets/renamefilewarningdialog.cpp:68
+#: widgets/renamefilewarningdialog.cpp:118
 #: widgets/widgetsaskuseractionhandler.cpp:411
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
 msgstr "Ná fiafraigh arís"
 
-#: widgets/renamefilewarningdialog.cpp:89
+#: widgets/renamefilewarningdialog.cpp:99
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgctxt "@action:button"
 msgid "Rename"
 msgstr "&Athainmnigh"
 
-#: widgets/renamefilewarningdialog.cpp:94
+#: widgets/renamefilewarningdialog.cpp:104
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7542,7 +7542,7 @@ msgid ""
 "Do you still want to rename it?"
 msgstr ""
 
-#: widgets/renamefilewarningdialog.cpp:98
+#: widgets/renamefilewarningdialog.cpp:108
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7552,7 +7552,7 @@ msgid ""
 "Do you still want to rename it?"
 msgstr ""
 
-#: widgets/renamefilewarningdialog.cpp:105
+#: widgets/renamefilewarningdialog.cpp:115
 #, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"
