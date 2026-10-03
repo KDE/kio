@@ -11,6 +11,7 @@ Name[cs]=OpenStreetMap
 Name[de]=OpenStreetMap
 Name[es]=OpenStreetMap
 Name[eu]=OpenStreetMap
+Name[fi]=OpenStreetMap
 Name[fr]=OpenStreetMap
 Name[he]=OpenStreetMap
 Name[hr]=OpenStreetMap
@@ -47,6 +48,7 @@ Query[cs]=https://www.openstreetmap.org/search?query=\\{@}
 Query[de]=https://www.openstreetmap.org/search?query=\\{@}
 Query[es]=https://www.openstreetmap.org/search?query=\\{@}
 Query[eu]=https://www.openstreetmap.org/search?query=\\{@}
+Query[fi]=https://www.openstreetmap.org/search?query=\\{@}
 Query[fr]=https://www.openstreetmap.org/search?query=\\{@}
 Query[he]=https://www.openstreetmap.org/search?query=\\{@}
 Query[hr]=https://www.openstreetmap.org/search?query=\\{@}
