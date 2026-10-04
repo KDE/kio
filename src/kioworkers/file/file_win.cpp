@@ -292,43 +292,39 @@ WorkerResult FileProtocol::symlink(const QString &target, const QUrl &dest, KIO:
 
 WorkerResult FileProtocol::deleteRecursive(const QString &path)
 {
-    // qDebug() << path;
-    QDirIterator it(path, QDir::AllEntries | QDir::NoDotAndDotDot | QDir::System | QDir::Hidden, QDirIterator::Subdirectories);
-    QStringList dirsToDelete;
     KIO::filesize_t removed = 0;
+    return deleteUnder(path, removed);
+}
+
+WorkerResult FileProtocol::deleteUnder(const QString &path, KIO::filesize_t &removed)
+{
+    QDirIterator it(path, QDir::AllEntries | QDir::NoDotAndDotDot | QDir::System | QDir::Hidden);
     while (it.hasNext()) {
         if (wasKilled()) {
             return WorkerResult::pass();
         }
         const QString itemPath = it.next();
-        // qDebug() << "itemPath=" << itemPath;
         const QFileInfo info = it.fileInfo();
         if (info.isDir() && !info.isSymLink()) {
-            dirsToDelete.prepend(itemPath);
-        } else {
-            const KIO::filesize_t size = info.isSymLink() ? 0 : KIO::filesize_t(info.size());
-            // qDebug() << "QFile::remove" << itemPath;
-            if (!QFile::remove(itemPath)) {
+            auto result = deleteUnder(itemPath, removed);
+            if (!result.success()) {
+                return result;
+            }
+            if (wasKilled()) {
+                return WorkerResult::pass();
+            }
+            if (!QDir().rmdir(itemPath)) {
                 return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, itemPath);
             }
-            if (size > 0) {
-                // SlaveBase says this at most ten times a second, holding back the rest.
-                removed += size;
-                processedSize(removed);
-            }
+            continue;
         }
-    }
-    QDir dir;
-    for (const QString &itemPath : std::as_const(dirsToDelete)) {
-        if (wasKilled()) {
-            return WorkerResult::pass();
-        }
-        const KIO::filesize_t size = KIO::filesize_t(QFileInfo(itemPath).size());
-        // qDebug() << "QDir::rmdir" << itemPath;
-        if (!dir.rmdir(itemPath)) {
+
+        const KIO::filesize_t size = info.isSymLink() ? 0 : KIO::filesize_t(info.size());
+        if (!QFile::remove(itemPath)) {
             return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, itemPath);
         }
         if (size > 0) {
+            // SlaveBase says this at most ten times a second, holding back the rest.
             removed += size;
             processedSize(removed);
         }

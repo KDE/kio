@@ -84,6 +84,10 @@ private:
 #endif
 
 #ifdef Q_OS_WIN
+    // Removes what is under path, and each directory as soon as it is empty, and adds up the size of
+    // what it removed.
+    KIO::WorkerResult deleteUnder(const QString &path, KIO::filesize_t &removed);
+
     // Set the modification time of path, leaving the creation and access times
     // unchanged. Returns false on failure.
     static bool setWindowsModificationTime(const QString &path, const QDateTime &mtime);
