@@ -13,11 +13,15 @@
 #include <kio/deleteortrashjob.h>
 
 #include <KJobUiDelegate>
+#include <KJobWindows>
+#include <KMessageDialog>
 
+#include <QApplication>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
 #include <QObject>
+#include <QWindow>
 
 #ifdef Q_OS_WIN
 #include <kio/listjob.h>
@@ -93,6 +97,7 @@ private Q_SLOTS:
     void moveToTrashTest();
     void emptyTrashTest();
     void deleteTrashFileTest();
+    void confirmationTransientParentTest();
 };
 
 QTEST_MAIN(DeleteOrTrashJobTest)
@@ -204,6 +209,42 @@ void DeleteOrTrashJobTest::deleteTrashFileTest()
     QVERIFY(res);
     QCOMPARE(askUserHandler->m_delType, KIO::AskUserActionInterface::DeletionType::Delete);
     QCOMPARE(askUserHandler->m_askUserDeleteCalled, 1);
+}
+
+void DeleteOrTrashJobTest::confirmationTransientParentTest()
+{
+    const QString path = homeTmpDir() + "delete_or_trash_job_test_file";
+    createTestFile(path);
+
+    QWindow window;
+    window.show();
+
+    // No parent widget, as in a Qt Quick application, which gives a QWindow instead.
+    auto *job = new KIO::DeleteOrTrashJob({QUrl::fromLocalFile(path)}, AskIface::Delete, AskIface::ForceConfirmation, nullptr);
+    job->setUiDelegate(new KJobUiDelegate{});
+    KJobWindows::setWindow(job, &window);
+    int error = -1;
+    connect(job, &KJob::result, this, [&error](KJob *job) {
+        error = job->error();
+    });
+    job->start();
+
+    KMessageDialog *dialog = nullptr;
+    QTRY_VERIFY([&dialog] {
+        const QList<QWidget *> widgets = QApplication::topLevelWidgets();
+        for (QWidget *widget : widgets) {
+            if (auto *messageDialog = qobject_cast<KMessageDialog *>(widget); messageDialog && messageDialog->isVisible()) {
+                dialog = messageDialog;
+            }
+        }
+        return dialog != nullptr;
+    }());
+    QCOMPARE(dialog->windowHandle()->transientParent(), &window);
+    QCOMPARE(dialog->windowModality(), Qt::WindowModal);
+
+    dialog->reject();
+    QTRY_COMPARE(error, int(KIO::ERR_USER_CANCELED));
+    QVERIFY(QFile::exists(path));
 }
 
 #include "deleteortrashjobtest.moc"

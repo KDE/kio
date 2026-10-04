@@ -17,6 +17,7 @@
 #include <kio_widgets_debug.h>
 
 #include <KJobWidgets>
+#include <KJobWindows>
 
 namespace KIO
 {
@@ -119,6 +120,10 @@ void DeleteOrTrashJob::start()
         auto *widgetAskHandler = new WidgetsAskUserActionHandler(delegate);
         widgetAskHandler->setWindow(d->m_parentWindow);
         askHandler = widgetAskHandler;
+    }
+    if (auto *widgetAskHandler = qobject_cast<WidgetsAskUserActionHandler *>(askHandler); widgetAskHandler && !d->m_parentWindow) {
+        // A job without a parent widget can have a window from KJobWindows::setWindow().
+        widgetAskHandler->setParentWindow(KJobWindows::window(this));
     }
 
     Q_ASSERT(askHandler);

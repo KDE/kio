@@ -15,6 +15,8 @@
 #include <kio/renamedialog.h>
 #include <kio/skipdialog.h>
 
+class QWindow;
+
 namespace KIO
 {
 // TODO KF6: Handle this the same way we end up handling WidgetsUntrustedProgramHandler.
@@ -79,6 +81,11 @@ public:
     void setWindow(QWidget *window);
 
 private:
+    friend class DeleteOrTrashJob;
+    // The window that the delete confirmation is transient for when it has no parent widget,
+    // as in a Qt Quick application.
+    void setParentWindow(QWindow *window);
+
     void showSslDetails(const QVariantMap &sslErrorData, QWidget *parentWidget);
     std::unique_ptr<WidgetsAskUserActionHandlerPrivate> d;
 };
