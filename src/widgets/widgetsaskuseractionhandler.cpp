@@ -25,6 +25,7 @@
 #include <QPointer>
 #include <QRegularExpression>
 #include <QUrl>
+#include <QWindow>
 
 class KIO::WidgetsAskUserActionHandlerPrivate
 {
@@ -45,6 +46,7 @@ public:
 
     QWidget *getParentWidget(KJob *job);
     QWidget *getParentWidget(QWidget *widget);
+    QPointer<QWindow> m_parentWindow = nullptr;
 };
 
 bool KIO::WidgetsAskUserActionHandlerPrivate::gotPersistentUserReply(KIO::AskUserActionInterface::MessageDialogType type,
@@ -382,6 +384,10 @@ void KIO::WidgetsAskUserActionHandler::askUserDelete(const QList<QUrl> &urls, De
             }
         });
 
+        if (!parent && d->m_parentWindow) {
+            dlg->winId();
+            dlg->windowHandle()->setTransientParent(d->m_parentWindow);
+        }
         dlg->setWindowModality(Qt::WindowModal);
         dlg->show();
     });
@@ -498,6 +504,11 @@ void KIO::WidgetsAskUserActionHandler::requestUserMessageBox(MessageDialogType t
 void KIO::WidgetsAskUserActionHandler::setWindow(QWidget *window)
 {
     d->m_parentWidget = window;
+}
+
+void KIO::WidgetsAskUserActionHandler::setParentWindow(QWindow *window)
+{
+    d->m_parentWindow = window;
 }
 
 void KIO::WidgetsAskUserActionHandler::askIgnoreSslErrors(const QVariantMap &sslErrorData, QWidget *parent)

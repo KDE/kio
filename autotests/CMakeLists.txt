@@ -50,7 +50,7 @@ ecm_add_tests(
   LINK_LIBRARIES KF6::KIOCore KF6::I18n KF6::ConfigCore KF6::Service Qt6::Test Qt6::Network Qt6::Xml
 )
 
-target_link_libraries(deleteortrashjobtest KF6::KIOWidgets)
+target_link_libraries(deleteortrashjobtest KF6::KIOWidgets KF6::GuiAddons KF6::WidgetsAddons)
 if(TARGET Qt6::DBus)
   target_link_libraries(deletejobtest Qt6::DBus)
 endif()
