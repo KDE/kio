@@ -2884,6 +2884,9 @@ QUrl KFileWidget::getStartUrl(const QUrl &startDir, QString &recentDirClass, QSt
             recentDirClass = query.arg(keyword);
 
             ret = QUrl::fromLocalFile(KRecentDirs::dir(recentDirClass));
+            if (ret.isValid() && !fileName.isEmpty()) {
+                ret.setPath(ret.adjusted(QUrl::StripTrailingSlash).path() + QLatin1Char('/') + fileName);
+            }
         } else { // not special "kfiledialog" URL
             ret = startDir;
             if (startDir.isLocalFile() && QDir::isRelativePath(startDir.path())) {

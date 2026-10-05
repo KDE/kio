@@ -249,9 +249,14 @@ void KFileWidgetTest::testGetStartUrl()
     QCOMPARE(localUrl.toLocalFile(), QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
     QVERIFY(outFileName.isEmpty());
 
-    localUrl = KFileWidget::getStartUrl(QUrl(QStringLiteral("kfiledialog:///attachments/foo.txt")), recentDirClass, outFileName);
+    localUrl = KFileWidget::getStartUrl(QUrl(QStringLiteral("kfiledialog:///attachments")), recentDirClass, outFileName);
     QCOMPARE(recentDirClass, QStringLiteral(":attachments"));
     QCOMPARE(localUrl.toLocalFile(), QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
+    QVERIFY(outFileName.isEmpty());
+
+    localUrl = KFileWidget::getStartUrl(QUrl(QStringLiteral("kfiledialog:///attachments/foo.txt")), recentDirClass, outFileName);
+    QCOMPARE(recentDirClass, QStringLiteral(":attachments"));
+    QCOMPARE(localUrl.toLocalFile(), QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + QStringLiteral("/foo.txt"));
     QCOMPARE(outFileName, QStringLiteral("foo.txt"));
 }
 
