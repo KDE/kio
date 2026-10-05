@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-03 00:41+0000\n"
-"PO-Revision-Date: 2026-08-01 17:53+0530\n"
+"POT-Creation-Date: 2026-10-05 00:41+0000\n"
+"PO-Revision-Date: 2026-10-04 18:52+0200\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
 "Language: ta\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3541,11 +3541,10 @@ msgid "Create link to URL"
 msgstr "முகவரிக்கு இணைப்பை உருவாக்கு"
 
 #: filewidgets/knewfilemenu.cpp:650
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
-msgstr "புதியதை உருவாக்கு"
+msgstr "புதிய %1 தனை உருவாக்கு"
 
 #: filewidgets/knewfilemenu.cpp:784 filewidgets/knewfilemenu.cpp:806
 #, kde-format
@@ -3704,10 +3703,9 @@ msgstr ""
 "விரும்பினால், அடைவின் அமைப்புகளுக்கு சென்று எப்போது வேண்டுமானாலும் சின்னத்தை மாற்றலாம்"
 
 #: filewidgets/kurlnavigator.cpp:611
-#, fuzzy, kde-format
-#| msgid "Location:"
+#, kde-format
 msgid "Copy Location"
-msgstr "இடம்:"
+msgstr "இருப்பிடத்தை நகலெடு"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
 #: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42
@@ -3969,7 +3967,7 @@ msgstr "\"%1\" என்கிற நிரலை இயக்க முடி�
 #: gui/systemd/systemdprocessrunner.cpp:200
 #, kde-format
 msgid "Failed to launch process (status code: %1)"
-msgstr ""
+msgstr "பணியைத் துவக்க முடியவில்லை (நிலை: %1)"
 
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
@@ -5360,7 +5358,7 @@ msgstr "அளவு:"
 #: widgets/kfilepropspluginwidget.ui:259
 #, kde-format
 msgid "Size on disk:"
-msgstr ""
+msgstr "வட்டிலுள்ள அளவு:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:308
@@ -5980,22 +5978,19 @@ msgstr ""
 "சேமிக்க முடியவில்லை."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:159
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt ""
 "@label the size of a file or folder, first rounded and then to the byte"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:161
-#, fuzzy, kde-format
-#| msgid " byte"
-#| msgid_plural " bytes"
+#, kde-format
 msgctxt "@item the exact size of a file or folder"
 msgid "%1 byte"
 msgid_plural "%1 bytes"
-msgstr[0] " பைட்டு"
-msgstr[1] " பைட்டுகள்"
+msgstr[0] "%1 பைட்டு"
+msgstr[1] "%1 பைட்டு"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:263
 #, kde-format
@@ -6046,16 +6041,13 @@ msgid "Unknown size"
 msgstr "தெரியாத அளவு"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:739
-#, fuzzy, kde-format
-#| msgid ""
-#| "Calculating... %1 (%2)\n"
-#| "%3, %4"
+#, kde-format
 msgid ""
 "Calculating... %1\n"
 "%2, %3"
 msgstr ""
-"கணிக்கப்படுகிறது... %1 (%2)\n"
-"%3, %4"
+"கணிக்கப்படுகிறது... %1\n"
+"%2, %3"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:741
 #: widgets/kpropertiesdialogbuiltin_p.cpp:756
@@ -6963,25 +6955,25 @@ msgstr "''%1' பெயருடைய இதைவிட புதிய உர
 msgid "Rename:"
 msgstr "மறுபெயரிடு:"
 
-#: widgets/renamefiledialog.cpp:138
+#: widgets/renamefiledialog.cpp:149
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
 msgstr "<filename>%1</filename> என்பதை இந்த பெயருக்கு மாற்று:"
 
-#: widgets/renamefiledialog.cpp:188 widgets/renamefiledialog.cpp:574
+#: widgets/renamefiledialog.cpp:199 widgets/renamefiledialog.cpp:572
 #, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> என்ற பெயரில் ஏற்கனவே ஒரு கோப்பு உள்ளது."
 
-#: widgets/renamefiledialog.cpp:191
+#: widgets/renamefiledialog.cpp:202
 #, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> என்பது முறையான கோப்புப்பெயர் அல்ல."
 
-#: widgets/renamefiledialog.cpp:211
+#: widgets/renamefiledialog.cpp:222
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
@@ -6989,53 +6981,47 @@ msgid_plural "Rename the %1 selected items to:"
 msgstr[0] "தேர்வு செய்த %1 உருப்படியின் பெயரை இதற்கு மாற்று:"
 msgstr[1] "தேர்வு செய்த %1 உருப்படிகளின் பெயர்களை இதற்கு மாற்று:"
 
-#: widgets/renamefiledialog.cpp:214
+#: widgets/renamefiledialog.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
 msgstr "# இருக்கும் இடத்தில், இந்த எண்ணில் தொடங்கி ஏறுவரிசையாக எண்கள் பொருத்தப்படும்:"
 
-#: widgets/renamefiledialog.cpp:229
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#: widgets/renamefiledialog.cpp:240
+#, kde-format
 msgctxt "@item:inlistbox the new name is the whole file name"
 msgid "Replace filename"
-msgstr "கோப்புப்பெயருக்கு முன்"
+msgstr "கோப்புப்பெயருக்க பதிலாக"
 
-#: widgets/renamefiledialog.cpp:230
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#: widgets/renamefiledialog.cpp:241
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name before the filename"
 msgid "Before filename"
 msgstr "கோப்புப்பெயருக்கு முன்"
 
-#: widgets/renamefiledialog.cpp:231
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text after filename"
-#| msgid "After filename"
+#: widgets/renamefiledialog.cpp:242
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name after the filename"
 msgid "After filename"
 msgstr "கோப்புப்பெயருக்கு பின்"
 
-#: widgets/renamefiledialog.cpp:284
+#: widgets/renamefiledialog.cpp:295
 #, kde-format
 msgctxt ""
 "Template putting the number before the old file name, # is replaced by a "
 "number later"
 msgid "#_"
-msgstr ""
+msgstr "#_"
 
-#: widgets/renamefiledialog.cpp:286
+#: widgets/renamefiledialog.cpp:297
 #, kde-format
 msgctxt ""
 "Template putting the number after the old file name, # is replaced by a "
 "number later"
 msgid "_#"
-msgstr ""
+msgstr "_#"
 
-#: widgets/renamefiledialog.cpp:288
+#: widgets/renamefiledialog.cpp:299
 #, kde-format
 msgctxt ""
 "This a template for new filenames, # is replaced by a number later, must be "
@@ -7043,7 +7029,7 @@ msgctxt ""
 msgid "New name #"
 msgstr "புதிய பெயர் #"
 
-#: widgets/renamefiledialog.cpp:372
+#: widgets/renamefiledialog.cpp:375
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7053,7 +7039,7 @@ msgstr ""
 "செல்லுபடியாகாத கோப்புப்பெயர்: புதிய பெயரில் # ஒரு இடத்தில் வர வேண்டும் (கோப்புகளின் "
 "பின்னொட்டுகள் வேறுபடாத பட்சத்தில்)."
 
-#: widgets/renamefiledialog.cpp:401
+#: widgets/renamefiledialog.cpp:404
 #, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
@@ -7061,37 +7047,37 @@ msgid_plural "Rename the %1 selected items by:"
 msgstr[0] "தேர்வு செய்த %1 உருப்படியின் பெயரை இப்படி மாற்று:"
 msgstr[1] "தேர்வு செய்த %1 உருப்படிகளின் பெயர்களை இப்படி மாற்று:"
 
-#: widgets/renamefiledialog.cpp:405
+#: widgets/renamefiledialog.cpp:408
 #, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
 msgstr "இதற்கு பதிலாக:"
 
-#: widgets/renamefiledialog.cpp:407
+#: widgets/renamefiledialog.cpp:410
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
 msgstr "பாங்கு"
 
-#: widgets/renamefiledialog.cpp:411
+#: widgets/renamefiledialog.cpp:414
 #, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
 msgstr "இதை இடு:"
 
-#: widgets/renamefiledialog.cpp:413
+#: widgets/renamefiledialog.cpp:416
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
 msgstr "மாற்றம்"
 
-#: widgets/renamefiledialog.cpp:460
+#: widgets/renamefiledialog.cpp:463
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
 msgstr "எந்த கோப்புப்பெயரும் பாங்குக்கு பொருந்தவில்லை."
 
-#: widgets/renamefiledialog.cpp:469
+#: widgets/renamefiledialog.cpp:472
 #, kde-kuit-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid ""
@@ -7101,7 +7087,7 @@ msgstr ""
 "'%1' என்பதற்கு பதிலாக காலியான சரத்தை இடுவது, <filename>%2</filename> என்பதன் "
 "பெயரை காலியாக்கிவிடும்."
 
-#: widgets/renamefiledialog.cpp:495
+#: widgets/renamefiledialog.cpp:498
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
@@ -7109,91 +7095,89 @@ msgid_plural "Rename the %1 selected items:"
 msgstr[0] "தேர்வு செய்த %1 உருப்படியின் பெயரை மாற்று:"
 msgstr[1] "தேர்வு செய்த %1 உருப்படிகளின் பெயர்களை மாற்று:"
 
-#: widgets/renamefiledialog.cpp:498
+#: widgets/renamefiledialog.cpp:501
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
 msgstr "உரையை செர்:"
 
-#: widgets/renamefiledialog.cpp:500
+#: widgets/renamefiledialog.cpp:503
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
 msgstr "சேர்க்க வேண்டிய உரை"
 
-#: widgets/renamefiledialog.cpp:505
+#: widgets/renamefiledialog.cpp:508
 #, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
 msgstr "கோப்புப்பெயருக்கு முன்"
 
-#: widgets/renamefiledialog.cpp:506
+#: widgets/renamefiledialog.cpp:509
 #, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
 msgstr "கோப்புப்பெயருக்கு பின்"
 
-#: widgets/renamefiledialog.cpp:623
+#: widgets/renamefiledialog.cpp:621
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Item"
 msgstr "உருப்படிக்கு மறுபெயரிடு"
 
-#: widgets/renamefiledialog.cpp:623
+#: widgets/renamefiledialog.cpp:621
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Items"
 msgstr "உருப்படிகளுக்கு மறுபெயரிடு"
 
-#: widgets/renamefiledialog.cpp:634
+#: widgets/renamefiledialog.cpp:632
 #, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
 msgstr "&மறுபெயரிடு"
 
-#: widgets/renamefiledialog.cpp:643
+#: widgets/renamefiledialog.cpp:641
 #, kde-format
 msgctxt "@info"
 msgid "How to rename:"
 msgstr "மறுபெயரிடும் முறை:"
 
-#: widgets/renamefiledialog.cpp:647
+#: widgets/renamefiledialog.cpp:645
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
 msgstr "எண்ணிடு"
 
-#: widgets/renamefiledialog.cpp:647
+#: widgets/renamefiledialog.cpp:645
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
 msgstr "உரையை மாற்று"
 
-#: widgets/renamefiledialog.cpp:647
+#: widgets/renamefiledialog.cpp:645
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
 msgstr "உரையை செர்"
 
-#: widgets/renamefiledialog.cpp:664
+#: widgets/renamefiledialog.cpp:662
 #, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
 msgstr "முன்தோற்றம்:"
 
-#: widgets/renamefiledialog.cpp:788
+#: widgets/renamefiledialog.cpp:801
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "<filename>%1</filename> என்பதன் பெயரை காலியானதாக மாற்ற முடியாது."
 
 #: widgets/renamefilewarningdialog.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
-msgstr "உருப்படிக்கு மறுபெயரிடு"
+msgstr "மறுபெயரிட்டு மறை"
 
 #: widgets/renamefilewarningdialog.cpp:60
 #, kde-format
@@ -7202,6 +7186,8 @@ msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"ஒரு அடைவின் பெயர் புள்ளியில் ஆரம்பித்தால் அது மறைக்கப்படும்.\n"
+"உறுதியாக மறுபெயரிட வேண்டுமா?"
 
 #: widgets/renamefilewarningdialog.cpp:61
 #, kde-format
@@ -7210,19 +7196,20 @@ msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"ஒரு கோப்பின் பெயர், புள்ளியில் ஆரம்பித்தால் அது மறைக்கப்படும். உறுதியாக மறுபெயரிட "
+"வேண்டுமா?"
 
 #: widgets/renamefilewarningdialog.cpp:62
-#, fuzzy, kde-format
-#| msgid "Home Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
-msgstr "முகப்பு அடைவு"
+msgstr "அடைவை மறைக்கலாமா?"
 
 #: widgets/renamefilewarningdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
-msgstr ""
+msgstr "கோப்பை மறைக்கலாமா?"
 
 #: widgets/renamefilewarningdialog.cpp:68
 #: widgets/renamefilewarningdialog.cpp:118
@@ -7233,8 +7220,7 @@ msgid "Do not ask again"
 msgstr "மறுபடியும் கேட்காதே"
 
 #: widgets/renamefilewarningdialog.cpp:99
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename"
 msgstr "மறுபெயரிடு"
@@ -7248,6 +7234,10 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"இது கோப்பின் வகைப்பெயரை நீக்குகிறது.\n"
+"கோப்பின் உள்ளடக்கம் அப்படியே இருந்தாலும், சில செயலிகளால் அதன் வகையை கண்டறிய முடியாமல் "
+"போகலாம்.\n"
+"உறுதியாக மறுபெயரிட வேண்டுமா?"
 
 #: widgets/renamefilewarningdialog.cpp:108
 #, kde-format
@@ -7258,13 +7248,16 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"இது கோப்பின் வகைப்பெயரை \"%1\" என்பதிலிருந்து \"%2\" என மாற்றும்.\n"
+"கோப்பின் உள்ளடக்கம் அப்படியே இருந்தாலும், சில செயலிகளால் அதன் வகையை கண்டறிய முடியாமல் "
+"போகலாம்.\n"
+"உறுதியாக மறுபெயரிட வேண்டுமா?"
 
 #: widgets/renamefilewarningdialog.cpp:115
-#, fuzzy, kde-format
-#| msgid "Change File Owner"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"
-msgstr "கோப்பின் உரிமையாளரை மாற்றுதல்"
+msgstr "கோப்பின் வகையை மாற்று"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format

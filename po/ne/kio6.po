@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-03 00:41+0000\n"
+"POT-Creation-Date: 2026-10-05 00:41+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -7360,26 +7360,26 @@ msgstr "'%1' नाम भएको एउटा पुरानो वस्त
 msgid "Rename:"
 msgstr "पुन: नामकरण गर्नुहोस्"
 
-#: widgets/renamefiledialog.cpp:138
+#: widgets/renamefiledialog.cpp:149
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:188 widgets/renamefiledialog.cpp:574
+#: widgets/renamefiledialog.cpp:199 widgets/renamefiledialog.cpp:572
 #, fuzzy, kde-kuit-format
 #| msgid "A file named %1 already exists."
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "%1 नाम गरिएको फाइल पहिल्यै अवस्थित छ ।"
 
-#: widgets/renamefiledialog.cpp:191
+#: widgets/renamefiledialog.cpp:202
 #, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:211
+#: widgets/renamefiledialog.cpp:222
 #, fuzzy, kde-format
 #| msgid "Change the selected identifier text."
 msgctxt "@label:textbox"
@@ -7388,34 +7388,34 @@ msgid_plural "Rename the %1 selected items to:"
 msgstr[0] "चयन गरेको पहिचायक पाठ परिवर्तन गर्नुहोस् ।"
 msgstr[1] "चयन गरेको पहिचायक पाठ परिवर्तन गर्नुहोस् ।"
 
-#: widgets/renamefiledialog.cpp:214
+#: widgets/renamefiledialog.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:229
+#: widgets/renamefiledialog.cpp:240
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@item:inlistbox the new name is the whole file name"
 msgid "Replace filename"
 msgstr "फरक प्रयोगकर्ताको रूपमा चलाउनुहोस्"
 
-#: widgets/renamefiledialog.cpp:230
+#: widgets/renamefiledialog.cpp:241
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@item:inlistbox as in insert the new name before the filename"
 msgid "Before filename"
 msgstr "फरक प्रयोगकर्ताको रूपमा चलाउनुहोस्"
 
-#: widgets/renamefiledialog.cpp:231
+#: widgets/renamefiledialog.cpp:242
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@item:inlistbox as in insert the new name after the filename"
 msgid "After filename"
 msgstr "फरक प्रयोगकर्ताको रूपमा चलाउनुहोस्"
 
-#: widgets/renamefiledialog.cpp:284
+#: widgets/renamefiledialog.cpp:295
 #, kde-format
 msgctxt ""
 "Template putting the number before the old file name, # is replaced by a "
@@ -7423,7 +7423,7 @@ msgctxt ""
 msgid "#_"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:286
+#: widgets/renamefiledialog.cpp:297
 #, kde-format
 msgctxt ""
 "Template putting the number after the old file name, # is replaced by a "
@@ -7431,7 +7431,7 @@ msgctxt ""
 msgid "_#"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:288
+#: widgets/renamefiledialog.cpp:299
 #, fuzzy, kde-format
 #| msgid "Device name"
 msgctxt ""
@@ -7440,7 +7440,7 @@ msgctxt ""
 msgid "New name #"
 msgstr "यन्त्र नाम"
 
-#: widgets/renamefiledialog.cpp:372
+#: widgets/renamefiledialog.cpp:375
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7448,7 +7448,7 @@ msgid ""
 "the files have different file extensions."
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:401
+#: widgets/renamefiledialog.cpp:404
 #, fuzzy, kde-format
 #| msgid "Change the selected identifier text."
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
@@ -7457,40 +7457,40 @@ msgid_plural "Rename the %1 selected items by:"
 msgstr[0] "चयन गरेको पहिचायक पाठ परिवर्तन गर्नुहोस् ।"
 msgstr[1] "चयन गरेको पहिचायक पाठ परिवर्तन गर्नुहोस् ।"
 
-#: widgets/renamefiledialog.cpp:405
+#: widgets/renamefiledialog.cpp:408
 #, fuzzy, kde-format
 #| msgid "Replace"
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
 msgstr "बदल्नुहोस्"
 
-#: widgets/renamefiledialog.cpp:407
+#: widgets/renamefiledialog.cpp:410
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:411
+#: widgets/renamefiledialog.cpp:414
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
 msgstr "यससँग खोल्नुहोस्"
 
-#: widgets/renamefiledialog.cpp:413
+#: widgets/renamefiledialog.cpp:416
 #, fuzzy, kde-format
 #| msgid "Replace"
 msgctxt "@info placeholder text"
 msgid "Replacement"
 msgstr "बदल्नुहोस्"
 
-#: widgets/renamefiledialog.cpp:460
+#: widgets/renamefiledialog.cpp:463
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:469
+#: widgets/renamefiledialog.cpp:472
 #, kde-kuit-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid ""
@@ -7498,7 +7498,7 @@ msgid ""
 "to have an empty file name."
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:495
+#: widgets/renamefiledialog.cpp:498
 #, fuzzy, kde-format
 #| msgid "Change the selected identifier text."
 msgctxt "@label:textbox"
@@ -7507,87 +7507,87 @@ msgid_plural "Rename the %1 selected items:"
 msgstr[0] "चयन गरेको पहिचायक पाठ परिवर्तन गर्नुहोस् ।"
 msgstr[1] "चयन गरेको पहिचायक पाठ परिवर्तन गर्नुहोस् ।"
 
-#: widgets/renamefiledialog.cpp:498
+#: widgets/renamefiledialog.cpp:501
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:500
+#: widgets/renamefiledialog.cpp:503
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:505
+#: widgets/renamefiledialog.cpp:508
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
 msgstr "फरक प्रयोगकर्ताको रूपमा चलाउनुहोस्"
 
-#: widgets/renamefiledialog.cpp:506
+#: widgets/renamefiledialog.cpp:509
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
 msgstr "फरक प्रयोगकर्ताको रूपमा चलाउनुहोस्"
 
-#: widgets/renamefiledialog.cpp:623
+#: widgets/renamefiledialog.cpp:621
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgctxt "@title:window"
 msgid "Rename Item"
 msgstr "पुन: नामकरण गर्नुहोस्"
 
-#: widgets/renamefiledialog.cpp:623
+#: widgets/renamefiledialog.cpp:621
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgctxt "@title:window"
 msgid "Rename Items"
 msgstr "पुन: नामकरण गर्नुहोस्"
 
-#: widgets/renamefiledialog.cpp:634
+#: widgets/renamefiledialog.cpp:632
 #, fuzzy, kde-format
 #| msgid "&Rename"
 msgctxt "@action:button"
 msgid "&Rename"
 msgstr "पुन: नामकरण गर्नुहोस्"
 
-#: widgets/renamefiledialog.cpp:643
+#: widgets/renamefiledialog.cpp:641
 #, fuzzy, kde-format
 #| msgid "Default user name:"
 msgctxt "@info"
 msgid "How to rename:"
 msgstr "पूर्वनिर्धारित प्रयोगकर्ता नाम:"
 
-#: widgets/renamefiledialog.cpp:647
+#: widgets/renamefiledialog.cpp:645
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:647
+#: widgets/renamefiledialog.cpp:645
 #, fuzzy, kde-format
 #| msgid "Replace"
 msgctxt "@info renaming operation"
 msgid "Replace text"
 msgstr "बदल्नुहोस्"
 
-#: widgets/renamefiledialog.cpp:647
+#: widgets/renamefiledialog.cpp:645
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:664
+#: widgets/renamefiledialog.cpp:662
 #, fuzzy, kde-format
 #| msgid "Show Preview"
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
 msgstr "पूर्वावलोकन देखाउनुहोस्"
 
-#: widgets/renamefiledialog.cpp:788
+#: widgets/renamefiledialog.cpp:801
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."

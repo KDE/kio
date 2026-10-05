@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-03 00:41+0000\n"
+"POT-Creation-Date: 2026-10-05 00:41+0000\n"
 "PO-Revision-Date: 2026-10-01 08:16+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -89,10 +89,10 @@ msgid ""
 "folder name) with an underscore \"_\"."
 msgstr ""
 "Не удалось создать «%1».\n"
-"Целевая файловая система %2 не не поддерживает наличие в именах папок \n"
+"Целевая файловая система %2 не поддерживает наличие в именах папок \n"
 "следующего символа: «%3».\n"
 "При выборе «Заменить» все неподдерживаемые символы в имени целевой папки "
-"будут замены на символ подчёркивания (_)."
+"будут заменены на символ подчёркивания (_)."
 
 #: core/copyjob.cpp:217
 #, kde-format
@@ -104,10 +104,10 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 "Не удалось создать «%1».\n"
-"Целевая файловая система %2 не не поддерживает наличие в именах файлов \n"
+"Целевая файловая система %2 не поддерживает наличие в именах файлов \n"
 "следующего символа: «%3».\n"
 "При выборе «Заменить» все неподдерживаемые символы в имени целевого файла "
-"будут замены на символ подчёркивания (_)."
+"будут заменены на символ подчёркивания (_)."
 
 #: core/copyjob.cpp:1491 core/job_error.cpp:588
 #, kde-format
@@ -151,7 +151,7 @@ msgstr ""
 #: core/desktopexecparser.cpp:365
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
-msgstr "Отсутствуют права доступа выполнение программы «%1»."
+msgstr "Отсутствуют права доступа на выполнение программы «%1»."
 
 #: core/desktopexecparser.cpp:379
 #, kde-format
@@ -670,7 +670,7 @@ msgstr ""
 #: core/job_error.cpp:220
 #, kde-format
 msgid "There is not enough space on the disk to write %1."
-msgstr "Недостаточно свободного дискового пространства чтобы записать «%1»."
+msgstr "Недостаточно свободного дискового пространства, чтобы записать «%1»."
 
 #: core/job_error.cpp:223
 #, kde-format
@@ -684,7 +684,7 @@ msgstr ""
 #: core/job_error.cpp:231
 #, kde-format
 msgid "%1 is required by the server, but is not available."
-msgstr "%1 требуется сервером, но не доступен."
+msgstr "%1 требуется сервером, но недоступен."
 
 #: core/job_error.cpp:234
 #, kde-format
@@ -747,8 +747,7 @@ msgstr "Файл слишком велик для перемещения в ко
 #: core/job_error.cpp:264
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
-msgstr ""
-"Папка корзины не может находиться или быть создана в этом расположении."
+msgstr "Не удалось найти или создать папку корзины для этого расположения."
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -817,7 +816,7 @@ msgstr "<b>Возможные решения</b>:"
 #, kde-format
 msgctxt "@info protocol"
 msgid "(unknown)"
-msgstr "(не известен)"
+msgstr "(неизвестен)"
 
 #: core/job_error.cpp:377
 #, kde-format
@@ -865,7 +864,7 @@ msgstr "Убедитесь, что другое приложение или по
 #: core/job_error.cpp:395
 #, kde-format
 msgid "Although unlikely, a hardware error may have occurred."
-msgstr "Также, возможно, могла произойти ошибка оборудования."
+msgstr "Хотя это маловероятно, могла произойти ошибка оборудования."
 
 #: core/job_error.cpp:397
 #, kde-format
@@ -905,7 +904,7 @@ msgstr ""
 "этой программы заполнением подробного отчёта об ошибке. Если программа "
 "предоставлена третьей стороной, свяжитесь с ними напрямую. Если ошибка в "
 "программе KDE, проверьте сначала, не описал ли уже кто-либо подобную ошибку "
-"на <a href=\"https://bugs.kde.org/\">Сайте отчётов об ошибках KDE</a>. "
+"на <a href=\"https://bugs.kde.org/\">сайте отчётов об ошибках KDE</a>. "
 "Затем, принимая во внимание все описанные выше детали, заполните отчёт об "
 "ошибке, указав все детали, которые могут помочь разработчикам."
 
@@ -992,7 +991,7 @@ msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
 "requested, because access with permission to write could not be obtained."
 msgstr ""
-"Это означает что файл <strong>%1</strong> не может быть записан как "
+"Это означает, что файл <strong>%1</strong> не может быть записан как "
 "требуется, потому что не может быть получен доступ с правами записи."
 
 #: core/job_error.cpp:460
@@ -1078,7 +1077,7 @@ msgstr ""
 #: core/job_error.cpp:503
 #, kde-format
 msgid "The requested protocol may not be supported."
-msgstr "Запрошенный протокол не поддерживается."
+msgstr "Возможно, запрошенный протокол не поддерживается."
 
 #: core/job_error.cpp:505
 #, kde-format
@@ -1096,7 +1095,7 @@ msgid ""
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
-"В интернете можно найти программы для KDE (KIO worker), поддерживающие этот "
+"В Интернете можно найти программы для KDE (KIO worker), поддерживающие этот "
 "протокол. Адрес для поиска: <a href=\"https://store.kde.org/\">https://store."
 "kde.org</a>."
 
@@ -1269,7 +1268,7 @@ msgstr ""
 msgid ""
 "The name that you typed, %1, may not exist: it may be incorrectly typed."
 msgstr ""
-"Введённое вами имя, %1, не существует: возможно, оно неправильно написано."
+"Возможно, введённое вами имя, %1, не существует или написано с ошибкой."
 
 #: core/job_error.cpp:614
 #, kde-format
@@ -1284,9 +1283,7 @@ msgstr "Доступ к указанному ресурсу запрещён, <s
 #: core/job_error.cpp:620 core/job_error.cpp:896
 #, kde-format
 msgid "You may have supplied incorrect authentication details or none at all."
-msgstr ""
-"Возможно, вы предоставили недостаточно информации для подтверждения "
-"подлинности."
+msgstr "Возможно, вы указали неверные учётные данные или не указали их вовсе."
 
 #: core/job_error.cpp:623 core/job_error.cpp:899
 #, kde-format
@@ -1379,7 +1376,7 @@ msgstr ""
 #: core/job_error.cpp:683
 #, kde-format
 msgid "Request Aborted By User"
-msgstr "Запрос отменен пользователем"
+msgstr "Запрос отменён пользователем"
 
 #: core/job_error.cpp:685 core/job_error.cpp:1074
 #, kde-format
@@ -1425,8 +1422,8 @@ msgid ""
 "This is a fairly technical error in which a required device for network "
 "communications (a socket) could not be created."
 msgstr ""
-"Это техническая ошибка, в результате которой требуемое устройство или "
-"сетевое соединение (сокет) не могло быть создано."
+"Это техническая ошибка, в результате которой требуемое устройство для "
+"сетевого обмена (сокет) не могло быть создано."
 
 #: core/job_error.cpp:711 core/job_error.cpp:860 core/job_error.cpp:873
 #: core/job_error.cpp:884
@@ -1456,7 +1453,9 @@ msgstr ""
 msgid ""
 "The server, while currently connected to the Internet, may not be configured "
 "to allow requests."
-msgstr "Сервер, подключённый к Интернет, не настроен для обработки запросов."
+msgstr ""
+"Возможно, сервер, подключённый к Интернету, не настроен для обработки "
+"запросов."
 
 #: core/job_error.cpp:726
 #, kde-format
@@ -1474,8 +1473,8 @@ msgid ""
 "protecting your network or the network of the server, may have intervened, "
 "preventing this request."
 msgstr ""
-"Брандмауэр (межсетевой экран, ограничивающий запросы в Internet), который "
-"защищает вашу сеть либо сеть сервера, возможно препятствует этому запросу."
+"Брандмауэр (межсетевой экран, ограничивающий запросы в Интернете), который "
+"защищает вашу сеть либо сеть сервера, возможно, препятствует этому запросу."
 
 #: core/job_error.cpp:737
 #, kde-format
@@ -1518,7 +1517,7 @@ msgid ""
 "accessing the specific resource, <strong>%1%2</strong>."
 msgstr ""
 "Введённый вами <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
-"strong>ocator (универсальный указатель ресурса, URL), не содержит сведений о "
+"strong>ocator (универсальный указатель ресурса, URL) не содержит сведений о "
 "механизме доступа к ресурсу, <strong>%1%2</strong>."
 
 #: core/job_error.cpp:761
@@ -1529,9 +1528,10 @@ msgid ""
 "capable of such an action. This is a rare event, and is likely to indicate a "
 "programming error."
 msgstr ""
-"KDE способен общаться по протоколу в рамках другого протокола. Указанный "
-"протокол подходит в данной ситуации, однако сама ситуация не требует этого. "
-"Это редкое событие, которое скорее всего вызвано ошибкой в программе."
+"KDE способен общаться по протоколу в рамках другого протокола. В этом "
+"запросе указан такой способ использования протокола, однако сам протокол "
+"этого не поддерживает. Это редкое событие, которое скорее всего вызвано "
+"ошибкой в программе."
 
 #: core/job_error.cpp:769
 #, kde-format
@@ -1558,9 +1558,10 @@ msgid ""
 "removable media device (i.e. no CD-ROM in a CD drive), or in the case of a "
 "peripheral/portable device, the device may not be correctly connected."
 msgstr ""
-"Устройство может быть не готово, например в устройстве для сменных носителей "
-"может отсутствовать диск (то есть компакт-диск с данными в приводе CD), или "
-"же периферийное или портативное устройство может быть некорректно подключено."
+"Устройство может быть не готово, например, в устройстве для сменных "
+"носителей может отсутствовать диск (то есть компакт-диск с данными в приводе "
+"CD), или же периферийное или портативное устройство может быть некорректно "
+"подключено."
 
 #: core/job_error.cpp:781
 #, kde-format
@@ -1569,8 +1570,8 @@ msgid ""
 "systems, often system administrator privileges are required to initialize a "
 "device."
 msgstr ""
-"Нет прав на подключение устройства. В системах UNIX для этой операции часто "
-"необходимы права администратора."
+"Возможно, у вас нет прав на подключение устройства. В системах UNIX для этой "
+"операции часто необходимы права администратора."
 
 #: core/job_error.cpp:786
 #, kde-format
@@ -1578,9 +1579,9 @@ msgid ""
 "Check that the device is ready; removable drives must contain media, and "
 "portable devices must be connected and powered on.; and try again."
 msgstr ""
-"Убедитесь что устройство готово. В приводе должен находится диск с данными, "
-"а портативные устройства должны быть подсоединены и включены. После этого "
-"попробуйте ещё раз."
+"Убедитесь, что устройство готово. В приводе должен находиться диск с "
+"данными, а портативные устройства должны быть подсоединены и включены. После "
+"этого попробуйте ещё раз."
 
 #: core/job_error.cpp:793
 #, kde-format
@@ -1606,7 +1607,7 @@ msgid ""
 "user. Even such things as having an open browser window on a location on "
 "this device may cause the device to remain in use."
 msgstr ""
-"Устройство может быть занято, то есть может все ещё использоваться другим "
+"Устройство может быть занято, то есть может всё ещё использоваться другим "
 "приложением или пользователем. Даже такие вещи, как открытое окно браузера "
 "или просмотр папки на этом устройстве, могут привести к тому, что устройство "
 "остаётся занятым."
@@ -1618,8 +1619,8 @@ msgid ""
 "UNIX systems, system administrator privileges are often required to "
 "uninitialize a device."
 msgstr ""
-"Нет прав на отключение устройства. В системах UNIX для отключения часто "
-"необходимы права администратора."
+"Возможно, у вас нет прав на отключение устройства. В системах UNIX для "
+"отключения часто необходимы права администратора."
 
 #: core/job_error.cpp:810
 #, kde-format
@@ -1639,8 +1640,8 @@ msgid ""
 "This means that although the resource, <strong>%1</strong>, was able to be "
 "opened, an error occurred while reading the contents of the resource."
 msgstr ""
-"Это означает что хотя ресурс <strong>%1</strong> удалось открыть, при чтении "
-"его содержимого произошла ошибка."
+"Это означает, что хотя ресурс <strong>%1</strong> удалось открыть, при "
+"чтении его содержимого произошла ошибка."
 
 #: core/job_error.cpp:822
 #, kde-format
@@ -1770,7 +1771,7 @@ msgstr "Попытка создания требуемой папки не уд�
 #, kde-format
 msgid "The location where the folder was to be created may not exist."
 msgstr ""
-"Возможно, адрес, по которому должна был быть создана папка, не существует."
+"Возможно, адрес, по которому должна была быть создана папка, не существует."
 
 #: core/job_error.cpp:946
 #, kde-format
@@ -1809,12 +1810,12 @@ msgid ""
 "resumed at a certain point of the transfer. This was not possible."
 msgstr ""
 "В запросе было указано, что передача файла <strong>%1</strong> должна быть "
-"продолжена с определённого места. Это не было возможно."
+"продолжена с определённого места. Это оказалось невозможно."
 
 #: core/job_error.cpp:969
 #, kde-format
 msgid "The protocol, or the server, may not support file resuming."
-msgstr "Протокол или сервер не поддерживают возобновление загрузки."
+msgstr "Возможно, протокол или сервер не поддерживают возобновление загрузки."
 
 #: core/job_error.cpp:972
 #, kde-format
@@ -1906,7 +1907,7 @@ msgid ""
 "strong>, an Unknown Host error was encountered. An unknown host error "
 "indicates that the requested name could not be located on the Internet."
 msgstr ""
-"При получении информации о указанном прокси-сервере, <strong>%1</strong>, "
+"При получении информации об указанном прокси-сервере, <strong>%1</strong>, "
 "произошла ошибка «неизвестный узел». Эта ошибка означает, что сервер с таким "
 "именем не может быть найден в сети Интернет."
 
@@ -1924,7 +1925,7 @@ msgstr ""
 #: core/job_error.cpp:1053
 #, kde-format
 msgid "Double-check your proxy settings and try again."
-msgstr "Проверьте параметры прокси и повторите ещё раз."
+msgstr "Проверьте параметры прокси и попробуйте ещё раз."
 
 #: core/job_error.cpp:1057
 #, kde-format
@@ -1938,9 +1939,9 @@ msgid ""
 "authentication failed because the method that the server is using is not "
 "supported by the KDE program implementing the protocol %1."
 msgstr ""
-"Возможно, вы указали неверные данные для подтверждения подлинности или сбой "
-"произошёл из-за того, что используемый сервером метод не поддерживается "
-"компонентом KDE, реализующим протокол %1."
+"Даже если вы указали правильные учётные данные, аутентификация не удалась, "
+"так как используемый сервером метод не поддерживается компонентом KDE, "
+"реализующим протокол %1."
 
 #: core/job_error.cpp:1065
 #, kde-format
@@ -1949,7 +1950,7 @@ msgid ""
 "</a> to inform the KDE team of the unsupported authentication method."
 msgstr ""
 "Заполните отчёт об ошибке на <a href=\"https://bugs.kde.org/\">https://bugs."
-"kde.org/</a>, чтобы проинформировать команду KDE о не поддерживаемом методе "
+"kde.org/</a>, чтобы проинформировать команду KDE о неподдерживаемом методе "
 "аутентификации."
 
 #: core/job_error.cpp:1072
@@ -1977,8 +1978,8 @@ msgid ""
 "This is most likely to be caused by a bug in the server program. Please "
 "consider submitting a full bug report as detailed below."
 msgstr ""
-"Наиболее вероятная причина — ошибка в программе сервера. Заполните "
-"пожалуйста отчёт об ошибке, как описано ниже."
+"Наиболее вероятная причина — ошибка в программе сервера. Заполните, "
+"пожалуйста, отчёт об ошибке, как описано ниже."
 
 #: core/job_error.cpp:1092
 #, kde-format
@@ -2025,7 +2026,7 @@ msgid ""
 "strong> protocol has reported an unknown error: %2."
 msgstr ""
 "Программа на вашем компьютере, предоставляющая доступ к протоколу <strong>"
-"%1</strong>, сообщила о прерывании с неизвестным кодом ошибки: %2."
+"%1</strong>, сообщила о неизвестной ошибке: %2."
 
 #: core/job_error.cpp:1125
 #, kde-format
@@ -2039,7 +2040,7 @@ msgid ""
 "strong> protocol has reported an interruption of an unknown type: %2."
 msgstr ""
 "Программа на вашем компьютере, предоставляющая доступ к протоколу <strong>"
-"%1</strong>, сообщила о прерывании с неизвестным кодом ошибки: %2."
+"%1</strong>, сообщила о прерывании неизвестного типа: %2."
 
 #: core/job_error.cpp:1137
 #, kde-format
@@ -2530,12 +2531,12 @@ msgstr "Нечего удалять"
 #: filewidgets/kdiroperator.cpp:774 filewidgets/kdiroperator.cpp:862
 #, kde-format
 msgid "You did not select a file to trash."
-msgstr "Файл для удаления не выбран."
+msgstr "Не выбран файл для удаления в корзину."
 
 #: filewidgets/kdiroperator.cpp:774 filewidgets/kdiroperator.cpp:862
 #, kde-format
 msgid "Nothing to Trash"
-msgstr "Нечего удалять"
+msgstr "Нечего удалять в корзину"
 
 #: filewidgets/kdiroperator.cpp:934 filewidgets/kdiroperator.cpp:1057
 #, kde-format
@@ -2700,12 +2701,12 @@ msgstr "Показывать скрытые файлы"
 #: filewidgets/kdiroperator.cpp:2256
 #, kde-format
 msgid "Show Preview Panel"
-msgstr "Показать миниатюру"
+msgstr "Показывать панель предварительного просмотра"
 
 #: filewidgets/kdiroperator.cpp:2263
 #, kde-format
 msgid "Show Preview"
-msgstr "Миниатюра"
+msgstr "Показывать миниатюры"
 
 #: filewidgets/kdiroperator.cpp:2270
 #, kde-format
@@ -2885,8 +2886,8 @@ msgid ""
 msgstr ""
 "<qt>Адрес, связанный с записью. Может быть использован любой действительный "
 "URL. Например:<br /><br />%1<br />http://www.kde.org<br />ftp://ftp.kde.org/"
-"pub/kde/stable<br /><br />Кнопка рядом с полем ввода открывает "
-"соответствующий URL.</qt>"
+"pub/kde/stable<br /><br />С помощью кнопки рядом с полем ввода можно выбрать "
+"нужный URL.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:100
 #, kde-format
@@ -2900,7 +2901,7 @@ msgid ""
 "on the button to select a different icon.</qt>"
 msgstr ""
 "<qt>Это значок, который появится на панели быстрого доступа.<br /><br /"
-">Нажмите на кнопку чтобы выбрать другой значок.</qt>"
+">Нажмите на кнопку, чтобы выбрать другой значок.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:128
 #, kde-format
@@ -2939,7 +2940,7 @@ msgstr "В сети"
 #, kde-format
 msgctxt "@item The place group section name for recent dynamic lists"
 msgid "Recent"
-msgstr "Недавно изменённые"
+msgstr "Недавние"
 
 #: filewidgets/kfileplacesitem.cpp:230
 #, kde-format
@@ -2957,7 +2958,7 @@ msgstr "Устройства"
 #, kde-format
 msgctxt "@item"
 msgid "Removable Devices"
-msgstr "Подключаемые устройства"
+msgstr "Съёмные устройства"
 
 #: filewidgets/kfileplacesitem.cpp:239
 #, kde-format
@@ -3047,7 +3048,7 @@ msgstr "Изменены вчера"
 #, kde-format
 msgctxt "Placeholder is error message"
 msgid "Could not add to the Places panel: %1"
-msgstr "Невозможно найти программу «%1»"
+msgstr "Не удалось добавить на панель «Точки входа»: %1"
 
 #: filewidgets/kfileplacesmodel.cpp:1141
 #, kde-format
@@ -3214,7 +3215,7 @@ msgstr "&Изменить…"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
-msgstr "Удалить из панели «Точки входа»"
+msgstr "Удалить с панели «Точки входа»"
 
 #: filewidgets/kfileplacesview.cpp:1294
 #, kde-format
@@ -3359,7 +3360,7 @@ msgstr ""
 #: filewidgets/kfilewidget.cpp:1223
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
-msgstr "Нажмите эту кнопку для обновления содержимого текущей страницы."
+msgstr "Нажмите эту кнопку для обновления содержимого текущего расположения."
 
 #: filewidgets/kfilewidget.cpp:1225
 #, kde-format
@@ -3390,11 +3391,10 @@ msgid ""
 "files</li><li>the Places panel</li><li>file previews</li><li>separating "
 "folders from files</li></ul></qt>"
 msgstr ""
-"<qt>Это меню параметров диалога выбора файла. Могут быть настроены различные "
-"виды просмотра:<ul><li>способ сортировки файлов</li><li>способы "
-"представления (значками, списком)</li><li>показ скрытых файлов</li><li>показ "
-"панели быстрого доступа</li><li>миниатюры файлов</li> <li>отделение папок от "
-"файлов</li></ul></qt>"
+"<qt>Это меню параметров диалога выбора файла. В нём можно настроить:"
+"<ul><li>способ сортировки файлов</li><li>способы представления (значками, "
+"списком)</li><li>показ скрытых файлов</li><li>показ панели быстрого доступа</"
+"li><li>миниатюры файлов</li> <li>отделение папок от файлов</li></ul></qt>"
 
 #: filewidgets/kfilewidget.cpp:1264
 #, kde-format
@@ -3509,7 +3509,7 @@ msgstr "Все папки"
 #: filewidgets/kfilewidget.cpp:2079
 #, kde-format
 msgid "Current Directory: %1"
-msgstr "Текущий каталог: %1"
+msgstr "Текущая папка: %1"
 
 #: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:859
 #, kde-format
@@ -3587,14 +3587,14 @@ msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
 msgstr ""
-"<qt>Это выбор типа файла. Он служит для выбора формата отображаемых файлов.</"
+"<qt>Это выбор типа файла. Он служит для выбора формата показываемых файлов.</"
 "qt>"
 
 #: filewidgets/knewfilemenu.cpp:233
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr "Ввести другое имя файла %1:"
+msgstr "Введите имя файла %1:"
 
 #: filewidgets/knewfilemenu.cpp:558
 #, kde-format
@@ -3711,7 +3711,7 @@ msgstr ""
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
-msgstr "Каталог с именем <filename>%1</filename> уже существует."
+msgstr "Папка с именем <filename>%1</filename> уже существует."
 
 #: filewidgets/knewfilemenu.cpp:1293
 #, kde-kuit-format
@@ -3782,7 +3782,7 @@ msgstr "Выбрать другой значок…"
 #: filewidgets/knewfilemenu_newfiledialog.ui:145
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr "Позднее значок можно будет изменить в разделе настройки свойств папки."
+msgstr "Позднее значок можно будет изменить в свойствах папки."
 
 #: filewidgets/kurlnavigator.cpp:611
 #, kde-format
@@ -3940,7 +3940,7 @@ msgstr "Файл значка слишком большой, загрузка п
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
-"FilePreviewJob: пропущен пустой файл, возможно, повреждённая символьная "
+"FilePreviewJob: пропущен пустой файл, возможно, повреждённая символическая "
 "ссылка: %1"
 
 #: gui/kemailclientlauncherjob.cpp:117
@@ -3973,7 +3973,7 @@ msgstr "Команда <command>%1</command> не найдена."
 #: gui/kterminallauncherjob.cpp:130
 #, kde-format
 msgid "No terminal emulator found"
-msgstr "Не найден эмулятор терминал"
+msgstr "Не найден эмулятор терминала"
 
 #: gui/openurljob.cpp:184
 #, kde-format
@@ -4012,9 +4012,7 @@ msgstr ""
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
-msgstr ""
-"Для запуска программы «%1» необходимо получить права доступа на её "
-"выполнение."
+msgstr "Для запуска программы «%1» у неё должно быть право на выполнение."
 
 #: gui/openurljob.cpp:487
 #, kde-format
@@ -4062,7 +4060,8 @@ msgctxt "@info"
 msgid ""
 "The file <filename>%1</filename><nl/>has been modified. Do you want to "
 "upload the changes?"
-msgstr "Файл <filename>%1</filename>был изменён. Загрузить его на сервер?"
+msgstr ""
+"Файл <filename>%1</filename><nl/>был изменён. Загрузить изменения на сервер?"
 
 #: kioexec/kioexecd.cpp:87 kioexec/main.cpp:240 kioexec/main.cpp:250
 #, kde-format
@@ -4153,7 +4152,7 @@ msgstr ""
 #: kioexec/main.cpp:306
 #, kde-format
 msgid "(c) 1998-2000,2003 The KFM/Konqueror Developers"
-msgstr "© Разработчики KFM/Konqueror, 1998-2000,2003"
+msgstr "© Разработчики KFM/Konqueror, 1998–2000, 2003"
 
 #: kioexec/main.cpp:307
 #, kde-format
@@ -4338,7 +4337,7 @@ msgstr "Прокси:"
 #: kioworkers/ftp/ftp.cpp:2654
 #, kde-format
 msgid "Proxy Authentication Failed."
-msgstr "Ошибка идентификации на прокси-сервере."
+msgstr "Ошибка аутентификации на прокси-сервере."
 
 #: kioworkers/help/kio_help.cpp:112
 #, kde-format
@@ -4472,7 +4471,7 @@ msgstr "получения содержимого указанного файл�
 #, kde-format
 msgctxt "request type"
 msgid "run a report in the specified folder"
-msgstr "поиска в указанной папке"
+msgstr "создания отчёта в указанной папке"
 
 #: kioworkers/http/http.cpp:1475
 #, kde-format
@@ -4500,7 +4499,7 @@ msgid ""
 "A resource cannot be created at the destination until one or more "
 "intermediate collections (folders) have been created."
 msgstr ""
-"Ресурс не может быт создан, пока не будут созданы одна или более "
+"Ресурс не может быть создан, пока не будут созданы одна или более "
 "промежуточные коллекции (папки)."
 
 #: kioworkers/http/http.cpp:1556
@@ -4513,13 +4512,14 @@ msgid ""
 " %1"
 msgstr ""
 "Сервер не поддерживает параметры, перечисленные в элементе XML\n"
-"с именем propertybehavior, или же вы пытаетесь заменить файл.\n"
+"с именем propertybehavior, или вы пытаетесь заменить файл,\n"
+"запросив при этом запрет замены файлов.\n"
 "%1"
 
 #: kioworkers/http/http.cpp:1564
 #, kde-format
 msgid "The requested lock could not be granted. %1"
-msgstr "Требуемая блокировка не может быть подтверждена. %1"
+msgstr "Требуемая блокировка не может быть предоставлена. %1"
 
 #: kioworkers/http/http.cpp:1570
 #, kde-format
@@ -4544,7 +4544,7 @@ msgid ""
 "Unable to %1 because the destination server refuses to accept the file or "
 "folder."
 msgstr ""
-"Невозможно %1, т.к. что сервер назначения отказался принять файл или папку."
+"Невозможно %1, так как сервер назначения отказался принять файл или папку."
 
 #: kioworkers/http/http.cpp:1595 kioworkers/http/http.cpp:1708
 #, kde-format
@@ -4564,7 +4564,7 @@ msgstr "Не удалось удалить ресурс."
 #, kde-format
 msgctxt "request type"
 msgid "upload %1"
-msgstr "отправка %1"
+msgstr "отправки %1"
 
 #: kioworkers/http/http.cpp:1719
 #, kde-format
@@ -4774,7 +4774,7 @@ msgid ""
 "Copy and paste a checksum in the field below.<br/>A checksum is usually "
 "provided by the website you downloaded this file from."
 msgstr ""
-"Скопируйте или введите контрольную сумму в это поле.<br/>Контрольные суммы "
+"Скопируйте и вставьте контрольную сумму в это поле.<br/>Контрольные суммы "
 "обычно бывают указаны на том же сайте, где опубликован соответствующий файл."
 
 #. i18n: MD5, SHA1, SHA256 and SHA512 are hashing algorithms
@@ -5099,7 +5099,7 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
-"Безвозвратно удалить этот %1 объект?<nl/><nl/><emphasis strong='true'>Это "
+"Безвозвратно удалить %1 объект?<nl/><nl/><emphasis strong='true'>Это "
 "действие невозможно отменить.</emphasis>"
 msgstr[1] ""
 "Безвозвратно удалить эти %1 объекта?<nl/><nl/><emphasis strong='true'>Это "
@@ -5392,7 +5392,7 @@ msgstr "&Открыть папку в приложении"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
-msgstr "&Открыть с помощью…"
+msgstr "&Открыть с помощью"
 
 #: widgets/kfileitemactions.cpp:891
 #, kde-format
@@ -5426,7 +5426,7 @@ msgstr "Тип:"
 #: widgets/kfilepropspluginwidget.ui:118
 #, kde-format
 msgid "Content:"
-msgstr "Содержание:"
+msgstr "Содержимое:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
@@ -5635,8 +5635,8 @@ msgid ""
 "%m - the mini-icon\n"
 "%c - the comment"
 msgstr ""
-"Следом за командой возможно указать список параметров, которые будут "
-"заменены реальными значениями при запуске программы:\n"
+"Следом за командой можно указать список параметров, которые будут заменены "
+"реальными значениями при запуске программы:\n"
 "%f — имя одного файла\n"
 "%F — список файлов, используется в случае, если приложение может открывать "
 "несколько файлов одновременно\n"
@@ -5646,7 +5646,7 @@ msgstr ""
 "%D — список папок\n"
 "%i — значок\n"
 "%m — мини-значок\n"
-"%c — строка заголовка"
+"%c — комментарий"
 
 #: widgets/kopenwithdialog.cpp:744
 #, kde-format
@@ -5704,8 +5704,8 @@ msgid ""
 "emulator window."
 msgstr ""
 "Установите этот параметр, если запускаемое приложение является приложением "
-"текстового режима или если если вам необходима информация, которую это "
-"приложение выводит в окно терминала."
+"текстового режима или если вам необходима информация, которую это приложение "
+"выводит в окно терминала."
 
 #. i18n: ectx: property (text), widget (QCheckBox, terminalCheck)
 #: widgets/kpropertiesdesktopadvbase.ui:42
@@ -5833,7 +5833,7 @@ msgid ""
 "will appear under this name in the applications menu and in the panel."
 msgstr ""
 "Введите имя, которое вы хотите присвоить этому приложению. Приложение "
-"появится под этим именем в меню и в панели."
+"появится под этим именем в меню и на панели."
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
@@ -5844,8 +5844,8 @@ msgid ""
 "application would be \"Image Viewer\"."
 msgstr ""
 "Введите общее название этого приложения, основанное на его назначении. "
-"Например,  для приложения для просмотра изображений можно ввести «Просмотр "
-"изображений."
+"Например, для приложения для просмотра изображений можно ввести «Просмотр "
+"изображений»."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
@@ -5924,9 +5924,8 @@ msgid ""
 msgstr ""
 "Введите аргументы, которые будут использованы при запуске этого приложения.\n"
 "\n"
-"Возможно указать список параметров, которые будут заменены реальными "
-"значениями при запуске программы:\n"
-"\n"
+"Можно указать список параметров, которые будут заменены реальными значениями "
+"при запуске программы:\n"
 "\n"
 "%f — имя одного файла\n"
 "%F — список файлов, используется в случае, если приложение может открывать "
@@ -5934,7 +5933,7 @@ msgstr ""
 "%u — один URL\n"
 "%U — список из нескольких URL\n"
 "%i — значок\n"
-"%c — строка заголовка\n"
+"%c — имя из файла .desktop\n"
 "%k — расположение файла .desktop"
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
@@ -6133,7 +6132,7 @@ msgstr "Обновить"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
-msgstr "Введите каталог назначения"
+msgstr "Введите целевое расположение"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:498
 #: widgets/kpropertiesdialogbuiltin_p.cpp:501
@@ -6224,7 +6223,7 @@ msgstr "Изменить…"
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
 msgstr ""
-"Изменить приложение по умолчанию, к котором будет открываться файлы с типом "
+"Изменить приложение по умолчанию, в котором будут открываться файлы с типом "
 "«%1»."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1122
@@ -6324,12 +6323,12 @@ msgstr "Только владелец может &переименовывать
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1271
 #, kde-format
 msgid "Allow &executing file as program"
-msgstr "Разрешить &выполнение файла как программы."
+msgstr "Разрешить &выполнение файла как программы"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1273
 #, kde-format
 msgid "Delete or rename:"
-msgstr "Удалить или переименовать"
+msgstr "Удалить или переименовать:"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1273
 #, kde-format
@@ -6345,7 +6344,8 @@ msgid ""
 msgstr ""
 "Включите этот параметр, если необходимо, чтобы только владелец папки мог "
 "переименовывать и удалять входящие в неё файлы и папки. Другие пользователи "
-"могут добавлять новые файлы, в соответствии с правами изменения содержимого."
+"смогут только добавлять новые файлы, для чего нужно право «Изменение "
+"содержимого»."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1278
 #, kde-format
@@ -6354,7 +6354,7 @@ msgid ""
 "programs and scripts. It is required when you want to execute them."
 msgstr ""
 "Включите этот параметр, чтобы пометить файл как исполняемый. Имеет смысл "
-"только для программ и скриптов."
+"только для программ и сценариев и необходимо для их запуска."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1282
 #, kde-format
@@ -6462,7 +6462,7 @@ msgstr "Выполнение"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1466
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
-msgstr "Установите этот файл для выполнения файла как программы."
+msgstr "Установите этот флаг, чтобы разрешить выполнение файла как программы."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1474
 #, kde-format
@@ -6548,7 +6548,7 @@ msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
 "systems"
 msgstr ""
-"Файл Sticky у файла игнорируется в Linux, но может использоваться какими-то "
+"Флаг Sticky у файла игнорируется в Linux, но может использоваться какими-то "
 "другими системами"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1591
@@ -6575,7 +6575,7 @@ msgstr "Ссылка"
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1745
 #, kde-format
 msgid "Varying (No Change)"
-msgstr "Переменные (не изменять)"
+msgstr "Различаются (не изменять)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1856
 #, kde-format
@@ -6590,9 +6590,9 @@ msgstr[3] "Этот файл использует дополнительные �
 #, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
-msgstr[0] "Эти папки используют дополнительные права.."
-msgstr[1] "Эти папки используют дополнительные права.."
-msgstr[2] "Эти папки используют дополнительные права.."
+msgstr[0] "Эти папки используют дополнительные права."
+msgstr[1] "Эти папки используют дополнительные права."
+msgstr[2] "Эти папки используют дополнительные права."
 msgstr[3] "Эта папка использует дополнительные права."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1892
@@ -6684,8 +6684,8 @@ msgstr "URL:"
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
-"Не удалось сохранить свойства. Допускаются указывать файлы только на "
-"локальных файловых системах."
+"Не удалось сохранить свойства. Поддерживаются только объекты локальных "
+"файловых систем."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2767
 #, kde-format
@@ -6766,7 +6766,7 @@ msgid "using %1 bit"
 msgid_plural "using %1 bits"
 msgstr[0] "используется %1 бит"
 msgstr[1] "используется %1 бита"
-msgstr[2] "используется %1 битов"
+msgstr[2] "используется %1 бит"
 msgstr[3] "используется %1 бит"
 
 #: widgets/ksslinfodialog.cpp:142
@@ -6800,7 +6800,7 @@ msgstr "с %1 по %2"
 #: widgets/kurifiltersearchprovideractions.cpp:80
 #, kde-format
 msgid "Search for '%1' with"
-msgstr "Поиск «%1» в"
+msgstr "Искать «%1» в"
 
 #: widgets/kurifiltersearchprovideractions.cpp:85
 #, kde-format
@@ -6894,7 +6894,7 @@ msgstr "Имя файла для содержимого буфера обмен�
 #: widgets/pastejob.cpp:89
 #, kde-format
 msgid "Filename for dropped contents:"
-msgstr "Имя файла для перемещаемого содержимого:"
+msgstr "Имя файла для перетаскиваемого содержимого:"
 
 #: widgets/renamedialog.cpp:73
 #, kde-format
@@ -6922,8 +6922,8 @@ msgid ""
 msgstr ""
 "При включении этого флажка выбранное действие будет применено ко всем "
 "оставшимся конфликтующим папкам.\n"
-"Однако при замене существующего файла в папке назначения у вас будет "
-"запрошено подтверждение."
+"Если не нажать «Пропустить», при конфликте с существующим файлом в папке всё "
+"равно будет запрошено подтверждение."
 
 #: widgets/renamedialog.cpp:284
 #, kde-format
@@ -6932,7 +6932,7 @@ msgid ""
 "conflicts for the remainder of the current job."
 msgstr ""
 "При включении этого флажка выбранное действие будет применено ко всем "
-"оставшимся конфликтующим папкам."
+"оставшимся конфликтам текущей операции."
 
 #: widgets/renamedialog.cpp:290
 #, kde-format
@@ -6953,13 +6953,13 @@ msgstr "Пропу&стить"
 #, kde-format
 msgid "Do not copy or move this folder, skip to the next item instead"
 msgstr ""
-"Не копировать или перемещать указанную папку, перейти к следующему объекту"
+"Не копировать и не перемещать указанную папку, перейти к следующему объекту"
 
 #: widgets/renamedialog.cpp:300
 #, kde-format
 msgid "Do not copy or move this file, skip to the next item instead"
 msgstr ""
-"Не копировать или перемещать указанный файл, перейти к следующему объекту"
+"Не копировать и не перемещать указанный файл, перейти к следующему объекту"
 
 #: widgets/renamedialog.cpp:311
 #, kde-format
@@ -7005,7 +7005,7 @@ msgid ""
 "This action would overwrite '%1' with itself.\n"
 "Please enter a new file name:"
 msgstr ""
-"Это действие заменит существующий файл «%1» новым.\n"
+"Это действие перезапишет файл «%1» им же самим.\n"
 "Введите новое имя файла:"
 
 #: widgets/renamedialog.cpp:350
@@ -7031,7 +7031,7 @@ msgstr "Исходный файл <b>новее</b>."
 #: widgets/renamedialog.cpp:465
 #, kde-format
 msgid "The source is <b>older</b>."
-msgstr "Исходный файл <b>старее</b>."
+msgstr "Исходный файл <b>старше</b>."
 
 #: widgets/renamedialog.cpp:474
 #, kde-format
@@ -7093,59 +7093,59 @@ msgstr "Объект с именем «%1» уже существует и яв�
 msgid "Rename:"
 msgstr "Переименовать:"
 
-#: widgets/renamefiledialog.cpp:138
+#: widgets/renamefiledialog.cpp:149
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Переименовать объект <filename>%1</filename> в:"
 
-#: widgets/renamefiledialog.cpp:188 widgets/renamefiledialog.cpp:574
+#: widgets/renamefiledialog.cpp:199 widgets/renamefiledialog.cpp:572
 #, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "Файл с именем <filename>%1</filename> уже существует."
 
-#: widgets/renamefiledialog.cpp:191
+#: widgets/renamefiledialog.cpp:202
 #, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> не является допустимым именем файла."
 
-#: widgets/renamefiledialog.cpp:211
+#: widgets/renamefiledialog.cpp:222
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
 msgid_plural "Rename the %1 selected items to:"
 msgstr[0] "Переименовать %1 выделенный объект в:"
 msgstr[1] "Переименовать %1 выделенных объекта в:"
-msgstr[2] "Переименовать %1 выделенных объекта в:"
+msgstr[2] "Переименовать %1 выделенных объектов в:"
 msgstr[3] "Переименовать выделенный объект в:"
 
-#: widgets/renamefiledialog.cpp:214
+#: widgets/renamefiledialog.cpp:225
 #, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
 msgstr "Символ # будет заменён порядковым номером, начиная с:"
 
-#: widgets/renamefiledialog.cpp:229
+#: widgets/renamefiledialog.cpp:240
 #, kde-format
 msgctxt "@item:inlistbox the new name is the whole file name"
 msgid "Replace filename"
 msgstr "Вместо имени файла"
 
-#: widgets/renamefiledialog.cpp:230
+#: widgets/renamefiledialog.cpp:241
 #, kde-format
 msgctxt "@item:inlistbox as in insert the new name before the filename"
 msgid "Before filename"
 msgstr "Перед именем файла"
 
-#: widgets/renamefiledialog.cpp:231
+#: widgets/renamefiledialog.cpp:242
 #, kde-format
 msgctxt "@item:inlistbox as in insert the new name after the filename"
 msgid "After filename"
 msgstr "После имени файла"
 
-#: widgets/renamefiledialog.cpp:284
+#: widgets/renamefiledialog.cpp:295
 #, kde-format
 msgctxt ""
 "Template putting the number before the old file name, # is replaced by a "
@@ -7153,7 +7153,7 @@ msgctxt ""
 msgid "#_"
 msgstr "#_"
 
-#: widgets/renamefiledialog.cpp:286
+#: widgets/renamefiledialog.cpp:297
 #, kde-format
 msgctxt ""
 "Template putting the number after the old file name, # is replaced by a "
@@ -7161,7 +7161,7 @@ msgctxt ""
 msgid "_#"
 msgstr "_#"
 
-#: widgets/renamefiledialog.cpp:288
+#: widgets/renamefiledialog.cpp:299
 #, kde-format
 msgctxt ""
 "This a template for new filenames, # is replaced by a number later, must be "
@@ -7169,7 +7169,7 @@ msgctxt ""
 msgid "New name #"
 msgstr "Новое имя #"
 
-#: widgets/renamefiledialog.cpp:372
+#: widgets/renamefiledialog.cpp:375
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7177,9 +7177,9 @@ msgid ""
 "the files have different file extensions."
 msgstr ""
 "Недопустимое имя файла: новое имя должно содержать одну последовательность "
-"символов «#»,если только у всех файлов не разные расширения."
+"символов «#», если только у всех файлов не разные расширения."
 
-#: widgets/renamefiledialog.cpp:401
+#: widgets/renamefiledialog.cpp:404
 #, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
@@ -7189,37 +7189,37 @@ msgstr[1] "Переименовать %1 выделенных объекта:"
 msgstr[2] "Переименовать %1 выделенных объектов:"
 msgstr[3] "Переименовать выделенный объект:"
 
-#: widgets/renamefiledialog.cpp:405
+#: widgets/renamefiledialog.cpp:408
 #, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
 msgstr "Заменить:"
 
-#: widgets/renamefiledialog.cpp:407
+#: widgets/renamefiledialog.cpp:410
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
 msgstr "Исходный текст…"
 
-#: widgets/renamefiledialog.cpp:411
+#: widgets/renamefiledialog.cpp:414
 #, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
 msgstr "На текст:"
 
-#: widgets/renamefiledialog.cpp:413
+#: widgets/renamefiledialog.cpp:416
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
 msgstr "Текст замены…"
 
-#: widgets/renamefiledialog.cpp:460
+#: widgets/renamefiledialog.cpp:463
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
 msgstr "Ни одно имя файла не попадает под шаблон."
 
-#: widgets/renamefiledialog.cpp:469
+#: widgets/renamefiledialog.cpp:472
 #, kde-kuit-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid ""
@@ -7229,7 +7229,7 @@ msgstr ""
 "Замена «%1» на пустую строку приведёт к тому, что файл <filename>%2</"
 "filename> будет иметь пустое имя."
 
-#: widgets/renamefiledialog.cpp:495
+#: widgets/renamefiledialog.cpp:498
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
@@ -7239,79 +7239,79 @@ msgstr[1] "Переименовать %1 выделенных объекта:"
 msgstr[2] "Переименовать %1 выделенных объектов:"
 msgstr[3] "Переименовать выделенный объект:"
 
-#: widgets/renamefiledialog.cpp:498
+#: widgets/renamefiledialog.cpp:501
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
 msgstr "Добавить текст:"
 
-#: widgets/renamefiledialog.cpp:500
+#: widgets/renamefiledialog.cpp:503
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
 msgstr "Добавляемый текст"
 
-#: widgets/renamefiledialog.cpp:505
+#: widgets/renamefiledialog.cpp:508
 #, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
 msgstr "Перед именем файла"
 
-#: widgets/renamefiledialog.cpp:506
+#: widgets/renamefiledialog.cpp:509
 #, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
 msgstr "После имени файла"
 
-#: widgets/renamefiledialog.cpp:623
+#: widgets/renamefiledialog.cpp:621
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Item"
 msgstr "Переименование объекта"
 
-#: widgets/renamefiledialog.cpp:623
+#: widgets/renamefiledialog.cpp:621
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Items"
 msgstr "Переименование объектов"
 
-#: widgets/renamefiledialog.cpp:634
+#: widgets/renamefiledialog.cpp:632
 #, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
 msgstr "&Переименовать"
 
-#: widgets/renamefiledialog.cpp:643
+#: widgets/renamefiledialog.cpp:641
 #, kde-format
 msgctxt "@info"
 msgid "How to rename:"
 msgstr "Способ переименования:"
 
-#: widgets/renamefiledialog.cpp:647
+#: widgets/renamefiledialog.cpp:645
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
 msgstr "Добавление чисел"
 
-#: widgets/renamefiledialog.cpp:647
+#: widgets/renamefiledialog.cpp:645
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
 msgstr "Замена текста"
 
-#: widgets/renamefiledialog.cpp:647
+#: widgets/renamefiledialog.cpp:645
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
 msgstr "Добавление текста"
 
-#: widgets/renamefiledialog.cpp:664
+#: widgets/renamefiledialog.cpp:662
 #, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
 msgstr "Предварительный просмотр:"
 
-#: widgets/renamefiledialog.cpp:788
+#: widgets/renamefiledialog.cpp:801
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
@@ -7437,7 +7437,7 @@ msgstr "Пропустить все"
 #: widgets/sslinfo.ui:17
 #, kde-format
 msgid "[padlock]"
-msgstr "[заблокирован]"
+msgstr "[замок]"
 
 #. i18n: ectx: property (text), widget (QLabel, addressTag)
 #: widgets/sslinfo.ui:34
@@ -7474,7 +7474,7 @@ msgstr "Версия SSL:"
 #: widgets/sslinfo.ui:134
 #, kde-format
 msgid "Certificate chain:"
-msgstr "Цепочка сертификата:"
+msgstr "Цепочка сертификатов:"
 
 #. i18n: ectx: property (text), widget (QLabel, trustedTag)
 #: widgets/sslinfo.ui:163
@@ -7504,7 +7504,7 @@ msgstr "Дайджест MD5:"
 #: widgets/sslinfo.ui:243
 #, kde-format
 msgid "SHA1 digest:"
-msgstr "Хэш SHA1:"
+msgstr "Дайджест SHA1:"
 
 #: widgets/sslui.cpp:31
 #, kde-format
@@ -7545,7 +7545,7 @@ msgid_plural ""
 "Do you really want to permanently delete these %1 items?<nl/><nl/><emphasis "
 "strong='true'>This action cannot be undone.</emphasis>"
 msgstr[0] ""
-"Безвозвратно удалить этот %1 объект?<nl/><nl/><emphasis strong='true'>Это "
+"Безвозвратно удалить %1 объект?<nl/><nl/><emphasis strong='true'>Это "
 "действие невозможно отменить.</emphasis>"
 msgstr[1] ""
 "Безвозвратно удалить эти %1 объекта?<nl/><nl/><emphasis strong='true'>Это "
@@ -7616,9 +7616,9 @@ msgid_plural ""
 "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot be "
 "undone.</emphasis>"
 msgstr[0] ""
-"Эти %1 файл не могут быть удалены в корзину из их расположения. Удалить их "
-"безвозвратно?<nl/><emphasis strong='true'>Это действие невозможно отменить.</"
-"emphasis>"
+"Этот %1 файл не может быть удалён в корзину из своего расположения. Удалить "
+"его безвозвратно?<nl/><emphasis strong='true'>Это действие невозможно "
+"отменить.</emphasis>"
 msgstr[1] ""
 "Эти %1 файла не могут быть удалены в корзину из их расположения. Удалить их "
 "безвозвратно?<nl/><emphasis strong='true'>Это действие невозможно отменить.</"

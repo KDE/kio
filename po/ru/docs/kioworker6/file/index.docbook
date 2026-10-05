@@ -34,13 +34,13 @@
 <para
 >Протокол <emphasis
 >file</emphasis
-> используется всеми приложениями &kde; для отображения локальных файлов. </para>
+> используется всеми приложениями &kde; для показа локальных файлов. </para>
 <para
 >Если в строке адреса &konqueror; ввести <userinput
 ><command
 >file:/directoryname</command
 ></userinput
->, будет показан список всех файлов каталога <quote
+>, будет показан список всех файлов папки <quote
 >/directoryname</quote
 >. </para>
 
