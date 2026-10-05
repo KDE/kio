@@ -66,6 +66,7 @@ Name[tg]=Абри садо
 Name[th]=Soundcloud
 Name[tok]=ilo pi kalama musi Soundcloud
 Name[tr]=Soundcloud
+Name[ug]=Soundcloud
 Name[uk]=Soundcloud
 Name[vi]=Soundcloud
 Name[zh_CN]=Soundcloud
@@ -136,6 +137,7 @@ Query[tg]=https://soundcloud.com/search?q=\\{@}
 Query[th]=https://soundcloud.com/search?q=\\{@}
 Query[tok]=https://soundcloud.com/search?q=\\{@}
 Query[tr]=https://soundcloud.com/search?q=\\{@}
+Query[ug]=https://soundcloud.com/search?q=\\{@}
 Query[uk]=https://soundcloud.com/search?q=\\{@}
 Query[vi]=https://soundcloud.com/search?q=\\{@}
 Query[zh_CN]=https://soundcloud.com/search?q=\\{@}
