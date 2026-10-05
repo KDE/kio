@@ -12,6 +12,31 @@
 
 #include <qt_windows.h>
 
+#include <thread>
+
+namespace
+{
+// The event that sendTerminateSignal() sets for the worker process pid.
+QString terminateEventName(qint64 pid)
+{
+    return QStringLiteral("Local\\org.kde.kio.worker.terminate.%1").arg(pid);
+}
+
+struct TerminateWatcher {
+    HANDLE terminate = nullptr;
+    HANDLE stop = nullptr;
+    std::thread thread;
+};
+
+// Never destroyed: a worker can end with exit() while the thread still waits, and destroying a
+// joinable std::thread would call std::terminate().
+TerminateWatcher &terminateWatcher()
+{
+    static auto *watcher = new TerminateWatcher;
+    return *watcher;
+}
+} // namespace
+
 // A callback to shutdown cleanly (no forced kill)
 BOOL CALLBACK closeProcessCallback(HWND hwnd, LPARAM lParam)
 {
@@ -26,11 +51,61 @@ BOOL CALLBACK closeProcessCallback(HWND hwnd, LPARAM lParam)
 KIOCORE_EXPORT void KIOPrivate::sendTerminateSignal(qint64 pid)
 {
     // no error checking whether kill succeeded, Linux code also just sends a SIGTERM without checking
+    // A worker has no window, so it waits for this event instead, see startTerminateWatcher().
+    if (HANDLE event = OpenEventW(EVENT_MODIFY_STATE, FALSE, reinterpret_cast<LPCWSTR>(terminateEventName(pid).utf16()))) {
+        SetEvent(event);
+        CloseHandle(event);
+    }
     HANDLE procHandle = OpenProcess(SYNCHRONIZE | PROCESS_TERMINATE, FALSE, pid);
     if (procHandle != INVALID_HANDLE_VALUE) {
         EnumWindows(&closeProcessCallback, (LPARAM)pid);
         CloseHandle(procHandle);
     }
+}
+
+KIOCORE_EXPORT void KIOPrivate::startTerminateWatcher(std::function<void()> onTerminate)
+{
+    TerminateWatcher &watcher = terminateWatcher();
+    if (watcher.thread.joinable()) {
+        return;
+    }
+    watcher.terminate = CreateEventW(nullptr, TRUE, FALSE, reinterpret_cast<LPCWSTR>(terminateEventName(GetCurrentProcessId()).utf16()));
+    watcher.stop = CreateEventW(nullptr, TRUE, FALSE, nullptr);
+    if (!watcher.terminate || !watcher.stop) {
+        qWarning() << "Could not create the events to receive the termination of the worker:" << GetLastError();
+        if (watcher.terminate) {
+            CloseHandle(watcher.terminate);
+        }
+        if (watcher.stop) {
+            CloseHandle(watcher.stop);
+        }
+        watcher.terminate = watcher.stop = nullptr;
+        return;
+    }
+    watcher.thread = std::thread([terminate = watcher.terminate, stop = watcher.stop, onTerminate = std::move(onTerminate)]() {
+        const HANDLE events[] = {terminate, stop};
+        if (WaitForMultipleObjects(2, events, FALSE, INFINITE) != WAIT_OBJECT_0) {
+            return;
+        }
+        onTerminate();
+        // As alarm(5) after SIGTERM on UNIX, a worker that has not stopped by then is ended.
+        if (WaitForSingleObject(stop, 5000) == WAIT_TIMEOUT) {
+            TerminateProcess(GetCurrentProcess(), 255);
+        }
+    });
+}
+
+KIOCORE_EXPORT void KIOPrivate::stopTerminateWatcher()
+{
+    TerminateWatcher &watcher = terminateWatcher();
+    if (!watcher.thread.joinable()) {
+        return;
+    }
+    SetEvent(watcher.stop);
+    watcher.thread.join();
+    CloseHandle(watcher.terminate);
+    CloseHandle(watcher.stop);
+    watcher.terminate = watcher.stop = nullptr;
 }
 
 KIOCORE_EXPORT bool KIOPrivate::createSymlink(const QString &source, const QString &destination, KIOPrivate::SymlinkType type)

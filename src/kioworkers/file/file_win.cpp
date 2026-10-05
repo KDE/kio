@@ -359,6 +359,10 @@ WorkerResult FileProtocol::del(const QUrl &url, bool isfile)
         if (!deleteResult.success()) {
             return deleteResult;
         }
+        // A cancelled deletion leaves the directory partly emptied, as on unix.
+        if (wasKilled()) {
+            return WorkerResult::pass();
+        }
         if (RemoveDirectoryW((LPCWSTR)_path.utf16()) == 0) {
             DWORD dwLastErr = GetLastError();
             if (dwLastErr == ERROR_FILE_NOT_FOUND) {

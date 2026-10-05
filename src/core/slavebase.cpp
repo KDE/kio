@@ -123,6 +123,9 @@ public:
     std::atomic<bool> exit_loop = false;
     std::atomic<bool> runInThread = false;
     bool warnedListEntryAfterKill = false; // listEntry() logs the missing wasKilled() check only once
+#ifdef Q_OS_WIN
+    bool terminateWatcherStarted = false;
+#endif
     MetaData configData;
     KConfig *config = nullptr;
     KConfigGroup *configGroup = nullptr;
@@ -271,6 +274,13 @@ SlaveBase::SlaveBase(const QByteArray &protocol, std::unique_ptr<KIO::Connection
 
         globalSlave = this;
 #endif
+#ifdef Q_OS_WIN
+        // Windows has no SIGTERM, so Worker::kill() sets an event that a thread waits for.
+        KIOPrivate::startTerminateWatcher([this]() {
+            setKillFlag();
+        });
+        d->terminateWatcherStarted = true;
+#endif
     }
 
     d->isConnectedToApp = true;
@@ -293,6 +303,11 @@ SlaveBase::SlaveBase(const QByteArray &protocol, std::unique_ptr<KIO::Connection
 
 SlaveBase::~SlaveBase()
 {
+#ifdef Q_OS_WIN
+    if (d->terminateWatcherStarted) {
+        KIOPrivate::stopTerminateWatcher();
+    }
+#endif
     delete d->configGroup;
     delete d->config;
     delete d->remotefile;

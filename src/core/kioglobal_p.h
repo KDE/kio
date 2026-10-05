@@ -9,6 +9,7 @@
 #define KIO_KIOGLOBAL_P_H
 
 #include "kiocore_export.h"
+#include <functional>
 #include <qplatformdefs.h>
 
 #include <KUser>
@@ -95,6 +96,17 @@ namespace KIOPrivate
  * \internal
  */
 KIOCORE_EXPORT void sendTerminateSignal(qint64 pid);
+
+#ifdef Q_OS_WIN
+/*!
+ * Windows has no SIGTERM, so sendTerminateSignal() sets an event of the worker process, which this
+ * waits for on a thread of its own. It calls \a onTerminate there once the event is set, and ends the
+ * process 5 seconds later unless stopTerminateWatcher() is called first, as a worker gets on UNIX.
+ * \internal
+ */
+KIOCORE_EXPORT void startTerminateWatcher(std::function<void()> onTerminate);
+KIOCORE_EXPORT void stopTerminateWatcher();
+#endif
 
 enum SymlinkType {
     GuessSymlinkType,
