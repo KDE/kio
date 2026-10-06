@@ -15,6 +15,7 @@
 #include <QApplication>
 #include <QCheckBox>
 #include <QDialogButtonBox>
+#include <QFileInfo>
 #include <QIcon>
 #include <QKeyEvent>
 #include <QLabel>
@@ -45,6 +46,7 @@
 #include <kurlcompletion.h>
 #include <kurlrequester.h>
 #include <openwith.h>
+#include <openwith_p.h>
 
 #include <KConfigGroup>
 #include <assert.h>
@@ -503,6 +505,8 @@ public:
      * Determine MIME type from URLs
      */
     void setMimeTypeFromUrls(const QList<QUrl> &_urls);
+    // For a single file of the default type, records its extension instead of the type.
+    void setUnknownTypeFromUrls(const QList<QUrl> &urls);
 
     void setMimeType(const QString &mimeType);
 
@@ -541,6 +545,9 @@ public:
     QLabel *label;
     QString qMimeType;
     QString qMimeTypeComment;
+    // The extension of a file of no known type, whose association is remembered under a type made
+    // for it, so that the application does not become the default for every file of no known type.
+    QString unknownExtension;
     KCollapsibleGroupBox *dialogExtension;
     QCheckBox *terminal;
     QCheckBox *remember;
@@ -598,6 +605,8 @@ KOpenWithDialog::KOpenWithDialog(const QList<QUrl> &_urls, const QString &mimeTy
     setWindowTitle(i18n("Choose Application"));
     if (mimeType.isEmpty()) {
         d->setMimeTypeFromUrls(_urls);
+    } else if (QMimeDatabase().mimeTypeForName(mimeType).isDefault()) {
+        d->setUnknownTypeFromUrls(_urls);
     } else {
         d->setMimeType(mimeType);
     }
@@ -642,12 +651,24 @@ void KOpenWithDialogPrivate::setMimeTypeFromUrls(const QList<QUrl> &_urls)
         QMimeType mime = db.mimeTypeForUrl(_urls.first());
         qMimeType = mime.name();
         if (mime.isDefault()) {
-            qMimeType.clear();
+            setUnknownTypeFromUrls(_urls);
         } else {
             qMimeTypeComment = mime.comment();
         }
     } else {
         qMimeType.clear();
+    }
+}
+
+void KOpenWithDialogPrivate::setUnknownTypeFromUrls(const QList<QUrl> &urls)
+{
+    qMimeType.clear();
+    qMimeTypeComment.clear();
+    if (urls.count() == 1) {
+        const QString extension = QFileInfo(urls.first().fileName()).suffix();
+        if (KIO::isValidExtensionForMimeType(extension)) {
+            unknownExtension = extension;
+        }
     }
 }
 
@@ -746,6 +767,10 @@ void KOpenWithDialogPrivate::init(const QString &_text, const QString &_value)
             remember = new QCheckBox(i18n("&Remember application association for all files of type\n\"%1\"", qMimeType));
         }
 
+        topLayout->addWidget(remember);
+    } else if (!unknownExtension.isEmpty()) {
+        remember =
+            new QCheckBox(i18nc("@option:check %1 is a file name extension", "&Remember application association for all \"*.%1\" files", unknownExtension));
         topLayout->addWidget(remember);
     } else {
         remember = nullptr;
@@ -924,13 +949,18 @@ void KOpenWithDialog::setSaveNewApplications(bool b)
 
 bool KOpenWithDialogPrivate::checkAccept()
 {
-    auto result = KIO::OpenWith::accept(curService,
-                                        edit->text(),
-                                        remember && remember->isChecked(),
-                                        qMimeType,
-                                        terminal->isChecked(),
-                                        nocloseonexit->isChecked(),
-                                        saveNewApps);
+    const bool rememberAssociation = remember && remember->isChecked();
+    QString mimeType = qMimeType;
+    if (rememberAssociation && mimeType.isEmpty()) {
+        const KIO::ExtensionMimeTypeResult created = KIO::createExtensionMimeType(unknownExtension);
+        if (created.mimeType.isEmpty()) {
+            KMessageBox::error(q, created.error);
+            return false;
+        }
+        mimeType = created.mimeType;
+    }
+    auto result =
+        KIO::OpenWith::accept(curService, edit->text(), rememberAssociation, mimeType, terminal->isChecked(), nocloseonexit->isChecked(), saveNewApps);
     m_pService = curService;
 
     if (!result.accept) {

@@ -9,9 +9,15 @@
 */
 
 #include "openwith.h"
+#include "openwith_p.h"
 
+#include <QDir>
 #include <QFileInfo>
+#include <QMimeDatabase>
+#include <QProcess>
+#include <QSaveFile>
 #include <QStandardPaths>
+#include <algorithm>
 
 #include <KConfigGroup>
 #include <KDesktopFile>
@@ -63,6 +69,58 @@ void addToMimeAppsList(const QString &serviceId /*menu id or storage id*/, const
 
 namespace KIO
 {
+
+bool isValidExtensionForMimeType(const QString &extension)
+{
+    // The extension is part of a file name and of a MIME type name.
+    return !extension.isEmpty() && std::all_of(extension.cbegin(), extension.cend(), [](QChar c) {
+        return (c.isLetterOrNumber() && c.unicode() < 128) || c == QLatin1Char('-') || c == QLatin1Char('_') || c == QLatin1Char('+');
+    });
+}
+
+ExtensionMimeTypeResult createExtensionMimeType(const QString &extension)
+{
+    const QString lowerExtension = extension.toLower();
+    if (!isValidExtensionForMimeType(lowerExtension)) {
+        return {.error = i18nc("@info %1 is a file name extension", "No file type can be defined for the extension \"%1\".", extension)};
+    }
+    const QString mimeType = QStringLiteral("application/x-extension-") + lowerExtension;
+
+    // The name and the content are those that GLib writes, so that both find the same type.
+    const QString packagesDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/mime/packages");
+    const QString fileName = packagesDir + QStringLiteral("/user-extension-") + lowerExtension + QStringLiteral(".xml");
+    if (QFileInfo::exists(fileName)) {
+        return {.mimeType = mimeType};
+    }
+    if (!QDir().mkpath(packagesDir)) {
+        return {.error = i18nc("@info %1 is a folder path", "Could not create the folder %1.", packagesDir)};
+    }
+    QSaveFile file(fileName);
+    if (!file.open(QIODevice::WriteOnly)) {
+        return {.error = i18nc("@info %1 is a file path, %2 the error", "Could not write the file type definition %1: %2", fileName, file.errorString())};
+    }
+    const QString content = QStringLiteral(
+                                "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+                                "<mime-info xmlns=\"http://www.freedesktop.org/standards/shared-mime-info\">\n"
+                                " <mime-type type=\"%1\">\n"
+                                "  <comment>%2 document</comment>\n"
+                                "  <glob pattern=\"*.%2\"/>\n"
+                                " </mime-type>\n"
+                                "</mime-info>\n")
+                                .arg(mimeType, lowerExtension);
+    file.write(content.toUtf8());
+    if (!file.commit()) {
+        return {.error = i18nc("@info %1 is a file path, %2 the error", "Could not write the file type definition %1: %2", fileName, file.errorString())};
+    }
+
+    // The type exists for QMimeDatabase and KSycoca once the MIME cache is rebuilt.
+    const QString updateMimeDatabase = QStandardPaths::findExecutable(QStringLiteral("update-mime-database"));
+    if (updateMimeDatabase.isEmpty() || QProcess::execute(updateMimeDatabase, {QFileInfo(packagesDir).path()}) != 0) {
+        QFile::remove(fileName);
+        return {.error = i18nc("@info %1 is a file name extension", "Could not update the file type database with the extension \"%1\".", lowerExtension)};
+    }
+    return {.mimeType = mimeType};
+}
 
 OpenWith::AcceptResult OpenWith::accept(KService::Ptr &service,
                                         const QString &typedExec,
