@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-05 00:41+0000\n"
+"POT-Creation-Date: 2026-10-06 00:41+0000\n"
 "PO-Revision-Date: 2021-09-05 11:39-0700\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik Language Support\n"
@@ -2294,87 +2294,87 @@ msgid ""
 "executable program."
 msgstr ""
 
-#: core/slavebase.cpp:776
+#: core/slavebase.cpp:791
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Кушодани алоқаҳо ҳамроҳи протоколи %1 дастгирӣ карда намешавад."
 
-#: core/slavebase.cpp:778
+#: core/slavebase.cpp:793
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Пӯшидани алоқаҳо ҳамроҳи протоколи %1 дастгирӣ надорад"
 
-#: core/slavebase.cpp:780
+#: core/slavebase.cpp:795
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Даромадани файлҳо ҳамроҳи протоколи %1 дастгирӣ надорад"
 
-#: core/slavebase.cpp:782
+#: core/slavebase.cpp:797
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Навиштан ба %1 дастгирӣ надорад"
 
-#: core/slavebase.cpp:784
+#: core/slavebase.cpp:799
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Амалиётҳои дастрасии маҳсус барои протоколи %1 вуҷуд надорад."
 
-#: core/slavebase.cpp:786
+#: core/slavebase.cpp:801
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Феҳристҳои додашуда барои протоколи %1 дастгирӣ надорад"
 
-#: core/slavebase.cpp:788
+#: core/slavebase.cpp:803
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Бозёфти додаҳо аз %1 пуштибонӣ намешавад."
 
-#: core/slavebase.cpp:790
+#: core/slavebase.cpp:805
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Бозёфти ахбороти намуди mime аз %1 пуштибонӣ намешавад."
 
-#: core/slavebase.cpp:792
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Таъғири ном ё ҷобаҷоии файлҳои дарунии %1 пуштибонӣ намешавад."
 
-#: core/slavebase.cpp:794
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Эҷоди пайванди миҷози бо протокори %1 пуштибонӣ намешавад"
 
-#: core/slavebase.cpp:796
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Нусха бардоштани файлҳо дар %1 дастгирӣ .надорад"
 
-#: core/slavebase.cpp:798
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Нест кардани файлҳо аз %1 дастгирӣ надорад."
 
-#: core/slavebase.cpp:800
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Сохтани феҳристҳо ҳамроҳи протоколи %1 дастгирӣ надорад."
 
-#: core/slavebase.cpp:802
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Таъғири мушахасотҳои файлҳо бо протоколи %1 пуштибонӣ намешавад."
 
-#: core/slavebase.cpp:804
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Протоколи %1 амали %2-ро дастгирӣ намекунад."
@@ -4527,19 +4527,46 @@ msgstr ""
 msgid "Invalid combination of protocols."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:201 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:201 kioworkers/trash/kio_trash_win.cpp:263
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr ""
 
-#: kioworkers/trash/kio_trash_win.cpp:244
+#: kioworkers/trash/kio_trash_win.cpp:216
+#: kioworkers/trash/kio_trash_win.cpp:231
+#, fuzzy, kde-format
+#| msgid "The requested symbolic link %1 could not be created."
+msgid "The trash item %1 cannot be restored."
+msgstr "Натавонистам пайванди намуди дархости %1-ро эҷод кунам."
+
+#: kioworkers/trash/kio_trash_win.cpp:255
+#, fuzzy, kde-format
+#| msgid ""
+#| "Internal error in server\n"
+#| "%1"
+msgid "Internal error in rename, should never happen"
+msgstr ""
+"Хатои дохилӣ дар хизматрасон ба миён омад\n"
+"%1"
+
+#: kioworkers/trash/kio_trash_win.cpp:268
 #, kde-format
 msgid "not supported"
 msgstr ""
 
-#: kioworkers/trash/kio_trash_win.cpp:253
+#: kioworkers/trash/kio_trash_win.cpp:276
+#, fuzzy, kde-format
+#| msgid ""
+#| "Internal error in server\n"
+#| "%1"
+msgid "Internal error in copy, should never happen"
+msgstr ""
+"Хатои дохилӣ дар хизматрасон ба миён омад\n"
+"%1"
+
+#: kioworkers/trash/kio_trash_win.cpp:512
 #, kde-format
-msgid "Internal error in copyOrMove, should never happen"
+msgid "Trash operation failed with error code 0x%1."
 msgstr ""
 
 #: kioworkers/trash/ktrash.cpp:28

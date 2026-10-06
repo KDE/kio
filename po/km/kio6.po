@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-05 00:41+0000\n"
+"POT-Creation-Date: 2026-10-06 00:41+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -2281,87 +2281,87 @@ msgid ""
 "executable program."
 msgstr ""
 
-#: core/slavebase.cpp:776
+#: core/slavebase.cpp:791
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "ការ​បើក​ការ​តភ្ជាប់​គឺ​មិនត្រូវ​បាន​គាំទ្រ​ជាមួយ​នឹង​ពិធីការ %1 ទេ ។"
 
-#: core/slavebase.cpp:778
+#: core/slavebase.cpp:793
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "ការ​បិទ​ការ​តភ្ជាប់​គឺ​មិនត្រូវ​បាន​គាំទ្រ​ជាមួយ​នឹង​ពិធីការ %1 ទេ ។"
 
-#: core/slavebase.cpp:780
+#: core/slavebase.cpp:795
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "ការ​ចូល​ដំណើរការ​ឯកសារ​គឺ​មិន​ត្រូវបាន​គាំទ្រ​ជាមួយ​នឹង​ពិធីការ %1 ។"
 
-#: core/slavebase.cpp:782
+#: core/slavebase.cpp:797
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "ការ​សរសេរ​ទៅកាន់ %1 គឺ​មិនត្រូវ​បាន​គាំទ្រ​ទេ ។"
 
-#: core/slavebase.cpp:784
+#: core/slavebase.cpp:799
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "មិន​មាន​អំពើ​ពិសេស​សម្រាប់​ពិធីការ %1 ទេ ។"
 
-#: core/slavebase.cpp:786
+#: core/slavebase.cpp:801
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "ការ​រាយ​ថត​គឺ​មិនត្រូវ​បាន​គាំទ្រ​សម្រាប់​ពិធីការ %1 ឡើយ ។"
 
-#: core/slavebase.cpp:788
+#: core/slavebase.cpp:803
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "ការ​ទៅ​យក​ទិន្នន័យ​ពី %1 មិន​ត្រូវ​បាន​គាំទ្រ​ឡើយ ។"
 
-#: core/slavebase.cpp:790
+#: core/slavebase.cpp:805
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "ការ​ទៅ​យក​ព័ត៌មាន​ប្រភេទ mime ពី %1 មិន​ត្រូវបាន​គាំទ្រ​ឡើយ ។"
 
-#: core/slavebase.cpp:792
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "ការ​ប្ដូរ​ឈ្មោះ ឬ​ផ្លាស់ទី​ឯកសារ​នៅ​ក្នុង %1 មិន​ត្រូវ​បាន​គាំទ្រ​ឡើយ ។"
 
-#: core/slavebase.cpp:794
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "ការ​បង្កើត symlinks មិន​បាន​គាំទ្រ​ដោយ​ពិធីការ %1 ទេ ។"
 
-#: core/slavebase.cpp:796
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "ការ​ចម្លង​ឯកសារ​ក្នុង %1 មិន​ត្រូវបាន​គាំទ្រ​ឡើយ ។"
 
-#: core/slavebase.cpp:798
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "ការ​លុប​ឯកសារ​ពី %1 មិន​ត្រូវ​បាន​គាំទ្រ​ឡើយ ។"
 
-#: core/slavebase.cpp:800
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "ការ​បង្កើត​ថត​គឺ​មិនត្រូវ​បាន​គាំទ្រ​ជាមួយ​នឹង​ពិធីការ %1 ឡើយ ។"
 
-#: core/slavebase.cpp:802
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "ការ​ផ្លាស់ប្ដូរ​គុណលក្ខណៈ​ឯកសារ​គឺ​មិន​ត្រូវ​បាន​គាំទ្រ​ជា​មួយ​នឹង​ពិធីការ %1 ឡើយ ។"
 
-#: core/slavebase.cpp:804
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "ការ​ផ្លាស់ប្ដូរ​ភាព​ជាម្ចាស់​នៃ​ឯកសារ​គឺ​មិនត្រូវ​បាន​គាំទ្រ​នឹង​ពិធីការ %1 ឡើយ ។"
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "ការ​បើក​ឯកសារ​គឺ​មិនត្រូវ​បាន​គាំទ្រ​​ជាមួយ​នឹ​ងពិធីការ %1 ឡើយ ។"
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "ពិធីការ %1 មិន​គាំទ្រ​អំពើ %2 ទេ ។"
@@ -4602,28 +4602,50 @@ msgstr ""
 msgid "Invalid combination of protocols."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:201 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:201 kioworkers/trash/kio_trash_win.cpp:263
 #, fuzzy, kde-format
 #| msgid "This file is a link and does not have permissions."
 #| msgid_plural "All files are links and do not have permissions."
 msgid "This file is already in the trash bin."
 msgstr "ឯកសារ​​គឺ​តំណ និង​មិន​មាន​សិទ្ធិ​ទេ ។"
 
-#: kioworkers/trash/kio_trash_win.cpp:244
+#: kioworkers/trash/kio_trash_win.cpp:216
+#: kioworkers/trash/kio_trash_win.cpp:231
+#, fuzzy, kde-format
+#| msgid "The resource cannot be deleted."
+msgid "The trash item %1 cannot be restored."
+msgstr "ធនធាន​មិន​អាច​ត្រូ​វបានលុប​ទេ ។"
+
+#: kioworkers/trash/kio_trash_win.cpp:255
+#, fuzzy, kde-format
+#| msgid ""
+#| "Internal error in server\n"
+#| "%1"
+msgid "Internal error in rename, should never happen"
+msgstr ""
+"កំហុស​ខាង​ក្នុង​ម៉ាស៊ីន​បម្រើ\n"
+"%1"
+
+#: kioworkers/trash/kio_trash_win.cpp:268
 #, fuzzy, kde-format
 #| msgid "Writing to %1 is not supported."
 msgid "not supported"
 msgstr "ការ​សរសេរ​ទៅកាន់ %1 គឺ​មិនត្រូវ​បាន​គាំទ្រ​ទេ ។"
 
-#: kioworkers/trash/kio_trash_win.cpp:253
+#: kioworkers/trash/kio_trash_win.cpp:276
 #, fuzzy, kde-format
 #| msgid ""
 #| "Internal error in server\n"
 #| "%1"
-msgid "Internal error in copyOrMove, should never happen"
+msgid "Internal error in copy, should never happen"
 msgstr ""
 "កំហុស​ខាង​ក្នុង​ម៉ាស៊ីន​បម្រើ\n"
 "%1"
+
+#: kioworkers/trash/kio_trash_win.cpp:512
+#, kde-format
+msgid "Trash operation failed with error code 0x%1."
+msgstr ""
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format

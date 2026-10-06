@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-05 00:41+0000\n"
+"POT-Creation-Date: 2026-10-06 00:41+0000\n"
 "PO-Revision-Date: 2026-09-27 21:13+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -2303,89 +2303,89 @@ msgstr ""
 "Nie znaleziono <filename>%1</filename>; wpisz poprawną ścieżkę do pliku "
 "wykonywalnego."
 
-#: core/slavebase.cpp:776
+#: core/slavebase.cpp:791
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Nawiązywanie połączeń nie jest obsługiwane przez protokół %1."
 
-#: core/slavebase.cpp:778
+#: core/slavebase.cpp:793
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Zamykanie połączeń nie jest obsługiwane przez protokół %1."
 
-#: core/slavebase.cpp:780
+#: core/slavebase.cpp:795
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Protokół %1 nie pozwala na dostęp do plików."
 
-#: core/slavebase.cpp:782
+#: core/slavebase.cpp:797
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Zapisywanie do %1 nie jest obsługiwane."
 
-#: core/slavebase.cpp:784
+#: core/slavebase.cpp:799
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Nie ma dostępnych żadnych szczególnych działań dla protokołu %1."
 
-#: core/slavebase.cpp:786
+#: core/slavebase.cpp:801
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr ""
 "Wyświetlanie zawartości katalogów nie jest obsługiwane przez protokół %1."
 
-#: core/slavebase.cpp:788
+#: core/slavebase.cpp:803
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Pobieranie danych z %1 nie jest obsługiwane."
 
-#: core/slavebase.cpp:790
+#: core/slavebase.cpp:805
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Pobieranie informacji o typie MIME z %1 nie jest obsługiwane."
 
-#: core/slavebase.cpp:792
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Zmiana nazwy lub przenoszenie plików w %1 nie jest obsługiwane."
 
-#: core/slavebase.cpp:794
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr ""
 "Tworzenie dowiązań symbolicznych nie jest obsługiwane przez protokół %1."
 
-#: core/slavebase.cpp:796
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Kopiowanie plików w %1 nie jest obsługiwane."
 
-#: core/slavebase.cpp:798
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Usuwanie plików z %1 nie jest obsługiwane."
 
-#: core/slavebase.cpp:800
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Tworzenie katalogów nie jest obsługiwane przez protokół %1."
 
-#: core/slavebase.cpp:802
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Zmiana atrybutów plików nie jest obsługiwana przez protokół %1."
 
-#: core/slavebase.cpp:804
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Zmiana właściciela plików nie jest obsługiwana przez protokół %1."
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Otwieranie plików nie jest obsługiwane przez protokół %1."
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokół %1 nie obsługuje działania %2."
@@ -4563,20 +4563,39 @@ msgstr ""
 msgid "Invalid combination of protocols."
 msgstr "Nieprawidłowe połączenie protokołów."
 
-#: kioworkers/trash/kio_trash.cpp:201 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:201 kioworkers/trash/kio_trash_win.cpp:263
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "Ten plik znajduje się już w koszu."
 
-#: kioworkers/trash/kio_trash_win.cpp:244
+#: kioworkers/trash/kio_trash_win.cpp:216
+#: kioworkers/trash/kio_trash_win.cpp:231
+#, fuzzy, kde-format
+#| msgid "The resource cannot be deleted."
+msgid "The trash item %1 cannot be restored."
+msgstr "Nie można skasować tego zasobu."
+
+#: kioworkers/trash/kio_trash_win.cpp:255
+#, fuzzy, kde-format
+#| msgid "Internal error in copyOrMove, should never happen"
+msgid "Internal error in rename, should never happen"
+msgstr "Błąd wewnętrzny w copyOrMove, nigdy nie powinien się zdarzyć"
+
+#: kioworkers/trash/kio_trash_win.cpp:268
 #, kde-format
 msgid "not supported"
 msgstr "nieobsługiwane"
 
-#: kioworkers/trash/kio_trash_win.cpp:253
-#, kde-format
-msgid "Internal error in copyOrMove, should never happen"
+#: kioworkers/trash/kio_trash_win.cpp:276
+#, fuzzy, kde-format
+#| msgid "Internal error in copyOrMove, should never happen"
+msgid "Internal error in copy, should never happen"
 msgstr "Błąd wewnętrzny w copyOrMove, nigdy nie powinien się zdarzyć"
+
+#: kioworkers/trash/kio_trash_win.cpp:512
+#, kde-format
+msgid "Trash operation failed with error code 0x%1."
+msgstr ""
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format

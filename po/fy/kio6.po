@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-05 00:41+0000\n"
+"POT-Creation-Date: 2026-10-06 00:41+0000\n"
 "PO-Revision-Date: 2009-06-21 13:33+0100\n"
 "Last-Translator: Berend Ytsma <berendy@gmail.com>\n"
 "Language-Team: Frysk <kde-i18n-fry@kde.org>\n"
@@ -2409,90 +2409,90 @@ msgid ""
 "executable program."
 msgstr ""
 
-#: core/slavebase.cpp:776
+#: core/slavebase.cpp:791
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "It iepenjen fan ferbinings wurdt net stipe troch it protokol %1."
 
-#: core/slavebase.cpp:778
+#: core/slavebase.cpp:793
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "It sluten fan ferbinings wurdt net stipe troch it protokol %1."
 
-#: core/slavebase.cpp:780
+#: core/slavebase.cpp:795
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Tagong ta triemen wurdt net stipe mei protokol %1."
 
-#: core/slavebase.cpp:782
+#: core/slavebase.cpp:797
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Skriuwe nei %1 wurdt net stipe."
 
-#: core/slavebase.cpp:784
+#: core/slavebase.cpp:799
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Der binne gjin spesjale aksjes beskikber foar protokol %1."
 
-#: core/slavebase.cpp:786
+#: core/slavebase.cpp:801
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Mappen op in rige sjen litte wurdt net stipe foar protokol %1."
 
-#: core/slavebase.cpp:788
+#: core/slavebase.cpp:803
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Data ophelje fan %1 wurdt net stipe."
 
-#: core/slavebase.cpp:790
+#: core/slavebase.cpp:805
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Opheljen fan mimetype ynformaasje fan %1 wurdt net stipe."
 
-#: core/slavebase.cpp:792
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Triemen herneame of ferpleatse binnen %1 wurdt net stipe."
 
-#: core/slavebase.cpp:794
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr ""
 "It oanmeitsjen fan symboalyske keppelings wurdt net stipe troch protokol %1."
 
-#: core/slavebase.cpp:796
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Triemen kopiearje binnen %1 wurdt net stipe."
 
-#: core/slavebase.cpp:798
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Triemen fuortsmite fan %1 wurdt net stipe."
 
-#: core/slavebase.cpp:800
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Mappen oanmeitsje wurdt net stipe mei protokol %1."
 
-#: core/slavebase.cpp:802
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Skaaimerken fan triemen feroarje wurdt net stipe mei protokol %1."
 
-#: core/slavebase.cpp:804
+#: core/slavebase.cpp:819
 #, fuzzy, kde-format
 #| msgid "Changing the attributes of files is not supported with protocol %1."
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Skaaimerken fan triemen feroarje wurdt net stipe mei protokol %1."
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:821
 #, fuzzy, kde-format
 #| msgid "Creating folders is not supported with protocol %1."
 msgid "Opening files is not supported with protocol %1."
 msgstr "Tagong ta triemen wurdt net stipe mei protokol %1."
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Protokol %1 stipet aksje %2 net."
@@ -4860,28 +4860,50 @@ msgstr ""
 msgid "Invalid combination of protocols."
 msgstr ""
 
-#: kioworkers/trash/kio_trash.cpp:201 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:201 kioworkers/trash/kio_trash_win.cpp:263
 #, fuzzy, kde-format
 #| msgid "This file is a link and does not have permissions."
 #| msgid_plural "All files are links and do not have permissions."
 msgid "This file is already in the trash bin."
 msgstr "Dizze triem is een keppeling en hat gjin tagongsrjochten."
 
-#: kioworkers/trash/kio_trash_win.cpp:244
+#: kioworkers/trash/kio_trash_win.cpp:216
+#: kioworkers/trash/kio_trash_win.cpp:231
+#, fuzzy, kde-format
+#| msgid "The specified resource may not exist."
+msgid "The trash item %1 cannot be restored."
+msgstr "Der koe net fan de boarne lêzen wurde"
+
+#: kioworkers/trash/kio_trash_win.cpp:255
+#, fuzzy, kde-format
+#| msgid ""
+#| "Internal error in server\n"
+#| "%1"
+msgid "Internal error in rename, should never happen"
+msgstr ""
+"Ynterne flater yn tsjinner\n"
+"%1"
+
+#: kioworkers/trash/kio_trash_win.cpp:268
 #, fuzzy, kde-format
 #| msgid "Writing to %1 is not supported."
 msgid "not supported"
 msgstr "Skriuwe nei %1 wurdt net stipe."
 
-#: kioworkers/trash/kio_trash_win.cpp:253
+#: kioworkers/trash/kio_trash_win.cpp:276
 #, fuzzy, kde-format
 #| msgid ""
 #| "Internal error in server\n"
 #| "%1"
-msgid "Internal error in copyOrMove, should never happen"
+msgid "Internal error in copy, should never happen"
 msgstr ""
 "Ynterne flater yn tsjinner\n"
 "%1"
+
+#: kioworkers/trash/kio_trash_win.cpp:512
+#, kde-format
+msgid "Trash operation failed with error code 0x%1."
+msgstr ""
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format

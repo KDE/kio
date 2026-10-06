@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-05 00:41+0000\n"
+"POT-Creation-Date: 2026-10-06 00:41+0000\n"
 "PO-Revision-Date: 2026-10-03 19:47-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -2299,87 +2299,87 @@ msgstr ""
 "<filename>%1</filename> تېپىلمىدى. ئىجرا قىلغىلى بولىدىغان پىروگراممىنىڭ "
 "ئىناۋەتلىك يولىنى كىرگۈزۈڭ."
 
-#: core/slavebase.cpp:776
+#: core/slavebase.cpp:791
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "%1 كېلىشىم باغلانما ئېچىشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:778
+#: core/slavebase.cpp:793
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "%1 كېلىشىم باغلانما تاقاشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:780
+#: core/slavebase.cpp:795
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "%1 كېلىشىم ھۆججەت زىيارىتىنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:782
+#: core/slavebase.cpp:797
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "%1 غا يېزىشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:784
+#: core/slavebase.cpp:799
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "%1 كېلىشىمنىڭ ئىشلەتكىلى بولىدىغان ئالاھىدە مەشغۇلاتى يوق."
 
-#: core/slavebase.cpp:786
+#: core/slavebase.cpp:801
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "تىزىمدا كۆرسىتىلگەن قىسقۇچلار %1 كېلىشىمنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:788
+#: core/slavebase.cpp:803
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "%1 دىن سانلىق مەلۇمات قوبۇللاشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:790
+#: core/slavebase.cpp:805
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "%1 دىن mime تۈرى ئۇچۇرىنى قوبۇللاشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:792
+#: core/slavebase.cpp:807
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "%1 دا ھۆججەت ئاتىنى ئۆزگەرتىش ياكى يۆتكەشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:794
+#: core/slavebase.cpp:809
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "%1 كېلىشىم بەلگە ئۇلانمىسىنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:796
+#: core/slavebase.cpp:811
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "%1 دا ھۆججەت كۆچۈرۈشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:798
+#: core/slavebase.cpp:813
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "%1 دىن ھۆججەت ئۆچۈرۈشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:800
+#: core/slavebase.cpp:815
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "%1 كېلىشىم قىسقۇچ قۇرۇشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:802
+#: core/slavebase.cpp:817
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "%1 كېلىشىم ھۆججەت خاسلىقىنى ئۆزگەرتىشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:804
+#: core/slavebase.cpp:819
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "%1 كېلىشىم ھۆججەت ئىگىدارلىق ھوقۇقىنى ئۆزگەرتىشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:806
+#: core/slavebase.cpp:821
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "%1 كېلىشىم ھۆججەت ئېچىشنى قوللىمايدۇ."
 
-#: core/slavebase.cpp:808
+#: core/slavebase.cpp:823
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "%1 كېلىشىم %2 مەشغۇلاتنى قوللىمايدۇ."
@@ -4547,22 +4547,43 @@ msgstr ""
 msgid "Invalid combination of protocols."
 msgstr "ئىناۋەتسىز كېلىشىم بىرىكمىسى."
 
-#: kioworkers/trash/kio_trash.cpp:201 kioworkers/trash/kio_trash_win.cpp:232
+#: kioworkers/trash/kio_trash.cpp:201 kioworkers/trash/kio_trash_win.cpp:263
 #, kde-format
 msgid "This file is already in the trash bin."
 msgstr "بۇ ھۆججەت ئاللىقاچان ئەخلەتخانىدا."
 
-#: kioworkers/trash/kio_trash_win.cpp:244
+#: kioworkers/trash/kio_trash_win.cpp:216
+#: kioworkers/trash/kio_trash_win.cpp:231
+#, fuzzy, kde-format
+#| msgid "The resource cannot be deleted."
+msgid "The trash item %1 cannot be restored."
+msgstr "مەنبەنى ئۆچۈرگىلى بولمايدۇ."
+
+#: kioworkers/trash/kio_trash_win.cpp:255
+#, fuzzy, kde-format
+#| msgid "Internal error in copyOrMove, should never happen"
+msgid "Internal error in rename, should never happen"
+msgstr ""
+"كۆچۈرۈش ياكى يۆتكەشتە ئىچكى خاتالىق كۆرۈلدى، ئادەتتىكى ئەھۋالدا بۇ خاتالىق "
+"ھەرگىز يۈز بەرمەيدۇ"
+
+#: kioworkers/trash/kio_trash_win.cpp:268
 #, kde-format
 msgid "not supported"
 msgstr "قوللىمايدۇ"
 
-#: kioworkers/trash/kio_trash_win.cpp:253
-#, kde-format
-msgid "Internal error in copyOrMove, should never happen"
+#: kioworkers/trash/kio_trash_win.cpp:276
+#, fuzzy, kde-format
+#| msgid "Internal error in copyOrMove, should never happen"
+msgid "Internal error in copy, should never happen"
 msgstr ""
 "كۆچۈرۈش ياكى يۆتكەشتە ئىچكى خاتالىق كۆرۈلدى، ئادەتتىكى ئەھۋالدا بۇ خاتالىق "
 "ھەرگىز يۈز بەرمەيدۇ"
+
+#: kioworkers/trash/kio_trash_win.cpp:512
+#, kde-format
+msgid "Trash operation failed with error code 0x%1."
+msgstr ""
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format
