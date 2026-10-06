@@ -176,9 +176,11 @@ ecm_add_tests(
  pastetest.cpp
  renamefiledialogtest.cpp
  kurifiltersearchprovideractionstest.cpp
+ openwithtest.cpp
  ENVIRONMENT QT_QPA_PLATFORM=offscreen
  LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB}
 )
+target_link_libraries(openwithtest KF6::Service KF6::ConfigCore)
 
 # disable some tests that fail on Windows ATM
 if (NOT WIN32)
