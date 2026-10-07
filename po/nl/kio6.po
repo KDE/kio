@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-06 00:41+0000\n"
-"PO-Revision-Date: 2026-10-02 11:59+0200\n"
+"POT-Creation-Date: 2026-10-07 00:42+0000\n"
+"PO-Revision-Date: 2026-10-06 11:04+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -3539,7 +3539,7 @@ msgstr "Alle mappen"
 msgid "Current Directory: %1"
 msgstr "Huidige map: %1"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:859
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:867
 #, kde-format
 msgid "&Open"
 msgstr "&Openen"
@@ -4652,16 +4652,14 @@ msgstr "Dit bestand bevindt zich al in de prullenbak."
 
 #: kioworkers/trash/kio_trash_win.cpp:216
 #: kioworkers/trash/kio_trash_win.cpp:231
-#, fuzzy, kde-format
-#| msgid "The resource cannot be deleted."
+#, kde-format
 msgid "The trash item %1 cannot be restored."
-msgstr "De bron kan niet worden verwijderd."
+msgstr "Het prullenbakitem %1 kan niet worden hersteld."
 
 #: kioworkers/trash/kio_trash_win.cpp:255
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in rename, should never happen"
-msgstr "Interne fout in copyOrMove, zou nooit moeten gebeuren"
+msgstr "Interne fout in hernoemen, zou nooit moeten gebeuren"
 
 #: kioworkers/trash/kio_trash_win.cpp:268
 #, kde-format
@@ -4669,15 +4667,14 @@ msgid "not supported"
 msgstr "niet ondersteund"
 
 #: kioworkers/trash/kio_trash_win.cpp:276
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in copy, should never happen"
-msgstr "Interne fout in copyOrMove, zou nooit moeten gebeuren"
+msgstr "Interne fout in kopiëren, zou nooit moeten gebeuren"
 
 #: kioworkers/trash/kio_trash_win.cpp:512
 #, kde-format
 msgid "Trash operation failed with error code 0x%1."
-msgstr ""
+msgstr "Handeling in prullenbak is mislukt met foutcode 0x%1."
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format
@@ -5394,64 +5391,64 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Type"
 
-#: widgets/kfileitemactions.cpp:250
+#: widgets/kfileitemactions.cpp:251
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Acties"
 
-#: widgets/kfileitemactions.cpp:592
+#: widgets/kfileitemactions.cpp:600
 #, kde-format
 msgid "Open &with %1"
 msgstr "Openen &met %1"
 
-#: widgets/kfileitemactions.cpp:594
+#: widgets/kfileitemactions.cpp:602
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:768
+#: widgets/kfileitemactions.cpp:776
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Map &openen met…"
 
-#: widgets/kfileitemactions.cpp:768
+#: widgets/kfileitemactions.cpp:776
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Openen met…"
 
-#: widgets/kfileitemactions.cpp:826
+#: widgets/kfileitemactions.cpp:834
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "Uitvoerbaar bestand &uitvoeren"
 
-#: widgets/kfileitemactions.cpp:848
+#: widgets/kfileitemactions.cpp:856
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "Map &openen met %1"
 
-#: widgets/kfileitemactions.cpp:848
+#: widgets/kfileitemactions.cpp:856
 #, kde-format
 msgid "&Open with %1"
 msgstr "Met %1 &openen"
 
-#: widgets/kfileitemactions.cpp:880
+#: widgets/kfileitemactions.cpp:888
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Map &openen met"
 
-#: widgets/kfileitemactions.cpp:880
+#: widgets/kfileitemactions.cpp:888
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Openen met"
 
-#: widgets/kfileitemactions.cpp:891
+#: widgets/kfileitemactions.cpp:899
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

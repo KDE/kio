@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-06 00:41+0000\n"
-"PO-Revision-Date: 2026-10-01 07:31-0300\n"
+"POT-Creation-Date: 2026-10-07 00:42+0000\n"
+"PO-Revision-Date: 2026-10-06 08:02-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -3508,7 +3508,7 @@ msgstr "Todas as pastas"
 msgid "Current Directory: %1"
 msgstr "Pasta atual: %1"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:859
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:867
 #, kde-format
 msgid "&Open"
 msgstr "&Abrir"
@@ -4617,16 +4617,14 @@ msgstr "O arquivo já está na Lixeira."
 
 #: kioworkers/trash/kio_trash_win.cpp:216
 #: kioworkers/trash/kio_trash_win.cpp:231
-#, fuzzy, kde-format
-#| msgid "The resource cannot be deleted."
+#, kde-format
 msgid "The trash item %1 cannot be restored."
-msgstr "O recurso não pode ser excluído."
+msgstr "O item %1 da lixeira não pode ser restaurado."
 
 #: kioworkers/trash/kio_trash_win.cpp:255
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in rename, should never happen"
-msgstr "Erro interno no copyOrMove, nunca deveria ter ocorrido"
+msgstr "Erro interno ao renomear, nunca deveria ter ocorrido"
 
 #: kioworkers/trash/kio_trash_win.cpp:268
 #, kde-format
@@ -4634,15 +4632,14 @@ msgid "not supported"
 msgstr "não suportada"
 
 #: kioworkers/trash/kio_trash_win.cpp:276
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in copy, should never happen"
-msgstr "Erro interno no copyOrMove, nunca deveria ter ocorrido"
+msgstr "Erro interno ao copiar, nunca deveria ter ocorrido"
 
 #: kioworkers/trash/kio_trash_win.cpp:512
 #, kde-format
 msgid "Trash operation failed with error code 0x%1."
-msgstr ""
+msgstr "A operação de lixeira falhou com o código de erro 0x%1."
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format
@@ -5358,64 +5355,64 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Tipo"
 
-#: widgets/kfileitemactions.cpp:250
+#: widgets/kfileitemactions.cpp:251
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "Açõe&s"
 
-#: widgets/kfileitemactions.cpp:592
+#: widgets/kfileitemactions.cpp:600
 #, kde-format
 msgid "Open &with %1"
 msgstr "A&brir com %1"
 
-#: widgets/kfileitemactions.cpp:594
+#: widgets/kfileitemactions.cpp:602
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:768
+#: widgets/kfileitemactions.cpp:776
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "&Abrir pasta com…"
 
-#: widgets/kfileitemactions.cpp:768
+#: widgets/kfileitemactions.cpp:776
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Abrir com…"
 
-#: widgets/kfileitemactions.cpp:826
+#: widgets/kfileitemactions.cpp:834
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Rodar executável"
 
-#: widgets/kfileitemactions.cpp:848
+#: widgets/kfileitemactions.cpp:856
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "Abrir pasta c&om %1"
 
-#: widgets/kfileitemactions.cpp:848
+#: widgets/kfileitemactions.cpp:856
 #, kde-format
 msgid "&Open with %1"
 msgstr "Abrir c&om %1"
 
-#: widgets/kfileitemactions.cpp:880
+#: widgets/kfileitemactions.cpp:888
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Abrir pasta com"
 
-#: widgets/kfileitemactions.cpp:880
+#: widgets/kfileitemactions.cpp:888
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Abrir com"
 
-#: widgets/kfileitemactions.cpp:891
+#: widgets/kfileitemactions.cpp:899
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-06 00:41+0000\n"
-"PO-Revision-Date: 2026-10-06 02:33+0900\n"
+"POT-Creation-Date: 2026-10-07 00:42+0000\n"
+"PO-Revision-Date: 2026-10-07 05:45+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Min Nan Chinese Latin <zh-l10n@lists.slat.org>\n"
 "Language: nan_TW@latin\n"
@@ -3410,7 +3410,7 @@ msgstr "Sóo-ū ê Tsu-liāu-giap-á"
 msgid "Current Directory: %1"
 msgstr "Tsit-má ê Bo̍k-lo̍k: %1"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:859
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:867
 #, kde-format
 msgid "&Open"
 msgstr "Phah-khui(&O)"
@@ -5226,64 +5226,64 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Luī"
 
-#: widgets/kfileitemactions.cpp:250
+#: widgets/kfileitemactions.cpp:251
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "Tōng-tsok(&A)"
 
-#: widgets/kfileitemactions.cpp:592
+#: widgets/kfileitemactions.cpp:600
 #, kde-format
 msgid "Open &with %1"
 msgstr "Iōng %1 Phah-khui(&W)"
 
-#: widgets/kfileitemactions.cpp:594
+#: widgets/kfileitemactions.cpp:602
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:768
+#: widgets/kfileitemactions.cpp:776
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Iōng Tîng-sik Khui Tsu-liāu-giap-á…(&O)"
 
-#: widgets/kfileitemactions.cpp:768
+#: widgets/kfileitemactions.cpp:776
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Iōng Tîng-sik Khui…(&O)"
 
-#: widgets/kfileitemactions.cpp:826
+#: widgets/kfileitemactions.cpp:834
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "Tsip-hîng Tóng-àn(&R)"
 
-#: widgets/kfileitemactions.cpp:848
+#: widgets/kfileitemactions.cpp:856
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "Iōng %1 Phah-khui Tsu-liāu-giap-á(&O)"
 
-#: widgets/kfileitemactions.cpp:848
+#: widgets/kfileitemactions.cpp:856
 #, kde-format
 msgid "&Open with %1"
 msgstr "Iōng %1 Phah-khui(&O)"
 
-#: widgets/kfileitemactions.cpp:880
+#: widgets/kfileitemactions.cpp:888
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Iōng Tîng-sik Khui Tsu-liāu-giap-á(&O)"
 
-#: widgets/kfileitemactions.cpp:880
+#: widgets/kfileitemactions.cpp:888
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Iōng Tîng-sik Khui(&O)"
 
-#: widgets/kfileitemactions.cpp:891
+#: widgets/kfileitemactions.cpp:899
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
@@ -6953,25 +6953,19 @@ msgid "# will be replaced by ascending numbers starting with:"
 msgstr "# ē tshú-tāi tsò tsing-sū ê sòo-jī, uì tsit-ê sòo-jī khai-sí:"
 
 #: widgets/renamefiledialog.cpp:240
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#, kde-format
 msgctxt "@item:inlistbox the new name is the whole file name"
 msgid "Replace filename"
-msgstr "Tóng-miâ tsìn-tsîng"
+msgstr "Tshú-tāi tóng-miâ"
 
 #: widgets/renamefiledialog.cpp:241
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name before the filename"
 msgid "Before filename"
 msgstr "Tóng-miâ tsìn-tsîng"
 
 #: widgets/renamefiledialog.cpp:242
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text after filename"
-#| msgid "After filename"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name after the filename"
 msgid "After filename"
 msgstr "Tóng-miâ āu-piah"
@@ -6982,7 +6976,7 @@ msgctxt ""
 "Template putting the number before the old file name, # is replaced by a "
 "number later"
 msgid "#_"
-msgstr ""
+msgstr "#_"
 
 #: widgets/renamefiledialog.cpp:297
 #, kde-format
@@ -6990,7 +6984,7 @@ msgctxt ""
 "Template putting the number after the old file name, # is replaced by a "
 "number later"
 msgid "_#"
-msgstr ""
+msgstr "_#"
 
 #: widgets/renamefiledialog.cpp:299
 #, kde-format
@@ -7062,7 +7056,7 @@ msgstr ""
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
-msgstr[0] ""
+msgstr[0] "Kā %1 ê í-king suán-ti̍k ê hāng-bo̍k kái-miâ:"
 
 #: widgets/renamefiledialog.cpp:501
 #, kde-format
@@ -7143,12 +7137,10 @@ msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "<filename>%1</filename> bô-huat-tōo kái-miâ tsò khang ê tóng-miâ."
 
 #: widgets/renamefilewarningdialog.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
-msgstr "Kái Hāng-bo̍k ê Miâ"
+msgstr "Kái-miâ hōo i Ún-tsông"
 
 #: widgets/renamefilewarningdialog.cpp:60
 #, kde-format
@@ -7157,6 +7149,9 @@ msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Tī tsu-liāu-giap-á ê miâ thâu-tsîng thiam tsi̍t-ê tiám ē hōo i uì uē-bīn ún-"
+"tsông.\n"
+"Lí kám á-sī ài kā i kái-miâ?"
 
 #: widgets/renamefilewarningdialog.cpp:61
 #, kde-format
@@ -7165,19 +7160,20 @@ msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Tī tóng-àn ê miâ thâu-tsîng thiam tsi̍t-ê tiám ē hōo i uì uē-bīn ún-tsông.\n"
+"Lí kám á-sī ài kā i kái-miâ?"
 
 #: widgets/renamefilewarningdialog.cpp:62
-#, fuzzy, kde-format
-#| msgid "Home Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
-msgstr "Ka-bo̍k-lo̍k"
+msgstr "Kám ài Ún-tsông tsit ê Tsu-liāu-giap-á?"
 
 #: widgets/renamefilewarningdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
-msgstr ""
+msgstr "Kám ài Ún-tsông tsit ê Tóng-àn?"
 
 #: widgets/renamefilewarningdialog.cpp:68
 #: widgets/renamefilewarningdialog.cpp:118
@@ -7188,11 +7184,10 @@ msgid "Do not ask again"
 msgstr "Mài koh mn̄g--ah"
 
 #: widgets/renamefilewarningdialog.cpp:99
-#, fuzzy, kde-format
-#| msgid "&Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename"
-msgstr "Kái-miâ(&R)"
+msgstr "Kái-miâ"
 
 #: widgets/renamefilewarningdialog.cpp:104
 #, kde-format
@@ -7203,6 +7198,10 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Tse ē hōo tóng-àn ê luī-hîng piàn-tsò sī bī-ti--ê.\n"
+"Tóng-àn ê lāi-iông bē piàn, m̄-koh khó-lîng ē ū ìng-iōng-tîng-sik piàn-tsò m̄ "
+"bat i.\n"
+"Lí kám á-sī ài kā i kái-miâ?"
 
 #: widgets/renamefilewarningdialog.cpp:108
 #, kde-format
@@ -7213,12 +7212,16 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"Tse ē hōo tóng-àn ê luī-hîng uì \"%1\" kái tsò \"%2\".\n"
+"Tóng-àn ê lāi-iông bē piàn, m̄-koh khó-lîng ē ū ìng-iōng-tîng-sik piàn-tsò m̄ "
+"bat i.\n"
+"Lí kám á-sī ài kā i kái-miâ?"
 
 #: widgets/renamefilewarningdialog.cpp:115
 #, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"
-msgstr ""
+msgstr "Kái-piàn Tóng-àn Luī"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format

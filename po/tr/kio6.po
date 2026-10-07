@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-06 00:41+0000\n"
-"PO-Revision-Date: 2026-10-01 19:19+0300\n"
+"POT-Creation-Date: 2026-10-07 00:42+0000\n"
+"PO-Revision-Date: 2026-10-06 19:56+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -3444,7 +3444,7 @@ msgstr "Tüm Klasörler"
 msgid "Current Directory: %1"
 msgstr "Geçerli dizin: %1"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:859
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:867
 #, kde-format
 msgid "&Open"
 msgstr "&Aç"
@@ -3971,7 +3971,7 @@ msgid ""
 msgstr ""
 "Dosya tam değil ve açılmamalı.\n"
 "Açık uygulamalarınızı ve bildirim ekranınızı bekleyen görevler veya "
-"indirmeler için denetleyin."
+"indirmeler karşı denetleyin."
 
 #: gui/openurljob.cpp:701
 #, kde-format
@@ -4549,16 +4549,14 @@ msgstr "Dosya hâlihazırda çöp kutusunda."
 
 #: kioworkers/trash/kio_trash_win.cpp:216
 #: kioworkers/trash/kio_trash_win.cpp:231
-#, fuzzy, kde-format
-#| msgid "The resource cannot be deleted."
+#, kde-format
 msgid "The trash item %1 cannot be restored."
-msgstr "Özkaynak silinemiyor."
+msgstr "Çöp kutusu ögesi %1, geri yüklenemiyor."
 
 #: kioworkers/trash/kio_trash_win.cpp:255
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in rename, should never happen"
-msgstr "Kopyala veya Taşı içsel hatası, bu asla olmamalı"
+msgstr "Yeniden adlandırmada içsel hata, bu asla olmamalı"
 
 #: kioworkers/trash/kio_trash_win.cpp:268
 #, kde-format
@@ -4566,15 +4564,14 @@ msgid "not supported"
 msgstr "desteklenmiyor"
 
 #: kioworkers/trash/kio_trash_win.cpp:276
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in copy, should never happen"
-msgstr "Kopyala veya Taşı içsel hatası, bu asla olmamalı"
+msgstr "Kopyalamada içsel hata, bu asla olmamalı"
 
 #: kioworkers/trash/kio_trash_win.cpp:512
 #, kde-format
 msgid "Trash operation failed with error code 0x%1."
-msgstr ""
+msgstr "Çöp kutusu işlemi, 0x%1 hata koduyla başarısız oldu."
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format
@@ -5288,64 +5285,64 @@ msgctxt "@title:column"
 msgid "Type"
 msgstr "Tür"
 
-#: widgets/kfileitemactions.cpp:250
+#: widgets/kfileitemactions.cpp:251
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Actions"
 msgstr "&Eylemler"
 
-#: widgets/kfileitemactions.cpp:592
+#: widgets/kfileitemactions.cpp:600
 #, kde-format
 msgid "Open &with %1"
 msgstr "%1 &ile Aç"
 
-#: widgets/kfileitemactions.cpp:594
+#: widgets/kfileitemactions.cpp:602
 #, kde-format
 msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:768
+#: widgets/kfileitemactions.cpp:776
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgstr "Klasörü B&irlikte Aç…"
 
-#: widgets/kfileitemactions.cpp:768
+#: widgets/kfileitemactions.cpp:776
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Bir&likte Aç…"
 
-#: widgets/kfileitemactions.cpp:826
+#: widgets/kfileitemactions.cpp:834
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Yürütülebiliri Çalıştır"
 
-#: widgets/kfileitemactions.cpp:848
+#: widgets/kfileitemactions.cpp:856
 #, kde-format
 msgid "&Open folder with %1"
 msgstr "Klasörü %1 ile &Aç"
 
-#: widgets/kfileitemactions.cpp:848
+#: widgets/kfileitemactions.cpp:856
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1 &ile Aç"
 
-#: widgets/kfileitemactions.cpp:880
+#: widgets/kfileitemactions.cpp:888
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "Klasörü B&irlikte Aç"
 
-#: widgets/kfileitemactions.cpp:880
+#: widgets/kfileitemactions.cpp:888
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Bir&likte Aç"
 
-#: widgets/kfileitemactions.cpp:891
+#: widgets/kfileitemactions.cpp:899
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"
