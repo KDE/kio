@@ -29,6 +29,8 @@
 #include <QDebug>
 #include <QTest>
 
+#include <optional>
+
 using namespace Qt::StringLiterals;
 
 QTEST_MAIN(KDirListerTest)
@@ -1954,17 +1956,34 @@ void KDirListerTest::testSFTPRedirect()
         Q_UNUSED(oldUrl);
         dirLister.openUrl(newUrl);
     });
+    // The number of items when the lister next emits completed. The redirection makes it complete
+    // more than once, and each check is about the first completion.
+    std::optional<qsizetype> itemsOnCompletion;
+    auto countItemsOnNextCompletion = [&] {
+        itemsOnCompletion.reset();
+        connect(
+            &dirLister,
+            qOverload<>(&KCoreDirLister::completed),
+            this,
+            [&] {
+                itemsOnCompletion = dirLister.items().count();
+            },
+            Qt::SingleShotConnection);
+    };
+
+    countItemsOnNextCompletion();
     dirLister.openUrl(testUrl);
-    QVERIFY(dirLister.spyCompleted.wait(500));
+    QTRY_VERIFY_WITH_TIMEOUT(itemsOnCompletion.has_value(), 2000);
     // Make sure we have the items listed properly on the first time.
-    QCOMPARE(dirLister.items().count(), 2);
+    QCOMPARE(*itemsOnCompletion, 2);
 
     // This should not crash!
+    countItemsOnNextCompletion();
     dirLister.openUrl(testUrl);
-    QVERIFY(dirLister.spyCompleted.wait(500));
+    QTRY_VERIFY_WITH_TIMEOUT(itemsOnCompletion.has_value(), 2000);
     // This should not list any items: We have already done it in the previous iteration.
     // If this lists items, the view (for example in Dolphin) will have the items duplicated.
-    QCOMPARE(dirLister.items().count(), 0);
+    QCOMPARE(*itemsOnCompletion, 0);
 }
 
 void KDirListerTest::testDuplicatedEntries()
