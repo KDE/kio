@@ -10,6 +10,7 @@
 #include <QTest>
 
 #include "../../../utils_p.h"
+#include "discspaceutil.h"
 #include "filecopyjob.h"
 #include "kio_trash.h"
 
@@ -33,6 +34,7 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QList>
+#include <QScopeGuard>
 #include <QScopedPointer>
 #include <QSignalSpy>
 #include <QStandardPaths>
@@ -1545,5 +1547,55 @@ void TestTrash::testIcons()
 }
 
 QTEST_GUILESS_MAIN(TestTrash)
+
+// A trash over its size limit, set to delete the oldest files, makes room by deleting a trashed
+// directory. Runs last, as it empties the trash first.
+void TestTrash::sizeLimitDeletesOldestDirectory()
+{
+    removeDirRecursive(m_trashDir);
+    TrashImpl impl;
+    QVERIFY(impl.init());
+
+    // A limit of about 1 MiB, so one 600 KiB item fits and two do not.
+    constexpr qint64 itemSize = 600 * 1024;
+    const DiscSpaceUtil util(m_trashDir + QLatin1String("/files/"));
+    QVERIFY(util.size() > 0);
+    KConfig config(QStringLiteral("ktrashrc"));
+    KConfigGroup group = config.group(m_trashDir);
+    group.writeEntry("UseSizeLimit", true);
+    group.writeEntry("Percent", 1024.0 * 1024.0 * 100.0 / util.size());
+    group.writeEntry("LimitReachedAction", 1); // delete the oldest files
+    config.sync();
+    const auto resetConfig = qScopeGuard([&group, &config] {
+        group.deleteGroup();
+        config.sync();
+    });
+
+    auto writeFile = [](const QString &path) {
+        QFile file(path);
+        QVERIFY(file.open(QIODevice::WriteOnly));
+        QCOMPARE(file.write(QByteArray(itemSize, 'x')), itemSize);
+    };
+
+    const QString dirPath = homeTmpDir() + QLatin1String("sizeLimitDir");
+    QVERIFY(QDir().mkpath(dirPath));
+    writeFile(dirPath + QLatin1String("/content"));
+    quint64 dirTrashId = 0;
+    QString dirFileId;
+    QVERIFY(impl.createInfo(dirPath, dirTrashId, dirFileId));
+    QVERIFY(impl.moveToTrash(dirPath, dirTrashId, dirFileId));
+    QVERIFY(QFileInfo(m_trashDir + QLatin1String("/files/") + dirFileId).isDir());
+
+    const QString filePath = homeTmpDir() + QLatin1String("sizeLimitFile");
+    writeFile(filePath);
+    quint64 fileTrashId = 0;
+    QString fileId;
+    QVERIFY(impl.createInfo(filePath, fileTrashId, fileId));
+    QVERIFY2(impl.moveToTrash(filePath, fileTrashId, fileId), qPrintable(impl.lastErrorMessage()));
+
+    QVERIFY(!QFile::exists(m_trashDir + QLatin1String("/files/") + dirFileId));
+    QVERIFY(!QFile::exists(m_trashDir + QLatin1String("/info/") + dirFileId + QLatin1String(".trashinfo")));
+    QVERIFY(QFileInfo(m_trashDir + QLatin1String("/files/") + fileId).isFile());
+}
 
 #include "moc_testtrash.cpp"
