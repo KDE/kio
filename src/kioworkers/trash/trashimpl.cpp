@@ -1334,7 +1334,8 @@ bool TrashImpl::adaptTrashSize(const QString &origPath, quint64 trashId)
     for (const auto &info : infoList) {
         auto fileSizeFreed = info.size();
         if (info.isDir()) {
-            fileSizeFreed = dirCache.constFind(info.path().toUtf8())->size;
+            const auto cached = dirCache.constFind(QFile::encodeName(info.fileName()).toPercentEncoding());
+            fileSizeFreed = cached != dirCache.constEnd() ? cached->size : DiscSpaceUtil::sizeOfPath(info.absoluteFilePath());
         }
 
         del(trashId, info.fileName()); // delete trashed file

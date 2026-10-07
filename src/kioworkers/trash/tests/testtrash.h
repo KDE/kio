@@ -94,6 +94,7 @@ private Q_SLOTS:
 
     void emptyTrash();
     void testEmptyTrashSize();
+    void sizeLimitDeletesOldestDirectory();
 
 protected Q_SLOTS:
     void slotEntries(KIO::Job *, const KIO::UDSEntryList &);
