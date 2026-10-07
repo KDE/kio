@@ -39,20 +39,132 @@ KSambaSharePrivate::KSambaSharePrivate(KSambaShare *parent)
     , userSharePath()
     , skipUserShare(false)
 {
-    setUserSharePath();
-    data = parse(getNetUserShareInfo());
 }
 
 KSambaSharePrivate::~KSambaSharePrivate()
 {
+    if (m_loadProcess) {
+        m_loadProcess->disconnect();
+        m_loadProcess->kill();
+        m_loadProcess->waitForFinished();
+    }
 }
 
-void KSambaSharePrivate::setUserSharePath()
+void KSambaSharePrivate::startLoadProcess(const QString &exec, const QStringList &args)
 {
-    const QString rawString = testparmParamValue(QStringLiteral("usershare path"));
-    const QFileInfo fileInfo(rawString);
-    if (fileInfo.isDir()) {
+    Q_Q(KSambaShare);
+    m_loadProcess = new QProcess(q);
+    QObject::connect(m_loadProcess, &QProcess::finished, q, [this]() {
+        loadProcessFinished();
+    });
+    QObject::connect(m_loadProcess, &QProcess::errorOccurred, q, [this](QProcess::ProcessError error) {
+        if (error == QProcess::FailedToStart) {
+            loadProcessFinished();
+        }
+    });
+    m_loadProcess->start(exec, args);
+}
+
+void KSambaSharePrivate::loadProcessFinished()
+{
+    const QByteArray stdOut = m_loadProcess->readAllStandardOutput();
+    const QByteArray stdErr = m_loadProcess->readAllStandardError();
+    m_loadProcess->deleteLater();
+    m_loadProcess = nullptr;
+
+    // testparm runs first, and only once.
+    if (!m_userSharePathRead) {
+        userSharePathRead(stdOut, stdErr);
+    } else {
+        userSharesRead(stdOut, stdErr);
+    }
+}
+
+void KSambaSharePrivate::startLoad()
+{
+    const QString exec = QStandardPaths::findExecutable(QStringLiteral("testparm"));
+    if (exec.isEmpty()) {
+        qCDebug(KIO_CORE_SAMBASHARE) << "Could not find the 'testparm' tool, most likely samba-client isn't installed";
+        m_userSharePathRead = true;
+        startNetUserShareInfo();
+        return;
+    }
+    const QStringList args{
+        QStringLiteral("-d0"),
+        QStringLiteral("-s"),
+        QStringLiteral("--parameter-name"),
+        QStringLiteral("usershare path"),
+    };
+    startLoadProcess(exec, args);
+}
+
+void KSambaSharePrivate::userSharePathRead(const QByteArray &stdOut, const QByteArray &stdErr)
+{
+    m_userSharePathRead = true;
+    const QString rawString = testparmValueFromOutput(stdOut, stdErr);
+    if (QFileInfo(rawString).isDir()) {
         userSharePath = rawString;
+        Q_Q(KSambaShare);
+        KDirWatch::self()->addDir(userSharePath, KDirWatch::WatchFiles);
+        QObject::connect(KDirWatch::self(), &KDirWatch::dirty, q, [this](const QString &path) {
+            slotFileChange(path);
+        });
+    }
+    startNetUserShareInfo();
+}
+
+void KSambaSharePrivate::startNetUserShareInfo()
+{
+    const QString exec = QStandardPaths::findExecutable(QStringLiteral("net"));
+    if (exec.isEmpty() || skipUserShare) {
+        if (exec.isEmpty()) {
+            qCDebug(KIO_CORE_SAMBASHARE) << "Could not find the 'net' tool, most likely samba-client isn't installed";
+        }
+        // Queued, so that a caller of instance() can connect to it first.
+        Q_Q(KSambaShare);
+        QMetaObject::invokeMethod(q, &KSambaShare::changed, Qt::QueuedConnection);
+        return;
+    }
+    startLoadProcess(exec, {QStringLiteral("usershare"), QStringLiteral("info")});
+}
+
+void KSambaSharePrivate::userSharesRead(const QByteArray &stdOut, const QByteArray &stdErr)
+{
+    if (!stdErr.isEmpty()) {
+        if (stdErr.contains("You do not have permission to create a usershare")) {
+            skipUserShare = true;
+        } else if (stdErr.contains("usershares are currently disabled")) {
+            skipUserShare = true;
+        } else {
+            // TODO: parse and process other error messages.
+            // create a parser for the error output and
+            // send error message somewhere
+            qCDebug(KIO_CORE) << "We got some errors while running 'net usershare info'";
+            qCDebug(KIO_CORE) << stdErr;
+        }
+    }
+
+    data = parse(skipUserShare ? QByteArray() : stdOut);
+
+    if (m_reloadPending) {
+        m_reloadPending = false;
+        startNetUserShareInfo();
+        return;
+    }
+    // Queued, as ensureLoaded() reaches this from inside a getter.
+    Q_Q(KSambaShare);
+    QMetaObject::invokeMethod(q, &KSambaShare::changed, Qt::QueuedConnection);
+}
+
+void KSambaSharePrivate::ensureLoaded() const
+{
+    // finished() and errorOccurred() are emitted from waitForFinished(), and start the next process
+    // of the load. A process that failed to start also makes waitForFinished() return false.
+    while (m_loadProcess) {
+        const QProcess *process = m_loadProcess;
+        if (!m_loadProcess->waitForFinished() && m_loadProcess == process) {
+            break;
+        }
     }
 }
 
@@ -88,7 +200,11 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
     };
 
     runProcess(exec, args, stdOut, stdErr);
+    return testparmValueFromOutput(stdOut, stdErr);
+}
 
+QString KSambaSharePrivate::testparmValueFromOutput(const QByteArray &stdOut, const QByteArray &stdErr)
+{
     // TODO: parse and process error messages.
     // create a parser for the error output and
     // send error message somewhere
@@ -136,52 +252,15 @@ QString KSambaSharePrivate::testparmParamValue(const QString &parameterName)
     return QString();
 }
 
-QByteArray KSambaSharePrivate::getNetUserShareInfo()
-{
-    if (skipUserShare) {
-        return QByteArray();
-    }
-
-    const QString exec = QStandardPaths::findExecutable(QStringLiteral("net"));
-    if (exec.isEmpty()) {
-        qCDebug(KIO_CORE_SAMBASHARE) << "Could not find the 'net' tool, most likely samba-client isn't installed";
-        return QByteArray();
-    }
-
-    QByteArray stdOut;
-    QByteArray stdErr;
-
-    const QStringList args{
-        QStringLiteral("usershare"),
-        QStringLiteral("info"),
-    };
-
-    runProcess(exec, args, stdOut, stdErr);
-
-    if (!stdErr.isEmpty()) {
-        if (stdErr.contains("You do not have permission to create a usershare")) {
-            skipUserShare = true;
-        } else if (stdErr.contains("usershares are currently disabled")) {
-            skipUserShare = true;
-        } else {
-            // TODO: parse and process other error messages.
-            // create a parser for the error output and
-            // send error message somewhere
-            qCDebug(KIO_CORE) << "We got some errors while running 'net usershare info'";
-            qCDebug(KIO_CORE) << stdErr;
-        }
-    }
-
-    return stdOut;
-}
-
 QStringList KSambaSharePrivate::shareNames() const
 {
+    ensureLoaded();
     return data.keys();
 }
 
 QStringList KSambaSharePrivate::sharedDirs() const
 {
+    ensureLoaded();
     QStringList dirs;
 
     QMap<QString, KSambaShareData>::ConstIterator i;
@@ -196,11 +275,13 @@ QStringList KSambaSharePrivate::sharedDirs() const
 
 KSambaShareData KSambaSharePrivate::getShareByName(const QString &shareName) const
 {
+    ensureLoaded();
     return data.value(shareName);
 }
 
 QList<KSambaShareData> KSambaSharePrivate::getSharesByPath(const QString &path) const
 {
+    ensureLoaded();
     QList<KSambaShareData> shares;
 
     QMap<QString, KSambaShareData>::ConstIterator i;
@@ -234,6 +315,7 @@ bool KSambaSharePrivate::isDirectoryShared(const QString &path) const
 
 bool KSambaSharePrivate::isShareNameAvailable(const QString &name) const
 {
+    ensureLoaded();
     // Samba does not allow to name a share with a user name registered in the system
     return (!KUser::allUserNames().contains(name) && !data.contains(name));
 }
@@ -292,6 +374,7 @@ KSambaShareData::UserShareError KSambaSharePrivate::guestsAllowed(const KSambaSh
 
 KSambaShareData::UserShareError KSambaSharePrivate::add(const KSambaShareData &shareData)
 {
+    ensureLoaded();
     // TODO:
     // * check for usershare max shares
 
@@ -343,6 +426,7 @@ KSambaShareData::UserShareError KSambaSharePrivate::add(const KSambaShareData &s
 
 KSambaShareData::UserShareError KSambaSharePrivate::remove(const KSambaShareData &shareData)
 {
+    ensureLoaded();
     const QString exec = QStandardPaths::findExecutable(QStringLiteral("net"));
     if (exec.isEmpty()) {
         qCDebug(KIO_CORE_SAMBASHARE) << "Could not find the 'net' tool, most likely samba-client isn't installed";
@@ -433,10 +517,12 @@ void KSambaSharePrivate::slotFileChange(const QString &path)
     if (path != userSharePath) {
         return;
     }
-    data = parse(getNetUserShareInfo());
     qCDebug(KIO_CORE) << "reloading data; path changed:" << path;
-    Q_Q(KSambaShare);
-    Q_EMIT q->changed();
+    if (m_loadProcess) {
+        m_reloadPending = true;
+        return;
+    }
+    startNetUserShareInfo();
 }
 
 KSambaShare::KSambaShare()
@@ -444,12 +530,7 @@ KSambaShare::KSambaShare()
     , d_ptr(new KSambaSharePrivate(this))
 {
     Q_D(KSambaShare);
-    if (!d->userSharePath.isEmpty() && QFileInfo::exists(d->userSharePath)) {
-        KDirWatch::self()->addDir(d->userSharePath, KDirWatch::WatchFiles);
-        connect(KDirWatch::self(), &KDirWatch::dirty, this, [d](const QString &path) {
-            d->slotFileChange(path);
-        });
-    }
+    d->startLoad();
 }
 
 KSambaShare::~KSambaShare()

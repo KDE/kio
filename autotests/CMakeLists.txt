@@ -286,6 +286,14 @@ ecm_add_test(
     NAME_PREFIX "kiocore-"
     LINK_LIBRARIES KF6::KIOCore Qt6::Test Qt6::Network
 )
+
+# A test of its own, as it replaces testparm and net in PATH before KSambaShare loads.
+ecm_add_test(
+    ksambashareloadtest.cpp
+    TEST_NAME ksambashareloadtest
+    NAME_PREFIX "kiocore-"
+    LINK_LIBRARIES KF6::KIOCore Qt6::Test
+)
 endif()
 
 endif()
