@@ -53,19 +53,19 @@ public:
     /*!
      * Sets the email address(es) that will be used in the To field for the email
      *
-     * \a to recipients; each entry can use the format "someone@example.com" or "John Doe <someone@example.com>"
+     * \a to recipients; each should use the format "someone@example.com"
      */
     void setTo(const QStringList &to);
     /*!
      * Sets the email address(es) that will be used in the CC field for the email
      *
-     * \a cc recipients; each entry can use the format "someone@example.com" or "John Doe <someone@example.com>"
+     * \a cc recipients; each entry should use the format "someone@example.com" or
      */
     void setCc(const QStringList &cc);
     /*!
      * Sets the email address(es) that will be used in the Bcc field for the email
      *
-     * \a bcc recipients; each entry can use the format "someone@example.com" or "John Doe <someone@example.com>"
+     * \a bcc recipients; each entry should use the format "someone@example.com"
      * \since 5.96
      */
     void setBcc(const QStringList &bcc);
