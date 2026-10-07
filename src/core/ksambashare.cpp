@@ -125,7 +125,14 @@ void KSambaSharePrivate::startNetUserShareInfo()
         QMetaObject::invokeMethod(q, &KSambaShare::changed, Qt::QueuedConnection);
         return;
     }
-    startLoadProcess(exec, {QStringLiteral("usershare"), QStringLiteral("info")});
+    const QStringList args{
+        // net resolves every name of the "interfaces" parameter before it reads the usershares,
+        // which do not need any. An interface that is up without an address took seconds.
+        QStringLiteral("--option=interfaces=127.0.0.1"),
+        QStringLiteral("usershare"),
+        QStringLiteral("info"),
+    };
+    startLoadProcess(exec, args);
 }
 
 void KSambaSharePrivate::userSharesRead(const QByteArray &stdOut, const QByteArray &stdErr)
