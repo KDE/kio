@@ -14,12 +14,14 @@
 #include <KService>
 #include <KSharedConfig>
 #include <KShell>
+#include <QDesktopServices>
 #include <QProcessEnvironment>
 #include <QUrlQuery>
 
 #include "desktopexecparser.h"
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/CommandLauncherJob>
+#include <KSandbox>
 
 #ifdef Q_OS_WIN
 #include <windows.h> // Must be included before shellapi.h
@@ -111,6 +113,14 @@ void KEMailClientLauncherJob::setStartupId(const QByteArray &startupId)
 void KEMailClientLauncherJob::start()
 {
 #ifndef Q_OS_WIN
+    if (KSandbox::isInside()) {
+        if (!QDesktopServices::openUrl(mailToUrl())) {
+            setError(KJob::UserDefinedError);
+            setErrorText(i18nc("@info", "Failed to open email client"));
+        }
+        emitDelayedResult();
+        return;
+    }
     KService::Ptr service = KApplicationTrader::preferredService(QStringLiteral("x-scheme-handler/mailto"));
     if (!service) {
         setError(KJob::UserDefinedError);
