@@ -30,6 +30,7 @@ private Q_SLOTS:
     void testItemForIndex();
     void testIndexForItem();
     void testData();
+    void testModifiedTimeIsLocalTime();
 
     /*!
      * Test if the icon is valid if "Icon" is specified in the desktop file, and can fall back to "unknown"

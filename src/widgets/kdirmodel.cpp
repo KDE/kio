@@ -884,7 +884,8 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
             case ModifiedTime: {
                 static KFormat format;
                 const auto time = item.entry().numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME);
-                const QDateTime dt = QDateTime::fromSecsSinceEpoch(time, QTimeZone(QTimeZone::UTC));
+                // KFormat prints the date and time in the time zone of dt, so it has to be local time.
+                const QDateTime dt = QDateTime::fromSecsSinceEpoch(time);
                 return format.formatRelativeDateTime(dt, QLocale::ShortFormat);
             }
             case Permissions:

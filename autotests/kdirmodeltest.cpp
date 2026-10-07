@@ -18,10 +18,14 @@
 #include <kio/simplejob.h>
 #include <kprotocolinfo.h>
 
+#include <KFormat>
+
 #include <QDebug>
 #include <QElapsedTimer>
 #include <QMimeData>
+#include <QScopeGuard>
 #include <QSignalSpy>
+#include <QTemporaryDir>
 #include <QUrl>
 
 #ifdef Q_OS_UNIX
@@ -386,6 +390,42 @@ void KDirModelTest::testData()
 
     // Subsubdir: check child count
     QCOMPARE(m_dirModel->data(m_fileInSubdirIndex.parent(), KDirModel::ChildCountRole).toInt(), 1);
+}
+
+void KDirModelTest::testModifiedTimeIsLocalTime()
+{
+    // The Modified column shows the local time, whatever the time zone of the machine.
+    const QByteArray oldTimeZone = qgetenv("TZ");
+    qputenv("TZ", "Asia/Kolkata");
+    const auto restoreTimeZone = qScopeGuard([oldTimeZone] {
+        if (oldTimeZone.isNull()) {
+            qunsetenv("TZ");
+        } else {
+            qputenv("TZ", oldTimeZone);
+        }
+    });
+
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    const QString filePath = dir.filePath(QStringLiteral("file"));
+    createTestFile(filePath);
+    // 2021-10-03 05:33:57 UTC is 11:03 in Kolkata.
+    const QDateTime modified = QDateTime::fromSecsSinceEpoch(1633239237, QTimeZone::UTC);
+    {
+        QFile file(filePath);
+        QVERIFY(file.open(QIODevice::ReadWrite));
+        QVERIFY(file.setFileTime(modified, QFileDevice::FileModificationTime));
+    }
+
+    KDirModel model;
+    QSignalSpy completedSpy(model.dirLister(), qOverload<>(&KCoreDirLister::completed));
+    model.dirLister()->openUrl(QUrl::fromLocalFile(dir.path()));
+    QVERIFY(completedSpy.wait());
+    QCOMPARE(model.rowCount(), 1);
+
+    const QString shown = model.index(0, KDirModel::ModifiedTime).data(Qt::DisplayRole).toString();
+    QCOMPARE(shown, KFormat().formatRelativeDateTime(modified.toLocalTime(), QLocale::ShortFormat));
+    QVERIFY2(shown.contains(QLatin1String("11:03")), qPrintable(shown));
 }
 
 void KDirModelTest::testIcon()
