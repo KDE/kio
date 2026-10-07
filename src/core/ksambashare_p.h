@@ -12,6 +12,7 @@
 
 #include "ksambasharedata.h"
 
+class QProcess;
 class QString;
 class KSambaShare;
 
@@ -21,12 +22,20 @@ public:
     explicit KSambaSharePrivate(KSambaShare *parent);
     ~KSambaSharePrivate();
 
-    void setUserSharePath();
-
     static int runProcess(const QString &fullExecutablePath, const QStringList &args, QByteArray &stdOut, QByteArray &stdErr);
     static QString testparmParamValue(const QString &parameterName);
+    static QString testparmValueFromOutput(const QByteArray &stdOut, const QByteArray &stdErr);
 
-    QByteArray getNetUserShareInfo();
+    /// Starts the testparm query of the usershare path, then the share listing.
+    void startLoad();
+    void startNetUserShareInfo();
+    void startLoadProcess(const QString &exec, const QStringList &args);
+    /// Also called when the process could not start.
+    void loadProcessFinished();
+    void userSharePathRead(const QByteArray &stdOut, const QByteArray &stdErr);
+    void userSharesRead(const QByteArray &stdOut, const QByteArray &stdErr);
+    /// Waits for a running load, for the getters that need the whole share set.
+    void ensureLoaded() const;
     QStringList shareNames() const;
     QStringList sharedDirs() const;
     KSambaShareData getShareByName(const QString &shareName) const;
@@ -55,6 +64,9 @@ private:
     QString userSharePath;
     bool skipUserShare;
     QByteArray m_stdErr;
+    QProcess *m_loadProcess = nullptr;
+    bool m_userSharePathRead = false;
+    bool m_reloadPending = false;
 };
 
 #endif

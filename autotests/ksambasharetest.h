@@ -15,9 +15,11 @@ class KSambaShareTest : public QObject
 
 private Q_SLOTS:
     void initTestCase();
+    void testInitialLoadEmitsChanged();
     void testAcl();
     void testAcl_data();
     void testOwnAcl();
+    void testSharedDirectoriesAreShared();
 };
 
 #endif // KSAMBASHARETEST_H
