@@ -56,6 +56,10 @@ Name[sa]=Learn CPP
 Name[sk]=Naučte sa CPP
 Name[sl]=Naučite se CPP
 Name[sq]=Mësoni CPP
+Name[sr]=Learn CPP
+Name[sr@ijekavian]=Learn CPP
+Name[sr@ijekavianlatin]=Learn CPP
+Name[sr@latin]=Learn CPP
 Name[sv]=Lär dig C++
 Name[th]=เรียน C++
 Name[tr]=CPP Öğren
@@ -123,6 +127,10 @@ Query[sa]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[sk]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[sl]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[sq]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[sr]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[sr@ijekavian]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[sr@ijekavianlatin]=https://www.learncpp.com/gsearch/?q=\\{@}
+Query[sr@latin]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[sv]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[th]=https://www.learncpp.com/gsearch/?q=\\{@}
 Query[tr]=https://www.learncpp.com/gsearch/?q=\\{@}

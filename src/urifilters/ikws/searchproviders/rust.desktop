@@ -55,6 +55,10 @@ Name[sa]=Rust STD Documentation
 Name[sk]=Dokumentácia Rust STD
 Name[sl]=Dokumentacija za Rust STD
 Name[sq]=Dokumentim për Rust STD
+Name[sr]=Документација стандардне библиотеке раста
+Name[sr@ijekavian]=Документација стандардне библиотеке раста
+Name[sr@ijekavianlatin]=Dokumentacija standardne biblioteke Rusta
+Name[sr@latin]=Dokumentacija standardne biblioteke Rusta
 Name[sv]=Rust standarddokumentation
 Name[th]=เอกสารอธิบาย Rust STD
 Name[tr]=Rust STD Belgelendirmesi
@@ -121,6 +125,10 @@ Query[sa]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[sk]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[sl]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[sq]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[sr]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[sr@ijekavian]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[sr@ijekavianlatin]=https://doc.rust-lang.org/std/index.html?search=\\{@}
+Query[sr@latin]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[sv]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[th]=https://doc.rust-lang.org/std/index.html?search=\\{@}
 Query[tr]=https://doc.rust-lang.org/std/index.html?search=\\{@}

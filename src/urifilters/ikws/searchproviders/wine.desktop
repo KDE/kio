@@ -56,6 +56,10 @@ Name[sa]=WineHQ Database
 Name[sk]=Databáza WineHQ
 Name[sl]=Podatkovna zbirka WineHQ
 Name[sq]=Bazë të dhënash WineHQ
+Name[sr]=База WineHQ
+Name[sr@ijekavian]=База WineHQ
+Name[sr@ijekavianlatin]=Baza WineHQ
+Name[sr@latin]=Baza WineHQ
 Name[sv]=WineHQ-databas
 Name[th]=ฐานข้อมูล WineHQ
 Name[tr]=WineHQ Veri Tabanı
@@ -123,6 +127,10 @@ Query[sa]=https://www.winehq.org/search?q=\\{@}
 Query[sk]=https://www.winehq.org/search?q=\\{@}
 Query[sl]=https://www.winehq.org/search?q=\\{@}
 Query[sq]=https://www.winehq.org/search?q=\\{@}
+Query[sr]=https://www.winehq.org/search?q=\\{@}
+Query[sr@ijekavian]=https://www.winehq.org/search?q=\\{@}
+Query[sr@ijekavianlatin]=https://www.winehq.org/search?q=\\{@}
+Query[sr@latin]=https://www.winehq.org/search?q=\\{@}
 Query[sv]=https://www.winehq.org/search?q=\\{@}
 Query[th]=https://www.winehq.org/search?q=\\{@}
 Query[tr]=https://www.winehq.org/search?q=\\{@}

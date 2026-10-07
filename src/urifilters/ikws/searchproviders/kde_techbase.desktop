@@ -140,6 +140,10 @@ Query[sa]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sk]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sl]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sq]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[sr]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[sr@ijekavian]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[sr@ijekavianlatin]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
+Query[sr@latin]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[sv]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[tg]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search
 Query[th]=https://techbase.kde.org/Special:Search?search=\\{@}&fulltext=Search

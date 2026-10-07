@@ -156,6 +156,10 @@ Query[sa]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[sk]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[sl]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[sq]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[sr]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[sr@ijekavian]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[sr@ijekavianlatin]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
+Query[sr@latin]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[sv]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[tg]=https://secure.php.net/manual-lookup.php?pattern=\\{@}
 Query[th]=https://secure.php.net/manual-lookup.php?pattern=\\{@}

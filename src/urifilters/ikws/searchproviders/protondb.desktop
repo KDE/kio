@@ -56,6 +56,10 @@ Name[sa]=ProtonDB
 Name[sk]=ProtonDB
 Name[sl]=ProtonDB
 Name[sq]=ProtonDB
+Name[sr]=ProtonDB
+Name[sr@ijekavian]=ProtonDB
+Name[sr@ijekavianlatin]=ProtonDB
+Name[sr@latin]=ProtonDB
 Name[sv]=ProtonDB
 Name[th]=ProtonDB
 Name[tr]=ProtonDB
@@ -123,6 +127,10 @@ Query[sa]=https://www.protondb.com/search?q=\\{@}
 Query[sk]=https://www.protondb.com/search?q=\\{@}
 Query[sl]=https://www.protondb.com/search?q=\\{@}
 Query[sq]=https://www.protondb.com/search?q=\\{@}
+Query[sr]=https://www.protondb.com/search?q=\\{@}
+Query[sr@ijekavian]=https://www.protondb.com/search?q=\\{@}
+Query[sr@ijekavianlatin]=https://www.protondb.com/search?q=\\{@}
+Query[sr@latin]=https://www.protondb.com/search?q=\\{@}
 Query[sv]=https://www.protondb.com/search?q=\\{@}
 Query[th]=https://www.protondb.com/search?q=\\{@}
 Query[tr]=https://www.protondb.com/search?q=\\{@}

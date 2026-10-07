@@ -131,6 +131,10 @@ Query[sa]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[sk]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[sl]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[sq]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[sr]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[sr@ijekavian]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[sr@ijekavianlatin]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
+Query[sr@latin]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[sv]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[tg]=https://www.qwant.com/?q=\\{@}&client=kde&t=social
 Query[th]=https://www.qwant.com/?q=\\{@}&client=kde&t=social

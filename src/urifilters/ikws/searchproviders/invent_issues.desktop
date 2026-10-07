@@ -57,6 +57,10 @@ Name[sa]=KDE Invent Issues
 Name[sk]=Problémy KDE Invent
 Name[sl]=Težave s KDE Invent
 Name[sq]=Çështje KDE Invent
+Name[sr]=КДЕ Invent (проблеми)
+Name[sr@ijekavian]=КДЕ Invent (проблеми)
+Name[sr@ijekavianlatin]=KDE Invent (problemi)
+Name[sr@latin]=KDE Invent (problemi)
 Name[sv]=KDE-Invent problemrapporter
 Name[th]=ปัญหา KDE Invent
 Name[tr]=KDE Invent Sorunları
@@ -122,6 +126,10 @@ Query[sa]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[sk]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[sl]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[sq]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[sr]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[sr@ijekavian]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[sr@ijekavianlatin]=https://invent.kde.org/search?scope=issues&search=\\{@}
+Query[sr@latin]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[sv]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[th]=https://invent.kde.org/search?scope=issues&search=\\{@}
 Query[tr]=https://invent.kde.org/search?scope=issues&search=\\{@}

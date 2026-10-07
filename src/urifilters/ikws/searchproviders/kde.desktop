@@ -158,6 +158,10 @@ Query[sa]=https://api.kde.org/search.html?query=\\{@}
 Query[sk]=https://api.kde.org/search.html?query=\\{@}
 Query[sl]=https://api.kde.org/search.html?query=\\{@}
 Query[sq]=https://api.kde.org/search.html?query=\\{@}
+Query[sr]=https://api.kde.org/search.html?query=\\{@}
+Query[sr@ijekavian]=https://api.kde.org/search.html?query=\\{@}
+Query[sr@ijekavianlatin]=https://api.kde.org/search.html?query=\\{@}
+Query[sr@latin]=https://api.kde.org/search.html?query=\\{@}
 Query[sv]=https://api.kde.org/search.html?query=\\{@}
 Query[th]=https://api.kde.org/search.html?query=\\{@}
 Query[tr]=https://api.kde.org/search.html?query=\\{@}

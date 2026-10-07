@@ -51,6 +51,10 @@ Name[sa]=PyPI
 Name[sk]=PyPI
 Name[sl]=PyPI
 Name[sq]=PyPI
+Name[sr]=PyPI
+Name[sr@ijekavian]=PyPI
+Name[sr@ijekavianlatin]=PyPI
+Name[sr@latin]=PyPI
 Name[sv]=PyPI
 Name[th]=PyPi
 Name[tr]=PyPI
@@ -108,6 +112,10 @@ Query[sa]=https://pypi.org/search/?q=\\{@}
 Query[sk]=https://pypi.org/search/?q=\\{@}
 Query[sl]=https://pypi.org/search/?q=\\{@}
 Query[sq]=https://pypi.org/search/?q=\\{@}
+Query[sr]=https://pypi.org/search/?q=\\{@}
+Query[sr@ijekavian]=https://pypi.org/search/?q=\\{@}
+Query[sr@ijekavianlatin]=https://pypi.org/search/?q=\\{@}
+Query[sr@latin]=https://pypi.org/search/?q=\\{@}
 Query[sv]=https://pypi.org/search/?q=\\{@}
 Query[th]=https://pypi.org/search/?q=\\{@}
 Query[tr]=https://pypi.org/search/?q=\\{@}

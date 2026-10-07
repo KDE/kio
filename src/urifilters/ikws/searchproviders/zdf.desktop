@@ -32,6 +32,10 @@ Name[pt_BR]=ZDF Mediathek
 Name[ru]=ZDF Mediathek
 Name[sk]=ZDF Mediathek
 Name[sl]=ZDF Mediathek
+Name[sr]=ZDF Mediathek
+Name[sr@ijekavian]=ZDF Mediathek
+Name[sr@ijekavianlatin]=ZDF Mediathek
+Name[sr@latin]=ZDF Mediathek
 Name[sv]=ZDF Mediathek
 Name[tr]=ZDF Mediathek
 Name[ug]=ZDF Mediathek
@@ -68,6 +72,10 @@ Query[pt_BR]=https://www.zdf.de/suche?q=\\{@}
 Query[ru]=https://www.zdf.de/suche?q=\\{@}
 Query[sk]=https://www.zdf.de/suche?q=\\{@}
 Query[sl]=https://www.zdf.de/suche?q=\\{@}
+Query[sr]=https://www.zdf.de/suche?q=\\{@}
+Query[sr@ijekavian]=https://www.zdf.de/suche?q=\\{@}
+Query[sr@ijekavianlatin]=https://www.zdf.de/suche?q=\\{@}
+Query[sr@latin]=https://www.zdf.de/suche?q=\\{@}
 Query[sv]=https://www.zdf.de/suche?q=\\{@}
 Query[tr]=https://www.zdf.de/suche?q=\\{@}
 Query[ug]=https://www.zdf.de/suche?q=\\{@}

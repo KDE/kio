@@ -42,6 +42,10 @@ Name[ro]=Mozilla Developer Network (MDN)
 Name[ru]=Mozilla Developer Network (MDN)
 Name[sk]=Hľadanie v Microsoft Developer Network
 Name[sl]=Mozilla Developer Network (MDN)
+Name[sr]=Мозилина мрежа за програмере (МДН)
+Name[sr@ijekavian]=Мозилина мрежа за програмере (МДН)
+Name[sr@ijekavianlatin]=Mozillina mreža za programere (MDN)
+Name[sr@latin]=Mozillina mreža za programere (MDN)
 Name[sv]=Mozilla Developer Network (MDN)
 Name[th]=Mozilla Developer Network (MDN)
 Name[tr]=Mozilla Developer Network (MDN)
@@ -92,6 +96,10 @@ Query[ro]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[ru]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[sk]=https://docs.krita.org/en/search.html?q=\\{@}
 Query[sl]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[sr]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[sr@ijekavian]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[sr@ijekavianlatin]=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[sr@latin]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[sv]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[th]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[tr]=https://developer.mozilla.org/en-US/search?q=\\{@}

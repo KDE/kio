@@ -158,6 +158,10 @@ Query[sa]=https://dict.leo.org/?search=\\{@}
 Query[sk]=https://dict.leo.org/?search=\\{@}
 Query[sl]=https://dict.leo.org/?search=\\{@}
 Query[sq]=https://dict.leo.org/?search=\\{@}
+Query[sr]=https://dict.leo.org/?search=\\{@}
+Query[sr@ijekavian]=https://dict.leo.org/?search=\\{@}
+Query[sr@ijekavianlatin]=https://dict.leo.org/?search=\\{@}
+Query[sr@latin]=https://dict.leo.org/?search=\\{@}
 Query[sv]=https://dict.leo.org/?search=\\{@}
 Query[tg]=https://dict.leo.org/?search=\\{@}
 Query[th]=https://dict.leo.org/?search=\\{@}

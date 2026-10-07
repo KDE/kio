@@ -32,6 +32,10 @@ Name[pt_BR]=Startpage
 Name[ru]=Startpage
 Name[sk]=Úvodná stránka
 Name[sl]=Startpage
+Name[sr]=Startpage
+Name[sr@ijekavian]=Startpage
+Name[sr@ijekavianlatin]=Startpage
+Name[sr@latin]=Startpage
 Name[sv]=Startpage
 Name[tr]=Startpage
 Name[ug]=Startpage
@@ -71,6 +75,10 @@ Query[pt_BR]=https://www.startpage.com/sp/search?query=\\{@}
 Query[ru]=https://www.startpage.com/sp/search?query=\\{@}
 Query[sk]=https://www.startpage.com/sp/search?query=\\{@}
 Query[sl]=https://www.startpage.com/sp/search?query=\\{@}
+Query[sr]=https://www.startpage.com/sp/search?query=\\{@}
+Query[sr@ijekavian]=https://www.startpage.com/sp/search?query=\\{@}
+Query[sr@ijekavianlatin]=https://www.startpage.com/sp/search?query=\\{@}
+Query[sr@latin]=https://www.startpage.com/sp/search?query=\\{@}
 Query[sv]=https://www.startpage.com/sp/search?query=\\{@}
 Query[tr]=https://www.startpage.com/sp/search?query=\\{@}
 Query[ug]=https://www.startpage.com/sp/search?query=\\{@}

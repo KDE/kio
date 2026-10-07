@@ -157,6 +157,10 @@ Query[sa]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[sk]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[sl]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[sq]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[sr]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[sr@ijekavian]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[sr@ijekavianlatin]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
+Query[sr@latin]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[sv]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[tg]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}
 Query[th]=https://www.ruby-lang.org/en/raa-list.rhtml?name=\\{@}

@@ -155,6 +155,10 @@ Query[sa]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[sk]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[sl]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[sq]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[sr]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[sr@ijekavian]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[sr@ijekavianlatin]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
+Query[sr@latin]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[sv]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[tg]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex
 Query[th]=https://pgp.mit.edu/pks/lookup?search=\\{@}&op=vindex

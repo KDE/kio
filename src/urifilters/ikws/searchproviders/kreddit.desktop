@@ -56,6 +56,10 @@ Name[sa]=KDE Reddit
 Name[sk]=KDE Reddit
 Name[sl]=Reddit KDE
 Name[sq]=KDE Reddit
+Name[sr]=КДЕ на Редиту
+Name[sr@ijekavian]=КДЕ на Редиту
+Name[sr@ijekavianlatin]=KDE na Redditu
+Name[sr@latin]=KDE na Redditu
 Name[sv]=KDE Reddit
 Name[th]=KDE Reddit
 Name[tr]=KDE Reddit
@@ -122,6 +126,10 @@ Query[sa]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[sk]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[sl]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[sq]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[sr]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[sr@ijekavian]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[sr@ijekavianlatin]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
+Query[sr@latin]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[sv]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[th]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1
 Query[tr]=https://www.reddit.com/r/kde/search/?q=\\{@}&restrict_sr=1

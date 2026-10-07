@@ -55,6 +55,10 @@ Name[sa]=CPP Reference
 Name[sk]=Referenčná príručka CPP
 Name[sl]=Referenčni priročnik za CPP
 Name[sq]=Referencë CPP
+Name[sr]=Референца за Ц++
+Name[sr@ijekavian]=Референца за Ц++
+Name[sr@ijekavianlatin]=Referenca za C++
+Name[sr@latin]=Referenca za C++
 Name[sv]=C++ referens
 Name[th]=คู่มืออ้างอิง C++
 Name[tr]=CPP Başvuru
@@ -103,6 +107,10 @@ Query[ro]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[ru]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[sk]=https://duckduckgo.com/?q=\\{@}&t=kde
 Query[sl]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
+Query[sr]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
+Query[sr@ijekavian]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
+Query[sr@ijekavianlatin]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
+Query[sr@latin]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[sv]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[tr]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}
 Query[ug]=https://duckduckgo.com/?sites=cppreference.com&q=\\{@}

@@ -141,6 +141,10 @@ Query[ro]=https://www.wordreference.com/enfr/\\{@}
 Query[ru]=https://www.wordreference.com/enfr/\\{@}
 Query[sk]=https://www.wordreference.com/fr/Translation.asp?enfr=\\{@}
 Query[sl]=https://www.wordreference.com/enfr/\\{@}
+Query[sr]=https://www.wordreference.com/enfr/\\{@}
+Query[sr@ijekavian]=https://www.wordreference.com/enfr/\\{@}
+Query[sr@ijekavianlatin]=https://www.wordreference.com/enfr/\\{@}
+Query[sr@latin]=https://www.wordreference.com/enfr/\\{@}
 Query[sv]=https://www.wordreference.com/enfr/\\{@}
 Query[th]=https://www.wordreference.com/enfr/\\{@}
 Query[tr]=https://www.wordreference.com/enfr/\\{@}

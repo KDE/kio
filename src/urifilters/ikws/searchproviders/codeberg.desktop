@@ -51,6 +51,10 @@ Name[sa]=कोडबर्ग्
 Name[sk]=Codeberg
 Name[sl]=Codeberg
 Name[sq]=Codeberg
+Name[sr]=Codeberg
+Name[sr@ijekavian]=Codeberg
+Name[sr@ijekavianlatin]=Codeberg
+Name[sr@latin]=Codeberg
 Name[sv]=Codeberg
 Name[th]=Codeberg
 Name[tr]=Codeberg
@@ -108,6 +112,10 @@ Query[sa]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}
 Query[sk]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[sl]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[sq]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
+Query[sr]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
+Query[sr@ijekavian]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
+Query[sr@ijekavianlatin]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
+Query[sr@latin]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[sv]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[th]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true
 Query[tr]=https://codeberg.org/explore/repos?sort=recentupdate&language=&q=\\{@}&only_show_relevant=true

@@ -55,6 +55,10 @@ Name[sa]=Microsoft C++ Documentation
 Name[sk]=Dokumentácia Microsoft C++
 Name[sl]=Dokumentacija za Microsoft C++
 Name[sq]=Dokumentim për Microsoft C++
+Name[sr]=Мајкрософтова документација за Ц++
+Name[sr@ijekavian]=Мајкрософтова документација за Ц++
+Name[sr@ijekavianlatin]=Microsoftova dokumentacija za C++
+Name[sr@latin]=Microsoftova dokumentacija za C++
 Name[sv]=Microsoft C++ dokumentation
 Name[th]=เอกสารอธิบาย C++ Microsoft
 Name[tr]=Microsoft C++ Belgelendirmesi
@@ -121,6 +125,10 @@ Query[sa]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[sk]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[sl]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[sq]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[sr]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[sr@ijekavian]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[sr@ijekavianlatin]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
+Query[sr@latin]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[sv]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[th]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B
 Query[tr]=https://docs.microsoft.com/search/?terms=\\{@}&scope=C%2B%2B

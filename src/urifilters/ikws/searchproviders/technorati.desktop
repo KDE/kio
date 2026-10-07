@@ -157,6 +157,10 @@ Query[sa]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[sk]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[sl]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[sq]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[sr]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[sr@ijekavian]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[sr@ijekavianlatin]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
+Query[sr@latin]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[sv]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[tg]=https://technorati.com/search?return=sites&authority=high&q=\\{@}
 Query[th]=https://technorati.com/cosmos/search.html?sourceid=kde-search&url=\\{@}

@@ -56,6 +56,10 @@ Name[sa]=Flatpak Documentation
 Name[sk]=Dokumentácia Flatpak
 Name[sl]=Dokumentacija za Flatpak
 Name[sq]=Dokumentim për Flatpak
+Name[sr]=Документација флатпака
+Name[sr@ijekavian]=Документација флатпака
+Name[sr@ijekavianlatin]=Dokumentacija Flatpaka
+Name[sr@latin]=Dokumentacija Flatpaka
 Name[sv]=Flatpak-dokumentation
 Name[th]=เอกสารอธิบาย Flatpak
 Name[tr]=Flatpak Belgelendirmesi
@@ -123,6 +127,10 @@ Query[sa]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=
 Query[sk]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[sl]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=privzeto
 Query[sq]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[sr]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[sr@ijekavian]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[sr@ijekavianlatin]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
+Query[sr@latin]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[sv]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[th]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default
 Query[tr]=https://docs.flatpak.org/en/latest/search.html?q=\\{@}&check_keywords=yes&area=default

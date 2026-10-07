@@ -128,6 +128,10 @@ Query[sa]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sk]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sl]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sq]=https://www.archlinux.org/packages/?q=\\{@}
+Query[sr]=https://www.archlinux.org/packages/?q=\\{@}
+Query[sr@ijekavian]=https://www.archlinux.org/packages/?q=\\{@}
+Query[sr@ijekavianlatin]=https://www.archlinux.org/packages/?q=\\{@}
+Query[sr@latin]=https://www.archlinux.org/packages/?q=\\{@}
 Query[sv]=https://www.archlinux.org/packages/?q=\\{@}
 Query[tg]=https://www.archlinux.org/packages/?q=\\{@}
 Query[th]=https://www.archlinux.org/packages/?q=\\{@}

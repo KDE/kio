@@ -56,6 +56,10 @@ Name[sa]=Yandex
 Name[sk]=Yandex
 Name[sl]=Yandex
 Name[sq]=Yandex
+Name[sr]=Yandex
+Name[sr@ijekavian]=Yandex
+Name[sr@ijekavianlatin]=Yandex
+Name[sr@latin]=Yandex
 Name[sv]=Yandex
 Name[th]=Yandex
 Name[tr]=Yandex
@@ -120,6 +124,10 @@ Query[sa]=https://yandex.ru/search/?text=\\{@}
 Query[sk]=https://yandex.ru/search/?text=\\{@}
 Query[sl]=https://yandex.ru/search/?text=\\{@}
 Query[sq]=https://yandex.ru/search/?text=\\{@}
+Query[sr]=https://yandex.ru/search/?text=\\{@}
+Query[sr@ijekavian]=https://yandex.ru/search/?text=\\{@}
+Query[sr@ijekavianlatin]=https://yandex.ru/search/?text=\\{@}
+Query[sr@latin]=https://yandex.ru/search/?text=\\{@}
 Query[sv]=https://yandex.ru/search/?text=\\{@}
 Query[th]=https://dict.leo.org/?search=\\{@}
 Query[tr]=https://yandex.ru/search/?text=\\{@}

@@ -143,6 +143,10 @@ Query[sa]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[sk]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[sl]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[sq]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[sr]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[sr@ijekavian]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[sr@ijekavianlatin]=https://www.jamendo.com/en/search?qs=q=\\{@}
+Query[sr@latin]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[sv]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[tg]=https://www.jamendo.com/en/search?qs=q=\\{@}
 Query[th]=https://www.jamendo.com/en/search?qs=q=\\{@}

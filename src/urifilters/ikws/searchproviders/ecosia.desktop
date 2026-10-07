@@ -140,6 +140,10 @@ Query[sa]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[sk]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[sl]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[sq]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[sr]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[sr@ijekavian]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[sr@ijekavianlatin]=https://ecosia.org/search.php?q=\\{@}&meta=normal
+Query[sr@latin]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[sv]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[tg]=https://ecosia.org/search.php?q=\\{@}&meta=normal
 Query[th]=https://ecosia.org/search.php?q=\\{@}&meta=normal

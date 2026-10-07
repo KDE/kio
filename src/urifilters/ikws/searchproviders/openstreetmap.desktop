@@ -32,6 +32,10 @@ Name[pt_BR]=OpenStreetMap
 Name[ru]=OpenStreetMap
 Name[sk]=OpenStreetMap
 Name[sl]=OpenStreetMap
+Name[sr]=Опенстритмап
+Name[sr@ijekavian]=Опенстритмап
+Name[sr@ijekavianlatin]=OpenStreetMap
+Name[sr@latin]=OpenStreetMap
 Name[sv]=OpenStreetMap
 Name[tr]=OpenStreetMap
 Name[ug]=OpenStreetMap ئوچۇق كوچا خەرىتىسى
@@ -69,6 +73,10 @@ Query[pt_BR]=https://www.openstreetmap.org/search?query=\\{@}
 Query[ru]=https://www.openstreetmap.org/search?query=\\{@}
 Query[sk]=https://www.openstreetmap.org/search?query=\\{@}
 Query[sl]=https://www.openstreetmap.org/search?query=\\{@}
+Query[sr]=https://www.openstreetmap.org/search?query=\\{@}
+Query[sr@ijekavian]=https://www.openstreetmap.org/search?query=\\{@}
+Query[sr@ijekavianlatin]=https://www.openstreetmap.org/search?query=\\{@}
+Query[sr@latin]=https://www.openstreetmap.org/search?query=\\{@}
 Query[sv]=https://www.openstreetmap.org/search?query=\\{@}
 Query[tr]=https://www.openstreetmap.org/search?query=\\{@}
 Query[ug]=https://www.openstreetmap.org/search?query=\\{@}

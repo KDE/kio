@@ -56,6 +56,10 @@ Name[sa]=Linguee
 Name[sk]=Linguee
 Name[sl]=Linguee
 Name[sq]=Linguee
+Name[sr]=Linguee
+Name[sr@ijekavian]=Linguee
+Name[sr@ijekavianlatin]=Linguee
+Name[sr@latin]=Linguee
 Name[sv]=Linguee
 Name[th]=Linguee
 Name[tr]=Linguee
@@ -123,6 +127,10 @@ Query[sa]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[sk]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[sl]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[sq]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[sr]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[sr@ijekavian]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[sr@ijekavianlatin]=https://www.linguee.com/search?source=auto&query=\\{@}
+Query[sr@latin]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[sv]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[th]=https://www.linguee.com/search?source=auto&query=\\{@}
 Query[tr]=https://www.linguee.com/search?source=auto&query=\\{@}

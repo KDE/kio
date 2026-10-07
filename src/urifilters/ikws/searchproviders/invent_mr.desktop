@@ -56,6 +56,10 @@ Name[sa]=KDE Invent Merge Requests
 Name[sk]=Požiadavky na zlúčenie v KDE Invent
 Name[sl]=Zahteve za spajanje KDE Invent
 Name[sq]=Kërkesa Përzierjeje në KDE Invent
+Name[sr]=КДЕ Invent (захтеви за стапање)
+Name[sr@ijekavian]=КДЕ Invent (захтјеви за стапање)
+Name[sr@ijekavianlatin]=KDE Invent (zahtjevi za stapanje)
+Name[sr@latin]=KDE Invent (zahtevi za stapanje)
 Name[sv]=KDE-Invent sammanfogningsbegäran
 Name[th]=KDE Invent คําขอ Merge
 Name[tr]=KDE Invent Birleştirme İstekleri
@@ -120,6 +124,10 @@ Query[sa]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[sk]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[sl]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[sq]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[sr]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[sr@ijekavian]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[sr@ijekavianlatin]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
+Query[sr@latin]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[sv]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[th]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}
 Query[tr]=https://invent.kde.org/search?scope=merge_requests&search=\\{@}

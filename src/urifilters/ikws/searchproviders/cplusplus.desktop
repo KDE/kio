@@ -56,6 +56,10 @@ Name[sa]=CPlusPlus
 Name[sk]=CPlusPlus
 Name[sl]=CPlusPlus
 Name[sq]=CPlusPlus
+Name[sr]=CPlusPlus
+Name[sr@ijekavian]=CPlusPlus
+Name[sr@ijekavianlatin]=CPlusPlus
+Name[sr@latin]=CPlusPlus
 Name[sv]=C++
 Name[th]=CPlusPlus
 Name[tr]=CPlusPlus
@@ -123,6 +127,10 @@ Query[sa]=http://cplusplus.com/search.do?q=\\{@}
 Query[sk]=http://cplusplus.com/search.do?q=\\{@}
 Query[sl]=http://cplusplus.com/search.do?q=\\{@}
 Query[sq]=http://cplusplus.com/search.do?q=\\{@}
+Query[sr]=http://cplusplus.com/search.do?q=\\{@}
+Query[sr@ijekavian]=http://cplusplus.com/search.do?q=\\{@}
+Query[sr@ijekavianlatin]=http://cplusplus.com/search.do?q=\\{@}
+Query[sr@latin]=http://cplusplus.com/search.do?q=\\{@}
 Query[sv]=http://cplusplus.com/search.do?q=\\{@}
 Query[th]=http://cplusplus.com/search.do?q=\\{@}
 Query[tr]=http://cplusplus.com/search.do?q=\\{@}

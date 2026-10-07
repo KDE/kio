@@ -58,6 +58,10 @@ Name[sa]=KDE Store
 Name[sk]=Obchod KDE
 Name[sl]=Trgovina KDE
 Name[sq]=KDE Store
+Name[sr]=Радња КДЕ‑а
+Name[sr@ijekavian]=Радња КДЕ‑а
+Name[sr@ijekavianlatin]=Radnja KDE‑a
+Name[sr@latin]=Radnja KDE‑a
 Name[sv]=KDE-butik
 Name[th]=KDE Store
 Name[tr]=KDE Mağazası
@@ -122,6 +126,10 @@ Query[sa]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sk]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sl]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sq]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[sr]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[sr@ijekavian]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[sr@ijekavianlatin]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
+Query[sr@latin]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[sv]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[th]=https://store.kde.org/content/search.php?search=Search&name=\\{@}
 Query[tr]=https://store.kde.org/content/search.php?search=Search&name=\\{@}

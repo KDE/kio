@@ -142,6 +142,10 @@ Query[sa]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=S
 Query[sk]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[sl]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[sq]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[sr]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[sr@ijekavian]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[sr@ijekavianlatin]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
+Query[sr@latin]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[sv]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[tg]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search
 Query[th]=https://us.7digital.com/Search?search=\\{@}&searchtype=global&submit=Search

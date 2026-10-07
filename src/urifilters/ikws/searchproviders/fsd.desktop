@@ -155,6 +155,10 @@ Query[sa]=https://directory.fsf.org/search/?query=\\{@}
 Query[sk]=https://directory.fsf.org/search/?query=\\{@}
 Query[sl]=https://directory.fsf.org/search/?query=\\{@}
 Query[sq]=https://directory.fsf.org/search/?query=\\{@}
+Query[sr]=https://directory.fsf.org/search/?query=\\{@}
+Query[sr@ijekavian]=https://directory.fsf.org/search/?query=\\{@}
+Query[sr@ijekavianlatin]=https://directory.fsf.org/search/?query=\\{@}
+Query[sr@latin]=https://directory.fsf.org/search/?query=\\{@}
 Query[sv]=https://directory.fsf.org/search/?query=\\{@}
 Query[tg]=https://directory.fsf.org/search/?query=\\{@}
 Query[th]=https://directory.fsf.org/search/?query=\\{@}

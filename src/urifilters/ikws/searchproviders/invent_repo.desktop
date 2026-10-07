@@ -57,6 +57,10 @@ Name[sa]=KDE Invent Repositories
 Name[sk]=Repozitáre služby KDE Invent
 Name[sl]=Skladišča KDE Invent
 Name[sq]=Depo KDE Invent
+Name[sr]=КДЕ Invent (ризнице)
+Name[sr@ijekavian]=КДЕ Invent (ризнице)
+Name[sr@ijekavianlatin]=KDE Invent (riznice)
+Name[sr@latin]=KDE Invent (riznice)
 Name[sv]=KDE-Invent arkiv
 Name[th]=ที่เก็บข้อมูล KDE Invent
 Name[tok]=tomo lon ma tomo pali KDE Invent
@@ -122,6 +126,10 @@ Query[sa]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[sk]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[sl]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[sq]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[sr]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[sr@ijekavian]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[sr@ijekavianlatin]=https://invent.kde.org/explore/projects/starred?name=\\{@}
+Query[sr@latin]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[sv]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[th]=https://invent.kde.org/explore/projects/starred?name=\\{@}
 Query[tok]=https://invent.kde.org/explore/projects/starred?name=\\{@}

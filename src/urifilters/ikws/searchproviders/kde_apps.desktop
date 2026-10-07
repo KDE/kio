@@ -42,6 +42,10 @@ Name[ro]=Suplimente și extensii Plasma
 Name[ru]=Дополнения и расширения Plasma
 Name[sk]=Doplnky a rozšírenia Plasma
 Name[sl]=Plasma dodatki in razširitve
+Name[sr]=Додаци и проширења за Плазму
+Name[sr@ijekavian]=Додаци и проширења за Плазму
+Name[sr@ijekavianlatin]=Dodaci i proširenja za Plasmu
+Name[sr@latin]=Dodaci i proširenja za Plasmu
 Name[sv]=Plasma tillägg och utökningar
 Name[th]=Plasma Add-Ons and Extensions
 Name[tr]=Plasma Eklentileri ve Genişletmeleri
@@ -92,6 +96,10 @@ Query[ro]=https://store.kde.org/browse?tag=\\{@}
 Query[ru]=https://store.kde.org/browse?tag=\\{@}
 Query[sk]=https://invent.kde.org/search?search=\\{@}
 Query[sl]=https://store.kde.org/browse?tag=\\{@}
+Query[sr]=https://store.kde.org/browse?tag=\\{@}
+Query[sr@ijekavian]=https://store.kde.org/browse?tag=\\{@}
+Query[sr@ijekavianlatin]=https://store.kde.org/browse?tag=\\{@}
+Query[sr@latin]=https://store.kde.org/browse?tag=\\{@}
 Query[sv]=https://store.kde.org/browse?tag=\\{@}
 Query[th]=https://store.kde.org/browse?tag=\\{@}
 Query[tr]=https://store.kde.org/browse?tag=\\{@}

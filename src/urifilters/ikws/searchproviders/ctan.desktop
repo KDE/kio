@@ -156,6 +156,10 @@ Query[sa]=https://ctan.org/search?phrase=\\{@}
 Query[sk]=https://ctan.org/search?phrase=\\{@}
 Query[sl]=https://ctan.org/search?phrase=\\{@}
 Query[sq]=https://ctan.org/search?phrase=\\{@}
+Query[sr]=https://ctan.org/search?phrase=\\{@}
+Query[sr@ijekavian]=https://ctan.org/search?phrase=\\{@}
+Query[sr@ijekavianlatin]=https://ctan.org/search?phrase=\\{@}
+Query[sr@latin]=https://ctan.org/search?phrase=\\{@}
 Query[sv]=https://ctan.org/search?phrase=\\{@}
 Query[tg]=https://ctan.org/search?phrase=\\{@}
 Query[th]=https://ctan.org/search?phrase=\\{@}

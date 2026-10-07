@@ -141,6 +141,10 @@ Query[sa]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@
 Query[sk]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[sl]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[sq]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[sr]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[sr@ijekavian]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[sr@ijekavianlatin]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
+Query[sr@latin]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[sv]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[tg]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}
 Query[th]=https://www.opendesktop.org/content/search.php?search=Search&name=\\{@}

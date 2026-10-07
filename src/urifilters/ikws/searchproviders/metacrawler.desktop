@@ -158,6 +158,10 @@ Query[sa]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[sk]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[sl]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[sq]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[sr]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[sr@ijekavian]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[sr@ijekavianlatin]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
+Query[sr@latin]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[sv]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[tg]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}
 Query[th]=https://www.metacrawler.com/info.metac.cloud.other/search/web?q=\\{@}

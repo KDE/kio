@@ -55,6 +55,10 @@ Name[sa]=Reddit
 Name[sk]=Reddit
 Name[sl]=Reddit
 Name[sq]=Reddit
+Name[sr]=Редит
+Name[sr@ijekavian]=Редит
+Name[sr@ijekavianlatin]=Reddit
+Name[sr@latin]=Reddit
 Name[sv]=Reddit
 Name[th]=Reddit
 Name[tr]=Reddit
@@ -121,6 +125,10 @@ Query[sa]=https://www.reddit.com/search/?q=\\{@}
 Query[sk]=https://www.reddit.com/search/?q=\\{@}
 Query[sl]=https://www.reddit.com/search/?q=\\{@}
 Query[sq]=https://www.reddit.com/search/?q=\\{@}
+Query[sr]=https://www.reddit.com/search/?q=\\{@}
+Query[sr@ijekavian]=https://www.reddit.com/search/?q=\\{@}
+Query[sr@ijekavianlatin]=https://www.reddit.com/search/?q=\\{@}
+Query[sr@latin]=https://www.reddit.com/search/?q=\\{@}
 Query[sv]=https://www.reddit.com/search/?q=\\{@}
 Query[th]=https://www.reddit.com/search/?q=\\{@}
 Query[tr]=https://www.reddit.com/search/?q=\\{@}

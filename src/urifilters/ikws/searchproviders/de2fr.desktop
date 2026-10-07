@@ -154,6 +154,10 @@ Query[sa]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[sk]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[sl]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[sq]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[sr]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[sr@ijekavian]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[sr@ijekavianlatin]=https://dict.leo.org/?lp=frde&search=\\{@}
+Query[sr@latin]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[sv]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[tg]=https://dict.leo.org/?lp=frde&search=\\{@}
 Query[th]=https://dict.leo.org/?lp=frde&search=\\{@}

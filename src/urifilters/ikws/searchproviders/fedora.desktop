@@ -41,6 +41,10 @@ Name[ro]=Pachete Fedora
 Name[ru]=Пакеты Fedora
 Name[sk]=Fedora Packages
 Name[sl]=Paketi Fedora
+Name[sr]=Пакети Федоре
+Name[sr@ijekavian]=Пакети Федоре
+Name[sr@ijekavianlatin]=Paketi Fedore
+Name[sr@latin]=Paketi Fedore
 Name[sv]=Fedora-paket
 Name[th]=แพ็คเกจ Fedora
 Name[tr]=Fedora Paketleri
@@ -92,6 +96,10 @@ Query[ro]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ru]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[sk]=https://directory.fsf.org/search/?query=\\{@}
 Query[sl]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[sr]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[sr@ijekavian]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[sr@ijekavianlatin]=https://packages.fedoraproject.org/search?query=\\{@}
+Query[sr@latin]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[sv]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[th]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[tr]=https://packages.fedoraproject.org/search?query=\\{@}

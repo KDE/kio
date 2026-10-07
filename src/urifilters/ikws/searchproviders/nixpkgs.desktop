@@ -42,6 +42,10 @@ Name[ro]=Pachete Nix
 Name[ru]=Пакеты Nix
 Name[sk]=Nix Packages
 Name[sl]=Paketi Nix
+Name[sr]=Пакети Nix
+Name[sr@ijekavian]=Пакети Nix
+Name[sr@ijekavianlatin]=Paketi Nix
+Name[sr@latin]=Paketi Nix
 Name[sv]=Nix-paket
 Name[th]=แพ็คเกจ Nix
 Name[tr]=Nix Paketleri
@@ -92,6 +96,10 @@ Query[ro]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\
 Query[ru]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[sk]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[sl]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[sr]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[sr@ijekavian]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[sr@ijekavianlatin]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[sr@latin]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[sv]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[th]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[tr]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}

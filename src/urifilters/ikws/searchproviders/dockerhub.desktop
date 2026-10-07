@@ -42,6 +42,10 @@ Name[ro]=Docker Hub
 Name[ru]=Репозиторий Docker Hub
 Name[sk]=Docker Hub
 Name[sl]=Docker Hub
+Name[sr]=Docker Hub
+Name[sr@ijekavian]=Docker Hub
+Name[sr@ijekavianlatin]=Docker Hub
+Name[sr@latin]=Docker Hub
 Name[sv]=Docker Hub
 Name[th]=Docker Hub
 Name[tr]=Docker Hub
@@ -92,6 +96,10 @@ Query[ro]=https://hub.docker.com/search?q=\\{@}
 Query[ru]=https://hub.docker.com/search?q=\\{@}
 Query[sk]=https://www.flickr.com/search/?q=\\{@}
 Query[sl]=https://hub.docker.com/search?q=\\{@}
+Query[sr]=https://hub.docker.com/search?q=\\{@}
+Query[sr@ijekavian]=https://hub.docker.com/search?q=\\{@}
+Query[sr@ijekavianlatin]=https://hub.docker.com/search?q=\\{@}
+Query[sr@latin]=https://hub.docker.com/search?q=\\{@}
 Query[sv]=https://hub.docker.com/search?q=\\{@}
 Query[th]=https://hub.docker.com/search?q=\\{@}
 Query[tr]=https://hub.docker.com/search?q=\\{@}

@@ -157,6 +157,10 @@ Query[sa]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[sk]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[sl]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[sq]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[sr]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[sr@ijekavian]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[sr@ijekavianlatin]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[sr@latin]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[sv]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[tg]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[th]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

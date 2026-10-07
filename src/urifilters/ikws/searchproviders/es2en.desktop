@@ -155,6 +155,10 @@ Query[sa]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[sk]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[sl]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[sq]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[sr]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[sr@ijekavian]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[sr@ijekavianlatin]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
+Query[sr@latin]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[sv]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[tg]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}
 Query[th]=https://www.wordreference.com/es/en/translation.asp?spen=\\{@}

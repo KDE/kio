@@ -153,6 +153,10 @@ Query[sa]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sk]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sl]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sq]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[sr]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[sr@ijekavian]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[sr@ijekavianlatin]=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[sr@latin]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[sv]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[tg]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[th]=https://technorati.com/tag/\\{@}?sourceid=kde-search

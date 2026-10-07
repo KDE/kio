@@ -58,6 +58,10 @@ Name[sa]=Qt6 Online Documentation
 Name[sk]=Online dokumentácia Qt6
 Name[sl]=Spletna dokumentacija za Qt6
 Name[sq]=Dokumentimi Në Internet për Qt6
+Name[sr]=Документација КуТ‑а 6 на вези
+Name[sr@ijekavian]=Документација КуТ‑а 6 на вези
+Name[sr@ijekavianlatin]=Dokumentacija Qt‑a 6 na vezi
+Name[sr@latin]=Dokumentacija Qt‑a 6 na vezi
 Name[sv]=Qt6-dokumentation på nätet
 Name[th]=เอกสารอธิบาย Qt6
 Name[tr]=Qt6 Çevrim İçi Belgelendirmesi
@@ -122,6 +126,10 @@ Query[sa]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[sk]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[sl]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[sq]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[sr]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[sr@ijekavian]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[sr@ijekavianlatin]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
+Query[sr@latin]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[sv]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[th]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
 Query[tr]=https://doc.qt.io/qt-6/search-results.html?q=\\{@}
