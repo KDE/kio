@@ -19,6 +19,9 @@
 #include "kpropertiesdialogplugin.h"
 
 #include <QCryptographicHash>
+#include <QPromise>
+
+#include <optional>
 
 class QComboBox;
 class QLineEdit;
@@ -153,6 +156,8 @@ public:
 
     static bool supports(const KFileItemList &items);
 
+    using CheckType = QPair<QString, bool>;
+
 private Q_SLOTS:
     void slotInvalidateCache();
     void slotShowMd5();
@@ -169,15 +174,15 @@ private:
     static bool isSha1(const QString &input);
     static bool isSha256(const QString &input);
     static bool isSha512(const QString &input);
-    static QPair<QString, bool> computeChecksum(QCryptographicHash::Algorithm algorithm, const KFileItemList &items);
-    static QCryptographicHash::Algorithm detectAlgorithm(const QString &input);
+    static void computeChecksum(QPromise<KChecksumsPlugin::CheckType> &promise, QCryptographicHash::Algorithm algorithm, const KFileItemList &items);
+    static std::optional<QCryptographicHash::Algorithm> detectAlgorithm(const QString &input);
 
     void setDefaultState();
     void setInvalidChecksumState();
     void setMatchState();
     void setMismatchState();
     void setVerifyState();
-    void showChecksum(QCryptographicHash::Algorithm algorithm, QLineEdit *label, QPushButton *copyButton);
+    void showChecksum(QCryptographicHash::Algorithm algorithm);
 
     QString cachedChecksum(QCryptographicHash::Algorithm algorithm) const;
     void cacheChecksum(const QString &checksum, QCryptographicHash::Algorithm algorithm);
