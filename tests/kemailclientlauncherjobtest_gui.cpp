@@ -18,8 +18,8 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     auto *job = new KEMailClientLauncherJob;
-    job->setTo({QStringLiteral("David Faure <faure@kde.org>"), QStringLiteral("Another person <null@kde.org>")});
-    job->setCc({QStringLiteral("CC me please <null@kde.org>")});
+    job->setTo({QStringLiteral("faure@kde.org"), QStringLiteral("null@kde.org")});
+    job->setCc({QStringLiteral("null@kde.org")});
     job->setSubject(QStringLiteral("This is the test email's subject"));
     job->setBody(QStringLiteral("This email was created by kemailclientlauncherjobtest_gui in KIO."));
     const QStringList urls = app.arguments();
