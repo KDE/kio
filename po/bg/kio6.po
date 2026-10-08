@@ -4587,13 +4587,13 @@ msgstr "Този файл вече е в кошчето."
 #, fuzzy, kde-format
 #| msgid "The resource cannot be deleted."
 msgid "The trash item %1 cannot be restored."
-msgstr "Посоченият ресурс не може да бъде изтриван."
+msgstr "Елементът в Коша %1 не може да бъде възстановен."
 
 #: kioworkers/trash/kio_trash_win.cpp:255
 #, fuzzy, kde-format
 #| msgid "Internal error in copyOrMove, should never happen"
 msgid "Internal error in rename, should never happen"
-msgstr "Вътрешна грешка в copyOrMove, никога не трябва да се случва"
+msgstr "Вътрешна грешка при преименуване, не би трябвало да се случва"
 
 #: kioworkers/trash/kio_trash_win.cpp:268
 #, kde-format
@@ -4604,12 +4604,12 @@ msgstr "не се поддържа"
 #, fuzzy, kde-format
 #| msgid "Internal error in copyOrMove, should never happen"
 msgid "Internal error in copy, should never happen"
-msgstr "Вътрешна грешка в copyOrMove, никога не трябва да се случва"
+msgstr "Вътрешна грешка при копиране, не би трябвало да се случи"
 
 #: kioworkers/trash/kio_trash_win.cpp:512
-#, kde-format
+#, fuzzy, kde-format
 msgid "Trash operation failed with error code 0x%1."
-msgstr ""
+msgstr "Операцията с кошчето не успя с код за грешка 0x%1."
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format
@@ -7094,7 +7094,7 @@ msgstr "# ще бъдат заменени с възходящи числа, з�
 #| msgid "Before filename"
 msgctxt "@item:inlistbox the new name is the whole file name"
 msgid "Replace filename"
-msgstr "Преди името на файла"
+msgstr "Замяна на името на файла"
 
 #: widgets/renamefiledialog.cpp:241
 #, fuzzy, kde-format
@@ -7113,20 +7113,20 @@ msgid "After filename"
 msgstr "След името на файла"
 
 #: widgets/renamefiledialog.cpp:295
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "Template putting the number before the old file name, # is replaced by a "
 "number later"
 msgid "#_"
-msgstr ""
+msgstr "#_"
 
 #: widgets/renamefiledialog.cpp:297
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "Template putting the number after the old file name, # is replaced by a "
 "number later"
 msgid "_#"
-msgstr ""
+msgstr "#"
 
 #: widgets/renamefiledialog.cpp:299
 #, kde-format

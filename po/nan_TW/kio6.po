@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-07 00:42+0000\n"
-"PO-Revision-Date: 2026-08-18 02:37+0900\n"
+"PO-Revision-Date: 2026-10-07 20:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Min Nan Chinese <zh-l10n@lists.slat.org>\n"
 "Language: nan_TW\n"
@@ -2661,7 +2661,7 @@ msgstr ""
 #: filewidgets/kfileplaceeditdialog.cpp:86
 #, kde-format
 msgid "L&abel:"
-msgstr ""
+msgstr "說明描述(&A)："
 
 #: filewidgets/kfileplaceeditdialog.cpp:88
 #, kde-format
@@ -2765,7 +2765,7 @@ msgstr "所有 ê 標籤"
 #: filewidgets/kfileplacesmodel.cpp:258
 msgctxt "KFile System Bookmarks"
 msgid "Home"
-msgstr "頭頁"
+msgstr "家目錄"
 
 #: filewidgets/kfileplacesmodel.cpp:267
 msgctxt "KFile System Bookmarks"
@@ -2927,7 +2927,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr ""
+msgstr "用磁碟區編輯器來重格式化猶是編輯"
 
 #: filewidgets/kfileplacesview.cpp:335
 #, kde-format

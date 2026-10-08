@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-07 00:42+0000\n"
-"PO-Revision-Date: 2026-10-02 15:16+0300\n"
+"PO-Revision-Date: 2026-10-07 11:32+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -4614,16 +4614,14 @@ msgstr "Failas jau yra šiukšlinėje."
 
 #: kioworkers/trash/kio_trash_win.cpp:216
 #: kioworkers/trash/kio_trash_win.cpp:231
-#, fuzzy, kde-format
-#| msgid "The resource cannot be deleted."
+#, kde-format
 msgid "The trash item %1 cannot be restored."
-msgstr "Išteklius negali būti ištrintas."
+msgstr "Šiukšlinės elementas %1 negali būti atkurtas."
 
 #: kioworkers/trash/kio_trash_win.cpp:255
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in rename, should never happen"
-msgstr "Vidinė klaida funkcijoje copyOrMove, taip niekada neturėtų nutikti"
+msgstr "Vidinė klaida pervadinime, taip niekada neturėtų nutikti"
 
 #: kioworkers/trash/kio_trash_win.cpp:268
 #, kde-format
@@ -4631,15 +4629,14 @@ msgid "not supported"
 msgstr "nepalaikoma"
 
 #: kioworkers/trash/kio_trash_win.cpp:276
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in copy, should never happen"
-msgstr "Vidinė klaida funkcijoje copyOrMove, taip niekada neturėtų nutikti"
+msgstr "Vidinė klaida kopijavime, taip niekada neturėtų nutikti"
 
 #: kioworkers/trash/kio_trash_win.cpp:512
 #, kde-format
 msgid "Trash operation failed with error code 0x%1."
-msgstr ""
+msgstr "Operacija su šiukšline patyrė nesėkmę nurodydama klaidos kodą 0x%1."
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format

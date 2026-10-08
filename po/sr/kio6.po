@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-07 00:42+0000\n"
-"PO-Revision-Date: 2026-09-18 12:00+0200\n"
+"PO-Revision-Date: 2026-10-07 11:45+0200\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr\n"
@@ -46,8 +46,8 @@ msgid ""
 "Could not modify the ownership of file <filename>%1</filename>. You have "
 "insufficient access to the file to perform the change."
 msgstr ""
-"Не могу да променим власништво над фајлом <filename>%1</filename>. Немате "
-"довољно дозвола за овакву промену."
+"Не могу да изменим власништво над фајлом <filename>%1</filename>. Немате "
+"довољно дозвола за овакву измену."
 
 #: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:612
 #, kde-format
@@ -73,8 +73,8 @@ msgstr ""
 "Не могу да направим „%1“.\n"
 "Одредишни фајл систем (%2) не дозвољава следеће знакове у именима фасцикли: "
 "%3\n"
-"Избором „Замени“ сви неисправни знакови (у имену одредишне фасцикле) биће "
-"замењени подвлаком „_“."
+"Избором „Замени“ сви лоши знакови (у имену одредишне фасцикле) биће замењени "
+"подвлаком „_“."
 
 #: core/copyjob.cpp:217
 #, kde-format
@@ -88,8 +88,8 @@ msgstr ""
 "Не могу да направим „%1“.\n"
 "Одредишни фајл систем (%2) не дозвољава следеће знакове у именима фајлова: "
 "%3\n"
-"Избором „Замени“ сви неисправни знакови (у имену одредишног фајла) биће "
-"замењени подвлаком „_“."
+"Избором „Замени“ сви лоши знакови (у имену одредишног фајла) биће замењени "
+"подвлаком „_“."
 
 #: core/copyjob.cpp:1491 core/job_error.cpp:588
 #, kde-format
@@ -120,7 +120,7 @@ msgstr "Нема извршног поља у %1"
 #: core/desktopexecparser.cpp:360
 #, kde-format
 msgid "Could not find the program '%1'"
-msgstr "Не могу да нађем програм „%1“."
+msgstr "Не могу да нађем програм „%1“"
 
 #: core/desktopexecparser.cpp:363
 #, kde-format
@@ -307,7 +307,7 @@ msgstr "Не могу да читам ‘%1’."
 #: core/job_error.cpp:40
 #, kde-format
 msgid "Could not write to %1."
-msgstr "Није могу да пишем у ‘%1’."
+msgstr "Не могу да пишем у ‘%1’."
 
 #: core/job_error.cpp:43
 #, kde-format
@@ -402,12 +402,12 @@ msgstr "Протокол %1 не имплементира сервис фасц�
 #: core/job_error.cpp:92
 #, kde-format
 msgid "Found a cyclic link in %1."
-msgstr "Пронађена кружна веза у ‘%1’."
+msgstr "Нађена кружна веза у ‘%1’."
 
 #: core/job_error.cpp:95
 #, kde-format
 msgid "Found a cyclic link while copying %1."
-msgstr "Пронађена кружна веза приликом копирања ‘%1’."
+msgstr "Нађена кружна веза приликом копирања ‘%1’."
 
 #: core/job_error.cpp:98
 #, kde-format
@@ -682,17 +682,17 @@ msgstr "Неопходан податак о величини садржаја �
 #: core/job_error.cpp:240
 #, kde-format
 msgid "A file or folder cannot be dropped onto itself"
-msgstr "Фајл или фасцикла не може да се превуче сама на себе."
+msgstr "Фајл или фасцикла не може да се превуче сама на себе"
 
 #: core/job_error.cpp:243
 #, kde-format
 msgid "A folder cannot be moved into itself"
-msgstr "Фасцикла не може да се премести сама у себе."
+msgstr "Фасцикла не може да се премести сама у себе"
 
 #: core/job_error.cpp:246
 #, kde-format
 msgid "Communication with the local password server failed"
-msgstr "Пропала комуникација са локалним сервером лозинки."
+msgstr "Пропала комуникација са локалним сервером лозинки"
 
 #: core/job_error.cpp:249
 #, kde-format
@@ -739,7 +739,6 @@ msgid ""
 msgstr ""
 "Непознат кôд грешке %1\n"
 "%2\n"
-"\n"
 "Пошаљите извештај о грешци на https://bugs.kde.org."
 
 #: core/job_error.cpp:298
@@ -955,8 +954,8 @@ msgid ""
 "This means that the contents of the requested file or folder <strong>%1</"
 "strong> could not be retrieved, as read access could not be obtained."
 msgstr ""
-"<qt>Ово значи да садржај захтеваног фајла или фасцикле <tt>%1</tt> не може "
-"бити добављен јер није могао бити обезбеђен приступ за читање.</qt>"
+"Ово значи да садржај захтеваног фајла или фасцикле <strong>%1</strong> не "
+"може бити добављен јер није могао бити обезбеђен приступ за читање."
 
 #: core/job_error.cpp:442
 #, kde-format
@@ -974,8 +973,8 @@ msgid ""
 "This means that the file, <strong>%1</strong>, could not be written to as "
 "requested, because access with permission to write could not be obtained."
 msgstr ""
-"Ово значи да фајл <tt>%1</tt> не може бити записан као што је захтевано, "
-"зато што се не може добити приступ за упис."
+"Ово значи да фајл <strong>%1</strong> не може бити записан као што је "
+"захтевано, зато што се не може добити приступ за упис."
 
 #: core/job_error.cpp:460
 #, kde-format
@@ -1041,10 +1040,10 @@ msgid ""
 "password@www.example.org:port/folder/filename.extension?query=value</"
 "strong></blockquote>"
 msgstr ""
-"<qt><strong>У</strong>ниформни <strong>р</strong>есурсни <strong>л</"
+"<strong>У</strong>ниформни <strong>р</strong>есурсни <strong>л</"
 "strong>окатор (УРЛ) који сте унели није исправно форматиран. Формат УРЛ‑а је "
-"у општем случају овакав: <blockquote><tt>protokol://korisnik:lozinka@www."
-"primer.org:port/fascikla/ime.nastavak?upit=vrednost</tt></blockquote></qt>"
+"у општем случају овакав: <blockquote><strong>protokol://korisnik:lozinka@www."
+"primer.org:port/fascikla/ime.nastavak?upit=vrednost</strong></blockquote>"
 
 #: core/job_error.cpp:498
 #, kde-format
@@ -1101,8 +1100,8 @@ msgid ""
 "The <strong>U</strong>niform <strong>R</strong>esource <strong>L</"
 "strong>ocator (URL) that you entered did not refer to a specific resource."
 msgstr ""
-"Униформни ресурсни локатор (УРЛ) који сте унели не упућује на неки одређени "
-"ресурс."
+"<strong>У</strong>ниформни <strong>р</strong>есурсни <strong>л</"
+"strong>окатор (УРЛ) који сте унели не упућује на неки одређени ресурс."
 
 #: core/job_error.cpp:524
 #, kde-format
@@ -1159,8 +1158,8 @@ msgid ""
 "The request expected a file, however the folder <strong>%1</strong> was "
 "found instead."
 msgstr ""
-"<qt>Захтев је очекивао фајл, али уместо тога је пронађена фасцикла <tt>%1</"
-"tt>.</qt>"
+"Захтев је очекивао фајл, али уместо тога је нађена фасцикла <strong>%1</"
+"strong>."
 
 #: core/job_error.cpp:552
 #, kde-format
@@ -1178,8 +1177,8 @@ msgid ""
 "The request expected a folder, however the file <strong>%1</strong> was "
 "found instead."
 msgstr ""
-"<qt>Захтев је очекивао фасциклу, али уместо тога је пронађен фајл <tt>%1</"
-"tt>.</qt>"
+"Захтев је очекивао фасциклу, али уместо тога је нађен фајл <strong>%1</"
+"strong>."
 
 #: core/job_error.cpp:567
 #, kde-format
@@ -1189,7 +1188,7 @@ msgstr "Фајл или фасцикла не постоји"
 #: core/job_error.cpp:569
 #, kde-format
 msgid "The specified file or folder <strong>%1</strong> does not exist."
-msgstr "<qt>Назначени фајл или фасцикла <tt>%1</tt> не постоји.</qt>"
+msgstr "Назначени фајл или фасцикла <strong>%1</strong> не постоји."
 
 #: core/job_error.cpp:579
 #, kde-format
@@ -1298,7 +1297,7 @@ msgstr "Приступ за упис је одбијен"
 msgid ""
 "This means that an attempt to write to the file <strong>%1</strong> was "
 "rejected."
-msgstr "<qt>Ово значи да је покушај уписа у фајл <tt>%1</tt> одбијен.</qt>"
+msgstr "Ово значи да је покушај уписа у фајл <strong>%1</strong> одбијен."
 
 #: core/job_error.cpp:645
 #, kde-format
@@ -1311,8 +1310,8 @@ msgid ""
 "This means that an attempt to enter (in other words, to open) the requested "
 "folder <strong>%1</strong> was rejected."
 msgstr ""
-"<qt>Ово значи да је покушај уласка (другим речима отварања) у захтевану "
-"фасциклу <tt>%1</tt> одбијен.</qt>"
+"Ово значи да је покушај уласка (другим речима отварања) у захтевану фасциклу "
+"<strong>%1</strong> одбијен."
 
 #: core/job_error.cpp:655
 #, kde-format
@@ -1440,8 +1439,8 @@ msgid ""
 "The server, while currently connected to the Internet, may not be configured "
 "to allow requests."
 msgstr ""
-"Сервер, док је тренутно повезан на Интернет, не може бити подешен да "
-"дозвољава захтеве."
+"Сервер, док је тренутно повезан на Интернет, можда није подешен да дозвољава "
+"захтеве."
 
 #: core/job_error.cpp:726
 #, kde-format
@@ -1502,8 +1501,9 @@ msgid ""
 "strong>ocator (URL) that you entered did not refer to a valid mechanism of "
 "accessing the specific resource, <strong>%1%2</strong>."
 msgstr ""
-"Униформни ресурсни локатор (УРЛ) који сте унели не упућује на исправан "
-"механизам за приступање датом ресурсу, <strong>%1%2</strong>."
+"<strong>У</strong>ниформни <strong>р</strong>есурсни <strong>л</"
+"strong>окатор (УРЛ) који сте унели не упућује на исправан механизам за "
+"приступање датом ресурсу, <strong>%1%2</strong>."
 
 # rewrite-msgid: /such an action/that/
 #: core/job_error.cpp:761
@@ -1725,8 +1725,8 @@ msgid ""
 "An attempt to determine information about the status of the resource <strong>"
 "%1</strong>, such as the resource name, type, size, etc., was unsuccessful."
 msgstr ""
-"Одређивање податка о стању ресурса <strong>%1</strong> (назив, тип, "
-"величина, итд.) није успело."
+"Одређивање податка о стању ресурса <strong>%1</strong> (име, тип, величина, "
+"итд.) није успело."
 
 #: core/job_error.cpp:917
 #, kde-format
@@ -1796,8 +1796,8 @@ msgid ""
 "The specified request asked that the transfer of file <strong>%1</strong> be "
 "resumed at a certain point of the transfer. This was not possible."
 msgstr ""
-"<qt>Задати захтев је затражио да се пренос фајла <tt>%1</tt> настави од "
-"одређене тачке. То није било могуће.</qt>"
+"Задати захтев је затражио да се пренос фајла <strong>%1</strong> настави од "
+"одређене тачке. То није било могуће."
 
 #: core/job_error.cpp:969
 #, kde-format
@@ -1917,7 +1917,7 @@ msgstr "Пажљиво проверите поставке проксија и �
 #: core/job_error.cpp:1057
 #, kde-format
 msgid "Authentication Failed: Method %1 Not Supported"
-msgstr "Аутентификација није неуспела: метод %1 није подржан"
+msgstr "Аутентификација није успела: метод %1 није подржан"
 
 #: core/job_error.cpp:1059
 #, kde-format
@@ -1927,8 +1927,8 @@ msgid ""
 "supported by the KDE program implementing the protocol %1."
 msgstr ""
 "Иако сте можда навели исправне податке за аутентификацију, она није успела "
-"зато што КДЕ програм који који изводи протокол %1 не подржава метод који "
-"сервер користи."
+"зато што КДЕ програм који изводи протокол %1 не подржава метод који сервер "
+"користи."
 
 #: core/job_error.cpp:1065
 #, kde-format
@@ -1936,9 +1936,9 @@ msgid ""
 "Please file a bug at <a href=\"https://bugs.kde.org/\">https://bugs.kde.org/"
 "</a> to inform the KDE team of the unsupported authentication method."
 msgstr ""
-"<qt>Пошаљите извештај о грешци на <a href=\"https://bugs.kde.org/\">https://"
-"bugs.kde.org/</a> да обавестите програмере КДЕ‑а о неподржаном методу "
-"аутентификације.</qt>"
+"Пошаљите извештај о грешци на <a href=\"https://bugs.kde.org/\">https://bugs."
+"kde.org/</a> да обавестите програмере КДЕ‑а о неподржаном методу "
+"аутентификације."
 
 #: core/job_error.cpp:1072
 #, kde-format
@@ -2040,8 +2040,9 @@ msgid ""
 "likely at the end of a file move operation. The original file <strong>%1</"
 "strong> could not be deleted."
 msgstr ""
-"<qt>Поступак је захтевао брисање изворног фајла, највероватније на крају "
-"поступка премештања. Изворни фајл <tt>%1</tt> није могао бити обрисан.</qt>"
+"Поступак је захтевао брисање изворног фајла, највероватније на крају "
+"поступка премештања. Изворни фајл <strong>%1</strong> није могао бити "
+"обрисан."
 
 #: core/job_error.cpp:1148
 #, kde-format
@@ -2055,9 +2056,9 @@ msgid ""
 "to save the new file while being downloaded. This temporary file <strong>%1</"
 "strong> could not be deleted."
 msgstr ""
-"<qt>Поступак је захтевао стварање привременог фајла у који би се уписивао "
-"садржај који се преузима. Тај привремени фајл <tt>%1</tt> није могао бити "
-"обрисан.</qt>"
+"Поступак је захтевао стварање привременог фајла у који би се уписивао "
+"садржај који се преузима. Тај привремени фајл <strong>%1</strong> није могао "
+"бити обрисан."
 
 #: core/job_error.cpp:1160
 #, kde-format
@@ -2070,8 +2071,8 @@ msgid ""
 "The requested operation required the renaming of the original file <strong>"
 "%1</strong>, however it could not be renamed."
 msgstr ""
-"<qt>Поступак је захтевао преименовање изворног фајла <tt>%1</tt>, али се то "
-"није могло извести.</qt>"
+"Поступак је захтевао преименовање изворног фајла <strong>%1</strong>, али се "
+"то није могло извести."
 
 #: core/job_error.cpp:1171
 #, kde-format
@@ -2084,8 +2085,8 @@ msgid ""
 "The requested operation required the creation of a temporary file <strong>"
 "%1</strong>, however it could not be created."
 msgstr ""
-"<qt>Поступак је захтевао стварање привременог фајла <tt>%1</tt>, али се то "
-"није могло извести.</qt>"
+"Поступак је захтевао стварање привременог фајла <strong>%1</strong>, али се "
+"то није могло извести."
 
 #: core/job_error.cpp:1182
 #, kde-format
@@ -2100,8 +2101,7 @@ msgstr "Не могу да направим симболичку везу"
 #: core/job_error.cpp:1184
 #, kde-format
 msgid "The requested symbolic link %1 could not be created."
-msgstr ""
-"<qt>Захтевана симболичка веза <tt>%1</tt> није могла бити направљена.</qt>"
+msgstr "Захтевана симболичка веза %1 није могла бити направљена."
 
 #: core/job_error.cpp:1190
 #, kde-format
@@ -2119,8 +2119,8 @@ msgid ""
 "The requested file <strong>%1</strong> could not be written to as there is "
 "inadequate disk space."
 msgstr ""
-"<qt>Захтевани фајл <tt>%1</tt> није могао да буде записан јер нема довољно "
-"простора на диску.</qt>"
+"Захтевани фајл <strong>%1</strong> није могао да буде записан јер нема "
+"довољно простора на диску."
 
 #: core/job_error.cpp:1201
 #, kde-format
@@ -2202,7 +2202,7 @@ msgid ""
 "passwords (kpasswdserver) couldn't be contacted"
 msgstr ""
 "Поступак није могао бити довршен зато што не може да се комуницира са "
-"сервисом за захтевање лозинки (kpasswdserver)."
+"сервисом за захтевање лозинки (kpasswdserver)"
 
 # rewrite-msgid: /your session/your desktop session/
 #: core/job_error.cpp:1242
@@ -2239,7 +2239,7 @@ msgid ""
 "This means you may have an outdated version of the plugin."
 msgstr ""
 "К‑лансер не може да нађе или покрене прикључак који обезбеђује протокол. Ово "
-"значи да имате застарелу верзију прикључка."
+"значи да можда имате застарелу верзију прикључка."
 
 #: core/job_error.cpp:1260
 #, kde-kuit-format
@@ -2445,7 +2445,7 @@ msgstr "Непознат протокол „%1“."
 #: core/worker.cpp:451
 #, kde-format
 msgid "Can not find a KIO worker for protocol '%1'."
-msgstr "Не могу да пронађем У/И захват за протокол „%1“."
+msgstr "Не могу да нађем У/И захват за протокол „%1“."
 
 #: core/worker.cpp:458
 #, kde-format
@@ -2456,7 +2456,7 @@ msgid ""
 "considered insecure."
 msgstr ""
 "У/И захват за протокол „%1“ у %2 није учитан зато што се сви У/И захвати "
-"изван %3 који траже повишене дозволе сматрају небезбедним."
+"изван %3 који траже повишена овлашћења сматрају небезбедним."
 
 #: core/worker.cpp:498
 #, kde-format
@@ -2467,7 +2467,7 @@ msgstr "Не могу да направим сокет за покретање �
 #: core/worker.cpp:518
 #, kde-format
 msgid "Can not find 'kioworker' executable at '%1'"
-msgstr "Не могу да пронађем извршни фајл kioworker на „%1“."
+msgstr "Не могу да нађем извршни фајл kioworker на „%1“"
 
 #: core/workerinterface.cpp:340 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:517
@@ -2502,7 +2502,7 @@ msgstr "Премести у нову фасциклу"
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
-msgstr "Нова фасцикла за ове ставке"
+msgstr "Стварање нове фасцикле за ове ставке"
 
 #: filewidgets/kdiroperator.cpp:314
 #, kde-format
@@ -2549,13 +2549,13 @@ msgstr "Родитељска фасцикла"
 #, kde-format
 msgctxt "@info"
 msgid "Go back"
-msgstr "Назад"
+msgstr "Иди назад"
 
 #: filewidgets/kdiroperator.cpp:2060
 #, kde-format
 msgctxt "@info"
 msgid "Go forward"
-msgstr "Напред"
+msgstr "Иди напред"
 
 #: filewidgets/kdiroperator.cpp:2064
 #, kde-format
@@ -2691,7 +2691,7 @@ msgstr "Дозволи гранање у детаљном приказу"
 #: filewidgets/kdiroperator.cpp:2249
 #, kde-format
 msgid "Show Hidden Files"
-msgstr "Скривени фајлови"
+msgstr "Прикажи скривене фајлове"
 
 #: filewidgets/kdiroperator.cpp:2256
 #, kde-format
@@ -2701,12 +2701,12 @@ msgstr "Прикажи панел прегледа"
 #: filewidgets/kdiroperator.cpp:2263
 #, kde-format
 msgid "Show Preview"
-msgstr "Преглед"
+msgstr "Прикажи преглед"
 
 #: filewidgets/kdiroperator.cpp:2270
 #, kde-format
 msgid "Open Containing Folder"
-msgstr "Отвори фасциклу ставке"
+msgstr "Отвори обухватајућу фасциклу"
 
 #: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1274
 #, kde-format
@@ -2716,19 +2716,19 @@ msgstr "Својства"
 #: filewidgets/kdiroperator.cpp:2286
 #, kde-format
 msgid "&View Mode"
-msgstr "&Начин приказа"
+msgstr "&Режим приказа"
 
 #: filewidgets/kdiroperator.cpp:2389 filewidgets/kdiroperator.cpp:2401
 #, kde-format
 msgctxt "Sort descending"
 msgid "Z-A"
-msgstr "Ш‑А"
+msgstr "Ш–А"
 
 #: filewidgets/kdiroperator.cpp:2390 filewidgets/kdiroperator.cpp:2402
 #, kde-format
 msgctxt "Sort ascending"
 msgid "A-Z"
-msgstr "А‑Ш"
+msgstr "А–Ш"
 
 #: filewidgets/kdiroperator.cpp:2393
 #, kde-format
@@ -2903,7 +2903,7 @@ msgid ""
 "<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
 "on the button to select a different icon.</qt>"
 msgstr ""
-"<qt>Ово је иконица која ће се стајати уз ставку у панелу Места.<br /><br /"
+"<qt>Ово је иконица која ће стајати уз ставку у панелу Места.<br /><br /"
 ">Кликните на дугме да изаберете неку другу.</qt>"
 
 #: filewidgets/kfileplaceeditdialog.cpp:128
@@ -3069,7 +3069,7 @@ msgstr "Подеси…"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Releasing…"
-msgstr "Ослобађање…"
+msgstr "Ослобађам…"
 
 # >> Release a removable device, so that it can be unplugged.
 #: filewidgets/kfileplacesmodel.cpp:1422
@@ -3082,7 +3082,7 @@ msgstr "&Ослободи"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Safely Removing…"
-msgstr "Безбедно уклањање…"
+msgstr "Безбедно уклањам…"
 
 #: filewidgets/kfileplacesmodel.cpp:1428
 #, kde-format
@@ -3094,7 +3094,7 @@ msgstr "&Безбедно уклони"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Unmounting…"
-msgstr "Демонтирање…"
+msgstr "Демонтирам…"
 
 #: filewidgets/kfileplacesmodel.cpp:1435
 #, kde-format
@@ -3161,7 +3161,7 @@ msgstr ", "
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
-msgstr "Форматирај или уреди менаџером партиција"
+msgstr "Форматирај или уреди помоћу КДЕ‑овог менаџера партиција"
 
 #: filewidgets/kfileplacesview.cpp:335
 #, kde-format
@@ -3264,30 +3264,30 @@ msgstr "Аутоматска величина"
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
-msgstr "мала (%1x%1)"
+msgstr "Мала (%1x%1)"
 
 #: filewidgets/kfileplacesview.cpp:1459
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
-msgstr "средња (%1x%1)"
+msgstr "Средња (%1x%1)"
 
 #: filewidgets/kfileplacesview.cpp:1462
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
-msgstr "велика (%1x%1)"
+msgstr "Велика (%1x%1)"
 
 #: filewidgets/kfileplacesview.cpp:1465
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
-msgstr "огромна (%1x%1)"
+msgstr "Огромна (%1x%1)"
 
 #: filewidgets/kfilewidget.cpp:637
 #, kde-format
 msgid "You can only select one file"
-msgstr "Можете изабрати само један фајл."
+msgstr "Можете изабрати само један фајл"
 
 # >> @title:window
 #: filewidgets/kfilewidget.cpp:637
@@ -3298,7 +3298,7 @@ msgstr "Задато више од једног фајла"
 #: filewidgets/kfilewidget.cpp:813
 #, kde-format
 msgid "You can only select local files"
-msgstr "Можете бирати само локалне фајлове."
+msgstr "Можете бирати само локалне фајлове"
 
 # >> @title:window
 #: filewidgets/kfilewidget.cpp:813
@@ -3345,8 +3345,8 @@ msgid ""
 "you to file:/home.</qt>"
 msgstr ""
 "<qt>Кликните овде да уђете у родитељску фасциклу.<br /><br />На пример, ако "
-"је тренутна локација <tt>file:/home/konqi</tt>, ово дугме ће вас одвести у "
-"<tt>file:/home</tt>.</qt>"
+"је тренутна локација file:/home/konqi, ово дугме ће вас одвести у file:/home."
+"</qt>"
 
 #: filewidgets/kfilewidget.cpp:1220
 #, kde-format
@@ -3595,7 +3595,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr "Унесите име за %1:"
+msgstr "Унесите име фајла за %1:|/|Унесите име фајла за $[аку %1]:"
 
 #: filewidgets/knewfilemenu.cpp:558
 #, kde-format
@@ -3605,7 +3605,7 @@ msgstr "Извините"
 #: filewidgets/knewfilemenu.cpp:569
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
-msgstr "<qt>Фајл шаблона <tt>%1</tt> не постоји.</qt>"
+msgstr "<qt>Фајл шаблона <b>%1</b> не постоји.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:589 filewidgets/knewfilemenu.cpp:602
 #, kde-format
@@ -3630,7 +3630,7 @@ msgstr "Стварање везе ка УРЛ‑у"
 #, kde-format
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
-msgstr "Направи %1|/|Направи $[аку %1]"
+msgstr "Стварање: %1|/|Стварање $[ген %1]"
 
 #: filewidgets/knewfilemenu.cpp:784 filewidgets/knewfilemenu.cpp:806
 #, kde-format
@@ -3738,7 +3738,7 @@ msgstr "нова‑фасцикла"
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
-msgstr "Нова фасцикла"
+msgstr "Стварање нове фасцикле"
 
 #: filewidgets/knewfilemenu.cpp:1476
 #, kde-format
@@ -3789,10 +3789,9 @@ msgid "You can change the icon later in folder properties."
 msgstr "Иконицу можете касније променити у својствима фасцикле."
 
 #: filewidgets/kurlnavigator.cpp:611
-#, fuzzy, kde-format
-#| msgid "Location:"
+#, kde-format
 msgid "Copy Location"
-msgstr "Локација:"
+msgstr "Копирај локацију"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
 #: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42
@@ -3825,13 +3824,13 @@ msgstr "Навигација"
 #: filewidgets/kurlnavigator.cpp:670
 #, kde-format
 msgid "Show Full Path"
-msgstr "Пуна путања"
+msgstr "Прикажи пуну путању"
 
 #: filewidgets/kurlnavigator.cpp:840
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
-msgstr "Иди на било које место на путањи <filename>%1</filename>"
+msgstr "Иди на било коју локацију на путањи <filename>%1</filename>"
 
 #: filewidgets/kurlnavigatorbutton.cpp:726
 #, kde-format
@@ -3843,7 +3842,7 @@ msgstr "Више"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr "Иди на место на путањи"
+msgstr "Иди на локацију на путањи"
 
 #: filewidgets/kurlnavigatorplacesselector.cpp:49
 #, kde-format
@@ -3979,7 +3978,7 @@ msgstr "Није нађен ниједан емулатор терминала"
 #: gui/openurljob.cpp:184
 #, kde-format
 msgid "Failed to open %1"
-msgstr "Неуспело отварање %1"
+msgstr "Не могу да отворим %1"
 
 # literal-segment: URL=
 #: gui/openurljob.cpp:321
@@ -4039,13 +4038,13 @@ msgid ""
 "or downloads."
 msgstr ""
 "Овај фајл није потпун и не би требало да се отвара.\n"
-"Проверите отворене програме и зону обавештења да ли има задатака или "
+"Проверите отворене програме и системску касету да ли има задатака или "
 "преузимања у току."
 
 #: gui/openurljob.cpp:701
 #, kde-format
 msgid "Failed to open the file."
-msgstr "Неуспело отварање фајла."
+msgstr "Не могу да отворим фајл."
 
 #: gui/openurljob.cpp:735
 #, kde-format
@@ -4120,7 +4119,7 @@ msgstr ""
 "Наизглед привремени фајл\n"
 "%1\n"
 "измењен је.\n"
-"Желите ли још увек да га обришете?"
+"Желите ли и даље да га обришете?"
 
 #: kioexec/main.cpp:242
 #, kde-format
@@ -4200,7 +4199,7 @@ msgstr "Наредба за извршавање"
 #: kioexec/main.cpp:320
 #, kde-format
 msgid "URL(s) or local file(s) used for 'command'"
-msgstr "УРЛ‑ови или локални фајлови употребљени за „command“."
+msgstr "УРЛ‑ови или локални фајлови употребљени за „command“"
 
 #: kioworkers/file/file.cpp:729
 #, kde-format
@@ -4229,12 +4228,12 @@ msgstr "Не могу да отворим привремени фајл"
 #: kioworkers/file/file.cpp:841
 #, kde-format
 msgid "Could not find program \"mount\""
-msgstr "Не могу да пронађем наредбу mount"
+msgstr "Не могу да нађем наредбу mount"
 
 #: kioworkers/file/file.cpp:918
 #, kde-format
 msgid "Could not find program \"umount\""
-msgstr "Не могу да пронађем наредбу umount"
+msgstr "Не могу да нађем наредбу umount"
 
 #: kioworkers/file/file_unix.cpp:403
 #, kde-format
@@ -4244,7 +4243,7 @@ msgstr "Нема медијума у уређају за %1"
 #: kioworkers/file/file_unix.cpp:762
 #, kde-format
 msgid "Could not get user id for given user name %1"
-msgstr "Не могу да добавим кориснички ИД за дато име корисника %1."
+msgstr "Не могу да добавим кориснички ИД за дато име корисника %1"
 
 #: kioworkers/file/file_unix.cpp:773
 #, kde-format
@@ -4381,7 +4380,7 @@ msgstr "Трагам за одељком"
 #: kioworkers/help/kio_help.cpp:321
 #, kde-format
 msgid "Could not find filename %1 in %2."
-msgstr "Не могу да пронађем име фајла %1 у %2."
+msgstr "Не могу да нађем име фајла %1 у %2."
 
 #: kioworkers/http/http.cpp:176
 #, kde-format
@@ -4447,8 +4446,8 @@ msgstr ""
 msgctxt "request type"
 msgid "move the specified file or folder"
 msgstr ""
-"помери наведени фајл или фасцикла|/|$[својства Не-може 'Наведени фајл или "
-"фасцикла не може да се помери']"
+"премести наведени фајл или фасцикла|/|$[својства Не-може 'Наведени фајл или "
+"фасцикла не може да се премести']"
 
 # У склопу реченице: „...при покушају да се ...“ или „Не може ...“
 #: kioworkers/http/http.cpp:1455
@@ -4551,11 +4550,11 @@ msgid ""
 "that files are not overwritten.\n"
 " %1"
 msgstr ""
-"Сервер није могао да одржи у животу својства набројана у ИксМЛ елементу "
-"propertybehavior\n"
-"или сте покушали да пребришете фајл иако сте захтевали да се фајлови не "
-"пребрисују.\n"
-"%1"
+"Сервер није могао да одржи у животу\n"
+"својства набројана у ИксМЛ елементу propertybehavior\n"
+"или сте покушали да пребришете фајл иако сте захтевали\n"
+"да се фајлови не пребрисују.\n"
+" %1"
 
 #: kioworkers/http/http.cpp:1564
 #, kde-format
@@ -4646,7 +4645,7 @@ msgstr ""
 #: kioworkers/trash/kio_trash.cpp:189 kioworkers/trash/kio_trash.cpp:210
 #, kde-format
 msgid "Invalid combination of protocols."
-msgstr "Неисправна комбинација протокола."
+msgstr "Лоша комбинација протокола."
 
 #: kioworkers/trash/kio_trash.cpp:201 kioworkers/trash/kio_trash_win.cpp:263
 #, kde-format
@@ -4655,17 +4654,15 @@ msgstr "Овај фајл је већ у смећу."
 
 #: kioworkers/trash/kio_trash_win.cpp:216
 #: kioworkers/trash/kio_trash_win.cpp:231
-#, fuzzy, kde-format
-#| msgid "The resource cannot be deleted."
+#, kde-format
 msgid "The trash item %1 cannot be restored."
-msgstr "Ресурс се не може обрисати."
+msgstr "Не могу да вратим ставку %1 из смећа."
 
 # literal-segment: copyOrMove
 #: kioworkers/trash/kio_trash_win.cpp:255
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in rename, should never happen"
-msgstr "Унутрашња грешка у „copyOrMove“, није требало да се догоди."
+msgstr "Унутрашња грешка при преименовању, није требало да се догоди"
 
 #: kioworkers/trash/kio_trash_win.cpp:268
 #, kde-format
@@ -4674,15 +4671,14 @@ msgstr "није подржано"
 
 # literal-segment: copyOrMove
 #: kioworkers/trash/kio_trash_win.cpp:276
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in copy, should never happen"
-msgstr "Унутрашња грешка у „copyOrMove“, није требало да се догоди."
+msgstr "Унутрашња грешка при копирању, није требало да се догоди"
 
 #: kioworkers/trash/kio_trash_win.cpp:512
 #, kde-format
 msgid "Trash operation failed with error code 0x%1."
-msgstr ""
+msgstr "Поступак над смећем није успео, кôд грешке 0x%1."
 
 # literal-segment: kioclient move 'url' trash
 #: kioworkers/trash/ktrash.cpp:28
@@ -5005,7 +5001,7 @@ msgstr "Копирање"
 #: widgets/fileundomanager.cpp:140
 #, kde-format
 msgid "Moving"
-msgstr "Премештам"
+msgstr "Премештање"
 
 # >> @title:window
 #: widgets/fileundomanager.cpp:140
@@ -5132,10 +5128,9 @@ msgid ""
 "Undoing the copy will delete the file, and all modifications will be lost.\n"
 "Are you sure you want to delete %4?"
 msgstr ""
-"<html>Фајл <tt>%1</tt> је копиран из <tt>%2</tt>, али је отада очито измењен "
-"у <tt>%3</tt>.\n"
+"Фајл %1 је копиран из %2, али је отада очито измењен у %3.\n"
 "Опозив копирања обрисаће фајл, чиме ће све измене бити изгубљене.\n"
-"Желите ли заиста да обришете <tt>%4</tt>?</html>"
+"Желите ли заиста да обришете %4?"
 
 # >> @title:window
 #: widgets/fileundomanager.cpp:916
@@ -5159,7 +5154,7 @@ msgstr ""
 #: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:203
 #, kde-format
 msgid "Delete Permanently"
-msgstr "Обриши трајно"
+msgstr "Трајно обриши"
 
 #: widgets/jobuidelegate.cpp:234 widgets/jobuidelegate.cpp:248
 #: widgets/widgetsaskuseractionhandler.cpp:246
@@ -5168,7 +5163,7 @@ msgstr "Обриши трајно"
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
-msgstr "Обриши трајно"
+msgstr "Трајно обриши"
 
 #: widgets/jobuidelegate.cpp:243
 #, kde-kuit-format
@@ -5199,7 +5194,7 @@ msgid ""
 "Do you want to permanently delete all items from the Trash?<nl/><nl/"
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
-"Желите ли трајно да обришете све ставке из смећа?<nl/><nl/><emphasis "
+"Желите ли да трајно обришете све ставке у смећу?<nl/><nl/><emphasis "
 "strong='true'>Ова радња се не може опозвати.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:299
@@ -5564,7 +5559,7 @@ msgstr "Заустави одређивање величине фасцикле"
 #: widgets/kfilepropspluginwidget.ui:328
 #, kde-format
 msgid "Explore in Filelight"
-msgstr "Истражи у Филелајту"
+msgstr "Истражи у Фајлајту"
 
 #. i18n: ectx: property (text), widget (QLabel, symlinkTargetLabel)
 #: widgets/kfilepropspluginwidget.ui:356
@@ -5768,7 +5763,7 @@ msgstr "Не &затварај кад се наредба заврши"
 #: widgets/kopenwithdialog.cpp:798
 #, kde-format
 msgid "Get more Apps from Discover"
-msgstr "Набавите још програма из Дискавера"
+msgstr "Добави још програма из Oткривача"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
 #: widgets/kpropertiesdesktopadvbase.ui:17
@@ -6011,9 +6006,9 @@ msgstr ""
 "%F — списак фајлова (за програме који могу да отворе више фајлова одједном)\n"
 "%u — један УРЛ\n"
 "%U — списак УРЛ‑ова\n"
-"%i — иконица .desktop фајла\n"
-"%c — име .desktop фајла\n"
-"%k — локација .desktop фајла"
+"%i — иконица .десктоп фајла\n"
+"%c — име .десктоп фајла\n"
+"%k — локација .десктоп фајла"
 
 #. i18n: ectx: property (text), widget (QLabel, argumentsLabel)
 #: widgets/kpropertiesdesktopbase.ui:139
@@ -6108,7 +6103,7 @@ msgid ""
 "If you want to remove a type of file (mimetype) that your application cannot "
 "handle, select the mimetype in the list above and click on this button."
 msgstr ""
-"Ако желите да уклоните тип фајла (МИМЕ тип) којим програм уме да рукује, "
+"Ако желите да уклоните тип фајла (МИМЕ тип) којим програм не уме да рукује, "
 "изаберите га са горњег списка и кликните овде."
 
 #. i18n: ectx: property (text), widget (QPushButton, delFiletypeButton)
@@ -6626,7 +6621,7 @@ msgid ""
 "systems"
 msgstr ""
 "Лепљива заставица на фајлу се игнорише под Линуксом, али се може користити "
-"на другим системима."
+"на другим системима"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1591
 #, kde-format
@@ -6661,7 +6656,7 @@ msgid_plural "These files use advanced permissions."
 msgstr[0] "Ови фајлови користе напредне дозволе."
 msgstr[1] "Ови фајлови користе напредне дозволе."
 msgstr[2] "Ови фајлови користе напредне дозволе."
-msgstr[3] "Овај фајл користи напредне дозволе."
+msgstr[3] "Овај фајл користи напредне дозволе"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1878
 #, kde-format
@@ -6692,7 +6687,7 @@ msgstr "Неправилна контролна сума."
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
-msgstr "Дати унос није правилна МД5, СХА‑1 или СХА‑256 контролна сума."
+msgstr "Дати унос није исправна МД5, СХА‑1 или СХА‑256 контролна сума."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2441
 #, kde-format
@@ -6760,7 +6755,7 @@ msgstr "УРЛ:"
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
-"Није могуће сачувати својства. Подржане су само ставке на локалним фајл "
+"Не могу да сачувам својства. Подржане су само ставке на локалним фајл "
 "системима."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2767
@@ -6902,7 +6897,7 @@ msgstr "налепљени фајл"
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
-msgstr "Налепи садржај клипборда"
+msgstr "Налепљивање садржаја клипборда"
 
 #: widgets/paste.cpp:122
 #, kde-format
@@ -7201,28 +7196,22 @@ msgid "# will be replaced by ascending numbers starting with:"
 msgstr "# ће бити замењено растућим бројевима почев од:"
 
 #: widgets/renamefiledialog.cpp:240
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#, kde-format
 msgctxt "@item:inlistbox the new name is the whole file name"
 msgid "Replace filename"
-msgstr "Пре имена фајла"
+msgstr "уместо имена фајла"
 
 #: widgets/renamefiledialog.cpp:241
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name before the filename"
 msgid "Before filename"
-msgstr "Пре имена фајла"
+msgstr "пре имена фајла"
 
 #: widgets/renamefiledialog.cpp:242
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text after filename"
-#| msgid "After filename"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name after the filename"
 msgid "After filename"
-msgstr "После имена фајла"
+msgstr "после имена фајла"
 
 #: widgets/renamefiledialog.cpp:295
 #, kde-format
@@ -7230,7 +7219,7 @@ msgctxt ""
 "Template putting the number before the old file name, # is replaced by a "
 "number later"
 msgid "#_"
-msgstr ""
+msgstr "#_"
 
 #: widgets/renamefiledialog.cpp:297
 #, kde-format
@@ -7238,7 +7227,7 @@ msgctxt ""
 "Template putting the number after the old file name, # is replaced by a "
 "number later"
 msgid "_#"
-msgstr ""
+msgstr "_#"
 
 # >> @title:window
 #: widgets/renamefiledialog.cpp:299
@@ -7256,8 +7245,8 @@ msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
 "the files have different file extensions."
 msgstr ""
-"Неисправно име фајла: ново име треба да садржи један низ знакова #, осим ако "
-"сви фајлови имају различите наставке."
+"Лоше име фајла: ново име треба да садржи један низ знакова #, осим ако сви "
+"фајлови имају различите наставке."
 
 #: widgets/renamefiledialog.cpp:404
 #, kde-format
@@ -7279,7 +7268,7 @@ msgstr "Замени:"
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
-msgstr "образац"
+msgstr "Образац"
 
 #: widgets/renamefiledialog.cpp:414
 #, kde-format
@@ -7307,7 +7296,7 @@ msgid ""
 "to have an empty file name."
 msgstr ""
 "Замена „%1“ празним текстом довела би до тога да <filename>%2</filename> има "
-"празно име."
+"празно име фајла."
 
 #: widgets/renamefiledialog.cpp:498
 #, kde-format
@@ -7329,19 +7318,19 @@ msgstr "Додај текст:"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr "текст за додавање"
+msgstr "Текст за додавање"
 
 #: widgets/renamefiledialog.cpp:508
 #, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
-msgstr "Пре имена фајла"
+msgstr "пре имена фајла"
 
 #: widgets/renamefiledialog.cpp:509
 #, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
-msgstr "После имена фајла"
+msgstr "после имена фајла"
 
 # >> @title:window
 #: widgets/renamefiledialog.cpp:621
@@ -7397,7 +7386,7 @@ msgstr "Преглед:"
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
-msgstr "<filename>%1</filename> не може се преименовати у празно име."
+msgstr "<filename>%1</filename> не може се преименовати у празно име фајла."
 
 #: widgets/renamefilewarningdialog.cpp:58
 #, kde-format
@@ -7413,7 +7402,7 @@ msgid ""
 "Do you still want to rename it?"
 msgstr ""
 "Тачка на почетку имена фасцикле сакриће је из приказа.\n"
-"Желите ли ипак да је преименујете?"
+"Желите ли и даље да је преименујете?"
 
 #: widgets/renamefilewarningdialog.cpp:61
 #, kde-format
@@ -7423,19 +7412,19 @@ msgid ""
 "Do you still want to rename it?"
 msgstr ""
 "Тачка на почетку имена фајла сакриће га из приказа.\n"
-"Желите ли ипак да га преименујете?"
+"Желите ли и даље да га преименујете?"
 
 #: widgets/renamefilewarningdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
-msgstr "Сакрити фасциклу?"
+msgstr "Сакрити ову фасциклу?"
 
 #: widgets/renamefilewarningdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
-msgstr "Сакрити фајл?"
+msgstr "Сакрити овај фајл?"
 
 #: widgets/renamefilewarningdialog.cpp:68
 #: widgets/renamefilewarningdialog.cpp:118
@@ -7463,7 +7452,7 @@ msgstr ""
 "Тип фајла постаће непознат.\n"
 "Садржај фајла се неће променити, али програми можда више неће умети да га "
 "препознају.\n"
-"Желите ли ипак да га преименујете?"
+"Желите ли и даље да га преименујете?"
 
 #: widgets/renamefilewarningdialog.cpp:108
 #, kde-format
@@ -7477,7 +7466,7 @@ msgstr ""
 "Тип фајла промениће се из „%1“ у „%2“.\n"
 "Садржај фајла се неће променити, али програми можда више неће умети да га "
 "препознају.\n"
-"Желите ли ипак да га преименујете?"
+"Желите ли и даље да га преименујете?"
 
 #: widgets/renamefilewarningdialog.cpp:115
 #, kde-format
@@ -7556,7 +7545,7 @@ msgstr "Верзија ССЛ‑а:"
 #: widgets/sslinfo.ui:134
 #, kde-format
 msgid "Certificate chain:"
-msgstr "Ланац сертификата"
+msgstr "Ланац сертификата:"
 
 #. i18n: ectx: property (text), widget (QLabel, trustedTag)
 #: widgets/sslinfo.ui:163
@@ -7663,7 +7652,7 @@ msgid_plural ""
 "instead?<nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr[0] ""
-"Смеће је препуно да би примило овај %1 фајл. Желите ли да га уместо тога "
+"Смеће је препуно да би примило овај %1 фајл. Желите ли да их уместо тога "
 "трајно обришете?<nl/><nl/><emphasis strong='true'>Ова радња се не може "
 "опозвати.</emphasis>"
 msgstr[1] ""
@@ -7676,7 +7665,7 @@ msgstr[2] ""
 "опозвати.</emphasis>"
 msgstr[3] ""
 "Смеће је препуно да би примило овај фајл. Желите ли да га уместо тога трајно "
-"обришете?<nl/><nl/><emphasis strong='true'>Ова радња се не може опозвати.</"
+"обришете?<nl/><emphasis strong='true'>Ова радња се не може опозвати.</"
 "emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:275
@@ -7716,8 +7705,8 @@ msgstr[2] ""
 "опозвати.</emphasis>"
 msgstr[3] ""
 "Смеће није доступно за локацију ове ставке. Желите ли да је уместо тога "
-"трајно обришете?<nl/><nl/><emphasis strong='true'>Ова радња се не може "
-"опозвати.</emphasis>"
+"трајно обришете?<nl/><emphasis strong='true'>Ова радња се не може опозвати.</"
+"emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:310
 #, kde-kuit-format
@@ -7744,7 +7733,7 @@ msgstr "Не приказуј више ову поруку"
 #: widgets/widgetsaskuseractionhandler.cpp:574
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
-msgstr "Ланац парњака за ССЛ сертификате делује искварено."
+msgstr "Ланац ССЛ сертификата парњака делује искварено."
 
 #: widgets/widgetsaskuseractionhandler.cpp:577
 #, kde-format
@@ -7766,4 +7755,4 @@ msgstr "Ово ће покренути програм:"
 #: widgets/widgetsuntrustedprogramhandler.cpp:136
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
-msgstr "Ако не верујете програму, кликните на „Одустани“."
+msgstr "Ако не верујете програму, кликните на „Одустани“"
