@@ -188,11 +188,6 @@ QStringList KEMailClientLauncherJob::thunderbirdArguments() const
     // which includes attachments.
     QString arg;
     const QChar quote = QLatin1Char('\'');
-    auto addString = [&](const char *token, const QString &str) {
-        if (!str.isEmpty()) {
-            arg += QLatin1String(token) + quote + str + quote;
-        }
-    };
     auto addStringInPercentEncoded = [&](const char *token, const QString &str) {
         if (!str.isEmpty()) {
             // Don't use quotes (') here, otherwise it won't be interpreted as percent encoded
