@@ -465,7 +465,9 @@ void FilePreviewJobTest::testAMissedCacheLookupKeepsItsPlaceInTheQueue()
     const auto emptyFile = [&dir](const QString &name) {
         const QString path = dir.filePath(name);
         QFile file(path);
-        file.open(QIODevice::WriteOnly);
+        if (!file.open(QIODevice::WriteOnly)) {
+            qFatal("Couldn't create %s", qPrintable(path));
+        }
         file.close();
         KIO::UDSEntry entry;
         entry.reserve(4);
