@@ -49,6 +49,7 @@ public:
     ~KUrlNavigatorButton() override;
 
     void setUrl(const QUrl &url);
+    QUrl targetUrl() const;
     QUrl url() const;
 
     /* Implementation note: QAbstractButton::setText() is not virtual,
@@ -189,6 +190,7 @@ private:
     bool m_drawSeparator;
     int m_wheelSteps;
     QUrl m_url;
+    QUrl m_targetUrl;
 
     QString m_subDir;
     QTimer *m_openSubDirsTimer;

@@ -37,6 +37,7 @@ KUrlNavigatorButton::KUrlNavigatorButton(const QUrl &url, KUrlNavigator *parent)
     , m_drawSeparator(true)
     , m_wheelSteps(0)
     , m_url(url)
+    , m_targetUrl()
     , m_subDir()
     , m_openSubDirsTimer(nullptr)
     , m_subDirsJob(nullptr)
@@ -87,6 +88,11 @@ void KUrlNavigatorButton::setUrl(const QUrl &url)
     } else {
         setText(m_url.fileName().replace(QLatin1Char('&'), QLatin1String("&&")));
     }
+}
+
+QUrl KUrlNavigatorButton::targetUrl() const
+{
+    return m_targetUrl;
 }
 
 QUrl KUrlNavigatorButton::url() const
@@ -468,7 +474,9 @@ void KUrlNavigatorButton::slotMenuActionClicked(QAction *action, Qt::MouseButton
 void KUrlNavigatorButton::statFinished(KJob *job)
 {
     const KIO::UDSEntry entry = static_cast<KIO::StatJob *>(job)->statResult();
-
+    if (!entry.stringValue(KIO::UDSEntry::UDS_TARGET_URL).isEmpty()) {
+        m_targetUrl = QUrl(entry.stringValue(KIO::UDSEntry::UDS_TARGET_URL));
+    }
     if (m_pendingTextChange) {
         m_pendingTextChange = false;
 
