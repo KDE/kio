@@ -6,8 +6,6 @@ find_program(WsgidavExe_EXECUTABLE wsgidav)
 
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(WsgidavExe
-    FOUND_VAR
-        WsgidavExe_FOUND
     REQUIRED_VARS
         WsgidavExe_EXECUTABLE
 )

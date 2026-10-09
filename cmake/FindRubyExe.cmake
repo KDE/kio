@@ -9,8 +9,6 @@ find_program(RubyExe_EXECUTABLE ruby)
 
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(RubyExe
-    FOUND_VAR
-        RubyExe_FOUND
     REQUIRED_VARS
         RubyExe_EXECUTABLE
 )
