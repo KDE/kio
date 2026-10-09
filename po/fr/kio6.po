@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-07 00:42+0000\n"
-"PO-Revision-Date: 2026-10-02 08:28+0200\n"
+"PO-Revision-Date: 2026-10-07 10:08+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -4686,16 +4686,14 @@ msgstr "Ce fichier est déjà dans la corbeille."
 
 #: kioworkers/trash/kio_trash_win.cpp:216
 #: kioworkers/trash/kio_trash_win.cpp:231
-#, fuzzy, kde-format
-#| msgid "The resource cannot be deleted."
+#, kde-format
 msgid "The trash item %1 cannot be restored."
-msgstr "La ressource ne peut être effacée."
+msgstr "Un élément %1 de la corbeille ne peut être restauré."
 
 #: kioworkers/trash/kio_trash_win.cpp:255
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in rename, should never happen"
-msgstr "L'erreur interne dans « copyOrMove » ne devrait jamais arriver"
+msgstr "Une erreur interne dans le renommage ne devrait jamais arriver."
 
 #: kioworkers/trash/kio_trash_win.cpp:268
 #, kde-format
@@ -4703,15 +4701,14 @@ msgid "not supported"
 msgstr "non pris en charge"
 
 #: kioworkers/trash/kio_trash_win.cpp:276
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in copy, should never happen"
-msgstr "L'erreur interne dans « copyOrMove » ne devrait jamais arriver"
+msgstr "Une erreur interne dans la copie ne devrait jamais arriver."
 
 #: kioworkers/trash/kio_trash_win.cpp:512
 #, kde-format
 msgid "Trash operation failed with error code 0x%1."
-msgstr ""
+msgstr "L'opération sur la corbeille a échoué avec le code d'erreur « 0x%1 »."
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-07 00:42+0000\n"
-"PO-Revision-Date: 2026-09-28 17:26+0200\n"
+"PO-Revision-Date: 2026-10-08 16:07+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -4584,14 +4584,12 @@ msgstr "Този файл вече е в кошчето."
 
 #: kioworkers/trash/kio_trash_win.cpp:216
 #: kioworkers/trash/kio_trash_win.cpp:231
-#, fuzzy, kde-format
-#| msgid "The resource cannot be deleted."
+#, kde-format
 msgid "The trash item %1 cannot be restored."
-msgstr "Елементът в Коша %1 не може да бъде възстановен."
+msgstr "Елементът %1 в кошчето не може да бъде възстановен."
 
 #: kioworkers/trash/kio_trash_win.cpp:255
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in rename, should never happen"
 msgstr "Вътрешна грешка при преименуване, не би трябвало да се случва"
 
@@ -4601,15 +4599,14 @@ msgid "not supported"
 msgstr "не се поддържа"
 
 #: kioworkers/trash/kio_trash_win.cpp:276
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in copy, should never happen"
-msgstr "Вътрешна грешка при копиране, не би трябвало да се случи"
+msgstr "Вътрешна грешка при копиране, не би трябвало да се случва"
 
 #: kioworkers/trash/kio_trash_win.cpp:512
-#, fuzzy, kde-format
+#, kde-format
 msgid "Trash operation failed with error code 0x%1."
-msgstr "Операцията с кошчето не успя с код за грешка 0x%1."
+msgstr "Операцията с кошчето е неуспешна, код за грешка 0x%1."
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format
@@ -7089,31 +7086,25 @@ msgid "# will be replaced by ascending numbers starting with:"
 msgstr "# ще бъдат заменени с възходящи числа, започващи с:"
 
 #: widgets/renamefiledialog.cpp:240
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#, kde-format
 msgctxt "@item:inlistbox the new name is the whole file name"
 msgid "Replace filename"
 msgstr "Замяна на името на файла"
 
 #: widgets/renamefiledialog.cpp:241
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name before the filename"
 msgid "Before filename"
 msgstr "Преди името на файла"
 
 #: widgets/renamefiledialog.cpp:242
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text after filename"
-#| msgid "After filename"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name after the filename"
 msgid "After filename"
 msgstr "След името на файла"
 
 #: widgets/renamefiledialog.cpp:295
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "Template putting the number before the old file name, # is replaced by a "
 "number later"
@@ -7121,12 +7112,12 @@ msgid "#_"
 msgstr "#_"
 
 #: widgets/renamefiledialog.cpp:297
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "Template putting the number after the old file name, # is replaced by a "
 "number later"
 msgid "_#"
-msgstr "#"
+msgstr "_#"
 
 #: widgets/renamefiledialog.cpp:299
 #, kde-format
