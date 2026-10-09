@@ -260,6 +260,9 @@ if (NOT WIN32)
 
   set_tests_properties(kiofilewidgets-kfileplacesmodeltest PROPERTIES RUN_SERIAL TRUE)
   set_tests_properties(kiofilewidgets-kfileplacesviewtest PROPERTIES RUN_SERIAL TRUE)
+  # About 25 file widgets, each saving its settings and starting a worker: about 10 s on a fast
+  # machine, longer than the default per-test timeout of the CI on a slow one.
+  set_tests_properties(kiofilewidgets-kfilewidgettest PROPERTIES TIMEOUT 180)
 
   ecm_add_test(
     dropintonewfolderplugintest.cpp
