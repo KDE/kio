@@ -1,10 +1,4 @@
 
-#ifdef _WIN32
-#define LIBXML_DLL_IMPORT __declspec(dllimport)
-#else
-extern "C" int xmlLoadExtDtdDefaultValue;
-#endif
-
 #include "kio_help.h"
 
 #include <docbookxslt.h>
@@ -46,8 +40,6 @@ Q_DECL_EXPORT int kdemain(int argc, char **argv)
     }
 
     LIBXML_TEST_VERSION
-    xmlSubstituteEntitiesDefault(1);
-    xmlLoadExtDtdDefaultValue = 1;
     exsltRegisterAll();
 
     HelpProtocol worker(true, argv[2], argv[3]);
