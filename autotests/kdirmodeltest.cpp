@@ -10,6 +10,7 @@
 #include "jobuidelegatefactory.h"
 #include "kdirmodeltest.h"
 #include <KDirWatch>
+#include <KSambaShare>
 #include <kdirlister.h>
 #include <kdirnotify.h>
 #include <kio/chmodjob.h>
@@ -60,6 +61,11 @@ void KDirModelTest::initTestCase()
     s_referenceTimeStamp = QDateTime::currentDateTime().addSecs(-30); // 30 seconds ago
     m_topLevelFileNames << QStringLiteral("toplevelfile_1") << QStringLiteral("toplevelfile_2") << QStringLiteral("toplevelfile_3") << specialChars();
     recreateTestData();
+
+    // Finish the background load of the samba shares and deliver its queued changed(), so that the
+    // icon update of the model does not arrive as the first dataChanged() of a later test.
+    KSambaShare::instance()->sharedDirectories();
+    QCoreApplication::processEvents();
 
     fillModel(false);
 }
@@ -426,6 +432,32 @@ void KDirModelTest::testModifiedTimeIsLocalTime()
     const QString shown = model.index(0, KDirModel::ModifiedTime).data(Qt::DisplayRole).toString();
     QCOMPARE(shown, KFormat().formatRelativeDateTime(modified.toLocalTime(), QLocale::ShortFormat));
     QVERIFY2(shown.contains(QLatin1String("11:03")), qPrintable(shown));
+}
+
+void KDirModelTest::testSharesChangedUpdatesIcons()
+{
+#ifdef Q_OS_WIN
+    QSKIP("KFileItem::overlays() does not look at the samba shares on Windows");
+#endif
+    // The first icon of a local folder makes the model follow the shares.
+    m_dirModel->data(m_dirIndex, Qt::DecorationRole);
+    QSignalSpy dataChangedSpy(m_dirModel, &QAbstractItemModel::dataChanged);
+    Q_EMIT KSambaShare::instance()->changed();
+
+    auto iconChanged = [&dataChangedSpy](const QModelIndex &index) {
+        for (const QList<QVariant> &args : std::as_const(dataChangedSpy)) {
+            const auto topLeft = args.at(0).toModelIndex();
+            const auto bottomRight = args.at(1).toModelIndex();
+            const auto roles = args.at(2).value<QList<int>>();
+            if (topLeft.parent() == index.parent() && topLeft.row() <= index.row() && index.row() <= bottomRight.row() && roles.contains(Qt::DecorationRole)) {
+                return true;
+            }
+        }
+        return false;
+    };
+    QVERIFY(iconChanged(m_dirIndex));
+    QVERIFY(iconChanged(m_fileInDirIndex));
+    QVERIFY(iconChanged(m_fileInSubdirIndex));
 }
 
 void KDirModelTest::testIcon()

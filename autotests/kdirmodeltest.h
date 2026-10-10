@@ -31,6 +31,7 @@ private Q_SLOTS:
     void testIndexForItem();
     void testData();
     void testModifiedTimeIsLocalTime();
+    void testSharesChangedUpdatesIcons();
 
     /*!
      * Test if the icon is valid if "Icon" is specified in the desktop file, and can fall back to "unknown"
