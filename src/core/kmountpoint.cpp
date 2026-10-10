@@ -546,20 +546,13 @@ KMountPoint::List::List()
 
 KMountPoint::Ptr KMountPoint::List::findByPath(const QString &path) const
 {
-#ifdef Q_OS_WIN
-    const QString realPath = QDir::fromNativeSeparators(QDir(path).absolutePath());
-#else
-    /* If the path contains symlinks, get the real name */
-    QFileInfo fileinfo(path);
-    // canonicalFilePath won't work unless file exists
-    const QString realPath = fileinfo.exists() && !fileinfo.isSymLink() ? fileinfo.canonicalFilePath() : fileinfo.absolutePath();
-#endif
-
     KMountPoint::Ptr result;
 #if HAVE_STATX_MNT_ID_UNIQUE
-    uint mask = STATX_MNT_ID_UNIQUE;
+    const uint mask = STATX_MNT_ID_UNIQUE;
+    // The mount id is VFS metadata: do not synchronize attributes with a remote server.
     // If we have statx, there is no need to guess. take the mount id from statx and get the mountpoint.
-    if (struct statx buff; statx(0, QFile::encodeName(path).constData(), AT_SYMLINK_NOFOLLOW | AT_NO_AUTOMOUNT, mask, &buff) == 0 && (buff.stx_mask & mask)) {
+    if (struct statx buff; statx(AT_FDCWD, QFile::encodeName(path).constData(), AT_STATX_DONT_SYNC | AT_SYMLINK_NOFOLLOW | AT_NO_AUTOMOUNT, mask, &buff) == 0
+        && (buff.stx_mask & mask)) {
         auto it = std::find_if(this->cbegin(), this->cend(), [&buff](const KMountPoint::Ptr &mountPtr) {
             return mountPtr->d->m_mountId == buff.stx_mnt_id;
         });
@@ -568,6 +561,15 @@ KMountPoint::Ptr KMountPoint::List::findByPath(const QString &path) const
             return *it;
         }
     }
+#endif
+
+#ifdef Q_OS_WIN
+    const QString realPath = QDir::fromNativeSeparators(QDir(path).absolutePath());
+#else
+    /* If the path contains symlinks, get the real name */
+    QFileInfo fileinfo(path);
+    // canonicalFilePath won't work unless file exists
+    const QString realPath = fileinfo.exists() && !fileinfo.isSymLink() ? fileinfo.canonicalFilePath() : fileinfo.absolutePath();
 #endif
 
     if (QT_STATBUF buff; QT_LSTAT(QFile::encodeName(realPath).constData(), &buff) == 0) {
@@ -737,7 +739,8 @@ KMountPoint::Ptr KMountPoint::currentMountPointForPath(const QString &path)
 #if HAVE_STATX_MNT_ID_UNIQUE
     // Resolve the path's unique mount id with a single statx and serve it from the id
     // cache, so repeated lookups under the same mount do not re-read the mount table.
-    if (struct statx buff; statx(AT_FDCWD, QFile::encodeName(path).constData(), AT_SYMLINK_NOFOLLOW | AT_NO_AUTOMOUNT, STATX_MNT_ID_UNIQUE, &buff) == 0
+    if (struct statx buff;
+        statx(AT_FDCWD, QFile::encodeName(path).constData(), AT_STATX_DONT_SYNC | AT_SYMLINK_NOFOLLOW | AT_NO_AUTOMOUNT, STATX_MNT_ID_UNIQUE, &buff) == 0
         && (buff.stx_mask & STATX_MNT_ID_UNIQUE)) {
         return currentMountPointForUniqueId(buff.stx_mnt_id);
     }
