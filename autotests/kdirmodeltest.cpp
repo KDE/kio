@@ -10,6 +10,7 @@
 #include "jobuidelegatefactory.h"
 #include "kdirmodeltest.h"
 #include <KDirWatch>
+#include <KSambaShare>
 #include <kdirlister.h>
 #include <kdirnotify.h>
 #include <kio/chmodjob.h>
@@ -386,6 +387,32 @@ void KDirModelTest::testData()
 
     // Subsubdir: check child count
     QCOMPARE(m_dirModel->data(m_fileInSubdirIndex.parent(), KDirModel::ChildCountRole).toInt(), 1);
+}
+
+void KDirModelTest::testSharesChangedUpdatesIcons()
+{
+#ifdef Q_OS_WIN
+    QSKIP("KFileItem::overlays() does not look at the samba shares on Windows");
+#endif
+    // The first icon of a local folder makes the model follow the shares.
+    m_dirModel->data(m_dirIndex, Qt::DecorationRole);
+    QSignalSpy dataChangedSpy(m_dirModel, &QAbstractItemModel::dataChanged);
+    Q_EMIT KSambaShare::instance()->changed();
+
+    auto iconChanged = [&dataChangedSpy](const QModelIndex &index) {
+        for (const QList<QVariant> &args : std::as_const(dataChangedSpy)) {
+            const auto topLeft = args.at(0).toModelIndex();
+            const auto bottomRight = args.at(1).toModelIndex();
+            const auto roles = args.at(2).value<QList<int>>();
+            if (topLeft.parent() == index.parent() && topLeft.row() <= index.row() && index.row() <= bottomRight.row() && roles.contains(Qt::DecorationRole)) {
+                return true;
+            }
+        }
+        return false;
+    };
+    QVERIFY(iconChanged(m_dirIndex));
+    QVERIFY(iconChanged(m_fileInDirIndex));
+    QVERIFY(iconChanged(m_fileInSubdirIndex));
 }
 
 void KDirModelTest::testIcon()

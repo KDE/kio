@@ -8,6 +8,7 @@
 #include "kdirmodel.h"
 #include "kdirlister.h"
 #include "kfileitem.h"
+#include "ksambashare.h"
 
 #include "joburlcache_p.h"
 #include <KFormat>
@@ -236,6 +237,9 @@ public:
     void _k_slotClear();
     void _k_slotRedirection(const QUrl &oldUrl, const QUrl &newUrl);
     void _k_slotJobUrlsChanged(const QStringList &urlList);
+    /// Updates the icons of the listed local folders, as KFileItem::overlays() adds emblem-shared.
+    void _k_slotSharesChanged();
+    void emitIconsChanged(KDirModelDirNode *dirNode);
 
     void clear()
     {
@@ -312,6 +316,8 @@ public:
     QMap<KDirModelNode *, QList<QUrl>> m_urlsBeingFetched;
     QHash<QUrl, KDirModelNode *> m_nodeHash; // global node hash: url -> node
     QStringList m_allCurrentDestUrls; // list of all dest urls that have jobs on them (e.g. copy, download)
+    // Connected on the first overlays of a local folder, so that a model of remote folders never loads the shares.
+    bool m_sharesWatched = false;
 };
 
 KDirModelNode *KDirModelPrivate::nodeForUrl(const QUrl &_url) const // O(1), well, O(length of url as a string)
@@ -814,6 +820,27 @@ void KDirModelPrivate::_k_slotClear()
     }
 }
 
+void KDirModelPrivate::_k_slotSharesChanged()
+{
+    emitIconsChanged(m_rootNode);
+}
+
+void KDirModelPrivate::emitIconsChanged(KDirModelDirNode *dirNode)
+{
+    if (dirNode->m_childNodes.isEmpty() || dirNode->isOnNetwork()) {
+        return;
+    }
+    const QModelIndex parentIndex = indexForNode(dirNode);
+    Q_EMIT q->dataChanged(q->index(0, KDirModel::Name, parentIndex),
+                          q->index(dirNode->m_childNodes.count() - 1, KDirModel::Name, parentIndex),
+                          {Qt::DecorationRole});
+    for (KDirModelNode *node : std::as_const(dirNode->m_childNodes)) {
+        if (node->item().isDir()) {
+            emitIconsChanged(static_cast<KDirModelDirNode *>(node));
+        }
+    }
+}
+
 void KDirModelPrivate::_k_slotJobUrlsChanged(const QStringList &urlList)
 {
     QStringList dirtyUrls;
@@ -928,6 +955,15 @@ QVariant KDirModel::data(const QModelIndex &index, int role) const
                 if (parentNode->isOnNetwork()) {
                     return icon;
                 } else {
+#ifndef Q_OS_WIN
+                    // KSambaShare loads the shares in the background, and they change.
+                    if (!d->m_sharesWatched && item.isDir()) {
+                        d->m_sharesWatched = true;
+                        connect(KSambaShare::instance(), &KSambaShare::changed, this, [this]() {
+                            d->_k_slotSharesChanged();
+                        });
+                    }
+#endif
                     return KIconUtils::addOverlays(icon, item.overlays());
                 }
             }
