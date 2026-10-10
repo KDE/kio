@@ -21,11 +21,14 @@
 #include <../../aclhelpers_p.h>
 #endif
 
+#include <QElapsedTimer>
 #include <QFile>
 #include <QScopeGuard>
 #include <QThread>
 #include <QUrl>
 #include <qplatformdefs.h>
+
+#include <chrono>
 
 #include <QDebug>
 #include <kmountpoint.h>
@@ -65,6 +68,7 @@
 #endif
 
 using namespace KIO;
+using namespace std::chrono_literals;
 
 /* 512 kB */
 static constexpr int s_maxIPCSize = 1024 * 512;
@@ -258,9 +262,33 @@ struct CopyReport {
     bool readFailed = false; // a read error on the source, as against a write error on the destination
 };
 
-// Also the unit of work between cancellation checks. Smaller chunks measured ~25-30% slower on
-// large cold copies.
+// The first and smallest copy_file_range chunk. Smaller chunks measured ~25-30% slower on large
+// cold copies.
 static constexpr size_t s_copyChunk = 512 * 1024;
+static constexpr size_t s_maxCopyChunk = 128 * 1024 * 1024;
+// The first and smallest read/write buffer. Its maximum stays low because copying through a
+// buffer gets slower once it outgrows the CPU caches.
+static constexpr size_t s_readWriteChunk = 256 * 1024;
+static constexpr size_t s_maxReadWriteChunk = 4 * 1024 * 1024;
+static constexpr std::chrono::nanoseconds s_copyLatencyTargetLower = 200ms;
+static constexpr std::chrono::nanoseconds s_copyLatencyTargetUpper = 250ms;
+
+// Larger chunks copy faster over the network, but a cancel or a progress update waits for the chunk being copied.
+// The chunk doubles while copying one takes less than the target latency, and halves when it takes more.
+struct AdaptiveChunk {
+    size_t size;
+    const size_t min;
+    const size_t max;
+
+    void update(std::chrono::nanoseconds elapsed)
+    {
+        if (elapsed < s_copyLatencyTargetLower) {
+            size = qMin(size * 2, max);
+        } else if (elapsed > s_copyLatencyTargetUpper) {
+            size = qMax(size / 2, min);
+        }
+    }
+};
 
 // size, from the caller's fstat, bounds the loop so it stops at EOF without an extra probing call.
 // On cancel errno is ECANCELED; on failure errno is left set and readFailed, if given, says which
@@ -273,12 +301,16 @@ bool copyFds(int sourceFd,
              const std::function<void(KIO::filesize_t)> &onProgress = {},
              bool *readFailed = nullptr)
 {
+    QElapsedTimer timer;
+    timer.start();
 #if HAVE_COPY_FILE_RANGE
-    const size_t chunk = s_copyChunk;
+    AdaptiveChunk cfrChunk{s_copyChunk, s_copyChunk, s_maxCopyChunk};
     KIO::filesize_t copied = 0; // bytes copied for this file by copy_file_range
     while (copied < size) {
-        const size_t want = size_t(qMin<KIO::filesize_t>(size - copied, chunk));
+        const size_t want = size_t(qMin<KIO::filesize_t>(size - copied, cfrChunk.size));
+        const auto copyStart = timer.durationElapsed();
         const ssize_t n = ::copy_file_range(sourceFd, nullptr, destFd, nullptr, want, 0);
+        cfrChunk.update(timer.durationElapsed() - copyStart);
         if (n < 0) {
             if (errno == EINTR) {
                 continue;
@@ -305,9 +337,14 @@ bool copyFds(int sourceFd,
 #endif
     // The remainder copy_file_range did not handle, or the whole file where it is unavailable
     // (macOS, OpenBSD, older Linux). A short read or write is retried, not treated as a failure.
-    QByteArray buffer(256 * 1024, Qt::Uninitialized);
+    AdaptiveChunk rwChunk{s_readWriteChunk, s_readWriteChunk, s_maxReadWriteChunk};
+    QByteArray buffer(rwChunk.size, Qt::Uninitialized);
     while (true) {
-        const ssize_t n = ::read(sourceFd, buffer.data(), buffer.size());
+        if (size_t(buffer.size()) < rwChunk.size) {
+            buffer.resize(rwChunk.size);
+        }
+        const auto copyStart = timer.durationElapsed();
+        const ssize_t n = ::read(sourceFd, buffer.data(), rwChunk.size);
         if (n < 0) {
             if (errno == EINTR) {
                 continue;
@@ -338,6 +375,7 @@ bool copyFds(int sourceFd,
             }
             written += w;
         }
+        rwChunk.update(timer.durationElapsed() - copyStart);
         bytesCopied += n;
         if (onProgress) {
             onProgress(bytesCopied);
