@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-07 00:42+0000\n"
-"PO-Revision-Date: 2026-10-02 16:08+0200\n"
+"POT-Creation-Date: 2026-10-10 00:42+0000\n"
+"PO-Revision-Date: 2026-10-07 15:48+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -2502,24 +2502,24 @@ msgstr ""
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Impossibile trovare l'eseguibile «kioworker» in «%1»"
 
-#: core/workerinterface.cpp:340 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:333 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "&Details"
 msgstr "&Dettagli"
 
-#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:320
+#: core/workerinterface.cpp:335 kioworkers/http/http.cpp:320
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "Per &sempre"
 
-#: core/workerinterface.cpp:346 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:339 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Co&ntinua"
 
-#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:321
+#: core/workerinterface.cpp:341 kioworkers/http/http.cpp:321
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -3851,13 +3851,13 @@ msgstr "Naviga"
 msgid "Show Full Path"
 msgstr "Mostra percorso completo"
 
-#: filewidgets/kurlnavigator.cpp:840
+#: filewidgets/kurlnavigator.cpp:844
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "Va in una qualsiasi posizione nel percorso <filename>%1</filename>"
 
-#: filewidgets/kurlnavigatorbutton.cpp:726
+#: filewidgets/kurlnavigatorbutton.cpp:734
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
@@ -4648,16 +4648,15 @@ msgstr "Questo file è già nel cestino."
 
 #: kioworkers/trash/kio_trash_win.cpp:216
 #: kioworkers/trash/kio_trash_win.cpp:231
-#, fuzzy, kde-format
-#| msgid "The resource cannot be deleted."
+#, kde-format
 msgid "The trash item %1 cannot be restored."
-msgstr "La risorsa non può essere eliminata."
+msgstr "L'elemento del cestino %1 non può essere ripristinato."
 
 #: kioworkers/trash/kio_trash_win.cpp:255
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in rename, should never happen"
-msgstr "Errore interno nella funzione copyOrMove, non dovrebbe accadere mai"
+msgstr ""
+"Errore interno durante il cambiamento di nome, non dovrebbe accadere mai"
 
 #: kioworkers/trash/kio_trash_win.cpp:268
 #, kde-format
@@ -4665,15 +4664,15 @@ msgid "not supported"
 msgstr "non supportato"
 
 #: kioworkers/trash/kio_trash_win.cpp:276
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in copy, should never happen"
-msgstr "Errore interno nella funzione copyOrMove, non dovrebbe accadere mai"
+msgstr "Errore interno nella copia, non dovrebbe accadere mai"
 
 #: kioworkers/trash/kio_trash_win.cpp:512
 #, kde-format
 msgid "Trash operation failed with error code 0x%1."
 msgstr ""
+"L'operazione relativa al cestino non è riuscita con codice di errore 0x%1."
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format

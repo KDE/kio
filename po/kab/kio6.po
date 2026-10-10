@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-07 00:42+0000\n"
+"POT-Creation-Date: 2026-10-10 00:42+0000\n"
 "PO-Revision-Date: 2024-12-08 16:20+0100\n"
 "Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
 "Language-Team: Kabyle\n"
@@ -2185,24 +2185,24 @@ msgstr ""
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Ur yezmir ara ad d-yaf 'kioworker' yettwaselkamen s '%1' ''"
 
-#: core/workerinterface.cpp:340 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:333 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "&Details"
 msgstr "&Talqayt"
 
-#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:320
+#: core/workerinterface.cpp:335 kioworkers/http/http.cpp:320
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&I lebda"
 
-#: core/workerinterface.cpp:346 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:339 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Dd&u"
 
-#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:321
+#: core/workerinterface.cpp:341 kioworkers/http/http.cpp:321
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -3469,13 +3469,13 @@ msgstr "Inig"
 msgid "Show Full Path"
 msgstr "Sken abrid ummid"
 
-#: filewidgets/kurlnavigator.cpp:840
+#: filewidgets/kurlnavigator.cpp:844
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr ""
 
-#: filewidgets/kurlnavigatorbutton.cpp:726
+#: filewidgets/kurlnavigatorbutton.cpp:734
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"

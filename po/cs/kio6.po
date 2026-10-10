@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-07 00:42+0000\n"
+"POT-Creation-Date: 2026-10-10 00:42+0000\n"
 "PO-Revision-Date: 2026-10-06 13:26+0200\n"
 "Last-Translator: Libor Filipek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -2447,24 +2447,24 @@ msgstr "Nelze vytvořit socket pro spuštění nástroje KIO pro protokol '%1'."
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Nelze nalézt spustitelný soubor 'kioworker' v '%1'"
 
-#: core/workerinterface.cpp:340 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:333 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "&Details"
 msgstr "Po&drobnosti"
 
-#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:320
+#: core/workerinterface.cpp:335 kioworkers/http/http.cpp:320
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Vždy"
 
-#: core/workerinterface.cpp:346 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:339 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Po&kračovat"
 
-#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:321
+#: core/workerinterface.cpp:341 kioworkers/http/http.cpp:321
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -3781,13 +3781,13 @@ msgstr "Přejít"
 msgid "Show Full Path"
 msgstr "Zobrazit celou cestu"
 
-#: filewidgets/kurlnavigator.cpp:840
+#: filewidgets/kurlnavigator.cpp:844
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "Přejít na libovolné místo v cestě <filename>%1</filename>"
 
-#: filewidgets/kurlnavigatorbutton.cpp:726
+#: filewidgets/kurlnavigatorbutton.cpp:734
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"

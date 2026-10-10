@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-07 00:42+0000\n"
+"POT-Creation-Date: 2026-10-10 00:42+0000\n"
 "PO-Revision-Date: 2012-07-04 22:08+0200\n"
 "Last-Translator: Jean Cayron <jean.cayron@base.be>\n"
 "Language-Team: Walloon <linux-wa@walon.org>\n"
@@ -2530,24 +2530,24 @@ msgstr "Dji n' sai trover li module d' intrêye/rexhowe « %1 »."
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Dji n' sai trover li module d' intrêye/rexhowe « %1 »."
 
-#: core/workerinterface.cpp:340 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:333 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "&Details"
 msgstr "&Po les spepieus"
 
-#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:320
+#: core/workerinterface.cpp:335 kioworkers/http/http.cpp:320
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Tofer"
 
-#: core/workerinterface.cpp:346 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:339 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "&Continouwer"
 
-#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:321
+#: core/workerinterface.cpp:341 kioworkers/http/http.cpp:321
 #: widgets/sslui.cpp:98
 #, fuzzy, kde-format
 #| msgid "&Current Sessions Only"
@@ -3965,7 +3965,7 @@ msgstr "Naivyî"
 msgid "Show Full Path"
 msgstr "Mostrer tot l' tchimin"
 
-#: filewidgets/kurlnavigator.cpp:840
+#: filewidgets/kurlnavigator.cpp:844
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -3973,7 +3973,7 @@ msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "Voloz vs po do bon taper c' cayet ci å batch?"
 
-#: filewidgets/kurlnavigatorbutton.cpp:726
+#: filewidgets/kurlnavigatorbutton.cpp:734
 #, fuzzy, kde-format
 #| msgid "Store"
 msgctxt "@action:inmenu"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-07 00:42+0000\n"
-"PO-Revision-Date: 2026-10-07 11:45+0200\n"
+"POT-Creation-Date: 2026-10-10 00:42+0000\n"
+"PO-Revision-Date: 2026-10-09 16:00+0200\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr@ijekavian\n"
@@ -2470,24 +2470,24 @@ msgstr "Не могу да направим сокет за покретање �
 msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Не могу да нађем извршни фајл kioworker на „%1“"
 
-#: core/workerinterface.cpp:340 widgets/sslui.cpp:61
+#: core/workerinterface.cpp:333 widgets/sslui.cpp:61
 #: widgets/widgetsaskuseractionhandler.cpp:517
 #, kde-format
 msgid "&Details"
 msgstr "&Детаљи"
 
-#: core/workerinterface.cpp:342 kioworkers/http/http.cpp:320
+#: core/workerinterface.cpp:335 kioworkers/http/http.cpp:320
 #: widgets/sslui.cpp:97
 #, kde-format
 msgid "&Forever"
 msgstr "&Заувијек"
 
-#: core/workerinterface.cpp:346 widgets/sslui.cpp:62
+#: core/workerinterface.cpp:339 widgets/sslui.cpp:62
 #, kde-format
 msgid "Co&ntinue"
 msgstr "Нас&тави"
 
-#: core/workerinterface.cpp:348 kioworkers/http/http.cpp:321
+#: core/workerinterface.cpp:341 kioworkers/http/http.cpp:321
 #: widgets/sslui.cpp:98
 #, kde-format
 msgid "&Current Session only"
@@ -2800,7 +2800,7 @@ msgstr "домаћу фасциклу"
 #, kde-format
 msgctxt "@title:menu"
 msgid "Root Folder"
-msgstr "корену фасциклу"
+msgstr "корјену фасциклу"
 
 # >> @action:inmenu
 #: filewidgets/kfilecopytomenu.cpp:163
@@ -3827,13 +3827,13 @@ msgstr "Навигација"
 msgid "Show Full Path"
 msgstr "Прикажи пуну путању"
 
-#: filewidgets/kurlnavigator.cpp:840
+#: filewidgets/kurlnavigator.cpp:844
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "Иди на било коју локацију на путањи <filename>%1</filename>"
 
-#: filewidgets/kurlnavigatorbutton.cpp:726
+#: filewidgets/kurlnavigatorbutton.cpp:734
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
@@ -6226,7 +6226,7 @@ msgstr "%1:"
 #, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
-msgstr "непозната величина"
+msgstr "Непозната величина"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:739
 #, kde-format
