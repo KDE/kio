@@ -21,11 +21,14 @@
 #include <../../aclhelpers_p.h>
 #endif
 
+#include <QElapsedTimer>
 #include <QFile>
 #include <QScopeGuard>
 #include <QThread>
 #include <QUrl>
 #include <qplatformdefs.h>
+
+#include <chrono>
 
 #include <QDebug>
 #include <kmountpoint.h>
@@ -65,6 +68,7 @@
 #endif
 
 using namespace KIO;
+using namespace std::chrono_literals;
 
 /* 512 kB */
 static constexpr int s_maxIPCSize = 1024 * 512;
@@ -258,9 +262,34 @@ struct CopyReport {
     bool readFailed = false; // a read error on the source, as against a write error on the destination
 };
 
-// Also the unit of work between cancellation checks. Smaller chunks measured ~25-30% slower on
-// large cold copies.
+// Smaller chunks measured ~25-30% slower on large cold copies.
 static constexpr size_t s_copyChunk = 512 * 1024;
+#if HAVE_COPY_FILE_RANGE
+static constexpr size_t s_maxCopyChunk = 128 * 1024 * 1024;
+static constexpr std::chrono::nanoseconds s_copyLatencyTargetLower = 200ms;
+static constexpr std::chrono::nanoseconds s_copyLatencyTargetUpper = 250ms;
+static constexpr std::chrono::nanoseconds s_copyLatencyTarget = 225ms;
+
+// Larger chunks copy faster over the network, but a cancel or a progress update waits for the chunk being copied.
+// Shrinking in one step to the speed of the slow call keeps a sudden slowdown to one slow call.
+// A short call, such as the end of a file, says nothing about a larger chunk.
+struct AdaptiveChunk {
+    size_t size;
+    const size_t min;
+    const size_t max;
+
+    void update(std::chrono::nanoseconds elapsed, size_t copied)
+    {
+        if (elapsed < s_copyLatencyTargetLower) {
+            if (copied == size) {
+                size = qMin(size * 2, max);
+            }
+        } else if (elapsed > s_copyLatencyTargetUpper) {
+            size = qMax(size_t(copied * s_copyLatencyTarget.count() / elapsed.count()), min);
+        }
+    }
+};
+#endif
 
 // size, from the caller's fstat, bounds the loop so it stops at EOF without an extra probing call.
 // On cancel errno is ECANCELED; on failure errno is left set and readFailed, if given, says which
@@ -274,11 +303,15 @@ bool copyFds(int sourceFd,
              bool *readFailed = nullptr)
 {
 #if HAVE_COPY_FILE_RANGE
-    const size_t chunk = s_copyChunk;
+    QElapsedTimer timer;
+    timer.start();
+    AdaptiveChunk cfrChunk{s_copyChunk, s_copyChunk, s_maxCopyChunk};
     KIO::filesize_t copied = 0; // bytes copied for this file by copy_file_range
     while (copied < size) {
-        const size_t want = size_t(qMin<KIO::filesize_t>(size - copied, chunk));
+        const size_t want = size_t(qMin<KIO::filesize_t>(size - copied, cfrChunk.size));
+        const auto copyStart = timer.durationElapsed();
         const ssize_t n = ::copy_file_range(sourceFd, nullptr, destFd, nullptr, want, 0);
+        const auto elapsed = timer.durationElapsed() - copyStart;
         if (n < 0) {
             if (errno == EINTR) {
                 continue;
@@ -288,6 +321,7 @@ bool copyFds(int sourceFd,
         if (n == 0) {
             break; // unexpected early EOF (source shrank underneath us); finish via read/write
         }
+        cfrChunk.update(elapsed, size_t(n));
         copied += n;
         bytesCopied += n;
         if (onProgress) {
