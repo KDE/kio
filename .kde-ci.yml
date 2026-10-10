@@ -38,3 +38,4 @@ Options:
  cppcheck-ignore-files:
   - autotests
  run-installed-library-check-on: ['@all']
+ commit-checks: ['bug-links', 'missing-since', 'since-version']
