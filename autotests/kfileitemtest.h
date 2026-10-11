@@ -13,6 +13,7 @@ class KFileItemTest : public QObject
 {
     Q_OBJECT
 private Q_SLOTS:
+    void testItemOnUnknownMountIsSlow();
     void initTestCase();
     void testPermissionsString();
     void testRelativeSymlinkGetStatusBarInfo();
