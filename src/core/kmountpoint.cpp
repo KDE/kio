@@ -60,8 +60,11 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 #include <sys/stat.h>
 #endif
 #if HAVE_STATMOUNT
+#include <QHash>
+#include <array>
 #include <linux/magic.h>
 #include <linux/mount.h>
+#include <optional>
 #include <sys/syscall.h>
 #include <unistd.h>
 #endif
@@ -376,6 +379,56 @@ void KMountPointPrivate::resolveGvfsMountPoints(KMountPoint::List &result)
     }
 }
 
+#if HAVE_LIB_MOUNT && HAVE_STATX_MNT_ID_UNIQUE && HAVE_STATMOUNT
+namespace
+{
+struct MountIds {
+    quint64 uniqueId = 0;
+    dev_t deviceId = 0;
+    bool isBtrfs = false;
+};
+}
+
+// The unique id and superblock device of every mount, keyed by the old mount id that mountinfo shows.
+// listmount() and statmount() read the kernel mount tree, so unlike a statx() of each mount point they
+// cannot block on a network server. std::nullopt when this kernel has neither.
+// libmount reads the same table with mnt_table_fetch_listmount() since 2.41, but before 2.43 it has the FUSE
+// subtype problem described at statMount().
+static std::optional<QHash<int, MountIds>> mountIdsByOldId()
+{
+    QHash<int, MountIds> result;
+    struct mnt_id_req listRequest = {};
+    listRequest.size = MNT_ID_REQ_SIZE_VER0;
+    listRequest.mnt_id = LSMT_ROOT;
+    std::array<quint64, 256> ids;
+    while (true) {
+        const long count = ::syscall(SYS_listmount, &listRequest, ids.data(), ids.size(), 0);
+        if (count < 0) {
+            return std::nullopt;
+        }
+        for (long i = 0; i < count; ++i) {
+            struct mnt_id_req request = {};
+            request.size = MNT_ID_REQ_SIZE_VER0;
+            request.mnt_id = ids[i];
+            request.param = STATMOUNT_SB_BASIC | STATMOUNT_MNT_BASIC;
+            alignas(struct statmount) char buffer[sizeof(struct statmount)];
+            if (::syscall(SYS_statmount, &request, buffer, sizeof(buffer), 0) < 0) {
+                if (errno == ENOENT) {
+                    continue; // unmounted since listmount()
+                }
+                return std::nullopt;
+            }
+            const auto *sm = reinterpret_cast<const struct statmount *>(buffer);
+            result.insert(int(sm->mnt_id_old), {ids[i], makedev(sm->sb_dev_major, sm->sb_dev_minor), sm->sb_magic == BTRFS_SUPER_MAGIC});
+        }
+        if (size_t(count) < ids.size()) {
+            return result;
+        }
+        listRequest.param = ids[count - 1];
+    }
+}
+#endif
+
 KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
 {
     KMountPoint::List result;
@@ -448,6 +501,10 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
             == 0) {
             struct libmnt_iter *itr = mnt_new_iter(MNT_ITER_BACKWARD);
             struct libmnt_fs *fs;
+#if HAVE_STATX_MNT_ID_UNIQUE && HAVE_STATMOUNT
+            // Read after the table. A mount missing from it was unmounted in between, and keeps the statx() below.
+            const auto mountIds = mountIdsByOldId();
+#endif
 
             while (mnt_table_next_fs(table, itr, &fs) == 0) {
                 Ptr mp(new KMountPoint);
@@ -466,7 +523,21 @@ KMountPoint::List KMountPoint::currentMountPoints(DetailsNeededFlags infoNeeded)
                 mask_mnt_id = STATX_MNT_ID_UNIQUE;
 #endif
 
-                if (struct statx buff; statx(AT_FDCWD, target, AT_STATX_DONT_SYNC | AT_NO_AUTOMOUNT, STATX_INO | mask_mnt_id, &buff) == 0) {
+                bool needsStatx = true;
+#if HAVE_STATX_MNT_ID_UNIQUE && HAVE_STATMOUNT
+                // An /etc/mtab file has no mount ids.
+                if (mountIds && mnt_fs_get_id(fs) > 0) {
+                    if (const auto it = mountIds->constFind(mnt_fs_get_id(fs)); it != mountIds->cend()) {
+                        mp->d->m_mountId = it->uniqueId;
+                        mp->d->m_deviceId = it->deviceId;
+                        // A btrfs subvolume reports its own device, not the one of the superblock. btrfs is local,
+                        // so its statx() cannot block on a server.
+                        needsStatx = it->isBtrfs;
+                    }
+                }
+#endif
+
+                if (struct statx buff; needsStatx && statx(AT_FDCWD, target, AT_STATX_DONT_SYNC | AT_NO_AUTOMOUNT, STATX_INO | mask_mnt_id, &buff) == 0) {
                     mp->d->m_deviceId = makedev(buff.stx_dev_major, buff.stx_dev_minor);
 #if HAVE_STATX_MNT_ID_UNIQUE
                     if (buff.stx_mask & mask_mnt_id) {

@@ -9,14 +9,20 @@
 #include "kmountpoint.h"
 #include <QDebug>
 #include <QFile>
+#include <QSet>
 #include <QTemporaryDir>
 #include <QTest>
 #include <limits>
 #include <qplatformdefs.h>
 
 #ifdef Q_OS_LINUX
+#include <cerrno>
+#include <cstring>
+#include <fcntl.h>
 #include <linux/fs.h>
 #include <sys/ioctl.h>
+#include <sys/stat.h>
+#include <sys/sysmacros.h>
 #endif
 
 QTEST_MAIN(KMountPointTest)
@@ -271,6 +277,39 @@ void KMountPointTest::testMountPointForUniqueIdMatchesTable()
     if (compared == 0) {
         QSKIP("No unique mount id available on this kernel");
     }
+}
+
+// currentMountPoints() takes the mount ids and devices from the kernel mount tree, not from a statx() of each
+// mount point, so the two have to agree on every mount point that no other mount covers.
+void KMountPointTest::testCurrentMountPointsMatchStatx()
+{
+#if !defined(Q_OS_LINUX) || !defined(STATX_MNT_ID_UNIQUE)
+    QSKIP("Unique mount ids come from Linux statx()");
+#else
+    // The table lists the later mounts first, so the first entry for a mount point is the one on top.
+    QSet<QString> seen;
+    int compared = 0;
+    for (const KMountPoint::Ptr &mp : KMountPoint::currentMountPoints()) {
+        if (mp->mountId() == 0 || mp->probablySlow() || seen.contains(mp->mountPoint())) {
+            continue;
+        }
+        seen.insert(mp->mountPoint());
+        struct statx buff;
+        // A mount point that this user cannot reach, such as one below another user's runtime folder, is left out.
+        if (statx(AT_FDCWD, QFile::encodeName(mp->mountPoint()).constData(), AT_STATX_DONT_SYNC | AT_NO_AUTOMOUNT, STATX_INO | STATX_MNT_ID_UNIQUE, &buff)
+            != 0) {
+            QVERIFY2(errno == EACCES || errno == EPERM, qPrintable(mp->mountPoint() + QLatin1String(": ") + QString::fromLocal8Bit(strerror(errno))));
+            continue;
+        }
+        QVERIFY(buff.stx_mask & STATX_MNT_ID_UNIQUE);
+        QCOMPARE(mp->mountId(), quint64(buff.stx_mnt_id));
+        QCOMPARE(mp->deviceId(), makedev(buff.stx_dev_major, buff.stx_dev_minor));
+        ++compared;
+    }
+    if (compared == 0) {
+        QSKIP("No unique mount id available on this kernel");
+    }
+#endif
 }
 
 // The list of filesystems that can share the blocks of a file with a copy of it is written out by
