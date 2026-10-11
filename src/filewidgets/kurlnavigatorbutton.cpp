@@ -360,6 +360,13 @@ void KUrlNavigatorButton::dragLeaveEvent(QDragLeaveEvent *event)
 {
     KUrlNavigatorButtonBase::dragLeaveEvent(event);
 
+    if (m_openSubDirsTimer->isActive()) {
+        cancelSubDirsRequest();
+    }
+    if (m_subDirsMenu && !m_subDirsMenu->geometry().contains(QCursor::pos())) {
+        m_subDirsMenu->close();
+    }
+
     m_hoverOverArrow = false;
     setDisplayHintEnabled(DraggedHint, false);
     update();

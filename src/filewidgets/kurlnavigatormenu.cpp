@@ -40,6 +40,22 @@ void KUrlNavigatorMenu::dragMoveEvent(QDragMoveEvent *event)
     mouseMoveEvent(&mouseEvent);
 }
 
+void KUrlNavigatorMenu::dragLeaveEvent(QDragLeaveEvent *event)
+{
+    QMenu::dragLeaveEvent(event);
+
+    const QPoint cursorPos = QCursor::pos();
+    if (geometry().contains(cursorPos)) {
+        return;
+    }
+    const QAction *act = activeAction();
+    if (act && act->menu() && act->menu()->isVisible() && act->menu()->geometry().contains(cursorPos)) {
+        return;
+    }
+
+    close();
+}
+
 void KUrlNavigatorMenu::dropEvent(QDropEvent *event)
 {
     QAction *action = actionAt(event->position().toPoint());
