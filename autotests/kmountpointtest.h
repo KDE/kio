@@ -19,6 +19,7 @@ private Q_SLOTS:
     void testCurrentMountPointOptions();
     void testPossibleMountPoints();
     void testCachedMountPointLookup();
+    void testMountPointForUniqueIdMatchesTable();
     void testFileCloningFlagMatchesTheKernel();
 
 private:

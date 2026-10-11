@@ -247,6 +247,32 @@ void KMountPointTest::testCachedMountPointLookup()
     QVERIFY(!KMountPoint::currentMountPointForUniqueId(std::numeric_limits<quint64>::max()));
 }
 
+// currentMountPointForUniqueId() reads a mount with statmount() where the kernel has it, and
+// currentMountPoints() reads the table with libmount, so each mount has to come out the same from both.
+void KMountPointTest::testMountPointForUniqueIdMatchesTable()
+{
+    const KMountPoint::List mountPoints = KMountPoint::currentMountPoints();
+    int compared = 0;
+    for (const KMountPoint::Ptr &fromTable : mountPoints) {
+        if (fromTable->mountId() == 0) {
+            continue;
+        }
+        const KMountPoint::Ptr byId = KMountPoint::currentMountPointForUniqueId(fromTable->mountId());
+        QVERIFY2(byId, qPrintable(fromTable->mountPoint()));
+        QCOMPARE(byId->mountPoint(), fromTable->mountPoint());
+        QCOMPARE(byId->mountType(), fromTable->mountType());
+        QCOMPARE(byId->mountedFrom(), fromTable->mountedFrom());
+        QCOMPARE(byId->deviceId(), fromTable->deviceId());
+        QCOMPARE(byId->mountId(), fromTable->mountId());
+        QCOMPARE(byId->probablySlow(), fromTable->probablySlow());
+        QCOMPARE(byId->isPseudoFs(), fromTable->isPseudoFs());
+        ++compared;
+    }
+    if (compared == 0) {
+        QSKIP("No unique mount id available on this kernel");
+    }
+}
+
 // The list of filesystems that can share the blocks of a file with a copy of it is written out by
 // hand, so it is checked against the filesystem the test itself is running on: whatever the kernel
 // agrees to clone has to be a filesystem the list names.

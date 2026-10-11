@@ -11,3 +11,4 @@
 
 #cmakedefine01 HAVE_STATX_MNT_ID
 #cmakedefine01 HAVE_STATX_MNT_ID_UNIQUE
+#cmakedefine01 HAVE_STATMOUNT
