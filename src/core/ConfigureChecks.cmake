@@ -73,11 +73,26 @@ if (LIBC_IS_GLIBC)
             int res = statx(AT_FDCWD, \".\", AT_NO_AUTOMOUNT, STATX_MNT_ID_UNIQUE, &st);
             st.stx_mnt_id = 1;
         }"  HAVE_STATX_MNT_ID_UNIQUE)
+    check_cxx_source_compiles(
+        "#include <sys/mount.h>
+        #include <linux/mount.h>
+        #include <sys/syscall.h>
+        #include <unistd.h>
+
+        int main()
+        {
+            struct mnt_id_req request = {};
+            request.size = MNT_ID_REQ_SIZE_VER0;
+            request.param = STATMOUNT_SB_SOURCE | STATMOUNT_FS_SUBTYPE | STATMOUNT_SUPPORTED_MASK;
+            char buffer[1024];
+            return syscall(SYS_statmount, &request, buffer, sizeof(buffer), 0);
+        }"  HAVE_STATMOUNT)
 
 else()
     set(HAVE_STATX 0)
     set(HAVE_STATX_MNT_ID 0)
     set(HAVE_STATX_SUBVOL 0)
     set(HAVE_STATX_MNT_ID_UNIQUE 0)
+    set(HAVE_STATMOUNT 0)
 endif()
 
