@@ -14,6 +14,7 @@
 #include <config-kmountpoint.h>
 #include <kioglobal_p.h> // Defines QT_LSTAT on windows to kio_windows_lstat
 
+#include <QAtomicInt>
 #include <QCache>
 #include <QDebug>
 #include <QDir>
@@ -57,6 +58,12 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 #if HAVE_STATX_MNT_ID_UNIQUE
 #include <fcntl.h>
 #include <sys/stat.h>
+#endif
+#if HAVE_STATMOUNT
+#include <linux/magic.h>
+#include <linux/mount.h>
+#include <sys/syscall.h>
+#include <unistd.h>
 #endif
 #endif
 
@@ -161,6 +168,9 @@ public:
     void resolveGvfsMountPoints(KMountPoint::List &result);
     void finalizePossibleMountPoint(KMountPoint::DetailsNeededFlags infoNeeded);
     void setAdditionalDetails(KMountPoint::DetailsNeededFlags infoNeeded);
+#if HAVE_LIB_MOUNT && HAVE_STATX_MNT_ID_UNIQUE && HAVE_STATMOUNT
+    static KMountPoint::Ptr statMount(quint64 uniqueMountId, bool *supported);
+#endif
 
     QString m_mountedFrom;
     QString m_device; // Only available when the NeedRealDeviceName flag was set.
@@ -615,19 +625,87 @@ KMountPoint::Ptr KMountPoint::List::findByMountId(quint64 mountId) const
     return Ptr();
 }
 
+#if HAVE_LIB_MOUNT && HAVE_STATX_MNT_ID_UNIQUE && HAVE_STATMOUNT
+// statmount() reads the kernel mount tree. Unlike currentMountPoints(), which statx()es every mount point,
+// it walks no path and calls into no filesystem, so a network server that does not answer cannot block it.
+// *supported is false when this kernel cannot answer, and the caller has to re-read the mount table.
+// libmount has mnt_fs_fetch_statmount() since 2.41, but before 2.43 it leaves the FUSE subtype out of the
+// type, so an sshfs mount would read "fuse" and not count as a network filesystem.
+KMountPoint::Ptr KMountPointPrivate::statMount(quint64 uniqueMountId, bool *supported)
+{
+    // Set once the kernel has shown that it cannot answer, which stays so while the process runs.
+    static QAtomicInt kernelCannotAnswer;
+    if (kernelCannotAnswer.loadRelaxed()) {
+        *supported = false;
+        return {};
+    }
+    constexpr quint64 fields = STATMOUNT_SB_BASIC | STATMOUNT_MNT_POINT | STATMOUNT_FS_TYPE | STATMOUNT_FS_SUBTYPE | STATMOUNT_SB_SOURCE;
+    struct mnt_id_req request = {};
+    request.size = MNT_ID_REQ_SIZE_VER0;
+    request.mnt_id = uniqueMountId;
+    request.param = fields | STATMOUNT_SUPPORTED_MASK;
+    QByteArray buffer(4096, Qt::Uninitialized);
+    while (::syscall(SYS_statmount, &request, buffer.data(), buffer.size(), 0) < 0) {
+        if (errno == EOVERFLOW) {
+            buffer.resize(buffer.size() * 2);
+        } else if (errno != EINTR) {
+            // ENOENT: no current mount has this id. ENOSYS, EPERM from a seccomp filter and EINVAL from a
+            // kernel that does not know a field of the request do not change while the process runs.
+            if (errno == ENOSYS || errno == EPERM || errno == EINVAL) {
+                kernelCannotAnswer.storeRelaxed(1);
+            }
+            *supported = errno == ENOENT;
+            return {};
+        }
+    }
+    // A field that is empty for this mount, such as the subtype of a non-FUSE mount, is left out of mask,
+    // and a kernel ignores a field it does not know, so only supported_mask says which fields it can give.
+    const auto *sm = reinterpret_cast<const struct statmount *>(buffer.constData());
+    if (!(sm->mask & STATMOUNT_SUPPORTED_MASK) || (sm->supported_mask & fields) != fields) {
+        kernelCannotAnswer.storeRelaxed(1);
+        *supported = false;
+        return {};
+    }
+
+    KMountPoint::Ptr mp(new KMountPoint);
+    mp->d->m_mountId = uniqueMountId;
+    mp->d->m_mountPoint = QFile::decodeName(sm->str + sm->mnt_point);
+    mp->d->m_mountType = QFile::decodeName(sm->str + sm->fs_type);
+    if (sm->mask & STATMOUNT_FS_SUBTYPE) {
+        mp->d->m_mountType += QLatin1Char('.') + QFile::decodeName(sm->str + sm->fs_subtype);
+    }
+    if (sm->mask & STATMOUNT_SB_SOURCE) {
+        mp->d->m_mountedFrom = QFile::decodeName(sm->str + sm->sb_source);
+    }
+    const QByteArray type = QFile::encodeName(mp->d->m_mountType);
+    mp->d->m_isNetFs = mnt_fstype_is_netfs(type.constData()) == 1;
+    mp->d->m_isPseudoFs = mnt_fstype_is_pseudofs(type.constData()) == 1 || mp->d->m_mountType == "fuse.kio-fuse"_L1;
+    mp->d->m_deviceId = makedev(sm->sb_dev_major, sm->sb_dev_minor);
+    // A btrfs subvolume reports its own device, not the one of the superblock. btrfs is local, so the
+    // statx() that currentMountPoints() does cannot block on a server.
+    if (sm->sb_magic == BTRFS_SUPER_MAGIC) {
+        if (struct statx buff; statx(AT_FDCWD, sm->str + sm->mnt_point, AT_STATX_DONT_SYNC | AT_NO_AUTOMOUNT, STATX_INO, &buff) == 0) {
+            mp->d->m_deviceId = makedev(buff.stx_dev_major, buff.stx_dev_minor);
+        }
+    }
+    *supported = true;
+    return mp;
+}
+#endif
+
 namespace
 {
 // Small process-wide cache of unique-mount-id -> mount point. A STATX_MNT_ID_UNIQUE
 // id is never reused while the system is running and always denotes the same mount, so
 // a cached entry never points at a different mount; a miss means a mount we have not seen
-// yet and the table is re-read once. QCache bounds the size and drops the least recently
+// yet, read with statmount(), or from a re-read of the table where statmount() is unavailable. QCache bounds the size and drops the least recently
 // used entries. The cache only ever holds unique ids, so on a kernel without
 // STATX_MNT_ID_UNIQUE it stays empty and every lookup falls through to a reparse.
 //
 // A mount can, however, keep its unique id while its mountPoint()/mountOptions() change
 // under it ("mount --move", "mount -o remount"). To avoid serving a stale snapshot, a
 // libmount monitor watches the kernel mount table and the entries still in the cache are
-// refreshed from a single re-read whenever anything has changed since the last lookup.
+// refreshed whenever anything has changed since the last lookup.
 struct MountIdCache {
     QMutex mutex;
     QCache<quint64, KMountPoint::Ptr> byUniqueId;
@@ -685,6 +763,23 @@ struct MountIdCache {
         if (cachedIds.isEmpty()) {
             return;
         }
+#if HAVE_STATMOUNT
+        bool supported = true;
+        for (const quint64 id : cachedIds) {
+            const KMountPoint::Ptr fresh = KMountPointPrivate::statMount(id, &supported);
+            if (!supported) {
+                break;
+            }
+            if (fresh) {
+                byUniqueId.insert(id, new KMountPoint::Ptr(fresh));
+            } else {
+                byUniqueId.remove(id);
+            }
+        }
+        if (supported) {
+            return;
+        }
+#endif
         const KMountPoint::List mounts = KMountPoint::currentMountPoints();
         for (const quint64 id : cachedIds) {
             if (const KMountPoint::Ptr fresh = mounts.findByMountId(id)) {
@@ -717,9 +812,16 @@ KMountPoint::Ptr KMountPoint::currentMountPointForUniqueId(quint64 uniqueMountId
             return *hit;
         }
     }
-    // Miss: re-read the mount table once (done outside the lock) and look the id up.
-    const List mounts = currentMountPoints();
-    const Ptr mp = mounts.findByMountId(uniqueMountId);
+    // Miss: ask the kernel for this one mount, or re-read the mount table (done outside the lock).
+#if HAVE_LIB_MOUNT && HAVE_STATMOUNT
+    bool supported = true;
+    Ptr mp = KMountPointPrivate::statMount(uniqueMountId, &supported);
+    if (!supported) {
+        mp = currentMountPoints().findByMountId(uniqueMountId);
+    }
+#else
+    const Ptr mp = currentMountPoints().findByMountId(uniqueMountId);
+#endif
     if (mp) {
         // m_mountId only ever holds a unique id (see currentMountPoints()), so a match
         // here will keep denoting this same mount and is safe to cache.
