@@ -335,7 +335,8 @@ static bool createUDSEntry(const QString &filename,
 #endif
 
 #if HAVE_STATX_MNT_ID_UNIQUE
-    if (details & KIO::StatMountId) {
+    // A kernel older than STATX_MNT_ID_UNIQUE puts the old mount id, which can be reused, in stx_mnt_id.
+    if ((details & KIO::StatMountId) && (buff.stx_mask & STATX_MNT_ID_UNIQUE)) {
         entry.fastInsert(KIO::UDSEntry::UDS_MOUNT_ID, stat_mnt_id(buff));
     }
 #endif
