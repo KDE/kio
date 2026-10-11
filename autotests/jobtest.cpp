@@ -3557,6 +3557,43 @@ void JobTest::moveAndOverwrite()
 #endif
 }
 
+void JobTest::copyFileOntoTakenName()
+{
+#ifndef Q_OS_WIN
+    // Without Overwrite, a copy onto a name that is taken fails with an error that says what holds the name,
+    // and leaves it as it was.
+    const QString src = homeTmpDir() + "takenNameSource";
+    createTestFile(src);
+    const QString existingFile = homeTmpDir() + "takenNameFile";
+    createTestFile(existingFile, false, QByteArrayLiteral("already here"));
+    const QString existingDir = homeTmpDir() + "takenNameDir";
+    QVERIFY(QDir().mkpath(existingDir));
+    const QString existingLink = homeTmpDir() + "takenNameLink";
+    const QString linkTarget = homeTmpDir() + "takenNameLinkTarget";
+    QFile::remove(existingLink);
+    QFile::remove(linkTarget);
+    createTestSymlink(existingLink, QFile::encodeName(linkTarget));
+
+    const auto copyError = [&src](const QString &dest) {
+        KIO::Job *job = KIO::file_copy(QUrl::fromLocalFile(src), QUrl::fromLocalFile(dest), -1, KIO::HideProgressInfo);
+        job->setUiDelegate(nullptr);
+        job->exec();
+        return job->error();
+    };
+    QCOMPARE(copyError(existingFile), int(KIO::ERR_FILE_ALREADY_EXIST));
+    QCOMPARE(copyError(existingDir), int(KIO::ERR_DIR_ALREADY_EXIST));
+    QCOMPARE(copyError(src), int(KIO::ERR_IDENTICAL_FILES));
+    QCOMPARE(copyError(existingLink), int(KIO::ERR_FILE_ALREADY_EXIST));
+
+    QVERIFY(QFileInfo(existingLink).isSymLink());
+    QVERIFY(!QFile::exists(linkTarget)); // nothing was written through the symlink
+    QFile existing(existingFile);
+    QVERIFY(existing.open(QIODevice::ReadOnly));
+    QCOMPARE(existing.readAll(), QByteArrayLiteral("already here"));
+    QVERIFY(!QFile::exists(existingFile + ".part"));
+#endif
+}
+
 void JobTest::moveOverSymlinkToSelf() // #169547
 {
 #ifndef Q_OS_WIN

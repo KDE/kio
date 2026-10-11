@@ -654,17 +654,27 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
     // Look at the destination without following a final symlink. The mount it is on is asked for at the
     // same time, so that the filesystem-type probe below costs nothing of its own.
     StatStruct buffDest;
-    const bool dest_exists = (LSTATAT(dfd, destName.constData(), &buffDest, KIO::StatBasic | KIO::StatInode | KIO::StatMountId) == 0);
-    ExistingDest existing = ExistingDest::Refuse; // nothing is there: the create has the name to itself
-    if (dest_exists) {
+    const auto lookAtDest = [&] {
+        return LSTATAT(dfd, destName.constData(), &buffDest, KIO::StatBasic | KIO::StatInode | KIO::StatMountId) == 0;
+    };
+    // The error for a destination that is there and is not replaced.
+    const auto existingDestError = [&] {
         if (stat_ino(buffDest) == buffSrc.st_ino && stat_dev(buffDest) == buffSrc.st_dev) {
-            return WorkerResult::fail(KIO::ERR_IDENTICAL_FILES, dest);
+            return KIO::ERR_IDENTICAL_FILES;
         }
         if (S_ISDIR(stat_mode(buffDest))) {
-            return WorkerResult::fail(KIO::ERR_DIR_ALREADY_EXIST, dest);
+            return KIO::ERR_DIR_ALREADY_EXIST;
         }
-        if (!(_flags & KIO::Overwrite)) {
-            return WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, dest);
+        return KIO::ERR_FILE_ALREADY_EXIST;
+    };
+
+    // Without Overwrite, the create refuses a name that is taken (O_EXCL), and the destination is
+    // looked at only then. Each look is a round trip on a network filesystem.
+    const bool overwrite = _flags & KIO::Overwrite;
+    ExistingDest existing = ExistingDest::Refuse; // nothing is there: the create has the name to itself
+    if (overwrite && lookAtDest()) {
+        if (const auto error = existingDestError(); error != KIO::ERR_FILE_ALREADY_EXIST) {
+            return WorkerResult::fail(error, dest);
         }
         if (S_ISLNK(stat_mode(buffDest))) {
             // Overwriting a symlink: unlink it so we never write through it to its
@@ -728,6 +738,9 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
     case CopyOutcome::Copied:
         break;
     case CopyOutcome::Conflict:
+        if (!overwrite && lookAtDest()) {
+            return WorkerResult::fail(existingDestError(), dest);
+        }
         // The name was free when the destination was looked at above, and is taken now.
         return WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, dest);
     case CopyOutcome::Failed:

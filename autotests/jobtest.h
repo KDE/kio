@@ -139,6 +139,7 @@ private Q_SLOTS:
     void overwriteOlderFiles_data();
     void moveAndOverwrite();
     void moveOverSymlinkToSelf();
+    void copyFileOntoTakenName();
     void createSymlink();
     void createSymlinkTargetDirDoesntExist();
     void createSymlinkAsShouldSucceed();
