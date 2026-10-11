@@ -1019,16 +1019,16 @@ bool KFileItemPrivate::isSlow() const
             // Ask the mount this item lives on. probablySlow() is backed by libmount's own
             // network-filesystem detection plus autofs/subfs/kio-fuse, so it recognizes remote
             // filesystems (nfs, cifs, sshfs, ftpfs, kio-fuse, ...) even when they are mounted
-            // locally. Prefer the unique mount id from the stat when present (a cache lookup),
-            // otherwise resolve by path.
-            KMountPoint::Ptr mountPoint;
+            // locally. Resolving the path stats it, which can block on a remote filesystem, so the
+            // unique mount id from the listing is preferred. An id that no current mount has belongs to a
+            // mount that went away or was mounted again under a new id, so the item counts as slow.
             if (const auto mountId = m_entry.numberValue(KIO::UDSEntry::UDS_MOUNT_ID, 0)) {
-                mountPoint = KMountPoint::currentMountPointForUniqueId(mountId);
+                const KMountPoint::Ptr mountPoint = KMountPoint::currentMountPointForUniqueId(mountId);
+                m_slow = (!mountPoint || mountPoint->probablySlow()) ? Slow : Fast;
+            } else {
+                const KMountPoint::Ptr mountPoint = KMountPoint::currentMountPointForPath(path);
+                m_slow = (mountPoint && mountPoint->probablySlow()) ? Slow : Fast;
             }
-            if (!mountPoint) {
-                mountPoint = KMountPoint::currentMountPointForPath(path);
-            }
-            m_slow = (mountPoint && mountPoint->probablySlow()) ? Slow : Fast;
         }
     }
     return m_slow == Slow;

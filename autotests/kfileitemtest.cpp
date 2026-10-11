@@ -1167,4 +1167,22 @@ void KFileItemTest::testNonWritableDirectory()
 
 #endif // Q_OS_WIN
 
+// An item whose mount id no current mount has, such as one listed before its mount was mounted again,
+// counts as slow without a stat of its path.
+void KFileItemTest::testItemOnUnknownMountIsSlow()
+{
+    QTemporaryDir tempDir;
+    const QString path = tempDir.filePath(QStringLiteral("file"));
+    KIO::UDSEntry entry;
+    entry.fastInsert(KIO::UDSEntry::UDS_NAME, QStringLiteral("file"));
+    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, S_IFREG);
+    entry.fastInsert(KIO::UDSEntry::UDS_LOCAL_PATH, path);
+    KIO::UDSEntry entryOnUnknownMount = entry;
+    // Unique mount ids start above 2^31, so 1 names no mount.
+    entryOnUnknownMount.fastInsert(KIO::UDSEntry::UDS_MOUNT_ID, 1);
+
+    QVERIFY(KFileItem(entryOnUnknownMount, QUrl::fromLocalFile(path)).isSlow());
+    QVERIFY(!KFileItem(entry, QUrl::fromLocalFile(path)).isSlow());
+}
+
 #include "moc_kfileitemtest.cpp"

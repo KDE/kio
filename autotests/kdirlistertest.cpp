@@ -18,6 +18,7 @@
 #include <kio/jobuidelegateextension.h>
 #include <kio/simplejob.h>
 #include <kio/udsentry.h>
+#include <kmountpoint.h>
 #include <kprotocolinfo.h>
 
 #ifdef WITH_QTDBUS
@@ -225,6 +226,26 @@ void KDirListerTest::testOpenUrl()
     QCOMPARE(QString(rootByUrl.url().toLocalFile() + '/'), path);
 
     m_dirLister.clearSpies(); // for the tests that call testOpenUrl for setup
+}
+
+void KDirListerTest::testListedItemsCarryMountId()
+{
+    const QString path = tempPath();
+    const KMountPoint::Ptr mount = KMountPoint::currentMountPointForPath(path);
+    QVERIFY(mount);
+    if (mount->mountId() == 0) {
+        QSKIP("No unique mount id available on this kernel");
+    }
+
+    KCoreDirLister lister;
+    lister.openUrl(QUrl::fromLocalFile(path));
+    QTRY_VERIFY(lister.isFinished());
+    const KFileItemList items = lister.items();
+    QCOMPARE(items.count(), fileCount());
+    for (const KFileItem &item : items) {
+        QCOMPARE(item.entry().numberValue(KIO::UDSEntry::UDS_MOUNT_ID), qint64(mount->mountId()));
+        QVERIFY(!item.isSlow());
+    }
 }
 
 // This test assumes testOpenUrl was run before. So m_dirLister is holding the items already.
