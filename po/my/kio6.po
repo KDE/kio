@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-10 00:42+0000\n"
+"POT-Creation-Date: 2026-10-11 00:42+0000\n"
 "PO-Revision-Date: 2025-09-10 15:28+0630\n"
 "Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -3417,12 +3417,12 @@ msgstr ""
 "(period ကို အလိုအလျောက်ဖယ်ရှားသွားမည်).</li></ol>မသေချာလျှင်တော့ သင်၏ဖိုင်များကို ပိုမိုလွယ်ကူစွာ "
 "စီမံနိုင်ရန် ဤရွေးချယ်ချက်ကို ဖွင့်ထားပေးပါ။"
 
-#: filewidgets/kfilewidget.cpp:2964
+#: filewidgets/kfilewidget.cpp:2967
 #, kde-format
 msgid "&File type:"
 msgstr "&Fဖိုင်အမျိုးအစား -"
 
-#: filewidgets/kfilewidget.cpp:2968
+#: filewidgets/kfilewidget.cpp:2971
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3431,7 +3431,7 @@ msgstr ""
 "<qt>၎င်းသည် ဖိုင်အမျိုးအစားရွေးချယ်ကိရိယာဖြစ်သည်။ ၎င်းကို ဖိုင်သိမ်းဆည်းရမည့်ပုံစံ ရွေးချယ်ရာတွင် အသုံးပြုသည်။</"
 "qt>"
 
-#: filewidgets/kfilewidget.cpp:2970
+#: filewidgets/kfilewidget.cpp:2973
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
@@ -5131,43 +5131,43 @@ msgstr "စစ်စတမ်ပြင်ဆင်ချက် အဆင့်�
 msgid "Updating system configuration…"
 msgstr "စနစ်ပြင်ဆင်ချက် အဆင့်မြင့်တင်နေသည်။"
 
-#: widgets/kdirmodel.cpp:1269
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "အမည်"
 
-#: widgets/kdirmodel.cpp:1271
+#: widgets/kdirmodel.cpp:1272
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "အရွယ်အစား"
 
-#: widgets/kdirmodel.cpp:1273
+#: widgets/kdirmodel.cpp:1274
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "ရက်စွဲ"
 
-#: widgets/kdirmodel.cpp:1275
+#: widgets/kdirmodel.cpp:1276
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "ခွင့်ပြုချက်များ"
 
-#: widgets/kdirmodel.cpp:1277
+#: widgets/kdirmodel.cpp:1278
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "ပိုင်ရှင်"
 
-#: widgets/kdirmodel.cpp:1279
+#: widgets/kdirmodel.cpp:1280
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "အုပ်စု"
 
-#: widgets/kdirmodel.cpp:1281
+#: widgets/kdirmodel.cpp:1282
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

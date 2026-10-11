@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-10 00:42+0000\n"
+"POT-Creation-Date: 2026-10-11 00:42+0000\n"
 "PO-Revision-Date: 2026-07-03 22:06+0100\n"
 "Last-Translator: deck <altronic25@protonmail.com>\n"
 "Language-Team: English <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -3589,12 +3589,12 @@ msgstr ""
 "huathoibríoch).</li></ol>Mura bhfuil tú cinnte, coinnigh an rogha seo "
 "cumasaithe mar go ndéanann sé do chuid comhad níos inbhainistithe."
 
-#: filewidgets/kfilewidget.cpp:2964
+#: filewidgets/kfilewidget.cpp:2967
 #, kde-format
 msgid "&File type:"
 msgstr "&Cineál comhaid:"
 
-#: filewidgets/kfilewidget.cpp:2968
+#: filewidgets/kfilewidget.cpp:2971
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3603,7 +3603,7 @@ msgstr ""
 "<qt>Seo an roghnóir cineál comhaid. Úsáidtear é chun an fhormáid a roghnú "
 "ina sábhálfar an comhad.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2970
+#: filewidgets/kfilewidget.cpp:2973
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
@@ -5430,43 +5430,43 @@ msgstr "Cumraíocht an chórais á nuashonrú"
 msgid "Updating system configuration…"
 msgstr "Cumraíocht an chórais á nuashonrú…"
 
-#: widgets/kdirmodel.cpp:1269
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Ainm"
 
-#: widgets/kdirmodel.cpp:1271
+#: widgets/kdirmodel.cpp:1272
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Méid"
 
-#: widgets/kdirmodel.cpp:1273
+#: widgets/kdirmodel.cpp:1274
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Dáta"
 
-#: widgets/kdirmodel.cpp:1275
+#: widgets/kdirmodel.cpp:1276
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Ceadanna"
 
-#: widgets/kdirmodel.cpp:1277
+#: widgets/kdirmodel.cpp:1278
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Úinéir"
 
-#: widgets/kdirmodel.cpp:1279
+#: widgets/kdirmodel.cpp:1280
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Grúpa"
 
-#: widgets/kdirmodel.cpp:1281
+#: widgets/kdirmodel.cpp:1282
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

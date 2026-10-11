@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-10 00:42+0000\n"
+"POT-Creation-Date: 2026-10-11 00:42+0000\n"
 "PO-Revision-Date: 2024-09-19 21:59+0300\n"
 "Last-Translator: Antonis Geralis <capoiosct@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -3596,12 +3596,12 @@ msgstr ""
 "αφαιρεθεί αυτόματα).</li></ol>Αν δεν είστε σίγουροι, διατηρήστε αυτή την "
 "επιλογή ενεργοποιημένη καθώς καθιστά τα αρχεία σας πιο εύκολα διαχειρίσιμα."
 
-#: filewidgets/kfilewidget.cpp:2964
+#: filewidgets/kfilewidget.cpp:2967
 #, kde-format
 msgid "&File type:"
 msgstr "Τύπος αρχείου:"
 
-#: filewidgets/kfilewidget.cpp:2968
+#: filewidgets/kfilewidget.cpp:2971
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3610,7 +3610,7 @@ msgstr ""
 "<qt>Αυτός είναι ο επιλογέας τύπου αρχείου. Χρησιμοποιείται για την επιλογή "
 "της μορφής με την οποία θα αποθηκευτεί το αρχείο.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2970
+#: filewidgets/kfilewidget.cpp:2973
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the file type selector. It is used to select the format that "
@@ -5388,43 +5388,43 @@ msgstr "Ενημέρωση ρύθμισης συστήματος"
 msgid "Updating system configuration…"
 msgstr "Ενημέρωση ρυθμίσεων συστήματος…"
 
-#: widgets/kdirmodel.cpp:1269
+#: widgets/kdirmodel.cpp:1270
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Όνομα"
 
-#: widgets/kdirmodel.cpp:1271
+#: widgets/kdirmodel.cpp:1272
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Μέγεθος"
 
-#: widgets/kdirmodel.cpp:1273
+#: widgets/kdirmodel.cpp:1274
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: widgets/kdirmodel.cpp:1275
+#: widgets/kdirmodel.cpp:1276
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Άδειες"
 
-#: widgets/kdirmodel.cpp:1277
+#: widgets/kdirmodel.cpp:1278
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Ιδιοκτήτης"
 
-#: widgets/kdirmodel.cpp:1279
+#: widgets/kdirmodel.cpp:1280
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Ομάδα"
 
-#: widgets/kdirmodel.cpp:1281
+#: widgets/kdirmodel.cpp:1282
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

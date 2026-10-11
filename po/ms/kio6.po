@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-10 00:42+0000\n"
+"POT-Creation-Date: 2026-10-11 00:42+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -3548,19 +3548,19 @@ msgstr ""
 "akan dibuang secara automatik).</li></ol>Jika tak pasti, kekalkan opsyen ini "
 "diaktifkan kerana ia menjadikan fail anda lebih mudah diurus."
 
-#: filewidgets/kfilewidget.cpp:2964
+#: filewidgets/kfilewidget.cpp:2967
 #, fuzzy, kde-format
 msgid "&File type:"
 msgstr "Tapi&s:"
 
-#: filewidgets/kfilewidget.cpp:2968
+#: filewidgets/kfilewidget.cpp:2971
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
 "file will be saved as.</qt>"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:2970
+#: filewidgets/kfilewidget.cpp:2973
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
@@ -5239,43 +5239,43 @@ msgstr "Mengemaskini Konfigurasi Sistem"
 msgid "Updating system configuration…"
 msgstr "Mengemaskini Konfigurasi Sistem."
 
-#: widgets/kdirmodel.cpp:1269
+#: widgets/kdirmodel.cpp:1270
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nama"
 
-#: widgets/kdirmodel.cpp:1271
+#: widgets/kdirmodel.cpp:1272
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Saiz"
 
-#: widgets/kdirmodel.cpp:1273
+#: widgets/kdirmodel.cpp:1274
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Tarikh"
 
-#: widgets/kdirmodel.cpp:1275
+#: widgets/kdirmodel.cpp:1276
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Keizinan"
 
-#: widgets/kdirmodel.cpp:1277
+#: widgets/kdirmodel.cpp:1278
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Pemilik"
 
-#: widgets/kdirmodel.cpp:1279
+#: widgets/kdirmodel.cpp:1280
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Kumpulan"
 
-#: widgets/kdirmodel.cpp:1281
+#: widgets/kdirmodel.cpp:1282
 #, fuzzy, kde-format
 msgctxt "@title:column"
 msgid "Type"
