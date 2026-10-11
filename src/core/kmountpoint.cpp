@@ -62,7 +62,7 @@ static const Qt::CaseSensitivity cs = Qt::CaseSensitive;
 
 static bool isNetfs(const QString &mountType)
 {
-    // List copied from util-linux/libmount/src/utils.c
+    // List copied from util-linux/libmount/src/utils.c mnt_fstype_is_netfs
     static const std::vector<QLatin1StringView> netfsList{
         "cifs"_L1,
         "smb3"_L1,
@@ -72,8 +72,11 @@ static bool isNetfs(const QString &mountType)
         "nfs4"_L1,
         "afs"_L1,
         "ncpfs"_L1,
+        "glusterfs"_L1,
+        "ceph"_L1,
         "fuse.curlftpfs"_L1,
         "fuse.sshfs"_L1,
+        "fuse.ceph"_L1,
         "9p"_L1,
     };
 
@@ -142,6 +145,7 @@ static bool isPseudoFs(const QString &mountType)
         "sysfs"_L1,
         "tmpfs"_L1,
         "tracefs"_L1,
+        "usbfs"_L1,
         "vboxsf"_L1,
         "virtiofs"_L1,
     };
