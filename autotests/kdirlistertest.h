@@ -77,6 +77,7 @@ private Q_SLOTS:
     void testInvalidUrl();
     void testNonListableUrl();
     void testOpenUrl();
+    void testListedItemsCarryMountId();
     void testOpenUrlFromCache();
     void testNewItem();
     void testNewItems();
