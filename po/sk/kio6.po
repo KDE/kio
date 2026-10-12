@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-11 00:42+0000\n"
+"POT-Creation-Date: 2026-10-12 00:45+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -3780,7 +3780,7 @@ msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "Prejsť na ľubovoľné miesto na ceste <filename>%1</filename>"
 
-#: filewidgets/kurlnavigatorbutton.cpp:734
+#: filewidgets/kurlnavigatorbutton.cpp:741
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"

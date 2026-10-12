@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-11 00:42+0000\n"
+"POT-Creation-Date: 2026-10-12 00:45+0000\n"
 "PO-Revision-Date: 2026-07-03 22:06+0100\n"
 "Last-Translator: deck <altronic25@protonmail.com>\n"
 "Language-Team: English <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -3853,7 +3853,7 @@ msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr "Téigh go dtí aon áit ar an gcosán <filename>%1</filename>"
 
-#: filewidgets/kurlnavigatorbutton.cpp:734
+#: filewidgets/kurlnavigatorbutton.cpp:741
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "More"
