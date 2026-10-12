@@ -745,7 +745,7 @@ void FilePreviewJob::slotTimeout()
     emitResult();
 }
 
-std::unique_ptr<SHM> SHM::create(int size)
+std::unique_ptr<SHM> SHM::create(size_t size)
 {
 #if WITH_SHM
     int id = shmget(IPC_PRIVATE, size, IPC_CREAT | 0600);

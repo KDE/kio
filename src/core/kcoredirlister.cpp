@@ -3001,7 +3001,7 @@ QList<KCoreDirLister *> KCoreDirListerCacheDirectoryData::allListers() const
 
 int KCoreDirListerCacheDirectoryData::totaListerCount()
 {
-    return m_listerContainer.size();
+    return static_cast<int>(m_listerContainer.size());
 }
 
 int KCoreDirListerCacheDirectoryData::listerCountByStatus(ListerStatus status)

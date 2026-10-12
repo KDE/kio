@@ -26,8 +26,10 @@
 #include <utime.h>
 #endif
 
+#include <algorithm>
 #include <cctype>
 #include <cerrno>
+#include <climits>
 #include <cstdlib>
 #include <cstring>
 
@@ -141,7 +143,8 @@ static // JPF: in ftp.cc we make it static
 {
     while (len > 0) {
         // JPF: shouldn't there be a KDE_write?
-        ssize_t written = write(fd, buf, len);
+        // write() takes an unsigned int count on Windows.
+        ssize_t written = write(fd, buf, static_cast<unsigned int>(std::min<size_t>(len, INT_MAX)));
         if (written >= 0) {
             buf += written;
             len -= written;

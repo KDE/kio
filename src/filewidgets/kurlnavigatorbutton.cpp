@@ -593,7 +593,7 @@ void KUrlNavigatorButton::replaceButton(KJob *job)
     // Get index of the directory that is shown currently in the button
     const QString currentDir = m_url.fileName();
     int currentIndex = 0;
-    const int subDirsCount = m_subDirs.size();
+    const int subDirsCount = static_cast<int>(m_subDirs.size());
     while (currentIndex < subDirsCount) {
         if (m_subDirs[currentIndex].name == currentDir) {
             break;
@@ -719,7 +719,7 @@ void KUrlNavigatorButton::initMenu(KUrlNavigatorMenu *menu, int startIndex)
     menu->setLayoutDirection(Qt::LeftToRight);
 
     const int maxIndex = startIndex + 30; // Don't show more than 30 items in a menu
-    const int subDirsSize = m_subDirs.size();
+    const int subDirsSize = static_cast<int>(m_subDirs.size());
     const int lastIndex = std::min(subDirsSize - 1, maxIndex);
     for (int i = startIndex; i <= lastIndex; ++i) {
         const auto &[subDirName, subDirDisplayName] = m_subDirs[i];

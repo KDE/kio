@@ -57,7 +57,7 @@ public:
     SHM(int id, uchar *address);
     ~SHM();
 
-    static std::unique_ptr<SHM> create(int size);
+    static std::unique_ptr<SHM> create(size_t size);
 
     Q_DISABLE_COPY(SHM);
 

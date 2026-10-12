@@ -219,7 +219,7 @@ void OpenFileManagerWindowWindowsShellStrategy::start(const QList<QUrl> &urls, c
         items.push_back(item);
     }
 
-    auto result = SHOpenFolderAndSelectItems(dir, items.size(), items.data(), 0);
+    auto result = SHOpenFolderAndSelectItems(dir, static_cast<unsigned int>(items.size()), items.data(), 0);
     if (SUCCEEDED(result)) {
         Q_EMIT finished(KJob::NoError);
     } else {

@@ -294,7 +294,7 @@ public:
     }
     int count() const
     {
-        return storage.size();
+        return static_cast<int>(storage.size());
     }
     QString stringValue(uint udsField) const
     {
@@ -402,7 +402,7 @@ public:
     }
     int count() const
     {
-        return storage.size();
+        return static_cast<int>(storage.size());
     }
     QString stringValue(uint udsField) const
     {
@@ -542,7 +542,7 @@ public:
 
     int count() const
     {
-        return stringStorage.size() + numberStorage.size();
+        return static_cast<int>(stringStorage.size() + numberStorage.size());
     }
 
     QString spaceUsed()
@@ -681,7 +681,7 @@ public:
     }
     int count() const
     {
-        return storage.size();
+        return static_cast<int>(storage.size());
     }
     QString stringValue(uint udsField) const
     {

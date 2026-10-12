@@ -9,8 +9,6 @@
 #ifndef KIO_TRASH_H
 #define KIO_TRASH_H
 
-#define NOMINMAX
-
 #include <kio/workerbase.h>
 
 #include <windows.h> // Must be included before shallapi.h, otherwise it fails to build on windows

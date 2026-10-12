@@ -1160,7 +1160,7 @@ void KFileWidgetPrivate::initZoomWidget()
     m_iconSizeSlider->setMinimumWidth(40);
     m_iconSizeSlider->setOrientation(Qt::Horizontal);
     m_iconSizeSlider->setMinimum(0);
-    m_iconSizeSlider->setMaximum(m_stdIconSizes.size() - 1);
+    m_iconSizeSlider->setMaximum(static_cast<int>(m_stdIconSizes.size()) - 1);
     m_iconSizeSlider->setSingleStep(1);
     m_iconSizeSlider->setPageStep(1);
     m_iconSizeSlider->setTickPosition(QSlider::TicksBelow);

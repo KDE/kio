@@ -290,7 +290,7 @@ KIO::WorkerResult HelpProtocol::get(const QUrl &url)
                     }
 
                     if (mParsed.mid(index, 11 + anchor.length()).toLower() == QStringLiteral("<a name=\"%1\">").arg(anchor)) {
-                        index = mParsed.lastIndexOf(QLatin1String("<FILENAME filename="), index) + strlen("<FILENAME filename=\"");
+                        index = mParsed.lastIndexOf(QLatin1String("<FILENAME filename="), index) + QLatin1String("<FILENAME filename=\"").size();
                         QString filename = mParsed.mid(index, 2000);
                         filename = filename.left(filename.indexOf(QLatin1Char('\"')));
                         QString path = target.path();
