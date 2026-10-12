@@ -633,59 +633,94 @@ WorkerResult FileProtocol::deleteUnder(int dfd, KIO::filesize_t &removed)
         closedir(dir);
     });
 
-    while (struct dirent *entry = readdir(dir)) {
-        if (wasKilled()) {
-            return WorkerResult::pass();
-        }
-        const QByteArrayView name(entry->d_name);
-        if (name == "." || name == "..") {
-            continue;
-        }
-
-        // Reading the directory says what kind of entry it is, so only the size is asked for, and it is
-        // asked of the name in this very directory rather than of a path resolved from the root again.
-        unsigned char type = entry->d_type;
-        KIO::filesize_t size = 0;
-        if (type != DT_DIR) {
-            QT_STATBUF buf;
-            if (FSTATAT(dirfd(dir), entry->d_name, &buf, AT_SYMLINK_NOFOLLOW) == 0) {
-                if (type == DT_UNKNOWN) {
-                    type = S_ISDIR(buf.st_mode) ? DT_DIR : (S_ISLNK(buf.st_mode) ? DT_LNK : DT_REG);
-                }
-                if (type != DT_LNK && type != DT_DIR) {
-                    size = KIO::filesize_t(buf.st_size);
-                }
+    // Read the directory before removing anything from it. Some filesystems, such as some NFS mounts,
+    // skip entries of a directory that changes while it is read, and an entry skipped here would be
+    // left behind. Like rm -r, at most maxEntries are held at a time, so that a huge directory does
+    // not take up a lot of memory.
+    constexpr qsizetype maxEntries = 100000;
+    struct Entry {
+        QByteArray name;
+        unsigned char type = DT_UNKNOWN;
+    };
+    QList<Entry> entries;
+    while (true) {
+        entries.clear();
+        while (entries.size() < maxEntries) {
+            struct dirent *entry = readdir(dir);
+            if (!entry) {
+                break;
+            }
+            const QByteArrayView name(entry->d_name);
+            if (name != "." && name != "..") {
+                entries.append({QByteArray(entry->d_name), entry->d_type});
             }
         }
 
-        if (type == DT_DIR) {
-            const int sub = ::openat(dirfd(dir), entry->d_name, O_DIRECTORY | O_NOFOLLOW | O_CLOEXEC);
-            if (sub < 0) {
-                return WorkerResult::fail(KIO::ERR_CANNOT_ENTER_DIRECTORY, QFile::decodeName(entry->d_name));
-            }
-            auto result = deleteUnder(sub, removed);
-            if (!result.success()) {
-                return result;
-            }
+        for (const Entry &entry : std::as_const(entries)) {
             if (wasKilled()) {
                 return WorkerResult::pass();
             }
-            if (::unlinkat(dirfd(dir), entry->d_name, AT_REMOVEDIR) != 0) {
-                return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, QFile::decodeName(entry->d_name));
+
+            // Reading the directory says what kind of entry it is, so only the size is asked for, and it is
+            // asked of the name in this very directory rather than of a path resolved from the root again.
+            unsigned char type = entry.type;
+            KIO::filesize_t size = 0;
+            if (type != DT_DIR) {
+                QT_STATBUF buf;
+                if (FSTATAT(dirfd(dir), entry.name.constData(), &buf, AT_SYMLINK_NOFOLLOW) == 0) {
+                    if (type == DT_UNKNOWN) {
+                        type = S_ISDIR(buf.st_mode) ? DT_DIR : (S_ISLNK(buf.st_mode) ? DT_LNK : DT_REG);
+                    }
+                    if (type != DT_LNK && type != DT_DIR) {
+                        size = KIO::filesize_t(buf.st_size);
+                    }
+                }
             }
-            continue;
+
+            if (type == DT_DIR) {
+                const int sub = ::openat(dirfd(dir), entry.name.constData(), O_DIRECTORY | O_NOFOLLOW | O_CLOEXEC);
+                if (sub < 0) {
+                    // An entry removed by someone else since the directory was read is already gone, which
+                    // is all that was asked of it.
+                    if (errno == ENOENT) {
+                        continue;
+                    }
+                    return WorkerResult::fail(KIO::ERR_CANNOT_ENTER_DIRECTORY, QFile::decodeName(entry.name));
+                }
+                auto result = deleteUnder(sub, removed);
+                if (!result.success()) {
+                    return result;
+                }
+                if (wasKilled()) {
+                    return WorkerResult::pass();
+                }
+                if (::unlinkat(dirfd(dir), entry.name.constData(), AT_REMOVEDIR) != 0 && errno != ENOENT) {
+                    return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, QFile::decodeName(entry.name));
+                }
+                continue;
+            }
+
+            if (::unlinkat(dirfd(dir), entry.name.constData(), 0) != 0) {
+                if (errno == ENOENT) {
+                    continue;
+                }
+                return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, QFile::decodeName(entry.name));
+            }
+            if (size > 0) {
+                // SlaveBase says this at most ten times a second, holding back the rest.
+                removed += size;
+                processedSize(removed);
+            }
         }
 
-        if (::unlinkat(dirfd(dir), entry->d_name, 0) != 0) {
-            return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, QFile::decodeName(entry->d_name));
+        if (entries.size() < maxEntries) {
+            return WorkerResult::pass();
         }
-        if (size > 0) {
-            // SlaveBase says this at most ten times a second, holding back the rest.
-            removed += size;
-            processedSize(removed);
-        }
+        // Reading stopped at maxEntries, so entries may be left. Reading on from here can skip some of
+        // them for the same reason, so the directory is read again from the start, which rewinddir()
+        // makes show the directory as it is now.
+        rewinddir(dir);
     }
-    return WorkerResult::pass();
 }
 
 WorkerResult FileProtocol::deleteRecursive(const QString &path)

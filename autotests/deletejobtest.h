@@ -19,6 +19,7 @@ private Q_SLOTS:
     void deleteDirectoryTestCase();
     void deletePartialFailureNotifiesRemovals();
     void killedRecursiveDeletionStopsEarly();
+    void deleteDirectoryWithManyEntries();
 
 private:
     void createTestFiles(const QStringList &fileNames, const QString &path, qint64 bytesEach = 0) const;

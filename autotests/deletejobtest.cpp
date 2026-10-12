@@ -280,4 +280,35 @@ void DeleteJobTest::killedRecursiveDeletionStopsEarly()
     QVERIFY2(remaining > 0, qPrintable(QStringLiteral("expected files to remain after cancel, %1 of %2 left").arg(remaining).arg(created)));
 }
 
+void DeleteJobTest::deleteDirectoryWithManyEntries()
+{
+#if defined(Q_OS_WIN)
+    QSKIP("Only kio_file on unix reads a directory in batches");
+#else
+    // kio_file reads at most 100000 entries of a directory before it removes them, then reads the
+    // directory again for the rest. Have more than that, so that there is a rest to read.
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+    const QString root = tempDir.path() + QStringLiteral("/tree");
+    QVERIFY(QDir().mkpath(root));
+
+    constexpr int fileCount = 100001;
+    for (int i = 0; i < fileCount; ++i) {
+        QFile file(root + QStringLiteral("/f%1").arg(i));
+        QVERIFY(file.open(QIODevice::WriteOnly));
+    }
+
+    // As in killedRecursiveDeletionStopsEarly(), rmdir() with the "recurse" metadata sends the
+    // deletion straight to the worker, where KIO::del would enumerate the tree first.
+    KIO::SimpleJob *job = KIO::rmdir(QUrl::fromLocalFile(root));
+    job->setUiDelegate(nullptr);
+    job->addMetaData(QStringLiteral("recurse"), QStringLiteral("true"));
+
+    QSignalSpy spy(job, &KJob::result);
+    QVERIFY(spy.wait(100000));
+    QCOMPARE(job->error(), KJOB_NO_ERROR);
+    QVERIFY(!QDir(root).exists());
+#endif
+}
+
 #include "moc_deletejobtest.cpp"
