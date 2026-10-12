@@ -1,4 +1,11 @@
 cmake_minimum_required(VERSION 3.30)
+# Policies newer than the minimum version, which CMake reports for every target with --trace.
+if(POLICY CMP0179)
+    cmake_policy(SET CMP0179 NEW)
+endif()
+if(POLICY CMP0181)
+    cmake_policy(SET CMP0181 NEW)
+endif()
 
 set(KF_VERSION "6.32.0") # handled by release scripts
 set(KF_DEP_VERSION "6.31.0") # handled by release scripts
