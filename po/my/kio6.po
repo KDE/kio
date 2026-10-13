@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-12 00:45+0000\n"
+"POT-Creation-Date: 2026-10-13 00:41+0000\n"
 "PO-Revision-Date: 2025-09-10 15:28+0630\n"
 "Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -2201,20 +2201,46 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "%1၏ ဖိုင်အမျိုးအစားကို မဆုံးဖြတ်နိုင်ပါ"
 
-#: core/openwith.cpp:91
+#: core/openwith.cpp:85
+#, kde-format
+msgctxt "@info %1 is a file name extension"
+msgid "No file type can be defined for the extension \"%1\"."
+msgstr ""
+
+#: core/openwith.cpp:96
+#, fuzzy, kde-format
+#| msgid "Could not enter folder %1."
+msgctxt "@info %1 is a folder path"
+msgid "Could not create the folder %1."
+msgstr "%1ဖိုင်တွဲကို မဝင်နိုင်ခဲ့ပါ။"
+
+#: core/openwith.cpp:100 core/openwith.cpp:113
+#, fuzzy, kde-format
+#| msgid "Could not write to file %1."
+msgctxt "@info %1 is a file path, %2 the error"
+msgid "Could not write the file type definition %1: %2"
+msgstr "%1 ဖိုင်ကိုမရေးနိုင်ခဲ့ပါ။"
+
+#: core/openwith.cpp:120
+#, kde-format
+msgctxt "@info %1 is a file name extension"
+msgid "Could not update the file type database with the extension \"%1\"."
+msgstr ""
+
+#: core/openwith.cpp:149
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
 msgstr "'%1' မှ လုပ်ဆောင်-ဖိုင်အမည် မရခဲ့ပါ။ ကျေးဇူးပြု၍ မှန်ကန်သော ပရိုဂရမ်အမည် ရိုက်သွင်းပါ။"
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:201
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> သည် ဆောင်ရွက်၍ရသော ပရိုဂရမ်မဟုတ်ပါ။"
 
-#: core/openwith.cpp:144
+#: core/openwith.cpp:202
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2357,7 +2383,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1'တွင်'kioworker'ကိုရှာမတွေ့ပါ"
 
 #: core/workerinterface.cpp:333 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:517
+#: widgets/widgetsaskuseractionhandler.cpp:528
 #, kde-format
 msgid "&Details"
 msgstr "&Dအသေးစိတ်"
@@ -2462,7 +2488,7 @@ msgstr "ဖိုင်တွဲအသစ်…"
 
 #: filewidgets/kdiroperator.cpp:2081 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
-#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
+#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:314
 #, kde-format
 msgid "Move to Trash"
 msgstr "အမှိုက်ပုံးသို့ရွေ့ယူရန်"
@@ -4075,12 +4101,12 @@ msgstr "\"umount\" ပရိုဂရမ်ကို ရှာမတွေ့ပ
 msgid "No media in device for %1"
 msgstr "%1အတွက် စက်တွင် မီဒီယာမရှိပါ"
 
-#: kioworkers/file/file_unix.cpp:762
+#: kioworkers/file/file_unix.cpp:797
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ပေးထားသော အသုံးပြုသူအမည် %1 အတွက် အသုံးပြုသူအိုင်ဒီ မရယူနိုင်ခဲ့ပါ"
 
-#: kioworkers/file/file_unix.cpp:773
+#: kioworkers/file/file_unix.cpp:808
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ပေးထားသော အုပ်စုအမည် %1 အတွက် အုပ်စုအိုင်ဒီ မရယူနိုင်ခဲ့ပါ"
@@ -4227,7 +4253,7 @@ msgid ""
 msgstr "ဤအသိအမှတ်ပြုစာချွန်ကို ခွင့်မတောင်းပဲ အမြဲလက်ခံချင်ပါသလား။"
 
 #: kioworkers/http/http.cpp:319 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:515
+#: widgets/widgetsaskuseractionhandler.cpp:526
 #, kde-format
 msgid "Server Authentication"
 msgstr "ဆာဗာ ယုံကြည်မှုရယူခြင်း"
@@ -4493,23 +4519,23 @@ msgstr "အမှိုက်ပုံးသို့ ပို့ထားသ�
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "အမှိုက်ပုံးပြည့်သွားပါပြီ။ အကုန်ရှင်းပစ်ပါ သို့မဟုတ် တစ်ခုချင်းဆီရှင်းပါ။"
 
-#: kpasswdserver/kpasswdserver.cpp:529
+#: kpasswdserver/kpasswdserver.cpp:617
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "နောက်တစ်ကြိမ်ကြိုးစားကြည့်ချင်သလား။"
 
-#: kpasswdserver/kpasswdserver.cpp:533
+#: kpasswdserver/kpasswdserver.cpp:621
 #, kde-format
 msgid "Retry Authentication"
 msgstr "ယုံကြည်မှုရယူခြင်း ပြန်ကြိုးစားမည်"
 
-#: kpasswdserver/kpasswdserver.cpp:536
+#: kpasswdserver/kpasswdserver.cpp:624
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "ပြန်ကြိုးစား"
 
-#: kpasswdserver/kpasswdserver.cpp:797
+#: kpasswdserver/kpasswdserver.cpp:904
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "ယုံကြည်မှုရယူခြင်း အပြော-ဝင်းဒိုး"
@@ -4923,15 +4949,15 @@ msgstr ""
 "><emphasis strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:203
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:205
 #, kde-format
 msgid "Delete Permanently"
 msgstr "အမြဲတမ်းအတွက်ဖျက်ရန်"
 
 #: widgets/jobuidelegate.cpp:234 widgets/jobuidelegate.cpp:248
-#: widgets/widgetsaskuseractionhandler.cpp:246
-#: widgets/widgetsaskuseractionhandler.cpp:268
-#: widgets/widgetsaskuseractionhandler.cpp:290
+#: widgets/widgetsaskuseractionhandler.cpp:248
+#: widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/widgetsaskuseractionhandler.cpp:292
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -4950,7 +4976,7 @@ msgstr[0] ""
 "ဤအိုင်တမ် %1ခုကို အမြဲတမ်းအတွက် သင်တကယ်ဖျက်ပစ်ချင်ပြီလား။<nl/><nl/><emphasis "
 "strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:297
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:299
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -4960,13 +4986,13 @@ msgstr ""
 "အမှိုက်ပုံးမှ အိုင်တမ်အားလုံးကို ထာဝရဖျက်ပစ်တော့မှာလား။<nl/><nl/><emphasis "
 "strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
-#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:299
+#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:301
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "အမှိုက်ပုံးရှင်း"
 
-#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:305
+#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:307
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5131,43 +5157,43 @@ msgstr "စစ်စတမ်ပြင်ဆင်ချက် အဆင့်�
 msgid "Updating system configuration…"
 msgstr "စနစ်ပြင်ဆင်ချက် အဆင့်မြင့်တင်နေသည်။"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1306
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "အမည်"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1308
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "အရွယ်အစား"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1310
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "ရက်စွဲ"
 
-#: widgets/kdirmodel.cpp:1276
+#: widgets/kdirmodel.cpp:1312
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "ခွင့်ပြုချက်များ"
 
-#: widgets/kdirmodel.cpp:1278
+#: widgets/kdirmodel.cpp:1314
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "ပိုင်ရှင်"
 
-#: widgets/kdirmodel.cpp:1280
+#: widgets/kdirmodel.cpp:1316
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "အုပ်စု"
 
-#: widgets/kdirmodel.cpp:1282
+#: widgets/kdirmodel.cpp:1318
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
@@ -5381,17 +5407,17 @@ msgstr "နေရာလွတ် -"
 msgid "Unknown size"
 msgstr "အရွယ်အစားမသိ"
 
-#: widgets/kopenwithdialog.cpp:299
+#: widgets/kopenwithdialog.cpp:301
 #, kde-format
 msgid "Known Applications"
 msgstr "သိသောအပ္ပလီကေးရှင်းများ"
 
-#: widgets/kopenwithdialog.cpp:558
+#: widgets/kopenwithdialog.cpp:565
 #, kde-format
 msgid "Open With"
 msgstr "ဖြင့်ဖွင့်ရန်"
 
-#: widgets/kopenwithdialog.cpp:563
+#: widgets/kopenwithdialog.cpp:570
 #, kde-format
 msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
@@ -5400,34 +5426,34 @@ msgstr ""
 "<qt><b>%1</b> ဖွင့်ရန်သုံးသင့်သော ပရိုဂရမ်ရွေးချယ်မည်။ ပရိုဂရမ်မပြထားလျှင် အမည်ရိုက်ထည့်ပါ သို့ "
 "ရှောက်ကြည့်မည် ခလုတ်ကို နှိပ်ပါ။</qt>"
 
-#: widgets/kopenwithdialog.cpp:570
+#: widgets/kopenwithdialog.cpp:577
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
 msgstr "ရွေးချယ်ထားသောဖိုင်များကိုဖွင့်ရန် ပရိုဂရမ်အမည်ရွေးပါ။"
 
-#: widgets/kopenwithdialog.cpp:591
+#: widgets/kopenwithdialog.cpp:598
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr "<qt>ဖိုင် %1<br/>ကို ဖွင့်ရာတွင် သင်သုံးချင်သော ပရိုဂရမ်ရွေးချယ်ပါ။</qt>"
 
-#: widgets/kopenwithdialog.cpp:593
+#: widgets/kopenwithdialog.cpp:600
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
 msgstr[0] "<qt>ဖိုင် %1ခုကို ဖွင့်ရာတွင် သင်သုံးချင်သော ပရိုဂရမ်ရွေးချယ်ပါ။</qt>"
 
-#: widgets/kopenwithdialog.cpp:598 widgets/kopenwithdialog.cpp:629
+#: widgets/kopenwithdialog.cpp:605 widgets/kopenwithdialog.cpp:638
 #, kde-format
 msgid "Choose Application"
 msgstr "အပ္ပလီကေးရှင်းရွေးရန်"
 
-#: widgets/kopenwithdialog.cpp:613
+#: widgets/kopenwithdialog.cpp:622
 #, kde-format
 msgid "Choose Application for %1"
 msgstr "%1အတွက် အပ္ပလီကေးရှင်းရွေးရန်"
 
-#: widgets/kopenwithdialog.cpp:615
+#: widgets/kopenwithdialog.cpp:624
 #, kde-format
 msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
@@ -5436,7 +5462,7 @@ msgstr ""
 "<qt>ဖိုင်အမျိုးအစား <b>%1</b> အတွက် ပရိုဂရမ်ရွေးချယ်မည်။ ပရိုဂရမ်မပြထားလျှင် အမည်ရိုက်ထည့်ပါ သို့ "
 "ရှောက်ကြည့်မည် ခလုတ်ကို နှိပ်ပါ။</qt>"
 
-#: widgets/kopenwithdialog.cpp:631
+#: widgets/kopenwithdialog.cpp:640
 #, kde-format
 msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
@@ -5444,7 +5470,7 @@ msgid ""
 msgstr ""
 "<qt>ပရိုဂရမ်ရွေးချယ်မည်။ ပရိုဂရမ်မပြထားလျှင် အမည်ရိုက်ထည့်ပါ သို့ ရှောက်ကြည့်မည် ခလုတ်ကို နှိပ်ပါ။</qt>"
 
-#: widgets/kopenwithdialog.cpp:677
+#: widgets/kopenwithdialog.cpp:698
 #, kde-format
 msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
@@ -5453,7 +5479,7 @@ msgstr ""
 "အောက်ပါအပ္ပလီကေးရှင်းများ စစ်ထုတ်ရန် ရိုက်သွင်းပါ၊ သို့မဟုတ် အမိန့်၏အမည် ဖော်ပြပါ။\n"
 "အောက်ညွှန်ပြမြားကို နှိပ်ပြီး ရလဒ်များအကြား သွားလာပါ။"
 
-#: widgets/kopenwithdialog.cpp:700
+#: widgets/kopenwithdialog.cpp:721
 #, kde-format
 msgid ""
 "Following the command, you can have several place holders which will be "
@@ -5480,7 +5506,7 @@ msgstr ""
 "%m - အိုင်ကွန်အငယ်\n"
 "%c - မှတ်ချက်"
 
-#: widgets/kopenwithdialog.cpp:744
+#: widgets/kopenwithdialog.cpp:765
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5489,7 +5515,7 @@ msgstr ""
 "ဖိုင်အမျိုးအစားအားလုံးနှင့် ပတ်သက်သော အပ္ပလီကေးရှင်း မှတ်ထားမည်\n"
 "\"%1\" (%2)"
 
-#: widgets/kopenwithdialog.cpp:746
+#: widgets/kopenwithdialog.cpp:767
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5498,22 +5524,33 @@ msgstr ""
 "အောက်ပါဖိုင်အမျိုးအစားနှင့် ပတ်သက်သော အပ္ပလီကေးရှင်း &Rမှတ်ထားမည်\n"
 "\"%1\""
 
-#: widgets/kopenwithdialog.cpp:756
+#: widgets/kopenwithdialog.cpp:773
+#, fuzzy, kde-format
+#| msgid ""
+#| "&Remember application association for all files of type\n"
+#| "\"%1\""
+msgctxt "@option:check %1 is a file name extension"
+msgid "&Remember application association for all \"*.%1\" files"
+msgstr ""
+"အောက်ပါဖိုင်အမျိုးအစားနှင့် ပတ်သက်သော အပ္ပလီကေးရှင်း &Rမှတ်ထားမည်\n"
+"\"%1\""
+
+#: widgets/kopenwithdialog.cpp:781
 #, kde-format
 msgid "Terminal options"
 msgstr "တာမီနယ်ရွေးချယ်စရာများ"
 
-#: widgets/kopenwithdialog.cpp:761
+#: widgets/kopenwithdialog.cpp:786
 #, kde-format
 msgid "Run in &terminal"
 msgstr "&tတာမီနယ်တွင် လုပ်ဆောင်မည်"
 
-#: widgets/kopenwithdialog.cpp:779
+#: widgets/kopenwithdialog.cpp:804
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "&Dအမိန့်ပြီးသွားသည့်အခါ မပိတ်ပါနှင့်"
 
-#: widgets/kopenwithdialog.cpp:798
+#: widgets/kopenwithdialog.cpp:823
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr "ဒစ်စ်ကာဗာမှ အပ်စ်များ ထပ်ရယူလိုက်ပါ"
@@ -6384,35 +6421,61 @@ msgstr[0] "ဖိုင်တွဲသည် အဆင့်မြင့်ခ�
 msgid "These files use advanced permissions."
 msgstr "ဤဖိုင်များသည် အဆင့်မြင့်ခွင့်ပြုချက်များ အသုံးပြုသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2136
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2141
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "&hပေါင်းလဒ်စစ်တမ်းများ"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2427
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2306
+#, fuzzy, kde-format
+#| msgctxt "@info:progress computation in the background"
+#| msgid "Verifying checksum…"
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum… (%1%)"
+msgstr "ပေါင်းလဒ်စစ်တမ်းများ စစ်ဆေးနေသည်…"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2414
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2636
+#, fuzzy, kde-format
+#| msgctxt "@info:progress"
+#| msgid "Calculating…"
+msgctxt "@info:progress Calculating hash for multiple files"
+msgid "Calculating… (%1/%2)"
+msgstr "တွက်နေသည်…"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2431
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2638
+#, fuzzy, kde-format
+#| msgctxt "@info:progress"
+#| msgid "Calculating…"
+msgctxt "@info:progress Calculating hash"
+msgid "Calculating… (%1%)"
+msgstr "တွက်နေသည်…"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2501
 #, kde-format
 msgid "Invalid checksum."
 msgstr "မမှန်ကန်သော ပေါင်းလဒ်စစ်တမ်း။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2430
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2504
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "ပေးချက်သည် မှန်ကန်သော အမ်ဒီ၅၊ အက်စ်အိပ်ချ်အေ၁ သို့ အက်စ်အိပ်ချ်အေ၂၅၆ ပေါင်းလဒ်စစ်တမ်း မဟုတ်ပါ။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2441
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2515
 #, kde-format
 msgid "Checksums match."
 msgstr "ပေါင်းလဒ်စစ်တမ်းများ ကိုက်ညီသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2518
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "တွက်ချက်ထားသည့် ပေါင်းလဒ်စစ်တမ်းနှင့် မျှော်လင့်ထားသော ပေါင်းလဒ်စစ်တမ်း ကိုက်ညီသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2456
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2530
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6422,73 +6485,73 @@ msgstr ""
 "<p>ပေါင်းလဒ်စစ်တမ်းများ မကိုက်ပါ။</p>အမှားပါသောဒေါင်းလုတ်တစ်ခုကြောင့်ဖြစ်နိုင်သည်။ ဖိုင်ကို "
 "နောက်တစ်ကြိမ်ဒေါင်းလုတ်ဆွဲကြည့်ပါ။<br/>အကယ်၍ စစ်ဆေးခြင်း မအောင်မြင်လျှင် ဖိုင်ဇစ်မြစ်ကို ဆက်သွယ်ပါ။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2462
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2536
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "တွက်ချက်ထားသည့် ပေါင်းလဒ်စစ်တမ်းနှင့် မျှော်လင့်ထားသော ပေါင်းလဒ်စစ်တမ်း ကွဲပြားသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2470
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2544
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "ပေါင်းလဒ်စစ်တမ်းများ စစ်ဆေးနေသည်…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2499
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2612
 #, kde-format
 msgid "The checksums of all files are identical."
 msgstr "ဖိုင်များ၏checksums တစ်ထပ်တည်းကျသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2504
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2617
 #, kde-format
 msgid "The selected files have different checksums."
 msgstr "ဖိုင်များ မတူပါ။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2510
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2623
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "တွက်နေသည်…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2621
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2754
 #, kde-format
 msgid "U&RL"
 msgstr "&Rယူအာအယ်လ်"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2627
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2760
 #, kde-format
 msgid "URL:"
 msgstr "ယူအာအယ်လ် -"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2696
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2967
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2829
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3100
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
 "ကိုယ်ပိုင်လက္ခဏာများ သိမ်းဆည်း၍မရပါ။ စက်တွင်းဖိုင်စနစ်များရှိ စာရင်းမှတ်ချက်များကိုသာ လုပ်ဆောင်နိုင်သည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2767
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2900
 #, kde-format
 msgid "&Application"
 msgstr "&Aအပ္ပလီကေးရှင်း"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2907
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3040
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1 အတွက်ဖိုင်အမျိုးအစားထည့်မည်"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3041
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "တစ်ခု၊ တစ်ခုထက်ပိုသော ဖိုင်အမျိုးအစားများ ထည့်သွင်းရန် ရွေးချယ်မည် -"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3046
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3179
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "စက်တွင်းဖိုင်စနစ်ပေါ်ရှိ လုပ်ဆောင်-ဖိုင်များသာ ဆောင်ရွက်ခွင့်ပြုသည်။"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3061
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3194
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 အတွက် အဆင့်မြင့်ရွေးချယ်စရာများ"
@@ -7128,7 +7191,7 @@ msgstr ""
 
 #: widgets/renamefilewarningdialog.cpp:68
 #: widgets/renamefilewarningdialog.cpp:118
-#: widgets/widgetsaskuseractionhandler.cpp:411
+#: widgets/widgetsaskuseractionhandler.cpp:417
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
@@ -7280,7 +7343,7 @@ msgstr ""
 "အဝေးအိမ်ရှင် မည်သည့် အက်စ်အက်စ်အယ်လ် အသိအမှတ်ပြုစာချွန်မှ မပို့ခဲ့ပါ။\n"
 "အိမ်ရှင်၏ ဟုတ်မှန်မှုကို ခိုင်မာစွာမတည်ဆောက်နိုင်သောကြောင့် စွန့်လွတ်ဖျက်ချနေသည်။"
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:508
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:519
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -7289,7 +7352,7 @@ msgstr ""
 "ဆာဗာအား ယုံကြည်ရမှုစစ်ဆေးရာ ကျရှုံးခဲ့သည်(%1).\n"
 "\n"
 
-#: widgets/widgetsaskuseractionhandler.cpp:234
+#: widgets/widgetsaskuseractionhandler.cpp:236
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7300,7 +7363,7 @@ msgstr ""
 "ဤအိုင်တမ်ကို အမြဲတမ်းအတွက် သင်တကယ်ဖျက်ပစ်ချင်ပြီလား။<nl/><nl/><filename>%1</filename><nl/"
 "><nl/><emphasis strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:240
+#: widgets/widgetsaskuseractionhandler.cpp:242
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7313,7 +7376,7 @@ msgstr[0] ""
 "သင် တကယ် အိုင်တမ် %1ခုကို တစ်သက်တာအတွက်ဖျက်ပစ်တော့မှာလား။<nl/><nl/><emphasis "
 "strong='true'>ဖျက်ပြီးလျှင် ပြန်ယူလို့မရတော့ပါ။</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:253
+#: widgets/widgetsaskuseractionhandler.cpp:255
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7324,7 +7387,7 @@ msgstr ""
 "အမှိုက်ပုံးတွင်မဆံ့သဖြင့် အပြီးအပိုင်ဖျက်ပစ်လိုက်ပါ။<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:260
+#: widgets/widgetsaskuseractionhandler.cpp:262
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7338,7 +7401,7 @@ msgstr[0] ""
 "ဤ %1ဖိုင်များကို ပစ်ရန် အမှိုက်ပုံးပြည့်နေသဖြင့် အပြီးအပိုင်ဖျက်ပစ်လိုက်ပါ<nl/><nl/><emphasis "
 "strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:275
+#: widgets/widgetsaskuseractionhandler.cpp:277
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7354,7 +7417,7 @@ msgstr ""
 "အမှိုက်ပုံးတွင်မဆံ့သဖြင့် အပြီးအပိုင်ဖျက်ပစ်လိုက်ပါ။<nl/><nl/><filename>%1</filename><nl/><nl/"
 "><emphasis strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:282
+#: widgets/widgetsaskuseractionhandler.cpp:284
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7378,31 +7441,31 @@ msgstr[0] ""
 "ဤ %1ဖိုင်များကို ပစ်ရန် အမှိုက်ပုံးပြည့်နေသဖြင့် အပြီးအပိုင်ဖျက်ပစ်လိုက်ပါ<nl/><nl/><emphasis "
 "strong='true'>ဤလုပ်ဆောင်ချက်ကို ပြန်ပြင်လို့မရပါ။</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:310
+#: widgets/widgetsaskuseractionhandler.cpp:312
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "အိုင်တမ် %1ခုကို အမှိုက်ပုံးသို့ တကယ်ပို့တော့မည်လား။"
 
-#: widgets/widgetsaskuseractionhandler.cpp:367
+#: widgets/widgetsaskuseractionhandler.cpp:369
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "နောက်ထပ်မမေးပါနှင့်"
 
-#: widgets/widgetsaskuseractionhandler.cpp:437
+#: widgets/widgetsaskuseractionhandler.cpp:443
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "ဤမှတ်စာကို နောက်ထပ်မပြပါနှင့်"
 
-#: widgets/widgetsaskuseractionhandler.cpp:574
+#: widgets/widgetsaskuseractionhandler.cpp:585
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "မိတ်ဆွေ အက်စ်အက်စ်အယ်လ် အသိအမှတ်ပြုစာချွန်အစဥ် ပျက်စီးနေပုံရသည်။"
 
-#: widgets/widgetsaskuseractionhandler.cpp:577
+#: widgets/widgetsaskuseractionhandler.cpp:588
 #, kde-format
 msgid "SSL"
 msgstr "အက်စ်အက်စ်အယ်လ်"

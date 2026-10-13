@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-12 00:45+0000\n"
+"POT-Creation-Date: 2026-10-13 00:41+0000\n"
 "PO-Revision-Date: 2026-10-02 21:26+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -2308,7 +2308,33 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "Kan inte avgöra filtyp för %1"
 
-#: core/openwith.cpp:91
+#: core/openwith.cpp:85
+#, kde-format
+msgctxt "@info %1 is a file name extension"
+msgid "No file type can be defined for the extension \"%1\"."
+msgstr ""
+
+#: core/openwith.cpp:96
+#, fuzzy, kde-format
+#| msgid "Could not enter folder %1."
+msgctxt "@info %1 is a folder path"
+msgid "Could not create the folder %1."
+msgstr "Kunde inte gå in i katalogen %1."
+
+#: core/openwith.cpp:100 core/openwith.cpp:113
+#, fuzzy, kde-format
+#| msgid "Could not write to file %1."
+msgctxt "@info %1 is a file path, %2 the error"
+msgid "Could not write the file type definition %1: %2"
+msgstr "Kunde inte skriva till fil %1."
+
+#: core/openwith.cpp:120
+#, kde-format
+msgctxt "@info %1 is a file name extension"
+msgid "Could not update the file type database with the extension \"%1\"."
+msgstr ""
+
+#: core/openwith.cpp:149
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2317,13 +2343,13 @@ msgstr ""
 "Kunde inte extrahera körbart namn från '%1'. Skriv in ett giltigt "
 "programnamn."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:201
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> verkar inte vara ett körbart program."
 
-#: core/openwith.cpp:144
+#: core/openwith.cpp:202
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2468,7 +2494,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "Kan inte hitta det körbara programmet 'kioworker' i '%1'"
 
 #: core/workerinterface.cpp:333 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:517
+#: widgets/widgetsaskuseractionhandler.cpp:528
 #, kde-format
 msgid "&Details"
 msgstr "&Detaljer"
@@ -2573,7 +2599,7 @@ msgstr "Ny katalog…"
 
 #: filewidgets/kdiroperator.cpp:2081 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
-#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
+#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:314
 #, kde-format
 msgid "Move to Trash"
 msgstr "Flytta till papperskorg"
@@ -4220,12 +4246,12 @@ msgstr "Kunde inte hitta programmet \"umount\""
 msgid "No media in device for %1"
 msgstr "Inget medium i enheten för %1"
 
-#: kioworkers/file/file_unix.cpp:762
+#: kioworkers/file/file_unix.cpp:797
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Kunde inte hämta användaridentifikation för angivet användarnamn %1"
 
-#: kioworkers/file/file_unix.cpp:773
+#: kioworkers/file/file_unix.cpp:808
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Kunde inte hämta gruppidentifikation för angivet gruppnamn %1"
@@ -4374,7 +4400,7 @@ msgstr ""
 "Vill du acceptera det här certifikatet för alltid utan att bli tillfrågad?"
 
 #: kioworkers/http/http.cpp:319 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:515
+#: widgets/widgetsaskuseractionhandler.cpp:526
 #, kde-format
 msgid "Server Authentication"
 msgstr "Serverbehörighetskontroll"
@@ -4649,23 +4675,23 @@ msgstr "Återställ en fil släng i papperskorgen till dess ursprungliga plats"
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Papperskorgen är full. Töm den eller ta bort objekt manuellt."
 
-#: kpasswdserver/kpasswdserver.cpp:529
+#: kpasswdserver/kpasswdserver.cpp:617
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "Vill du försöka igen?"
 
-#: kpasswdserver/kpasswdserver.cpp:533
+#: kpasswdserver/kpasswdserver.cpp:621
 #, kde-format
 msgid "Retry Authentication"
 msgstr "Försök kontrollera behörighet igen"
 
-#: kpasswdserver/kpasswdserver.cpp:536
+#: kpasswdserver/kpasswdserver.cpp:624
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "Försök igen"
 
-#: kpasswdserver/kpasswdserver.cpp:797
+#: kpasswdserver/kpasswdserver.cpp:904
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Dialogruta för behörighetskontroll"
@@ -5082,15 +5108,15 @@ msgstr ""
 "emphasis>"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:203
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:205
 #, kde-format
 msgid "Delete Permanently"
 msgstr "Ta bort permanent"
 
 #: widgets/jobuidelegate.cpp:234 widgets/jobuidelegate.cpp:248
-#: widgets/widgetsaskuseractionhandler.cpp:246
-#: widgets/widgetsaskuseractionhandler.cpp:268
-#: widgets/widgetsaskuseractionhandler.cpp:290
+#: widgets/widgetsaskuseractionhandler.cpp:248
+#: widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/widgetsaskuseractionhandler.cpp:292
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -5112,7 +5138,7 @@ msgstr[1] ""
 "Vill du verkligen ta bort alla %1 objekt permanent?<nl/><nl/><emphasis "
 "strong='true'>Åtgärden kan inte ångras.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:297
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:299
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5122,13 +5148,13 @@ msgstr ""
 "Vill du verkligen ta bort alla objekt permanent från papperskorgen?<nl/><nl/"
 "><emphasis strong='true'>Åtgärden kan inte ångras.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:299
+#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:301
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "Töm papperskorg"
 
-#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:305
+#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:307
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5296,43 +5322,43 @@ msgstr "Uppdaterar systeminställning."
 msgid "Updating system configuration…"
 msgstr "Uppdaterar systeminställning…"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1306
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Namn"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1308
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Storlek"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1310
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Datum"
 
-#: widgets/kdirmodel.cpp:1276
+#: widgets/kdirmodel.cpp:1312
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Skydd"
 
-#: widgets/kdirmodel.cpp:1278
+#: widgets/kdirmodel.cpp:1314
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Ägare"
 
-#: widgets/kdirmodel.cpp:1280
+#: widgets/kdirmodel.cpp:1316
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Grupp"
 
-#: widgets/kdirmodel.cpp:1282
+#: widgets/kdirmodel.cpp:1318
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
@@ -5541,17 +5567,17 @@ msgstr "Ledigt utrymme:"
 msgid "Unknown size"
 msgstr "Okänd storlek"
 
-#: widgets/kopenwithdialog.cpp:299
+#: widgets/kopenwithdialog.cpp:301
 #, kde-format
 msgid "Known Applications"
 msgstr "Kända program"
 
-#: widgets/kopenwithdialog.cpp:558
+#: widgets/kopenwithdialog.cpp:565
 #, kde-format
 msgid "Open With"
 msgstr "Öppna med"
 
-#: widgets/kopenwithdialog.cpp:563
+#: widgets/kopenwithdialog.cpp:570
 #, kde-format
 msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
@@ -5561,17 +5587,17 @@ msgstr ""
 "inte finns med i listan, ange programmets namn eller klicka på bläddra-"
 "knappen.</qt>"
 
-#: widgets/kopenwithdialog.cpp:570
+#: widgets/kopenwithdialog.cpp:577
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
 msgstr "Välj namnet på programmet som de markerade filerna ska öppnas med."
 
-#: widgets/kopenwithdialog.cpp:591
+#: widgets/kopenwithdialog.cpp:598
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr "<qt>Välj program du vill använda för att öppna filen<br/>%1</qt>"
 
-#: widgets/kopenwithdialog.cpp:593
+#: widgets/kopenwithdialog.cpp:600
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
@@ -5579,17 +5605,17 @@ msgid_plural ""
 msgstr[0] "<qt>Välj program du vill använda för att öppna filen.</qt>"
 msgstr[1] "<qt>Välj program du vill använda för att öppna de %1 filerna.</qt>"
 
-#: widgets/kopenwithdialog.cpp:598 widgets/kopenwithdialog.cpp:629
+#: widgets/kopenwithdialog.cpp:605 widgets/kopenwithdialog.cpp:638
 #, kde-format
 msgid "Choose Application"
 msgstr "Välj program"
 
-#: widgets/kopenwithdialog.cpp:613
+#: widgets/kopenwithdialog.cpp:622
 #, kde-format
 msgid "Choose Application for %1"
 msgstr "Välj program för %1"
 
-#: widgets/kopenwithdialog.cpp:615
+#: widgets/kopenwithdialog.cpp:624
 #, kde-format
 msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
@@ -5599,7 +5625,7 @@ msgstr ""
 "programmet inte finns med i listan, ange programmets namn eller klicka på "
 "bläddra-knappen.</qt>"
 
-#: widgets/kopenwithdialog.cpp:631
+#: widgets/kopenwithdialog.cpp:640
 #, kde-format
 msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
@@ -5608,7 +5634,7 @@ msgstr ""
 "<qt>Välj ett program. Om programmet inte finns med i listan, ange namnet "
 "eller klicka på bläddra-knappen.</qt>"
 
-#: widgets/kopenwithdialog.cpp:677
+#: widgets/kopenwithdialog.cpp:698
 #, kde-format
 msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
@@ -5617,7 +5643,7 @@ msgstr ""
 "Skriv för att filtrera programmen nedan, eller ange namnet på ett kommando.\n"
 "Tryck på neråtpil för att navigera i resultaten."
 
-#: widgets/kopenwithdialog.cpp:700
+#: widgets/kopenwithdialog.cpp:721
 #, kde-format
 msgid ""
 "Following the command, you can have several place holders which will be "
@@ -5646,7 +5672,7 @@ msgstr ""
 "%m - mini-ikonen\n"
 "%c - kommentaren"
 
-#: widgets/kopenwithdialog.cpp:744
+#: widgets/kopenwithdialog.cpp:765
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5655,7 +5681,7 @@ msgstr ""
 "Kom ihåg prog&rambindningen för alla filer av typ\n"
 "\"%1\" (%2)"
 
-#: widgets/kopenwithdialog.cpp:746
+#: widgets/kopenwithdialog.cpp:767
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5664,22 +5690,33 @@ msgstr ""
 "Kom ihåg prog&rambindningen för alla filer av typ\n"
 "\"%1\""
 
-#: widgets/kopenwithdialog.cpp:756
+#: widgets/kopenwithdialog.cpp:773
+#, fuzzy, kde-format
+#| msgid ""
+#| "&Remember application association for all files of type\n"
+#| "\"%1\""
+msgctxt "@option:check %1 is a file name extension"
+msgid "&Remember application association for all \"*.%1\" files"
+msgstr ""
+"Kom ihåg prog&rambindningen för alla filer av typ\n"
+"\"%1\""
+
+#: widgets/kopenwithdialog.cpp:781
 #, kde-format
 msgid "Terminal options"
 msgstr "Terminalalternativ"
 
-#: widgets/kopenwithdialog.cpp:761
+#: widgets/kopenwithdialog.cpp:786
 #, kde-format
 msgid "Run in &terminal"
 msgstr "Kör i &terminal"
 
-#: widgets/kopenwithdialog.cpp:779
+#: widgets/kopenwithdialog.cpp:804
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "Stäng inte när &kommandot avslutas"
 
-#: widgets/kopenwithdialog.cpp:798
+#: widgets/kopenwithdialog.cpp:823
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr "Hämta fler program från Discover"
@@ -6572,36 +6609,62 @@ msgstr[1] "Dessa kataloger använder avancerat åtkomstskydd."
 msgid "These files use advanced permissions."
 msgstr "Dessa filer använder avancerat åtkomstskydd."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2136
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2141
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "C&hecksummor"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2427
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2306
+#, fuzzy, kde-format
+#| msgctxt "@info:progress computation in the background"
+#| msgid "Verifying checksum…"
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum… (%1%)"
+msgstr "Verifierar checksumma…"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2414
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2636
+#, fuzzy, kde-format
+#| msgctxt "@info:progress"
+#| msgid "Calculating…"
+msgctxt "@info:progress Calculating hash for multiple files"
+msgid "Calculating… (%1/%2)"
+msgstr "Beräknar…"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2431
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2638
+#, fuzzy, kde-format
+#| msgctxt "@info:progress"
+#| msgid "Calculating…"
+msgctxt "@info:progress Calculating hash"
+msgid "Calculating… (%1%)"
+msgstr "Beräknar…"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2501
 #, kde-format
 msgid "Invalid checksum."
 msgstr "Ogiltig checksumma."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2430
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2504
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "Given indata är inte en giltig MD5, SHA1 eller SHA256 checksumma."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2441
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2515
 #, kde-format
 msgid "Checksums match."
 msgstr "Checksummorna stämmer."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2518
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr ""
 "Den beräknade checksumman och den förväntade checksumman stämmer överens."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2456
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2530
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6612,74 +6675,74 @@ msgstr ""
 "nerladdning. Försök ladda ner filen igen.<br/>Om verifikationen fortfarande "
 "misslyckas, kontakta källan till filen."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2462
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2536
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr ""
 "Den beräknade checksumman och den förväntade checksumman skiljer sig åt."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2470
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2544
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "Verifierar checksumma…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2499
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2612
 #, kde-format
 msgid "The checksums of all files are identical."
 msgstr "Alla filernas checksummor är identiska."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2504
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2617
 #, kde-format
 msgid "The selected files have different checksums."
 msgstr "De markerade filerna har olika checksummor."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2510
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2623
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Beräknar…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2621
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2754
 #, kde-format
 msgid "U&RL"
 msgstr "&Webbadress"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2627
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2760
 #, kde-format
 msgid "URL:"
 msgstr "Webbadress:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2696
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2967
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2829
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3100
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr ""
 "Kunde inte spara egenskaper. Endast poster i de lokala filsystemen stöds."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2767
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2900
 #, kde-format
 msgid "&Application"
 msgstr "&Program"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2907
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3040
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Lägg till en filtyp för %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3041
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Välj en eller flera filtyper att lägga till:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3046
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3179
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Endast körbara filer från de lokala filsystemen stöds."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3061
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3194
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Avancerade alternativ för %1"
@@ -7318,7 +7381,7 @@ msgstr "Dölj filen?"
 
 #: widgets/renamefilewarningdialog.cpp:68
 #: widgets/renamefilewarningdialog.cpp:118
-#: widgets/widgetsaskuseractionhandler.cpp:411
+#: widgets/widgetsaskuseractionhandler.cpp:417
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
@@ -7476,7 +7539,7 @@ msgstr ""
 "Fjärrvärddatorn skickade inte några SSL-certifikat.\n"
 "Avbryter eftersom värddatorns identitet inte kan avgöras."
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:508
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:519
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -7485,7 +7548,7 @@ msgstr ""
 "Behörighetkontrollen misslyckades för servern (%1).\n"
 "\n"
 
-#: widgets/widgetsaskuseractionhandler.cpp:234
+#: widgets/widgetsaskuseractionhandler.cpp:236
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7497,7 +7560,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>Åtgärden kan inte ångras.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:240
+#: widgets/widgetsaskuseractionhandler.cpp:242
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7513,7 +7576,7 @@ msgstr[1] ""
 "Vill du verkligen ta bort alla %1 objekt permanent?<nl/><nl/><emphasis "
 "strong='true'>Åtgärden kan inte ångras.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:253
+#: widgets/widgetsaskuseractionhandler.cpp:255
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7525,7 +7588,7 @@ msgstr ""
 "istället?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>Åtgärden kan inte ångras.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:260
+#: widgets/widgetsaskuseractionhandler.cpp:262
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7542,7 +7605,7 @@ msgstr[1] ""
 "Papperskorgen är för full för att acceptera %1 filer. Ta bort dem permanent "
 "istället?<nl/><emphasis strong='true'>Åtgärden kan inte ångras.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:275
+#: widgets/widgetsaskuseractionhandler.cpp:277
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7554,7 +7617,7 @@ msgstr ""
 "permanent istället?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
 "strong='true'>Åtgärden kan inte ångras.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:282
+#: widgets/widgetsaskuseractionhandler.cpp:284
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7573,7 +7636,7 @@ msgstr[1] ""
 "Papperskorgen är för full för att acceptera %1 filer. Ta bort dem permanent "
 "istället?<nl/><emphasis strong='true'>Åtgärden kan inte ångras.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:310
+#: widgets/widgetsaskuseractionhandler.cpp:312
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -7581,24 +7644,24 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "Vill du verkligen flytta %1 objekt till papperskorgen?"
 msgstr[1] "Vill du verkligen flytta alla %1 objekt till papperskorgen?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:367
+#: widgets/widgetsaskuseractionhandler.cpp:369
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "Fråga inte igen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:437
+#: widgets/widgetsaskuseractionhandler.cpp:443
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "Visa inte meddelandet igen"
 
-#: widgets/widgetsaskuseractionhandler.cpp:574
+#: widgets/widgetsaskuseractionhandler.cpp:585
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "Motpartens SSL-certifikatkedja verkar vara förvanskad."
 
-#: widgets/widgetsaskuseractionhandler.cpp:577
+#: widgets/widgetsaskuseractionhandler.cpp:588
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

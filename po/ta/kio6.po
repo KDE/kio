@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-12 00:45+0000\n"
+"POT-Creation-Date: 2026-10-13 00:41+0000\n"
 "PO-Revision-Date: 2026-10-04 18:52+0200\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -2255,7 +2255,33 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr "%1 எந்த வகையான கோப்பு என்பதை தீர்மானிக்க முடியவில்லை"
 
-#: core/openwith.cpp:91
+#: core/openwith.cpp:85
+#, kde-format
+msgctxt "@info %1 is a file name extension"
+msgid "No file type can be defined for the extension \"%1\"."
+msgstr ""
+
+#: core/openwith.cpp:96
+#, fuzzy, kde-format
+#| msgid "Could not enter folder %1."
+msgctxt "@info %1 is a folder path"
+msgid "Could not create the folder %1."
+msgstr "%1 என்கிற அடைவில் நுழைய முடியவில்லை."
+
+#: core/openwith.cpp:100 core/openwith.cpp:113
+#, fuzzy, kde-format
+#| msgid "Could not write to file %1."
+msgctxt "@info %1 is a file path, %2 the error"
+msgid "Could not write the file type definition %1: %2"
+msgstr "%1 என்கிற கோப்புக்கு எழுத முடியவில்லை."
+
+#: core/openwith.cpp:120
+#, kde-format
+msgctxt "@info %1 is a file name extension"
+msgid "Could not update the file type database with the extension \"%1\"."
+msgstr ""
+
+#: core/openwith.cpp:149
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
@@ -2264,13 +2290,13 @@ msgstr ""
 "'%1' -இலிருந்து ஒரு இயக்கவல்ல நிரலின் பெயரை கண்டுபிடிக்க முடியவில்லை, தயவுசெய்து ஒரு "
 "சரியான நிரலின் பெயரை உள்ளிடவும்."
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:201
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr "<filename>%1</filename> ஒரு இயக்கவல்ல நிரல் போல தெரியவில்லை."
 
-#: core/openwith.cpp:144
+#: core/openwith.cpp:202
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2415,7 +2441,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "'%1' -இல் 'kioworker' நிரலை கண்டுபிடிக்க முடியவில்லை"
 
 #: core/workerinterface.cpp:333 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:517
+#: widgets/widgetsaskuseractionhandler.cpp:528
 #, kde-format
 msgid "&Details"
 msgstr "&விவரங்கள்"
@@ -2520,7 +2546,7 @@ msgstr "புதிய அடைவு…"
 
 #: filewidgets/kdiroperator.cpp:2081 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
-#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
+#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:314
 #, kde-format
 msgid "Move to Trash"
 msgstr "அகற்றிடத்துக்கு நகர்த்து"
@@ -4150,12 +4176,12 @@ msgstr "\"umount\" நிரலை கண்டுபிடிக்க மு�
 msgid "No media in device for %1"
 msgstr "%1 -க்குரிய ஊடகம் சாதனத்தில் இல்லை"
 
-#: kioworkers/file/file_unix.cpp:762
+#: kioworkers/file/file_unix.cpp:797
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "%1 என்ற பயனர் பெயருக்கான பயனர் எண்ணை பெற இயலவில்லை"
 
-#: kioworkers/file/file_unix.cpp:773
+#: kioworkers/file/file_unix.cpp:808
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "%1 என்ற குழுப் பெயருக்கான குழு எண்ணை பெற முடியவில்லை"
@@ -4302,7 +4328,7 @@ msgid ""
 msgstr "இச்சான்றிதழை என்றென்றும் கேளாமலே ஏற்க விரும்புகிறீர்களா?"
 
 #: kioworkers/http/http.cpp:319 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:515
+#: widgets/widgetsaskuseractionhandler.cpp:526
 #, kde-format
 msgid "Server Authentication"
 msgstr "சேவையக உறுதிப்பாடு"
@@ -4573,23 +4599,23 @@ msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
 "அகற்றிடம் நிரம்பியுள்ளது. அதனை காலியாக்குங்கள், அல்லது கைமுறையாக உருப்படிகளை நீக்குங்கள்."
 
-#: kpasswdserver/kpasswdserver.cpp:529
+#: kpasswdserver/kpasswdserver.cpp:617
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "மறுபடியும் முயற்சிக்க வேண்டுமா?"
 
-#: kpasswdserver/kpasswdserver.cpp:533
+#: kpasswdserver/kpasswdserver.cpp:621
 #, kde-format
 msgid "Retry Authentication"
 msgstr "உறுதிப்பாட்டை மீண்டும் முயற்சிப்பது"
 
-#: kpasswdserver/kpasswdserver.cpp:536
+#: kpasswdserver/kpasswdserver.cpp:624
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "மீண்டும் முயற்சி"
 
-#: kpasswdserver/kpasswdserver.cpp:797
+#: kpasswdserver/kpasswdserver.cpp:904
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "உறுதிப்பாடு சாளரம்"
@@ -5004,15 +5030,15 @@ msgstr ""
 "><nl/><emphasis strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:203
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:205
 #, kde-format
 msgid "Delete Permanently"
 msgstr "நிரந்தரமாக அழிப்பது"
 
 #: widgets/jobuidelegate.cpp:234 widgets/jobuidelegate.cpp:248
-#: widgets/widgetsaskuseractionhandler.cpp:246
-#: widgets/widgetsaskuseractionhandler.cpp:268
-#: widgets/widgetsaskuseractionhandler.cpp:290
+#: widgets/widgetsaskuseractionhandler.cpp:248
+#: widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/widgetsaskuseractionhandler.cpp:292
 #, kde-format
 msgctxt "@action:button"
 msgid "Delete Permanently"
@@ -5034,7 +5060,7 @@ msgstr[1] ""
 "நீங்கள் இந்த %1 உருப்படிகளை நிரந்தரமாக அழிக்க வேண்டுமா?<nl/><nl/><emphasis "
 "strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:297
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:299
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5044,13 +5070,13 @@ msgstr ""
 "அகற்றிடத்திலிருந்து எல்லா உருப்படிகளையும் நிரந்தரமாக அழிக்க வேண்டுமா?<nl/><nl/"
 "><emphasis strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</emphasis>"
 
-#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:299
+#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:301
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "அகற்றிடத்தை காலியாக்கு"
 
-#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:305
+#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:307
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -5218,43 +5244,43 @@ msgstr "கணினி அமைப்பு புதுப்பிக்க�
 msgid "Updating system configuration…"
 msgstr "கணினி அமைப்பு புதுப்பிக்கப்படுகிறது…"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1306
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "பெயர்"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1308
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "அளவு"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1310
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "தேதி"
 
-#: widgets/kdirmodel.cpp:1276
+#: widgets/kdirmodel.cpp:1312
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "அனுமதிகள்"
 
-#: widgets/kdirmodel.cpp:1278
+#: widgets/kdirmodel.cpp:1314
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "உரிமையாளர்"
 
-#: widgets/kdirmodel.cpp:1280
+#: widgets/kdirmodel.cpp:1316
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "குழு"
 
-#: widgets/kdirmodel.cpp:1282
+#: widgets/kdirmodel.cpp:1318
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
@@ -5463,17 +5489,17 @@ msgstr "காலி இடம்:"
 msgid "Unknown size"
 msgstr "தெரியாத அளவு"
 
-#: widgets/kopenwithdialog.cpp:299
+#: widgets/kopenwithdialog.cpp:301
 #, kde-format
 msgid "Known Applications"
 msgstr "தெரிந்த செயலிகள்"
 
-#: widgets/kopenwithdialog.cpp:558
+#: widgets/kopenwithdialog.cpp:565
 #, kde-format
 msgid "Open With"
 msgstr "இதனால் திற"
 
-#: widgets/kopenwithdialog.cpp:563
+#: widgets/kopenwithdialog.cpp:570
 #, kde-format
 msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
@@ -5482,19 +5508,19 @@ msgstr ""
 "<qt><b>%1</b>ஐ திறக்க பயன்படுத்த வேண்டிய செயலியை தேர்ந்தெடுக்கவும். அச்செயலி பட்டியலில் "
 "இல்லாவிடில், பெயரை உள்ளிடவும், அல்லது 'உலாவு' பட்டனை அழுத்தவும்.</qt>"
 
-#: widgets/kopenwithdialog.cpp:570
+#: widgets/kopenwithdialog.cpp:577
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
 msgstr ""
 "தேர்வு செய்த கோப்புகளைத் திறக்க பயன்படுத்த வேண்டிய செயலியின் பெயரைத் தேர்வு செய்யுங்கள்."
 
-#: widgets/kopenwithdialog.cpp:591
+#: widgets/kopenwithdialog.cpp:598
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr ""
 "<qt>%1<br/> என்கிற கோப்பை திறக்க பயன்படுத்த வேண்டிய செயலியை தேர்வு செய்யுங்கள்</qt>"
 
-#: widgets/kopenwithdialog.cpp:593
+#: widgets/kopenwithdialog.cpp:600
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
@@ -5502,17 +5528,17 @@ msgid_plural ""
 msgstr[0] "<qt>கோப்பை திறக்க பயன்படுத்த வேண்டிய செயலியை தேர்வு செய்யுங்கள்.</qt>"
 msgstr[1] "<qt>%1 கோப்புகளை திறக்க பயன்படுத்த வேண்டிய செயலியை தேர்வு செய்யுங்கள்.</qt>"
 
-#: widgets/kopenwithdialog.cpp:598 widgets/kopenwithdialog.cpp:629
+#: widgets/kopenwithdialog.cpp:605 widgets/kopenwithdialog.cpp:638
 #, kde-format
 msgid "Choose Application"
 msgstr "செயலியை தேர்வு செய்யுங்கள்"
 
-#: widgets/kopenwithdialog.cpp:613
+#: widgets/kopenwithdialog.cpp:622
 #, kde-format
 msgid "Choose Application for %1"
 msgstr "%1 -க்கான செயலியை தேர்வு செய்யுங்கள்"
 
-#: widgets/kopenwithdialog.cpp:615
+#: widgets/kopenwithdialog.cpp:624
 #, kde-format
 msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
@@ -5522,7 +5548,7 @@ msgstr ""
 "அச்செயலி பட்டியலில் இல்லாவிடில், பெயரை உள்ளிடவும், அல்லது 'உலாவு' பட்டனை அழுத்தவும்.</"
 "qt>"
 
-#: widgets/kopenwithdialog.cpp:631
+#: widgets/kopenwithdialog.cpp:640
 #, kde-format
 msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
@@ -5531,7 +5557,7 @@ msgstr ""
 "<qt>ஒரு செயலியை தேர்ந்தெடுக்கவும். அச்செயலி பட்டியலில் இல்லாவிடில், பெயரை உள்ளிடவும், "
 "அல்லது 'உலாவு' பட்டனை அழுத்தவும்.</qt>"
 
-#: widgets/kopenwithdialog.cpp:677
+#: widgets/kopenwithdialog.cpp:698
 #, kde-format
 msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
@@ -5541,7 +5567,7 @@ msgstr ""
 "உள்ளிடவும்.\n"
 "விடைகளின் இடையே தாவ கீழ் அம்புக்குறியை அழுத்தவும்."
 
-#: widgets/kopenwithdialog.cpp:700
+#: widgets/kopenwithdialog.cpp:721
 #, kde-format
 msgid ""
 "Following the command, you can have several place holders which will be "
@@ -5570,7 +5596,7 @@ msgstr ""
 "%m - சிறிய சின்னம்\n"
 "%c - குறிப்பு"
 
-#: widgets/kopenwithdialog.cpp:744
+#: widgets/kopenwithdialog.cpp:765
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5579,7 +5605,7 @@ msgstr ""
 "\"%1\" (%2)\n"
 "வகையான அனைத்து கோப்புகளுக்கும் இந்த தொடர்பை &நினைவில் கொள்."
 
-#: widgets/kopenwithdialog.cpp:746
+#: widgets/kopenwithdialog.cpp:767
 #, kde-format
 msgid ""
 "&Remember application association for all files of type\n"
@@ -5588,22 +5614,33 @@ msgstr ""
 "\"%1\"\n"
 "வகையான அனைத்து கோப்புகளுக்கும் இந்த தொடர்பை &நினைவில் கொள்."
 
-#: widgets/kopenwithdialog.cpp:756
+#: widgets/kopenwithdialog.cpp:773
+#, fuzzy, kde-format
+#| msgid ""
+#| "&Remember application association for all files of type\n"
+#| "\"%1\""
+msgctxt "@option:check %1 is a file name extension"
+msgid "&Remember application association for all \"*.%1\" files"
+msgstr ""
+"\"%1\"\n"
+"வகையான அனைத்து கோப்புகளுக்கும் இந்த தொடர்பை &நினைவில் கொள்."
+
+#: widgets/kopenwithdialog.cpp:781
 #, kde-format
 msgid "Terminal options"
 msgstr "முனைய விருப்பங்கள்"
 
-#: widgets/kopenwithdialog.cpp:761
+#: widgets/kopenwithdialog.cpp:786
 #, kde-format
 msgid "Run in &terminal"
 msgstr "&முனையத்தில் இயக்கு"
 
-#: widgets/kopenwithdialog.cpp:779
+#: widgets/kopenwithdialog.cpp:804
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "&கட்டளை முடியும் போது மூட வேண்டாம்"
 
-#: widgets/kopenwithdialog.cpp:798
+#: widgets/kopenwithdialog.cpp:823
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr "டிஸ்கவரிலிருந்து கூடுதல் செயலிகளை நிறுவு"
@@ -6490,35 +6527,61 @@ msgstr[1] "இந்த அடைவுகள் மேம்பட்ட அன
 msgid "These files use advanced permissions."
 msgstr "இந்த கோப்புகள் மேம்பட்ட அனுமதிகளை பயன்படுத்துகின்றன"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2136
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2141
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr "&சரிகாண்தொகைகள்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2427
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2306
+#, fuzzy, kde-format
+#| msgctxt "@info:progress computation in the background"
+#| msgid "Verifying checksum…"
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum… (%1%)"
+msgstr "சரிகாண்தொகை சரிபார்க்கப்படுகிறது…"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2414
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2636
+#, fuzzy, kde-format
+#| msgctxt "@info:progress"
+#| msgid "Calculating…"
+msgctxt "@info:progress Calculating hash for multiple files"
+msgid "Calculating… (%1/%2)"
+msgstr "கணிக்கப்படுகிறது…"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2431
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2638
+#, fuzzy, kde-format
+#| msgctxt "@info:progress"
+#| msgid "Calculating…"
+msgctxt "@info:progress Calculating hash"
+msgid "Calculating… (%1%)"
+msgstr "கணிக்கப்படுகிறது…"
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2501
 #, kde-format
 msgid "Invalid checksum."
 msgstr "முறையற்ற சரிகாண்தொகை."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2430
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2504
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr "உள்ளீடு ஒரு முறையான MD5, SHA1, அல்லது SHA256 சரிகாண்தொகை இல்லை."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2441
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2515
 #, kde-format
 msgid "Checksums match."
 msgstr "சரிகாண்தொகைகள் ஒன்றாக உள்ளன."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2518
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr "கணிக்கப்பட்ட சரிகாண்தொகையும் எதிர்பார்க்கப்பட்டதும் ஒன்றாக உள்ளன."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2456
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2530
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6529,46 +6592,46 @@ msgstr ""
 "மறுபடியும் பதிவிறக்கி பாருங்கள்.<br/>அதன் பிறகும் சரிபார்த்தல் தோல்வியடைந்தால், கோப்பை "
 "வழங்கியவரை தொடர்பு கொள்ளுங்கள்."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2462
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2536
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr "கணிக்கப்பட்ட சரிகாண்தொகையும் எதிர்பார்க்கப்பட்டதும் ஒன்றாக இல்லை."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2470
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2544
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr "சரிகாண்தொகை சரிபார்க்கப்படுகிறது…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2499
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2612
 #, kde-format
 msgid "The checksums of all files are identical."
 msgstr "அனைத்து கோப்புகளின் சரிகாண்தொகைகளும் ஒன்றாக உள்ளன."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2504
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2617
 #, kde-format
 msgid "The selected files have different checksums."
 msgstr "தேர்ந்தெடுத்துள்ள கோப்புகளின் சரிகாண்தொகைகள் வேறுபடுகின்றன."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2510
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2623
 #, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "கணிக்கப்படுகிறது…"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2621
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2754
 #, kde-format
 msgid "U&RL"
 msgstr "இணைய மு&கவரி"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2627
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2760
 #, kde-format
 msgid "URL:"
 msgstr "முகவரி:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2696
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2967
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2829
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3100
 #, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
@@ -6576,27 +6639,27 @@ msgstr ""
 "பண்புகளை சேமிக்க முடியவில்லை. உள்ளமை கோப்பு முறைமைகளில் மட்டும்தான் பதிவுகளுக்கு ஆதரவு "
 "உண்டு."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2767
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2900
 #, kde-format
 msgid "&Application"
 msgstr "&செயலி"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2907
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3040
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "%1-க்கு கோப்பு வகையை சேர்"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3041
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "சேர்க்க வேண்டிய கோப்பு வகைகளை தேர்ந்தெடுக்கவும்:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3046
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3179
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "உள்ளமை கோப்பு முறைமையிலுள்ள இயக்கவல்லவை மட்டும்தான் ஆதரிக்கப்படுகின்றன."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3061
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3194
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "%1 -க்கான மேம்பட்ட விருப்பங்கள்"
@@ -7232,7 +7295,7 @@ msgstr "கோப்பை மறைக்கலாமா?"
 
 #: widgets/renamefilewarningdialog.cpp:68
 #: widgets/renamefilewarningdialog.cpp:118
-#: widgets/widgetsaskuseractionhandler.cpp:411
+#: widgets/widgetsaskuseractionhandler.cpp:417
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not ask again"
@@ -7390,7 +7453,7 @@ msgstr ""
 "தொலை புரவன் எந்த SSL சான்றிதழ்களையும் அனுப்பவில்லை.\n"
 "புரவனின் அடையாளத்தை உறுதிப்படுத்த முடியாததால் கைவிடப்படுகிறது."
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:508
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:519
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -7399,7 +7462,7 @@ msgstr ""
 "சேவையகத்தின் அடையாள உறுதிப்பாடு தோல்வியடைந்தது (%1).\n"
 "\n"
 
-#: widgets/widgetsaskuseractionhandler.cpp:234
+#: widgets/widgetsaskuseractionhandler.cpp:236
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7411,7 +7474,7 @@ msgstr ""
 "filename><nl/><nl/><emphasis strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:240
+#: widgets/widgetsaskuseractionhandler.cpp:242
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7427,7 +7490,7 @@ msgstr[1] ""
 "நீங்கள் இந்த %1 உருப்படிகளை நிரந்தரமாக அழிக்க வேண்டுமா?<nl/><nl/><emphasis "
 "strong='true'>இந்த செயலை திரும்ப பெற முடியாது.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:253
+#: widgets/widgetsaskuseractionhandler.cpp:255
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7439,7 +7502,7 @@ msgstr ""
 "><filename>%1</filename><nl/><nl/><emphasis strong='true'>இந்த செயலை திரும்பப் "
 "பெற முடியாது.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:260
+#: widgets/widgetsaskuseractionhandler.cpp:262
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7456,7 +7519,7 @@ msgstr[1] ""
 "இந்த %1 கோப்புகளுக்கு அகற்றிடத்தில் இடமில்லை. பதிலாக இவற்றை நிரந்தரமாக அழிக்கலாமா?<nl/"
 "><emphasis strong='true'>இந்த செயலை திரும்பப் பெற முடியாது.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:275
+#: widgets/widgetsaskuseractionhandler.cpp:277
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7468,7 +7531,7 @@ msgstr ""
 "<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis strong='true'>இந்த செயலை "
 "திரும்பப் பெற முடியாது.</emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:282
+#: widgets/widgetsaskuseractionhandler.cpp:284
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -7488,7 +7551,7 @@ msgstr[1] ""
 "அழிக்கலாமா?<nl/><emphasis strong='true'>இந்த செயலை திரும்பப் பெற முடியாது.</"
 "emphasis>"
 
-#: widgets/widgetsaskuseractionhandler.cpp:310
+#: widgets/widgetsaskuseractionhandler.cpp:312
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Do you really want to move this %1 item to the Trash?"
@@ -7496,26 +7559,26 @@ msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "இந்த %1 உருப்படியை உறுதியாக அகற்றிவிட வேண்டுமா?"
 msgstr[1] "இந்த %1 உருப்படிகளை உறுதியாக அகற்றிவிட வேண்டுமா?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:367
+#: widgets/widgetsaskuseractionhandler.cpp:369
 #, kde-format
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "மறுபடியும் கேட்காதே"
 
-#: widgets/widgetsaskuseractionhandler.cpp:437
+#: widgets/widgetsaskuseractionhandler.cpp:443
 #, kde-format
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "இந்த தகவலை மறுபடியும் காட்டாதே"
 
-#: widgets/widgetsaskuseractionhandler.cpp:574
+#: widgets/widgetsaskuseractionhandler.cpp:585
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr ""
 "சக கணினியின் SSL சான்றிதழ் தொடரில் (certificate chain-இல்) பிழை உள்ளதுபோல் "
 "தெரிகிறது."
 
-#: widgets/widgetsaskuseractionhandler.cpp:577
+#: widgets/widgetsaskuseractionhandler.cpp:588
 #, kde-format
 msgid "SSL"
 msgstr "SSL"

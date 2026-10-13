@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-12 00:45+0000\n"
+"POT-Creation-Date: 2026-10-13 00:41+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -2260,20 +2260,46 @@ msgstr ""
 msgid "Unable to determine the type of file for %1"
 msgstr ""
 
-#: core/openwith.cpp:91
+#: core/openwith.cpp:85
+#, kde-format
+msgctxt "@info %1 is a file name extension"
+msgid "No file type can be defined for the extension \"%1\"."
+msgstr ""
+
+#: core/openwith.cpp:96
+#, fuzzy, kde-format
+#| msgid "Could not enter folder %1."
+msgctxt "@info %1 is a folder path"
+msgid "Could not create the folder %1."
+msgstr "មិន​អាច​ចូល​ថត %1 ។"
+
+#: core/openwith.cpp:100 core/openwith.cpp:113
+#, fuzzy, kde-format
+#| msgid "Could not write to file %1."
+msgctxt "@info %1 is a file path, %2 the error"
+msgid "Could not write the file type definition %1: %2"
+msgstr "មិន​អាច​សរសេរ​ទៅ​កាន់​ឯកសារ %1 បាន​ឡើយ ។"
+
+#: core/openwith.cpp:120
+#, kde-format
+msgctxt "@info %1 is a file name extension"
+msgid "Could not update the file type database with the extension \"%1\"."
+msgstr ""
+
+#: core/openwith.cpp:149
 #, kde-format
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
 msgstr "មិនអាច​ស្រង់​ឈ្មោះ​ដែល​អាច​ប្រតិបត្តិ​បាន​ពី '%1' បានទេ សូម​វាយ​ឈ្មោះ​កម្មវិធី​ឲ្យ​ត្រឹមត្រូវ ។"
 
-#: core/openwith.cpp:143
+#: core/openwith.cpp:201
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> does not appear to be an executable program."
 msgstr ""
 
-#: core/openwith.cpp:144
+#: core/openwith.cpp:202
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -2414,7 +2440,7 @@ msgid "Can not find 'kioworker' executable at '%1'"
 msgstr "មិន​អាច​រកឃើញ io-slave សម្រាប់​ពិធីការ '%1' ទេ ។"
 
 #: core/workerinterface.cpp:333 widgets/sslui.cpp:61
-#: widgets/widgetsaskuseractionhandler.cpp:517
+#: widgets/widgetsaskuseractionhandler.cpp:528
 #, kde-format
 msgid "&Details"
 msgstr "សេចក្ដី​លម្អិត "
@@ -2523,7 +2549,7 @@ msgstr "ថត​ថ្មី"
 
 #: filewidgets/kdiroperator.cpp:2081 widgets/jobuidelegate.cpp:271
 #: widgets/jobuidelegate.cpp:272 widgets/jobuidelegate.cpp:281
-#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:312
+#: widgets/jobuidelegate.cpp:282 widgets/widgetsaskuseractionhandler.cpp:314
 #, kde-format
 msgid "Move to Trash"
 msgstr "ផ្លាស់ទី​ទៅ​ធុង​សំរាម"
@@ -4236,12 +4262,12 @@ msgstr "មិន​អាច​រក​ឃើញ​កម្មវិធី \"
 msgid "No media in device for %1"
 msgstr "គ្មាន​ឧបករណ៍​ផ្ទុក​ក្នុង​ឧបករណ៍​សម្រាប់ %1 ឡើយ"
 
-#: kioworkers/file/file_unix.cpp:762
+#: kioworkers/file/file_unix.cpp:797
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "មិន​អាច​ទទួល​លេខសម្គាល់​អ្នក​ប្រើ​សម្រាប់​ឈ្មោះ​អ្នក​ប្រើ %1"
 
-#: kioworkers/file/file_unix.cpp:773
+#: kioworkers/file/file_unix.cpp:808
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "មិនអាច​យក​លេខសម្គាល់​ក្រុម​សម្រាប់​ឈ្មោះក្រុម %1 ដែលបាន​ផ្ដល់​ឲ្យទេ"
@@ -4391,7 +4417,7 @@ msgid ""
 msgstr "តើ​អ្នក​ចង់​ទទួល​យក​វិញ្ញាបនបត្រ​នេះ​ជា​រៀង​រហូត ដោយ​មិន​ចាំបាច់​មាន​ការ​សួរ​បញ្ជាក់​ឬ ?"
 
 #: kioworkers/http/http.cpp:319 widgets/sslui.cpp:60 widgets/sslui.cpp:96
-#: widgets/widgetsaskuseractionhandler.cpp:515
+#: widgets/widgetsaskuseractionhandler.cpp:526
 #, kde-format
 msgid "Server Authentication"
 msgstr "ការផ្ទៀង​ផ្ទាត់​ភាព​ត្រឹមត្រូវ​ម៉ាស៊ីន​បម្រើ"
@@ -4670,26 +4696,26 @@ msgstr ""
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
 
-#: kpasswdserver/kpasswdserver.cpp:529
+#: kpasswdserver/kpasswdserver.cpp:617
 #, fuzzy, kde-format
 #| msgid "Do you really want to delete this item?"
 #| msgid_plural "Do you really want to delete these %1 items?"
 msgid "Do you want to retry?"
 msgstr "តើអ្នក​ពិត​ជា​ចង់​លុប​ធាតុ %1 ឬ ?"
 
-#: kpasswdserver/kpasswdserver.cpp:533
+#: kpasswdserver/kpasswdserver.cpp:621
 #, fuzzy, kde-format
 #| msgid "Server Authentication"
 msgid "Retry Authentication"
 msgstr "ការផ្ទៀង​ផ្ទាត់​ភាព​ត្រឹមត្រូវ​ម៉ាស៊ីន​បម្រើ"
 
-#: kpasswdserver/kpasswdserver.cpp:536
+#: kpasswdserver/kpasswdserver.cpp:624
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr ""
 
-#: kpasswdserver/kpasswdserver.cpp:797
+#: kpasswdserver/kpasswdserver.cpp:904
 #, fuzzy, kde-format
 #| msgid "Authorization Dialog"
 msgid "Authentication Dialog"
@@ -5128,16 +5154,16 @@ msgstr ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
-#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:203
+#: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:205
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgid "Delete Permanently"
 msgstr "លុប​ធាតុ"
 
 #: widgets/jobuidelegate.cpp:234 widgets/jobuidelegate.cpp:248
-#: widgets/widgetsaskuseractionhandler.cpp:246
-#: widgets/widgetsaskuseractionhandler.cpp:268
-#: widgets/widgetsaskuseractionhandler.cpp:290
+#: widgets/widgetsaskuseractionhandler.cpp:248
+#: widgets/widgetsaskuseractionhandler.cpp:270
+#: widgets/widgetsaskuseractionhandler.cpp:292
 #, fuzzy, kde-format
 #| msgid "Delete Entry"
 msgctxt "@action:button"
@@ -5160,7 +5186,7 @@ msgid_plural ""
 msgstr[0] ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:297
+#: widgets/jobuidelegate.cpp:258 widgets/widgetsaskuseractionhandler.cpp:299
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -5173,13 +5199,13 @@ msgid ""
 msgstr ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:299
+#: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:301
 #, kde-format
 msgctxt "@action:button"
 msgid "Empty Trash"
 msgstr "សម្អាត​ធុងសំរាម"
 
-#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:305
+#: widgets/jobuidelegate.cpp:270 widgets/widgetsaskuseractionhandler.cpp:307
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -5357,43 +5383,43 @@ msgstr "ធ្វើ​បច្ចុប្បន្នភាព​​ការ
 msgid "Updating system configuration…"
 msgstr "ធ្វើ​បច្ចុប្បន្នភាព​​ការ​កំណត់​រចនាសម្ព័ន្ធ​របស់​ប្រព័ន្ធ ។"
 
-#: widgets/kdirmodel.cpp:1270
+#: widgets/kdirmodel.cpp:1306
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "ឈ្មោះ"
 
-#: widgets/kdirmodel.cpp:1272
+#: widgets/kdirmodel.cpp:1308
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "ទំហំ"
 
-#: widgets/kdirmodel.cpp:1274
+#: widgets/kdirmodel.cpp:1310
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "កាលបរិច្ឆេទ"
 
-#: widgets/kdirmodel.cpp:1276
+#: widgets/kdirmodel.cpp:1312
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "សិទ្ធិ"
 
-#: widgets/kdirmodel.cpp:1278
+#: widgets/kdirmodel.cpp:1314
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "ម្ចាស់"
 
-#: widgets/kdirmodel.cpp:1280
+#: widgets/kdirmodel.cpp:1316
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "ក្រុម"
 
-#: widgets/kdirmodel.cpp:1282
+#: widgets/kdirmodel.cpp:1318
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
@@ -5618,17 +5644,17 @@ msgstr ""
 msgid "Unknown size"
 msgstr "មិន​ស្គាល់​ម៉ាស៊ីន"
 
-#: widgets/kopenwithdialog.cpp:299
+#: widgets/kopenwithdialog.cpp:301
 #, kde-format
 msgid "Known Applications"
 msgstr "កម្មវិធី​ដែល​ស្គាល់"
 
-#: widgets/kopenwithdialog.cpp:558
+#: widgets/kopenwithdialog.cpp:565
 #, kde-format
 msgid "Open With"
 msgstr "បើក​ជាមួយ"
 
-#: widgets/kopenwithdialog.cpp:563
+#: widgets/kopenwithdialog.cpp:570
 #, kde-format
 msgid ""
 "<qt>Select the program that should be used to open <b>%1</b>. If the program "
@@ -5637,34 +5663,34 @@ msgstr ""
 "<qt>ជ្រើស​កម្មវិធី​ដែល​គួរ​ប្រើ​សម្រាប់​បើក <b>%1</b> ។ ប្រសិនបើ​កម្មវិធី​មិន​មាន​នៅ​ក្នុង​បញ្ជី សូម​បញ្ចូល​"
 "ឈ្មោះ ឬ​ចុច​ប៊ូតុង រកមើល ។</qt>"
 
-#: widgets/kopenwithdialog.cpp:570
+#: widgets/kopenwithdialog.cpp:577
 #, kde-format
 msgid "Choose the name of the program with which to open the selected files."
 msgstr "ជ្រើស​ឈ្មោះ​កម្មវិធី​ដែល​ប្រើ​សម្រាប់​បើក​ឯកសារ​ដែល​បានជ្រើស ។"
 
-#: widgets/kopenwithdialog.cpp:591
+#: widgets/kopenwithdialog.cpp:598
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file<br/>%1</qt>"
 msgstr ""
 
-#: widgets/kopenwithdialog.cpp:593
+#: widgets/kopenwithdialog.cpp:600
 #, kde-format
 msgid "<qt>Select the program you want to use to open the file.</qt>"
 msgid_plural ""
 "<qt>Select the program you want to use to open the %1 files.</qt>"
 msgstr[0] ""
 
-#: widgets/kopenwithdialog.cpp:598 widgets/kopenwithdialog.cpp:629
+#: widgets/kopenwithdialog.cpp:605 widgets/kopenwithdialog.cpp:638
 #, kde-format
 msgid "Choose Application"
 msgstr "ជ្រើស​កម្មវិធី"
 
-#: widgets/kopenwithdialog.cpp:613
+#: widgets/kopenwithdialog.cpp:622
 #, kde-format
 msgid "Choose Application for %1"
 msgstr "ជ្រើស​កម្មវិធី​សម្រាប់ %1"
 
-#: widgets/kopenwithdialog.cpp:615
+#: widgets/kopenwithdialog.cpp:624
 #, kde-format
 msgid ""
 "<qt>Select the program for the file type: <b>%1</b>. If the program is not "
@@ -5673,21 +5699,21 @@ msgstr ""
 "<qt>ជ្រើស​កម្មវិធី​សម្រាប់​ប្រភេទ​ឯកសារ ៖ <b>%1</b> ។ ប្រសិន​បើ​កម្មវិធី​មិន​បាន​រាយ​នោះ​ទេ សូម​បញ្ចូល​"
 "ឈ្មោះ ឬ​ចុច​ប៊ូតុង​រកមើល ។</qt>"
 
-#: widgets/kopenwithdialog.cpp:631
+#: widgets/kopenwithdialog.cpp:640
 #, kde-format
 msgid ""
 "<qt>Select a program. If the program is not listed, enter the name or click "
 "the browse button.</qt>"
 msgstr "<qt>ជ្រើស​កម្មវិធី ។ ប្រសិនបើ​កម្មវិធី​នោះ​មិន​បាន​រាយ សូម​បញ្ចូលឈ្មោះ ឬ​ចុច​ប៊ូតុង​រកមើល ។</qt>"
 
-#: widgets/kopenwithdialog.cpp:677
+#: widgets/kopenwithdialog.cpp:698
 #, kde-format
 msgid ""
 "Type to filter the applications below, or specify the name of a command.\n"
 "Press down arrow to navigate the results."
 msgstr ""
 
-#: widgets/kopenwithdialog.cpp:700
+#: widgets/kopenwithdialog.cpp:721
 #, kde-format
 msgid ""
 "Following the command, you can have several place holders which will be "
@@ -5715,7 +5741,7 @@ msgstr ""
 "%m - រូបតំណាង​តូច\n"
 "%c - មតិយោបល់"
 
-#: widgets/kopenwithdialog.cpp:744
+#: widgets/kopenwithdialog.cpp:765
 #, fuzzy, kde-format
 #| msgid "&Remember application association for this type of file"
 msgid ""
@@ -5723,7 +5749,7 @@ msgid ""
 "\"%1\" (%2)"
 msgstr "ចងចាំ​កម្មវិធី​ដែល​ចងភ្ជាប់​សម្រាប់​ប្រភេទ​ឯកសារ​នេះ "
 
-#: widgets/kopenwithdialog.cpp:746
+#: widgets/kopenwithdialog.cpp:767
 #, fuzzy, kde-format
 #| msgid "&Remember application association for this type of file"
 msgid ""
@@ -5731,23 +5757,30 @@ msgid ""
 "\"%1\""
 msgstr "ចងចាំ​កម្មវិធី​ដែល​ចងភ្ជាប់​សម្រាប់​ប្រភេទ​ឯកសារ​នេះ "
 
-#: widgets/kopenwithdialog.cpp:756
+#: widgets/kopenwithdialog.cpp:773
+#, fuzzy, kde-format
+#| msgid "&Remember application association for this type of file"
+msgctxt "@option:check %1 is a file name extension"
+msgid "&Remember application association for all \"*.%1\" files"
+msgstr "ចងចាំ​កម្មវិធី​ដែល​ចងភ្ជាប់​សម្រាប់​ប្រភេទ​ឯកសារ​នេះ "
+
+#: widgets/kopenwithdialog.cpp:781
 #, fuzzy, kde-format
 #| msgid "&Terminal options:"
 msgid "Terminal options"
 msgstr "ជម្រើស​ស្ថានីយ ៖ "
 
-#: widgets/kopenwithdialog.cpp:761
+#: widgets/kopenwithdialog.cpp:786
 #, kde-format
 msgid "Run in &terminal"
 msgstr "រត់​ក្នុង​ស្ថានីយ"
 
-#: widgets/kopenwithdialog.cpp:779
+#: widgets/kopenwithdialog.cpp:804
 #, kde-format
 msgid "&Do not close when command exits"
 msgstr "កុំ​បិទ ពេល​ពាក្យ​បញ្ជា​ឈប់ "
 
-#: widgets/kopenwithdialog.cpp:798
+#: widgets/kopenwithdialog.cpp:823
 #, kde-format
 msgid "Get more Apps from Discover"
 msgstr ""
@@ -6686,35 +6719,57 @@ msgstr[0] "ថត​​ប្រើ​សិទ្ធិ​កម្រិត​
 msgid "These files use advanced permissions."
 msgstr "ឯកសារ​ទាំងនេះ​ប្រើ​សិទ្ធិ​កម្រិត​ខ្ពស់ ។"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2136
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2141
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2427
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2306
+#, kde-format
+msgctxt "@info:progress computation in the background"
+msgid "Verifying checksum… (%1%)"
+msgstr ""
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2414
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2636
+#, fuzzy, kde-format
+#| msgid "Calculating..."
+msgctxt "@info:progress Calculating hash for multiple files"
+msgid "Calculating… (%1/%2)"
+msgstr "កំពុង​គណនា..."
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2431
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2638
+#, fuzzy, kde-format
+#| msgid "Calculating..."
+msgctxt "@info:progress Calculating hash"
+msgid "Calculating… (%1%)"
+msgstr "កំពុង​គណនា..."
+
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2501
 #, kde-format
 msgid "Invalid checksum."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2430
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2504
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2441
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2515
 #, kde-format
 msgid "Checksums match."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2444
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2518
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2456
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2530
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6722,76 +6777,76 @@ msgid ""
 "source of the file."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2462
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2536
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2470
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2544
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2499
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2612
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
 msgid "The checksums of all files are identical."
 msgstr "ឈ្មោះ​ឯកសារ​ថ្មី​គឺ​ទទេ ។"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2504
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2617
 #, fuzzy, kde-format
 #| msgid "The new file name is empty."
 msgid "The selected files have different checksums."
 msgstr "ឈ្មោះ​ឯកសារ​ថ្មី​គឺ​ទទេ ។"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2510
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2623
 #, fuzzy, kde-format
 #| msgid "Calculating..."
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "កំពុង​គណនា..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2621
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2754
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2627
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2760
 #, kde-format
 msgid "URL:"
 msgstr "URL ៖"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2696
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2967
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2829
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3100
 #, fuzzy, kde-format
 #| msgid "Only executables on local file systems are supported."
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "គាំទ្រ​តែ​ការ​ប្រតិបត្តិ​នលើ​ប្រព័ន្ធ​ឯកសារ​មូលដ្ឋាន​ប៉ុណ្ណោះ ។"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2767
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2900
 #, kde-format
 msgid "&Application"
 msgstr "កម្មវិធី "
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2907
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3040
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "បន្ថែម​ប្រភេទ​ឯកសារ​ទៅ​ឲ្យ %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3041
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "ជ្រើស​ប្រភេទ​ឯកសារ​មួយ ឬ​ច្រើន ដើម្បី​បន្ថែម ៖"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3046
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3179
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "គាំទ្រ​តែ​ការ​ប្រតិបត្តិ​នលើ​ប្រព័ន្ធ​ឯកសារ​មូលដ្ឋាន​ប៉ុណ្ណោះ ។"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3061
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3194
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "ជម្រើស​កម្រិត​ខ្ពស់សម្រាប់ %1"
@@ -7464,7 +7519,7 @@ msgstr ""
 
 #: widgets/renamefilewarningdialog.cpp:68
 #: widgets/renamefilewarningdialog.cpp:118
-#: widgets/widgetsaskuseractionhandler.cpp:411
+#: widgets/widgetsaskuseractionhandler.cpp:417
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
@@ -7619,7 +7674,7 @@ msgstr ""
 "ម៉ាស៊ីន​ពី​ចម្ងាយ​មិន​ផ្ញើ​វិញ្ញាបនបត្រ SSL ។\n"
 "បោះបង់​ពីព្រោះ​អត្តសញ្ញាណ​របស់ម៉ាស៊ីន​មិន​អាច​ត្រូវ​បានបង្កើត​ទេ ។"
 
-#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:508
+#: widgets/sslui.cpp:50 widgets/widgetsaskuseractionhandler.cpp:519
 #, kde-format
 msgid ""
 "The server failed the authenticity check (%1).\n"
@@ -7628,7 +7683,7 @@ msgstr ""
 "ម៉ាស៊ីន​បម្រើ​បានបរាជ័យ​ក្នុងការ​ពិនិត្យ (%1) តាម​យថា​ភាព ។\n"
 "\n"
 
-#: widgets/widgetsaskuseractionhandler.cpp:234
+#: widgets/widgetsaskuseractionhandler.cpp:236
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7642,7 +7697,7 @@ msgid ""
 msgstr ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/widgetsaskuseractionhandler.cpp:240
+#: widgets/widgetsaskuseractionhandler.cpp:242
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7658,7 +7713,7 @@ msgid_plural ""
 msgstr[0] ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/widgetsaskuseractionhandler.cpp:253
+#: widgets/widgetsaskuseractionhandler.cpp:255
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7672,7 +7727,7 @@ msgid ""
 msgstr ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/widgetsaskuseractionhandler.cpp:260
+#: widgets/widgetsaskuseractionhandler.cpp:262
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7689,7 +7744,7 @@ msgid_plural ""
 msgstr[0] ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/widgetsaskuseractionhandler.cpp:275
+#: widgets/widgetsaskuseractionhandler.cpp:277
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7703,7 +7758,7 @@ msgid ""
 msgstr ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/widgetsaskuseractionhandler.cpp:282
+#: widgets/widgetsaskuseractionhandler.cpp:284
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid ""
@@ -7721,7 +7776,7 @@ msgid_plural ""
 msgstr[0] ""
 "តើ​អ្នកពិត​ជា​ចង់​លុប​ធាតុ​ទាំង​អស់​ពី​ធុង​សំរាម​ជា​អចិន្ត្រៃយ៍​ដែរ​ឬទេ ? សកម្មភាព​នេះ​មិនអាច​ធ្វើ​វិញ​បានទេ ។"
 
-#: widgets/widgetsaskuseractionhandler.cpp:310
+#: widgets/widgetsaskuseractionhandler.cpp:312
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to move this item to the trash?"
 #| msgid_plural "Do you really want to move these %1 items to the trash?"
@@ -7730,26 +7785,26 @@ msgid "Do you really want to move this %1 item to the Trash?"
 msgid_plural "Do you really want to move these %1 items to the Trash?"
 msgstr[0] "តើអ្នក​ពិត​ជា​ចង់​លុប​ធាតុ​ទាំង %1 នេះ​ឬ ?"
 
-#: widgets/widgetsaskuseractionhandler.cpp:367
+#: widgets/widgetsaskuseractionhandler.cpp:369
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:checkbox"
 msgid "Do not ask again"
 msgstr "កុំ​សួរ​ម្ដង​ទៀត"
 
-#: widgets/widgetsaskuseractionhandler.cpp:437
+#: widgets/widgetsaskuseractionhandler.cpp:443
 #, fuzzy, kde-format
 #| msgid "Do not ask again"
 msgctxt "@option:check"
 msgid "Do not show this message again"
 msgstr "កុំ​សួរ​ម្ដង​ទៀត"
 
-#: widgets/widgetsaskuseractionhandler.cpp:574
+#: widgets/widgetsaskuseractionhandler.cpp:585
 #, kde-format
 msgid "The peer SSL certificate chain appears to be corrupt."
 msgstr "ខ្សែ​វិញ្ញាបនបត្រ SSL ស្មើ​គ្នា​ទំនង​ជា​ខូច​ហើយ ។"
 
-#: widgets/widgetsaskuseractionhandler.cpp:577
+#: widgets/widgetsaskuseractionhandler.cpp:588
 #, kde-format
 msgid "SSL"
 msgstr "SSL"
