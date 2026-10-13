@@ -104,6 +104,7 @@ Name[zh_CN]=Google 图像搜索
 Name[zh_TW]=Google 圖片搜尋
 Keys=ggi,images
 Query=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
+Query[af]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[am]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[ar]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}
 Query[az]=https://www.google.com/search?site=imghp&tbm=isch&q=\\{@}

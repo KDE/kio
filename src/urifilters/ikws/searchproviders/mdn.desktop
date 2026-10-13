@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Mozilla Developer Network (MDN)
+Name[af]=Mozilla Developer Network (MDN)
 Name[am]=Mozilla Developer Network (MDN)
 Name[ar]=شبكة مطوري موزيلا (MDN)
 Name[az]=Mozilla Developer Network (MDN)
@@ -55,6 +56,7 @@ Name[zh_CN]=Mozilla 开发者网络 (MDN)
 Name[zh_TW]=Mozilla 開發者文件 (MDN)
 Keys=mdn
 Query=https://developer.mozilla.org/en-US/search?q=\\{@}
+Query[af]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[am]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[ar]=https://developer.mozilla.org/en-US/search?q=\\{@}
 Query[az]=https://developer.mozilla.org/en-US/search?q=\\{@}

@@ -106,6 +106,7 @@ Name[zh_CN]=Google
 Name[zh_TW]=Google
 Keys=g,gg,google
 Query=https://www.google.com/search?q=\\{@}&ie=UTF-8
+Query[af]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[am]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[ar]=https://www.google.com/search?q=\\{@}&ie=UTF-8
 Query[az]=https://www.google.com/search?q=\\{@}&ie=UTF-8

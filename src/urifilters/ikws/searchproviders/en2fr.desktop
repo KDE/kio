@@ -100,6 +100,7 @@ Name[wa]=WordReference.com ratournaedje di l' inglès viè l' francès
 Name[zh_CN]=WordReference.com 翻译：英语译法语
 Name[zh_TW]=WordReference.com 翻譯: 英文至法文
 Query=https://www.wordreference.com/enfr/\\{@}
+Query[af]=https://www.wordreference.com/enfr/\\{@}
 Query[am]=https://www.wordreference.com/enfr/\\{@}
 Query[ar]=https://www.wordreference.com/enfr/\\{@}
 Query[az]=https://www.wordreference.com/enfr/\\{@}

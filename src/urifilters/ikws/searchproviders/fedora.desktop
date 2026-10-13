@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Fedora Packages
+Name[af]=Fedora Pakkette
 Name[am]=Fedora Packages
 Name[ar]=حزم فيدورا
 Name[az]=Fedora paketləri
@@ -55,6 +56,7 @@ Name[zh_TW]=Fedora 軟體包
 Type=Service
 Keys=fedora
 Query=https://packages.fedoraproject.org/search?query=\\{@}
+Query[af]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[am]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[ar]=https://packages.fedoraproject.org/search?query=\\{@}
 Query[az]=https://packages.fedoraproject.org/search?query=\\{@}

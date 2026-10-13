@@ -99,6 +99,7 @@ Name[wa]=Idintifieu d' objets limerikes
 Name[zh_CN]=Digital Object Identifier
 Name[zh_TW]=數位物件識別
 Query=https://dx.doi.org/\\{@}
+Query[af]=https://dx.doi.org/\\{@}
 Query[am]=https://dx.doi.org/\\{@}
 Query[ar]=https://dx.doi.org/\\{@}
 Query[ast]=https://dx.doi.org/\\{@}

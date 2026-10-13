@@ -2,6 +2,7 @@
 Type=Service
 Icon=text-wiki
 Name=Wikipedia
+Name[af]=Wikipedia
 Name[am]=Wikipedia
 Name[ar]=ويكيبيديا
 Name[az]=Vikipedia
@@ -56,6 +57,7 @@ Name[zh_CN]=维基百科
 Name[zh_TW]=維基百科
 Keys=wp,wikipedia
 Query=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[af]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[am]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ar]=https://ar.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[ast]=https://ast.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go

@@ -98,6 +98,7 @@ Name[wa]=Guide di totes les muzikes
 Name[zh_CN]=All Music 指南
 Name[zh_TW]=所有音樂指南
 Query=https://www.allmusic.com/search/all/\\{@}
+Query[af]=https://www.allmusic.com/search/all/\\{@}
 Query[am]=https://www.allmusic.com/search/all/\\{@}
 Query[ar]=https://www.allmusic.com/search/all/\\{@}
 Query[ast]=https://www.allmusic.com/search/all/\\{@}

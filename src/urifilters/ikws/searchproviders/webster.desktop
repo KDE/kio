@@ -102,6 +102,7 @@ Name[zh_CN]=Merriam-Webster 韦氏词典
 Name[zh_TW]=韋氏詞典
 Keys=dict,webster
 Query=https://www.merriam-webster.com/dictionary/\\{@}
+Query[af]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[am]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[ar]=https://www.merriam-webster.com/dictionary/\\{@}
 Query[az]=https://www.merriam-webster.com/dictionary/\\{@}

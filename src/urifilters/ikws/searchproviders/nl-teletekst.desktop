@@ -100,6 +100,7 @@ Name[zh_TW]=Teletekst 搜尋提供者
 Type=Service
 Keys=tt,teletekst
 Query=https://nos.nl/teletekst#\\{@}
+Query[af]=https://nos.nl/teletekst#\\{@}
 Query[am]=https://nos.nl/teletekst#\\{@}
 Query[ar]=https://nos.nl/teletekst#\\{@}
 Query[az]=https://nos.nl/teletekst#\\{@}

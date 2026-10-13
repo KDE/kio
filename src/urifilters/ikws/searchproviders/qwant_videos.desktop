@@ -1,6 +1,7 @@
 [Desktop Entry]
 Keys=qwv
 Name=Qwant Videos
+Name[af]=Qwant Video's
 Name[am]=Qwan ቪዲዮዎች
 Name[ar]=فيديوهات Qwant
 Name[ast]=Qwant Videos
@@ -75,6 +76,7 @@ Name[vi]=Qwant Phim
 Name[zh_CN]=Qwant 视频
 Name[zh_TW]=Qwant Videos
 Query=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
+Query[af]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[am]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[ar]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos
 Query[az]=https://www.qwant.com/?q=\\{@}&client=kde&t=videos

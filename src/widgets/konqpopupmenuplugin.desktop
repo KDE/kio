@@ -2,6 +2,7 @@
 Type=ServiceType
 X-KDE-ServiceType=KonqPopupMenu/Plugin
 Comment=Plugin for the Konqueror Popup Menu
+Comment[af]=Inprop vir die Konqueror-opspringkieslys
 Comment[am]=Plugin for the Konqueror Popup Menu
 Comment[ar]=ملحق لقائمة منبثقة لكونيكور
 Comment[ast]=Plugin pal menú emerxente de Konqueror

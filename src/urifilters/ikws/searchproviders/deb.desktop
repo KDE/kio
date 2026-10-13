@@ -101,6 +101,7 @@ Name[wa]=Cweraedje di pacaedje Debian
 Name[zh_CN]=Debian 软件包搜索
 Name[zh_TW]=Debian 軟體包搜尋
 Query=https://packages.debian.org/\\{@}
+Query[af]=https://packages.debian.org/\\{@}
 Query[am]=https://packages.debian.org/\\{@}
 Query[ar]=https://packages.debian.org/\\{@}
 Query[ast]=https://packages.debian.org/\\{@}

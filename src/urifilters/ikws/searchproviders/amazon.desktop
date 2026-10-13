@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=amazon,amz,a
 Name=Amazon
+Name[af]=Amazon
 Name[am]=Amazon
 Name[ar]=أمازون
 Name[ast]=Amazon
@@ -85,6 +86,7 @@ Name[wa]=Amazon
 Name[zh_CN]=Amazon
 Name[zh_TW]=Amazon
 Query=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
+Query[af]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[am]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[ar]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0
 Query[ast]=https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=\\{@}&x=0&y=0

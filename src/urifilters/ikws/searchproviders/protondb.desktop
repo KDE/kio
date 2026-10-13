@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=ProtonDB
+Name[af]=ProtonDB
 Name[am]=ProtonDB
 Name[ar]=ProtonDB
 Name[ast]=ProtonDB
@@ -71,6 +72,7 @@ Name[zh_TW]=ProtonDB
 Type=Service
 Keys=protondb,proton
 Query=https://www.protondb.com/search?q=\\{@}
+Query[af]=https://www.protondb.com/search?q=\\{@}
 Query[am]=https://www.protondb.com/search?q=\\{@}
 Query[ar]=https://www.protondb.com/search?q=\\{@}
 Query[ast]=https://www.protondb.com/search?q=\\{@}

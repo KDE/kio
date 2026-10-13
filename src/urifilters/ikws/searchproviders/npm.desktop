@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=npm
+Name[af]=npm
 Name[am]=npm
 Name[ar]=npm
 Name[az]=npm
@@ -55,6 +56,7 @@ Name[zh_CN]=npm
 Name[zh_TW]=npm
 Keys=npm,npmjs
 Query=https://www.npmjs.com/search?q=\\{@}
+Query[af]=https://www.npmjs.com/search?q=\\{@}
 Query[am]=https://www.npmjs.com/search?q=\\{@}
 Query[ar]=https://www.npmjs.com/search?q=\\{@}
 Query[az]=https://www.npmjs.com/search?q=\\{@}

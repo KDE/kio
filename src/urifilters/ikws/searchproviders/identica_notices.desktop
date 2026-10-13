@@ -3,6 +3,7 @@ Charset=
 Hidden=false
 Keys=identicanotices,identin,idn
 Name=Identi.ca Notices
+Name[af]=Identi.ca Kennisgewings
 Name[am]=Identi.ca ማሳወቂያዎች
 Name[ar]=ملاحظات آيدنتكا
 Name[az]=Identi.ca Qeydlər
@@ -85,6 +86,7 @@ Name[wa]=Identi.ca Notices
 Name[zh_CN]=Identi.ca 通知
 Name[zh_TW]=Identi.ca Notices
 Query=https://identi.ca/search/notice?q=\\{@}
+Query[af]=https://identi.ca/search/notice?q=\\{@}
 Query[am]=https://identi.ca/search/notice?q=\\{@}
 Query[ar]=https://identi.ca/search/notice?q=\\{@}
 Query[az]=https://identi.ca/search/notice?q=\\{@}

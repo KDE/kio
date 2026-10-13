@@ -100,6 +100,7 @@ Name[wa]=Ratournaedje dict.cc: di l' almand viè l' inglès
 Name[zh_CN]=dict.cc 翻译：德语译英语
 Name[zh_TW]=dict.cc 翻譯: 德文至英文
 Query=https://www.dict.cc/?s=\\{@}
+Query[af]=https://www.dict.cc/?s=\\{@}
 Query[am]=https://www.dict.cc/?s=\\{@}
 Query[ar]=https://www.dict.cc/?s=\\{@}
 Query[ast]=https://www.dict.cc/?s=\\{@}

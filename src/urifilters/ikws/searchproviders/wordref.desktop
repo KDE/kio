@@ -101,6 +101,7 @@ Name[wa]=WordReference.com diccionaire inglès
 Name[zh_CN]=WordReference.com 英语词典
 Name[zh_TW]=WordReference.com 英文字典
 Query=https://www.wordreference.com/english/definition.asp?en=\\{@}
+Query[af]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[am]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ar]=https://www.wordreference.com/english/definition.asp?en=\\{@}
 Query[ast]=https://www.wordreference.com/english/definition.asp?en=\\{@}

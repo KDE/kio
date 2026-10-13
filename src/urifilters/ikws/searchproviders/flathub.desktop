@@ -1,6 +1,7 @@
 [Desktop Entry]
 Charset=
 Name=Flathub
+Name[af]=Flathub
 Name[ar]=Flathub
 Name[az]=Flathub
 Name[bg]=Flathub
@@ -44,6 +45,7 @@ Name[zh_TW]=Flathub
 Type=Service
 Keys=flathub,app
 Query=https://flathub.org/apps/search?q=\\{@}
+Query[af]=https://flathub.org/apps/search?q=\\{@}
 Query[ar]=https://flathub.org/apps/search?q=\\{@}
 Query[az]=https://flathub.org/apps/search?q=\\{@}
 Query[bg]=https://flathub.org/apps/search?q=\\{@}

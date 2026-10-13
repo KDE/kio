@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Freecode
+Name[af]=Freecode
 Name[am]=Freecode
 Name[ar]=فريكود
 Name[ast]=Freecode
@@ -79,6 +80,7 @@ Name[zh_CN]=Freecode
 Name[zh_TW]=Freecode
 Keys=fc,freecode
 Query=http://freecode.com/search?q=\\{@}
+Query[af]=http://freecode.com/search?q=\\{@}
 Query[am]=http://freecode.com/search?q=\\{@}
 Query[ar]=http://freecode.com/search?q=\\{@}
 Query[az]=http://freecode.com/search?q=\\{@}

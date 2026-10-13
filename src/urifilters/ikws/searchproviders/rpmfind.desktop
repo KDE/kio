@@ -102,6 +102,7 @@ Name[zh_CN]=RPM-Find
 Name[zh_TW]=RPM-Find
 Keys=rf,rpmfind
 Query=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
+Query[af]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[am]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[ar]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}
 Query[az]=https://www.rpmfind.net/linux/rpm2html/search.php?query=\\{@}

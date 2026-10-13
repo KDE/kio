@@ -102,6 +102,7 @@ Name[wa]=Diccionaire del Royåle Academeye Espagnole (RAE)
 Name[zh_CN]=西班牙语学院词典 (RAE)
 Name[zh_TW]=西班牙金像獎字典 (RAE)
 Query=https://dle.rae.es/\\{@}
+Query[af]=https://dle.rae.es/\\{@}
 Query[am]=https://dle.rae.es/\\{@}
 Query[ar]=https://dle.rae.es/\\{@}
 Query[az]=https://dle.rae.es/\\{@}

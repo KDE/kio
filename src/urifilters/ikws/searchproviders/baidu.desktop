@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Baidu
+Name[af]=Baidu
 Name[am]=Baidu
 Name[ar]=بايدو
 Name[ast]=Baidu
@@ -85,6 +86,7 @@ Name[zh_CN]=百度
 Name[zh_TW]=百度
 Keys=baidu
 Query=https://www.baidu.com/s?wd=\\{@}
+Query[af]=https://www.baidu.com/s?wd=\\{@}
 Query[am]=https://www.baidu.com/s?wd=\\{@}
 Query[ar]=https://www.baidu.com/s?wd=\\{@}
 Query[ast]=https://www.baidu.com/s?wd=\\{@}

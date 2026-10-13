@@ -1,6 +1,7 @@
 [Desktop Entry]
 Type=Service
 Name=Startpage
+Name[af]=Startpage
 Name[ar]=Startpage
 Name[az]=Startpage
 Name[bg]=Startpage
@@ -44,6 +45,7 @@ Name[zh_CN]=Startpage
 Name[zh_TW]=Startpage
 Keys=sp,startpage
 Query=https://www.startpage.com/sp/search?query=\\{@}
+Query[af]=https://www.startpage.com/sp/search?query=\\{@}
 Query[ar]=https://www.startpage.com/sp/search?query=\\{@}
 Query[az]=https://www.startpage.com/sp/search?query=\\{@}
 Query[bg]=https://www.startpage.com/sp/search?query=\\{@}

@@ -98,6 +98,7 @@ Name[zh_CN]=Technorati 标签
 Name[zh_TW]=Technorati Tags
 Keys=tags,tag,technoratitags
 Query=https://technorati.com/tag/\\{@}?sourceid=kde-search
+Query[af]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[am]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[ar]=https://technorati.com/tag/\\{@}?sourceid=kde-search
 Query[az]=https://technorati.com/tag/\\{@}?sourceid=kde-search
