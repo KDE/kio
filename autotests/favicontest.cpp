@@ -1,50 +1,79 @@
 /*
     This file is part of KDE
     SPDX-FileCopyrightText: 2006-2016 David Faure <faure@kde.org>
+    SPDX-FileCopyrightText: 2026 Méven Car <meven@kde.org>
 
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
 #include <KIO/FavIconRequestJob>
 #include <KIO/TransferJob>
+#include <QBuffer>
 #include <QDir>
-#include <QElapsedTimer>
+#include <QImage>
 #include <QLoggingCategory>
 #include <QStandardPaths>
+#include <QTcpServer>
+#include <QTcpSocket>
 #include <QTest>
+#include <QThread>
 
 #include <QFutureSynchronizer>
 #include <QThreadPool>
 #include <QtConcurrentRun>
 
-static const char s_hostUrl[] = "http://www.google.com/index.html";
-static const char s_pageUrl[] = "http://www.google.com/somepage.html";
-static const char s_iconUrl[] = "http://www.google.com/favicon.ico";
-static const char s_altIconUrl[] = "http://www.ibm.com/favicon.ico";
-static const char s_thirdIconUrl[] = "http://www.google.fr/favicon.ico";
-static const char s_iconUrlForThreadTest[] = "http://www.google.de/favicon.ico";
-
-static enum NetworkAccess {
-    Unknown,
-    Yes,
-    No
-} s_networkAccess = Unknown;
-static bool checkNetworkAccess()
+// An HTTP server on a port of 127.0.0.1 that answers GET /favicon.ico with a PNG image, GET /big.ico
+// with 100 KiB of data, and every other path with 404.
+class IconServer : public QTcpServer
 {
-    if (s_networkAccess == Unknown) {
-        QElapsedTimer tm;
-        tm.start();
-        KIO::Job *job = KIO::get(QUrl(s_iconUrl), KIO::NoReload, KIO::HideProgressInfo);
-        if (job->exec()) {
-            s_networkAccess = Yes;
-            qDebug() << "Network access OK. Download time" << tm.elapsed() << "ms";
-        } else {
-            qWarning() << job->errorString();
-            s_networkAccess = No;
-        }
+public:
+    explicit IconServer(const QByteArray &icon)
+        : m_icon(icon)
+    {
     }
-    return s_networkAccess == Yes;
-}
+
+    QUrl url(const QString &path) const
+    {
+        QUrl url(QStringLiteral("http://127.0.0.1"));
+        url.setPort(serverPort());
+        url.setPath(path);
+        return url;
+    }
+
+protected:
+    void incomingConnection(qintptr socketDescriptor) override
+    {
+        auto *socket = new QTcpSocket(this);
+        socket->setSocketDescriptor(socketDescriptor);
+        connect(socket, &QTcpSocket::disconnected, socket, &QObject::deleteLater);
+        connect(socket, &QTcpSocket::readyRead, socket, [this, socket] {
+            // The request is complete once the empty line after the headers arrived.
+            const QByteArray request = socket->peek(socket->bytesAvailable());
+            if (!request.contains("\r\n\r\n")) {
+                return;
+            }
+            socket->readAll();
+            const QByteArray path = request.split(' ').value(1);
+            if (path == "/favicon.ico") {
+                reply(socket, "200 OK", "image/png", m_icon);
+            } else if (path == "/big.ico") {
+                reply(socket, "200 OK", "image/png", QByteArray(100 * 1024, 'x'));
+            } else {
+                reply(socket, "404 Not Found", "text/html", QByteArray("<p>Not found</p>"));
+            }
+        });
+    }
+
+private:
+    static void reply(QTcpSocket *socket, const QByteArray &status, const QByteArray &contentType, const QByteArray &body)
+    {
+        socket->write("HTTP/1.1 " + status + "\r\nContent-Type: " + contentType + "\r\nContent-Length: " + QByteArray::number(body.size())
+                      + "\r\nConnection: close\r\n\r\n" + body);
+        socket->disconnectFromHost();
+    }
+
+    const QByteArray m_icon;
+};
 
 class FavIconTest : public QObject
 {
@@ -52,6 +81,7 @@ class FavIconTest : public QObject
 
 private Q_SLOTS:
     void initTestCase();
+    void cleanupTestCase();
     void favIconForUrlShouldBeEmptyInitially();
     void hostJobShouldDownloadIconThenUseCache();
     void iconUrlJobShouldDownloadIconThenUseCache();
@@ -62,6 +92,38 @@ private Q_SLOTS:
     void concurrentRequestsShouldWork();
 
 private:
+    // The favicon cache names an icon after the host and the port of its url, so each server acts as
+    // a different web site.
+    enum Site {
+        Host,
+        Alt,
+        Third,
+        ThreadTest,
+        SiteCount,
+    };
+
+    QUrl hostUrl() const
+    {
+        return m_servers[Host]->url(QStringLiteral("/index.html"));
+    }
+    QUrl pageUrl() const
+    {
+        return m_servers[Host]->url(QStringLiteral("/somepage.html"));
+    }
+    QUrl iconUrl(Site site) const
+    {
+        return m_servers[site]->url(QStringLiteral("/favicon.ico"));
+    }
+    QString iconFileName(Site site) const
+    {
+        return QStringLiteral("favicons/127.0.0.1_%1.png").arg(m_servers[site]->serverPort());
+    }
+
+    // The servers answer from their own thread, so a test can wait on a job in the main thread or
+    // in several other threads.
+    QThread m_serverThread;
+    QObject *m_serverContext = nullptr;
+    IconServer *m_servers[SiteCount] = {};
 };
 
 void FavIconTest::initTestCase()
@@ -74,9 +136,27 @@ void FavIconTest::initTestCase()
     qputenv("LC_ALL", "en_US.UTF-8");
     qputenv("LANGUAGE", "en");
 
-    if (!checkNetworkAccess()) {
-        QSKIP("no network access", SkipAll);
-    }
+    QImage image(16, 16, QImage::Format_ARGB32);
+    image.fill(Qt::red);
+    QBuffer iconBuffer;
+    iconBuffer.open(QIODevice::WriteOnly);
+    QVERIFY(image.save(&iconBuffer, "PNG"));
+    const QByteArray icon = iconBuffer.data();
+
+    m_serverContext = new QObject;
+    m_serverContext->moveToThread(&m_serverThread);
+    m_serverThread.start();
+    bool listening = true;
+    QMetaObject::invokeMethod(
+        m_serverContext,
+        [this, &icon, &listening] {
+            for (auto &server : m_servers) {
+                server = new IconServer(icon);
+                listening = listening && server->listen(QHostAddress::LocalHost);
+            }
+        },
+        Qt::BlockingQueuedConnection);
+    QVERIFY(listening);
 
     // Ensure we start with no cache on disk
     const QString favIconCacheDir = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + QStringLiteral("/favicons");
@@ -87,9 +167,25 @@ void FavIconTest::initTestCase()
     QLoggingCategory::setFilterRules(QStringLiteral("kf.kio.gui.favicons.debug=true"));
 }
 
+void FavIconTest::cleanupTestCase()
+{
+    QMetaObject::invokeMethod(
+        m_serverContext,
+        [this] {
+            for (auto &server : m_servers) {
+                delete server;
+                server = nullptr;
+            }
+            delete m_serverContext;
+        },
+        Qt::BlockingQueuedConnection);
+    m_serverThread.quit();
+    m_serverThread.wait();
+}
+
 void FavIconTest::favIconForUrlShouldBeEmptyInitially()
 {
-    QCOMPARE(KIO::favIconForUrl(QUrl(s_hostUrl)), QString());
+    QCOMPARE(KIO::favIconForUrl(hostUrl()), QString());
 }
 
 // Waits for start() and checks whether a transfer job was created.
@@ -101,13 +197,13 @@ static bool willDownload(KIO::FavIconRequestJob *job)
 
 void FavIconTest::hostJobShouldDownloadIconThenUseCache()
 {
-    const QUrl url(s_hostUrl);
+    const QUrl url = hostUrl();
 
     KIO::FavIconRequestJob *job = new KIO::FavIconRequestJob(url);
     QVERIFY(willDownload(job));
-    QVERIFY(job->exec());
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     const QString iconFile = job->iconFile();
-    QVERIFY(iconFile.endsWith(QLatin1String("favicons/www.google.com.png")));
+    QVERIFY2(iconFile.endsWith(iconFileName(Host)), qPrintable(iconFile));
     QVERIFY2(QFile::exists(iconFile), qPrintable(iconFile));
     QVERIFY(!QIcon(iconFile).isNull()); // pass full path to QIcon
     // This requires https://codereview.qt-project.org/148444
@@ -138,15 +234,15 @@ void FavIconTest::hostJobShouldDownloadIconThenUseCache()
 
 void FavIconTest::iconUrlJobShouldDownloadIconThenUseCache()
 {
-    const QUrl url(s_pageUrl);
+    const QUrl url = pageUrl();
 
-    // Set icon URL to "ibm"
+    // Set icon URL to the one of another site
     KIO::FavIconRequestJob *job = new KIO::FavIconRequestJob(url);
-    job->setIconUrl(QUrl(s_altIconUrl));
+    job->setIconUrl(iconUrl(Alt));
     QVERIFY(willDownload(job));
-    QVERIFY(job->exec());
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     const QString iconFile = job->iconFile();
-    QVERIFY(iconFile.endsWith(QLatin1String("favicons/www.ibm.com.png")));
+    QVERIFY2(iconFile.endsWith(iconFileName(Alt)), qPrintable(iconFile));
     QVERIFY2(QFile::exists(iconFile), qPrintable(iconFile));
     QVERIFY(!QPixmap(iconFile).isNull()); // pass full path to QPixmap (to test this too)
 
@@ -159,13 +255,13 @@ void FavIconTest::iconUrlJobShouldDownloadIconThenUseCache()
     QVERIFY(secondJob->exec());
     QCOMPARE(secondJob->iconFile(), iconFile);
 
-    // Set icon URL to "www.google.fr/favicon.ico"
+    // Set icon URL to the one of a third site
     KIO::FavIconRequestJob *thirdJob = new KIO::FavIconRequestJob(url);
-    thirdJob->setIconUrl(QUrl(s_thirdIconUrl));
+    thirdJob->setIconUrl(iconUrl(Third));
     QVERIFY(willDownload(thirdJob));
-    QVERIFY(thirdJob->exec());
+    QVERIFY2(thirdJob->exec(), qPrintable(thirdJob->errorString()));
     const QString newiconFile = thirdJob->iconFile();
-    QVERIFY(newiconFile.endsWith(QLatin1String("favicons/www.google.fr.png")));
+    QVERIFY2(newiconFile.endsWith(iconFileName(Third)), qPrintable(newiconFile));
 
     // Lookup should give the same result
     QCOMPARE(KIO::favIconForUrl(url), newiconFile);
@@ -173,11 +269,11 @@ void FavIconTest::iconUrlJobShouldDownloadIconThenUseCache()
 
 void FavIconTest::reloadShouldReload()
 {
-    const QUrl url(s_hostUrl);
+    const QUrl url = hostUrl();
 
     // First job, to make sure it's in the cache (if the other tests didn't run first)
     KIO::FavIconRequestJob *job = new KIO::FavIconRequestJob(url);
-    QVERIFY(job->exec());
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
     const QString iconFile = job->iconFile();
 
     // Second job should use the cache
@@ -189,23 +285,25 @@ void FavIconTest::reloadShouldReload()
     // job with Reload should not use the cache
     KIO::FavIconRequestJob *jobWithReload = new KIO::FavIconRequestJob(url, KIO::Reload);
     QVERIFY(willDownload(jobWithReload));
-    QVERIFY(jobWithReload->exec());
+    QVERIFY2(jobWithReload->exec(), qPrintable(jobWithReload->errorString()));
     QCOMPARE(jobWithReload->iconFile(), iconFile);
 }
 
 void FavIconTest::failedDownloadShouldBeRemembered()
 {
-    const QUrl url(s_pageUrl);
+    const QUrl url = pageUrl();
+    const QUrl missingIconUrl = m_servers[Host]->url(QStringLiteral("/doesnotexist/favicon.ico"));
+    const QString expectedError = QStringLiteral("The file or folder %1 does not exist.").arg(missingIconUrl.toDisplayString());
 
     // Set icon URL to a non-existing favicon
     KIO::FavIconRequestJob *job = new KIO::FavIconRequestJob(url);
-    job->setIconUrl(QUrl("https://kde.org/doesnotexist/favicon.ico"));
+    job->setIconUrl(missingIconUrl);
     QVERIFY(willDownload(job));
     QVERIFY(!job->exec());
     QVERIFY(job->iconFile().isEmpty());
     qDebug() << job->errorString();
     QCOMPARE(job->error(), int(KIO::ERR_DOES_NOT_EXIST));
-    QCOMPARE(job->errorString(), QStringLiteral("The file or folder https://kde.org/doesnotexist/favicon.ico does not exist."));
+    QCOMPARE(job->errorString(), expectedError);
 
     // Second job should use the cache and not do anything
     KIO::FavIconRequestJob *secondJob = new KIO::FavIconRequestJob(url);
@@ -213,39 +311,31 @@ void FavIconTest::failedDownloadShouldBeRemembered()
     QVERIFY(!secondJob->exec());
     QVERIFY(secondJob->iconFile().isEmpty());
     QCOMPARE(job->error(), int(KIO::ERR_DOES_NOT_EXIST));
-    QCOMPARE(job->errorString(), QStringLiteral("The file or folder https://kde.org/doesnotexist/favicon.ico does not exist."));
+    QCOMPARE(job->errorString(), expectedError);
 }
 
 void FavIconTest::tooBigFaviconShouldAbort()
 {
-    const QUrl url(s_pageUrl);
+    const QUrl url = pageUrl();
 
     // Set icon URL to a >65KB file
     KIO::FavIconRequestJob *job = new KIO::FavIconRequestJob(url);
-    job->setIconUrl(QUrl("http://download.kde.org/Attic/4.13.2/src/kcalc-4.13.2.tar.xz"));
+    job->setIconUrl(m_servers[Host]->url(QStringLiteral("/big.ico")));
     QVERIFY(willDownload(job));
     QVERIFY(!job->exec());
-
-#if defined(Q_OS_WINDOWS)
-    if (job->error() == int(KIO::ERR_CANNOT_CONNECT)) {
-        // some hosts may not be reachable by the VM
-        QVERIFY(job->errorString().startsWith(QStringLiteral("Could not connect to host")));
-        return;
-    }
-#endif
     QCOMPARE(job->error(), int(KIO::ERR_WORKER_DEFINED));
     QCOMPARE(job->errorString(), QStringLiteral("Icon file too big, download aborted"));
 }
 
 void FavIconTest::simultaneousRequestsShouldWork()
 {
-    const QUrl url(s_hostUrl);
+    const QUrl url = hostUrl();
 
     // First job, to find out the iconFile and delete it
     QString iconFile;
     {
         KIO::FavIconRequestJob *job = new KIO::FavIconRequestJob(url);
-        QVERIFY(job->exec());
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
         iconFile = job->iconFile();
         QFile::remove(iconFile);
     }
@@ -268,12 +358,11 @@ void FavIconTest::simultaneousRequestsShouldWork()
     delete job2;
 }
 
-static QString getAltIconUrl()
+static QString getAltIconUrl(const QUrl &pageUrl, const QUrl &iconUrl)
 {
-    const QUrl url(s_pageUrl);
     // Set icon URL to one that we haven't downloaded yet
-    KIO::FavIconRequestJob *job = new KIO::FavIconRequestJob(url);
-    job->setIconUrl(QUrl(s_iconUrlForThreadTest));
+    KIO::FavIconRequestJob *job = new KIO::FavIconRequestJob(pageUrl);
+    job->setIconUrl(iconUrl);
     job->exec();
     return job->iconFile();
 }
@@ -289,11 +378,12 @@ void FavIconTest::concurrentRequestsShouldWork()
     tp.setMaxThreadCount(numThreads);
     QList<QFuture<QString>> futures(numThreads);
     for (int i = 0; i < numThreads; ++i) {
-        futures[i] = QtConcurrent::run(&tp, getAltIconUrl);
+        futures[i] = QtConcurrent::run(&tp, getAltIconUrl, pageUrl(), iconUrl(ThreadTest));
     }
     QVERIFY(tp.waitForDone(60000));
 
     const QString firstResult = futures.at(0).result();
+    QVERIFY2(firstResult.endsWith(iconFileName(ThreadTest)), qPrintable(firstResult));
     for (int i = 1; i < numThreads; ++i) {
         QCOMPARE(futures.at(i).result(), firstResult);
     }
