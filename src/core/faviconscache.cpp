@@ -111,7 +111,7 @@ QString FavIconsCache::iconForUrl(const QUrl &url)
     if (!cachedIconUrl.isEmpty()) {
         icon += iconNameFromUrl(QUrl(cachedIconUrl));
     } else {
-        icon += url.host();
+        icon += url.host() + portForUrl(url);
     }
     icon += QStringLiteral(".png");
     if (QFile::exists(icon)) {
