@@ -122,6 +122,9 @@ private Q_SLOTS:
     void slotGetOrCreateThumbnail(KJob *job);
     void slotTimeout();
 
+protected:
+    bool doKill() override;
+
 private:
     friend class ::FilePreviewJobTest;
 

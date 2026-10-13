@@ -85,6 +85,17 @@ FilePreviewJob::~FilePreviewJob()
     }
 }
 
+bool FilePreviewJob::doKill()
+{
+    if (m_standardThumbnailJob) {
+        m_standardThumbnailJob->kill();
+    }
+    if (m_transferjob) {
+        m_transferjob->kill();
+    }
+    return KIO::Job::doKill();
+}
+
 QString FilePreviewJob::parentDirPath(const QString &path)
 {
     if (!path.isEmpty()) {
