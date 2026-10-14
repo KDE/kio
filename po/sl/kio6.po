@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-13 00:41+0000\n"
-"PO-Revision-Date: 2026-10-06 10:48+0200\n"
+"PO-Revision-Date: 2026-10-13 07:41+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -2305,27 +2305,26 @@ msgstr "Ni mogoče določiti vrste datoteke za %1"
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "No file type can be defined for the extension \"%1\"."
-msgstr ""
+msgstr "Ni mogoče določiti vrste datoteke za pripono \"%1\"."
 
 #: core/openwith.cpp:96
-#, fuzzy, kde-format
-#| msgid "Could not enter folder %1."
+#, kde-format
 msgctxt "@info %1 is a folder path"
 msgid "Could not create the folder %1."
-msgstr "Ni bilo mogoče vstopiti v mapo %1."
+msgstr "Ni bilo mogoče ustvariti mape %1."
 
 #: core/openwith.cpp:100 core/openwith.cpp:113
-#, fuzzy, kde-format
-#| msgid "Could not write to file %1."
+#, kde-format
 msgctxt "@info %1 is a file path, %2 the error"
 msgid "Could not write the file type definition %1: %2"
-msgstr "Ni bilo mogoče pisati v datoteko %1."
+msgstr "Ni bilo mogoče zapisati definicije vrste datoteke %1: %2"
 
 #: core/openwith.cpp:120
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "Could not update the file type database with the extension \"%1\"."
 msgstr ""
+"Ni bilo mogoče posodobiti podatkovne zbirke vrst datotek s končnico \"%1\"."
 
 #: core/openwith.cpp:149
 #, kde-format
@@ -5687,15 +5686,10 @@ msgstr ""
 "\"%1\""
 
 #: widgets/kopenwithdialog.cpp:773
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\""
+#, kde-format
 msgctxt "@option:check %1 is a file name extension"
 msgid "&Remember application association for all \"*.%1\" files"
-msgstr ""
-"Zapomni si povezavo s programom za vse datoteke vrste\n"
-"\"%1\""
+msgstr "Zapomni si povezavo z aplikacijo za vse datoteke \"*.%1\""
 
 #: widgets/kopenwithdialog.cpp:781
 #, kde-format
@@ -6631,30 +6625,24 @@ msgid "C&hecksums"
 msgstr "Nadzorne vsote"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2306
-#, fuzzy, kde-format
-#| msgctxt "@info:progress computation in the background"
-#| msgid "Verifying checksum…"
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum… (%1%)"
-msgstr "Preverjanje nadzorne vsote…"
+msgstr "Preverjanje nadzorne vsote… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2414
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2636
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash for multiple files"
 msgid "Calculating… (%1/%2)"
-msgstr "Računanje…"
+msgstr "Računanje… (%1/%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2431
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2638
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash"
 msgid "Calculating… (%1%)"
-msgstr "Računanje…"
+msgstr "Računanje… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
 #, kde-format

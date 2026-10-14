@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-13 00:41+0000\n"
-"PO-Revision-Date: 2026-10-06 09:43+0200\n"
+"PO-Revision-Date: 2026-10-13 10:52+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2334,28 +2334,28 @@ msgstr "No s'ha pogut determinar el tipus de fitxer per a %1"
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "No file type can be defined for the extension \"%1\"."
-msgstr ""
+msgstr "No es pot definir cap tipus de fitxer per a l'extensió «%1»."
 
 # skip-rule: ff-enter
 #: core/openwith.cpp:96
-#, fuzzy, kde-format
-#| msgid "Could not enter folder %1."
+#, kde-format
 msgctxt "@info %1 is a folder path"
 msgid "Could not create the folder %1."
-msgstr "No s'ha pogut entrar a la carpeta %1."
+msgstr "No s'ha pogut crear la carpeta %1."
 
 #: core/openwith.cpp:100 core/openwith.cpp:113
-#, fuzzy, kde-format
-#| msgid "Could not write to file %1."
+#, kde-format
 msgctxt "@info %1 is a file path, %2 the error"
 msgid "Could not write the file type definition %1: %2"
-msgstr "No s'ha pogut escriure al fitxer %1."
+msgstr "No s'ha pogut escriure la definició del tipus de fitxer %1: %2"
 
 #: core/openwith.cpp:120
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "Could not update the file type database with the extension \"%1\"."
 msgstr ""
+"No s'ha pogut actualitzar la base de dades de tipus de fitxer amb l'extensió "
+"«%1»."
 
 #: core/openwith.cpp:149
 #, kde-format
@@ -5719,15 +5719,10 @@ msgstr ""
 "«%1»"
 
 #: widgets/kopenwithdialog.cpp:773
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\""
+#, kde-format
 msgctxt "@option:check %1 is a file name extension"
 msgid "&Remember application association for all \"*.%1\" files"
-msgstr ""
-"&Recorda l'associació de l'aplicació per a tots els fitxers del tipus\n"
-"«%1»"
+msgstr "&Recorda l'associació de l'aplicació per a tots els fitxers «*.%1»"
 
 #: widgets/kopenwithdialog.cpp:781
 #, kde-format
@@ -6659,30 +6654,24 @@ msgid "C&hecksums"
 msgstr "Sumes de verifi&cació"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2306
-#, fuzzy, kde-format
-#| msgctxt "@info:progress computation in the background"
-#| msgid "Verifying checksum…"
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum… (%1%)"
-msgstr "S'està comprovant la suma de verificació…"
+msgstr "S'està comprovant la suma de verificació… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2414
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2636
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash for multiple files"
 msgid "Calculating… (%1/%2)"
-msgstr "S'està calculant…"
+msgstr "S'està calculant… (%1/%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2431
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2638
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash"
 msgid "Calculating… (%1%)"
-msgstr "S'està calculant…"
+msgstr "S'està calculant… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
 #, kde-format

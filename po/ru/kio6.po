@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-13 00:41+0000\n"
-"PO-Revision-Date: 2026-10-06 08:28+0200\n"
+"PO-Revision-Date: 2026-10-13 23:10+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -2320,27 +2320,25 @@ msgstr "Не удалось определить тип файла «%1»"
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "No file type can be defined for the extension \"%1\"."
-msgstr ""
+msgstr "Невозможно определить тип файла для расширения «%1»."
 
 #: core/openwith.cpp:96
-#, fuzzy, kde-format
-#| msgid "Could not enter folder %1."
+#, kde-format
 msgctxt "@info %1 is a folder path"
 msgid "Could not create the folder %1."
-msgstr "Невозможно войти в папку %1."
+msgstr "Не удалось создать папку %1."
 
 #: core/openwith.cpp:100 core/openwith.cpp:113
-#, fuzzy, kde-format
-#| msgid "Could not write to file %1."
+#, kde-format
 msgctxt "@info %1 is a file path, %2 the error"
 msgid "Could not write the file type definition %1: %2"
-msgstr "Ошибка записи в файл %1."
+msgstr "Не удалось записать описание типа файла %1: %2"
 
 #: core/openwith.cpp:120
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "Could not update the file type database with the extension \"%1\"."
-msgstr ""
+msgstr "Не удалось добавить расширение «%1» в базу данных типов файлов."
 
 #: core/openwith.cpp:149
 #, kde-format
@@ -5709,15 +5707,10 @@ msgstr ""
 "«%1»"
 
 #: widgets/kopenwithdialog.cpp:773
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\""
+#, kde-format
 msgctxt "@option:check %1 is a file name extension"
 msgid "&Remember application association for all \"*.%1\" files"
-msgstr ""
-"&Запомнить связь с приложением для всех файлов типа\n"
-"«%1»"
+msgstr "&Запомнить связь с приложением для всех файлов «*.%1»"
 
 #: widgets/kopenwithdialog.cpp:781
 #, kde-format
@@ -6660,32 +6653,26 @@ msgid "C&hecksums"
 msgstr "&Контрольные суммы"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2306
-#, fuzzy, kde-format
-#| msgctxt "@info:progress computation in the background"
-#| msgid "Verifying checksum…"
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum… (%1%)"
-msgstr "Проверка контрольной суммы…"
+msgstr "Проверка контрольной суммы… (%1%)"
 
 # BUGME: it's a label, not a button --aspotashev
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2414
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2636
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash for multiple files"
 msgid "Calculating… (%1/%2)"
-msgstr "Вычисление…"
+msgstr "Вычисление… (%1/%2)"
 
 # BUGME: it's a label, not a button --aspotashev
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2431
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2638
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash"
 msgid "Calculating… (%1%)"
-msgstr "Вычисление…"
+msgstr "Вычисление… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
 #, kde-format

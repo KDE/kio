@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-13 00:41+0000\n"
-"PO-Revision-Date: 2026-10-06 04:55+0200\n"
+"PO-Revision-Date: 2026-10-13 14:49+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -31,7 +31,7 @@ msgstr "Temuri.doghonadze@gmail.com"
 #: core/chmodjob.cpp:197
 #, kde-format
 msgid "Could not modify the ownership of file %1"
-msgstr "ფაილ %1-ის მფლობელის შეცვლის შეცდომა"
+msgstr "ფაილის %1 მფლობელის შეცვლის შეცდომა"
 
 #: core/chmodjob.cpp:231
 #, kde-kuit-format
@@ -103,7 +103,7 @@ msgstr "უკვე არსებობს საქაღალდეში"
 #: core/copyjob.cpp:1985 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
-msgstr "ნაგავი"
+msgstr "ნაგვის ყუთი"
 
 #: core/desktopexecparser.cpp:335
 #, kde-format
@@ -438,12 +438,12 @@ msgstr ""
 #: core/job_error.cpp:116
 #, kde-format
 msgid "Could not read file %1."
-msgstr "ფაილ %1-ის წაკითხვის შეცდომა."
+msgstr "ფაილის %1 წაკითხვის შეცდომა."
 
 #: core/job_error.cpp:119
 #, kde-format
 msgid "Could not write to file %1."
-msgstr "ფაილ %1-ში ჩაწერის შეცდომა."
+msgstr "ფაილში %1 ჩაწერის შეცდომა."
 
 #: core/job_error.cpp:122
 #, kde-format
@@ -483,12 +483,12 @@ msgstr "საქაღალდე %1-ის წაშლის შეცდო
 #: core/job_error.cpp:146
 #, kde-format
 msgid "Could not resume file %1."
-msgstr "ფაილ %1-ის გაგრძელების შეცდომა."
+msgstr "ფაილის %1 გაგრძელების შეცდომა."
 
 #: core/job_error.cpp:149
 #, kde-format
 msgid "Could not rename file %1."
-msgstr "ფაილ %1-ის სახელის გადარქმევის შეცდომა."
+msgstr "ფაილისთვის %1 სახელის გადარქმევის შეცდომა."
 
 #: core/job_error.cpp:152
 #, kde-format
@@ -498,12 +498,12 @@ msgstr "%1-ზე წვდომის შეცვლის შეცდომ
 #: core/job_error.cpp:155
 #, kde-format
 msgid "Could not change ownership for %1."
-msgstr "ფაილ %1-ის მფლობელის შეცვლის შეცდომა."
+msgstr "ფაილის %1 მფლობელის შეცვლის შეცდომა."
 
 #: core/job_error.cpp:158
 #, kde-format
 msgid "Could not delete file %1."
-msgstr "ფაილ %1-ის წაშლის შეცდომა."
+msgstr "ფაილის %1 წაშლის შეცდომა."
 
 #: core/job_error.cpp:161
 #, kde-format
@@ -2286,27 +2286,25 @@ msgstr "%1-ის ფაილის ტიპის გამოცნობა
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "No file type can be defined for the extension \"%1\"."
-msgstr ""
+msgstr "ფაილის გაფართოებისთვის \"%1\" ფაილის ტიპის დადგენა შეუძლებელია."
 
 #: core/openwith.cpp:96
-#, fuzzy, kde-format
-#| msgid "Could not enter folder %1."
+#, kde-format
 msgctxt "@info %1 is a folder path"
 msgid "Could not create the folder %1."
-msgstr "საქაღალდე %1-ში შესვლის შეცდომა."
+msgstr "საქაღალდის %1 შექმნის შეცდომა."
 
 #: core/openwith.cpp:100 core/openwith.cpp:113
-#, fuzzy, kde-format
-#| msgid "Could not write to file %1."
+#, kde-format
 msgctxt "@info %1 is a file path, %2 the error"
 msgid "Could not write the file type definition %1: %2"
-msgstr "ფაილ %1-ში ჩაწერის შეცდომა."
+msgstr "ჩაწერის შეცდომა ფაილის ტიპის აღწერისთვის %1: %2"
 
 #: core/openwith.cpp:120
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "Could not update the file type database with the extension \"%1\"."
-msgstr ""
+msgstr "ფაილის ტიპის მონაცემთა ბაზის განახლება შეუძლებელია გაფართოებით \"%1\"."
 
 #: core/openwith.cpp:149
 #, kde-format
@@ -2997,7 +2995,7 @@ msgstr "ქსელი"
 #: filewidgets/kfileplacesmodel.cpp:291
 msgctxt "KFile System Bookmarks"
 msgid "Trash"
-msgstr "ნაგავი"
+msgstr "ნაგვის ყუთი"
 
 #: filewidgets/kfileplacesmodel.cpp:352
 msgctxt "KFile System Bookmarks"
@@ -3460,7 +3458,7 @@ msgstr "ადგილები"
 #: filewidgets/kfilewidget.cpp:1763
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
-msgstr "ფაილ %1 უკვე არსებობს. გნებავთ გადავაწეროთ?"
+msgstr "ფაილი %1 უკვე არსებობს. გნებავთ გადავაწეროთ?"
 
 #: filewidgets/kfilewidget.cpp:1764
 #, kde-format
@@ -4628,7 +4626,7 @@ msgstr "ნაგავში ჩაგდებული ფაილის ს
 #: kioworkers/trash/trashimpl.cpp:1315
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
-msgstr "ნაგავი გადავსებულია. დააცარიელეთ ან ხელით გადაიტანეთ ელემენტები."
+msgstr "ნაგვის ყუთი გადავსებულია. დააცარიელეთ ან ხელით გადაიტანეთ ელემენტები."
 
 #: kpasswdserver/kpasswdserver.cpp:617
 #, kde-format
@@ -5647,15 +5645,10 @@ msgstr ""
 "\"%1\""
 
 #: widgets/kopenwithdialog.cpp:773
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\""
+#, kde-format
 msgctxt "@option:check %1 is a file name extension"
 msgid "&Remember application association for all \"*.%1\" files"
-msgstr ""
-"&აპლიკაციის ასოციაციის დამახსოვრება ყველა ფაილისთვის ტიპით\n"
-"\"%1\""
+msgstr "&აპლიკაციის ასოციაციის დამახსოვრება ყველა ფაილისთვის ტიპით \"*.%1\""
 
 #: widgets/kopenwithdialog.cpp:781
 #, kde-format
@@ -6583,30 +6576,24 @@ msgid "C&hecksums"
 msgstr "&საკონტროლო ჯამები"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2306
-#, fuzzy, kde-format
-#| msgctxt "@info:progress computation in the background"
-#| msgid "Verifying checksum…"
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum… (%1%)"
-msgstr "საკონტროლო ჯამის შემოწმება…"
+msgstr "საკონტროლო ჯამის შემოწმება… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2414
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2636
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash for multiple files"
 msgid "Calculating… (%1/%2)"
-msgstr "გამოთვლა…"
+msgstr "გამოთვლა… (%1/%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2431
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2638
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash"
 msgid "Calculating… (%1%)"
-msgstr "გამოთვლა…"
+msgstr "გამოთვლა… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
 #, kde-format

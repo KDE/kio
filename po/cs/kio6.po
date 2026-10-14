@@ -12,15 +12,15 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-13 00:41+0000\n"
-"PO-Revision-Date: 2026-10-06 13:26+0200\n"
-"Last-Translator: Libor Filipek <libor.filipek@gmail.com>\n"
+"PO-Revision-Date: 2026-10-13 12:13+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1239,8 +1239,8 @@ msgid ""
 "An unknown host error indicates that the server with the requested name, "
 "<strong>%1</strong>, could not be located on the Internet."
 msgstr ""
-"Chyba „neznámý hostitel“ znamená, že server s požadovaným jménem <strong>%1</"
-"strong> nebylo možné na Internetu nalézt."
+"Chyba \"neznámý hostitel\" znamená, že server s požadovaným jménem <strong>"
+"%1</strong> nebylo možné na Internetu nalézt."
 
 #: core/job_error.cpp:606
 #, kde-format
@@ -2294,27 +2294,25 @@ msgstr "Pro %1 se nepodařilo určit typ souboru"
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "No file type can be defined for the extension \"%1\"."
-msgstr ""
+msgstr "Pro příponu \"%1\" nelze definovat žádný typ souboru."
 
 #: core/openwith.cpp:96
-#, fuzzy, kde-format
-#| msgid "Could not enter folder %1."
+#, kde-format
 msgctxt "@info %1 is a folder path"
 msgid "Could not create the folder %1."
-msgstr "Nelze vstoupit do složky %1."
+msgstr "Složku %1 se nepodařilo vytvořit."
 
 #: core/openwith.cpp:100 core/openwith.cpp:113
-#, fuzzy, kde-format
-#| msgid "Could not write to file %1."
+#, kde-format
 msgctxt "@info %1 is a file path, %2 the error"
 msgid "Could not write the file type definition %1: %2"
-msgstr "Nelze zapisovat do souboru %1."
+msgstr "Nelze zapsat definici typu souboru %1: %2"
 
 #: core/openwith.cpp:120
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "Could not update the file type database with the extension \"%1\"."
-msgstr ""
+msgstr "Nepodařilo se aktualizovat databázi typů souborů o příponu \"%1\"."
 
 #: core/openwith.cpp:149
 #, kde-format
@@ -5659,15 +5657,10 @@ msgstr ""
 "\"%1\""
 
 #: widgets/kopenwithdialog.cpp:773
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\""
+#, kde-format
 msgctxt "@option:check %1 is a file name extension"
 msgid "&Remember application association for all \"*.%1\" files"
-msgstr ""
-"Zapamatovat si asociaci s aplikací p&ro všechny soubory typu\n"
-"\"%1\""
+msgstr "&Zapamatovat si asociaci s aplikací pro všechny soubory typu \"*.%1\""
 
 #: widgets/kopenwithdialog.cpp:781
 #, kde-format
@@ -6590,30 +6583,24 @@ msgid "C&hecksums"
 msgstr "Kontro&lní součty"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2306
-#, fuzzy, kde-format
-#| msgctxt "@info:progress computation in the background"
-#| msgid "Verifying checksum…"
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum… (%1%)"
-msgstr "Ověřování kontrolního součtu…"
+msgstr "Ověřování kontrolního součtu… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2414
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2636
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash for multiple files"
 msgid "Calculating… (%1/%2)"
-msgstr "Výpočet…"
+msgstr "Počítání… (%1/%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2431
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2638
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash"
 msgid "Calculating… (%1%)"
-msgstr "Výpočet…"
+msgstr "Počítání… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
 #, kde-format

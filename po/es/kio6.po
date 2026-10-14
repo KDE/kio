@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-13 00:41+0000\n"
-"PO-Revision-Date: 2026-10-06 12:25+0100\n"
+"PO-Revision-Date: 2026-10-13 23:42+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "First-Translator: Boris Wesslowski <Boris@Wesslowski.com>\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 26.08.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -2344,27 +2344,27 @@ msgstr "No se ha podido determinar el tipo de archivo para %1"
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "No file type can be defined for the extension \"%1\"."
-msgstr ""
+msgstr "No se puede definir ningún tipo de archivo para la extensión «%1»."
 
 #: core/openwith.cpp:96
-#, fuzzy, kde-format
-#| msgid "Could not enter folder %1."
+#, kde-format
 msgctxt "@info %1 is a folder path"
 msgid "Could not create the folder %1."
-msgstr "No se ha podido entrar en la carpeta %1."
+msgstr "No se ha podido crear la carpeta %1."
 
 #: core/openwith.cpp:100 core/openwith.cpp:113
-#, fuzzy, kde-format
-#| msgid "Could not write to file %1."
+#, kde-format
 msgctxt "@info %1 is a file path, %2 the error"
 msgid "Could not write the file type definition %1: %2"
-msgstr "No se ha podido escribir en el archivo %1."
+msgstr "No se ha podido escribir la definición del tipo de archivo %1: %2"
 
 #: core/openwith.cpp:120
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "Could not update the file type database with the extension \"%1\"."
 msgstr ""
+"No se ha podido actualizar la base de datos de tipos de archivo con la "
+"extensión «%1»."
 
 #: core/openwith.cpp:149
 #, kde-format
@@ -2573,7 +2573,7 @@ msgstr "Crear nueva carpeta para estos elementos"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr "%p %"
+msgstr "%p %"
 
 #: filewidgets/kdiroperator.cpp:728 filewidgets/kdiroperator.cpp:761
 #, kde-format
@@ -3220,7 +3220,7 @@ msgstr "%1: %2"
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
-msgstr "%1 libre de %2 (%3 % usado)"
+msgstr "%1 libre de %2 (%3 % usado)"
 
 #: filewidgets/kfileplacesview.cpp:678
 #, kde-format
@@ -5730,7 +5730,7 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\" (%2)"
 msgstr ""
-"&Recordar la asociación de programa para todos los archivo del tipo\n"
+"&Recordar la asociación de aplicación para todos los archivo del tipo\n"
 "«%1» (%2)"
 
 #: widgets/kopenwithdialog.cpp:767
@@ -5739,19 +5739,14 @@ msgid ""
 "&Remember application association for all files of type\n"
 "\"%1\""
 msgstr ""
-"&Recordar la asociación de programa para todos los archivo del tipo\n"
+"&Recordar la asociación de aplicación para todos los archivo del tipo\n"
 "«%1»"
 
 #: widgets/kopenwithdialog.cpp:773
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\""
+#, kde-format
 msgctxt "@option:check %1 is a file name extension"
 msgid "&Remember application association for all \"*.%1\" files"
-msgstr ""
-"&Recordar la asociación de programa para todos los archivo del tipo\n"
-"«%1»"
+msgstr "&Recordar la asociación de aplicación para todos los archivos «*.%1»"
 
 #: widgets/kopenwithdialog.cpp:781
 #, kde-format
@@ -6686,30 +6681,24 @@ msgid "C&hecksums"
 msgstr "&Sumas de verificación"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2306
-#, fuzzy, kde-format
-#| msgctxt "@info:progress computation in the background"
-#| msgid "Verifying checksum…"
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum… (%1%)"
-msgstr "Comprobando suma de verificación…"
+msgstr "Comprobando suma de verificación… (%1 %)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2414
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2636
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash for multiple files"
 msgid "Calculating… (%1/%2)"
-msgstr "Calculando…"
+msgstr "Calculando… (%1/%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2431
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2638
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash"
 msgid "Calculating… (%1%)"
-msgstr "Calculando…"
+msgstr "Calculando… (%1 %)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
 #, kde-format
