@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2026-08-19 11:53+0200\n"
+"PO-Revision-Date: 2026-10-13 12:13+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -1349,8 +1349,8 @@ msgid ""
 "An unknown host error indicates that the server with the requested name, "
 "<strong>%1</strong>, could not be located on the Internet."
 msgstr ""
-"Chyba „neznámý hostitel“ znamená, že server s požadovaným jménem <strong>%1</"
-"strong> nebylo možné na Internetu nalézt."
+"Chyba \"neznámý hostitel\" znamená, že server s požadovaným jménem <strong>"
+"%1</strong> nebylo možné na Internetu nalézt."
 
 #: core/job_error.cpp:599
 #, kde-format
