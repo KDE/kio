@@ -1,6 +1,7 @@
 {
     "KPlugin": {
         "Description": "Provides change notification for network folders",
+        "Description[af]": "Verskaf veranderingskennisgewing vir netwerkgidse",
         "Description[am]": "ለአውታረ መረብ አቃፊዎች የለውጥ ማሳወቂያ ያቀርባል",
         "Description[ar]": "يقدم إشعار عندما تُغير مجلدات الشبكة",
         "Description[az]": "Şəbəkə qovluqlarındakı dəyişiklik bildirişini göstərir",
@@ -64,6 +65,7 @@
         "Description[zh_CN]": "提供网络文件夹变动的通知",
         "Description[zh_TW]": "為網路資料夾提供變更通知",
         "Name": "Remote URL Change Notifier",
+        "Name[af]": "Afgeleë-URL-veranderingskennisgewer",
         "Name[ar]": "منبه تغيير العنوان البعيد",
         "Name[az]": "Serverdə ünvan (URL) dəyişikliyi bildirişi",
         "Name[be]": "Апавяшчэнне пра змену адлеглых URL-адрасоў",
