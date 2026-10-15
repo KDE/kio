@@ -14,6 +14,8 @@
 #include <QStandardPaths>
 #include <QTemporaryDir>
 
+using namespace Qt::Literals::StringLiterals;
+
 class ThumbnailerExpander : public KMacroExpanderBase
 {
 public:
@@ -80,9 +82,9 @@ int ThumbnailerExpander::expandEscapedMacro(const QString &str, int pos, QString
 }
 
 // Paths that the thumbnailer sees inside the bwrap sandbox
-static const QString s_sandboxInput = QStringLiteral("/tmp/input");
-static const QString s_sandboxOutputDir = QStringLiteral("/tmp/output");
-static const QString s_outputName = QStringLiteral("thumbnail.png");
+static const QString s_sandboxInput = u"/tmp/input"_s;
+static const QString s_sandboxOutputDir = u"/tmp/output"_s;
+static const QString s_outputName = u"thumbnail.png"_s;
 
 // The system files a dynamically linked thumbnailer needs, read-only, and nothing of the user.
 static QStringList sandboxSystemArguments()

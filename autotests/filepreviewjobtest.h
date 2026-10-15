@@ -53,6 +53,7 @@ private Q_SLOTS:
     // Ended processes are recognised with kill(), which Windows does not have
     void testLocalCopiesOfEndedProcessesAreRemoved();
 #endif
+    void testStandardThumbnailerSeesOnlyItsInput();
 };
 
 #endif
