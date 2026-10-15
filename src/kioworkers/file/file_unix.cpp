@@ -129,14 +129,15 @@ static QByteArray readlinkToBuffer(const StatStruct &buf, int dirFd, const QByte
 }
 
 // name is relative to dirFd, so a listing does not resolve the directory again for every entry.
-// path is the absolute path of the same file.
+// path is the absolute path of the same file. statFlags is added to the flags of the stat of name.
 static bool createUDSEntry(const QString &filename,
                            int dirFd,
                            const QByteArray &name,
                            const QByteArray &path,
                            UDSEntry &entry,
                            KIO::StatDetails details,
-                           const QString &fullPath)
+                           const QString &fullPath,
+                           int statFlags)
 {
     assert(entry.count() == 0); // by contract :-)    assert(entry.count() == 0); // by contract :-)
     int numberEntries = 0;
@@ -195,7 +196,7 @@ static bool createUDSEntry(const QString &filename,
 
     StatStruct buff;
 
-    if (LSTATAT(dirFd, name.constData(), &buff, details) == 0) {
+    if (LSTATAT(dirFd, name.constData(), &buff, details, statFlags) == 0) {
         if (Utils::isLinkMask(stat_mode(buff))) {
             QByteArray linkTargetBuffer;
             if (details & (KIO::StatBasic | KIO::StatResolveSymlink)) {
@@ -451,7 +452,7 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
             // network filesystems), only a stat tells a directory from a file.
             if (type == 0) {
                 StatStruct buff;
-                if (LSTATAT(dirfd(dp), ep->d_name, &buff, KIO::StatBasic) == -1) {
+                if (LSTATAT(dirfd(dp), ep->d_name, &buff, KIO::StatBasic, ListingStatFlags) == -1) {
                     continue;
                 }
                 type = stat_mode(buff) & S_IFMT;
@@ -470,7 +471,7 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
             fullPath += filename;
 
             const QByteArray name(ep->d_name);
-            if (createUDSEntry(filename, dirfd(dp), name, encodedBasePath + name, entry, details, fullPath)) {
+            if (createUDSEntry(filename, dirfd(dp), name, encodedBasePath + name, entry, details, fullPath, ListingStatFlags)) {
 #if HAVE_SYS_XATTR_H && HAVE_DIRENT_D_TYPE
                 if (isNtfsHidden(filename)) {
                     bool ntfsHidden = true;
@@ -855,7 +856,7 @@ WorkerResult FileProtocol::stat(const QUrl &url)
     const KIO::StatDetails details = getStatDetails();
 
     UDSEntry entry;
-    if (!createUDSEntry(url.fileName(), AT_FDCWD, _path, _path, entry, details, path)) {
+    if (!createUDSEntry(url.fileName(), AT_FDCWD, _path, _path, entry, details, path, 0)) {
         return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, path);
     }
     statEntry(entry);

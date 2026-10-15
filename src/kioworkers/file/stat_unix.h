@@ -91,11 +91,16 @@ inline int LSTAT(const char *path, struct statx *buff, KIO::StatDetails details)
 }
 
 // LSTAT of a name in the directory a descriptor is held on, so that what is looked at is the name in that
-// very directory rather than whatever the path resolves to now.
-inline int LSTATAT(int dfd, const char *path, struct statx *buff, KIO::StatDetails details)
+// very directory rather than whatever the path resolves to now. flags is added to the statx flags.
+inline int LSTATAT(int dfd, const char *path, struct statx *buff, KIO::StatDetails details, int flags = 0)
 {
-    return statx(dfd, path, AT_SYMLINK_NOFOLLOW, statxMask(details), buff);
+    return statx(dfd, path, AT_SYMLINK_NOFOLLOW | flags, statxMask(details), buff);
 }
+
+// The flags of a stat of an entry that was just read from its directory. A network filesystem such as CIFS or
+// NFS stores the attributes that come with the directory listing, and the stat returns those instead of asking
+// the server again for each entry.
+inline constexpr int ListingStatFlags = AT_STATX_DONT_SYNC;
 
 inline int STAT(const char *path, struct statx *buff, const KIO::StatDetails &details)
 {
@@ -176,9 +181,10 @@ inline static uint64_t stat_mnt_id(const struct statx &buf)
 #ifndef Q_OS_WIN
 // Stat of a name in the directory a descriptor is held on. Windows has no fstatat, and the file
 // worker that asks for one is built on the other platforms only.
-inline int LSTATAT(int dfd, const char *path, QT_STATBUF *buff, KIO::StatDetails details)
+inline int LSTATAT(int dfd, const char *path, QT_STATBUF *buff, KIO::StatDetails details, int flags = 0)
 {
     Q_UNUSED(details)
+    Q_UNUSED(flags)
     return FSTATAT(dfd, path, buff, AT_SYMLINK_NOFOLLOW);
 }
 
@@ -188,6 +194,9 @@ inline int STATAT(int dfd, const char *path, QT_STATBUF *buff, KIO::StatDetails 
     return FSTATAT(dfd, path, buff, 0);
 }
 #endif
+
+// fstatat has no flag to read cached attributes only.
+inline constexpr int ListingStatFlags = 0;
 
 inline int LSTAT(const char *path, QT_STATBUF *buff, KIO::StatDetails details)
 {
