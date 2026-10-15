@@ -13,6 +13,7 @@
 #include <QProcess>
 #include <QStandardPaths>
 #include <QTemporaryDir>
+#include <QUrl>
 
 class ThumbnailerExpander : public KMacroExpanderBase
 {
@@ -64,8 +65,10 @@ int ThumbnailerExpander::expandEscapedMacro(const QString &str, int pos, QString
         ret << QString::number(m_width);
         break;
     case 'i':
-    case 'u':
         ret << m_inputFile;
+        break;
+    case 'u':
+        ret << QUrl::fromLocalFile(m_inputFile).toString(QUrl::FullyEncoded);
         break;
     case 'o':
         ret << m_outputFile;
