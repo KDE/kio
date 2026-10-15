@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-13 00:41+0000\n"
+"POT-Creation-Date: 2026-10-15 00:42+0000\n"
 "PO-Revision-Date: 2026-05-04 17:15+0300\n"
 "Last-Translator: Wesenseged <kde-i18n-de@kde.org>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -3799,7 +3799,7 @@ msgstr "ምስል ወደ %1 ማስቀመጥ ላይ ስህተት"
 msgid "Icon file too big, download aborted"
 msgstr "የአዶ ፋይል በጣም ትልቅ ነው፣ ማውረድ ተቋርጧል"
 
-#: gui/filepreviewjob.cpp:255
+#: gui/filepreviewjob.cpp:266
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -6914,25 +6914,46 @@ msgstr "'%1' የሚባል በጣም የቅርብ ጊዜ ንጥል አስቀድ�
 msgid "Rename:"
 msgstr "እንደገና ይሰይሙ፦"
 
-#: widgets/renamefiledialog.cpp:149
+#: widgets/renamefiledialog.cpp:174
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
 msgstr "ንጥሉን <filename>%1</filename> ወደሚከተለው ይሰይሙ፦"
 
-#: widgets/renamefiledialog.cpp:199 widgets/renamefiledialog.cpp:572
+#: widgets/renamefiledialog.cpp:224 widgets/renamefiledialog.cpp:615
 #, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "<filename>%1</filename> የሚባል ፋይል አስቀድሞ አለ።"
 
-#: widgets/renamefiledialog.cpp:202
+#: widgets/renamefiledialog.cpp:227
 #, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> ተቀባይንት ያለው የፋይል ስም አይደለም።"
 
-#: widgets/renamefiledialog.cpp:222
+#: widgets/renamefiledialog.cpp:235
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this folder's name will hide it from view."
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:236
+#, kde-format
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this file's name will hide it from view."
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:244
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The file's type may change, which could prevent it from opening correctly."
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:265
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
@@ -6940,13 +6961,13 @@ msgid_plural "Rename the %1 selected items to:"
 msgstr[0] "የተመረጠውን %1 ንጥል ወደዚህ ሰይም፦"
 msgstr[1] "የተመረጡትን %1 ንጥሎች ወደዚህ ሰይም፦"
 
-#: widgets/renamefiledialog.cpp:225
+#: widgets/renamefiledialog.cpp:268
 #, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
 msgstr "# ከዚህ ጀምሮ በሚጨምሩ ቁጥሮች ይተካል፦"
 
-#: widgets/renamefiledialog.cpp:240
+#: widgets/renamefiledialog.cpp:283
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox as in insert text before filename"
 #| msgid "Before filename"
@@ -6954,7 +6975,7 @@ msgctxt "@item:inlistbox the new name is the whole file name"
 msgid "Replace filename"
 msgstr "ከፋይል ስም በፊት"
 
-#: widgets/renamefiledialog.cpp:241
+#: widgets/renamefiledialog.cpp:284
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox as in insert text before filename"
 #| msgid "Before filename"
@@ -6962,7 +6983,7 @@ msgctxt "@item:inlistbox as in insert the new name before the filename"
 msgid "Before filename"
 msgstr "ከፋይል ስም በፊት"
 
-#: widgets/renamefiledialog.cpp:242
+#: widgets/renamefiledialog.cpp:285
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox as in insert text after filename"
 #| msgid "After filename"
@@ -6970,7 +6991,7 @@ msgctxt "@item:inlistbox as in insert the new name after the filename"
 msgid "After filename"
 msgstr "ከፋይል ስም ቡሃላ"
 
-#: widgets/renamefiledialog.cpp:295
+#: widgets/renamefiledialog.cpp:338
 #, kde-format
 msgctxt ""
 "Template putting the number before the old file name, # is replaced by a "
@@ -6978,7 +6999,7 @@ msgctxt ""
 msgid "#_"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:297
+#: widgets/renamefiledialog.cpp:340
 #, kde-format
 msgctxt ""
 "Template putting the number after the old file name, # is replaced by a "
@@ -6986,7 +7007,7 @@ msgctxt ""
 msgid "_#"
 msgstr ""
 
-#: widgets/renamefiledialog.cpp:299
+#: widgets/renamefiledialog.cpp:342
 #, kde-format
 msgctxt ""
 "This a template for new filenames, # is replaced by a number later, must be "
@@ -6994,7 +7015,7 @@ msgctxt ""
 msgid "New name #"
 msgstr "አዲስ ስም #"
 
-#: widgets/renamefiledialog.cpp:375
+#: widgets/renamefiledialog.cpp:418
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7004,7 +7025,7 @@ msgstr ""
 "ልክ ያልሆነ የፋይል ስም፦ አዲሱ ስም አንድ የ# ቅደም ተከተል መያዝ አለበት፣ ሁሉም ፋይሎች የተለያዩ የፋይል ቅጥያዎች "
 "ከሌላቸው በስተቀር።"
 
-#: widgets/renamefiledialog.cpp:404
+#: widgets/renamefiledialog.cpp:447
 #, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
@@ -7012,37 +7033,37 @@ msgid_plural "Rename the %1 selected items by:"
 msgstr[0] "የተመረጠውን %1 ንጥል በዚህ ሰይም፦"
 msgstr[1] "የተመረጡትን %1 ንጥሎች በዚህ ሰይም፦"
 
-#: widgets/renamefiledialog.cpp:408
+#: widgets/renamefiledialog.cpp:451
 #, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
 msgstr "በመተካት ላይ፦"
 
-#: widgets/renamefiledialog.cpp:410
+#: widgets/renamefiledialog.cpp:453
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
 msgstr "ንድፍ"
 
-#: widgets/renamefiledialog.cpp:414
+#: widgets/renamefiledialog.cpp:457
 #, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
 msgstr "ከ፦"
 
-#: widgets/renamefiledialog.cpp:416
+#: widgets/renamefiledialog.cpp:459
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
 msgstr "መተካት"
 
-#: widgets/renamefiledialog.cpp:463
+#: widgets/renamefiledialog.cpp:506
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
 msgstr "ምንም ፋይል ይህን ንድፍ አያካትትም።"
 
-#: widgets/renamefiledialog.cpp:472
+#: widgets/renamefiledialog.cpp:515
 #, kde-kuit-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid ""
@@ -7050,7 +7071,7 @@ msgid ""
 "to have an empty file name."
 msgstr "\"%1\"ን በባዶ ምትክ መተካት <filename>%2</filename> ባዶ የፋይል ስም እንዲኖረው ያደርጋል።"
 
-#: widgets/renamefiledialog.cpp:498
+#: widgets/renamefiledialog.cpp:541
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
@@ -7058,79 +7079,79 @@ msgid_plural "Rename the %1 selected items:"
 msgstr[0] "የተመረጠውን %1 ንጥል ሰይም፦"
 msgstr[1] "የተመረጠውን %1 ንጥል ሰይም፦"
 
-#: widgets/renamefiledialog.cpp:501
+#: widgets/renamefiledialog.cpp:544
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
 msgstr "ጽሑፍ አክል፦"
 
-#: widgets/renamefiledialog.cpp:503
+#: widgets/renamefiledialog.cpp:546
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
 msgstr "የሚጨመር ጽሑፍ"
 
-#: widgets/renamefiledialog.cpp:508
+#: widgets/renamefiledialog.cpp:551
 #, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
 msgstr "ከፋይል ስም በፊት"
 
-#: widgets/renamefiledialog.cpp:509
+#: widgets/renamefiledialog.cpp:552
 #, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
 msgstr "ከፋይል ስም ቡሃላ"
 
-#: widgets/renamefiledialog.cpp:621
+#: widgets/renamefiledialog.cpp:664
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Item"
 msgstr "ንጥሉን እንደገና ይሰይሙ"
 
-#: widgets/renamefiledialog.cpp:621
+#: widgets/renamefiledialog.cpp:664
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Items"
 msgstr "ንጥሎችን እንደገና ይሰይሙ"
 
-#: widgets/renamefiledialog.cpp:632
+#: widgets/renamefiledialog.cpp:675
 #, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
 msgstr "እንደገና ይሰይሙ(&R)"
 
-#: widgets/renamefiledialog.cpp:641
+#: widgets/renamefiledialog.cpp:684
 #, kde-format
 msgctxt "@info"
 msgid "How to rename:"
 msgstr "እንዴት እንደገና መሰየም እንደሚቻል፦"
 
-#: widgets/renamefiledialog.cpp:645
+#: widgets/renamefiledialog.cpp:688
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
 msgstr "ቆጠራ"
 
-#: widgets/renamefiledialog.cpp:645
+#: widgets/renamefiledialog.cpp:688
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
 msgstr "ጽሑፍ ይተኩ"
 
-#: widgets/renamefiledialog.cpp:645
+#: widgets/renamefiledialog.cpp:688
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
 msgstr "ጽሑፍ አክል"
 
-#: widgets/renamefiledialog.cpp:662
+#: widgets/renamefiledialog.cpp:705
 #, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
 msgstr "ቅድመ እይታ"
 
-#: widgets/renamefiledialog.cpp:801
+#: widgets/renamefiledialog.cpp:844
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."

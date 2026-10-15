@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-13 00:41+0000\n"
+"POT-Creation-Date: 2026-10-15 00:42+0000\n"
 "PO-Revision-Date: 2026-10-13 23:10+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -3959,7 +3959,7 @@ msgstr "Не удалось сохранить изображение в %1."
 msgid "Icon file too big, download aborted"
 msgstr "Файл значка слишком большой, загрузка прервана."
 
-#: gui/filepreviewjob.cpp:255
+#: gui/filepreviewjob.cpp:266
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -7161,25 +7161,60 @@ msgstr "Объект с именем «%1» уже существует и яв�
 msgid "Rename:"
 msgstr "Переименовать:"
 
-#: widgets/renamefiledialog.cpp:149
+#: widgets/renamefiledialog.cpp:174
 #, kde-kuit-format
 msgctxt "@label:textbox"
 msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Переименовать объект <filename>%1</filename> в:"
 
-#: widgets/renamefiledialog.cpp:199 widgets/renamefiledialog.cpp:572
+#: widgets/renamefiledialog.cpp:224 widgets/renamefiledialog.cpp:615
 #, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "Файл с именем <filename>%1</filename> уже существует."
 
-#: widgets/renamefiledialog.cpp:202
+#: widgets/renamefiledialog.cpp:227
 #, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> не является допустимым именем файла."
 
-#: widgets/renamefiledialog.cpp:222
+#: widgets/renamefiledialog.cpp:235
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Adding a dot to the beginning of this folder's name will hide it from "
+#| "view.\n"
+#| "Do you still want to rename it?"
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this folder's name will hide it from view."
+msgstr ""
+"Если имя папки будет начинаться с точки, она станет скрытой.\n"
+"Переименовать её?"
+
+#: widgets/renamefiledialog.cpp:236
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid ""
+#| "Adding a dot to the beginning of this file's name will hide it from "
+#| "view.\n"
+#| "Do you still want to rename it?"
+msgctxt "@info"
+msgid ""
+"Adding a dot to the beginning of this file's name will hide it from view."
+msgstr ""
+"Если имя файла будет начинаться с точки, он станет скрытым.\n"
+"Переименовать его?"
+
+#: widgets/renamefiledialog.cpp:244
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The file's type may change, which could prevent it from opening correctly."
+msgstr ""
+
+#: widgets/renamefiledialog.cpp:265
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item to:"
@@ -7189,31 +7224,31 @@ msgstr[1] "Переименовать %1 выделенных объекта в:
 msgstr[2] "Переименовать %1 выделенных объектов в:"
 msgstr[3] "Переименовать выделенный объект в:"
 
-#: widgets/renamefiledialog.cpp:225
+#: widgets/renamefiledialog.cpp:268
 #, kde-format
 msgctxt "@info"
 msgid "# will be replaced by ascending numbers starting with:"
 msgstr "Символ # будет заменён порядковым номером, начиная с:"
 
-#: widgets/renamefiledialog.cpp:240
+#: widgets/renamefiledialog.cpp:283
 #, kde-format
 msgctxt "@item:inlistbox the new name is the whole file name"
 msgid "Replace filename"
 msgstr "Вместо имени файла"
 
-#: widgets/renamefiledialog.cpp:241
+#: widgets/renamefiledialog.cpp:284
 #, kde-format
 msgctxt "@item:inlistbox as in insert the new name before the filename"
 msgid "Before filename"
 msgstr "Перед именем файла"
 
-#: widgets/renamefiledialog.cpp:242
+#: widgets/renamefiledialog.cpp:285
 #, kde-format
 msgctxt "@item:inlistbox as in insert the new name after the filename"
 msgid "After filename"
 msgstr "После имени файла"
 
-#: widgets/renamefiledialog.cpp:295
+#: widgets/renamefiledialog.cpp:338
 #, kde-format
 msgctxt ""
 "Template putting the number before the old file name, # is replaced by a "
@@ -7221,7 +7256,7 @@ msgctxt ""
 msgid "#_"
 msgstr "#_"
 
-#: widgets/renamefiledialog.cpp:297
+#: widgets/renamefiledialog.cpp:340
 #, kde-format
 msgctxt ""
 "Template putting the number after the old file name, # is replaced by a "
@@ -7229,7 +7264,7 @@ msgctxt ""
 msgid "_#"
 msgstr "_#"
 
-#: widgets/renamefiledialog.cpp:299
+#: widgets/renamefiledialog.cpp:342
 #, kde-format
 msgctxt ""
 "This a template for new filenames, # is replaced by a number later, must be "
@@ -7237,7 +7272,7 @@ msgctxt ""
 msgid "New name #"
 msgstr "Новое имя #"
 
-#: widgets/renamefiledialog.cpp:375
+#: widgets/renamefiledialog.cpp:418
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -7247,7 +7282,7 @@ msgstr ""
 "Недопустимое имя файла: новое имя должно содержать одну последовательность "
 "символов «#», если только у всех файлов не разные расширения."
 
-#: widgets/renamefiledialog.cpp:404
+#: widgets/renamefiledialog.cpp:447
 #, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
@@ -7257,37 +7292,37 @@ msgstr[1] "Переименовать %1 выделенных объекта:"
 msgstr[2] "Переименовать %1 выделенных объектов:"
 msgstr[3] "Переименовать выделенный объект:"
 
-#: widgets/renamefiledialog.cpp:408
+#: widgets/renamefiledialog.cpp:451
 #, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
 msgstr "Заменить:"
 
-#: widgets/renamefiledialog.cpp:410
+#: widgets/renamefiledialog.cpp:453
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
 msgstr "Исходный текст…"
 
-#: widgets/renamefiledialog.cpp:414
+#: widgets/renamefiledialog.cpp:457
 #, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
 msgstr "На текст:"
 
-#: widgets/renamefiledialog.cpp:416
+#: widgets/renamefiledialog.cpp:459
 #, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
 msgstr "Текст замены…"
 
-#: widgets/renamefiledialog.cpp:463
+#: widgets/renamefiledialog.cpp:506
 #, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
 msgstr "Ни одно имя файла не попадает под шаблон."
 
-#: widgets/renamefiledialog.cpp:472
+#: widgets/renamefiledialog.cpp:515
 #, kde-kuit-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid ""
@@ -7297,7 +7332,7 @@ msgstr ""
 "Замена «%1» на пустую строку приведёт к тому, что файл <filename>%2</"
 "filename> будет иметь пустое имя."
 
-#: widgets/renamefiledialog.cpp:498
+#: widgets/renamefiledialog.cpp:541
 #, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
@@ -7307,79 +7342,79 @@ msgstr[1] "Переименовать %1 выделенных объекта:"
 msgstr[2] "Переименовать %1 выделенных объектов:"
 msgstr[3] "Переименовать выделенный объект:"
 
-#: widgets/renamefiledialog.cpp:501
+#: widgets/renamefiledialog.cpp:544
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
 msgstr "Добавить текст:"
 
-#: widgets/renamefiledialog.cpp:503
+#: widgets/renamefiledialog.cpp:546
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
 msgstr "Добавляемый текст"
 
-#: widgets/renamefiledialog.cpp:508
+#: widgets/renamefiledialog.cpp:551
 #, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
 msgstr "Перед именем файла"
 
-#: widgets/renamefiledialog.cpp:509
+#: widgets/renamefiledialog.cpp:552
 #, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
 msgstr "После имени файла"
 
-#: widgets/renamefiledialog.cpp:621
+#: widgets/renamefiledialog.cpp:664
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Item"
 msgstr "Переименование объекта"
 
-#: widgets/renamefiledialog.cpp:621
+#: widgets/renamefiledialog.cpp:664
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Items"
 msgstr "Переименование объектов"
 
-#: widgets/renamefiledialog.cpp:632
+#: widgets/renamefiledialog.cpp:675
 #, kde-format
 msgctxt "@action:button"
 msgid "&Rename"
 msgstr "&Переименовать"
 
-#: widgets/renamefiledialog.cpp:641
+#: widgets/renamefiledialog.cpp:684
 #, kde-format
 msgctxt "@info"
 msgid "How to rename:"
 msgstr "Способ переименования:"
 
-#: widgets/renamefiledialog.cpp:645
+#: widgets/renamefiledialog.cpp:688
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
 msgstr "Добавление чисел"
 
-#: widgets/renamefiledialog.cpp:645
+#: widgets/renamefiledialog.cpp:688
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
 msgstr "Замена текста"
 
-#: widgets/renamefiledialog.cpp:645
+#: widgets/renamefiledialog.cpp:688
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
 msgstr "Добавление текста"
 
-#: widgets/renamefiledialog.cpp:662
+#: widgets/renamefiledialog.cpp:705
 #, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
 msgstr "Предварительный просмотр:"
 
-#: widgets/renamefiledialog.cpp:801
+#: widgets/renamefiledialog.cpp:844
 #, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
