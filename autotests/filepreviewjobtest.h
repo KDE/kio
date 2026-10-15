@@ -47,6 +47,7 @@ private Q_SLOTS:
     void testFileOfTheCacheIsNotCached();
     void testStandardThumbnailerGetsEachPathAsOneArgument_data();
     void testStandardThumbnailerGetsEachPathAsOneArgument();
+    void testStandardThumbnailerSeesOnlyItsInput();
 };
 
 #endif

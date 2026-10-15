@@ -746,3 +746,43 @@ void FilePreviewJobTest::testStandardThumbnailerGetsEachPathAsOneArgument()
     QCOMPARE(dataSpy.count(), 1);
     QCOMPARE(dataSpy.first().at(1).value<QImage>().size(), QSize(16, 16));
 }
+
+/**
+ * In the sandbox, a thumbnailer sees its input file, and not the other files of the user.
+ */
+void FilePreviewJobTest::testStandardThumbnailerSeesOnlyItsInput()
+{
+    if (!KIO::StandardThumbnailJob::isSandboxAvailable()) {
+        QSKIP("bwrap cannot create a sandbox here");
+    }
+
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+
+    const QString otherFile = dir.filePath(QStringLiteral("other.txt"));
+    QFile other(otherFile);
+    QVERIFY(other.open(QIODevice::WriteOnly));
+    other.close();
+
+    // The thumbnailer copies the input file to the output file only when it cannot see otherFile.
+    const QString thumbnailer = dir.filePath(QStringLiteral("thumbnailer.sh"));
+    QFile script(thumbnailer);
+    QVERIFY(script.open(QIODevice::WriteOnly));
+    script.write("#!/bin/sh\n[ -f \"$1\" ] && [ ! -e \"" + QFile::encodeName(otherFile) + "\" ] && cp \"$1\" \"$2\"\n");
+    script.close();
+    QVERIFY(script.setPermissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner));
+
+    const QString inputFile = dir.filePath(QStringLiteral("image.png"));
+    QImage image(16, 16, QImage::Format_RGB32);
+    image.fill(Qt::red);
+    QVERIFY(image.save(inputFile, "PNG"));
+
+    auto *job = new KIO::StandardThumbnailJob(thumbnailer + QStringLiteral(" %i %o"), 16, 1.0, inputFile, dir.path());
+    QSignalSpy dataSpy(job, &KIO::StandardThumbnailJob::data);
+    QSignalSpy resultSpy(job, &KJob::result);
+    job->start();
+
+    QVERIFY(resultSpy.wait());
+    QCOMPARE(dataSpy.count(), 1);
+    QCOMPARE(dataSpy.first().at(1).value<QImage>().size(), QSize(16, 16));
+}
