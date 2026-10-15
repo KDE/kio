@@ -20,11 +20,15 @@ public:
         , m_inputFile(inputFile)
         , m_outputFile(outputFile)
     {
-        QString newString(execString);
-        expandMacros(newString);
-        auto fullCmd = QProcess::splitCommand(newString);
-        m_binary = fullCmd.first();
-        fullCmd.removeFirst();
+        // The Exec value is split into arguments before the field codes are replaced, so each
+        // file path stays one argument whatever characters it holds.
+        QStringList fullCmd = QProcess::splitCommand(execString);
+        for (QString &arg : fullCmd) {
+            expandMacros(arg);
+        }
+        if (!fullCmd.isEmpty()) {
+            m_binary = fullCmd.takeFirst();
+        }
         m_args = fullCmd;
     }
 
@@ -57,10 +61,10 @@ int ThumbnailerExpander::expandEscapedMacro(const QString &str, int pos, QString
         break;
     case 'i':
     case 'u':
-        ret << QStringLiteral(R"("%1")").arg(m_inputFile);
+        ret << m_inputFile;
         break;
     case 'o':
-        ret << QStringLiteral(R"("%1")").arg(m_outputFile);
+        ret << m_outputFile;
         break;
     case '%':
         ret = QStringList(QStringLiteral("%"));
