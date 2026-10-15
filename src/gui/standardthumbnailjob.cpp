@@ -4,11 +4,15 @@
 */
 
 #include "global.h"
+#include "kiogui_debug.h"
 #include "standardthumbnailjob_p.h"
 #include <KMacroExpander>
+#include <KSandbox>
+#include <QFileInfo>
 #include <QImage>
 #include <QProcess>
-#include <QTemporaryFile>
+#include <QStandardPaths>
+#include <QTemporaryDir>
 
 class ThumbnailerExpander : public KMacroExpanderBase
 {
@@ -75,6 +79,68 @@ int ThumbnailerExpander::expandEscapedMacro(const QString &str, int pos, QString
     return 2;
 }
 
+// Paths that the thumbnailer sees inside the bwrap sandbox
+static const QString s_sandboxInput = QStringLiteral("/tmp/input");
+static const QString s_sandboxOutputDir = QStringLiteral("/tmp/output");
+static const QString s_outputName = QStringLiteral("thumbnail.png");
+
+// The system files a dynamically linked thumbnailer needs, read-only, and nothing of the user.
+static QStringList sandboxSystemArguments()
+{
+    QStringList args{QStringLiteral("--ro-bind"), QStringLiteral("/usr"), QStringLiteral("/usr")};
+    for (const auto dir : {"/bin", "/sbin", "/lib", "/lib32", "/lib64"}) {
+        const QFileInfo info(QString::fromLatin1(dir));
+        if (info.isSymLink()) {
+            args << QStringLiteral("--symlink") << info.symLinkTarget() << info.filePath();
+        } else if (info.isDir()) {
+            args << QStringLiteral("--ro-bind") << info.filePath() << info.filePath();
+        }
+    }
+    for (const auto path : {"/etc/ld.so.cache", "/etc/alternatives", "/etc/fonts"}) {
+        args << QStringLiteral("--ro-bind-try") << QString::fromLatin1(path) << QString::fromLatin1(path);
+    }
+    args << QStringLiteral("--proc") << QStringLiteral("/proc") << QStringLiteral("--dev") << QStringLiteral("/dev") << QStringLiteral("--tmpfs")
+         << QStringLiteral("/tmp") << QStringLiteral("--unshare-all") << QStringLiteral("--die-with-parent") << QStringLiteral("--new-session")
+         << QStringLiteral("--clearenv") << QStringLiteral("--setenv") << QStringLiteral("PATH") << QStringLiteral("/usr/bin:/bin")
+         << QStringLiteral("--setenv") << QStringLiteral("HOME") << QStringLiteral("/tmp");
+    const QString lang = qEnvironmentVariable("LANG");
+    if (!lang.isEmpty()) {
+        args << QStringLiteral("--setenv") << QStringLiteral("LANG") << lang;
+    }
+    args << QStringLiteral("--chdir") << QStringLiteral("/");
+    return args;
+}
+
+// bwrap, if it is installed and can create namespaces here. Checked once per process.
+static QString bwrapExecutable()
+{
+    static const QString bwrap = [] {
+        if (KSandbox::isInside()) {
+            return QString();
+        }
+        const QString path = QStandardPaths::findExecutable(QStringLiteral("bwrap"));
+        const QString truePath = QStandardPaths::findExecutable(QStringLiteral("true"));
+        if (path.isEmpty() || truePath.isEmpty()) {
+            qCWarning(KIO_GUI) << "bwrap was not found, standard thumbnailers run without a sandbox";
+            return QString();
+        }
+        QProcess probe;
+        probe.start(path, sandboxSystemArguments() << QStringLiteral("--") << truePath);
+        if (!probe.waitForFinished(5000) || probe.exitStatus() != QProcess::NormalExit || probe.exitCode() != 0) {
+            qCWarning(KIO_GUI) << "bwrap cannot create a sandbox here, standard thumbnailers run without a sandbox:" << probe.readAllStandardError();
+            probe.kill();
+            return QString();
+        }
+        return path;
+    }();
+    return bwrap;
+}
+
+bool KIO::StandardThumbnailJob::isSandboxAvailable()
+{
+    return !bwrapExecutable().isEmpty();
+}
+
 class Q_DECL_HIDDEN KIO::StandardThumbnailJob::Private
 {
 public:
@@ -86,17 +152,15 @@ public:
         , m_outputFolder(outputFolder)
     {
     }
-    ~Private()
-    {
-    }
 
     QString m_execString;
     int m_logicalWidth;
     qreal m_devicePixelRatio;
     QString m_inputFile;
     QString m_outputFolder;
-    QProcess *m_proc;
-    QTemporaryFile *m_tempFile;
+    QProcess *m_proc = nullptr;
+    // The thumbnailer writes into a folder of its own, which is all it can write to in the sandbox.
+    std::unique_ptr<QTemporaryDir> m_outputDir;
 };
 
 KIO::StandardThumbnailJob::StandardThumbnailJob(const QString &execString,
@@ -113,53 +177,80 @@ KIO::StandardThumbnailJob::~StandardThumbnailJob() = default;
 
 bool KIO::StandardThumbnailJob::StandardThumbnailJob::doKill()
 {
-    d->m_proc->kill();
+    if (d->m_proc) {
+        d->m_proc->kill();
+    }
     return true;
 }
 
 void KIO::StandardThumbnailJob::StandardThumbnailJob::start()
 {
-    // Prepare the command
-    d->m_tempFile = new QTemporaryFile(QStringLiteral("%1/XXXXXX.png").arg(d->m_outputFolder), this);
-    if (!d->m_tempFile->open()) {
-        setErrorText(QStringLiteral("Standard Thumbnail Job had an error: could not open temporary file"));
+    d->m_outputDir = std::make_unique<QTemporaryDir>(QStringLiteral("%1/XXXXXX").arg(d->m_outputFolder));
+    if (!d->m_outputDir->isValid()) {
+        setErrorText(QStringLiteral("Standard Thumbnail Job had an error: could not create a temporary folder"));
         setError(KIO::ERR_CANNOT_OPEN_FOR_WRITING);
         emitResult();
+        return;
     }
-    d->m_tempFile->setAutoRemove(false);
+    const QString outputFile = d->m_outputDir->filePath(s_outputName);
 
-    ThumbnailerExpander thumbnailer(d->m_execString, d->m_logicalWidth * d->m_devicePixelRatio, d->m_inputFile, d->m_tempFile->fileName());
+    const QString bwrap = bwrapExecutable();
+    QString program;
+    QStringList args;
+    if (bwrap.isEmpty()) {
+        ThumbnailerExpander thumbnailer(d->m_execString, d->m_logicalWidth * d->m_devicePixelRatio, d->m_inputFile, outputFile);
+        program = thumbnailer.binary();
+        args = thumbnailer.args();
+    } else {
+        // Some thumbnailers look at the extension of the file name
+        const QString suffix = QFileInfo(d->m_inputFile).suffix();
+        const QString sandboxInput = suffix.isEmpty() ? s_sandboxInput : s_sandboxInput + QLatin1Char('.') + suffix;
+        ThumbnailerExpander thumbnailer(d->m_execString,
+                                        d->m_logicalWidth * d->m_devicePixelRatio,
+                                        sandboxInput,
+                                        s_sandboxOutputDir + QLatin1Char('/') + s_outputName);
+        const QString binary = QStandardPaths::findExecutable(thumbnailer.binary());
+        if (binary.isEmpty()) {
+            setErrorText(QStringLiteral("Standard Thumbnail Job had an error: could not find %1").arg(thumbnailer.binary()));
+            setError(KIO::ERR_CANNOT_LAUNCH_PROCESS);
+            emitResult();
+            return;
+        }
+        program = bwrap;
+        args = sandboxSystemArguments();
+        if (!binary.startsWith(QLatin1String("/usr/"))) {
+            args << QStringLiteral("--ro-bind") << binary << binary;
+        }
+        args << QStringLiteral("--ro-bind") << d->m_inputFile << sandboxInput;
+        args << QStringLiteral("--bind") << d->m_outputDir->path() << s_sandboxOutputDir;
+        args << QStringLiteral("--") << binary << thumbnailer.args();
+    }
+
     // Emit data on command exit
     d->m_proc = new QProcess();
     connect(d->m_proc, &QProcess::finished, this, [=, this](const int exitCode, const QProcess::ExitStatus /* exitStatus */) {
         d->m_proc->deleteLater();
-        if (exitCode != 0) {
+        d->m_proc = nullptr;
+        const QFileInfo output(outputFile);
+        if (exitCode != 0 || !output.isFile() || output.isSymLink()) {
             setErrorText(QStringLiteral("Standard Thumbnail Job failed with exit code: %1 ").arg(exitCode));
             setError(KIO::ERR_CANNOT_LAUNCH_PROCESS);
             emitResult();
-
-            // clean temp file
-            d->m_tempFile->remove();
             return;
         }
-        QImage thumb(d->m_tempFile->fileName());
+        QImage thumb(outputFile);
         thumb.setDevicePixelRatio(supportedDevicePixelRatio(thumb.size(), QSize(d->m_logicalWidth, d->m_logicalWidth), d->m_devicePixelRatio));
         Q_EMIT data(this, thumb);
         emitResult();
-
-        // clean temp file
-        d->m_tempFile->remove();
     });
     connect(d->m_proc, &QProcess::errorOccurred, this, [=, this](const QProcess::ProcessError error) {
         d->m_proc->deleteLater();
+        d->m_proc = nullptr;
         setErrorText(QStringLiteral("Standard Thumbnail Job had an error: %1").arg(error));
         setError(KIO::ERR_CANNOT_LAUNCH_PROCESS);
         emitResult();
-
-        // clean temp file
-        d->m_tempFile->remove();
     });
-    d->m_proc->start(thumbnailer.binary(), thumbnailer.args());
+    d->m_proc->start(program, args);
 }
 
 #include "moc_standardthumbnailjob_p.cpp"
