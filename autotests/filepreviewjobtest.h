@@ -48,6 +48,7 @@ private Q_SLOTS:
     void testStandardThumbnailerGetsEachPathAsOneArgument_data();
     void testStandardThumbnailerGetsEachPathAsOneArgument();
     void testStandardThumbnailerSeesOnlyItsInput();
+    void testStandardThumbnailerGetsUriForFieldCodeU();
 };
 
 #endif

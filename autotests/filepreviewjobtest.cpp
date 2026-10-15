@@ -786,3 +786,38 @@ void FilePreviewJobTest::testStandardThumbnailerSeesOnlyItsInput()
     QCOMPARE(dataSpy.count(), 1);
     QCOMPARE(dataSpy.first().at(1).value<QImage>().size(), QSize(16, 16));
 }
+
+/**
+ * %u gives the thumbnailer a file URI, which glycin-thumbnailer needs, and %i a path.
+ */
+void FilePreviewJobTest::testStandardThumbnailerGetsUriForFieldCodeU()
+{
+#ifdef Q_OS_WIN
+    QSKIP("The test thumbnailer is a shell script");
+#endif
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+
+    // The thumbnailer copies the input file to the output file when it gets a file URI and the path of that same file.
+    const QString thumbnailer = dir.filePath(QStringLiteral("thumbnailer.sh"));
+    QFile script(thumbnailer);
+    QVERIFY(script.open(QIODevice::WriteOnly));
+    script.write(R"(#!/bin/sh
+[ "$1" = "file://$2" ] && [ -f "$2" ] && cp "$2" "$3"
+)");
+    script.close();
+    QVERIFY(script.setPermissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner));
+
+    const QString inputFile = dir.filePath(QStringLiteral("image.png"));
+    QImage image(16, 16, QImage::Format_RGB32);
+    image.fill(Qt::red);
+    QVERIFY(image.save(inputFile, "PNG"));
+
+    auto *job = new KIO::StandardThumbnailJob(thumbnailer + QStringLiteral(" %u %i %o"), 16, 1.0, inputFile, dir.path());
+    QSignalSpy dataSpy(job, &KIO::StandardThumbnailJob::data);
+    QSignalSpy resultSpy(job, &KJob::result);
+    job->start();
+
+    QVERIFY(resultSpy.wait());
+    QCOMPARE(dataSpy.count(), 1);
+}
