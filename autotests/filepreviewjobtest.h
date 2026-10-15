@@ -45,6 +45,8 @@ private Q_SLOTS:
     void testCacheContainsThroughSymlinks();
 #endif
     void testFileOfTheCacheIsNotCached();
+    void testStandardThumbnailerGetsEachPathAsOneArgument_data();
+    void testStandardThumbnailerGetsEachPathAsOneArgument();
 };
 
 #endif

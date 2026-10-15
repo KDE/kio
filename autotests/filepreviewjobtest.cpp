@@ -17,6 +17,7 @@
 #include <QCryptographicHash>
 #include <QDateTime>
 #include <QDir>
+#include <QFile>
 #include <QFileInfo>
 #include <QImage>
 #include <QJsonObject>
@@ -696,4 +697,52 @@ void FilePreviewJobTest::testFileOfTheCacheIsNotCached()
 
     QCOMPARE(thumbPathFor(cacheDir + QStringLiteral("/0123456789abcdef.png")), QString());
     QVERIFY(!thumbPathFor(dir.filePath(QStringLiteral("pictures/photo.png"))).isEmpty());
+}
+
+void FilePreviewJobTest::testStandardThumbnailerGetsEachPathAsOneArgument_data()
+{
+    QTest::addColumn<QString>("arguments");
+
+    QTest::newRow("plain field codes") << QStringLiteral("--input %i --output %o");
+    QTest::newRow("quoted field codes") << QStringLiteral(R"(--input "%i" --output "%o")");
+}
+
+/**
+ * A thumbnailer from a .thumbnailer file receives the input and output files as one argument
+ * each, also when the file name holds quotes and spaces.
+ */
+void FilePreviewJobTest::testStandardThumbnailerGetsEachPathAsOneArgument()
+{
+#ifdef Q_OS_WIN
+    QSKIP("The test thumbnailer is a shell script");
+#endif
+    QFETCH(QString, arguments);
+
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+
+    // The thumbnailer copies the input file to the output file when it gets exactly
+    // --input <existing file> --output <file>.
+    const QString thumbnailer = dir.filePath(QStringLiteral("thumbnailer.sh"));
+    QFile script(thumbnailer);
+    QVERIFY(script.open(QIODevice::WriteOnly));
+    script.write(R"(#!/bin/sh
+[ "$#" -eq 4 ] && [ "$1" = --input ] && [ -f "$2" ] && [ "$3" = --output ] && cp "$2" "$4"
+)");
+    script.close();
+    QVERIFY(script.setPermissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner));
+
+    const QString inputFile = dir.filePath(QStringLiteral(R"(it's a "quoted" name.png)"));
+    QImage image(16, 16, QImage::Format_RGB32);
+    image.fill(Qt::red);
+    QVERIFY(image.save(inputFile, "PNG"));
+
+    auto *job = new KIO::StandardThumbnailJob(thumbnailer + QLatin1Char(' ') + arguments, 16, 1.0, inputFile, dir.path());
+    QSignalSpy dataSpy(job, &KIO::StandardThumbnailJob::data);
+    QSignalSpy resultSpy(job, &KJob::result);
+    job->start();
+
+    QVERIFY(resultSpy.wait());
+    QCOMPARE(dataSpy.count(), 1);
+    QCOMPARE(dataSpy.first().at(1).value<QImage>().size(), QSize(16, 16));
 }
