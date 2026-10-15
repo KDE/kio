@@ -54,6 +54,7 @@ private Q_SLOTS:
     void testLocalCopiesOfEndedProcessesAreRemoved();
 #endif
     void testStandardThumbnailerSeesOnlyItsInput();
+    void testStandardThumbnailerGetsUriForFieldCodeU();
 };
 
 #endif
