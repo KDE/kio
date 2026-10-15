@@ -136,7 +136,9 @@ if (TARGET KF6::KIOGui)
     ${CMAKE_SOURCE_DIR}/src/gui/thumbnailcache_p.cpp
     ${CMAKE_SOURCE_DIR}/src/gui/standardthumbnailjob.cpp
     ${CMAKE_SOURCE_DIR}/src/gui/standardthumbnailjob_p.h
+    ${CMAKE_BINARY_DIR}/src/gui/kiogui_debug.cpp
   )
+  target_include_directories(filepreviewjobtest PRIVATE ${CMAKE_BINARY_DIR}/src/gui)
 
   # disable some tests that fail on Windows ATM
   if (NOT WIN32)

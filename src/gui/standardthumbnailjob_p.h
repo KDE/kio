@@ -32,6 +32,9 @@ public:
     void start() override;
     bool doKill() override;
 
+    // Whether the thumbnailers run in a bwrap sandbox, which sees only the input file and the output folder
+    static bool isSandboxAvailable();
+
 Q_SIGNALS:
     void data(KIO::Job *job, const QImage &thumb);
 
