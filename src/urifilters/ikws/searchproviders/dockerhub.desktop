@@ -10,6 +10,7 @@ Name[ca]=Docker Hub
 Name[ca@valencia]=Docker Hub
 Name[cs]=Docker Hub
 Name[de]=Docker
+Name[el]=Docker Hub
 Name[eo]=Doker-Nabo
 Name[es]=Docker Hub
 Name[eu]=Docker Hub
@@ -65,6 +66,7 @@ Query[ca]=https://hub.docker.com/search?q=\\{@}
 Query[ca@valencia]=https://hub.docker.com/search?q=\\{@}
 Query[cs]=https://hub.docker.com/search?q=\\{@}
 Query[de]=https://hub.docker.com/search?q=\\{@}
+Query[el]=https://hub.docker.com/search?q=\\{@}
 Query[eo]=https://hub.docker.com/search?q=\\{@}
 Query[es]=https://hub.docker.com/search?q=\\{@}
 Query[eu]=https://hub.docker.com/search?q=\\{@}

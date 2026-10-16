@@ -11,6 +11,7 @@ Name[ca]=Viquipèdia
 Name[ca@valencia]=Viquipèdia
 Name[cs]=Wikipedia
 Name[de]=Wikipedia
+Name[el]=Βικιπαίδεια
 Name[eo]=Vikipedio
 Name[es]=Wikipedia
 Name[eu]=Wikipedia
@@ -72,7 +73,7 @@ Query[cs]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[cy]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[da]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[de]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
-Query[el]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
+Query[el]=https://el.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[en_GB]=https://en.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[eo]=https://eo.wikipedia.org/wiki/Special:Search?search=\\{@}&go=Go
 Query[es]=https://es.wikipedia.org/wiki/Especial:Buscar?search=\\{@}&go=Go

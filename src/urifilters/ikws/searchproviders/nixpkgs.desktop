@@ -10,6 +10,7 @@ Name[ca]=Paquets Nix
 Name[ca@valencia]=Paquets Nix
 Name[cs]=Balíčky NIX
 Name[de]=NixOS-Pakete
+Name[el]=Πακέτα Nix
 Name[eo]=Nix-Pakoj
 Name[es]=Paquetes de Nix
 Name[eu]=Nix paketeak
@@ -65,6 +66,7 @@ Query[ca]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\
 Query[ca@valencia]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[cs]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[de]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
+Query[el]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[eo]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[es]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
 Query[eu]=https://search.nixos.org/packages?sort=relevance&type=packages&query=\\{@}
