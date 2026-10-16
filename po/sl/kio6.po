@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-15 00:42+0000\n"
-"PO-Revision-Date: 2026-10-13 07:41+0200\n"
+"PO-Revision-Date: 2026-10-15 09:53+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -7147,32 +7147,19 @@ msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> ni veljavno ime datoteke."
 
 #: widgets/renamefiledialog.cpp:235
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this folder's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view."
-msgstr ""
-"Če na začetek imena te mape dodate piko, jo boste skrili.\n"
-"Ali jo še vedno želite preimenovati?"
+msgstr "Če na začetek imena te mape dodate piko, jo boste skrili iz pogleda."
 
 #: widgets/renamefiledialog.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this file's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view."
 msgstr ""
-"Če na začetek imena te datoteke dodate piko, jo boste skrili.\n"
-"Ali jo še vedno želite preimenovati?"
+"Če na začetek imena te datoteke dodate piko, jo boste skrili iz pogleda."
 
 #: widgets/renamefiledialog.cpp:244
 #, kde-format
@@ -7180,6 +7167,8 @@ msgctxt "@info"
 msgid ""
 "The file's type may change, which could prevent it from opening correctly."
 msgstr ""
+"Zvrst datoteke se lahko spremeni, zaradi česar se morda ne bo pravilno "
+"odprla."
 
 #: widgets/renamefiledialog.cpp:265
 #, kde-format

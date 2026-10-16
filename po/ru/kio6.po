@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-15 00:42+0000\n"
-"PO-Revision-Date: 2026-10-13 23:10+0200\n"
+"PO-Revision-Date: 2026-10-15 12:00+0300\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -7180,32 +7180,18 @@ msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> не является допустимым именем файла."
 
 #: widgets/renamefiledialog.cpp:235
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this folder's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view."
-msgstr ""
-"Если имя папки будет начинаться с точки, она станет скрытой.\n"
-"Переименовать её?"
+msgstr "Если имя папки будет начинаться с точки, она станет скрытой."
 
 #: widgets/renamefiledialog.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this file's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view."
-msgstr ""
-"Если имя файла будет начинаться с точки, он станет скрытым.\n"
-"Переименовать его?"
+msgstr "Если имя файла будет начинаться с точки, он станет скрытым."
 
 #: widgets/renamefiledialog.cpp:244
 #, kde-format
@@ -7213,6 +7199,8 @@ msgctxt "@info"
 msgid ""
 "The file's type may change, which could prevent it from opening correctly."
 msgstr ""
+"Тип файла может измениться, и тогда файл может перестать правильно "
+"открываться."
 
 #: widgets/renamefiledialog.cpp:265
 #, kde-format

@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-15 00:42+0000\n"
-"PO-Revision-Date: 2026-10-13 13:40+0300\n"
+"PO-Revision-Date: 2026-10-15 18:35+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -7191,40 +7191,27 @@ msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> не є коректною назвою файла."
 
 #: widgets/renamefiledialog.cpp:235
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this folder's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view."
 msgstr ""
-"Додавання крапки на початку назви цієї теки призведе до її приховування.\n"
-"Попри це, ви все ж хочете додати цю крапку на початку?"
+"Додавання крапки на початку назви цієї теки призведе до її приховування."
 
 #: widgets/renamefiledialog.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this file's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view."
 msgstr ""
-"Додавання крапки на початку назви цього файла призведе до його "
-"приховування.\n"
-"Попри це, ви все ж хочете додати цю крапку на початку?"
+"Додавання крапки на початку назви цієї теки призведе до її приховування."
 
 #: widgets/renamefiledialog.cpp:244
 #, kde-format
 msgctxt "@info"
 msgid ""
 "The file's type may change, which could prevent it from opening correctly."
-msgstr ""
+msgstr "Тип файла може змінитися, що може заважати його належному відкриттю."
 
 #: widgets/renamefiledialog.cpp:265
 #, kde-format

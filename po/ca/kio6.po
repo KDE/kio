@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-15 00:42+0000\n"
-"PO-Revision-Date: 2026-10-13 10:52+0200\n"
+"PO-Revision-Date: 2026-10-15 09:20+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -7173,34 +7173,22 @@ msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> no és un nom vàlid de fitxer."
 
 #: widgets/renamefiledialog.cpp:235
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this folder's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view."
 msgstr ""
 "En afegir un punt al començament d'aquest nom de carpeta, s'ocultarà a la "
-"visualització.\n"
-"Encara la voleu reanomenar?"
+"visualització."
 
 #: widgets/renamefiledialog.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this file's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view."
 msgstr ""
 "En afegir un punt al començament d'aquest nom de fitxer, s'ocultarà a la "
-"visualització.\n"
-"Encara el voleu reanomenar?"
+"visualització."
 
 #: widgets/renamefiledialog.cpp:244
 #, kde-format
@@ -7208,6 +7196,8 @@ msgctxt "@info"
 msgid ""
 "The file's type may change, which could prevent it from opening correctly."
 msgstr ""
+"El tipus de fitxer pot canviar, cosa que podria evitar que s'obri "
+"correctament."
 
 #: widgets/renamefiledialog.cpp:265
 #, kde-format

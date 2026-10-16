@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-15 00:42+0000\n"
-"PO-Revision-Date: 2026-10-01 09:10+0300\n"
+"PO-Revision-Date: 2026-10-09 10:01+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -4497,16 +4497,14 @@ msgstr "הקובץ הזה כבר נמצא באשפה."
 
 #: kioworkers/trash/kio_trash_win.cpp:216
 #: kioworkers/trash/kio_trash_win.cpp:231
-#, fuzzy, kde-format
-#| msgid "The resource cannot be deleted."
+#, kde-format
 msgid "The trash item %1 cannot be restored."
-msgstr "אי אפשר למחוק את המשאב."
+msgstr "לא ניתן לשחזר את הפריט %1 מהאשפה."
 
 #: kioworkers/trash/kio_trash_win.cpp:255
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in rename, should never happen"
-msgstr "שגיאה פנימית ב־copyOrMove, לא אמור לקרות אף פעם"
+msgstr "שגיאה פנימית בשינוי שם, לא אמור לקרות אף פעם"
 
 #: kioworkers/trash/kio_trash_win.cpp:268
 #, kde-format
@@ -4514,15 +4512,14 @@ msgid "not supported"
 msgstr "לא נתמך"
 
 #: kioworkers/trash/kio_trash_win.cpp:276
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in copy, should never happen"
-msgstr "שגיאה פנימית ב־copyOrMove, לא אמור לקרות אף פעם"
+msgstr "שגיאה פנימית בהעתקה, לא אמור לקרות אף פעם"
 
 #: kioworkers/trash/kio_trash_win.cpp:512
 #, kde-format
 msgid "Trash operation failed with error code 0x%1."
-msgstr ""
+msgstr "פעולת ההעברה נכשלה עם קוד השגיאה 0x%1."
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format
