@@ -792,6 +792,13 @@ WorkerResult FileProtocol::special(const QByteArray &data)
         stream >> point;
         return unmount(point);
     }
+#ifndef Q_OS_WIN
+    case 3: {
+        QString folder;
+        stream >> folder;
+        return flushRemovableFolder(folder);
+    }
+#endif
     default:
         break;
     }
