@@ -3379,7 +3379,9 @@ void JobTest::safeOverwrite()
     QFETCH(bool, destFileExists);
     const QString srcDir = homeTmpDir() + "overwrite";
     const QString srcFile = srcDir + "/testfile";
-    const QString destDir = otherTmpDir() + "overwrite_other";
+    // "slow" makes the worker in test mode pause after each progress report, so dest.part
+    // still exists when processedSize reaches the lambda below.
+    const QString destDir = otherTmpDir() + "overwrite_other_slow";
     const QString destFile = destDir + "/testfile";
     const QString destPartFile = destFile + ".part";
 
