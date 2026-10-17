@@ -23,6 +23,7 @@
 #include <cerrno>
 #ifndef Q_OS_WIN
 #include <fcntl.h>
+#include <sys/statvfs.h>
 #include <utime.h>
 #endif
 
@@ -954,15 +955,27 @@ WorkerResult FileProtocol::fileSystemFreeSpace(const QUrl &_url)
 {
     if (isLocalFileSameHost(_url)) {
         const QUrl url = localFileWithoutHostname(_url);
+#ifdef Q_OS_WIN
         QStorageInfo storageInfo(url.toLocalFile());
-        if (storageInfo.isValid() && storageInfo.isReady()) {
-            setMetaData(QStringLiteral("total"), QString::number(storageInfo.bytesTotal()));
-            setMetaData(QStringLiteral("available"), QString::number(storageInfo.bytesAvailable()));
-
-            return WorkerResult::pass();
-        } else {
+        if (!storageInfo.isValid() || !storageInfo.isReady()) {
             return WorkerResult::fail(KIO::ERR_CANNOT_STAT, _url.url());
         }
+        const qint64 total = storageInfo.bytesTotal();
+        const qint64 available = storageInfo.bytesAvailable();
+#else
+        // statvfs reads the block counts only. It does not take the filesystem lock of exfat, which a
+        // device busy writing back can hold for seconds.
+        struct statvfs info;
+        if (::statvfs(QFile::encodeName(url.toLocalFile()).constData(), &info) != 0) {
+            return WorkerResult::fail(KIO::ERR_CANNOT_STAT, _url.url());
+        }
+        const quint64 total = quint64(info.f_blocks) * info.f_frsize;
+        const quint64 available = quint64(info.f_bavail) * info.f_frsize;
+#endif
+        setMetaData(QStringLiteral("total"), QString::number(total));
+        setMetaData(QStringLiteral("available"), QString::number(available));
+
+        return WorkerResult::pass();
     } else {
         return WorkerResult::fail(KIO::ERR_UNSUPPORTED_PROTOCOL, _url.url());
     }

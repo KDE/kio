@@ -26,6 +26,7 @@
 #include <kio/deletejob.h>
 #include <kio/directorysizejob.h>
 #include <kio/filecopyjob.h>
+#include <kio/filesystemfreespacejob.h>
 #include <kio/listjob.h>
 #include <kio/mimetypejob.h>
 #include <kio/mkdirjob.h>
@@ -52,6 +53,7 @@
 #include <QProcess>
 #include <QScopeGuard>
 #include <QSignalSpy>
+#include <QStorageInfo>
 #include <QTemporaryFile>
 #include <QTest>
 
@@ -823,6 +825,23 @@ void JobTest::copyFileToSamePartition()
         setXattr(filePath);
     }
     copyLocalFile(filePath, dest);
+}
+
+void JobTest::fileSystemFreeSpace()
+{
+    const QString homeDir = homeTmpDir();
+    KIO::FileSystemFreeSpaceJob *job = KIO::fileSystemFreeSpace(QUrl::fromLocalFile(homeDir));
+    job->setUiDelegate(nullptr);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    const QStorageInfo storage(homeDir);
+    QCOMPARE(job->size(), KIO::filesize_t(storage.bytesTotal()));
+    QVERIFY(job->availableSize() > 0);
+    QVERIFY(job->availableSize() <= job->size());
+
+    KIO::FileSystemFreeSpaceJob *missingJob = KIO::fileSystemFreeSpace(QUrl::fromLocalFile(homeDir + QStringLiteral("doesNotExist")));
+    missingJob->setUiDelegate(nullptr);
+    QVERIFY(!missingJob->exec());
 }
 
 void JobTest::copyFileToSetgidDirectory_data()
