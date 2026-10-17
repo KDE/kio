@@ -49,6 +49,8 @@ private Q_SLOTS:
     void copyFileToSamePartition();
     void fileSystemFreeSpace();
     void copyLargeFileWithWritebackWindow();
+    void copyFolderFlushesRemovableDestination_data();
+    void copyFolderFlushesRemovableDestination();
     void copyFileToSetgidDirectory_data();
     void copyFileToSetgidDirectory();
     void copyFilePreservesAcl();

@@ -894,6 +894,51 @@ void JobTest::copyLargeFileWithWritebackWindow()
     QVERIFY(source.readAll() == copy.readAll());
 }
 
+void JobTest::copyFolderFlushesRemovableDestination_data()
+{
+    QTest::addColumn<bool>("removable");
+
+    QTest::newRow("removable destination") << true;
+    QTest::newRow("fixed destination") << false;
+}
+
+void JobTest::copyFolderFlushesRemovableDestination()
+{
+    // Small files copied to a removable device are written to it before the copy reports success,
+    // and the user is told why the copy waits. Other destinations are not flushed.
+    QFETCH(bool, removable);
+    if (removable) {
+        qputenv("KIO_FILE_FORCE_WRITEBACK_SYNC", "1");
+    }
+    const auto unsetWindow = qScopeGuard([] {
+        qunsetenv("KIO_FILE_FORCE_WRITEBACK_SYNC");
+    });
+
+    QTemporaryDir sandbox(homeTmpDir() + "flushXXXXXX");
+    QVERIFY(sandbox.isValid());
+    const QString src = sandbox.filePath(QStringLiteral("smallFiles"));
+    const QString destDir = sandbox.filePath(QStringLiteral("device"));
+    QVERIFY(QDir().mkpath(src));
+    QVERIFY(QDir().mkpath(destDir));
+    for (int i = 0; i < 3; ++i) {
+        createTestFile(src + QStringLiteral("/file%1").arg(i));
+    }
+
+    KIO::CopyJob *job = KIO::copy(QUrl::fromLocalFile(src), QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    job->setUiDelegateExtension(nullptr);
+    QStringList messages;
+    connect(job, &KJob::infoMessage, this, [&messages](KJob *, const QString &message) {
+        messages.append(message);
+    });
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    for (int i = 0; i < 3; ++i) {
+        QVERIFY(QFile::exists(destDir + QStringLiteral("/smallFiles/file%1").arg(i)));
+    }
+    QCOMPARE(messages.contains(QStringLiteral("Writing the copied data to the device...")), removable);
+}
+
 void JobTest::copyFileToSetgidDirectory_data()
 {
     QTest::addColumn<int>("permissions");
