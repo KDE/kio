@@ -33,6 +33,7 @@
 
 #include <chrono>
 
+#include <KLocalizedString>
 #include <QDebug>
 #include <kmountpoint.h>
 
@@ -875,6 +876,30 @@ WritebackPolicy writebackPolicyFor([[maybe_unused]] int destDirFd, [[maybe_unuse
 
 } // namespace
 
+WorkerResult FileProtocol::flushRemovableFolder(const QString &folder)
+{
+    const int fd = ::open(QFile::encodeName(folder).constData(), O_RDONLY | O_DIRECTORY | O_CLOEXEC);
+    if (fd < 0) {
+        // The folder that the copy just wrote to cannot be reached, as when the device is unplugged, so
+        // the data may not be on it.
+        return WorkerResult::fail(KIO::ERR_CANNOT_WRITE, folder);
+    }
+    const auto closeFd = qScopeGuard([fd] {
+        ::close(fd);
+    });
+    if (!writebackPolicyFor(fd, folder).flushWindowedFile) {
+        return WorkerResult::pass();
+    }
+#ifdef Q_OS_LINUX
+    infoMessage(i18n("Writing the copied data to the device..."));
+    if (::syncfs(fd) != 0) {
+        const int err = errno;
+        return WorkerResult::fail((err == ENOSPC || err == EDQUOT) ? KIO::ERR_DISK_FULL : KIO::ERR_CANNOT_WRITE, folder);
+    }
+#endif
+    return WorkerResult::pass();
+}
+
 WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _mode, JobFlags _flags)
 {
     const QUrl srcUrl = localFileWithoutHostname(_srcUrl);
@@ -1039,5 +1064,10 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
     }
 
     processedSize(srcSize);
+    if (writeback.flushWindowedFile) {
+        // A file smaller than the window is still in the page cache. The job asks for the flush of
+        // the folder once its last file is copied.
+        setMetaData(QStringLiteral("flush-destination"), QStringLiteral("true"));
+    }
     return WorkerResult::pass();
 }
