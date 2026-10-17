@@ -48,6 +48,7 @@ private Q_SLOTS:
     void asyncStoredPutReadyReadAfterFinish();
     void copyFileToSamePartition();
     void fileSystemFreeSpace();
+    void copyLargeFileWithWritebackWindow();
     void copyFileToSetgidDirectory_data();
     void copyFileToSetgidDirectory();
     void copyFilePreservesAcl();

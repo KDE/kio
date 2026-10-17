@@ -54,12 +54,14 @@
 #include <QScopeGuard>
 #include <QSignalSpy>
 #include <QStorageInfo>
+#include <QTemporaryDir>
 #include <QTemporaryFile>
 #include <QTest>
 
 #include <QTimer>
 #include <QUrl>
 #include <QVariant>
+#include <algorithm>
 #include <ranges>
 
 #ifndef Q_OS_WIN
@@ -842,6 +844,54 @@ void JobTest::fileSystemFreeSpace()
     KIO::FileSystemFreeSpaceJob *missingJob = KIO::fileSystemFreeSpace(QUrl::fromLocalFile(homeDir + QStringLiteral("doesNotExist")));
     missingJob->setUiDelegate(nullptr);
     QVERIFY(!missingJob->exec());
+}
+
+void JobTest::copyLargeFileWithWritebackWindow()
+{
+    // A copy that writes back its data window by window, as a copy to a removable device or a
+    // network filesystem does, gives the same file, and its progress never goes back.
+    qputenv("KIO_FILE_FORCE_WRITEBACK_SYNC", "1");
+    const auto unsetWindow = qScopeGuard([] {
+        qunsetenv("KIO_FILE_FORCE_WRITEBACK_SYNC");
+    });
+
+    QTemporaryDir sandbox(homeTmpDir() + "writebackXXXXXX");
+    QVERIFY(sandbox.isValid());
+    const QString src = sandbox.filePath(QStringLiteral("large"));
+    const QString dest = sandbox.filePath(QStringLiteral("large_copied"));
+
+    // Several windows, so that the copy waits for earlier windows and resizes them. Each MiB is
+    // different from the others.
+    constexpr qint64 size = 80 * 1024 * 1024;
+    {
+        QFile file(src);
+        QVERIFY(file.open(QIODevice::WriteOnly));
+        constexpr qint64 blockSize = 1024 * 1024;
+        for (int i = 0; i < size / blockSize; ++i) {
+            QCOMPARE(file.write(QByteArray(blockSize, char(i))), blockSize);
+        }
+    }
+
+    KIO::Job *job = KIO::file_copy(QUrl::fromLocalFile(src), QUrl::fromLocalFile(dest), -1, KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QList<qulonglong> progress;
+    connect(job, &KJob::processedAmountChanged, this, [&progress](KJob *, KJob::Unit unit, qulonglong amount) {
+        if (unit == KJob::Bytes) {
+            progress.append(amount);
+        }
+    });
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QVERIFY(!progress.isEmpty());
+    QVERIFY(std::ranges::is_sorted(progress));
+    QCOMPARE(progress.last(), qulonglong(size));
+
+    QFile source(src);
+    QFile copy(dest);
+    QVERIFY(source.open(QIODevice::ReadOnly));
+    QVERIFY(copy.open(QIODevice::ReadOnly));
+    QCOMPARE(copy.size(), size);
+    QVERIFY(source.readAll() == copy.readAll());
 }
 
 void JobTest::copyFileToSetgidDirectory_data()
