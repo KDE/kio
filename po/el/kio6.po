@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-15 00:42+0000\n"
-"PO-Revision-Date: 2026-10-15 14:13+0300\n"
+"POT-Creation-Date: 2026-10-17 00:45+0000\n"
+"PO-Revision-Date: 2026-10-16 15:23+0300\n"
 "Last-Translator: Petros Vidalis <pvidalis@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.12.3\n"
 
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Σπύρος Γεωργαράς,Τούσης Μανώλης, Λευτέρης Τ."
@@ -108,7 +108,7 @@ msgid "File Already Exists"
 msgstr "Το αρχείο Υπάρχει Ήδη"
 
 #: core/copyjob.cpp:1827 core/copyjob.cpp:2561
-#, fuzzy, kde-format
+#, kde-format
 msgid "Already Exists as Folder"
 msgstr "Υπάρχει Ήδη ως Φάκελος"
 
@@ -2345,28 +2345,26 @@ msgid "Unable to determine the type of file for %1"
 msgstr "Αδύνατος ο προσδιορισμός του τύπου του αρχείου για το %1"
 
 #: core/openwith.cpp:85
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "No file type can be defined for the extension \"%1\"."
 msgstr ""
 "Κανένας τύπος αρχείου δε μπορεί να προσδιοριστεί για την επέκταση \"%1\"."
 
 #: core/openwith.cpp:96
-#, fuzzy, kde-format
-#| msgid "Could not enter folder %1."
+#, kde-format
 msgctxt "@info %1 is a folder path"
 msgid "Could not create the folder %1."
 msgstr "Αδύνατη η δημιουργία φακέλου %1."
 
 #: core/openwith.cpp:100 core/openwith.cpp:113
-#, fuzzy, kde-format
-#| msgid "Could not write to file %1."
+#, kde-format
 msgctxt "@info %1 is a file path, %2 the error"
 msgid "Could not write the file type definition %1: %2"
 msgstr "Αδυναμία εγγραφής τύπου αρχείου %1: %2"
 
 #: core/openwith.cpp:120
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "Could not update the file type database with the extension \"%1\"."
 msgstr ""
@@ -2489,7 +2487,7 @@ msgid "Unable to create KIO worker: %1"
 msgstr "Αδύνατη η δημιουργία εργάτη KIO: %1"
 
 #: core/worker.cpp:403
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info %2 is a path"
 msgid ""
 "The security of the KIO worker for protocol ’%1’, which typically asks for "
@@ -2511,7 +2509,7 @@ msgid "Can not find a KIO worker for protocol '%1'."
 msgstr "Δεν ήταν δυνατό να βρεθεί ένας εργάτης KIO για το πρωτόκολλο '%1'."
 
 #: core/worker.cpp:458
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info %2 and %3 are paths"
 msgid ""
 "The KIO worker for protocol “%1” in %2 was not loaded because all KIO "
@@ -2558,17 +2556,13 @@ msgid "&Current Session only"
 msgstr "&Μόνο για την τρέχουσα συνεδρία"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:54
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@action:inmenu Context menu shown when files are dragged"
 msgid "Move Into New Folder"
 msgstr "Μετακίνηση σε Νέο Φάκελο"
 
 #: filewidgets/dropIntoNewFolder/dropintonewfolderPlugin.cpp:71
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Create New Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder for These Items"
 msgstr "Δημιουργία Νέου Φακέλου γι' Αυτά τα Αντικείμενα"
@@ -3118,9 +3112,7 @@ msgid "Only folders can be added to the Places panel."
 msgstr "Μόνο φάκελοι μπορούν να προστεθούν στον πίνακα θέσεων."
 
 #: filewidgets/kfileplacesmodel.cpp:1384
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Configure Web Shortcuts…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "Configure…"
 msgstr "Διαμόρφωση..."
@@ -3429,8 +3421,7 @@ msgid "Show Places Panel"
 msgstr "Εμφάνιση πίνακα θέσεων"
 
 #: filewidgets/kfilewidget.cpp:1234
-#, fuzzy, kde-format
-#| msgid "Show Hidden Files"
+#, kde-format
 msgid "Show Quick Filter"
 msgstr "Εμφάνιση Γρήγορου Φίλτρου"
 
@@ -3482,28 +3473,24 @@ msgid "&Name:"
 msgstr "Ό&νομα:"
 
 #: filewidgets/kfilewidget.cpp:1338
-#, fuzzy, kde-format
-#| msgid "Undo Changes"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "Αναίρεση αλλαγής ονόματος αρχείου"
 
 #: filewidgets/kfilewidget.cpp:1393
-#, fuzzy, kde-format
-#| msgid "Open Containing Folder"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
-msgstr "Διατήρηση Φίλτρου Κατά την Αλλαγή Φακέλων"
+msgstr "Διατήρηση φίλτρου κατά την αλλαγή φακέλων"
 
 #: filewidgets/kfilewidget.cpp:1397
-#, fuzzy, kde-format
-#| msgid "File name:"
+#, kde-format
 msgid "Filter by name…"
 msgstr "Φιλτράρισμα κατά όνομα..."
 
 #: filewidgets/kfilewidget.cpp:1405
-#, fuzzy, kde-format
-#| msgid "Hidden Files Last"
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "Απόκρυψη Γραμμής Φίλτρου"
@@ -3572,8 +3559,7 @@ msgid "All Folders"
 msgstr "Όλοι οι φάκελοι"
 
 #: filewidgets/kfilewidget.cpp:2079
-#, fuzzy, kde-format
-#| msgid "Create Directory"
+#, kde-format
 msgid "Current Directory: %1"
 msgstr "Τρέχων Κατάλογος: %1"
 
@@ -3650,10 +3636,7 @@ msgstr ""
 "της μορφής με την οποία θα αποθηκευτεί το αρχείο.</qt>"
 
 #: filewidgets/kfilewidget.cpp:2973
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt>This is the file type selector. It is used to select the format that "
-#| "the file will be saved as.</qt>"
+#, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format of the "
 "files shown.</qt>"
@@ -3662,15 +3645,13 @@ msgstr ""
 "της μορφής με την οποία εμφανίζονται τα αρχεία.</qt>"
 
 #: filewidgets/knewfilemenu.cpp:233
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a different name"
+#, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Εισαγάγετε όνομα αρχείου %1:"
 
 #: filewidgets/knewfilemenu.cpp:558
-#, fuzzy, kde-format
+#, kde-format
 msgid "Sorry"
 msgstr "Λυπούμαστε"
 
@@ -3695,8 +3676,7 @@ msgid "Create link to URL"
 msgstr "Δημιουργία δεσμού με URL."
 
 #: filewidgets/knewfilemenu.cpp:650
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
 msgstr "Δημιουργία Νέου %1"
@@ -3763,7 +3743,7 @@ msgstr ""
 "φακέλων."
 
 #: filewidgets/knewfilemenu.cpp:1210
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@error"
 msgid ""
 "Creating a file or folder with the name <filename>%1</filename> is not "
@@ -3818,17 +3798,13 @@ msgid "Create new folder in %1:"
 msgstr "Δημιουργία νέου φακέλου στο %1:"
 
 #: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a different name"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Εισαγάγετε όνομα φακέλου"
 
 #: filewidgets/knewfilemenu.cpp:1536
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox The default character set"
-#| msgid "Default"
+#, kde-format
 msgid "Default"
 msgstr "Προεπιλογή"
 
@@ -3841,37 +3817,32 @@ msgstr "Δημιουργία νέου αρχείου"
 
 #. i18n: ectx: property (placeholderText), widget (QLineEdit, lineEdit)
 #: filewidgets/knewfilemenu_newfiledialog.ui:57
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a different name"
+#, kde-format
 msgid "Enter file name"
 msgstr "Εισαγάγετε όνομα αρχείου"
 
 #. i18n: ectx: property (title), widget (KCollapsibleGroupBox, chooseIconBox)
 #: filewidgets/knewfilemenu_newfiledialog.ui:79
-#, fuzzy, kde-format
-#| msgid "Choose Application for %1"
+#, kde-format
 msgid "Choose custom icon or color"
 msgstr "Επιλέξτε προσαρμοσμένο εικονίδιο ή χρώμα"
 
 #. i18n: ectx: property (text), widget (QPushButton, chooseIconButton)
 #: filewidgets/knewfilemenu_newfiledialog.ui:129
-#, fuzzy, kde-format
-#| msgid "Choose an &icon:"
+#, kde-format
 msgctxt "@action:button"
 msgid "Choose Other Icon…"
 msgstr "Επιλέξτε Άλλο Εικονίδιο..."
 
 #. i18n: ectx: property (text), widget (QLabel, iconHintLabel)
 #: filewidgets/knewfilemenu_newfiledialog.ui:145
-#, fuzzy, kde-format
+#, kde-format
 msgid "You can change the icon later in folder properties."
 msgstr ""
 "Μπορείτε να αλλάξετε το εικονίδιο αργότερα από τις ιδιότητες του φακέλου."
 
 #: filewidgets/kurlnavigator.cpp:611
-#, fuzzy, kde-format
-#| msgid "Location:"
+#, kde-format
 msgid "Copy Location"
 msgstr "Αντιγραφή Τοποθεσίας"
 
@@ -3909,9 +3880,7 @@ msgid "Show Full Path"
 msgstr "Εμφάνιση πλήρους διαδρομής"
 
 #: filewidgets/kurlnavigator.cpp:844
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
 msgstr ""
@@ -3924,15 +3893,13 @@ msgid "More"
 msgstr "Περισσότερα"
 
 #: filewidgets/kurlnavigatordropdownbutton.cpp:21
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
 msgstr "Μετάβαση σε τοποθεσία της διαδρομής"
 
 #: filewidgets/kurlnavigatorplacesselector.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Places"
+#, kde-format
 msgctxt ""
 "@action:button accessible name for the places selector in the URL navigator"
 msgid "Places"
@@ -4027,14 +3994,21 @@ msgid "Icon file too big, download aborted"
 msgstr "Πολύ μεγάλο αρχείο εικονιδίου, εγκατάλειψη λήψης"
 
 #: gui/filepreviewjob.cpp:266
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
 "FilePreviewJob: παράλειψη κενού αρχείου, μπορεί να είναι χαλασμένος "
 "συμβολικός δεσμός: %1"
 
-#: gui/kemailclientlauncherjob.cpp:117
+#: gui/kemailclientlauncherjob.cpp:119
+#, fuzzy, kde-format
+#| msgid "Failed to open the file."
+msgctxt "@info"
+msgid "Failed to open email client"
+msgstr "Αποτυχία ανοίγματος του αρχείου."
+
+#: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
 msgid "No mail client found"
 msgstr "Δεν βρέθηκε πρόγραμμα αλληλογραφίας"
@@ -4145,7 +4119,7 @@ msgid "The program \"%1\" could not be launched."
 msgstr "Το πρόγραμμα «%1» δεν μπόρεσε να εκκινηθεί."
 
 #: gui/systemd/systemdprocessrunner.cpp:200
-#, fuzzy, kde-format
+#, kde-format
 msgid "Failed to launch process (status code: %1)"
 msgstr "Αποτυχία εκκίνησης διεργασίας (κωδικός κατάστασης: %1)"
 
@@ -4315,8 +4289,7 @@ msgstr ""
 "%1"
 
 #: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
-#, fuzzy, kde-format
-#| msgid "Could Not Rename Temporary File"
+#, kde-format
 msgid "Could not open temporary file"
 msgstr "Αδυναμία ανοίγματος προσωρινού αρχείου"
 
@@ -4712,14 +4685,12 @@ msgstr "Το αρχείο αυτό βρίσκεται ήδη στα απορρί
 
 #: kioworkers/trash/kio_trash_win.cpp:216
 #: kioworkers/trash/kio_trash_win.cpp:231
-#, fuzzy, kde-format
-#| msgid "The resource cannot be deleted."
+#, kde-format
 msgid "The trash item %1 cannot be restored."
 msgstr "Το αντικείμενο απορριμμάτων %1 δε μπορεί να επαναφερθεί."
 
 #: kioworkers/trash/kio_trash_win.cpp:255
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in rename, should never happen"
 msgstr "Εσωτερικό σφάλμα στη μετονομασία, το οποίο δε θα έπρεπε να συμβαίνει"
 
@@ -4729,13 +4700,12 @@ msgid "not supported"
 msgstr "δεν υποστηρίζεται"
 
 #: kioworkers/trash/kio_trash_win.cpp:276
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in copy, should never happen"
 msgstr "Εσωτερικό σφάλμα στην αντιγραφή, το οποίο δε θα έπρεπε να συμβαίνει"
 
 #: kioworkers/trash/kio_trash_win.cpp:512
-#, fuzzy, kde-format
+#, kde-format
 msgid "Trash operation failed with error code 0x%1."
 msgstr "Η ενέργεια απόρριψης απέτυχε με κωδικό σφάλματος 0x%1."
 
@@ -4986,7 +4956,7 @@ msgid "&Move Here"
 msgstr "&Μετακίνηση εδώ"
 
 #: widgets/dropjob.cpp:310
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Λήψη Εδώ"
@@ -5002,8 +4972,7 @@ msgid "&Link Here"
 msgstr "&Δεσμός εδώ"
 
 #: widgets/executablefileopendialog.cpp:72
-#, fuzzy, kde-format
-#| msgid "Launching %1"
+#, kde-format
 msgctxt "@action:button Launch script"
 msgid "&Launch"
 msgstr "&Εκκίνηση"
@@ -5014,23 +4983,20 @@ msgid "What do you wish to do with this file?"
 msgstr "Τι επιθυμείτε να κάνετε με αυτό το αρχείο;"
 
 #: widgets/executablefileopendialog.cpp:83
-#, fuzzy, kde-format
-#| msgid "&Open"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open"
 msgstr "Ά&νοιγμα"
 
 #: widgets/executablefileopendialog.cpp:85
-#, fuzzy, kde-format
-#| msgid "&Open with %1"
+#, kde-format
 msgctxt "@action:button"
 msgid "&Open with %1"
 msgstr "Ά&νοιγμα με %1"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/executablefileopendialog.ui:26
-#, fuzzy, kde-format
-#| msgid "What do you wish to do with this file?"
+#, kde-format
 msgid "Would you like to launch this file?"
 msgstr "Θέλετε να εκκινήσετε αυτό το αρχείο;"
 
@@ -5050,9 +5016,7 @@ msgid "Destination"
 msgstr "Προορισμός"
 
 #: widgets/fileundomanager.cpp:131
-#, fuzzy, kde-format
-#| msgctxt "@title job"
-#| msgid "Copying"
+#, kde-format
 msgid "Copying"
 msgstr "Αντιγράφεται"
 
@@ -5067,8 +5031,7 @@ msgid "Renaming"
 msgstr "Μετονομασία"
 
 #: widgets/fileundomanager.cpp:147
-#, fuzzy, kde-format
-#| msgid "Move to Trash"
+#, kde-format
 msgid "Moving to Trash"
 msgstr "Μετακινείται στα Απορρίμματα"
 
@@ -5128,61 +5091,52 @@ msgid "Und&o: Batch Rename"
 msgstr "&Αναίρεση: Μαζική μετονομασία"
 
 #: widgets/fileundomanager.cpp:357
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Redo"
 msgstr "&Επανάληψη"
 
 #: widgets/fileundomanager.cpp:363
-#, fuzzy, kde-format
-#| msgid "Und&o: Copy"
+#, kde-format
 msgid "&Redo: Copy"
 msgstr "&Επανάληψη: Αντιγραφή"
 
 #: widgets/fileundomanager.cpp:365
-#, fuzzy, kde-format
-#| msgid "Und&o: Link"
+#, kde-format
 msgid "&Redo: Link"
 msgstr "&Επανάληψη: Δεσμός"
 
 #: widgets/fileundomanager.cpp:367
-#, fuzzy, kde-format
-#| msgid "Und&o: Move"
+#, kde-format
 msgid "&Redo: Move"
 msgstr "&Επανάληψη: Μετακίνηση"
 
 #: widgets/fileundomanager.cpp:369
-#, fuzzy, kde-format
-#| msgid "Und&o: Rename"
+#, kde-format
 msgid "&Redo: Rename"
 msgstr "&Επανάληψη: Μετονομασία"
 
 #: widgets/fileundomanager.cpp:371
-#, fuzzy, kde-format
-#| msgid "Und&o: Trash"
+#, kde-format
 msgid "&Redo: Trash"
 msgstr "&Επανάληψη: Μετακίνηση στα απορρίμματα"
 
 #: widgets/fileundomanager.cpp:373
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder"
+#, kde-format
 msgid "&Redo: Create Folder"
 msgstr "&Επανάληψη: Δημιουργία φακέλου"
 
 #: widgets/fileundomanager.cpp:375
-#, fuzzy, kde-format
-#| msgid "Und&o: Create Folder(s)"
+#, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "&Επανάληψη: Δημιουργία φακέλων"
 
 #: widgets/fileundomanager.cpp:377
-#, fuzzy, kde-format
-#| msgid "Und&o: Create File"
+#, kde-format
 msgid "&Redo: Create File"
 msgstr "&Επανάληψη: Δημιουργία αρχείου"
 
 #: widgets/fileundomanager.cpp:379
-#, fuzzy, kde-format
-#| msgid "Und&o: Batch Rename"
+#, kde-format
 msgid "&Redo: Batch Rename"
 msgstr "&Επανάληψη: Μαζική μετονομασία"
 
@@ -5506,8 +5460,7 @@ msgid "&Open With…"
 msgstr "Άνοιγμα με…"
 
 #: widgets/kfileitemactions.cpp:834
-#, fuzzy, kde-format
-#| msgid "&Execute"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Εκκίνηση Εκτελέσιμου"
@@ -5592,13 +5545,13 @@ msgstr "Μέγεθος:"
 
 #. i18n: ectx: property (text), widget (QLabel, sizeOnDiskLabelLeft)
 #: widgets/kfilepropspluginwidget.ui:259
-#, fuzzy, kde-format
+#, kde-format
 msgid "Size on disk:"
 msgstr "Μέγεθος στον δίσκο:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:308
-#, fuzzy, kde-format
+#, kde-format
 msgid "Determine the folder size"
 msgstr "Προσδιορισμός μεγέθους φακέλου"
 
@@ -5610,7 +5563,7 @@ msgstr "Διακοπή"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, stopCalculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:321
-#, fuzzy, kde-format
+#, kde-format
 msgid "Stop determining the folder size"
 msgstr "Διακοπή προσδιορισμού μεγέθους φακέλου"
 
@@ -5628,9 +5581,7 @@ msgstr "Δείχνει στο:"
 
 #. i18n: ectx: property (accessibleName), widget (QPushButton, symlinkTargetOpenDir)
 #: widgets/kfilepropspluginwidget.ui:387
-#, fuzzy, kde-format
-#| msgctxt "Warning about executing unknown .desktop file"
-#| msgid "Warning"
+#, kde-format
 msgid "Show target"
 msgstr "Εμφάνιση προορισμού"
 
@@ -5660,22 +5611,19 @@ msgstr "Σύστημα αρχείων:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
+#, kde-format
 msgid "Mounted on:"
 msgstr "Προσαρτημένο σε:"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:533
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
+#, kde-format
 msgid "Mounted from:"
 msgstr "Προσαρτημένο από:"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:559
-#, fuzzy, kde-format
-#| msgid "Free Space:"
+#, kde-format
 msgid "Free space:"
 msgstr "Ελεύθερος χώρος:"
 
@@ -5813,10 +5761,7 @@ msgstr ""
 "«%1»"
 
 #: widgets/kopenwithdialog.cpp:773
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\""
+#, kde-format
 msgctxt "@option:check %1 is a file name extension"
 msgid "&Remember application association for all \"*.%1\" files"
 msgstr "&Απομνημόνευση της συσχέτισης εφαρμογής για όλα τα αρχεία «*.%1»"
@@ -5994,10 +5939,7 @@ msgstr ""
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel2)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, genNameEdit)
 #: widgets/kpropertiesdesktopbase.ui:39 widgets/kpropertiesdesktopbase.ui:52
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type a generic name for the application here. Examples: an image viewing "
 "application would be \"Image Viewer\"."
@@ -6007,18 +5949,14 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgid "&Username:"
+#, kde-format
 msgid "&Generic name:"
 msgstr "&Γενικό όνομα:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
 #: widgets/kpropertiesdesktopbase.ui:59 widgets/kpropertiesdesktopbase.ui:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "Type the description of this application, based on its use, here. "
-#| "Examples: a dial up application (KPPP) would be \"Dial up tool\"."
+#, kde-format
 msgid ""
 "Type the description of this application, based on its use, here. Examples: "
 "an image viewing application would be \"View and edit images\"."
@@ -6035,8 +5973,7 @@ msgstr "&Σχόλιο:"
 
 #. i18n: ectx: property (text), widget (QLabel, labelenvvars)
 #: widgets/kpropertiesdesktopbase.ui:79
-#, fuzzy, kde-format
-#| msgid "Environment Variables:"
+#, kde-format
 msgid "Environment variables:"
 msgstr "Μεταβλητές περιβάλλοντος:"
 
@@ -6258,15 +6195,14 @@ msgstr ""
 "><filename>%1</filename>."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:159
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt ""
 "@label the size of a file or folder, first rounded and then to the byte"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:161
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@item the exact size of a file or folder"
 msgid "%1 byte"
 msgid_plural "%1 bytes"
@@ -6280,9 +6216,7 @@ msgid "&General"
 msgstr "&Γενικά"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:397
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a different name"
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
 msgstr "Εισαγάγετε όνομα αρχείου"
@@ -6300,16 +6234,14 @@ msgid "Refresh"
 msgstr "Ανανέωση"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:494
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
 msgstr "Εισαγάγετε την τοποθεσία προορισμού"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:498
 #: widgets/kpropertiesdialogbuiltin_p.cpp:501
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
 msgstr "Εμφάνιση <filename>%1</filename>"
@@ -6326,10 +6258,7 @@ msgid "Unknown size"
 msgstr "Άγνωστο μέγεθος"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:739
-#, fuzzy, kde-format
-#| msgid ""
-#| "Calculating... %1 (%2)\n"
-#| "%3, %4"
+#, kde-format
 msgid ""
 "Calculating... %1\n"
 "%2, %3"
@@ -6391,7 +6320,7 @@ msgid "Change…"
 msgstr "Αλλαγή…"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1052
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
 msgstr "Αλλάξτε την προεπιλεγμένη εφαρμογή ανοίγματος αρχείων τύπου \"%1\"."
@@ -6399,8 +6328,6 @@ msgstr "Αλλάξτε την προεπιλεγμένη εφαρμογή ανο
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1122
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1123
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1125
-#, fuzzy
-#| msgid "Accessed:"
 msgid "No Access"
 msgstr "Χωρίς Πρόσβαση"
 
@@ -6486,21 +6413,18 @@ msgstr ""
 "ούτε στην ομάδα, επιτρέπεται να κάνουν."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1271
-#, fuzzy, kde-format
-#| msgid "Only own&er can rename and delete folder content"
+#, kde-format
 msgid "Only own&er can delete or rename contents"
 msgstr ""
 "Μόνο ο &ιδιοκτήτης μπορεί να μετονομάσει και να διαγράψει το περιεχόμενο"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1271
-#, fuzzy, kde-format
-#| msgid "Enable this flag to allow executing the file as a program."
+#, kde-format
 msgid "Allow &executing file as program"
 msgstr "Να επιτρέπεται η &εκτέλεση του αρχείου ως προγράμματος"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:1273
-#, fuzzy, kde-format
-#| msgid "Default user name:"
+#, kde-format
 msgid "Delete or rename:"
 msgstr "Διαγραφή ή μετονομασία:"
 
@@ -6781,27 +6705,21 @@ msgid "C&hecksums"
 msgstr "Αθροίσματα ελέγχου"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2306
-#, fuzzy, kde-format
-#| msgctxt "@info:progress computation in the background"
-#| msgid "Verifying checksum…"
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum… (%1%)"
 msgstr "Επαλήθευση αθροίσματος ελέγχου... (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2414
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2636
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash for multiple files"
 msgid "Calculating… (%1/%2)"
 msgstr "Υπολογισμός... (%1/%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2431
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2638
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash"
 msgid "Calculating… (%1%)"
 msgstr "Υπολογισμός... (%1%)"
@@ -6853,14 +6771,12 @@ msgid "Verifying checksum…"
 msgstr "Επαλήθευση αθροίσματος ελέγχου..."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2612
-#, fuzzy, kde-format
-#| msgid "The files are <b>identical</b>."
+#, kde-format
 msgid "The checksums of all files are identical."
 msgstr "Τα αθροίσματα ελέγχου όλων των αρχείων είναι ίδια."
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2617
-#, fuzzy, kde-format
-#| msgid "The files are <b>different</b>."
+#, kde-format
 msgid "The selected files have different checksums."
 msgstr "Τα επιλεγμένα αρχεία έχουν διαφορετικά αθροίσματα ελέγχου."
 
@@ -7019,17 +6935,13 @@ msgid "Open file dialog"
 msgstr "Διάλογος ανοίγματος αρχείου"
 
 #: widgets/paste.cpp:69
-#, fuzzy, kde-format
-#| msgid "&Paste File"
-#| msgid_plural "&Paste %1 Files"
+#, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "επικολλήθηκε αρχείο"
 
 #: widgets/paste.cpp:79 widgets/paste.cpp:113
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Paste Clipboard Contents…"
+#, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "Επικόλληση Περιεχομένων Προχείρου"
@@ -7077,8 +6989,7 @@ msgid "Paste"
 msgstr "Επικόλληση"
 
 #: widgets/pastedialog.cpp:57
-#, fuzzy, kde-format
-#| msgid "Data format:"
+#, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Μορφή δεδομένων:"
@@ -7114,12 +7025,7 @@ msgid "Appl&y to All"
 msgstr "Εφαρμο&γή σε όλα"
 
 #: widgets/renamedialog.cpp:280
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "folder conflicts for the remainder of the current job.\n"
-#| "Unless you press Skip you will still be prompted in case of a conflict "
-#| "with an existing file in the directory."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "folder conflicts for the remainder of the current job.\n"
@@ -7133,10 +7039,7 @@ msgstr ""
 "σύγκρουσης με ένα υπάρχον αρχείο μέσα σ' αυτόν το φάκελο."
 
 #: widgets/renamedialog.cpp:284
-#, fuzzy, kde-format
-#| msgid ""
-#| "When this is checked the button pressed will be applied to all subsequent "
-#| "conflicts for the remainder of the current job."
+#, kde-format
 msgid ""
 "When this is checked, the button pressed will be applied to all subsequent "
 "conflicts for the remainder of the current job."
@@ -7278,8 +7181,7 @@ msgstr ""
 "περιεχόμενό τους είναι το ίδιο στην αρχή, στη μέση και στο τέλος."
 
 #: widgets/renamedialog.cpp:520
-#, fuzzy, kde-format
-#| msgid "Copy Files"
+#, kde-format
 msgctxt "@action:button"
 msgid "Compare Files"
 msgstr "Σύγκριση Αρχείων"
@@ -7311,23 +7213,19 @@ msgid "Rename the item <filename>%1</filename> to:"
 msgstr "Μετονομάστε το αντικείμενο <filename>%1</filename> σε:"
 
 #: widgets/renamefiledialog.cpp:224 widgets/renamefiledialog.cpp:615
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "A file with name <filename>%1</filename> already exists."
+#, kde-kuit-format
 msgctxt "@info error a file already exists"
 msgid "A file named <filename>%1</filename> already exists."
 msgstr "Ένα αρχείο με όνομα <filename>%1</filename> υπάρχει ήδη."
 
 #: widgets/renamefiledialog.cpp:227
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info %1 is an invalid filename"
 msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> δεν φαίνεται να είναι έγκυρο όνομα αρχείου."
 
 #: widgets/renamefiledialog.cpp:235
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view."
@@ -7336,7 +7234,7 @@ msgstr ""
 "από την προβολή."
 
 #: widgets/renamefiledialog.cpp:236
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view."
@@ -7345,7 +7243,7 @@ msgstr ""
 "από την προβολή."
 
 #: widgets/renamefiledialog.cpp:244
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid ""
 "The file's type may change, which could prevent it from opening correctly."
@@ -7367,31 +7265,25 @@ msgid "# will be replaced by ascending numbers starting with:"
 msgstr "# θα αντικατασταθεί από αύξοντες αριθμούς που αρχίζουν με:"
 
 #: widgets/renamefiledialog.cpp:283
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a different name"
+#, kde-format
 msgctxt "@item:inlistbox the new name is the whole file name"
 msgid "Replace filename"
 msgstr "Αντικατάσταση ονόματος αρχείου"
 
 #: widgets/renamefiledialog.cpp:284
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a different name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name before the filename"
 msgid "Before filename"
 msgstr "Πριν από το όνομα αρχείου"
 
 #: widgets/renamefiledialog.cpp:285
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a different name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name after the filename"
 msgid "After filename"
 msgstr "Μετά το όνομα αρχείου"
 
 #: widgets/renamefiledialog.cpp:338
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "Template putting the number before the old file name, # is replaced by a "
 "number later"
@@ -7399,7 +7291,7 @@ msgid "#_"
 msgstr "#_"
 
 #: widgets/renamefiledialog.cpp:340
-#, fuzzy, kde-format
+#, kde-format
 msgctxt ""
 "Template putting the number after the old file name, # is replaced by a "
 "number later"
@@ -7415,7 +7307,7 @@ msgid "New name #"
 msgstr "Νέο όνομα #"
 
 #: widgets/renamefiledialog.cpp:418
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Invalid filename: The new name should contain one sequence of #, unless all "
@@ -7425,10 +7317,7 @@ msgstr ""
 "εκτός αν όλα τα αρχεία έχουν διαφορετικές επεκτάσεις αρχείου."
 
 #: widgets/renamefiledialog.cpp:447
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox by: [Replacing: xx] [With: yy]"
 msgid "Rename the %1 selected item by:"
 msgid_plural "Rename the %1 selected items by:"
@@ -7436,40 +7325,37 @@ msgstr[0] "Μετονομάστε το επιλεγμένο αντικείμεν
 msgstr[1] "Μετονομάστε τα %1 επιλεγμένα αντικείμενα βάσει:"
 
 #: widgets/renamefiledialog.cpp:451
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info replace as in replacing [value] with [value]"
 msgid "Replacing:"
 msgstr "Αντικαθίσταται:"
 
 #: widgets/renamefiledialog.cpp:453
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Pattern"
 msgstr "Μοτίβο"
 
 #: widgets/renamefiledialog.cpp:457
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
 msgstr "Με:"
 
 #: widgets/renamefiledialog.cpp:459
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info placeholder text"
 msgid "Replacement"
 msgstr "Αντικατάσταση"
 
 #: widgets/renamefiledialog.cpp:506
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid "No file name contains the pattern."
 msgstr "Κανένα όνομα αρχείου δεν περιέχει το μοτίβο."
 
 #: widgets/renamefiledialog.cpp:515
-#, fuzzy, kde-kuit-format
+#, kde-kuit-format
 msgctxt "@info pattern as in text replacement pattern"
 msgid ""
 "Replacing “%1” with an empty replacement would cause <filename>%2</filename> "
@@ -7479,10 +7365,7 @@ msgstr ""
 "όνομα αρχείου."
 
 #: widgets/renamefiledialog.cpp:541
-#, fuzzy, kde-format
-#| msgctxt "@label:textbox"
-#| msgid "Rename the %1 selected item to:"
-#| msgid_plural "Rename the %1 selected items to:"
+#, kde-format
 msgctxt "@label:textbox"
 msgid "Rename the %1 selected item:"
 msgid_plural "Rename the %1 selected items:"
@@ -7490,29 +7373,25 @@ msgstr[0] "Μετονομάστε το επιλεγμένο αντικείμεν
 msgstr[1] "Μετονομάστε τα %1 επιλεγμένα αντικείμενα:"
 
 #: widgets/renamefiledialog.cpp:544
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
 msgstr "Προσθήκη Κειμένου:"
 
 #: widgets/renamefiledialog.cpp:546
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
 msgstr "Κείμενο προς προσθήκη"
 
 #: widgets/renamefiledialog.cpp:551
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a different name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text before filename"
 msgid "Before filename"
 msgstr "Πριν από το όνομα αρχείου"
 
 #: widgets/renamefiledialog.cpp:552
-#, fuzzy, kde-format
-#| msgctxt "@action:button"
-#| msgid "Enter a different name"
+#, kde-format
 msgctxt "@item:inlistbox as in insert text after filename"
 msgid "After filename"
 msgstr "Μετά το όνομα αρχείου"
@@ -7536,57 +7415,50 @@ msgid "&Rename"
 msgstr "&Μετονομασία"
 
 #: widgets/renamefiledialog.cpp:684
-#, fuzzy, kde-format
-#| msgid "Default user name:"
+#, kde-format
 msgctxt "@info"
 msgid "How to rename:"
 msgstr "Πώς να μετονομάσετε:"
 
 #: widgets/renamefiledialog.cpp:688
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Enumerate"
 msgstr "Απαρίθμηση"
 
 #: widgets/renamefiledialog.cpp:688
-#, fuzzy, kde-format
-#| msgid "Replace"
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Replace text"
 msgstr "Αντικατάσταση κειμένου"
 
 #: widgets/renamefiledialog.cpp:688
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
 msgstr "Προσθήκη κειμένου"
 
 #: widgets/renamefiledialog.cpp:705
-#, fuzzy, kde-format
-#| msgid "Show Preview"
+#, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
 msgstr "Προεπισκόπηση:"
 
 #: widgets/renamefiledialog.cpp:844
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "<filename>%1</filename> does not appear to be an executable program."
+#, kde-kuit-format
 msgctxt "@info"
 msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr ""
 "<filename>%1</filename> δεν μπορεί να μετονομαστεί σε κενό όνομα αρχείου."
 
 #: widgets/renamefilewarningdialog.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
 msgstr "Μετονομασία και Απόκρυψη"
 
 #: widgets/renamefilewarningdialog.cpp:60
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view.\n"
@@ -7597,7 +7469,7 @@ msgstr ""
 "Θέλετε ακόμα να τον μετονομάσετε;"
 
 #: widgets/renamefilewarningdialog.cpp:61
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view.\n"
@@ -7608,14 +7480,13 @@ msgstr ""
 "Θέλετε ακόμα να τον μετονομάσετε;"
 
 #: widgets/renamefilewarningdialog.cpp:62
-#, fuzzy, kde-format
-#| msgid "Home Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
 msgstr "Απόκρυψη Φακέλου;"
 
 #: widgets/renamefilewarningdialog.cpp:62
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
 msgstr "Απόκρυψη Αρχείου;"
@@ -7629,14 +7500,13 @@ msgid "Do not ask again"
 msgstr "Να μην ξαναγίνει η ερώτηση"
 
 #: widgets/renamefilewarningdialog.cpp:99
-#, fuzzy, kde-format
-#| msgid "Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename"
 msgstr "Μετονομασία"
 
 #: widgets/renamefilewarningdialog.cpp:104
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid ""
 "This will make the file type unknown.\n"
@@ -7650,7 +7520,7 @@ msgstr ""
 "Θέλετε ακόμα να το μετονομάσετε;"
 
 #: widgets/renamefilewarningdialog.cpp:108
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid ""
 "This will change the file type from \"%1\" to \"%2\".\n"
@@ -7664,8 +7534,7 @@ msgstr ""
 "Θέλετε ακόμα να το μετονομάσετε;"
 
 #: widgets/renamefilewarningdialog.cpp:115
-#, fuzzy, kde-format
-#| msgid "Change File Owner"
+#, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"
 msgstr "Αλλαγή Τύπου Αρχείου"
@@ -7820,12 +7689,7 @@ msgstr[1] ""
 "><emphasis strong='true'>Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:255
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this file. Permanently delete it instead?<nl/"
@@ -7837,16 +7701,7 @@ msgstr ""
 "strong='true'> Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:262
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is too full to accept this %1 file. Permanently delete it instead?"
@@ -7865,12 +7720,7 @@ msgstr[1] ""
 "ενέργεια δεν μπορεί να αναιρεθεί.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:277
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this item to Trash failed as it is too large. Permanently delete "
-#| "it instead?<nl/><nl/><filename>%1</filename><nl/><nl/><emphasis "
-#| "strong='true'>This action cannot be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for this item’s location. Permanently delete it "
@@ -7882,16 +7732,7 @@ msgstr ""
 "><emphasis strong='true'> Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</emphasis>"
 
 #: widgets/widgetsaskuseractionhandler.cpp:284
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Moving this %1 item to Trash failed as it is too large. Permanently "
-#| "delete it instead?<nl/><emphasis strong='true'>This action cannot be "
-#| "undone.</emphasis>"
-#| msgid_plural ""
-#| "Moving these %1 items to Trash failed as they are too large. Permanently "
-#| "delete them instead?<nl/><nl/><emphasis strong='true'>This action cannot "
-#| "be undone.</emphasis>"
+#, kde-kuit-format
 msgctxt "@info"
 msgid ""
 "The trash is not available for the location of this %1 item. Permanently "

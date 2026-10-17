@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-15 00:42+0000\n"
+"POT-Creation-Date: 2026-10-17 00:45+0000\n"
 "PO-Revision-Date: 2026-09-26 22:00+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -3928,7 +3928,14 @@ msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
 "FilePreviewJob: boş fayllar ötürülür, zədələnmiş simvolik keçid ola bilər: %1"
 
-#: gui/kemailclientlauncherjob.cpp:117
+#: gui/kemailclientlauncherjob.cpp:119
+#, fuzzy, kde-format
+#| msgid "Failed to open the file."
+msgctxt "@info"
+msgid "Failed to open email client"
+msgstr "Fayl açılmır."
+
+#: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
 msgid "No mail client found"
 msgstr "Poçt müştərisi tapılmadı"

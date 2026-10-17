@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-15 00:42+0000\n"
+"POT-Creation-Date: 2026-10-17 00:45+0000\n"
 "PO-Revision-Date: 2026-10-07 15:22+0200\n"
 "Last-Translator: Stéfan Driaan Turvey <stefanturvey1912@gmail.com>\n"
 "Language-Team: Afrikaans <kde-i18n-doc@kde.org>\n"
@@ -3951,7 +3951,14 @@ msgstr ""
 "FilePreviewJob: slaan 'n leë lêer oor, dit mag dalk 'n stukkende simboliese "
 "skakel wees: %1"
 
-#: gui/kemailclientlauncherjob.cpp:117
+#: gui/kemailclientlauncherjob.cpp:119
+#, fuzzy, kde-format
+#| msgid "Failed to open the file."
+msgctxt "@info"
+msgid "Failed to open email client"
+msgstr "Kon nie die lêer oopmaak nie."
+
+#: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
 msgid "No mail client found"
 msgstr "Geen e-poskliënt gevind nie"

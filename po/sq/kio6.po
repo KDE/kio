@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-15 00:42+0000\n"
+"POT-Creation-Date: 2026-10-17 00:45+0000\n"
 "PO-Revision-Date: 2025-12-07 00:08-0500\n"
 "Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
 "Language-Team: sq\n"
@@ -3978,7 +3978,14 @@ msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
 
-#: gui/kemailclientlauncherjob.cpp:117
+#: gui/kemailclientlauncherjob.cpp:119
+#, fuzzy, kde-format
+#| msgid "Failed to open the file."
+msgctxt "@info"
+msgid "Failed to open email client"
+msgstr "S’u arrit të hapet skeda."
+
+#: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
 msgid "No mail client found"
 msgstr "S’u gjet klient email"

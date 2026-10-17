@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-15 00:42+0000\n"
-"PO-Revision-Date: 2026-10-14 10:51+0300\n"
+"POT-Creation-Date: 2026-10-17 00:45+0000\n"
+"PO-Revision-Date: 2026-10-16 14:54+0300\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -3970,7 +3970,14 @@ msgstr ""
 "FilePreviewJob: praleidžiamas tuščias failas, gali būti sugadinta simbolinė "
 "nuoroda: %1"
 
-#: gui/kemailclientlauncherjob.cpp:117
+#: gui/kemailclientlauncherjob.cpp:119
+#, fuzzy, kde-format
+#| msgid "Failed to open the file."
+msgctxt "@info"
+msgid "Failed to open email client"
+msgstr "Nepavyko atverti failo."
+
+#: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
 msgid "No mail client found"
 msgstr "Nerasta pašto kliento programos"
@@ -7189,34 +7196,22 @@ msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> nėra tinkamas failo pavadinimas."
 
 #: widgets/renamefiledialog.cpp:235
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this folder's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view."
 msgstr ""
 "Pridėjus tašką į aplanko pavadinimo pradžią, šis aplankas bus paslėptas iš "
-"rodinio.\n"
-"Ar tikrai norite jį pervadinti?"
+"rodinio."
 
 #: widgets/renamefiledialog.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this file's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view."
 msgstr ""
 "Pridėjus tašką į failo pavadinimo pradžią, šis failas bus paslėptas iš "
-"rodinio.\n"
-"Ar tikrai norite jį pervadinti?"
+"rodinio."
 
 #: widgets/renamefiledialog.cpp:244
 #, kde-format
@@ -7224,6 +7219,8 @@ msgctxt "@info"
 msgid ""
 "The file's type may change, which could prevent it from opening correctly."
 msgstr ""
+"Failo tipas gali pasikeisti, kas savo ruožtu gali neleisti teisingai atverti "
+"failą."
 
 #: widgets/renamefiledialog.cpp:265
 #, kde-format

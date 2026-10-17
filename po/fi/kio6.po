@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-15 00:42+0000\n"
+"POT-Creation-Date: 2026-10-17 00:45+0000\n"
 "PO-Revision-Date: 2026-10-02 22:43+0300\n"
 "Last-Translator: Lasse Liehu-Inui <lasse.liehu@iki.fi>\n"
 "Language-Team: Finnish <kde-l10n-fi@kde.org>\n"
@@ -3938,7 +3938,14 @@ msgstr ""
 "FilePreviewJob: sivuutetaan tyhjä tiedosto, voi olla rikkinäinen symlinkki: "
 "%1"
 
-#: gui/kemailclientlauncherjob.cpp:117
+#: gui/kemailclientlauncherjob.cpp:119
+#, fuzzy, kde-format
+#| msgid "Failed to open the file."
+msgctxt "@info"
+msgid "Failed to open email client"
+msgstr "Tiedoston avaaminen epäonnistui."
+
+#: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
 msgid "No mail client found"
 msgstr "Sähköpostiohjelmaa ei löytynyt"

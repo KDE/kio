@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-15 00:42+0000\n"
-"PO-Revision-Date: 2026-10-09 10:01+0300\n"
+"POT-Creation-Date: 2026-10-17 00:45+0000\n"
+"PO-Revision-Date: 2026-10-16 15:04+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -2234,27 +2234,25 @@ msgstr "לא ניתן לאתר את סוג הקובץ של %1"
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "No file type can be defined for the extension \"%1\"."
-msgstr ""
+msgstr "אי אפשר להגדיר סוג קובץ לסיומת „%1”."
 
 #: core/openwith.cpp:96
-#, fuzzy, kde-format
-#| msgid "Could not enter folder %1."
+#, kde-format
 msgctxt "@info %1 is a folder path"
 msgid "Could not create the folder %1."
-msgstr "אי אפשר להיכנס לתיקייה %1."
+msgstr "לא ניתן ליצור את התיקייה %1."
 
 #: core/openwith.cpp:100 core/openwith.cpp:113
-#, fuzzy, kde-format
-#| msgid "Could not write to file %1."
+#, kde-format
 msgctxt "@info %1 is a file path, %2 the error"
 msgid "Could not write the file type definition %1: %2"
-msgstr "אי אפשר לכתוב לקובץ %1."
+msgstr "לא ניתן לכתוב את הגדרת סוג הקובץ %1: %2"
 
 #: core/openwith.cpp:120
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "Could not update the file type database with the extension \"%1\"."
-msgstr ""
+msgstr "לא ניתן לעדכן את מסד נתוני סוגי הקבצים עם הסיומת „%1”."
 
 #: core/openwith.cpp:149
 #, kde-format
@@ -3842,7 +3840,14 @@ msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr "FilePreviewJob: מדלג על קובץ ריק, כנראה קישור סמלי פגום: %1"
 
-#: gui/kemailclientlauncherjob.cpp:117
+#: gui/kemailclientlauncherjob.cpp:119
+#, fuzzy, kde-format
+#| msgid "Failed to open the file."
+msgctxt "@info"
+msgid "Failed to open email client"
+msgstr "פתיחת הקובץ נכשלה."
+
+#: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
 msgid "No mail client found"
 msgstr "לא נמצאה תוכנית לקוח דוא״ל"
@@ -5568,15 +5573,10 @@ msgstr ""
 "„%1”"
 
 #: widgets/kopenwithdialog.cpp:773
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\""
+#, kde-format
 msgctxt "@option:check %1 is a file name extension"
 msgid "&Remember application association for all \"*.%1\" files"
-msgstr ""
-"ל&שמור את שיוך היישום לכל הקבצים מסוג\n"
-"„%1”"
+msgstr "ל&שמור את שיוך היישום לכל קובצי „‎*.%1”"
 
 #: widgets/kopenwithdialog.cpp:781
 #, kde-format
@@ -6491,30 +6491,24 @@ msgid "C&hecksums"
 msgstr "סיכומי &ביקורת"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2306
-#, fuzzy, kde-format
-#| msgctxt "@info:progress computation in the background"
-#| msgid "Verifying checksum…"
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum… (%1%)"
-msgstr "סיכום הביקורת מאומת…"
+msgstr "סיכום הביקורת מאומת… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2414
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2636
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash for multiple files"
 msgid "Calculating… (%1/%2)"
-msgstr "מחושב…"
+msgstr "מחושב… (%1/%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2431
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2638
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash"
 msgid "Calculating… (%1%)"
-msgstr "מחושב…"
+msgstr "מחושב… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
 #, kde-format
@@ -7007,39 +7001,25 @@ msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> אינו שם קובץ תקין."
 
 #: widgets/renamefiledialog.cpp:235
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this folder's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view."
-msgstr ""
-"הוספת נקודה לתחילת שם התיקייה הזאת תסתיר אותה מהתצוגה.\n"
-"להמשיך בשינוי השם?"
+msgstr "הוספת נקודה לתחילת שם התיקייה הזאת תסתיר אותה מהתצוגה."
 
 #: widgets/renamefiledialog.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this file's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view."
-msgstr ""
-"הוספת נקודה לתחילת שם הקובץ הזה תסתיר אותו מהתצוגה.\n"
-"להמשיך בשינוי השם?"
+msgstr "הוספת נקודה לתחילת שם הקובץ הזה תסתיר אותו מהתצוגה."
 
 #: widgets/renamefiledialog.cpp:244
 #, kde-format
 msgctxt "@info"
 msgid ""
 "The file's type may change, which could prevent it from opening correctly."
-msgstr ""
+msgstr "סוג הקובץ עשוי להשתנות, מה שיכול למנוע ממנו להיפתח כראוי."
 
 #: widgets/renamefiledialog.cpp:265
 #, kde-format
