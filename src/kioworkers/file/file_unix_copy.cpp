@@ -256,6 +256,9 @@ struct CopyRequest {
     // The largest window of written data after which its writeback is started. 0 leaves writeback
     // to the kernel.
     KIO::filesize_t writebackWindow = 0;
+    // A file larger than the window is on the device, with its name and its times, before the copy
+    // reports it done.
+    bool flushWindowedFile = false;
 };
 
 struct CopyReport {
@@ -693,21 +696,36 @@ CopyReport copyFileAt(int srcDirFd,
 
     preserve(sourceFd, destFd, st, request, request.existing != ExistingDest::Truncate, destDirGroup); // both fds still open
 
+    // The window has written back all but its last two windows, so this waits for those only.
+    const bool flush = request.flushWindowedFile && request.writebackWindow > 0 && KIO::filesize_t(st.st_size) > request.writebackWindow;
+    if (flush && ::fsync(destFd) != 0) {
+        return {CopyOutcome::Failed, CopyStage::Transfer, errno, false};
+    }
+
     if (publishViaRename && ::renameat(destDirFd, outName.constData(), destDirFd, destName.constData()) != 0) {
         return {CopyOutcome::Failed, CopyStage::Publish, errno, false};
+    }
+    // The entry of the file in the folder, under its final name.
+    if (flush && ::fsync(destDirFd) != 0) {
+        qCWarning(KIO_FILE) << "Could not flush the folder of" << QFile::decodeName(destName) << ":" << strerror(errno);
     }
 
     cleanupOutput.dismiss();
     return {CopyOutcome::Copied, CopyStage::Transfer, 0, false};
 }
 
-// The window of written data after which a copy to the folder starts its writeback, or 0 to leave
-// writeback to the kernel. A removable device takes long to write back a large file, and a network
-// filesystem holds up other requests to the share while it writes one back. A local fixed disk
-// writes back fast enough on its own.
+struct WritebackPolicy {
+    KIO::filesize_t window = 0; // see CopyRequest::writebackWindow
+    bool flushWindowedFile = false; // see CopyRequest::flushWindowedFile
+};
+
+// How a copy to the folder writes its data back. A removable device takes long to write back a large
+// file, and can be unplugged once the copy says it is done, so a large file is flushed there. A
+// network filesystem holds up other requests to the share while it writes a large file back. A local
+// fixed disk writes back fast enough on its own.
 // The mount table gives the type of the filesystem, so a network filesystem is not asked. The answer
 // is kept for each mount, whose unique id is never given to another mount.
-KIO::filesize_t writebackWindowFor([[maybe_unused]] int destDirFd, [[maybe_unused]] const QString &destDir)
+WritebackPolicy writebackPolicyFor([[maybe_unused]] int destDirFd, [[maybe_unused]] const QString &destDir)
 {
 #if HAVE_SYNC_FILE_RANGE
     // The largest windows. On a fast link each window waits for the server to confirm the one before
@@ -716,8 +734,10 @@ KIO::filesize_t writebackWindowFor([[maybe_unused]] int destDirFd, [[maybe_unuse
     constexpr KIO::filesize_t localWindow = 16 * 1024 * 1024;
     constexpr KIO::filesize_t smbWindow = 128 * 1024 * 1024;
 
+    const WritebackPolicy removable{localWindow, true};
+
     if (qEnvironmentVariableIsSet("KIO_FILE_FORCE_WRITEBACK_SYNC")) {
-        return localWindow;
+        return removable;
     }
 
     quint64 mountId = 0;
@@ -732,11 +752,11 @@ KIO::filesize_t writebackWindowFor([[maybe_unused]] int destDirFd, [[maybe_unuse
         deviceMinor = folder.stx_dev_minor;
     }
 #endif
-    static QMutex windowsMutex;
-    static QHash<quint64, KIO::filesize_t> windows; // by unique mount id
+    static QMutex policiesMutex;
+    static QHash<quint64, WritebackPolicy> policies; // by unique mount id
     if (mountId != 0) {
-        QMutexLocker locker(&windowsMutex);
-        if (const auto it = windows.constFind(mountId); it != windows.cend()) {
+        QMutexLocker locker(&policiesMutex);
+        if (const auto it = policies.constFind(mountId); it != policies.cend()) {
             return *it;
         }
     }
@@ -750,35 +770,35 @@ KIO::filesize_t writebackWindowFor([[maybe_unused]] int destDirFd, [[maybe_unuse
         deviceMinor = minor(st.st_dev);
     }
 
-    const auto windowFor = [&]() -> KIO::filesize_t {
+    const auto policyFor = [&]() -> WritebackPolicy {
         const QString type = mount ? mount->mountType() : QString();
         if (type == QLatin1String("cifs") || type == QLatin1String("smb3")) {
-            return smbWindow;
+            return {smbWindow, false};
         }
         if (type == QLatin1String("nfs") || type == QLatin1String("nfs4")) {
-            return localWindow;
+            return {localWindow, false};
         }
         // The file systems of USB sticks and memory cards, also where the check below cannot tell.
         if (type == QLatin1String("vfat") || type == QLatin1String("exfat") || type == QLatin1String("ntfs") || type == QLatin1String("ntfs3")) {
-            return localWindow;
+            return removable;
         }
         // The removable attribute is on the whole disk, so for a partition it is one level up.
         for (const char *attribute : {"removable", "../removable"}) {
             QFile file(QStringLiteral("/sys/dev/block/%1:%2/%3").arg(deviceMajor).arg(deviceMinor).arg(QLatin1String(attribute)));
             if (file.open(QIODevice::ReadOnly)) {
-                return file.readAll().trimmed() == "1" ? localWindow : 0;
+                return file.readAll().trimmed() == "1" ? removable : WritebackPolicy{};
             }
         }
-        return 0;
+        return {};
     };
-    const KIO::filesize_t window = windowFor();
+    const WritebackPolicy policy = policyFor();
     if (mountId != 0) {
-        QMutexLocker locker(&windowsMutex);
-        windows.insert(mountId, window);
+        QMutexLocker locker(&policiesMutex);
+        policies.insert(mountId, policy);
     }
-    return window;
+    return policy;
 #else
-    return 0;
+    return {};
 #endif
 }
 
@@ -885,7 +905,9 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
     // extended ACL at all.
     request.preserveAcl = (_mode == -1);
     request.tryReflink = !slowTestMode; // sharing the data is instant, and a slow copy is the point of the test mode
-    request.writebackWindow = writebackWindowFor(dfd, QFile::decodeName(_destDir.isEmpty() ? QByteArray(".") : _destDir));
+    const WritebackPolicy writeback = writebackPolicyFor(dfd, QFile::decodeName(_destDir.isEmpty() ? QByteArray(".") : _destDir));
+    request.writebackWindow = writeback.window;
+    request.flushWindowedFile = writeback.flushWindowedFile;
 
     const auto isKilled = [this] {
         return wasKilled();
