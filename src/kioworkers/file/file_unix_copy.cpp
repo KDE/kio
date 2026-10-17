@@ -70,9 +70,6 @@
 using namespace KIO;
 using namespace std::chrono_literals;
 
-/* 512 kB */
-static constexpr int s_maxIPCSize = 1024 * 512;
-
 static bool mountIsCifs(const KMountPoint::Ptr &mount)
 {
     return mount && (mount->mountType() == QLatin1String("cifs") || mount->mountType() == QLatin1String("smb3"));
