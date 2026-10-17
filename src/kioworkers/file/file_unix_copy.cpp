@@ -310,6 +310,7 @@ struct WritebackWindow {
     off_t size = qMin(maxSize, s_minWindow);
     off_t windowStart = 0; // start of the window being written
     off_t writtenBack = 0; // the data before this offset is written back
+    off_t progressLimit = size; // the progress reported so far is at most this
     QElapsedTimer sinceWait = startedTimer(); // since the last window was written back
 
     static QElapsedTimer startedTimer()
@@ -341,8 +342,17 @@ struct WritebackWindow {
             writtenBack = windowStart;
         }
         windowStart = written;
+        progressLimit = qMax(progressLimit, writtenBack + size);
 #endif
         return true;
+    }
+
+    // The progress to report for written bytes: at most one window ahead of the data written back.
+    // It stays at the end of a window until the writeback of that window has started, so it never
+    // goes back, also when the window shrinks.
+    off_t progress(off_t written) const
+    {
+        return maxSize == 0 ? written : qMin(written, progressLimit);
     }
 
 private:
@@ -369,6 +379,7 @@ bool copyFds(int sourceFd,
              KIO::filesize_t writebackWindow = 0)
 {
     WritebackWindow window{.fd = destFd, .maxSize = off_t(writebackWindow)};
+    const KIO::filesize_t progressBase = bytesCopied; // the running total before this file
 #if HAVE_COPY_FILE_RANGE
     QElapsedTimer timer;
     timer.start();
@@ -399,7 +410,7 @@ bool copyFds(int sourceFd,
             return false;
         }
         if (onProgress) {
-            onProgress(bytesCopied);
+            onProgress(progressBase + window.progress(off_t(copied)));
         }
         // Between chunks only, so a single-chunk file does no extra work.
         if (copied < size && isKilled()) {
@@ -457,7 +468,7 @@ bool copyFds(int sourceFd,
             return false;
         }
         if (onProgress) {
-            onProgress(bytesCopied);
+            onProgress(progressBase + window.progress(fileEnd));
         }
     }
     return true;
