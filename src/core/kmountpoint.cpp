@@ -617,6 +617,7 @@ KMountPoint::Ptr KMountPoint::List::findByMountId(quint64 mountId) const
     return Ptr();
 }
 
+#if HAVE_STATX_MNT_ID_UNIQUE
 namespace
 {
 // Small process-wide cache of unique-mount-id -> mount point. A STATX_MNT_ID_UNIQUE
@@ -639,10 +640,7 @@ struct MountIdCache {
     {
     }
 
-// The monitor only matters when the cache can hold entries, which needs a unique
-// mount id; without STATX_MNT_ID_UNIQUE the cache stays empty and there is nothing
-// to invalidate, so do not compile or arm it.
-#if HAVE_LIB_MOUNT && HAVE_STATX_MNT_ID_UNIQUE
+#if HAVE_LIB_MOUNT
     struct libmnt_monitor *monitor = nullptr;
     bool monitorSetUp = false;
 
@@ -704,6 +702,7 @@ struct MountIdCache {
 };
 }
 Q_GLOBAL_STATIC(MountIdCache, s_mountIdCache)
+#endif
 
 KMountPoint::Ptr KMountPoint::currentMountPointForUniqueId(quint64 uniqueMountId)
 {
