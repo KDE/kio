@@ -42,6 +42,7 @@
 #include <utime.h>
 #endif
 
+#include <QDataStream>
 #include <QDateTime>
 #include <QFile>
 #include <QFileInfo>
@@ -106,6 +107,7 @@ enum DestinationState {
  *          if conflict: STATE_CONFLICT_COPYING_FILES
  *     STATE_DELETING_DIRS (deleteNextDir) (if moving)
  *     STATE_SETTING_DIR_ATTRIBUTES (setNextDirAttribute, iterating over d->m_directoriesCopied)
+ *     STATE_FLUSHING (flushDestination) (if files were copied to a local folder)
  *     done.
  */
 enum CopyJobState {
@@ -119,6 +121,7 @@ enum CopyJobState {
     STATE_CONFLICT_COPYING_FILES,
     STATE_DELETING_DIRS,
     STATE_SETTING_DIR_ATTRIBUTES,
+    STATE_FLUSHING,
 };
 
 static QUrl addPathToUrl(const QUrl &url, const QString &relPath)
@@ -428,6 +431,8 @@ public:
 
     void slotResultSettingDirAttributes(KJob *job);
     void setNextDirAttribute();
+    void flushDestination();
+    void slotResultFlushing(KJob *job);
 
     void startRenameJob(const QUrl &workerUrl);
     bool shouldOverwriteDir(const QString &path) const;
@@ -2294,12 +2299,53 @@ void CopyJobPrivate::setNextDirAttribute()
         job->setParentJob(q);
         q->addSubjob(job);
     } else {
-        if (m_reportTimer) {
-            m_reportTimer->stop();
-        }
-
-        q->emitResult();
+        flushDestination();
     }
+}
+
+void CopyJobPrivate::flushDestination()
+{
+    Q_Q(CopyJob);
+    // Files copied to a removable device are written to it before the copy reports success, so that
+    // the device can be unplugged then. The file worker sets flush-destination after such a copy.
+    if (!m_bOnlyRenames && m_globalDest.isLocalFile() && m_incomingMetaData.value(QStringLiteral("flush-destination")) == QLatin1String("true")) {
+        QUrl folder(m_globalDest);
+        if (m_globalDestinationState != DEST_IS_DIR || m_asMethod) {
+            folder = folder.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+        }
+        QByteArray packedArgs;
+        QDataStream stream(&packedArgs, QIODevice::WriteOnly);
+        stream << int(3) << folder.toLocalFile();
+
+        state = STATE_FLUSHING;
+        SimpleJob *job = KIO::special(folder, packedArgs, KIO::HideProgressInfo);
+        job->setParentJob(q);
+        QObject::connect(job, &KJob::infoMessage, q, [q](KJob *, const QString &message) {
+            Q_EMIT q->infoMessage(q, message);
+        });
+        q->addSubjob(job);
+        return;
+    }
+
+    if (m_reportTimer) {
+        m_reportTimer->stop();
+    }
+    q->emitResult();
+}
+
+void CopyJobPrivate::slotResultFlushing(KJob *job)
+{
+    Q_Q(CopyJob);
+    if (job->error()) {
+        // The copied data may not have reached the device.
+        q->setError(job->error());
+        q->setErrorText(job->errorText());
+    }
+    q->removeSubjob(job);
+    if (m_reportTimer) {
+        m_reportTimer->stop();
+    }
+    q->emitResult();
 }
 
 void CopyJob::emitResult()
@@ -2742,6 +2788,9 @@ void CopyJob::slotResult(KJob *job)
         break;
     case STATE_SETTING_DIR_ATTRIBUTES:
         d->slotResultSettingDirAttributes(job);
+        break;
+    case STATE_FLUSHING:
+        d->slotResultFlushing(job);
         break;
     default:
         Q_ASSERT(0);
