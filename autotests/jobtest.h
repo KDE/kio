@@ -63,6 +63,7 @@ private Q_SLOTS:
     void copyStoppedByErrorFlushesRemovableDestination();
     void killedMoveFlushesRemovableDestination();
     void moveToTargetUrlFlushesRemovableDestination();
+    void copyLargeFileWithWritebackWindow();
     void copyFileToSetgidDirectory_data();
     void copyFileToSetgidDirectory();
     void copyFilePreservesAcl();
