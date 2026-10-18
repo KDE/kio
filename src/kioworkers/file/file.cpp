@@ -186,10 +186,32 @@ WorkerResult FileProtocol::chmod(const QUrl &_url, int permissions)
     return WorkerResult::pass();
 }
 
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_HAIKU)
+// The time of dateTime to the millisecond. tv_nsec stays positive for a time before 1970.
+static timespec toTimespec(const QDateTime &dateTime)
+{
+    const qint64 msecs = dateTime.toMSecsSinceEpoch();
+    qint64 secs = msecs / 1000;
+    qint64 remainder = msecs % 1000;
+    if (remainder < 0) {
+        remainder += 1000;
+        --secs;
+    }
+    return timespec{static_cast<time_t>(secs), static_cast<long>(remainder * 1000000)};
+}
+#endif
+
 WorkerResult FileProtocol::setModificationTime(const QUrl &_url, const QDateTime &mtime)
 {
     const QUrl url = localFileWithoutHostname(_url);
     const QString path(url.toLocalFile());
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_HAIKU)
+    // UTIME_OMIT leaves the access time as it is, to the nanosecond.
+    const struct timespec times[2] = {{0, UTIME_OMIT}, toTimespec(mtime)};
+    if (::utimensat(AT_FDCWD, QFile::encodeName(path).constData(), times, 0) != 0) {
+        return WorkerResult::fail(errno == ENOENT ? KIO::ERR_DOES_NOT_EXIST : KIO::ERR_CANNOT_SETTIME, path);
+    }
+#else
     QT_STATBUF statbuf;
     if (QT_LSTAT(QFile::encodeName(path).constData(), &statbuf) != 0) {
         return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, path);
@@ -205,6 +227,7 @@ WorkerResult FileProtocol::setModificationTime(const QUrl &_url, const QDateTime
     if (::utime(QFile::encodeName(path).constData(), &utbuf) != 0) {
         return WorkerResult::fail(KIO::ERR_CANNOT_SETTIME, path);
     }
+#endif
 #endif
     return WorkerResult::pass();
 }

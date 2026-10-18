@@ -63,6 +63,8 @@
 #include <ranges>
 
 #ifndef Q_OS_WIN
+#include <fcntl.h>
+#include <sys/stat.h>
 #include <unistd.h> // for readlink
 #endif
 
@@ -240,6 +242,45 @@ void JobTest::put()
     QCOMPARE(fileInfo.size(), 30LL); // "This is a test for KIO::put()\n"
     QCOMPARE(fileInfo.permissions(), QFile::ReadOwner | QFile::WriteOwner | QFile::ReadUser | QFile::WriteUser);
     QCOMPARE(fileInfo.lastModified(), mtime);
+}
+
+void JobTest::setModificationTimeKeepsMillisecondsAndAccessTime()
+{
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
+    const QString filePath = homeTmpDir() + "fileForSetModificationTime";
+    createTestFile(filePath);
+    ScopedCleaner cleaner([&] {
+        QFile::remove(filePath);
+    });
+    // An access time with nanoseconds, which setting the modification time leaves as it is.
+    const struct timespec accessTime[2] = {{1700000000, 123456789}, {0, UTIME_OMIT}};
+    QCOMPARE(::utimensat(AT_FDCWD, QFile::encodeName(filePath).constData(), accessTime, 0), 0);
+
+    const QDateTime mtime = QDateTime::fromMSecsSinceEpoch(1600000000123);
+    KIO::SimpleJob *job = KIO::setModificationTime(QUrl::fromLocalFile(filePath), mtime);
+    job->setUiDelegate(nullptr);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QCOMPARE(QFileInfo(filePath).lastModified(), mtime);
+    struct stat st;
+    QCOMPARE(::stat(QFile::encodeName(filePath).constData(), &st), 0);
+    QCOMPARE(st.st_atim.tv_sec, 1700000000);
+    QCOMPARE(st.st_atim.tv_nsec, 123456789);
+#else
+    QSKIP("Nanosecond times are read through st_atim");
+#endif
+}
+
+void JobTest::setModificationTimeOfMissingFileFails()
+{
+    const QString filePath = homeTmpDir() + "missingFileForSetModificationTime";
+    QVERIFY(!QFile::exists(filePath));
+
+    KIO::SimpleJob *job = KIO::setModificationTime(QUrl::fromLocalFile(filePath), QDateTime::currentDateTime());
+    job->setUiDelegate(nullptr);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), int(KIO::ERR_DOES_NOT_EXIST));
+    QVERIFY(!QFile::exists(filePath));
 }
 
 void JobTest::putPermissionKept()
