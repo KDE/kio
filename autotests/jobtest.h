@@ -153,6 +153,9 @@ private Q_SLOTS:
     void cancelCopyAndCleanDest_data();
 
     void renameFileWithNoUDSACCESS();
+    void renameOntoExistingFileKeepsIt();
+    void renameDirOntoEmptyDirKeepsIt();
+    void renameMissingSourceFails();
     void statWithNanosecondTimeOffset();
 
     // Remote tests

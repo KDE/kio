@@ -34,6 +34,7 @@
 #include <kmountpoint.h>
 
 #include <cerrno>
+#include <cstdio>
 #include <fcntl.h>
 #include <stdint.h>
 
@@ -510,6 +511,20 @@ WorkerResult FileProtocol::rename(const QUrl &_srcUrl, const QUrl &_destUrl, KIO
     const QString dest = destUrl.toLocalFile();
     const QByteArray _src(QFile::encodeName(src));
     const QByteArray _dest(QFile::encodeName(dest));
+    // The errno of renameat2(), 0 when it was not called.
+    int rename_errno = 0;
+#if HAVE_RENAMEAT2
+    // RENAME_NOREPLACE makes the kernel refuse a destination that exists when the rename happens,
+    // including one created after the checks below. Any failure goes through those checks, which
+    // pick the error to report. EINVAL and ENOSYS come from a filesystem or a kernel without the flag.
+    if (!(_flags & KIO::Overwrite)) {
+        if (::renameat2(AT_FDCWD, _src.constData(), AT_FDCWD, _dest.constData(), RENAME_NOREPLACE) == 0) {
+            return WorkerResult::pass();
+        }
+        rename_errno = errno;
+    }
+#endif
+
     QT_STATBUF buff_src;
     if (QT_LSTAT(_src.data(), &buff_src) == -1) {
         if (errno == EACCES) {
@@ -546,26 +561,31 @@ WorkerResult FileProtocol::rename(const QUrl &_srcUrl, const QUrl &_destUrl, KIO
         if (!(_flags & KIO::Overwrite)) {
             return WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, dest);
         }
+    } else if (rename_errno == EEXIST) {
+        // The destination the kernel refused has been removed since then. The rename still fails.
+        return WorkerResult::fail(KIO::ERR_FILE_ALREADY_EXIST, dest);
     }
 
-    if (::rename(_src.data(), _dest.data()) == -1) {
-        const int error = errno;
-        if ((error == EACCES) || (error == EPERM)) {
-            return WorkerResult::fail(KIO::ERR_WRITE_ACCESS_DENIED, dest);
-        } else if (error == EXDEV) {
-            return WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, QStringLiteral("rename"));
-        } else if (error == EROFS) { // The file is on a read-only filesystem
-            return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, src);
-        } else if (error == ENOENT) {
-            // src was removed, TOCTOU case
-            return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, src);
-        } else {
-            qCWarning(KIO_FILE) << "Could not rename file" << _src << "to" << _dest << ":" << strerror(error) << "(" << error << ")";
-            return WorkerResult::fail(KIO::ERR_CANNOT_RENAME, src);
+    // A failed renameat2() already holds the answer of a rename, unless the flag is unsupported.
+    if (rename_errno == 0 || rename_errno == EINVAL || rename_errno == ENOSYS) {
+        if (::rename(_src.data(), _dest.data()) == 0) {
+            return WorkerResult::pass();
         }
+        rename_errno = errno;
     }
 
-    return WorkerResult::pass();
+    if ((rename_errno == EACCES) || (rename_errno == EPERM)) {
+        return WorkerResult::fail(KIO::ERR_WRITE_ACCESS_DENIED, dest);
+    } else if (rename_errno == EXDEV) {
+        return WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, QStringLiteral("rename"));
+    } else if (rename_errno == EROFS) { // The file is on a read-only filesystem
+        return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, src);
+    } else if (rename_errno == ENOENT) {
+        // src was removed, TOCTOU case
+        return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, src);
+    }
+    qCWarning(KIO_FILE) << "Could not rename file" << _src << "to" << _dest << ":" << strerror(rename_errno) << "(" << rename_errno << ")";
+    return WorkerResult::fail(KIO::ERR_CANNOT_RENAME, src);
 }
 
 WorkerResult FileProtocol::symlink(const QString &target, const QUrl &_destUrl, KIO::JobFlags flags)

@@ -14,6 +14,7 @@ check_include_files(sys/xattr.h   HAVE_SYS_XATTR_H)
 check_include_files("sys/types.h;sys/extattr.h" HAVE_SYS_EXTATTR_H)
 
 check_function_exists(copy_file_range HAVE_COPY_FILE_RANGE)
+check_function_exists(renameat2 HAVE_RENAMEAT2)
 
 check_function_exists(posix_fadvise    HAVE_FADVISE)                  # KIO worker
 

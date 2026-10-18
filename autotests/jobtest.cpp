@@ -3874,6 +3874,63 @@ void JobTest::cancelCopyAndCleanDest()
     QTRY_VERIFY2(!QFile::exists(destToCheck), qPrintable(destToCheck));
 }
 
+void JobTest::renameOntoExistingFileKeepsIt()
+{
+    const QString source = homeTmpDir() + "renameSource";
+    const QString existing = homeTmpDir() + "renameExisting";
+    createTestFile(source);
+    QFile existingFile(existing);
+    QVERIFY(existingFile.open(QIODevice::WriteOnly));
+    existingFile.write("existing");
+    existingFile.close();
+    ScopedCleaner cleaner([&] {
+        QFile::remove(source);
+        QFile::remove(existing);
+    });
+
+    KIO::SimpleJob *job = KIO::rename(QUrl::fromLocalFile(source), QUrl::fromLocalFile(existing), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), int(KIO::ERR_FILE_ALREADY_EXIST));
+    QVERIFY(QFile::exists(source));
+    QVERIFY(existingFile.open(QIODevice::ReadOnly));
+    QCOMPARE(existingFile.readAll(), QByteArray("existing"));
+}
+
+void JobTest::renameDirOntoEmptyDirKeepsIt()
+{
+    // rename(2) replaces an empty directory, so only the rename refusing it keeps this one.
+    const QString source = homeTmpDir() + "renameSourceDir";
+    const QString existing = homeTmpDir() + "renameExistingDir";
+    QVERIFY(QDir().mkpath(source));
+    QVERIFY(QDir().mkpath(existing));
+    createTestFile(source + "/fileInSource");
+    ScopedCleaner cleaner([&] {
+        QDir(source).removeRecursively();
+        QDir(existing).removeRecursively();
+    });
+
+    KIO::SimpleJob *job = KIO::rename(QUrl::fromLocalFile(source), QUrl::fromLocalFile(existing), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), int(KIO::ERR_DIR_ALREADY_EXIST));
+    QVERIFY(QFile::exists(source + "/fileInSource"));
+    QVERIFY(QDir(existing).isEmpty());
+}
+
+void JobTest::renameMissingSourceFails()
+{
+    const QString source = homeTmpDir() + "renameMissingSource";
+    const QString dest = homeTmpDir() + "renameMissingSourceDest";
+    QVERIFY(!QFile::exists(source));
+
+    KIO::SimpleJob *job = KIO::rename(QUrl::fromLocalFile(source), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), int(KIO::ERR_DOES_NOT_EXIST));
+    QVERIFY(!QFile::exists(dest));
+}
+
 void JobTest::renameFileWithNoUDSACCESS() // #510567
 {
     // This mock worker is needed to emulate very specific copyjob case
