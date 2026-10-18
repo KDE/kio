@@ -719,6 +719,7 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
 
     // after full download rename the file back to original name
     if (bMarkPartial) {
+#ifdef Q_OS_WIN
         // QFile::rename() never overwrites the destination file unlike ::remove,
         // so we must remove it manually first
         if (_flags & KIO::Overwrite) {
@@ -726,8 +727,16 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
                 // qCWarning(KIO_FILE) << " Couldn't overwrite " << dest;
             }
         }
+        const bool renamed = QFile::rename(dest, dest_orig);
+#else
+        // rename(2) replaces the destination in one step, so the destination stays in place until
+        // the new content takes its name, and is kept when the rename fails.
+        // QFile::rename() never overwrites the destination.
+        const bool renamed = (_flags & KIO::Overwrite) ? ::rename(QFile::encodeName(dest).constData(), QFile::encodeName(dest_orig).constData()) == 0
+                                                       : QFile::rename(dest, dest_orig);
+#endif
 
-        if (!QFile::rename(dest, dest_orig)) {
+        if (!renamed) {
             // qCWarning(KIO_FILE) << " Couldn't rename " << dest << " to " << dest_orig;
             return WorkerResult::fail(KIO::ERR_CANNOT_RENAME_PARTIAL, dest_orig);
         }
