@@ -24,6 +24,7 @@
 #include <QDir>
 #include <QFile>
 #include <QMimeDatabase>
+#include <QRandomGenerator>
 #include <QScopeGuard>
 #include <qplatformdefs.h>
 
@@ -602,13 +603,30 @@ WorkerResult FileProtocol::symlink(const QString &target, const QUrl &_destUrl, 
     // Does the destination already exist ?
     if (errno == EEXIST) {
         if (flags & KIO::Overwrite) {
-            // Try to delete the destination
-            if (unlink(dest_c.constData()) != 0) {
+            // The new link is created under a free name in the same folder, then renamed over the
+            // destination, which replaces it in one step. The name is short, so it fits whatever the
+            // length of the destination name.
+            const QByteArray target_c = QFile::encodeName(target);
+            const QByteArray folder = dest_c.left(dest_c.lastIndexOf('/') + 1);
+            QByteArray temporary;
+            int created = -1;
+            for (int attempt = 0; attempt < 100 && created != 0; ++attempt) {
+                temporary = folder + ".kio-symlink-" + QByteArray::number(QRandomGenerator::global()->generate(), 36);
+                created = ::symlink(target_c.constData(), temporary.constData());
+                if (created != 0 && errno != EEXIST) {
+                    break;
+                }
+            }
+            if (created != 0) {
+                // A folder that cannot be written to refuses the removal of the destination as well.
+                const bool folderRefused = (errno == EACCES || errno == EPERM || errno == EROFS);
+                return WorkerResult::fail(folderRefused ? KIO::ERR_CANNOT_DELETE : KIO::ERR_CANNOT_SYMLINK, dest);
+            }
+            if (::rename(temporary.constData(), dest_c.constData()) != 0) {
+                ::unlink(temporary.constData());
                 return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, dest);
             }
-
-            // Try again - this won't loop forever since unlink succeeded
-            return symlink(target, destUrl, flags);
+            return WorkerResult::pass();
         } else {
             if (QT_STATBUF buff_dest; QT_LSTAT(dest_c.constData(), &buff_dest) == 0) {
                 return WorkerResult::fail(S_ISDIR(buff_dest.st_mode) ? KIO::ERR_DIR_ALREADY_EXIST : KIO::ERR_FILE_ALREADY_EXIST, dest);

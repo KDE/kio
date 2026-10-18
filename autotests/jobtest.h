@@ -152,6 +152,7 @@ private Q_SLOTS:
     void createSymlinkAsShouldFailDirectoryExists();
     void createSymlinkAsShouldFailFileExists();
     void createSymlinkWithOverwriteShouldWork();
+    void createSymlinkWithOverwriteReplacesFileButNotDir();
     void createBrokenSymlink();
 
     void cancelCopyAndCleanDest();

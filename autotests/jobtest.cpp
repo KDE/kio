@@ -3914,6 +3914,53 @@ void JobTest::createSymlinkWithOverwriteShouldWork()
     QCOMPARE(QFileInfo(dest).symLinkTarget(), QString(sourceFile + QLatin1Char('3')));
 }
 
+void JobTest::createSymlinkWithOverwriteReplacesFileButNotDir()
+{
+#ifdef Q_OS_WIN
+    QSKIP("Test skipped on Windows");
+#endif
+    const QString target = homeTmpDir() + "fileFromHome";
+    const QString existingFile = homeTmpDir() + "fileReplacedBySymlink";
+    const QString existingDir = homeTmpDir() + "dirNotReplacedBySymlink";
+    createTestFile(existingFile);
+    QVERIFY(QDir().mkpath(existingDir));
+    ScopedCleaner cleaner([&] {
+        QFile::remove(existingFile);
+        QDir().rmdir(existingDir);
+    });
+
+    KIO::Job *job = KIO::symlink(target, QUrl::fromLocalFile(existingFile), KIO::Overwrite | KIO::HideProgressInfo);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QVERIFY(QFileInfo(existingFile).isSymLink());
+    QCOMPARE(QFileInfo(existingFile).symLinkTarget(), target);
+
+    job = KIO::symlink(target, QUrl::fromLocalFile(existingDir), KIO::Overwrite | KIO::HideProgressInfo);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), int(KIO::ERR_CANNOT_DELETE));
+    QVERIFY(QFileInfo(existingDir).isDir());
+    QVERIFY(!QFileInfo(existingDir).isSymLink());
+
+    // A folder that cannot be written to keeps its file.
+    const QString readOnlyDir = homeTmpDir() + "readOnlyDirForSymlink";
+    const QString fileInReadOnlyDir = readOnlyDir + "/file";
+    QVERIFY(QDir().mkpath(readOnlyDir));
+    createTestFile(fileInReadOnlyDir);
+    QVERIFY(QFile::setPermissions(readOnlyDir, QFile::ReadOwner | QFile::ExeOwner));
+    ScopedCleaner readOnlyCleaner([&] {
+        QFile::setPermissions(readOnlyDir, QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner);
+        QFile::remove(fileInReadOnlyDir);
+        QDir().rmdir(readOnlyDir);
+    });
+    job = KIO::symlink(target, QUrl::fromLocalFile(fileInReadOnlyDir), KIO::Overwrite | KIO::HideProgressInfo);
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), int(KIO::ERR_CANNOT_DELETE));
+    QVERIFY(!QFileInfo(fileInReadOnlyDir).isSymLink());
+
+    // The link is created under another name first, and nothing is left under that name.
+    const QStringList leftovers = QDir(homeTmpDir()).entryList({u".kio-symlink-*"_s}, QDir::System | QDir::Hidden | QDir::AllEntries);
+    QVERIFY2(leftovers.isEmpty(), qPrintable(leftovers.join(u", "_s)));
+}
+
 void JobTest::createBrokenSymlink()
 {
 #ifdef Q_OS_WIN
