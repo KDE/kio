@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:45+0000\n"
+"POT-Creation-Date: 2026-10-18 00:45+0000\n"
 "PO-Revision-Date: 2025-09-13 12:21+0200\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@nuug.no>\n"
@@ -4178,7 +4178,7 @@ msgstr "Kommando som skal kjøres"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "Nettadresser eller lokale filer som skal brukes for «kommando»"
 
-#: kioworkers/file/file.cpp:729
+#: kioworkers/file/file.cpp:730
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4187,7 +4187,7 @@ msgstr ""
 "Klarte ikke endre tillatelsene for\n"
 "%1"
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4197,17 +4197,17 @@ msgstr ""
 "Klarte ikke bytte eier og gruppe for\n"
 "%1"
 
-#: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
+#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
 #, fuzzy, kde-format
 msgid "Could not open temporary file"
 msgstr "Klarte ikke endre navnet på den midlertidige fila"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Fant ikke programmet «mount»"
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:919
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Fant ikke programmet «umount»"

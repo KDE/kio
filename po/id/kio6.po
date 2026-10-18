@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:45+0000\n"
+"POT-Creation-Date: 2026-10-18 00:45+0000\n"
 "PO-Revision-Date: 2024-10-03 20:40+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -4269,7 +4269,7 @@ msgstr "Perintah untuk mengeksekusi"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL atau berkas lokal digunakan untuk 'perintah'"
 
-#: kioworkers/file/file.cpp:729
+#: kioworkers/file/file.cpp:730
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4278,7 +4278,7 @@ msgstr ""
 "Tak dapat mengubah hak akses untuk\n"
 "%1"
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4288,18 +4288,18 @@ msgstr ""
 "Tidak bisa mengubah pemilik dan grup untuk\n"
 "%1"
 
-#: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
+#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "Tidak Bisa Mengubah Nama berkas Temporer"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Tidak dapat menemukan program kait \"mount\""
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:919
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Tidak dapat menemukan program lepaskait \"umount\""

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:45+0000\n"
+"POT-Creation-Date: 2026-10-18 00:45+0000\n"
 "PO-Revision-Date: 2024-12-08 16:20+0100\n"
 "Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
 "Language-Team: Kabyle\n"
@@ -3847,14 +3847,14 @@ msgstr ""
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""
 
-#: kioworkers/file/file.cpp:729
+#: kioworkers/file/file.cpp:730
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr ""
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -3862,18 +3862,18 @@ msgid ""
 "%1"
 msgstr ""
 
-#: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
+#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "Yegguma ad ibeddel isem n ufaylu ur yezgin ara"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Yegguma ad yaf ahil \"mout\""
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:919
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Yegguma ad yaf ahil \"umount\""

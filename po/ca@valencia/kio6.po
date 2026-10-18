@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:45+0000\n"
+"POT-Creation-Date: 2026-10-18 00:45+0000\n"
 "PO-Revision-Date: 2026-10-15 09:20+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -4248,7 +4248,7 @@ msgstr "Ordre que s'ha d'executar"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "Els URL o fitxers locals utilitzats per l'«ordre»"
 
-#: kioworkers/file/file.cpp:729
+#: kioworkers/file/file.cpp:730
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4257,7 +4257,7 @@ msgstr ""
 "No s'han pogut canviar els permisos per a\n"
 "%1"
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4267,17 +4267,17 @@ msgstr ""
 "No s'ha pogut canviar el propietari ni el grup per a\n"
 "%1"
 
-#: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
+#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "No s'ha pogut obrir un fitxer temporal"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "No s'ha pogut trobar el programa «mount»"
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:919
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "No s'ha pogut trobar el programa «umount»"

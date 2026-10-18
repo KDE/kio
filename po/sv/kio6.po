@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:45+0000\n"
+"POT-Creation-Date: 2026-10-18 00:45+0000\n"
 "PO-Revision-Date: 2026-10-02 21:26+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -4214,7 +4214,7 @@ msgstr "Kommando att köra"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "Webbadresser eller lokala filer som används av 'kommando'"
 
-#: kioworkers/file/file.cpp:729
+#: kioworkers/file/file.cpp:730
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4223,7 +4223,7 @@ msgstr ""
 "Kunde inte ändra filskydd för\n"
 "%1"
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4233,17 +4233,17 @@ msgstr ""
 "Kunde inte ändra ägare och grupp för\n"
 "%1"
 
-#: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
+#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Kunde inte öppna tillfällig fil"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Kunde inte hitta programmet \"mount\""
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:919
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Kunde inte hitta programmet \"umount\""

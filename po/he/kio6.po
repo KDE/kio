@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:45+0000\n"
+"POT-Creation-Date: 2026-10-18 00:45+0000\n"
 "PO-Revision-Date: 2026-10-16 15:04+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -4097,7 +4097,7 @@ msgstr "פקודה להרצה"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "כתובות או קבצים מקומיים שמשמשים לטובת ‚command’ (פקודה)"
 
-#: kioworkers/file/file.cpp:729
+#: kioworkers/file/file.cpp:730
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4106,7 +4106,7 @@ msgstr ""
 "אי אפשר לשנות את ההרשאות של\n"
 "%1"
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4116,17 +4116,17 @@ msgstr ""
 "לא ניתן לשנות את הבעלים והקבוצה של\n"
 "%1"
 
-#: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
+#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "לא ניתן לפתוח קובץ זמני"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "אי אפשר למצוא את התוכנית „mount”"
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:919
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "אי אפשר למצוא את התוכנית „umount”"

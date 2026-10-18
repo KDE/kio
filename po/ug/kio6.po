@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:45+0000\n"
+"POT-Creation-Date: 2026-10-18 00:45+0000\n"
 "PO-Revision-Date: 2026-10-03 19:47-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -4173,7 +4173,7 @@ msgstr "ئىجرا قىلىدىغان بۇيرۇق"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "بۇيرۇق ئىشلىتىدىغان تور ئادرېسى ياكى يەرلىك ھۆججەت"
 
-#: kioworkers/file/file.cpp:729
+#: kioworkers/file/file.cpp:730
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4182,7 +4182,7 @@ msgstr ""
 "تۆۋەندىكىنىڭ ھوقۇقىنى ئۆزگەرتكىلى بولمىدى\n"
 "%1"
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4192,17 +4192,17 @@ msgstr ""
 "ئىگىدار ۋە گۇرۇپپىنى ئۆزگەرتكىلى بولمىدى\n"
 "%1"
 
-#: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
+#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "ۋاقىتلىق ھۆججەتنى ئاچالمايدۇ"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "«mount» پىروگراممىنى تاپالمىدى"
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:919
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "«umount» پىروگراممىنى تاپالمىدى"

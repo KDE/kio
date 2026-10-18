@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:45+0000\n"
+"POT-Creation-Date: 2026-10-18 00:45+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -4099,7 +4099,7 @@ msgstr "คำสั่งให้ดำเนินการ"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL หรือไฟล์ภายในเครื่องที่ใช้สำหรับ 'คำสั่ง'"
 
-#: kioworkers/file/file.cpp:729
+#: kioworkers/file/file.cpp:730
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4108,7 +4108,7 @@ msgstr ""
 "ไม่สามารถเปลี่ยนสิทธิ์ที่อนุญาตของ\n"
 "%1 ได้"
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4118,18 +4118,18 @@ msgstr ""
 "ไม่สามารถเปลี่ยนเจ้าของและกลุ่มสำหรับ\n"
 "%1"
 
-#: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
+#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "ไม่สามารถเปลี่ยนชื่อแฟ้มชั่วคราวได้"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "ไม่สามารถค้นหาโปรแกรม \"mount\" ได้"
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:919
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "ไม่สามารถค้นหาโปรแกรม \"umount\" ได้"

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:45+0000\n"
-"PO-Revision-Date: 2026-10-15 23:10+0200\n"
+"POT-Creation-Date: 2026-10-18 00:45+0000\n"
+"PO-Revision-Date: 2026-10-17 12:06+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -3926,11 +3926,10 @@ msgstr ""
 "symbolický odkaz: %1"
 
 #: gui/kemailclientlauncherjob.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to open the file."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to open email client"
-msgstr "Soubor se nepodařilo otevřít."
+msgstr "Nepodařilo se otevřít e-mailového klienta"
 
 #: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
@@ -4187,7 +4186,7 @@ msgstr "Příkaz ke spuštění"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL nebo lokální soubor pro 'příkaz'"
 
-#: kioworkers/file/file.cpp:729
+#: kioworkers/file/file.cpp:730
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4196,7 +4195,7 @@ msgstr ""
 "Nelze změnit přístupová práva\n"
 "k %1"
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4206,17 +4205,17 @@ msgstr ""
 "Nelze změnit vlastníka a skupinu pro\n"
 "%1"
 
-#: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
+#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Nelze otevřít dočasný soubor"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nelze nalézt program \"mount\"."
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:919
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nelze nalézt program \"umount\"."

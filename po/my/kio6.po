@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:45+0000\n"
+"POT-Creation-Date: 2026-10-18 00:45+0000\n"
 "PO-Revision-Date: 2025-09-10 15:28+0630\n"
 "Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -4070,14 +4070,14 @@ msgstr "ဆောင်ရွက်ရန်အမိန့်"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'အမိန့်' အတွက်သုံးသော ယူအာအယ်လ် သို့ စက်တွင်းဖိုင်"
 
-#: kioworkers/file/file.cpp:729
+#: kioworkers/file/file.cpp:730
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr "%1အတွက် ခွင့်ပြုချက်များကို ပြောင်းလဲမရပါ"
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4087,18 +4087,18 @@ msgstr ""
 "အောက်ပါအတွက် ပိုင်ရှင်နှင့်အုပ်စု ပြောင်းမရခဲ့ပါ\n"
 "%1"
 
-#: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
+#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "ယာယီဖိုင်ကိုအမည်မပြောင်းနိုင်ခဲ့ပါ"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" ပရိုဂရမ်ကို ရှာမတွေ့ပါ"
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:919
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" ပရိုဂရမ်ကို ရှာမတွေ့ပါ"

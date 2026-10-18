@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:45+0000\n"
-"PO-Revision-Date: 2026-10-15 04:28+0200\n"
+"POT-Creation-Date: 2026-10-18 00:45+0000\n"
+"PO-Revision-Date: 2026-10-17 05:13+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3915,11 +3915,10 @@ msgstr ""
 "სიმბმული იყოს: %1"
 
 #: gui/kemailclientlauncherjob.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to open the file."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to open email client"
-msgstr "ფაილის გახსნის შეცდომა."
+msgstr "ელფოსტის კლიენტის გახსნა ჩავარდა"
 
 #: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
@@ -4174,7 +4173,7 @@ msgstr "შესასრულებელი ბრძანება"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "ბრძანების URL-ები ან ადგილობრივი ფაილები"
 
-#: kioworkers/file/file.cpp:729
+#: kioworkers/file/file.cpp:730
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4183,7 +4182,7 @@ msgstr ""
 "%1-ზე\n"
 "წვდომის ცვლილების შეცდომა"
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4193,17 +4192,17 @@ msgstr ""
 "მფლობლის და ჯგუფის შეცვლა ფაილისთვის\n"
 "%1"
 
-#: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
+#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "დროებითი ფაილის გახსნის შეცდომა"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "ვერ ვიპოვე პროგრამა \"mount\""
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:919
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "ვერ ვიპოვე პროგრამა \"umount\""

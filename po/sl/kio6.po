@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:45+0000\n"
-"PO-Revision-Date: 2026-10-15 09:53+0200\n"
+"POT-Creation-Date: 2026-10-18 00:45+0000\n"
+"PO-Revision-Date: 2026-10-17 07:42+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -3939,11 +3939,10 @@ msgstr ""
 "povezava: %1"
 
 #: gui/kemailclientlauncherjob.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to open the file."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to open email client"
-msgstr "Ni bilo mogoče odpreti datoteke."
+msgstr "Ni bilo mogoče odpreti poštnega odjemalca"
 
 #: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
@@ -4203,7 +4202,7 @@ msgstr "Ukaz, ki se naj izvede"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL(ji) ali krajevna(e) datoteka(e) uporabljen(i) za »ukaz«"
 
-#: kioworkers/file/file.cpp:729
+#: kioworkers/file/file.cpp:730
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4212,7 +4211,7 @@ msgstr ""
 "Ni bilo mogoče spremeniti dovoljenj za\n"
 "%1"
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4222,17 +4221,17 @@ msgstr ""
 "Ni bilo mogoče spremeniti lastnika in grupe za\n"
 "%1"
 
-#: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
+#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Ni bilo mogoče odpreti začasne datoteke"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Programa »mount« ni bilo mogoče najti"
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:919
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Programa »umount« ni bilo mogoče najti"

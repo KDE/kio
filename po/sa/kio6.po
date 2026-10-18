@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:45+0000\n"
+"POT-Creation-Date: 2026-10-18 00:45+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -4138,14 +4138,14 @@ msgstr "निष्पादनार्थं आदेशः"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'command' कृते प्रयुक्ताः URL(s) अथवा स्थानीयसञ्चिका।"
 
-#: kioworkers/file/file.cpp:729
+#: kioworkers/file/file.cpp:730
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr "%1 तस्य अनुमतिः परिवर्तयितुं न शक्तवान्"
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4153,18 +4153,18 @@ msgid ""
 "%1"
 msgstr "%1 तस्य कृते स्वामिनं समूहं च परिवर्तयितुं न शक्तवान्"
 
-#: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
+#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "अस्थायीसञ्चिकायाः नामान्तरणं कर्तुं न शक्तवान्"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" इति कार्यक्रमः न लब्धः ।"
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:919
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" इति कार्यक्रमः न लब्धः ।"

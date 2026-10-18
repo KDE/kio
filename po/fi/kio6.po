@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:45+0000\n"
+"POT-Creation-Date: 2026-10-18 00:45+0000\n"
 "PO-Revision-Date: 2026-10-02 22:43+0300\n"
 "Last-Translator: Lasse Liehu-Inui <lasse.liehu@iki.fi>\n"
 "Language-Team: Finnish <kde-l10n-fi@kde.org>\n"
@@ -4206,7 +4206,7 @@ msgstr "Suoritettava komento"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "Verkko-osoite tai paikallinen tiedosto, jota ”komennolle” käytetään"
 
-#: kioworkers/file/file.cpp:729
+#: kioworkers/file/file.cpp:730
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4215,7 +4215,7 @@ msgstr ""
 "Tiedoston %1 oikeuksia ei\n"
 "voitu muuttaa"
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4225,17 +4225,17 @@ msgstr ""
 "Tiedoston %1\n"
 "omistajaa ja ryhmää ei voitu muuttaa"
 
-#: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
+#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Väliaikaistiedostoa ei voitu avata"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Ohjelmaa ”mount” ei löytynyt"
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:919
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Ohjelmaa ”umount” ei löytynyt"

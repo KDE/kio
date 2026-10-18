@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-17 00:45+0000\n"
+"POT-Creation-Date: 2026-10-18 00:45+0000\n"
 "PO-Revision-Date: 2026-05-04 17:15+0300\n"
 "Last-Translator: Wesenseged <kde-i18n-de@kde.org>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -4061,7 +4061,7 @@ msgstr "ለማስፈጸም ትእዛዝ"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "ለ'ትዕዛዝ' ጥቅም ላይ የዋሉ URL(ዎች) ወይም አካባቢያዊ ፋይሎች"
 
-#: kioworkers/file/file.cpp:729
+#: kioworkers/file/file.cpp:730
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4070,7 +4070,7 @@ msgstr ""
 "ፈቃዶችን መቀየር አልተቻለም ለ\n"
 "%1"
 
-#: kioworkers/file/file.cpp:737
+#: kioworkers/file/file.cpp:738
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4080,17 +4080,17 @@ msgstr ""
 "ባለቤት እና ቡድን መቀየር አልተቻለም ለ\n"
 "%1"
 
-#: kioworkers/file/file.cpp:817 kioworkers/file/file.cpp:909
+#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "ጊዜያዊ ፋይል መክፈት አልተቻለም"
 
-#: kioworkers/file/file.cpp:841
+#: kioworkers/file/file.cpp:842
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" የተባለውን ፕሮግራም ማግኘት አልተቻለም"
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:919
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" የተባለውን ፕሮግራም ማግኘት አልተቻለም"
