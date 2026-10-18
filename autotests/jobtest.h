@@ -40,6 +40,7 @@ private Q_SLOTS:
     void putPermissionKept();
     void setModificationTimeKeepsMillisecondsAndAccessTime();
     void setModificationTimeOfMissingFileFails();
+    void putKeepsAccessTime();
     void storedPut();
     void storedPutIODevice();
     void storedPutIODeviceFile();

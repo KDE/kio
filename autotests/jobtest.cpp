@@ -283,6 +283,37 @@ void JobTest::setModificationTimeOfMissingFileFails()
     QVERIFY(!QFile::exists(filePath));
 }
 
+void JobTest::putKeepsAccessTime()
+{
+#ifdef Q_OS_LINUX
+    const QString filePath = homeTmpDir() + "fileForPutTimes";
+    QFile::remove(filePath);
+    ScopedCleaner cleaner([&] {
+        QFile::remove(filePath);
+    });
+
+    // The job passes the time in whole seconds.
+    const QDateTime mtime = QDateTime::fromSecsSinceEpoch(1600000000);
+    KIO::StoredTransferJob *job = KIO::storedPut(QByteArrayLiteral("content"), QUrl::fromLocalFile(filePath), -1, KIO::HideProgressInfo);
+    job->setModificationTime(mtime);
+    job->setUiDelegate(nullptr);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QCOMPARE(QFileInfo(filePath).lastModified(), mtime);
+    // A new file gets the same access time as its creation time, to the nanosecond, and the
+    // put leaves that access time as it is.
+    struct statx stx;
+    QCOMPARE(::statx(AT_FDCWD, QFile::encodeName(filePath).constData(), 0, STATX_ATIME | STATX_BTIME, &stx), 0);
+    if (!(stx.stx_mask & STATX_BTIME)) {
+        QSKIP("The filesystem of the test home does not report creation times");
+    }
+    QCOMPARE(stx.stx_atime.tv_sec, stx.stx_btime.tv_sec);
+    QCOMPARE(stx.stx_atime.tv_nsec, stx.stx_btime.tv_nsec);
+#else
+    QSKIP("Creation times are read with statx");
+#endif
+}
+
 void JobTest::putPermissionKept()
 {
     const QString filePath = homeTmpDir() + "fileFromHome";

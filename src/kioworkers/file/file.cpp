@@ -733,6 +733,23 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
         return WorkerResult::pass();
     }
 
+    const QString mtimeStr = metaData(QStringLiteral("modified"));
+    const QDateTime mtime = mtimeStr.isEmpty() ? QDateTime() : QDateTime::fromString(mtimeStr, Qt::ISODate);
+
+#if defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD) || defined(Q_OS_HAIKU)
+    // Owner, group and modification time go on the open file. The buffered data is written first,
+    // so no later write changes the modification time. A flush error shows in f.error() after close.
+    f.flush();
+    if (bOrigExists && ::fchown(f.handle(), owner, group) < 0) {
+        warning(i18nc("@info", "Could not change owner and group for\n%1", dest_orig));
+    }
+    if (mtime.isValid()) {
+        // UTIME_OMIT leaves the access time as it is, to the nanosecond.
+        const struct timespec times[2] = {{0, UTIME_OMIT}, toTimespec(mtime)};
+        ::futimens(f.handle(), times);
+    }
+#endif
+
     f.close();
 
     if (f.error() != QFile::NoError) {
@@ -776,6 +793,7 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
         }
     }
 
+#if !defined(Q_OS_LINUX) && !defined(Q_OS_FREEBSD) && !defined(Q_OS_HAIKU)
     // set original owner and group
 #if !defined(Q_OS_WIN)
     if (bOrigExists) {
@@ -786,27 +804,25 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
 #endif
 
     // set modification time
-    const QString mtimeStr = metaData(QStringLiteral("modified"));
-    if (!mtimeStr.isEmpty()) {
-        QDateTime dt = QDateTime::fromString(mtimeStr, Qt::ISODate);
-        if (dt.isValid()) {
+    if (mtime.isValid()) {
 #ifndef Q_OS_WIN
-            QT_STATBUF dest_statbuf;
-            if (QT_STAT(QFile::encodeName(dest_orig).constData(), &dest_statbuf) == 0) {
-                struct timeval utbuf[2];
-                // access time
-                utbuf[0].tv_sec = dest_statbuf.st_atime; // access time, unchanged  ## TODO preserve msec
-                utbuf[0].tv_usec = 0;
-                // modification time
-                utbuf[1].tv_sec = dt.toSecsSinceEpoch();
-                utbuf[1].tv_usec = dt.time().msec() * 1000;
-                utimes(QFile::encodeName(dest_orig).constData(), utbuf);
-            }
-#else
-            setWindowsModificationTime(dest_orig, dt);
-#endif
+        QT_STATBUF dest_statbuf;
+        if (QT_STAT(QFile::encodeName(dest_orig).constData(), &dest_statbuf) == 0) {
+            struct timeval utbuf[2];
+            // access time
+            // The access time stays the same, cut to whole seconds.
+            utbuf[0].tv_sec = dest_statbuf.st_atime;
+            utbuf[0].tv_usec = 0;
+            // modification time
+            utbuf[1].tv_sec = mtime.toSecsSinceEpoch();
+            utbuf[1].tv_usec = mtime.time().msec() * 1000;
+            utimes(QFile::encodeName(dest_orig).constData(), utbuf);
         }
+#else
+        setWindowsModificationTime(dest_orig, mtime);
+#endif
     }
+#endif
 
     // We have done our job => finish
     return WorkerResult::pass();
