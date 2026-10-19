@@ -28,6 +28,11 @@
 #include <sys/shm.h>
 #endif
 
+#ifdef Q_OS_UNIX
+#include <cerrno>
+#include <signal.h>
+#endif
+
 #include <KConfigGroup>
 #include <KFileUtils>
 #include <KLocalizedString>
@@ -57,6 +62,25 @@ using namespace KIO;
 using namespace Qt::Literals;
 using namespace std::chrono_literals;
 
+// Removes the folders of local copies that belong to processes which no longer run, as a process
+// that crashed or was killed left them. A folder is named after the id of its process.
+static void removeLocalCopiesOfEndedProcesses(const QString &localCopiesRoot)
+{
+#ifdef Q_OS_UNIX
+    const QFileInfoList folders = QDir(localCopiesRoot).entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
+    for (const QFileInfo &folder : folders) {
+        bool isNumber = false;
+        const pid_t pid = folder.fileName().toInt(&isNumber);
+        // kill() with no signal only checks the process. ESRCH means that no such process runs.
+        if (isNumber && pid > 0 && ::kill(pid, 0) == -1 && errno == ESRCH) {
+            QDir(folder.filePath()).removeRecursively();
+        }
+    }
+#else
+    Q_UNUSED(localCopiesRoot);
+#endif
+}
+
 FilePreviewJob::FilePreviewJob(const KFileItem &fileItem, int parentDirDeviceId, const PreviewOptions &options, const PreviewSetupData &setupData)
     : m_fileItem(fileItem)
     , m_parentDirDeviceId(parentDirDeviceId)
@@ -69,6 +93,10 @@ FilePreviewJob::FilePreviewJob(const KFileItem &fileItem, int parentDirDeviceId,
 
 FilePreviewJob::~FilePreviewJob()
 {
+    // The download stops before its files are removed, so it writes no file afterwards.
+    if (m_copyJob) {
+        m_copyJob->kill();
+    }
     if (!m_tempName.isEmpty()) {
         QFileInfo tempFile(m_tempName);
         if (tempFile.exists()) {
@@ -92,6 +120,9 @@ bool FilePreviewJob::doKill()
     }
     if (m_transferjob) {
         m_transferjob->kill();
+    }
+    if (m_copyJob) {
+        m_copyJob->kill();
     }
     return KIO::Job::doKill();
 }
@@ -414,7 +445,7 @@ void FilePreviewJob::createThumbnailViaFuse(const QUrl &fileUrl, const QUrl &loc
 void FilePreviewJob::slotGetOrCreateThumbnail(KJob *job)
 {
     auto fileCopyJob = static_cast<KIO::FileCopyJob *>(job);
-    if (fileCopyJob) {
+    if (fileCopyJob && !job->error()) {
         auto pixPath = fileCopyJob->destUrl().toLocalFile();
         if (!pixPath.isEmpty()) {
             createThumbnail(pixPath);
@@ -439,8 +470,13 @@ void FilePreviewJob::createThumbnailViaLocalCopy(const QUrl &url)
     // to the local machine, then create the thumbnail
 
     // Build the destination filename: ~/.cache/app/kpreviewjob/pid/UUID.extension
-    QString krun_writable =
-        QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/kpreviewjob/%1/").arg(QCoreApplication::applicationPid());
+    const QString localCopiesRoot = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QStringLiteral("/kpreviewjob/");
+    QString krun_writable = localCopiesRoot + QStringLiteral("%1/").arg(QCoreApplication::applicationPid());
+    // The folder of this process is created once, so the folders of ended processes are looked
+    // at once per process.
+    if (!QFileInfo::exists(krun_writable)) {
+        removeLocalCopiesOfEndedProcesses(localCopiesRoot);
+    }
     if (!QDir().mkpath(krun_writable)) {
         qCWarning(KIO_GUI) << "Could not create a cache folder for preview creation:" << krun_writable;
         emitResult();
@@ -451,7 +487,9 @@ void FilePreviewJob::createThumbnailViaLocalCopy(const QUrl &url)
                                                m_fileItem.suffix());
 
     KIO::Job *job = KIO::file_copy(url, QUrl::fromLocalFile(m_tempName), -1, KIO::Overwrite | KIO::HideProgressInfo /* No GUI */);
+    m_copyJob = job;
     job->addMetaData(QStringLiteral("thumbnail"), QStringLiteral("1"));
+    job->addMetaData(QStringLiteral("MarkPartial"), QStringLiteral("false"));
     connect(job, &KIO::FileCopyJob::result, this, &FilePreviewJob::slotGetOrCreateThumbnail);
     job->start();
 }

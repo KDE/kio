@@ -174,6 +174,7 @@ private:
     QTimer *m_timeoutTimer = nullptr;
 
     QPointer<KIO::TransferJob> m_transferjob = nullptr;
+    QPointer<KIO::Job> m_copyJob = nullptr;
     QPointer<KIO::StandardThumbnailJob> m_standardThumbnailJob = nullptr;
 
     void getOrCreateThumbnail();

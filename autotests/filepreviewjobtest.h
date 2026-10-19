@@ -47,6 +47,12 @@ private Q_SLOTS:
     void testFileOfTheCacheIsNotCached();
     void testStandardThumbnailerGetsEachPathAsOneArgument_data();
     void testStandardThumbnailerGetsEachPathAsOneArgument();
+    void testAFailedDownloadLeavesNoLocalCopy();
+    void testAKilledPreviewStopsItsDownload();
+#ifndef Q_OS_WIN
+    // Ended processes are recognised with kill(), which Windows does not have
+    void testLocalCopiesOfEndedProcessesAreRemoved();
+#endif
 };
 
 #endif
