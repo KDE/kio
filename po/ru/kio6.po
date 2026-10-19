@@ -24,8 +24,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-18 00:45+0000\n"
-"PO-Revision-Date: 2026-10-15 12:00+0300\n"
+"POT-Creation-Date: 2026-10-19 00:42+0000\n"
+"PO-Revision-Date: 2026-10-18 19:06+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -67,7 +67,7 @@ msgstr ""
 "Не удалось сменить владельца файла <filename>%1</filename>. У вас "
 "недостаточно прав для осуществления этих изменений."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:612
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:613
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -3968,11 +3968,10 @@ msgstr ""
 "ссылка: %1"
 
 #: gui/kemailclientlauncherjob.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to open the file."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to open email client"
-msgstr "Невозможно открыть файл."
+msgstr "Не удалось запустить приложение для работы с эл. почтой"
 
 #: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
@@ -4265,17 +4264,17 @@ msgstr "Невозможно найти программу «mount»"
 msgid "Could not find program \"umount\""
 msgstr "Невозможно найти программу «umount»"
 
-#: kioworkers/file/file_unix.cpp:403
+#: kioworkers/file/file_unix.cpp:404
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Нет носителя в устройстве %1"
 
-#: kioworkers/file/file_unix.cpp:797
+#: kioworkers/file/file_unix.cpp:798
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Невозможно получить идентификатор по имени пользователя %1"
 
-#: kioworkers/file/file_unix.cpp:808
+#: kioworkers/file/file_unix.cpp:809
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Невозможно получить идентификатор по имени группы %1"

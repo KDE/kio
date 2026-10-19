@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-18 00:45+0000\n"
+"POT-Creation-Date: 2026-10-19 00:42+0000\n"
 "PO-Revision-Date: 2026-10-04 18:52+0200\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 "<filename>%1</filename> என்கிற கோப்பின் உரிமையாளரை மாற்ற முடியவில்லை. அதை "
 "மாற்றுவதற்கு உங்களுக்கு போதுமான உரிமை இல்லை."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:612
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:613
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4178,17 +4178,17 @@ msgstr "\"mount\" நிரலை கண்டுபிடிக்க முட
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" நிரலை கண்டுபிடிக்க முடியவில்லை"
 
-#: kioworkers/file/file_unix.cpp:403
+#: kioworkers/file/file_unix.cpp:404
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 -க்குரிய ஊடகம் சாதனத்தில் இல்லை"
 
-#: kioworkers/file/file_unix.cpp:797
+#: kioworkers/file/file_unix.cpp:798
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "%1 என்ற பயனர் பெயருக்கான பயனர் எண்ணை பெற இயலவில்லை"
 
-#: kioworkers/file/file_unix.cpp:808
+#: kioworkers/file/file_unix.cpp:809
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "%1 என்ற குழுப் பெயருக்கான குழு எண்ணை பெற முடியவில்லை"

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-18 00:45+0000\n"
+"POT-Creation-Date: 2026-10-19 00:42+0000\n"
 "PO-Revision-Date: 2025-06-22 15:42+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.gal>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
@@ -54,7 +54,7 @@ msgstr ""
 "Non foi posíbel modificar a pertenza do ficheiro <filename>%1</filename>. "
 "Non ten os permisos necesarios para facer o cambio neste ficheiro."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:612
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:613
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4260,18 +4260,18 @@ msgstr "Non foi posíbel atopar o programa «mount»"
 msgid "Could not find program \"umount\""
 msgstr "Non foi posíbel atopar programa «umount»"
 
-#: kioworkers/file/file_unix.cpp:403
+#: kioworkers/file/file_unix.cpp:404
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Non hai ningún medio no dispositivo para %1"
 
-#: kioworkers/file/file_unix.cpp:797
+#: kioworkers/file/file_unix.cpp:798
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 "Non foi posíbel obter o identificador do nome de persoa usuaria indicado, %1"
 
-#: kioworkers/file/file_unix.cpp:808
+#: kioworkers/file/file_unix.cpp:809
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Non foi posíbel obter o identificador do grupo indicado, %1."

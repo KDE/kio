@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-18 00:45+0000\n"
+"POT-Creation-Date: 2026-10-19 00:42+0000\n"
 "PO-Revision-Date: 2026-10-16 15:23+0300\n"
 "Last-Translator: Petros Vidalis <pvidalis@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -54,7 +54,7 @@ msgstr ""
 "Δεν ήταν δυνατή η αλλαγή της ιδιοκτησίας του αρχείου <filename>%1</"
 "filename>. Δεν έχετε επαρκή πρόσβαση στο αρχείο για να κάνετε την αλλαγή."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:612
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:613
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4303,17 +4303,17 @@ msgstr "Δεν ήταν δυνατή η εύρεση του προγράμματ
 msgid "Could not find program \"umount\""
 msgstr "Δεν ήταν δυνατή η εύρεση του προγράμματος \"umount\""
 
-#: kioworkers/file/file_unix.cpp:403
+#: kioworkers/file/file_unix.cpp:404
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Δεν υπάρχει μέσο στη συσκευή για το %1"
 
-#: kioworkers/file/file_unix.cpp:797
+#: kioworkers/file/file_unix.cpp:798
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Αδύνατη η ανάκτηση του id χρήστη για το δοσμένο όνομα χρήστη %1"
 
-#: kioworkers/file/file_unix.cpp:808
+#: kioworkers/file/file_unix.cpp:809
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Αδύνατη η ανάκτηση του id ομάδας για το δοσμένο όνομα ομάδας %1"

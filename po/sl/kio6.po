@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-18 00:45+0000\n"
+"POT-Creation-Date: 2026-10-19 00:42+0000\n"
 "PO-Revision-Date: 2026-10-17 07:42+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -56,7 +56,7 @@ msgstr ""
 "Ni bilo mogoče spremeniti lastništva datoteke <filename>%1</filename>. Za "
 "izvedbo te spremembe imate premalo dovoljenj."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:612
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:613
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4236,17 +4236,17 @@ msgstr "Programa »mount« ni bilo mogoče najti"
 msgid "Could not find program \"umount\""
 msgstr "Programa »umount« ni bilo mogoče najti"
 
-#: kioworkers/file/file_unix.cpp:403
+#: kioworkers/file/file_unix.cpp:404
 #, kde-format
 msgid "No media in device for %1"
 msgstr "V napravi ni nosilca za %1"
 
-#: kioworkers/file/file_unix.cpp:797
+#: kioworkers/file/file_unix.cpp:798
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Ni bilo mogoče pridobiti uporabniškega ID-ja za podanega uporabnika %1"
 
-#: kioworkers/file/file_unix.cpp:808
+#: kioworkers/file/file_unix.cpp:809
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Ni bilo mogoče pridobiti ID-ja za podano ime skupine %1"

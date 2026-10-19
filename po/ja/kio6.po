@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-18 00:45+0000\n"
+"POT-Creation-Date: 2026-10-19 00:42+0000\n"
 "PO-Revision-Date: 2026-09-26 18:31+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -55,7 +55,7 @@ msgstr ""
 "ファイル <filename>%1</filename> の所有者を変更できませんでした。変更する権限"
 "がありません。"
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:612
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:613
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -4184,17 +4184,17 @@ msgstr "プログラム mount が見つかりませんでした"
 msgid "Could not find program \"umount\""
 msgstr "プログラム umount が見つかりませんでした"
 
-#: kioworkers/file/file_unix.cpp:403
+#: kioworkers/file/file_unix.cpp:404
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 用のデバイスにメディアがありません"
 
-#: kioworkers/file/file_unix.cpp:797
+#: kioworkers/file/file_unix.cpp:798
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ユーザ名 %1 のユーザ ID を取得できませんでした"
 
-#: kioworkers/file/file_unix.cpp:808
+#: kioworkers/file/file_unix.cpp:809
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "グループ名 %1 のグループ ID を取得できませんでした"
