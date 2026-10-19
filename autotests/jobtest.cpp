@@ -985,6 +985,58 @@ void JobTest::copyDirectoryToSamePartition()
     copyLocalDirectory(src, dest);
 }
 
+void JobTest::copyDirectoryKeepsUserXattrs()
+{
+    const QString src = homeTmpDir() + "dirWithXattrs";
+    const QString dest = homeTmpDir() + "dirWithXattrs_copied";
+    if (!checkXattrFsSupport(homeTmpDir())) {
+        QSKIP("The filesystem of the test folder has no user extended attributes");
+    }
+    // The folders are removed even when the test fails, so the listing tests do not find them.
+    auto cleanup = qScopeGuard([&] {
+        QDir(src).removeRecursively();
+        QDir(dest).removeRecursively();
+    });
+    createTestDirectory(src);
+    QDir().mkdir(src + "/subdir");
+    QVERIFY(setXattr(src));
+    QVERIFY(setXattr(src + "/subdir"));
+
+    KIO::Job *job = KIO::copyAs(QUrl::fromLocalFile(src), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    // The folders keep their attributes, as the files in them do.
+    compareXattr(src, dest);
+    compareXattr(src + "/subdir", dest + "/subdir");
+    QVERIFY(readXattr(dest).size() > 1);
+}
+
+void JobTest::moveDirectoryToOtherPartitionKeepsUserXattrs()
+{
+    const QString src = homeTmpDir() + "movedDirWithXattrs";
+    const QString dest = otherTmpDir() + "movedDirWithXattrs";
+    if (otherTmpDirIsOnSamePartition()) {
+        QSKIP("A move on one partition is a rename, which keeps the folder itself");
+    }
+    if (!checkXattrFsSupport(homeTmpDir()) || !checkXattrFsSupport(otherTmpDir())) {
+        QSKIP("A filesystem of the test folders has no user extended attributes");
+    }
+    auto cleanup = qScopeGuard([&] {
+        QDir(src).removeRecursively();
+        QDir(dest).removeRecursively();
+    });
+    createTestDirectory(src);
+    QVERIFY(setXattr(src));
+    const QList<QByteArray> before = readXattr(src);
+
+    KIO::Job *job = KIO::moveAs(QUrl::fromLocalFile(src), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QVERIFY(!QFile::exists(src));
+    QCOMPARE(readXattr(dest), before);
+}
+
 void JobTest::copyDirectoryToExistingDirectory()
 {
     // qDebug();

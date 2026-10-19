@@ -266,6 +266,19 @@ WorkerResult FileProtocol::mkdir(const QUrl &_url, int permissions)
         }
     }
 
+#if HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
+    // The folder a copy creates takes the user attributes of its source, such as view properties or tags.
+    // ACLs are left out: the new folder inherits them from its parent, as a new file does.
+    const QString xattrSource = metaData(QStringLiteral("copy-xattrs-from"));
+    if (!xattrSource.isEmpty()) {
+        const int sourceFd = QT_OPEN(QFile::encodeName(xattrSource).constData(), O_RDONLY | O_DIRECTORY | O_CLOEXEC);
+        if (sourceFd != -1) {
+            copyXattrs(sourceFd, fd, XattrNamespaces::User);
+            QT_CLOSE(sourceFd);
+        }
+    }
+#endif
+
     QT_CLOSE(fd);
 #else
     if (!QDir().mkdir(path)) {

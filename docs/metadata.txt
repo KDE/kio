@@ -58,6 +58,8 @@ recurse                 bool    When true, del() will be able to delete non-empt
                                 Otherwise, del() is supposed to give an error on non-empty directories.
 
 DefaultRemoteProtocol	string	Protocol to redirect file://<hostname>/ URLs to, default is "smb" (read by file)
+copy-xattrs-from        string  Local path of a folder whose user extended attributes mkdir() gives the folder it
+                                creates. (set by CopyJob, read by file)
 redirect-to-get         bool    If "true", changes a redrirection request to a GET operation regardless of the original operation.
 
 ** NOTE: Anything in quotes ("") under Value(s) indicates literal value.

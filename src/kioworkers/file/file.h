@@ -55,7 +55,15 @@ public:
     KIO::WorkerResult write(const QByteArray &data) override;
     KIO::WorkerResult seek(KIO::filesize_t offset) override;
     KIO::WorkerResult truncate(KIO::filesize_t length) override;
-    bool copyXattrs(const int src_fd, const int dest_fd);
+    /*!
+     * \value All Every attribute the source lists, ACLs included.
+     * \value User Only the user namespace on Linux. Other systems list their user attributes only.
+     */
+    enum class XattrNamespaces {
+        All,
+        User,
+    };
+    bool copyXattrs(const int src_fd, const int dest_fd, XattrNamespaces namespaces = XattrNamespaces::All);
     KIO::WorkerResult close() override;
 
     KIO::WorkerResult fileSystemFreeSpace(const QUrl &url) override;

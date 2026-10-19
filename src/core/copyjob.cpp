@@ -1624,6 +1624,11 @@ void CopyJobPrivate::processCreateNextDir(const QList<CopyInfo>::Iterator &it, i
     if (shouldOverwriteFile(it->uDest.path())) { // if we are overwriting an existing file or symlink
         newjob->addMetaData(QStringLiteral("overwrite"), QStringLiteral("true"));
     }
+    // A copied file keeps its extended attributes, and a copied folder keeps its user ones, such as view
+    // properties and tags. The worker of the destination reads the source, so both have to be local.
+    if (it->uSource.isLocalFile() && it->uDest.isLocalFile()) {
+        newjob->addMetaData(QStringLiteral("copy-xattrs-from"), it->uSource.toLocalFile());
+    }
 
     m_currentDestURL = it->uDest;
     m_bURLDirty = true;

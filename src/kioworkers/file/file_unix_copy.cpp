@@ -96,7 +96,7 @@ static bool isOnCifs(const StatStruct &buf, const QString &fallbackPath)
 }
 
 #if HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
-bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
+bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd, XattrNamespaces namespaces)
 {
     // Get the list of keys
     ssize_t listlen = 0;
@@ -156,6 +156,14 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd)
         };
 #endif
         QByteArray key(keyPtr, keyLen);
+#if HAVE_SYS_XATTR_H && !defined(Q_OS_MAC)
+        if (namespaces == XattrNamespaces::User && !key.startsWith("user.")) {
+            next_key();
+            continue;
+        }
+#else
+        Q_UNUSED(namespaces)
+#endif
 
         // Get the value for key
         ssize_t valuelen = 0;
