@@ -24,6 +24,7 @@
 #include <KIO/CopyJob>
 #include <KIO/DndPopupMenuPlugin>
 #include <KIO/FileUndoManager>
+#include <KIO/Paste>
 #include <KJobWidgets>
 #include <KJobWindows>
 #include <KLocalizedString>
@@ -85,8 +86,7 @@ class KIO::DropJobPrivate : public KIO::JobPrivate
 public:
     DropJobPrivate(const QDropEvent *dropEvent, const QUrl &destUrl, DropJobFlags dropjobFlags, JobFlags flags)
         : JobPrivate()
-        , m_mimeData(dropEvent->mimeData()) // Extract everything from the dropevent, since it will be deleted before the job starts
-        , m_urls(sanitizeUrls(KUrlMimeData::urlsFromMimeData(m_mimeData, KUrlMimeData::PreferLocalUrls, &m_metaData)))
+        , m_urls(sanitizeUrls(KUrlMimeData::urlsFromMimeData(dropEvent->mimeData(), KUrlMimeData::PreferLocalUrls, &m_metaData)))
         , m_dropAction(dropEvent->dropAction())
         , m_possibleActions(dropEvent->possibleActions())
         , m_relativePos(dropEvent->position().toPoint())
@@ -101,8 +101,10 @@ public:
         , m_dropjobFlags(dropjobFlags)
         , m_triggered(false)
     {
+        const auto *mimeData = dropEvent->mimeData();
+
         // Check for the drop of a bookmark -> we want a Link action
-        if (m_mimeData->hasFormat(QStringLiteral("application/x-xbel"))) {
+        if (mimeData->hasFormat(QStringLiteral("application/x-xbel"))) {
             m_keyboardModifiers |= Qt::KeyboardModifiers(Qt::ControlModifier | Qt::ShiftModifier);
             m_dropAction = Qt::LinkAction;
         }
@@ -111,8 +113,16 @@ public:
         }
 
         if (m_hasArkFormat) {
-            m_remoteArkDBusClient = QString::fromUtf8(m_mimeData->data(s_applicationSlashXDashKDEDashArkDashDnDExtractDashService));
-            m_remoteArkDBusPath = QString::fromUtf8(m_mimeData->data(s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath));
+            m_remoteArkDBusClient = QString::fromUtf8(mimeData->data(s_applicationSlashXDashKDEDashArkDashDnDExtractDashService));
+            m_remoteArkDBusPath = QString::fromUtf8(mimeData->data(s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath));
+        } else if (m_urls.isEmpty() && KIO::canPasteMimeData(mimeData)) {
+            // Extract everything from the dropevent, since it will be deleted before the job starts.
+            // Fetching all the formats can be expensive, so only do it if we will use it (no URLs).
+            m_mimeData = std::make_unique<QMimeData>();
+            const auto formats = mimeData->formats();
+            for (const QString &format : formats) {
+                m_mimeData->setData(format, mimeData->data(format));
+            }
         }
     }
 
@@ -149,7 +159,7 @@ public:
 
     QWindow *transientParent();
 
-    QPointer<const QMimeData> m_mimeData;
+    std::unique_ptr<QMimeData> m_mimeData;
     const QList<QUrl> m_urls;
     QMap<QString, QString> m_metaData;
     Qt::DropAction m_dropAction;
@@ -292,7 +302,9 @@ void DropJobPrivate::slotStart()
         }
     } else if (m_mimeData) {
         // Dropping raw data
-        KIO::PasteJob *job = KIO::PasteJobPrivate::newJob(m_mimeData, m_destUrl, KIO::HideProgressInfo, false /*not clipboard*/);
+        auto *mimeData = m_mimeData.release();
+        KIO::PasteJob *job = KIO::PasteJobPrivate::newJob(mimeData, m_destUrl, KIO::HideProgressInfo, false /*not clipboard*/);
+        mimeData->setParent(job);
         QObject::connect(job, &KIO::PasteJob::itemCreated, q, &KIO::DropJob::itemCreated);
         q->addSubjob(job);
     }
