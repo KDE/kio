@@ -91,8 +91,10 @@ public:
         , m_possibleActions(dropEvent->possibleActions())
         , m_relativePos(dropEvent->position().toPoint())
         , m_keyboardModifiers(dropEvent->modifiers())
-        , m_hasArkFormat(m_mimeData->hasFormat(s_applicationSlashXDashKDEDashArkDashDnDExtractDashService)
-                         && m_mimeData->hasFormat(s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath))
+#ifdef WITH_QTDBUS
+        , m_hasArkFormat(dropEvent->mimeData()->hasFormat(s_applicationSlashXDashKDEDashArkDashDnDExtractDashService)
+                         && dropEvent->mimeData()->hasFormat(s_applicationSlashXDashKDEDashArkDashDnDExtractDashPath))
+#endif
         , m_destUrl(destUrl)
         , m_destItem(KCoreDirLister::cachedItemForUrl(destUrl))
         , m_flags(flags)
@@ -156,7 +158,7 @@ public:
     QPoint m_relativePos;
     Qt::KeyboardModifiers m_keyboardModifiers;
     KFileItemListProperties m_itemProps;
-    bool m_hasArkFormat;
+    bool m_hasArkFormat = false;
     QString m_remoteArkDBusClient;
     QString m_remoteArkDBusPath;
     QUrl m_destUrl;
