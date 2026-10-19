@@ -32,13 +32,15 @@ public:
     ~FileSystemFreeSpaceJob() override;
 
     /*!
-     * Get total amount of space
+     * Get total amount of space, or -1 where the job ends with an error and the filesystem
+     * could not be measured.
      * \since 6.0
      */
     KIO::filesize_t size() const;
 
     /*!
-     * Get available amount of space
+     * Get available amount of space, or -1 where the job ends with an error and the filesystem
+     * could not be measured. A size of zero is an answer: the filesystem has no room left.
      * \since 6.0
      */
     KIO::filesize_t availableSize() const;

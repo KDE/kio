@@ -69,14 +69,28 @@ void FileSystemFreeSpaceJobPrivate::start(Worker *worker)
 void FileSystemFreeSpaceJob::slotFinished()
 {
     Q_D(FileSystemFreeSpaceJob);
-    const QString totalStr = queryMetaData(QStringLiteral("total"));
-    const QString availableStr = queryMetaData(QStringLiteral("available"));
+    if (!error()) {
+        const QString totalStr = queryMetaData(QStringLiteral("total"));
+        const QString availableStr = queryMetaData(QStringLiteral("available"));
 
-    if (availableStr.isEmpty()) { // CopyJob only cares for available. "total" is optional
-        setError(KIO::ERR_UNSUPPORTED_ACTION);
+        bool availableValid = false;
+        const KIO::filesize_t available = availableStr.toULongLong(&availableValid);
+        bool totalValid = true;
+        const KIO::filesize_t total = totalStr.isEmpty() ? KIO::filesize_t(-1) : totalStr.toULongLong(&totalValid);
+
+        // "total" is optional. A filesystem always has a size, and never more room than that size.
+        const bool inconsistent = (!availableStr.isEmpty() && !availableValid) || (!totalStr.isEmpty() && (!totalValid || total == 0 || available > total));
+        if (inconsistent) {
+            qCWarning(KIO_CORE) << "The" << url().scheme() << "worker reported a total size of" << totalStr << "and an available size of" << availableStr
+                                << "for" << url();
+        }
+        if (availableStr.isEmpty() || inconsistent) {
+            setError(KIO::ERR_UNSUPPORTED_ACTION);
+        } else {
+            d->size = total;
+            d->availableSize = available;
+        }
     }
-    d->size = totalStr.toULongLong();
-    d->availableSize = availableStr.toULongLong();
 
     // Return worker to the scheduler
     SimpleJob::slotFinished();
