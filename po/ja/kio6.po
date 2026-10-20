@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:42+0000\n"
+"POT-Creation-Date: 2026-10-20 00:49+0000\n"
 "PO-Revision-Date: 2026-09-26 18:31+0900\n"
 "Last-Translator: Mint <5602mint@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -55,7 +55,7 @@ msgstr ""
 "ファイル <filename>%1</filename> の所有者を変更できませんでした。変更する権限"
 "がありません。"
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:613
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:651
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -92,18 +92,18 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "フォルダは既に存在します"
 
-#: core/copyjob.cpp:1827 core/copyjob.cpp:2561 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1832 core/copyjob.cpp:2566 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "ファイルは既に存在します"
 
-#: core/copyjob.cpp:1827 core/copyjob.cpp:2561
+#: core/copyjob.cpp:1832 core/copyjob.cpp:2566
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "フォルダとして既に存在します"
 
-#: core/copyjob.cpp:1985 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1990 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "ごみ箱"
@@ -4150,16 +4150,7 @@ msgstr "実行するコマンド"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'command' に使用する URL またはローカルファイル"
 
-#: kioworkers/file/file.cpp:730
-#, kde-format
-msgid ""
-"Could not change permissions for\n"
-"%1"
-msgstr ""
-"‘%1’\n"
-"のパーミッションを変更できませんでした"
-
-#: kioworkers/file/file.cpp:738
+#: kioworkers/file/file.cpp:744 kioworkers/file/file.cpp:801
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgctxt "@info"
@@ -4168,33 +4159,42 @@ msgid ""
 "%1"
 msgstr "‘%1’ の所有者を変更できませんでした。"
 
-#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
+#: kioworkers/file/file.cpp:792
+#, kde-format
+msgid ""
+"Could not change permissions for\n"
+"%1"
+msgstr ""
+"‘%1’\n"
+"のパーミッションを変更できませんでした"
+
+#: kioworkers/file/file.cpp:879 kioworkers/file/file.cpp:971
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "一時ファイルの名前を変更できませんでした"
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:903
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "プログラム mount が見つかりませんでした"
 
-#: kioworkers/file/file.cpp:919
+#: kioworkers/file/file.cpp:980
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "プログラム umount が見つかりませんでした"
 
-#: kioworkers/file/file_unix.cpp:404
+#: kioworkers/file/file_unix.cpp:406
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 用のデバイスにメディアがありません"
 
-#: kioworkers/file/file_unix.cpp:798
+#: kioworkers/file/file_unix.cpp:836
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ユーザ名 %1 のユーザ ID を取得できませんでした"
 
-#: kioworkers/file/file_unix.cpp:809
+#: kioworkers/file/file_unix.cpp:847
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "グループ名 %1 のグループ ID を取得できませんでした"

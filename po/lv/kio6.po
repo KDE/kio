@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:42+0000\n"
+"POT-Creation-Date: 2026-10-20 00:49+0000\n"
 "PO-Revision-Date: 2025-08-19 17:33+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 "Neizdevās mainīt īpašumtiesības <filename>%1</filename> datnei. Jums nav "
 "pietiekama piekļuve datnei, lai veiktu šādas izmaiņas."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:613
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:651
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -96,18 +96,18 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "Mape jau pastāv"
 
-#: core/copyjob.cpp:1827 core/copyjob.cpp:2561 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1832 core/copyjob.cpp:2566 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Datne jau pastāv"
 
-#: core/copyjob.cpp:1827 core/copyjob.cpp:2561
+#: core/copyjob.cpp:1832 core/copyjob.cpp:2566
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Jau pastāv kā mape"
 
-#: core/copyjob.cpp:1985 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1990 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Atkritne"
@@ -4194,16 +4194,7 @@ msgstr "Izpildāmā komanda"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL vai lokālā datne(-es), ko izmanto „komandai“"
 
-#: kioworkers/file/file.cpp:730
-#, kde-format
-msgid ""
-"Could not change permissions for\n"
-"%1"
-msgstr ""
-"Nevar izmainīt atļaujas\n"
-"„%1“"
-
-#: kioworkers/file/file.cpp:738
+#: kioworkers/file/file.cpp:744 kioworkers/file/file.cpp:801
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4213,33 +4204,42 @@ msgstr ""
 "Nevar izmainīt īpašnieku un grupu\n"
 "„%1“"
 
-#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
+#: kioworkers/file/file.cpp:792
+#, kde-format
+msgid ""
+"Could not change permissions for\n"
+"%1"
+msgstr ""
+"Nevar izmainīt atļaujas\n"
+"„%1“"
+
+#: kioworkers/file/file.cpp:879 kioworkers/file/file.cpp:971
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "Neizdevās pārdēvēt pagaidu datni"
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:903
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nevar atrast programmu „mount“"
 
-#: kioworkers/file/file.cpp:919
+#: kioworkers/file/file.cpp:980
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nevar atrast programmu „umount“"
 
-#: kioworkers/file/file_unix.cpp:404
+#: kioworkers/file/file_unix.cpp:406
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nav atrasts „%1“ datu nesējs"
 
-#: kioworkers/file/file_unix.cpp:798
+#: kioworkers/file/file_unix.cpp:836
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nevar atrast lietotāja ID lietotājvārdam „%1“"
 
-#: kioworkers/file/file_unix.cpp:809
+#: kioworkers/file/file_unix.cpp:847
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nevar atrast grupas ID grupas nosaukumam „%1“"

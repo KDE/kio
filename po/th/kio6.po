@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:42+0000\n"
+"POT-Creation-Date: 2026-10-20 00:49+0000\n"
 "PO-Revision-Date: 2025-03-20 15:34+0700\n"
 "Last-Translator: Pongsakorn S. <kde@xerusion.me>\n"
 "Language-Team: Thai\n"
@@ -42,7 +42,7 @@ msgid ""
 "insufficient access to the file to perform the change."
 msgstr "ไม่สามารถแก้ไขเจ้าของ ของไฟล์ <b>%1</b> ได้ คุณมีสิทธิ์ไม่เพียงพอในการจะแก้ไขไฟล์"
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:613
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:651
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -85,18 +85,18 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "มีโฟลเดอร์นี้อยู่ก่อนแล้ว"
 
-#: core/copyjob.cpp:1827 core/copyjob.cpp:2561 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1832 core/copyjob.cpp:2566 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "มีแฟ้มนี้อยู่แล้ว"
 
-#: core/copyjob.cpp:1827 core/copyjob.cpp:2561
+#: core/copyjob.cpp:1832 core/copyjob.cpp:2566
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "มีอยู่ก่อนแล้วโดยเป็นโฟลเดอร์"
 
-#: core/copyjob.cpp:1985 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1990 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "ถังขยะ"
@@ -4099,16 +4099,7 @@ msgstr "คำสั่งให้ดำเนินการ"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL หรือไฟล์ภายในเครื่องที่ใช้สำหรับ 'คำสั่ง'"
 
-#: kioworkers/file/file.cpp:730
-#, kde-format
-msgid ""
-"Could not change permissions for\n"
-"%1"
-msgstr ""
-"ไม่สามารถเปลี่ยนสิทธิ์ที่อนุญาตของ\n"
-"%1 ได้"
-
-#: kioworkers/file/file.cpp:738
+#: kioworkers/file/file.cpp:744 kioworkers/file/file.cpp:801
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4118,33 +4109,42 @@ msgstr ""
 "ไม่สามารถเปลี่ยนเจ้าของและกลุ่มสำหรับ\n"
 "%1"
 
-#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
+#: kioworkers/file/file.cpp:792
+#, kde-format
+msgid ""
+"Could not change permissions for\n"
+"%1"
+msgstr ""
+"ไม่สามารถเปลี่ยนสิทธิ์ที่อนุญาตของ\n"
+"%1 ได้"
+
+#: kioworkers/file/file.cpp:879 kioworkers/file/file.cpp:971
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "ไม่สามารถเปลี่ยนชื่อแฟ้มชั่วคราวได้"
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:903
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "ไม่สามารถค้นหาโปรแกรม \"mount\" ได้"
 
-#: kioworkers/file/file.cpp:919
+#: kioworkers/file/file.cpp:980
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "ไม่สามารถค้นหาโปรแกรม \"umount\" ได้"
 
-#: kioworkers/file/file_unix.cpp:404
+#: kioworkers/file/file_unix.cpp:406
 #, kde-format
 msgid "No media in device for %1"
 msgstr "ไม่พบสื่อในอุปกรณ์ %1"
 
-#: kioworkers/file/file_unix.cpp:798
+#: kioworkers/file/file_unix.cpp:836
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ไม่สามารถรับเอาหมายเลขผู้ใช้ (user id) ของชื่อผู้ใช้ %1 ได้"
 
-#: kioworkers/file/file_unix.cpp:809
+#: kioworkers/file/file_unix.cpp:847
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ไม่สามารถรับเอาหมายเลขกลุ่ม (group id) ของชื่อกลุ่ม %1 ได้"

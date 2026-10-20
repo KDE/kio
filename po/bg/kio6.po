@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:42+0000\n"
-"PO-Revision-Date: 2026-10-08 16:07+0200\n"
+"POT-Creation-Date: 2026-10-20 00:49+0000\n"
+"PO-Revision-Date: 2026-10-19 15:49+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -43,7 +43,7 @@ msgstr ""
 "Неуспешно променяне на собствеността на файл<filename>%1</filename>. Вие "
 "имате недостатъчни права на достъп до файла за извършване на промяната."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:613
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:651
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -90,18 +90,18 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "Вече има такава директория"
 
-#: core/copyjob.cpp:1827 core/copyjob.cpp:2561 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1832 core/copyjob.cpp:2566 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Вече има такъв файл"
 
-#: core/copyjob.cpp:1827 core/copyjob.cpp:2561
+#: core/copyjob.cpp:1832 core/copyjob.cpp:2566
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Вече съществува като директория"
 
-#: core/copyjob.cpp:1985 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1990 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Кошче"
@@ -2291,27 +2291,26 @@ msgstr "Не може да се определи типът на файла за
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "No file type can be defined for the extension \"%1\"."
-msgstr ""
+msgstr "Не може да бъде определен тип файл за разширението „%1“."
 
 #: core/openwith.cpp:96
-#, fuzzy, kde-format
-#| msgid "Could not enter folder %1."
+#, kde-format
 msgctxt "@info %1 is a folder path"
 msgid "Could not create the folder %1."
-msgstr "Директорията „%1“ не може да бъде отворена."
+msgstr "Не можа да се създаде папката %1."
 
 #: core/openwith.cpp:100 core/openwith.cpp:113
-#, fuzzy, kde-format
-#| msgid "Could not write to file %1."
+#, kde-format
 msgctxt "@info %1 is a file path, %2 the error"
 msgid "Could not write the file type definition %1: %2"
-msgstr "Записът във файл %1 беше неуспешен."
+msgstr "Неуспешно записване на дефиницията за тип файл %1: %2"
 
 #: core/openwith.cpp:120
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "Could not update the file type database with the extension \"%1\"."
 msgstr ""
+"Не успя да се обнови базата данни с типове файлове за разширението \"%1\"."
 
 #: core/openwith.cpp:149
 #, kde-format
@@ -3936,11 +3935,10 @@ msgstr ""
 "връзка: %1"
 
 #: gui/kemailclientlauncherjob.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to open the file."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to open email client"
-msgstr "Неуспешно отваряне на файла."
+msgstr "Грешка при отваряне на имейл клиента"
 
 #: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
@@ -4203,16 +4201,7 @@ msgstr "Команда за изпълнение"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL адреси или локални файлове, използвани за \"команда\""
 
-#: kioworkers/file/file.cpp:730
-#, kde-format
-msgid ""
-"Could not change permissions for\n"
-"%1"
-msgstr ""
-"Неуспешна смяна на правата за достъп\n"
-"%1"
-
-#: kioworkers/file/file.cpp:738
+#: kioworkers/file/file.cpp:744 kioworkers/file/file.cpp:801
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4222,32 +4211,41 @@ msgstr ""
 "Неуспешна смяна на собственика и групата за\n"
 "%1"
 
-#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
+#: kioworkers/file/file.cpp:792
+#, kde-format
+msgid ""
+"Could not change permissions for\n"
+"%1"
+msgstr ""
+"Неуспешна смяна на правата за достъп\n"
+"%1"
+
+#: kioworkers/file/file.cpp:879 kioworkers/file/file.cpp:971
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Не може да се отвори временен файл"
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:903
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Програмата \"mount\" не може да бъде намерена"
 
-#: kioworkers/file/file.cpp:919
+#: kioworkers/file/file.cpp:980
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Програмата \"umount\" не може да бъде намерена"
 
-#: kioworkers/file/file_unix.cpp:404
+#: kioworkers/file/file_unix.cpp:406
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Няма носител в устройството %1"
 
-#: kioworkers/file/file_unix.cpp:798
+#: kioworkers/file/file_unix.cpp:836
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "ИД за потребител „%1“ не може да бъде получен"
 
-#: kioworkers/file/file_unix.cpp:809
+#: kioworkers/file/file_unix.cpp:847
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "ИД за група „%1“ не може да бъде получен"
@@ -5688,15 +5686,10 @@ msgstr ""
 "„%1“"
 
 #: widgets/kopenwithdialog.cpp:773
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\""
+#, kde-format
 msgctxt "@option:check %1 is a file name extension"
 msgid "&Remember application association for all \"*.%1\" files"
-msgstr ""
-"&Запомняне на свързването на приложения за всички файлове от тип \n"
-"„%1“"
+msgstr "Запомняне на асоциация с приложение за всички файлове \"*.%1\""
 
 #: widgets/kopenwithdialog.cpp:781
 #, kde-format
@@ -6617,30 +6610,24 @@ msgid "C&hecksums"
 msgstr "Контролна сума"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2306
-#, fuzzy, kde-format
-#| msgctxt "@info:progress computation in the background"
-#| msgid "Verifying checksum…"
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum… (%1%)"
-msgstr "Проверка на контролната сума…"
+msgstr "Проверка на контролната сума… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2414
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2636
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash for multiple files"
 msgid "Calculating… (%1/%2)"
-msgstr "Изчисляване…"
+msgstr "Изчисляване… (%1/%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2431
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2638
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash"
 msgid "Calculating… (%1%)"
-msgstr "Изчисляване…"
+msgstr "Изчисляване… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
 #, kde-format
@@ -7142,32 +7129,20 @@ msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> не е правилно име на файл."
 
 #: widgets/renamefiledialog.cpp:235
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this folder's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view."
 msgstr ""
-"Добавянето на точки в началото на името на папката ще я скрие.\n"
-"Все още ли желаете да я преименувате?"
+"Добавянето на точка в началото на името на тази папка ще я скрие от изгледа."
 
 #: widgets/renamefiledialog.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this file's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view."
 msgstr ""
-"Добавянето на точки в началото на името на файла ще го скрие.\n"
-"Все още ли желаете да го преименувате?"
+"Добавянето на точка в началото на името на този файл ще го направи скрито."
 
 #: widgets/renamefiledialog.cpp:244
 #, kde-format
@@ -7175,6 +7150,8 @@ msgctxt "@info"
 msgid ""
 "The file's type may change, which could prevent it from opening correctly."
 msgstr ""
+"Типът на файла може да се промени, което може да попречи на правилното му "
+"отваряне."
 
 #: widgets/renamefiledialog.cpp:265
 #, kde-format

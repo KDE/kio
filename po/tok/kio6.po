@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:42+0000\n"
+"POT-Creation-Date: 2026-10-20 00:49+0000\n"
 "PO-Revision-Date: 2024-04-26 14:54-0400\n"
 "Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
 "Language-Team: C <kde-i18n-doc@kde.org>\n"
@@ -38,7 +38,7 @@ msgstr ""
 "mi ken ala ante e jan lawa pi lipu <filename>%1</filename>. sina jo ala e "
 "ken ante tawa lipu."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:613
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:651
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -81,18 +81,18 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "poki li lon awen"
 
-#: core/copyjob.cpp:1827 core/copyjob.cpp:2561 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1832 core/copyjob.cpp:2566 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "ijo li lon awen"
 
-#: core/copyjob.cpp:1827 core/copyjob.cpp:2561
+#: core/copyjob.cpp:1832 core/copyjob.cpp:2566
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "ona li lon li poki"
 
-#: core/copyjob.cpp:1985 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1990 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "ilo wile ala"
@@ -4028,16 +4028,7 @@ msgstr "ilo tawa kepeken"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "nimi URL anu lipu li kepeken tawa 'ilo'"
 
-#: kioworkers/file/file.cpp:730
-#, kde-format
-msgid ""
-"Could not change permissions for\n"
-"%1"
-msgstr ""
-"mi ken ala ante e lawa tawa\n"
-"%1"
-
-#: kioworkers/file/file.cpp:738
+#: kioworkers/file/file.cpp:744 kioworkers/file/file.cpp:801
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgctxt "@info"
@@ -4046,33 +4037,42 @@ msgid ""
 "%1"
 msgstr "ilo li ken ala ante e jo pi ijo %1."
 
-#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
+#: kioworkers/file/file.cpp:792
+#, kde-format
+msgid ""
+"Could not change permissions for\n"
+"%1"
+msgstr ""
+"mi ken ala ante e lawa tawa\n"
+"%1"
+
+#: kioworkers/file/file.cpp:879 kioworkers/file/file.cpp:971
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "mi ken ala ante e nimi pi lipu pali"
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:903
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "mi ken ala alasa e ilo \"mount\""
 
-#: kioworkers/file/file.cpp:919
+#: kioworkers/file/file.cpp:980
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "mi ken ala alasa e ilo \"umount\""
 
-#: kioworkers/file/file_unix.cpp:404
+#: kioworkers/file/file_unix.cpp:406
 #, kde-format
 msgid "No media in device for %1"
 msgstr "ijo li lon ala ilo tawa %1"
 
-#: kioworkers/file/file_unix.cpp:798
+#: kioworkers/file/file_unix.cpp:836
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "mi ken ala kama jo e nanpa jan tan nimi jan %1"
 
-#: kioworkers/file/file_unix.cpp:809
+#: kioworkers/file/file_unix.cpp:847
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "mi ken ala kama jo e nanpa kulupu tan nimi kulupu %1"

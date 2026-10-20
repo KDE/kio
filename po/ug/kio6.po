@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:42+0000\n"
+"POT-Creation-Date: 2026-10-20 00:49+0000\n"
 "PO-Revision-Date: 2026-10-03 19:47-0400\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -42,7 +42,7 @@ msgstr ""
 "<filename>%1</filename> نىڭ ئىگىدارلىق ھوقۇقىنى ئۆزگەرتەلمىدى. بۇ "
 "ئۆزگەرتىشنى ئىجرا قىلىشقا يېتەرلىك ئىجازىتىڭىز يوق."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:613
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:651
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -89,18 +89,18 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "قىسقۇچ مەۋجۇت"
 
-#: core/copyjob.cpp:1827 core/copyjob.cpp:2561 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1832 core/copyjob.cpp:2566 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "ھۆججەت مەۋجۇت"
 
-#: core/copyjob.cpp:1827 core/copyjob.cpp:2561
+#: core/copyjob.cpp:1832 core/copyjob.cpp:2566
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "ئوخشاش ئاتلىق قىسقۇچ مەۋجۇت"
 
-#: core/copyjob.cpp:1985 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1990 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "ئەخلەتخانا"
@@ -4173,16 +4173,7 @@ msgstr "ئىجرا قىلىدىغان بۇيرۇق"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "بۇيرۇق ئىشلىتىدىغان تور ئادرېسى ياكى يەرلىك ھۆججەت"
 
-#: kioworkers/file/file.cpp:730
-#, kde-format
-msgid ""
-"Could not change permissions for\n"
-"%1"
-msgstr ""
-"تۆۋەندىكىنىڭ ھوقۇقىنى ئۆزگەرتكىلى بولمىدى\n"
-"%1"
-
-#: kioworkers/file/file.cpp:738
+#: kioworkers/file/file.cpp:744 kioworkers/file/file.cpp:801
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4192,32 +4183,41 @@ msgstr ""
 "ئىگىدار ۋە گۇرۇپپىنى ئۆزگەرتكىلى بولمىدى\n"
 "%1"
 
-#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
+#: kioworkers/file/file.cpp:792
+#, kde-format
+msgid ""
+"Could not change permissions for\n"
+"%1"
+msgstr ""
+"تۆۋەندىكىنىڭ ھوقۇقىنى ئۆزگەرتكىلى بولمىدى\n"
+"%1"
+
+#: kioworkers/file/file.cpp:879 kioworkers/file/file.cpp:971
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "ۋاقىتلىق ھۆججەتنى ئاچالمايدۇ"
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:903
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "«mount» پىروگراممىنى تاپالمىدى"
 
-#: kioworkers/file/file.cpp:919
+#: kioworkers/file/file.cpp:980
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "«umount» پىروگراممىنى تاپالمىدى"
 
-#: kioworkers/file/file_unix.cpp:404
+#: kioworkers/file/file_unix.cpp:406
 #, kde-format
 msgid "No media in device for %1"
 msgstr "%1 نىڭ ئۈسكۈنىسىدە ۋاسىتە يوق"
 
-#: kioworkers/file/file_unix.cpp:798
+#: kioworkers/file/file_unix.cpp:836
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "بېرىلگەن ئىشلەتكۈچى ئاتى %1 نىڭ ئىشلەتكۈچى كىملىكىگە ئېرىشەلمىدى"
 
-#: kioworkers/file/file_unix.cpp:809
+#: kioworkers/file/file_unix.cpp:847
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "بېرىلگەن گۇرۇپپا ئاتى %1 نىڭ گۇرۇپپا كىملىكىگە ئېرىشەلمىدى"

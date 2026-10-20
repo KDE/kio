@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-19 00:42+0000\n"
+"POT-Creation-Date: 2026-10-20 00:49+0000\n"
 "PO-Revision-Date: 2026-10-16 15:04+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -55,7 +55,7 @@ msgstr ""
 "לא ניתן להחליף את הבעלות על הקובץ <filename>%1</filename>. רמת הגישה שלך "
 "לקובץ לא מספיקה לביצוע השינוי."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:613
+#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:651
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -98,18 +98,18 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "התיקייה כבר קיימת"
 
-#: core/copyjob.cpp:1827 core/copyjob.cpp:2561 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1832 core/copyjob.cpp:2566 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "הקובץ כבר קיים"
 
-#: core/copyjob.cpp:1827 core/copyjob.cpp:2561
+#: core/copyjob.cpp:1832 core/copyjob.cpp:2566
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "כבר קיים בתור תיקייה"
 
-#: core/copyjob.cpp:1985 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1990 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "אשפה"
@@ -4097,16 +4097,7 @@ msgstr "פקודה להרצה"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "כתובות או קבצים מקומיים שמשמשים לטובת ‚command’ (פקודה)"
 
-#: kioworkers/file/file.cpp:730
-#, kde-format
-msgid ""
-"Could not change permissions for\n"
-"%1"
-msgstr ""
-"אי אפשר לשנות את ההרשאות של\n"
-"%1"
-
-#: kioworkers/file/file.cpp:738
+#: kioworkers/file/file.cpp:744 kioworkers/file/file.cpp:801
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4116,32 +4107,41 @@ msgstr ""
 "לא ניתן לשנות את הבעלים והקבוצה של\n"
 "%1"
 
-#: kioworkers/file/file.cpp:818 kioworkers/file/file.cpp:910
+#: kioworkers/file/file.cpp:792
+#, kde-format
+msgid ""
+"Could not change permissions for\n"
+"%1"
+msgstr ""
+"אי אפשר לשנות את ההרשאות של\n"
+"%1"
+
+#: kioworkers/file/file.cpp:879 kioworkers/file/file.cpp:971
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "לא ניתן לפתוח קובץ זמני"
 
-#: kioworkers/file/file.cpp:842
+#: kioworkers/file/file.cpp:903
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "אי אפשר למצוא את התוכנית „mount”"
 
-#: kioworkers/file/file.cpp:919
+#: kioworkers/file/file.cpp:980
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "אי אפשר למצוא את התוכנית „umount”"
 
-#: kioworkers/file/file_unix.cpp:404
+#: kioworkers/file/file_unix.cpp:406
 #, kde-format
 msgid "No media in device for %1"
 msgstr "אין מדיה בהתקן עבור %1"
 
-#: kioworkers/file/file_unix.cpp:798
+#: kioworkers/file/file_unix.cpp:836
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "אי אפשר לאתר את מזהה המשתמש של שם המשתמש שסופק %1"
 
-#: kioworkers/file/file_unix.cpp:809
+#: kioworkers/file/file_unix.cpp:847
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "אי אפשר לאתר את מזהה הקבוצה של שם הקבוצה שסופק %1"
