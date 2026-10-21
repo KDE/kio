@@ -764,6 +764,7 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
     const KFileItem &firstItem = items.first();
     const bool isLocal = firstItem.url().isLocalFile();
     const bool isDir = m_props.isDirectory();
+    const int itemCount = items.count();
     // "Open With..." for folders is really not very useful, especially for remote folders.
     // (media:/something, or trash:/, or ftp://...).
     // Don't show "open with" actions for remote dirs only
@@ -771,9 +772,9 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
         return;
     }
 
-    const auto makeOpenWithAction = [this, isDir] {
+    const auto makeOpenWithAction = [this, isDir, itemCount] {
         auto action = new QAction(this);
-        action->setText(isDir ? i18nc("@action:inmenu", "&Open Folder With…") : i18nc("@action:inmenu", "&Open With…"));
+        action->setText(isDir ? i18ncp("@action:inmenu", "&Open Folder With…", "&Open Folders With…", itemCount) : i18nc("@action:inmenu", "&Open With…"));
         action->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
         action->setObjectName(QStringLiteral("openwith_browse")); // For the unittest
         return action;
@@ -853,7 +854,8 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
         QAction *runAct = new QAction(this);
         if (serviceIdList.count() == 1) {
             const KService::Ptr app = preferredService(m_mimeTypeList.first(), excludedDesktopEntryNames);
-            runAct->setText(isDir ? i18n("&Open folder with %1", app->name()) : i18n("&Open with %1", app->name()));
+            runAct->setText(isDir ? i18ncp("@action:inmenu", "&Open folder with %2", "&Open folders with %2", itemCount, app->name())
+                                  : i18n("&Open with %1", app->name()));
             runAct->setIcon(QIcon::fromTheme(app->icon()));
 
             // Remove that app from the offers list (#242731)
@@ -885,7 +887,8 @@ void KFileItemActionsPrivate::insertOpenWithActionsTo(QAction *before, QMenu *to
 
         // If there are still more apps, show them in a sub-menu
         if (!offers.isEmpty()) { // submenu 'open with'
-            QMenu *subMenu = new QMenu(isDir ? i18nc("@title:menu", "&Open Folder With") : i18nc("@title:menu", "&Open With"), topMenu);
+            QMenu *subMenu =
+                new QMenu(isDir ? i18ncp("@title:menu", "&Open Folder With", "&Open Folders With", itemCount) : i18nc("@title:menu", "&Open With"), topMenu);
             subMenu->setIcon(QIcon::fromTheme(QStringLiteral("system-run")));
             subMenu->menuAction()->setObjectName(QStringLiteral("openWith_submenu")); // For the unittest
             // Add other apps to the sub-menu
