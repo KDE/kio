@@ -413,9 +413,32 @@ void KUrlNavigatorPrivate::applyUncommittedUrl(ApplyUrlMethod method)
         }
     }
 
+    const QUrl textUrl(text);
+    auto applyText = [this, text, textUrl, applyUrl]() {
+        // Check if text matches a URI filter
+        if (const auto filteredUrl = checkFilters(text); filteredUrl) {
+            applyUrl(*filteredUrl);
+            return;
+        }
+
+        if (textUrl.scheme().isEmpty()) {
+            applyUrl(QUrl::fromLocalFile(text));
+        } else {
+            applyUrl(textUrl);
+        }
+    };
+
+    const bool isAbsolutePath = text.startsWith(QLatin1Char('/'));
+
+    // A full URL such as "smb://server" is not a path below the current url
+    if (!isAbsolutePath && !textUrl.isRelative()) {
+        applyText();
+        return;
+    }
+
     // Treat absolute paths as absolute paths.
     // Relative paths get appended to the current path, if protocol supports it.
-    if (text.startsWith(QLatin1Char('/')) || !QUrl(text).isRelative()) {
+    if (isAbsolutePath) {
         url.setPath(text);
     } else {
         url.setPath(Utils::concatPaths(url.path(), text));
@@ -424,7 +447,7 @@ void KUrlNavigatorPrivate::applyUncommittedUrl(ApplyUrlMethod method)
     // Dirs and symlinks to dirs
     constexpr auto details = KIO::StatBasic | KIO::StatResolveSymlink;
     auto *job = KIO::stat(url, KIO::StatJob::DestinationSide, details, KIO::HideProgressInfo);
-    q->connect(job, &KJob::result, q, [this, job, text, applyUrl]() {
+    q->connect(job, &KJob::result, q, [job, applyUrl, applyText]() {
         // If there is a dir matching "text" relative to the current url, use that, e.g.:
         // - typing "bar" while at "/path/to/foo" ---> "/path/to/foo/bar/"
         // - typing ".config" while at "/home/foo" ---> "/home/foo/.config"
@@ -433,18 +456,7 @@ void KUrlNavigatorPrivate::applyUncommittedUrl(ApplyUrlMethod method)
             return;
         }
 
-        // Check if text matches a URI filter
-        if (const auto filteredUrl = checkFilters(text); filteredUrl) {
-            applyUrl(*filteredUrl);
-            return;
-        }
-
-        const QUrl textUrl(text);
-        if (textUrl.scheme().isEmpty()) {
-            applyUrl(QUrl::fromLocalFile(text));
-        } else {
-            applyUrl(textUrl);
-        }
+        applyText();
     });
 }
 
