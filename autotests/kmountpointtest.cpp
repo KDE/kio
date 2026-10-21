@@ -7,7 +7,9 @@
 #include "kmountpointtest.h"
 
 #include "kmountpoint.h"
+#include "kmountpoint_p.h"
 #include <QDebug>
+#include <QDir>
 #include <QFile>
 #include <QTemporaryDir>
 #include <QTest>
@@ -18,6 +20,122 @@
 #include <linux/fs.h>
 #include <sys/ioctl.h>
 #endif
+
+#ifdef Q_OS_LINUX
+namespace
+{
+void writeSysfsAttribute(const QString &path, const QByteArray &value)
+{
+    QVERIFY(QDir().mkpath(QFileInfo(path).path()));
+    QFile file(path);
+    QVERIFY(file.open(QIODevice::WriteOnly));
+    file.write(value + '\n');
+}
+
+// A block device at @p devicePath under devices/, with its link in class/block like the kernel makes it.
+void addBlockDevice(const QString &sysRoot, const QString &devicePath, const QString &name)
+{
+    QVERIFY(QDir().mkpath(sysRoot + QLatin1String("/devices/") + devicePath));
+    QVERIFY(QDir().mkpath(sysRoot + QLatin1String("/class/block")));
+    QVERIFY(QFile::link(sysRoot + QLatin1String("/devices/") + devicePath, sysRoot + QLatin1String("/class/block/") + name));
+}
+
+// A fake sysfs with the devices of the testRemovableBlockDevice() rows.
+void createSysfs(const QString &sysRoot)
+{
+    const QString devices = sysRoot + QLatin1String("/devices/");
+
+    // A USB stick that reports no removable media, plugged into a port that can be reached from outside.
+    const QString usbStick = QStringLiteral("pci0000:00/0000:00:14.0/usb2/2-1/2-1:1.0/host6/target6:0:0/6:0:0:0/block/sdb");
+    writeSysfsAttribute(devices + QLatin1String("pci0000:00/0000:00:14.0/usb2/2-1/removable"), "removable");
+    addBlockDevice(sysRoot, usbStick, QStringLiteral("sdb"));
+    writeSysfsAttribute(devices + usbStick + QLatin1String("/removable"), "0");
+    addBlockDevice(sysRoot, usbStick + QLatin1String("/sdb1"), QStringLiteral("sdb1"));
+    writeSysfsAttribute(devices + usbStick + QLatin1String("/sdb1/partition"), "1");
+
+    // An internal SATA disk.
+    const QString sata = QStringLiteral("pci0000:00/0000:00:17.0/ata1/host0/target0:0:0/0:0:0:0/block/sda");
+    writeSysfsAttribute(devices + QLatin1String("pci0000:00/0000:00:17.0/removable"), "fixed");
+    addBlockDevice(sysRoot, sata, QStringLiteral("sda"));
+    writeSysfsAttribute(devices + sata + QLatin1String("/removable"), "0");
+    addBlockDevice(sysRoot, sata + QLatin1String("/sda1"), QStringLiteral("sda1"));
+    writeSysfsAttribute(devices + sata + QLatin1String("/sda1/partition"), "1");
+
+    // A card reader on an internal USB port, which reports removable media.
+    const QString cardReader = QStringLiteral("pci0000:00/0000:00:14.0/usb1/1-5/1-5:1.0/host7/target7:0:0/7:0:0:0/block/sdc");
+    writeSysfsAttribute(devices + QLatin1String("pci0000:00/0000:00:14.0/usb1/1-5/removable"), "fixed");
+    addBlockDevice(sysRoot, cardReader, QStringLiteral("sdc"));
+    writeSysfsAttribute(devices + cardReader + QLatin1String("/removable"), "1");
+
+    // An SD card and an eMMC, both on an MMC host.
+    const QString sdCard = QStringLiteral("platform/fe320000.mmc/mmc_host/mmc0/mmc0:aaaa/block/mmcblk0");
+    writeSysfsAttribute(devices + QLatin1String("platform/fe320000.mmc/mmc_host/mmc0/mmc0:aaaa/type"), "SD");
+    addBlockDevice(sysRoot, sdCard, QStringLiteral("mmcblk0"));
+    writeSysfsAttribute(devices + sdCard + QLatin1String("/removable"), "0");
+    addBlockDevice(sysRoot, sdCard + QLatin1String("/mmcblk0p1"), QStringLiteral("mmcblk0p1"));
+    writeSysfsAttribute(devices + sdCard + QLatin1String("/mmcblk0p1/partition"), "1");
+    const QString emmc = QStringLiteral("platform/fe330000.mmc/mmc_host/mmc1/mmc1:0001/block/mmcblk1");
+    writeSysfsAttribute(devices + QLatin1String("platform/fe330000.mmc/mmc_host/mmc1/mmc1:0001/type"), "MMC");
+    addBlockDevice(sysRoot, emmc, QStringLiteral("mmcblk1"));
+    writeSysfsAttribute(devices + emmc + QLatin1String("/removable"), "0");
+
+    // LUKS volumes, one on the USB stick and one on the internal disk.
+    for (const auto &[dm, under] : {std::pair{QStringLiteral("dm-0"), QStringLiteral("sdb1")}, std::pair{QStringLiteral("dm-1"), QStringLiteral("sda1")}}) {
+        const QString dmPath = QStringLiteral("virtual/block/") + dm;
+        addBlockDevice(sysRoot, dmPath, dm);
+        QVERIFY(QDir().mkpath(devices + dmPath + QLatin1String("/slaves")));
+        QVERIFY(QFile::link(sysRoot + QLatin1String("/class/block/") + under, devices + dmPath + QLatin1String("/slaves/") + under));
+    }
+}
+}
+#endif
+
+void KMountPointTest::testRemovableBlockDevice_data()
+{
+    QTest::addColumn<QString>("deviceName");
+    QTest::addColumn<bool>("removable");
+
+    QTest::newRow("USB stick without removable media") << QStringLiteral("sdb") << true;
+    QTest::newRow("partition of that USB stick") << QStringLiteral("sdb1") << true;
+    QTest::newRow("internal disk") << QStringLiteral("sda") << false;
+    QTest::newRow("partition of the internal disk") << QStringLiteral("sda1") << false;
+    QTest::newRow("card reader with removable media") << QStringLiteral("sdc") << true;
+    QTest::newRow("SD card partition") << QStringLiteral("mmcblk0p1") << true;
+    QTest::newRow("eMMC") << QStringLiteral("mmcblk1") << false;
+    QTest::newRow("LUKS on the USB stick") << QStringLiteral("dm-0") << true;
+    QTest::newRow("LUKS on the internal disk") << QStringLiteral("dm-1") << false;
+    QTest::newRow("unknown device") << QStringLiteral("sdz") << false;
+    QTest::newRow("no device") << QString() << false;
+}
+
+void KMountPointTest::testRemovableBlockDevice()
+{
+#ifndef Q_OS_LINUX
+    QSKIP("The removable state is read from sysfs, which only Linux has");
+#else
+    QFETCH(QString, deviceName);
+    QFETCH(bool, removable);
+
+    QTemporaryDir sysRoot;
+    QVERIFY(sysRoot.isValid());
+    createSysfs(sysRoot.path());
+    if (QTest::currentTestFailed()) {
+        return;
+    }
+    QCOMPARE(KMountPointPrivateSysfs::isRemovableBlockDevice(sysRoot.path(), deviceName), removable);
+#endif
+}
+
+// A network filesystem has no block device, so it is not on a removable device.
+void KMountPointTest::testNetworkMountIsNotRemovable()
+{
+    const KMountPoint::List mountPoints = KMountPoint::currentMountPoints();
+    for (const KMountPoint::Ptr &mountPoint : mountPoints) {
+        if (mountPoint->isOnNetwork() || mountPoint->isPseudoFs()) {
+            QVERIFY2(!KIOPrivate::isOnRemovableDevice(*mountPoint), qPrintable(mountPoint->mountPoint()));
+        }
+    }
+}
 
 QTEST_MAIN(KMountPointTest)
 

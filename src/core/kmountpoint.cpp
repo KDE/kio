@@ -7,6 +7,7 @@
 */
 
 #include "kmountpoint.h"
+#include "kmountpoint_p.h"
 
 #include <stdlib.h>
 
@@ -25,6 +26,12 @@
 #include <QTextStream>
 
 #include <qplatformdefs.h>
+
+#include <algorithm>
+
+#ifdef Q_OS_LINUX
+#include <sys/sysmacros.h> // major(), minor()
+#endif
 
 using namespace Qt::StringLiterals;
 
@@ -527,6 +534,83 @@ bool KMountPoint::isPseudoFs() const
 bool KMountPoint::isEncryptedFs() const
 {
     return d->m_mountType == "fuse.gocryptfs"_L1 || d->m_mountType == "fuse.encfs"_L1;
+}
+
+// The content of the sysfs attribute at @p path, empty when it is not there.
+static QString readSysfsAttribute(const QString &path)
+{
+    QFile file(path);
+    if (!file.open(QIODevice::ReadOnly)) {
+        return {};
+    }
+    return QString::fromLatin1(file.readAll().trimmed());
+}
+
+static bool isRemovableBlockDevice(const QString &sysRoot, const QString &deviceName, int depth)
+{
+    // A name with a slash, or a device stack deeper than any real one, is not followed.
+    if (deviceName.isEmpty() || deviceName.contains(u'/') || depth > 8) {
+        return false;
+    }
+    const QString classPath = sysRoot + "/class/block/"_L1 + deviceName;
+
+    // A device-mapper (LUKS, LVM) or RAID device lists the devices under it in slaves.
+    const QStringList slaves = QDir(classPath + "/slaves"_L1).entryList(QDir::AllEntries | QDir::System | QDir::NoDotAndDotDot);
+    if (!slaves.isEmpty()) {
+        return std::any_of(slaves.cbegin(), slaves.cend(), [&sysRoot, depth](const QString &slave) {
+            return isRemovableBlockDevice(sysRoot, slave, depth + 1);
+        });
+    }
+
+    QString diskPath = QFileInfo(classPath).canonicalFilePath();
+    if (diskPath.isEmpty()) {
+        return false;
+    }
+    // The removable attribute is on the whole disk, which is the parent of a partition.
+    if (QFileInfo::exists(diskPath + "/partition"_L1)) {
+        diskPath = QFileInfo(diskPath).path();
+    }
+    if (readSysfsAttribute(diskPath + "/removable"_L1) == "1"_L1) {
+        return true;
+    }
+
+    // Most USB disks report no removable media. The port they are plugged into, or the PCIe slot of a
+    // Thunderbolt disk, says "removable" when it can be reached from outside the machine. An SD card
+    // is an MMC device of type SD, an eMMC is of type MMC.
+    const QString devicesRoot = QFileInfo(sysRoot + "/devices"_L1).canonicalFilePath() + u'/';
+    for (QString path = QFileInfo(diskPath).path(); path.startsWith(devicesRoot); path = QFileInfo(path).path()) {
+        if (readSysfsAttribute(path + "/removable"_L1) == "removable"_L1 || readSysfsAttribute(path + "/type"_L1) == "SD"_L1) {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool KMountPointPrivateSysfs::isRemovableBlockDevice(const QString &sysRoot, const QString &deviceName)
+{
+    return ::isRemovableBlockDevice(sysRoot, deviceName, 0);
+}
+
+bool KIOPrivate::isOnRemovableDevice(const KMountPoint &mountPoint)
+{
+#ifdef Q_OS_LINUX
+    const QString mountedFrom = mountPoint.mountedFrom();
+    const dev_t deviceId = mountPoint.deviceId();
+    QString deviceName;
+    if (mountedFrom.startsWith("/dev/"_L1)) {
+        // /dev/mapper/luks-... and /dev/disk/by-uuid/... are links to the device node.
+        const QString node = QFileInfo(mountedFrom).canonicalFilePath();
+        deviceName = QFileInfo(node.isEmpty() ? mountedFrom : node).fileName();
+    } else if (deviceId != 0) {
+        // A filesystem that names its source otherwise. A network filesystem has no block device there.
+        const QString sysDevice = QStringLiteral("/sys/dev/block/%1:%2").arg(major(deviceId)).arg(minor(deviceId));
+        deviceName = QFileInfo(QFileInfo(sysDevice).canonicalFilePath()).fileName();
+    }
+    return KMountPointPrivateSysfs::isRemovableBlockDevice(QStringLiteral("/sys"), deviceName);
+#else
+    Q_UNUSED(mountPoint)
+    return false;
+#endif
 }
 
 QString KMountPoint::realDeviceName() const
