@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-20 00:49+0000\n"
+"POT-Creation-Date: 2026-10-21 00:47+0000\n"
 "PO-Revision-Date: 2026-10-18 19:06+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -3959,7 +3959,7 @@ msgstr "Не удалось сохранить изображение в %1."
 msgid "Icon file too big, download aborted"
 msgstr "Файл значка слишком большой, загрузка прервана."
 
-#: gui/filepreviewjob.cpp:266
+#: gui/filepreviewjob.cpp:297
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4896,28 +4896,28 @@ msgstr "Скопировать контрольную сумму в буфер �
 msgid "Copy"
 msgstr "Копировать"
 
-#: widgets/dropjob.cpp:192
+#: widgets/dropjob.cpp:204
 #, kde-format
 msgid "C&ancel"
 msgstr "О&тмена"
 
-#: widgets/dropjob.cpp:304
+#: widgets/dropjob.cpp:318
 #, kde-format
 msgid "&Move Here"
 msgstr "&Переместить сюда"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Загрузить сюда"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Копировать сюда"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:331
 #, kde-format
 msgid "&Link Here"
 msgstr "&Создать ссылку"

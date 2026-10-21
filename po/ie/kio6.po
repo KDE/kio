@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-20 00:49+0000\n"
+"POT-Creation-Date: 2026-10-21 00:47+0000\n"
 "PO-Revision-Date: 2022-10-23 00:30+0700\n"
 "Last-Translator: OIS <mistresssilvara@hotmail.com>\n"
 "Language-Team: kde-i18n-doc@kde.org\n"
@@ -3733,7 +3733,7 @@ msgstr "Un errore evenit gardante un image a %1"
 msgid "Icon file too big, download aborted"
 msgstr "File de icone es tro grand, descarga anullat"
 
-#: gui/filepreviewjob.cpp:266
+#: gui/filepreviewjob.cpp:297
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4671,17 +4671,17 @@ msgstr "Fa un clic por copiar li summa al Paperiere."
 msgid "Copy"
 msgstr "Copiar"
 
-#: widgets/dropjob.cpp:192
+#: widgets/dropjob.cpp:204
 #, kde-format
 msgid "C&ancel"
 msgstr "&Anullar"
 
-#: widgets/dropjob.cpp:304
+#: widgets/dropjob.cpp:318
 #, kde-format
 msgid "&Move Here"
 msgstr "&Mover ad ci"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:324
 #, fuzzy, kde-format
 #| msgctxt "KFile System Bookmarks"
 #| msgid "Downloads"
@@ -4689,12 +4689,12 @@ msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "Descargates"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Copiar ad ci"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:331
 #, kde-format
 msgid "&Link Here"
 msgstr "&Ligar ad ci"

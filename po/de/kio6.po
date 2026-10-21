@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-20 00:49+0000\n"
+"POT-Creation-Date: 2026-10-21 00:47+0000\n"
 "PO-Revision-Date: 2026-09-23 22:16+0200\n"
 "Last-Translator: Frank Steinmetzger <dev-kde@felsenfleischer.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -4018,7 +4018,7 @@ msgstr "Fehler beim Speichern des Bildes nach %1"
 msgid "Icon file too big, download aborted"
 msgstr "Symboldatei zu groß, Herunterladen abgebrochen"
 
-#: gui/filepreviewjob.cpp:266
+#: gui/filepreviewjob.cpp:297
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4981,28 +4981,28 @@ msgstr "Klicken Sie, um die Prüfsumme in die Zwischenablage zu kopieren."
 msgid "Copy"
 msgstr "Kopieren"
 
-#: widgets/dropjob.cpp:192
+#: widgets/dropjob.cpp:204
 #, kde-format
 msgid "C&ancel"
 msgstr "&Abbrechen"
 
-#: widgets/dropjob.cpp:304
+#: widgets/dropjob.cpp:318
 #, kde-format
 msgid "&Move Here"
 msgstr "Hierher &verschieben"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Hier herunterladen"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgid "&Copy Here"
 msgstr "Hierher &kopieren"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:331
 #, kde-format
 msgid "&Link Here"
 msgstr "Hierher ver&knüpfen"

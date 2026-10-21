@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-20 00:49+0000\n"
+"POT-Creation-Date: 2026-10-21 00:47+0000\n"
 "PO-Revision-Date: 2025-08-19 17:33+0300\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -3927,7 +3927,7 @@ msgstr "Kļūda, saglabājot attēlus „%1“"
 msgid "Icon file too big, download aborted"
 msgstr "Ikona ir pārāk liela, lejupielāde ir atcelta"
 
-#: gui/filepreviewjob.cpp:266
+#: gui/filepreviewjob.cpp:297
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4867,28 +4867,28 @@ msgstr "Klikšķiniet, lai kontrolsummu kopētu no starpliktuves."
 msgid "Copy"
 msgstr "Kopēt"
 
-#: widgets/dropjob.cpp:192
+#: widgets/dropjob.cpp:204
 #, kde-format
 msgid "C&ancel"
 msgstr "At&celt"
 
-#: widgets/dropjob.cpp:304
+#: widgets/dropjob.cpp:318
 #, kde-format
 msgid "&Move Here"
 msgstr "&Pārvietot šeit"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "&Lejupielādēt šeit"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgid "&Copy Here"
 msgstr "&Kopēt šeit"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:331
 #, kde-format
 msgid "&Link Here"
 msgstr "&Saitēt šeit"

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-20 00:49+0000\n"
+"POT-Creation-Date: 2026-10-21 00:47+0000\n"
 "PO-Revision-Date: 2026-10-04 18:52+0200\n"
 "Last-Translator: Kishore G <kishore96@gmail.com>\n"
 "Language-Team: Tamil <kde-l10n-ta@kde.org>\n"
@@ -3877,7 +3877,7 @@ msgstr "%1-க்கு படத்தை சேமிப்பதில் ப
 msgid "Icon file too big, download aborted"
 msgstr "சின்னம் கோப்பு பெரிதாக உள்ளதால் பதிவிறக்கம் கைவிடப்பட்டது"
 
-#: gui/filepreviewjob.cpp:266
+#: gui/filepreviewjob.cpp:297
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4812,28 +4812,28 @@ msgstr "சரிகாண்தொகையை பிடிப்புப்�
 msgid "Copy"
 msgstr "நகலெடு"
 
-#: widgets/dropjob.cpp:192
+#: widgets/dropjob.cpp:204
 #, kde-format
 msgid "C&ancel"
 msgstr "&ரத்து செய்"
 
-#: widgets/dropjob.cpp:304
+#: widgets/dropjob.cpp:318
 #, kde-format
 msgid "&Move Here"
 msgstr "இங்கு &நகர்த்து"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgctxt "@action:inmenu Download contents of URL here"
 msgid "&Download Here"
 msgstr "இங்கு &பதிவிறக்கு"
 
-#: widgets/dropjob.cpp:310
+#: widgets/dropjob.cpp:324
 #, kde-format
 msgid "&Copy Here"
 msgstr "இங்கு &நகலெடு"
 
-#: widgets/dropjob.cpp:317
+#: widgets/dropjob.cpp:331
 #, kde-format
 msgid "&Link Here"
 msgstr "இங்கு &இணை"
