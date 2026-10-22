@@ -10,6 +10,7 @@ find_package(Qt6Widgets REQUIRED)
 add_subdirectory(http)
 
 find_package(Qt6Concurrent ${REQUIRED_QT_VERSION} REQUIRED NO_MODULE)
+find_package(KF6Archive REQUIRED NO_MODULE)
 
 set(ECM_TEST_NAME_PREFIX "kiocore-")
 
@@ -129,7 +130,7 @@ if (TARGET KF6::KIOGui)
     LINK_LIBRARIES KF6::KIOCore KF6::KIOGui KF6::WindowSystem Qt6::Test
   )
 
-  target_link_libraries(favicontest Qt6::Concurrent)
+  target_link_libraries(favicontest Qt6::Concurrent KF6::Archive)
 
   # The thumbnail cache functions and the standard thumbnail job are internal to KIOGui and not
   # exported, so the test builds them rather than looking for them in the library.
