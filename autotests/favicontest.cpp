@@ -22,7 +22,7 @@
 #include <QThreadPool>
 #include <QtConcurrentRun>
 
-#include <KArchive/KZip.h>
+#include <KArchive/KZip>
 
 // An HTTP server on a port of 127.0.0.1 that answers GET /favicon.ico with a PNG image, GET /big.ico
 // with 100 KiB of data, and every other path with 404.
