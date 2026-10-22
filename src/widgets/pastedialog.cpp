@@ -64,11 +64,18 @@ KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const 
         // Populate the combobox with nice human-readable labels
         for (const QString &format : formats) {
             QMimeType mime = db.mimeTypeForName(format);
+            auto iconName = mime.iconName();
+            if (iconName.isEmpty()) {
+                // An icon might be available, but not registered with QMimeDatabase
+                iconName = format;
+                iconName.replace(u'/', u'-');
+            }
+            const auto icon = QIcon::fromTheme(iconName);
             if (mime.isValid()) {
                 auto label = i18n("%1 (%2)", mime.comment(), format);
-                m_comboBox->addItem(QIcon::fromTheme(mime.iconName()), label, mime.name());
+                m_comboBox->addItem(icon, label, mime.name());
             } else {
-                m_comboBox->addItem(format);
+                m_comboBox->addItem(icon, format, format);
             }
         }
 
