@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:47+0000\n"
+"POT-Creation-Date: 2026-10-22 00:46+0000\n"
 "PO-Revision-Date: 2026-04-03 14:15+0100\n"
 "Last-Translator: Sergiu Bivol <sergiu@cip.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -3538,7 +3538,7 @@ msgstr "Toate dosarele"
 msgid "Current Directory: %1"
 msgstr "Dosar actual: %1"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:867
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:869
 #, kde-format
 msgid "&Open"
 msgstr "&Deschide"
@@ -5421,47 +5421,62 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:776
-#, kde-format
+#: widgets/kfileitemactions.cpp:777
+#, fuzzy, kde-format
+#| msgctxt "@action:inmenu"
+#| msgid "&Open Folder With…"
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "&Deschide dosarul cu…"
+msgid_plural "&Open Folders With…"
+msgstr[0] "&Deschide dosarul cu…"
+msgstr[1] "&Deschide dosarul cu…"
+msgstr[2] "&Deschide dosarul cu…"
 
-#: widgets/kfileitemactions.cpp:776
+#: widgets/kfileitemactions.cpp:777
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Deschide cu…"
 
-#: widgets/kfileitemactions.cpp:834
+#: widgets/kfileitemactions.cpp:835
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Rulează executabilul"
 
-#: widgets/kfileitemactions.cpp:856
-#, kde-format
-msgid "&Open folder with %1"
-msgstr "Deschide d&osarul cu %1"
+#: widgets/kfileitemactions.cpp:857
+#, fuzzy, kde-format
+#| msgid "&Open folder with %1"
+msgctxt "@action:inmenu"
+msgid "&Open folder with %2"
+msgid_plural "&Open folders with %2"
+msgstr[0] "Deschide d&osarul cu %1"
+msgstr[1] "Deschide d&osarul cu %1"
+msgstr[2] "Deschide d&osarul cu %1"
 
-#: widgets/kfileitemactions.cpp:856
+#: widgets/kfileitemactions.cpp:858
 #, kde-format
 msgid "&Open with %1"
 msgstr "&Deschide cu %1"
 
-#: widgets/kfileitemactions.cpp:888
-#, kde-format
+#: widgets/kfileitemactions.cpp:891
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "Deschide d&osarul cu"
+msgid_plural "&Open Folders With"
+msgstr[0] "Deschide d&osarul cu"
+msgstr[1] "Deschide d&osarul cu"
+msgstr[2] "Deschide d&osarul cu"
 
-#: widgets/kfileitemactions.cpp:888
+#: widgets/kfileitemactions.cpp:891
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Deschide cu"
 
-#: widgets/kfileitemactions.cpp:899
+#: widgets/kfileitemactions.cpp:902
 #, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:47+0000\n"
+"POT-Creation-Date: 2026-10-22 00:46+0000\n"
 "PO-Revision-Date: 2009-01-06 14:34+0200\n"
 "Last-Translator: Erdal Ronahi <erdal.ronahi@nospam.gmail.com>\n"
 "Language-Team: Kurdish <kde-i18n-doc@lists.kde.org>\n"
@@ -3255,7 +3255,7 @@ msgstr "Tevî Wêne"
 msgid "Current Directory: %1"
 msgstr "Pelrêç tê afirandin"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:867
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:869
 #, kde-format
 msgid "&Open"
 msgstr ""
@@ -5081,15 +5081,17 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:776
+#: widgets/kfileitemactions.cpp:777
 #, fuzzy, kde-format
 #| msgid "1 file"
 #| msgid_plural "%1 files"
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "1 pel"
+msgid_plural "&Open Folders With…"
+msgstr[0] "1 pel"
+msgstr[1] "1 pel"
 
-#: widgets/kfileitemactions.cpp:776
+#: widgets/kfileitemactions.cpp:777
 #, fuzzy, kde-format
 #| msgid "1 file"
 #| msgid_plural "%1 files"
@@ -5097,38 +5099,43 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "1 pel"
 
-#: widgets/kfileitemactions.cpp:834
+#: widgets/kfileitemactions.cpp:835
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:856
+#: widgets/kfileitemactions.cpp:857
 #, fuzzy, kde-format
 #| msgid "Delete Folder"
-msgid "&Open folder with %1"
-msgstr "Peldankê Jê Bibe"
+msgctxt "@action:inmenu"
+msgid "&Open folder with %2"
+msgid_plural "&Open folders with %2"
+msgstr[0] "Peldankê Jê Bibe"
+msgstr[1] "Peldankê Jê Bibe"
 
-#: widgets/kfileitemactions.cpp:856
+#: widgets/kfileitemactions.cpp:858
 #, kde-format
 msgid "&Open with %1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:888
+#: widgets/kfileitemactions.cpp:891
 #, fuzzy, kde-format
 #| msgid "1 file"
 #| msgid_plural "%1 files"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "1 pel"
+msgid_plural "&Open Folders With"
+msgstr[0] "1 pel"
+msgstr[1] "1 pel"
 
-#: widgets/kfileitemactions.cpp:888
+#: widgets/kfileitemactions.cpp:891
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:899
+#: widgets/kfileitemactions.cpp:902
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"

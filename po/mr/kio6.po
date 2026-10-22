@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:47+0000\n"
+"POT-Creation-Date: 2026-10-22 00:46+0000\n"
 "PO-Revision-Date: 2013-02-23 17:39+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -3260,7 +3260,7 @@ msgstr "*|सर्व संचयीका"
 msgid "Current Directory: %1"
 msgstr "संचयीका तयार करा"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:867
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:869
 #, kde-format
 msgid "&Open"
 msgstr "उघडा (&O)"
@@ -5109,15 +5109,17 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr ""
 
-#: widgets/kfileitemactions.cpp:776
+#: widgets/kfileitemactions.cpp:777
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "यामध्ये उघडा (&O)"
+msgid_plural "&Open Folders With…"
+msgstr[0] "यामध्ये उघडा (&O)"
+msgstr[1] "यामध्ये उघडा (&O)"
 
-#: widgets/kfileitemactions.cpp:776
+#: widgets/kfileitemactions.cpp:777
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -5125,39 +5127,44 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "यामध्ये उघडा (&O)"
 
-#: widgets/kfileitemactions.cpp:834
+#: widgets/kfileitemactions.cpp:835
 #, fuzzy, kde-format
 #| msgid "Exec"
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "एक्झि"
 
-#: widgets/kfileitemactions.cpp:856
+#: widgets/kfileitemactions.cpp:857
 #, fuzzy, kde-format
 #| msgid "&Open with %1"
-msgid "&Open folder with %1"
-msgstr "%1 मध्ये उघडा (&O)"
+msgctxt "@action:inmenu"
+msgid "&Open folder with %2"
+msgid_plural "&Open folders with %2"
+msgstr[0] "%1 मध्ये उघडा (&O)"
+msgstr[1] "%1 मध्ये उघडा (&O)"
 
-#: widgets/kfileitemactions.cpp:856
+#: widgets/kfileitemactions.cpp:858
 #, kde-format
 msgid "&Open with %1"
 msgstr "%1 मध्ये उघडा (&O)"
 
-#: widgets/kfileitemactions.cpp:888
+#: widgets/kfileitemactions.cpp:891
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "यामध्ये उघडा (&O)"
+msgid_plural "&Open Folders With"
+msgstr[0] "यामध्ये उघडा (&O)"
+msgstr[1] "यामध्ये उघडा (&O)"
 
-#: widgets/kfileitemactions.cpp:888
+#: widgets/kfileitemactions.cpp:891
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "यामध्ये उघडा (&O)"
 
-#: widgets/kfileitemactions.cpp:899
+#: widgets/kfileitemactions.cpp:902
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"

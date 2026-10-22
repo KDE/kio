@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:47+0000\n"
+"POT-Creation-Date: 2026-10-22 00:46+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -3419,7 +3419,7 @@ msgstr "*|Hamma jildlar"
 msgid "Current Directory: %1"
 msgstr "Jild yaratish"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:867
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:869
 #, kde-format
 msgid "&Open"
 msgstr "&Ochish"
@@ -5313,54 +5313,58 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1 B"
 
-#: widgets/kfileitemactions.cpp:776
+#: widgets/kfileitemactions.cpp:777
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "Dastur bilan ochish"
+msgid_plural "&Open Folders With…"
+msgstr[0] "Dastur bilan ochish"
 
-#: widgets/kfileitemactions.cpp:776
+#: widgets/kfileitemactions.cpp:777
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "Dastur bilan ochish"
 
-#: widgets/kfileitemactions.cpp:834
+#: widgets/kfileitemactions.cpp:835
 #, fuzzy, kde-format
 #| msgid "E&xecute"
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Bajarish"
 
-#: widgets/kfileitemactions.cpp:856
+#: widgets/kfileitemactions.cpp:857
 #, fuzzy, kde-format
 #| msgid "Open with:"
-msgid "&Open folder with %1"
-msgstr "Dastur bilan ochish:"
+msgctxt "@action:inmenu"
+msgid "&Open folder with %2"
+msgid_plural "&Open folders with %2"
+msgstr[0] "Dastur bilan ochish:"
 
-#: widgets/kfileitemactions.cpp:856
+#: widgets/kfileitemactions.cpp:858
 #, fuzzy, kde-format
 #| msgid "Open with:"
 msgid "&Open with %1"
 msgstr "Dastur bilan ochish:"
 
-#: widgets/kfileitemactions.cpp:888
+#: widgets/kfileitemactions.cpp:891
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "Dastur bilan ochish"
+msgid_plural "&Open Folders With"
+msgstr[0] "Dastur bilan ochish"
 
-#: widgets/kfileitemactions.cpp:888
+#: widgets/kfileitemactions.cpp:891
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "Dastur bilan ochish"
 
-#: widgets/kfileitemactions.cpp:899
+#: widgets/kfileitemactions.cpp:902
 #, fuzzy, kde-format
 #| msgid "&Application"
 msgctxt "@action:inmenu Open With"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:47+0000\n"
+"POT-Creation-Date: 2026-10-22 00:46+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@nuug.no>\n"
@@ -3372,7 +3372,7 @@ msgstr "*|Buot máhpat"
 msgid "Current Directory: %1"
 msgstr "Ráhkadeamen máhpa"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:867
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:869
 #, kde-format
 msgid "&Open"
 msgstr "&Raba"
@@ -5187,47 +5187,54 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:776
+#: widgets/kfileitemactions.cpp:777
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "&Raba geavahettiin"
+msgid_plural "&Open Folders With…"
+msgstr[0] "&Raba geavahettiin"
+msgstr[1] "&Raba geavahettiin"
 
-#: widgets/kfileitemactions.cpp:776
+#: widgets/kfileitemactions.cpp:777
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&Raba geavahettiin"
 
-#: widgets/kfileitemactions.cpp:834
+#: widgets/kfileitemactions.cpp:835
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&Daga"
 
-#: widgets/kfileitemactions.cpp:856
-#, kde-format
-msgid "&Open folder with %1"
-msgstr ""
+#: widgets/kfileitemactions.cpp:857
+#, fuzzy, kde-format
+msgctxt "@action:inmenu"
+msgid "&Open folder with %2"
+msgid_plural "&Open folders with %2"
+msgstr[0] "&Raba geavahettiin"
+msgstr[1] "&Raba geavahettiin"
 
-#: widgets/kfileitemactions.cpp:856
+#: widgets/kfileitemactions.cpp:858
 #, kde-format
 msgid "&Open with %1"
 msgstr "Raba %1 &prográmmain"
 
-#: widgets/kfileitemactions.cpp:888
+#: widgets/kfileitemactions.cpp:891
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr ""
+msgid_plural "&Open Folders With"
+msgstr[0] ""
+msgstr[1] ""
 
-#: widgets/kfileitemactions.cpp:888
+#: widgets/kfileitemactions.cpp:891
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&Raba geavahettiin"
 
-#: widgets/kfileitemactions.cpp:899
+#: widgets/kfileitemactions.cpp:902
 #, fuzzy, kde-format
 msgctxt "@action:inmenu Open With"
 msgid "&Other Application…"

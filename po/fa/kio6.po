@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-21 00:47+0000\n"
+"POT-Creation-Date: 2026-10-22 00:46+0000\n"
 "PO-Revision-Date: 2023-06-08 11:57+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -3533,7 +3533,7 @@ msgstr "*|تمام پوشه‌ها"
 msgid "Current Directory: %1"
 msgstr "ایجاد شاخه"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:867
+#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:869
 #, kde-format
 msgid "&Open"
 msgstr "&گشودن"
@@ -5413,15 +5413,17 @@ msgctxt "@item:inmenu Open With, %1 is application name"
 msgid "%1"
 msgstr "%1"
 
-#: widgets/kfileitemactions.cpp:776
+#: widgets/kfileitemactions.cpp:777
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open Folder With"
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
-msgstr "&گشودن پوشه با"
+msgid_plural "&Open Folders With…"
+msgstr[0] "&گشودن پوشه با"
+msgstr[1] "&گشودن پوشه با"
 
-#: widgets/kfileitemactions.cpp:776
+#: widgets/kfileitemactions.cpp:777
 #, fuzzy, kde-format
 #| msgctxt "@title:menu"
 #| msgid "&Open With"
@@ -5429,36 +5431,44 @@ msgctxt "@action:inmenu"
 msgid "&Open With…"
 msgstr "&گشودن با"
 
-#: widgets/kfileitemactions.cpp:834
+#: widgets/kfileitemactions.cpp:835
 #, fuzzy, kde-format
 #| msgid "&Execute"
 msgctxt "@action:inmenu"
 msgid "&Run Executable"
 msgstr "&اجرا"
 
-#: widgets/kfileitemactions.cpp:856
-#, kde-format
-msgid "&Open folder with %1"
-msgstr "&گشودن پوشه با %1"
+#: widgets/kfileitemactions.cpp:857
+#, fuzzy, kde-format
+#| msgid "&Open folder with %1"
+msgctxt "@action:inmenu"
+msgid "&Open folder with %2"
+msgid_plural "&Open folders with %2"
+msgstr[0] "&گشودن پوشه با %1"
+msgstr[1] "&گشودن پوشه با %1"
 
-#: widgets/kfileitemactions.cpp:856
+#: widgets/kfileitemactions.cpp:858
 #, kde-format
 msgid "&Open with %1"
 msgstr "&باز کردن %1 با‌"
 
-#: widgets/kfileitemactions.cpp:888
-#, kde-format
+#: widgets/kfileitemactions.cpp:891
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "&گشودن پوشه با"
+msgid_plural "&Open Folders With"
+msgstr[0] "&گشودن پوشه با"
+msgstr[1] "&گشودن پوشه با"
 
-#: widgets/kfileitemactions.cpp:888
+#: widgets/kfileitemactions.cpp:891
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open With"
 msgstr "&گشودن با"
 
-#: widgets/kfileitemactions.cpp:899
+#: widgets/kfileitemactions.cpp:902
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu Open With"
 #| msgid "&Other Application..."
