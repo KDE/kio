@@ -61,6 +61,7 @@ private Q_SLOTS:
     void moveDirectoryToOtherPartitionKeepsUserXattrs();
     void copyDirectoryToExistingDirectory();
     void copyDirectoryWithOverwriteCreatesNewSubdirs();
+    void copyDirectoryListedWithoutItsParent();
     void copyDirectoryToExistingSymlinkedDirectory();
     void copyFileToOtherPartition();
     void copyDirectoryToOtherPartition();

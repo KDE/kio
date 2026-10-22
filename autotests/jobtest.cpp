@@ -21,6 +21,7 @@
 #include "worker_p.h"
 #include "workerbase.h"
 #include "workerfactory.h"
+#include <KCoreDirLister>
 #include <kio/chmodjob.h>
 #include <kio/copyjob.h>
 #include <kio/deletejob.h>
@@ -1119,6 +1120,32 @@ void JobTest::copyDirectoryToExistingDirectory()
     createTestDirectory(src);
     createTestDirectory(dest);
     copyLocalDirectory(src, dest, AlreadyExists);
+}
+
+// A folder that a KCoreDirLister listed without its parent folder is cached as the root item of the
+// listing, which is named ".". Copying that folder into another one still creates it. See BUG 527143.
+void JobTest::copyDirectoryListedWithoutItsParent()
+{
+    QTemporaryDir tempDir(homeTmpDir() + "listedXXXXXX");
+    QVERIFY(tempDir.isValid());
+    const QString src = tempDir.filePath("listedParent/listedDir");
+    const QString destDir = tempDir.filePath("listedDirDest");
+    QVERIFY(QDir().mkpath(src + "/subdir"));
+    createTestFile(src + "/subdir/subfile");
+    createTestFile(src + "/file");
+    QVERIFY(QDir().mkpath(destDir));
+
+    KCoreDirLister lister;
+    lister.openUrl(QUrl::fromLocalFile(src));
+    QTRY_VERIFY(lister.isFinished());
+    const KFileItem cachedItem = KCoreDirLister::cachedItemForUrl(QUrl::fromLocalFile(src));
+    QCOMPARE(cachedItem.entry().stringValue(KIO::UDSEntry::UDS_NAME), QStringLiteral("."));
+
+    KIO::CopyJob *job = KIO::copy(QUrl::fromLocalFile(src), QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QVERIFY(QFile::exists(destDir + "/listedDir/file"));
+    QVERIFY(QFile::exists(destDir + "/listedDir/subdir/subfile"));
 }
 
 void JobTest::copyDirectoryWithOverwriteCreatesNewSubdirs()

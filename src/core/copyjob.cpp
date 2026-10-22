@@ -1116,7 +1116,8 @@ void CopyJobPrivate::statCurrentSrc()
 
         // Testing for entry.count()>0 here is not good enough; KFileItem inserts
         // entries for UDS_USER and UDS_GROUP even on initially empty UDSEntries (#192185)
-        if (entry.contains(KIO::UDSEntry::UDS_NAME)) {
+        // The root item of a listing is named ".", which cannot name the copy, so that source is stated.
+        if (entry.contains(KIO::UDSEntry::UDS_NAME) && entry.stringValue(KIO::UDSEntry::UDS_NAME) != QLatin1String(".")) {
             qCDebug(KIO_COPYJOB_DEBUG) << "fast path! found info about" << m_currentSrcURL << "in KCoreDirLister";
             // sourceStated(entry, m_currentSrcURL); // don't recurse, see #319747, use queued invokeMethod instead
             auto srcStatedFunc = [this, entry]() {
