@@ -81,6 +81,23 @@ static void removeLocalCopiesOfEndedProcesses(const QString &localCopiesRoot)
 #endif
 }
 
+// Removes the local copy at path. The worker that wrote it can keep the file open for a moment after
+// its job ended. Windows does not remove an open file, so there a failed removal is tried again.
+static void removeLocalCopy(const QString &path, [[maybe_unused]] int attemptsLeft = 50)
+{
+    if (QFile::remove(path)) {
+        return;
+    }
+#ifdef Q_OS_WIN
+    if (!QFileInfo::exists(path) || attemptsLeft == 0 || !QCoreApplication::instance()) {
+        return;
+    }
+    QTimer::singleShot(100ms, QCoreApplication::instance(), [path, attemptsLeft] {
+        removeLocalCopy(path, attemptsLeft - 1);
+    });
+#endif
+}
+
 FilePreviewJob::FilePreviewJob(const KFileItem &fileItem, int parentDirDeviceId, const PreviewOptions &options, const PreviewSetupData &setupData)
     : m_fileItem(fileItem)
     , m_parentDirDeviceId(parentDirDeviceId)
@@ -101,7 +118,7 @@ FilePreviewJob::~FilePreviewJob()
         QFileInfo tempFile(m_tempName);
         if (tempFile.exists()) {
             Q_ASSERT((!tempFile.isDir() && tempFile.isFile()) || tempFile.isSymLink());
-            QFile::remove(m_tempName);
+            removeLocalCopy(m_tempName);
         }
     }
     if (!m_tempDirPath.isEmpty()) {

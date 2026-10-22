@@ -845,8 +845,9 @@ void FilePreviewJobTest::testAFailedDownloadLeavesNoLocalCopy()
     QTRY_VERIFY(QFileInfo::exists(copy));
     QVERIFY(!QFileInfo::exists(copy + QLatin1String(".part")));
     job.reset();
-    QVERIFY(!QFileInfo::exists(copy));
-    QVERIFY(QDir(localCopiesOfThisProcess()).isEmpty());
+    // On Windows the worker can still have the copy open, and its removal is tried again.
+    QTRY_VERIFY(!QFileInfo::exists(copy));
+    QTRY_VERIFY(QDir(localCopiesOfThisProcess()).isEmpty());
 }
 
 void FilePreviewJobTest::testAKilledPreviewStopsItsDownload()
@@ -861,8 +862,8 @@ void FilePreviewJobTest::testAKilledPreviewStopsItsDownload()
 
     // A download that went on would complete within 1 s and leave the whole file.
     QTest::qWait(1500);
-    QVERIFY(!QFileInfo::exists(copy));
-    QVERIFY(QDir(localCopiesOfThisProcess()).isEmpty());
+    QTRY_VERIFY(!QFileInfo::exists(copy));
+    QTRY_VERIFY(QDir(localCopiesOfThisProcess()).isEmpty());
 }
 
 #ifndef Q_OS_WIN
