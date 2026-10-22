@@ -126,17 +126,26 @@ KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const 
 
         innerLayout->addWidget(m_comboBox);
 
-        // Pre-fill the filename extension and select everything before it, or just
-        // move the cursor appropriately
-        const QMimeType mimetype = db.mimeTypeForName(formats.value(comboItem()));
-        if (mimetype.isValid()) {
-            if (suggestedFileName.endsWith(mimetype.preferredSuffix())) {
-                m_lineEdit->setSelection(0, suggestedFileName.length() - mimetype.preferredSuffix().length() - 1);
-            } else {
-                m_lineEdit->setText(suggestedFileName + QLatin1String(".") + mimetype.preferredSuffix());
-                m_lineEdit->setSelection(0, suggestedFileName.length());
-            }
+        const auto mimetype = db.mimeTypeForName(formats.value(comboItem()));
+        const auto validMimeType = mimetype.isValid();
+        const auto currentSuffix = db.suffixForFileName(suggestedFileName);
+        QStringView currentBaseName = suggestedFileName;
+        if (auto suffixSize = currentSuffix.size()) {
+            currentBaseName.chop(suffixSize + 1); // remove '.' too
         }
+        // Replace the current suffix if it doesn't match the mimetype
+        if (validMimeType) {
+            const auto preferredSuffix = mimetype.preferredSuffix();
+            if (!preferredSuffix.isEmpty() && !mimetype.suffixes().contains(currentSuffix, Qt::CaseInsensitive)) {
+                m_lineEdit->setText(currentBaseName % u'.' % preferredSuffix);
+            } else if (preferredSuffix.isEmpty()) {
+                m_lineEdit->setText(currentBaseName.toString());
+            }
+        } else if (!currentSuffix.isEmpty() && !validMimeType) {
+            m_lineEdit->setText(currentBaseName.toString());
+        }
+        // Select the base name and move the text cursor to the end of it
+        m_lineEdit->setSelection(0, currentBaseName.length());
     }
 
     topLayout->addStretch();
