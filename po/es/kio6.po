@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-22 00:46+0000\n"
-"PO-Revision-Date: 2026-10-18 00:02+0100\n"
+"POT-Creation-Date: 2026-10-23 00:44+0000\n"
+"PO-Revision-Date: 2026-10-22 17:20+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -92,23 +92,23 @@ msgstr ""
 "Si selecciona «Sustituir» se sustituirán todos los caracteres no válidos (en "
 "el nombre del archivo de destino) por un signo de subrayado («_»)."
 
-#: core/copyjob.cpp:1491 core/job_error.cpp:588
+#: core/copyjob.cpp:1492 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "La carpeta ya existe"
 
-#: core/copyjob.cpp:1832 core/copyjob.cpp:2566 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1833 core/copyjob.cpp:2567 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "El archivo ya existe"
 
-#: core/copyjob.cpp:1832 core/copyjob.cpp:2566
+#: core/copyjob.cpp:1833 core/copyjob.cpp:2567
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Ya existe como carpeta"
 
-#: core/copyjob.cpp:1990 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1991 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Papelera"
@@ -5436,14 +5436,12 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kfileitemactions.cpp:777
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Open Folder With…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
 msgstr[0] "&Abrir carpeta con…"
-msgstr[1] "&Abrir carpeta con…"
+msgstr[1] "&Abrir carpetas con…"
 
 #: widgets/kfileitemactions.cpp:777
 #, kde-format
@@ -5458,13 +5456,12 @@ msgid "&Run Executable"
 msgstr "&Lanzar ejecutable"
 
 #: widgets/kfileitemactions.cpp:857
-#, fuzzy, kde-format
-#| msgid "&Open folder with %1"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open folder with %2"
 msgid_plural "&Open folders with %2"
-msgstr[0] "&Abrir carpeta con %1"
-msgstr[1] "&Abrir carpeta con %1"
+msgstr[0] "&Abrir carpeta con %2"
+msgstr[1] "&Abrir carpetas con %2"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -5472,14 +5469,12 @@ msgid "&Open with %1"
 msgstr "&Abrir con %1"
 
 #: widgets/kfileitemactions.cpp:891
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgid_plural "&Open Folders With"
 msgstr[0] "&Abrir carpeta con"
-msgstr[1] "&Abrir carpeta con"
+msgstr[1] "&Abrir carpetas con"
 
 #: widgets/kfileitemactions.cpp:891
 #, kde-format

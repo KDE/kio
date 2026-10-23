@@ -24,8 +24,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-22 00:46+0000\n"
-"PO-Revision-Date: 2026-10-18 19:06+0200\n"
+"POT-Creation-Date: 2026-10-23 00:44+0000\n"
+"PO-Revision-Date: 2026-10-22 22:45+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -109,23 +109,23 @@ msgstr ""
 "При выборе «Заменить» все неподдерживаемые символы в имени целевого файла "
 "будут заменены на символ подчёркивания (_)."
 
-#: core/copyjob.cpp:1491 core/job_error.cpp:588
+#: core/copyjob.cpp:1492 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Папка уже существует"
 
-#: core/copyjob.cpp:1832 core/copyjob.cpp:2566 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1833 core/copyjob.cpp:2567 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Файл уже существует"
 
-#: core/copyjob.cpp:1832 core/copyjob.cpp:2566
+#: core/copyjob.cpp:1833 core/copyjob.cpp:2567
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Уже существует как папка"
 
-#: core/copyjob.cpp:1990 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1991 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Корзина"
@@ -5401,16 +5401,14 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kfileitemactions.cpp:777
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Open Folder With…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
-msgstr[0] "&Открыть папку в приложении…"
-msgstr[1] "&Открыть папку в приложении…"
-msgstr[2] "&Открыть папку в приложении…"
-msgstr[3] "&Открыть папку в приложении…"
+msgstr[0] "&Открыть папки с помощью…"
+msgstr[1] "&Открыть папки с помощью…"
+msgstr[2] "&Открыть папки с помощью…"
+msgstr[3] "&Открыть папку с помощью…"
 
 #: widgets/kfileitemactions.cpp:777
 #, kde-format
@@ -5425,15 +5423,14 @@ msgid "&Run Executable"
 msgstr "&Запустить исполняемый файл"
 
 #: widgets/kfileitemactions.cpp:857
-#, fuzzy, kde-format
-#| msgid "&Open folder with %1"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open folder with %2"
 msgid_plural "&Open folders with %2"
-msgstr[0] "&Открыть папку в приложении %1"
-msgstr[1] "&Открыть папку в приложении %1"
-msgstr[2] "&Открыть папку в приложении %1"
-msgstr[3] "&Открыть папку в приложении %1"
+msgstr[0] "Открыть папки &с помощью %2"
+msgstr[1] "Открыть папки &с помощью %2"
+msgstr[2] "Открыть папки &с помощью %2"
+msgstr[3] "Открыть папку &с помощью %2"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -5441,16 +5438,14 @@ msgid "&Open with %1"
 msgstr "Открыть &с помощью %1"
 
 #: widgets/kfileitemactions.cpp:891
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgid_plural "&Open Folders With"
-msgstr[0] "&Открыть папку в приложении"
-msgstr[1] "&Открыть папку в приложении"
-msgstr[2] "&Открыть папку в приложении"
-msgstr[3] "&Открыть папку в приложении"
+msgstr[0] "&Открыть папки с помощью"
+msgstr[1] "&Открыть папки с помощью"
+msgstr[2] "&Открыть папки с помощью"
+msgstr[3] "&Открыть папку с помощью"
 
 #: widgets/kfileitemactions.cpp:891
 #, kde-format

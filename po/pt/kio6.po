@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-22 00:46+0000\n"
+"POT-Creation-Date: 2026-10-23 00:44+0000\n"
 "PO-Revision-Date: 2026-01-27 20:13+0000\n"
 "Last-Translator: César A. P. Cláudio <cesarapclaudio@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
@@ -157,23 +157,23 @@ msgstr ""
 "Se seleccionar Substituir, substituirá todos os caracteres inválidos (no "
 "nome do ficheiro de destino) por um sublinhado \"_\"."
 
-#: core/copyjob.cpp:1491 core/job_error.cpp:588
+#: core/copyjob.cpp:1492 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "A Pasta Já Existe"
 
-#: core/copyjob.cpp:1832 core/copyjob.cpp:2566 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1833 core/copyjob.cpp:2567 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "O Ficheiro Já Existe"
 
-#: core/copyjob.cpp:1832 core/copyjob.cpp:2566
+#: core/copyjob.cpp:1833 core/copyjob.cpp:2567
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Já Existe como Pasta"
 
-#: core/copyjob.cpp:1990 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1991 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Lixo"

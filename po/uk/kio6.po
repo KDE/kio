@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-22 00:46+0000\n"
-"PO-Revision-Date: 2026-10-17 16:44+0300\n"
+"POT-Creation-Date: 2026-10-23 00:44+0000\n"
+"PO-Revision-Date: 2026-10-22 13:49+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -90,23 +90,23 @@ msgstr ""
 "Вибір варіанта дій «Замінити» призведе до заміни некоректних символів (у "
 "назві файла призначення) на символ підкреслювання «_»."
 
-#: core/copyjob.cpp:1491 core/job_error.cpp:588
+#: core/copyjob.cpp:1492 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Тека вже існує"
 
-#: core/copyjob.cpp:1832 core/copyjob.cpp:2566 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1833 core/copyjob.cpp:2567 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Файл вже існує"
 
-#: core/copyjob.cpp:1832 core/copyjob.cpp:2566
+#: core/copyjob.cpp:1833 core/copyjob.cpp:2567
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Вже існує як тека"
 
-#: core/copyjob.cpp:1990 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1991 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Смітник"
@@ -5405,15 +5405,13 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kfileitemactions.cpp:777
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Open Folder With…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
-msgstr[0] "В&ідкрити теку за допомогою…"
-msgstr[1] "В&ідкрити теку за допомогою…"
-msgstr[2] "В&ідкрити теку за допомогою…"
+msgstr[0] "В&ідкрити теки за допомогою…"
+msgstr[1] "В&ідкрити теки за допомогою…"
+msgstr[2] "В&ідкрити теки за допомогою…"
 msgstr[3] "В&ідкрити теку за допомогою…"
 
 #: widgets/kfileitemactions.cpp:777
@@ -5429,15 +5427,14 @@ msgid "&Run Executable"
 msgstr "&Запустити виконуваний файл"
 
 #: widgets/kfileitemactions.cpp:857
-#, fuzzy, kde-format
-#| msgid "&Open folder with %1"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open folder with %2"
 msgid_plural "&Open folders with %2"
-msgstr[0] "В&ідкрити теку за допомогою %1"
-msgstr[1] "В&ідкрити теку за допомогою %1"
-msgstr[2] "В&ідкрити теку за допомогою %1"
-msgstr[3] "В&ідкрити теку за допомогою %1"
+msgstr[0] "В&ідкрити теки за допомогою %2"
+msgstr[1] "В&ідкрити теки за допомогою %2"
+msgstr[2] "В&ідкрити теки за допомогою %2"
+msgstr[3] "В&ідкрити теку за допомогою %2"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -5445,15 +5442,13 @@ msgid "&Open with %1"
 msgstr "В&ідкрити за допомогою %1"
 
 #: widgets/kfileitemactions.cpp:891
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgid_plural "&Open Folders With"
-msgstr[0] "В&ідкрити теку за допомогою"
-msgstr[1] "В&ідкрити теку за допомогою"
-msgstr[2] "В&ідкрити теку за допомогою"
+msgstr[0] "В&ідкрити теки за допомогою"
+msgstr[1] "В&ідкрити теки за допомогою"
+msgstr[2] "В&ідкрити теки за допомогою"
 msgstr[3] "В&ідкрити теку за допомогою"
 
 #: widgets/kfileitemactions.cpp:891

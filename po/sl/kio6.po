@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-22 00:46+0000\n"
-"PO-Revision-Date: 2026-10-17 07:42+0200\n"
+"POT-Creation-Date: 2026-10-23 00:44+0000\n"
+"PO-Revision-Date: 2026-10-22 07:30+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -98,23 +98,23 @@ msgstr ""
 "Če izberete Zamenjaj bodo vsi neveljavni znaki (v imenu ciljne datoteke) "
 "zamenjani s podčrtajem »_«."
 
-#: core/copyjob.cpp:1491 core/job_error.cpp:588
+#: core/copyjob.cpp:1492 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Mapa že obstaja"
 
-#: core/copyjob.cpp:1832 core/copyjob.cpp:2566 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1833 core/copyjob.cpp:2567 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Datoteka že obstaja"
 
-#: core/copyjob.cpp:1832 core/copyjob.cpp:2566
+#: core/copyjob.cpp:1833 core/copyjob.cpp:2567
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Že obstaja kot mapa"
 
-#: core/copyjob.cpp:1990 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1991 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Smeti"
@@ -5375,16 +5375,14 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kfileitemactions.cpp:777
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Open Folder With…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
-msgstr[0] "&Odpri mapo z…"
+msgstr[0] "&Odpri mape z…"
 msgstr[1] "&Odpri mapo z…"
-msgstr[2] "&Odpri mapo z…"
-msgstr[3] "&Odpri mapo z…"
+msgstr[2] "&Odpri mapi z…"
+msgstr[3] "&Odpri mape z…"
 
 #: widgets/kfileitemactions.cpp:777
 #, kde-format
@@ -5399,15 +5397,14 @@ msgid "&Run Executable"
 msgstr "Zaženi izvajalno datoteko"
 
 #: widgets/kfileitemactions.cpp:857
-#, fuzzy, kde-format
-#| msgid "&Open folder with %1"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open folder with %2"
 msgid_plural "&Open folders with %2"
-msgstr[0] "&Odpri mapo z %1"
-msgstr[1] "&Odpri mapo z %1"
-msgstr[2] "&Odpri mapo z %1"
-msgstr[3] "&Odpri mapo z %1"
+msgstr[0] "&Odpri mape z %2"
+msgstr[1] "&Odpri mapo z %2"
+msgstr[2] "&Odpri mapi z %2"
+msgstr[3] "&Odpri mape z %2"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -5415,16 +5412,14 @@ msgid "&Open with %1"
 msgstr "&Odpri z %1"
 
 #: widgets/kfileitemactions.cpp:891
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgid_plural "&Open Folders With"
-msgstr[0] "&Odpri mapo z"
+msgstr[0] "&Odpri mape z"
 msgstr[1] "&Odpri mapo z"
-msgstr[2] "&Odpri mapo z"
-msgstr[3] "&Odpri mapo z"
+msgstr[2] "&Odpri mapi z"
+msgstr[3] "&Odpri mape z"
 
 #: widgets/kfileitemactions.cpp:891
 #, kde-format

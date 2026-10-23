@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-22 00:46+0000\n"
-"PO-Revision-Date: 2026-10-13 23:53+0200\n"
+"POT-Creation-Date: 2026-10-23 00:44+0000\n"
+"PO-Revision-Date: 2026-10-22 13:33+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -90,23 +90,23 @@ msgstr ""
 "Selezionando Sostituisci tutti i caratteri non validi (nel nome del file di "
 "destinazione) saranno rimpiazzati da un carattere di sottolineatura «_»."
 
-#: core/copyjob.cpp:1491 core/job_error.cpp:588
+#: core/copyjob.cpp:1492 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "La cartella esiste già"
 
-#: core/copyjob.cpp:1832 core/copyjob.cpp:2566 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1833 core/copyjob.cpp:2567 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Il file esiste già"
 
-#: core/copyjob.cpp:1832 core/copyjob.cpp:2566
+#: core/copyjob.cpp:1833 core/copyjob.cpp:2567
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Esiste già come cartella"
 
-#: core/copyjob.cpp:1990 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1991 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Cestino"
@@ -3997,11 +3997,10 @@ msgstr ""
 "simbolico rotto: %1"
 
 #: gui/kemailclientlauncherjob.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to open the file."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to open email client"
-msgstr "Impossibile aprire il file."
+msgstr "Impossibile aprire il client di posta elettronica"
 
 #: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
@@ -5438,14 +5437,12 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kfileitemactions.cpp:777
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Open Folder With…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
 msgstr[0] "&Apri cartella con…"
-msgstr[1] "&Apri cartella con…"
+msgstr[1] "&Apri cartelle con…"
 
 #: widgets/kfileitemactions.cpp:777
 #, kde-format
@@ -5460,13 +5457,12 @@ msgid "&Run Executable"
 msgstr "&Lancia eseguibile"
 
 #: widgets/kfileitemactions.cpp:857
-#, fuzzy, kde-format
-#| msgid "&Open folder with %1"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open folder with %2"
 msgid_plural "&Open folders with %2"
-msgstr[0] "&Apri cartella con %1"
-msgstr[1] "&Apri cartella con %1"
+msgstr[0] "&Apri cartella con %2"
+msgstr[1] "&Apri cartelle con %2"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -5474,14 +5470,12 @@ msgid "&Open with %1"
 msgstr "&Apri con %1"
 
 #: widgets/kfileitemactions.cpp:891
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgid_plural "&Open Folders With"
 msgstr[0] "&Apri cartella con"
-msgstr[1] "&Apri cartella con"
+msgstr[1] "&Apri cartelle con"
 
 #: widgets/kfileitemactions.cpp:891
 #, kde-format
@@ -7223,34 +7217,22 @@ msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> non è un nome di file valido."
 
 #: widgets/renamefiledialog.cpp:235
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this folder's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view."
 msgstr ""
 "L'aggiunta di un punto all'inizio del nome di questa cartella la nasconderà "
-"dalla vista.\n"
-"Vuoi ancora rinominarla?"
+"dalla vista."
 
 #: widgets/renamefiledialog.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this file's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view."
 msgstr ""
 "L'aggiunta di un punto all'inizio del nome di questo file lo nasconderà "
-"dalla vista.\n"
-"Vuoi ancora rinominarlo?"
+"dalla vista."
 
 #: widgets/renamefiledialog.cpp:244
 #, kde-format
@@ -7258,6 +7240,8 @@ msgctxt "@info"
 msgid ""
 "The file's type may change, which could prevent it from opening correctly."
 msgstr ""
+"Il tipo di file può cambiare, e questo potrebbe impedire che il file sia "
+"aperto correttamente."
 
 #: widgets/renamefiledialog.cpp:265
 #, kde-format

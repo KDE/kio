@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-22 00:46+0000\n"
-"PO-Revision-Date: 2026-10-17 19:29+0300\n"
+"POT-Creation-Date: 2026-10-23 00:44+0000\n"
+"PO-Revision-Date: 2026-10-22 19:28+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -99,23 +99,23 @@ msgstr ""
 "Değiştir’i seçmek, tüm geçersiz karakterleri (hedef klasör adında) bir alt "
 "tire (_) ile değiştirecektir."
 
-#: core/copyjob.cpp:1491 core/job_error.cpp:588
+#: core/copyjob.cpp:1492 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Klasör Hâlihazırda Var"
 
-#: core/copyjob.cpp:1832 core/copyjob.cpp:2566 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1833 core/copyjob.cpp:2567 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Dosya Hâlihazırda Var"
 
-#: core/copyjob.cpp:1832 core/copyjob.cpp:2566
+#: core/copyjob.cpp:1833 core/copyjob.cpp:2567
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Klasör Olarak Hâlihazırda Var"
 
-#: core/copyjob.cpp:1990 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1991 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Çöp Kutusu"
@@ -5333,14 +5333,12 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kfileitemactions.cpp:777
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Open Folder With…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
-msgstr[0] "Klasörü B&irlikte Aç…"
-msgstr[1] "Klasörü B&irlikte Aç…"
+msgstr[0] "Klasörü Birlikte &Aç…"
+msgstr[1] "Klasörleri Birlikte &Aç…"
 
 #: widgets/kfileitemactions.cpp:777
 #, kde-format
@@ -5355,13 +5353,12 @@ msgid "&Run Executable"
 msgstr "&Yürütülebiliri Çalıştır"
 
 #: widgets/kfileitemactions.cpp:857
-#, fuzzy, kde-format
-#| msgid "&Open folder with %1"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open folder with %2"
 msgid_plural "&Open folders with %2"
-msgstr[0] "Klasörü %1 ile &Aç"
-msgstr[1] "Klasörü %1 ile &Aç"
+msgstr[0] "Klasörü %2 ile &Aç"
+msgstr[1] "Klasörleri %2 ile &Aç"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -5369,14 +5366,12 @@ msgid "&Open with %1"
 msgstr "%1 &ile Aç"
 
 #: widgets/kfileitemactions.cpp:891
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgid_plural "&Open Folders With"
-msgstr[0] "Klasörü B&irlikte Aç"
-msgstr[1] "Klasörü B&irlikte Aç"
+msgstr[0] "Klasörü Birlikte &Aç"
+msgstr[1] "Klasörleri Birlikte &Aç"
 
 #: widgets/kfileitemactions.cpp:891
 #, kde-format

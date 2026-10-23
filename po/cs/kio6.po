@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-22 00:46+0000\n"
-"PO-Revision-Date: 2026-10-17 12:06+0200\n"
+"POT-Creation-Date: 2026-10-23 00:44+0000\n"
+"PO-Revision-Date: 2026-10-22 12:20+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -89,23 +89,23 @@ msgstr ""
 "Výběrem Nahradit dojde k nahrazení jakýchkoliv neplatných znaků (v cílovém "
 "názvu souboru) podtržítkem \"_\"."
 
-#: core/copyjob.cpp:1491 core/job_error.cpp:588
+#: core/copyjob.cpp:1492 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Složka již existuje"
 
-#: core/copyjob.cpp:1832 core/copyjob.cpp:2566 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1833 core/copyjob.cpp:2567 core/filecopyjob.cpp:371
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Soubor již existuje"
 
-#: core/copyjob.cpp:1832 core/copyjob.cpp:2566
+#: core/copyjob.cpp:1833 core/copyjob.cpp:2567
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Již existuje jako složka"
 
-#: core/copyjob.cpp:1990 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:1991 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Koš"
@@ -5354,15 +5354,13 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kfileitemactions.cpp:777
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Open Folder With…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
 msgstr[0] "&Otevřít složku pomocí…"
-msgstr[1] "&Otevřít složku pomocí…"
-msgstr[2] "&Otevřít složku pomocí…"
+msgstr[1] "&Otevřít složky pomocí…"
+msgstr[2] "&Otevřít složky pomocí…"
 
 #: widgets/kfileitemactions.cpp:777
 #, kde-format
@@ -5377,14 +5375,13 @@ msgid "&Run Executable"
 msgstr "&Spustit"
 
 #: widgets/kfileitemactions.cpp:857
-#, fuzzy, kde-format
-#| msgid "&Open folder with %1"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open folder with %2"
 msgid_plural "&Open folders with %2"
-msgstr[0] "&Otevřít složku pomocí %1"
-msgstr[1] "&Otevřít složku pomocí %1"
-msgstr[2] "&Otevřít složku pomocí %1"
+msgstr[0] "&Otevřít složku pomocí %2"
+msgstr[1] "&Otevřít složky pomocí %2"
+msgstr[2] "&Otevřít složky pomocí %2"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -5392,15 +5389,13 @@ msgid "&Open with %1"
 msgstr "&Otevřít pomocí %1"
 
 #: widgets/kfileitemactions.cpp:891
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgid_plural "&Open Folders With"
 msgstr[0] "&Otevřít složku pomocí"
-msgstr[1] "&Otevřít složku pomocí"
-msgstr[2] "&Otevřít složku pomocí"
+msgstr[1] "&Otevřít složky pomocí"
+msgstr[2] "&Otevřít složky pomocí"
 
 #: widgets/kfileitemactions.cpp:891
 #, kde-format
