@@ -13,6 +13,7 @@
 #include "copyjob_p.h"
 #include "deletejob.h"
 #include "filecopyjob.h"
+#include "filecopyjob_p.h"
 #include "global.h"
 #include "job.h" // buildErrorString
 #include "kcoredirlister.h"
@@ -48,6 +49,7 @@
 #include <QFileInfo>
 #include <QPointer>
 #include <QQueue>
+#include <QSet>
 #include <QTemporaryFile>
 #include <QTimeZone>
 #include <QTimer>
@@ -105,9 +107,10 @@ enum DestinationState {
  *          if conflict: STATE_CONFLICT_CREATING_DIRS
  *     STATE_COPYING_FILES (copyNextFile, iterating over 'd->filesToCopy')
  *          if conflict: STATE_CONFLICT_COPYING_FILES
- *     STATE_DELETING_DIRS (deleteNextDir) (if moving)
  *     STATE_SETTING_DIR_ATTRIBUTES (setNextDirAttribute, iterating over d->m_directoriesCopied)
  *     STATE_FLUSHING (flushDestination) (if files were copied to a local folder)
+ *     STATE_DELETING_SOURCES (deleteKeptSources) (if moving files that waited for the flush)
+ *     STATE_DELETING_DIRS (deleteNextDir) (if moving)
  *     done.
  */
 enum CopyJobState {
@@ -119,9 +122,10 @@ enum CopyJobState {
     STATE_CONFLICT_CREATING_DIRS,
     STATE_COPYING_FILES,
     STATE_CONFLICT_COPYING_FILES,
-    STATE_DELETING_DIRS,
     STATE_SETTING_DIR_ATTRIBUTES,
     STATE_FLUSHING,
+    STATE_DELETING_SOURCES,
+    STATE_DELETING_DIRS,
 };
 
 static QUrl addPathToUrl(const QUrl &url, const QString &relPath)
@@ -325,6 +329,10 @@ public:
     QList<QUrl> dirsToRemove;
     QList<QUrl> m_srcList;
     QList<QUrl> m_successSrcList; // Entries in m_srcList that have successfully been moved
+    // Moved files whose sources stay in place until the destination is flushed
+    QList<CopyInfo> m_keptSources;
+    // UDS_TARGET_URL of the global destination, when it is a local file and m_globalDest is not
+    QUrl m_globalDestTarget;
     QList<QUrl>::const_iterator m_currentStatSrc;
     bool m_bCurrentSrcIsDir;
     bool m_bCurrentOperationIsLink;
@@ -431,8 +439,12 @@ public:
 
     void slotResultSettingDirAttributes(KJob *job);
     void setNextDirAttribute();
+    QUrl flushFolder() const;
     void flushDestination();
+    void finishKeepingSources(KJob *job);
+    void deleteKeptSources();
     void slotResultFlushing(KJob *job);
+    void slotResultDeletingSources(KJob *job);
 
     void startRenameJob(const QUrl &workerUrl);
     bool shouldOverwriteDir(const QString &path) const;
@@ -640,6 +652,11 @@ void CopyJobPrivate::slotResultStating(KJob *job)
                 if (isGlobalDest) {
                     m_globalDest = m_dest;
                 }
+            }
+
+            const QUrl target(entry.stringValue(KIO::UDSEntry::UDS_TARGET_URL));
+            if (isGlobalDest && !m_globalDest.isLocalFile() && target.isLocalFile()) {
+                m_globalDestTarget = m_asMethod ? addPathToUrl(target, m_dest.fileName()) : target;
             }
         }
 
@@ -893,20 +910,27 @@ void CopyJobPrivate::slotSubError(ListJob *job, ListJob *subJob)
     skip(url, true);
 }
 
+static QDateTime modificationTime(const UDSEntry &entry)
+{
+    QDateTime mtime;
+    const auto modificationTime = entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1);
+    if (modificationTime != -1) {
+        mtime = QDateTime::fromSecsSinceEpoch(modificationTime, QTimeZone::UTC);
+    }
+    const auto modificationTimeNsOffset = entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, -1);
+    if (modificationTimeNsOffset != -1) {
+        mtime = mtime.addMSecs(modificationTimeNsOffset / 1000000);
+    }
+    return mtime;
+}
+
 void CopyJobPrivate::addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &srcUrl, bool srcIsDir, const QUrl &currentDest)
 {
     struct CopyInfo info;
     info.permissions = entry.numberValue(KIO::UDSEntry::UDS_ACCESS, -1);
     info.gid = entry.numberValue(KIO::UDSEntry::UDS_LOCAL_GROUP_ID, -1);
     info.uid = entry.numberValue(KIO::UDSEntry::UDS_LOCAL_USER_ID, -1);
-    const auto modificationTime = entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME, -1);
-    if (modificationTime != -1) {
-        info.mtime = QDateTime::fromSecsSinceEpoch(modificationTime, QTimeZone::UTC);
-    }
-    const auto modificationTimeNsOffset = entry.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, -1);
-    if (modificationTimeNsOffset != -1) {
-        info.mtime = info.mtime.addMSecs(modificationTimeNsOffset / 1000000);
-    }
+    info.mtime = modificationTime(entry);
     info.ctime = QDateTime::fromSecsSinceEpoch(entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME, -1), QTimeZone::UTC);
     const auto creationTimeNsOffset = entry.numberValue(KIO::UDSEntry::UDS_CREATION_TIME_NS_OFFSET, -1);
     if (creationTimeNsOffset != -1) {
@@ -1736,6 +1760,9 @@ void CopyJobPrivate::slotResultCopyingFiles(KJob *job)
 #endif
             }
             m_successSrcList.append((*it).uSource);
+            if (auto *fileJob = qobject_cast<KIO::FileCopyJob *>(job); fileJob && KIO::sourceKeptUntilFlushed(fileJob)) {
+                m_keptSources.append(*it);
+            }
             if (m_freeSpace != KIO::invalidFilesize && (*it).size != KIO::invalidFilesize) {
                 m_freeSpace -= (*it).size;
             }
@@ -2134,7 +2161,9 @@ void CopyJobPrivate::copyNextFile()
         qCDebug(KIO_COPYJOB_DEBUG) << "copyNextFile finished";
         slotReport(); // display final numbers, important if progress dialog stays up
 
-        deleteNextDir();
+        state = STATE_SETTING_DIR_ATTRIBUTES;
+        m_directoriesCopiedIterator = m_directoriesCopied.cbegin();
+        setNextDirAttribute();
     }
 }
 
@@ -2231,6 +2260,9 @@ void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, in
     } else if (m_mode == CopyJob::Move) { // Moving a file
         KIO::FileCopyJob *moveJob = KIO::file_move(uSource, uDest, permissions, flags | HideProgressInfo /*no GUI*/);
         moveJob->setParentJob(q);
+        if (!flushFolder().isEmpty()) {
+            KIO::keepSourceUntilFlushed(moveJob);
+        }
         moveJob->setSourceSize((*it).size);
         moveJob->setModificationTime((*it).mtime); // #55804
         newjob = moveJob;
@@ -2277,10 +2309,10 @@ void CopyJobPrivate::deleteNextDir()
         dirsToRemove.erase(it);
         q->addSubjob(job);
     } else {
-        // This step is done, move on
-        state = STATE_SETTING_DIR_ATTRIBUTES;
-        m_directoriesCopiedIterator = m_directoriesCopied.cbegin();
-        setNextDirAttribute();
+        if (m_reportTimer) {
+            m_reportTimer->stop();
+        }
+        q->emitResult();
     }
 }
 
@@ -2303,16 +2335,27 @@ void CopyJobPrivate::setNextDirAttribute()
     }
 }
 
+// The local folder that a flush of the destination covers, or an empty URL when the destination has
+// no local path. A move keeps its sources only when there is such a folder.
+QUrl CopyJobPrivate::flushFolder() const
+{
+    QUrl folder = m_globalDest.isLocalFile() ? m_globalDest : m_globalDestTarget;
+    if (!folder.isLocalFile()) {
+        return QUrl();
+    }
+    if (m_globalDestinationState != DEST_IS_DIR || m_asMethod) {
+        folder = folder.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+    }
+    return folder;
+}
+
 void CopyJobPrivate::flushDestination()
 {
     Q_Q(CopyJob);
     // Files copied to a removable device are written to it before the copy reports success, so that
     // the device can be unplugged then. The file worker sets flush-destination after such a copy.
-    if (!m_bOnlyRenames && m_globalDest.isLocalFile() && m_incomingMetaData.value(QStringLiteral("flush-destination")) == QLatin1String("true")) {
-        QUrl folder(m_globalDest);
-        if (m_globalDestinationState != DEST_IS_DIR || m_asMethod) {
-            folder = folder.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
-        }
+    const QUrl folder = flushFolder();
+    if (!m_bOnlyRenames && !folder.isEmpty() && m_incomingMetaData.value(QStringLiteral("flush-destination")) == QLatin1String("true")) {
         QByteArray packedArgs;
         QDataStream stream(&packedArgs, QIODevice::WriteOnly);
         stream << int(3) << folder.toLocalFile();
@@ -2327,25 +2370,101 @@ void CopyJobPrivate::flushDestination()
         return;
     }
 
+    deleteKeptSources();
+}
+
+void CopyJobPrivate::slotResultFlushing(KJob *job)
+{
+    Q_Q(CopyJob);
+    q->removeSubjob(job);
+    if (job->error()) {
+        // The copied data may not have reached the device, so the moved files keep their sources.
+        finishKeepingSources(job);
+        return;
+    }
+    deleteKeptSources();
+}
+
+// Ends the job with the error of job. The sources still in m_keptSources stay in place, so they are
+// not reported as removed.
+void CopyJobPrivate::finishKeepingSources(KJob *job)
+{
+    Q_Q(CopyJob);
+    QSet<QUrl> kept;
+    for (const CopyInfo &info : std::as_const(m_keptSources)) {
+        kept.insert(info.uSource);
+    }
+    m_successSrcList.removeIf([&kept](const QUrl &url) {
+        return kept.contains(url);
+    });
+    q->setError(job->error());
+    q->setErrorText(job->errorText());
     if (m_reportTimer) {
         m_reportTimer->stop();
     }
     q->emitResult();
 }
 
-void CopyJobPrivate::slotResultFlushing(KJob *job)
+void CopyJobPrivate::deleteKeptSources()
 {
     Q_Q(CopyJob);
-    if (job->error()) {
-        // The copied data may not have reached the device.
-        q->setError(job->error());
-        q->setErrorText(job->errorText());
+    if (m_keptSources.isEmpty()) {
+        deleteNextDir();
+        return;
     }
+    // The source is deleted only when it has not changed since its copy, which may be long before
+    // the flush.
+    state = STATE_DELETING_SOURCES;
+    KIO::StatJob *job = KIO::stat(m_keptSources.constFirst().uSource,
+                                  KIO::StatJob::SourceSide,
+                                  KIO::StatBasic | KIO::StatTime | KIO::StatResolveSymlink,
+                                  KIO::HideProgressInfo);
+    job->setParentJob(q);
+    q->addSubjob(job);
+}
+
+void CopyJobPrivate::slotResultDeletingSources(KJob *job)
+{
+    Q_Q(CopyJob);
     q->removeSubjob(job);
-    if (m_reportTimer) {
-        m_reportTimer->stop();
+    auto *statJob = qobject_cast<KIO::StatJob *>(job);
+    if (!statJob) {
+        // The delete of the first kept source
+        if (job->error()) {
+            finishKeepingSources(job);
+            return;
+        }
+        m_keptSources.removeFirst();
+        deleteKeptSources();
+        return;
     }
-    q->emitResult();
+    if (job->error() == KIO::ERR_DOES_NOT_EXIST) {
+        m_keptSources.removeFirst();
+        deleteKeptSources();
+        return;
+    }
+    if (job->error()) {
+        finishKeepingSources(job);
+        return;
+    }
+
+    const CopyInfo &info = m_keptSources.constFirst();
+    const UDSEntry entry = statJob->statResult();
+    const QDateTime mtime = modificationTime(entry);
+    const KIO::filesize_t size = entry.numberValue(KIO::UDSEntry::UDS_SIZE, KIO::invalidFilesize);
+    const bool mtimeChanged = info.mtime.isValid() && mtime.isValid() && mtime != info.mtime;
+    const bool sizeChanged = info.size != KIO::invalidFilesize && size != KIO::invalidFilesize && size != info.size;
+    if (mtimeChanged || sizeChanged) {
+        m_successSrcList.removeOne(info.uSource);
+        Q_EMIT q->warning(q, i18n("%1 changed after it was copied, so it was not deleted.", info.uSource.toDisplayString(QUrl::PreferLocalFile)));
+        m_keptSources.removeFirst();
+        deleteKeptSources();
+        return;
+    }
+
+    KIO::SimpleJob *deleteJob = KIO::file_delete(info.uSource, KIO::HideProgressInfo);
+    deleteJob->setParentJob(q);
+    q->addSubjob(deleteJob);
 }
 
 void CopyJob::emitResult()
@@ -2791,6 +2910,9 @@ void CopyJob::slotResult(KJob *job)
         break;
     case STATE_FLUSHING:
         d->slotResultFlushing(job);
+        break;
+    case STATE_DELETING_SOURCES:
+        d->slotResultDeletingSources(job);
         break;
     default:
         Q_ASSERT(0);

@@ -8,6 +8,7 @@
 
 #include "filecopyjob.h"
 #include "askuseractioninterface.h"
+#include "filecopyjob_p.h"
 #include "job_p.h"
 #include "kprotocolmanager.h"
 #include "scheduler.h"
@@ -43,6 +44,8 @@ public:
         , m_move(move)
         , m_mustChmod(0)
         , m_bFileCopyInProgress(false)
+        , m_keepSourceUntilFlushed(false)
+        , m_sourceKept(false)
         , m_flags(flags)
     {
     }
@@ -63,6 +66,8 @@ public:
     bool m_resumeAnswerSent : 1;
     bool m_mustChmod : 1;
     bool m_bFileCopyInProgress : 1;
+    bool m_keepSourceUntilFlushed : 1;
+    bool m_sourceKept : 1;
     JobFlags m_flags;
 
     void startBestCopyMethod();
@@ -85,6 +90,24 @@ public:
     void processCanResumeResult(KIO::Job *job, RenameDialog_Result result, KIO::filesize_t offset);
 
     Q_DECLARE_PUBLIC(FileCopyJob)
+
+    // Deletes the source of a finished move, unless the copy left its data to a flush of the
+    // destination, which the caller runs before it deletes the source.
+    void deleteMovedSource()
+    {
+        Q_Q(FileCopyJob);
+        if (m_keepSourceUntilFlushed && m_incomingMetaData.value(QStringLiteral("flush-destination")) == QLatin1String("true")) {
+            m_sourceKept = true;
+            return;
+        }
+        m_delJob = file_delete(m_src, HideProgressInfo /*no GUI*/);
+        q->addSubjob(m_delJob);
+    }
+
+    static FileCopyJobPrivate *get(FileCopyJob *job)
+    {
+        return job->d_func();
+    }
 
     static inline FileCopyJob *newJob(const QUrl &src, const QUrl &dest, int permissions, bool move, JobFlags flags)
     {
@@ -568,8 +591,7 @@ void FileCopyJob::slotResult(KJob *job)
     if (job == d->m_copyJob) {
         d->m_copyJob = nullptr;
         if (d->m_move) {
-            d->m_delJob = file_delete(d->m_src, HideProgressInfo /*no GUI*/); // Delete source
-            addSubjob(d->m_delJob);
+            d->deleteMovedSource();
         }
     }
 
@@ -590,8 +612,7 @@ void FileCopyJob::slotResult(KJob *job)
             d->m_getJob->d_func()->internalResume();
         }
         if (d->m_move) {
-            d->m_delJob = file_delete(d->m_src, HideProgressInfo /*no GUI*/); // Delete source
-            addSubjob(d->m_delJob);
+            d->deleteMovedSource();
         }
     }
 
@@ -632,6 +653,16 @@ bool FileCopyJob::doKill()
     }
 #endif
     return Job::doKill();
+}
+
+void KIO::keepSourceUntilFlushed(FileCopyJob *job)
+{
+    FileCopyJobPrivate::get(job)->m_keepSourceUntilFlushed = true;
+}
+
+bool KIO::sourceKeptUntilFlushed(FileCopyJob *job)
+{
+    return FileCopyJobPrivate::get(job)->m_sourceKept;
 }
 
 FileCopyJob *KIO::file_copy(const QUrl &src, const QUrl &dest, int permissions, JobFlags flags)

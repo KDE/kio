@@ -1055,16 +1055,28 @@ void JobTest::fileSystemFreeSpace()
 void JobTest::copyFolderFlushesRemovableDestination_data()
 {
     QTest::addColumn<bool>("removable");
+    QTest::addColumn<bool>("move");
+    QTest::addColumn<bool>("unplugged");
+    QTest::addColumn<bool>("edited");
 
-    QTest::newRow("removable destination") << true;
-    QTest::newRow("fixed destination") << false;
+    QTest::newRow("removable destination") << true << false << false << false;
+    QTest::newRow("fixed destination") << false << false << false << false;
+    QTest::newRow("move to a removable destination") << true << true << false << false;
+    QTest::newRow("move to a fixed destination") << false << true << false << false;
+    QTest::newRow("move to a removable destination unplugged before the flush") << true << true << true << false;
+    QTest::newRow("move to a removable destination with a source edited after its copy") << true << true << false << true;
 }
 
 void JobTest::copyFolderFlushesRemovableDestination()
 {
     // Small files copied to a removable device are written to it before the copy reports success,
-    // and an info message exposes why the copy waits. Other destinations are not flushed.
+    // and an info message exposes why the copy waits. Other destinations are not flushed. A move
+    // from another partition deletes its sources only once they are on the device, and keeps them
+    // when the flush fails, or for a source that changed after its copy.
     QFETCH(bool, removable);
+    QFETCH(bool, move);
+    QFETCH(bool, unplugged);
+    QFETCH(bool, edited);
 #ifndef Q_OS_LINUX
     if (removable) {
         QSKIP("The file worker flushes a removable device with syncfs, which only Linux has");
@@ -1077,9 +1089,15 @@ void JobTest::copyFolderFlushesRemovableDestination()
         qunsetenv("KIO_FILE_FORCE_REMOVABLE");
     });
 
+    if (move && otherTmpDirIsOnSamePartition()) {
+        QSKIP("A move on one partition renames the folder, and copies nothing");
+    }
+
     QTemporaryDir sandbox(homeTmpDir() + "flushXXXXXX");
     QVERIFY(sandbox.isValid());
-    const QString src = sandbox.filePath(QStringLiteral("smallFiles"));
+    QTemporaryDir otherSandbox(otherTmpDir() + "flushXXXXXX");
+    QVERIFY(otherSandbox.isValid());
+    const QString src = (move ? otherSandbox : sandbox).filePath(QStringLiteral("smallFiles"));
     const QString destDir = sandbox.filePath(QStringLiteral("device"));
     QVERIFY(QDir().mkpath(src));
     QVERIFY(QDir().mkpath(destDir));
@@ -1087,19 +1105,61 @@ void JobTest::copyFolderFlushesRemovableDestination()
         createTestFile(src + QStringLiteral("/file%1").arg(i));
     }
 
-    KIO::CopyJob *job = KIO::copy(QUrl::fromLocalFile(src), QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    const QUrl srcUrl = QUrl::fromLocalFile(src);
+    const QUrl destUrl = QUrl::fromLocalFile(destDir);
+    KIO::CopyJob *job = move ? KIO::move(srcUrl, destUrl, KIO::HideProgressInfo) : KIO::copy(srcUrl, destUrl, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     job->setUiDelegateExtension(nullptr);
     QStringList messages;
-    connect(job, &KJob::infoMessage, this, [&messages](KJob *, const QString &message) {
+    int sourcesDuringFlush = 0;
+    connect(job, &KJob::infoMessage, this, [&](KJob *, const QString &message) {
         messages.append(message);
+        if (message == QLatin1String("Writing the copied data to the device...")) {
+            sourcesDuringFlush = QDir(src).entryList(QDir::Files).size();
+        }
     });
+    int copied = 0;
+    const QString editedSource = src + QStringLiteral("/file0");
+    connect(job, &KIO::CopyJob::copyingDone, this, [&](KIO::Job *, const QUrl &from, const QUrl &, const QDateTime &, bool directory, bool) {
+        if (unplugged && !directory && ++copied == 3) {
+            QVERIFY(QDir().rename(destDir, sandbox.filePath(QStringLiteral("unplugged"))));
+        }
+        if (edited && from.toLocalFile() == editedSource) {
+            QFile file(editedSource);
+            QVERIFY(file.open(QIODevice::Append));
+            QVERIFY(file.write("edited") > 0);
+        }
+    });
+    QStringList warnings;
+    connect(job, &KJob::warning, this, [&warnings](KJob *, const QString &message) {
+        warnings.append(message);
+    });
+
+    if (unplugged) {
+        QVERIFY(!job->exec());
+        QCOMPARE(job->error(), KIO::ERR_CANNOT_WRITE);
+        for (int i = 0; i < 3; ++i) {
+            QVERIFY(QFile::exists(src + QStringLiteral("/file%1").arg(i)));
+        }
+        return;
+    }
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
     for (int i = 0; i < 3; ++i) {
         QVERIFY(QFile::exists(destDir + QStringLiteral("/smallFiles/file%1").arg(i)));
     }
-    QCOMPARE(messages.contains(QStringLiteral("Writing the copied data to the device...")), removable);
+    const bool flushed = messages.contains(QStringLiteral("Writing the copied data to the device..."));
+    QCOMPARE(flushed, removable);
+    if (edited) {
+        QVERIFY(QFile::exists(editedSource));
+        QCOMPARE(QDir(src).entryList(QDir::Files), QStringList{QStringLiteral("file0")});
+        QCOMPARE(warnings.size(), 1);
+    } else if (move) {
+        QVERIFY(!QFile::exists(src));
+        if (flushed) {
+            QCOMPARE(sourcesDuringFlush, 3);
+        }
+    }
 }
 
 void JobTest::copyFileToSetgidDirectory_data()
