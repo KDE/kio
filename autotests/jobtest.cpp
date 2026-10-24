@@ -357,6 +357,49 @@ void JobTest::putReportsRemovableDestination()
     QCOMPARE(job->metaData().value(QStringLiteral("flush-destination")) == QLatin1String("true"), removable);
 }
 
+void JobTest::fileCopyReportsRemovableDestination_data()
+{
+    QTest::addColumn<bool>("fromOtherProtocol");
+    QTest::addColumn<bool>("removable");
+
+    QTest::newRow("copy to a removable destination") << false << true;
+    QTest::newRow("copy to a fixed destination") << false << false;
+    QTest::newRow("data from another protocol to a removable destination") << true << true;
+    QTest::newRow("data from another protocol to a fixed destination") << true << false;
+}
+
+void JobTest::fileCopyReportsRemovableDestination()
+{
+    // A file copy keeps the metadata that the worker sent for the file, whether the worker copied it
+    // or wrote the data that another worker read. A job that copies several files then knows that
+    // the device needs a flush.
+    QFETCH(bool, fromOtherProtocol);
+    QFETCH(bool, removable);
+#ifndef Q_OS_LINUX
+    QSKIP("The file worker flushes a removable device with syncfs, which only Linux has");
+#endif
+    if (removable) {
+        qputenv("KIO_FILE_FORCE_REMOVABLE", "1");
+    }
+    const auto unsetRemovable = qScopeGuard([] {
+        qunsetenv("KIO_FILE_FORCE_REMOVABLE");
+    });
+
+    QTemporaryDir sandbox(homeTmpDir() + "removableXXXXXX");
+    QVERIFY(sandbox.isValid());
+    const QString src = sandbox.filePath(QStringLiteral("source"));
+    const QString dest = sandbox.filePath(QStringLiteral("copy"));
+    createTestFile(src);
+    const QUrl srcUrl = fromOtherProtocol ? QUrl(QStringLiteral("data:,Hello%20world")) : QUrl::fromLocalFile(src);
+
+    KIO::FileCopyJob *job = KIO::file_copy(srcUrl, QUrl::fromLocalFile(dest), -1, KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QVERIFY(QFile::exists(dest));
+    QCOMPARE(job->metaData().value(QStringLiteral("flush-destination")) == QLatin1String("true"), removable);
+}
+
 void JobTest::flushRemovableFolder_data()
 {
     QTest::addColumn<bool>("removable");

@@ -43,6 +43,8 @@ private Q_SLOTS:
     void putKeepsAccessTime();
     void putReportsRemovableDestination_data();
     void putReportsRemovableDestination();
+    void fileCopyReportsRemovableDestination_data();
+    void fileCopyReportsRemovableDestination();
     void flushRemovableFolder_data();
     void flushRemovableFolder();
     void storedPut();

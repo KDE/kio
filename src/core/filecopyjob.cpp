@@ -505,6 +505,10 @@ void FileCopyJob::slotResult(KJob *job)
     // If result comes from copyjob then we are not writing anymore.
     if (job == d->m_copyJob) {
         d->m_bFileCopyInProgress = false;
+        d->m_incomingMetaData += d->m_copyJob->metaData();
+    }
+    if (job == d->m_putJob) {
+        d->m_incomingMetaData += d->m_putJob->metaData();
     }
 
     // Did job have an error ?
