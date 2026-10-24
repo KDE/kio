@@ -851,11 +851,13 @@ WritebackPolicy writebackPolicyFor([[maybe_unused]] int destDirFd, [[maybe_unuse
     }
 
     const auto policyFor = [&]() -> WritebackPolicy {
-        const QString type = mount ? mount->mountType() : QString();
         if (mountIsCifs(mount)) {
             return {smbWindow, false};
         }
-        if (type == QLatin1String("nfs") || type == QLatin1String("nfs4")) {
+        // Any other filesystem that KMountPoint takes for slow: NFS, other network filesystems, and FUSE
+        // filesystems not on a device, such as rclone. A FUSE filesystem that writes through leaves
+        // nothing in the page cache, and its windows cost a call that has nothing to write.
+        if (mount && mount->probablySlow()) {
             return {localWindow, false};
         }
         if (mount && KIOPrivate::isOnRemovableDevice(*mount)) {
