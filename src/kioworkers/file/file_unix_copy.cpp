@@ -13,6 +13,7 @@
 // The copying side of the file worker: FileProtocol::copy() and the helpers only it uses.
 
 #include "file.h"
+#include "kmountpoint_p.h"
 #include "stat_unix.h"
 
 #include "config-kioworker-file.h"
@@ -23,6 +24,8 @@
 
 #include <QElapsedTimer>
 #include <QFile>
+#include <QHash>
+#include <QMutex>
 #include <QScopeGuard>
 #include <QThread>
 #include <QUrl>
@@ -37,6 +40,7 @@
 #include <cstring>
 #include <fcntl.h>
 #include <functional>
+#include <poll.h>
 #include <stdint.h>
 #include <sys/stat.h>
 #include <sys/time.h>
@@ -612,7 +616,108 @@ CopyReport copyFileAt(int srcDirFd,
     return {CopyOutcome::Copied, CopyStage::Transfer, 0, false};
 }
 
+#ifdef Q_OS_LINUX
+// The device number of the filesystem that holds fd, 0 when unknown. What the client already knows is
+// enough, so the server of a network filesystem is not asked.
+static quint64 deviceOf(int fd)
+{
+#if HAVE_STATX
+    struct statx buf;
+    if (::statx(fd, "", AT_EMPTY_PATH | AT_STATX_DONT_SYNC, STATX_TYPE, &buf) == 0) {
+        return makedev(buf.stx_dev_major, buf.stx_dev_minor);
+    }
+    return 0;
+#else
+    QT_STATBUF buf;
+    return QT_FSTAT(fd, &buf) == 0 ? quint64(buf.st_dev) : 0;
+#endif
+}
+
+// Whether a filesystem was mounted or unmounted since the last call. The kernel reports a change of
+// /proc/self/mountinfo to poll() until the file is read again.
+static bool mountTableChanged()
+{
+    static const int fd = ::open("/proc/self/mountinfo", O_RDONLY | O_CLOEXEC);
+    if (fd < 0) {
+        return true;
+    }
+    pollfd event{.fd = fd, .events = POLLPRI, .revents = 0};
+    if (::poll(&event, 1, 0) <= 0 || !(event.revents & (POLLPRI | POLLERR))) {
+        return false;
+    }
+    char buffer[4096];
+    ::lseek(fd, 0, SEEK_SET);
+    while (::read(fd, buffer, sizeof(buffer)) > 0) { }
+    return true;
+}
+#endif
+
+// Whether the folder is on a removable device, which can be unplugged once a copy reports it is done.
+// The mount table gives the answer, so the server of a network filesystem is not asked. The answer
+// is kept for each mount, whose unique id is never given to another mount, or else for each device.
+// Linux only, where syncfs() can flush the device.
+bool isFolderOnRemovableDevice([[maybe_unused]] int dirFd, [[maybe_unused]] const QString &dir)
+{
+#ifdef Q_OS_LINUX
+    if (qEnvironmentVariableIsSet("KIO_FILE_FORCE_REMOVABLE")) {
+        return true;
+    }
+
+    quint64 mountId = 0;
+#if HAVE_STATX_MNT_ID_UNIQUE
+    struct statx folder;
+    if (::statx(dirFd, "", AT_EMPTY_PATH | AT_STATX_DONT_SYNC, STATX_MNT_ID_UNIQUE, &folder) == 0 && (folder.stx_mask & STATX_MNT_ID_UNIQUE)) {
+        mountId = folder.stx_mnt_id;
+    }
+#endif
+    static QMutex answersMutex;
+    static QHash<quint64, bool> answers; // by unique mount id
+    // Without a unique mount id, as before Linux 6.8, by device number. A later mount can get the same
+    // device number, so these are dropped whenever the mount table changes.
+    static QHash<quint64, bool> answersByDevice;
+    const quint64 device = mountId == 0 ? deviceOf(dirFd) : 0;
+    {
+        QMutexLocker locker(&answersMutex);
+        if (mountId != 0) {
+            if (const auto it = answers.constFind(mountId); it != answers.cend()) {
+                return *it;
+            }
+        } else {
+            if (mountTableChanged()) {
+                answersByDevice.clear();
+            }
+            if (const auto it = answersByDevice.constFind(device); device != 0 && it != answersByDevice.cend()) {
+                return *it;
+            }
+        }
+    }
+
+    const KMountPoint::Ptr mount = mountId != 0 ? KMountPoint::currentMountPointForUniqueId(mountId) : KMountPoint::currentMountPointForPath(dir);
+    const bool removable = mount && KIOPrivate::isOnRemovableDevice(*mount);
+    QMutexLocker locker(&answersMutex);
+    if (mountId != 0) {
+        answers.insert(mountId, removable);
+    } else if (device != 0) {
+        answersByDevice.insert(device, removable);
+    }
+    return removable;
+#else
+    return false;
+#endif
+}
+
 } // namespace
+
+bool FileProtocol::isOnRemovableDevice(const QString &folder)
+{
+    const int fd = ::open(QFile::encodeName(folder).constData(), O_RDONLY | O_DIRECTORY | O_CLOEXEC);
+    if (fd < 0) {
+        return false;
+    }
+    const bool removable = isFolderOnRemovableDevice(fd, folder);
+    ::close(fd);
+    return removable;
+}
 
 WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _mode, JobFlags _flags)
 {
@@ -775,5 +880,10 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
     }
 
     processedSize(srcSize);
+    if (isFolderOnRemovableDevice(dfd, QFile::decodeName(_destDir.isEmpty() ? QByteArray(".") : _destDir))) {
+        // The data of the copy is still in the page cache. The job asks for the flush of the folder
+        // once its last file is copied.
+        setMetaData(QStringLiteral("flush-destination"), QStringLiteral("true"));
+    }
     return WorkerResult::pass();
 }

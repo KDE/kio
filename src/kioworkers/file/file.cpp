@@ -824,6 +824,14 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
     }
 #endif
 
+#ifndef Q_OS_WIN
+    if (isOnRemovableDevice(QFileInfo(dest_orig).absolutePath())) {
+        // The data is still in the page cache. The job asks for the flush of the folder once its last
+        // file is written.
+        setMetaData(QStringLiteral("flush-destination"), QStringLiteral("true"));
+    }
+#endif
+
     // We have done our job => finish
     return WorkerResult::pass();
 }

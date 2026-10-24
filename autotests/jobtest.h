@@ -41,6 +41,8 @@ private Q_SLOTS:
     void setModificationTimeKeepsMillisecondsAndAccessTime();
     void setModificationTimeOfMissingFileFails();
     void putKeepsAccessTime();
+    void putReportsRemovableDestination_data();
+    void putReportsRemovableDestination();
     void storedPut();
     void storedPutIODevice();
     void storedPutIODeviceFile();

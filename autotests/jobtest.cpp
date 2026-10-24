@@ -315,6 +315,48 @@ void JobTest::putKeepsAccessTime()
 #endif
 }
 
+void JobTest::putReportsRemovableDestination_data()
+{
+    QTest::addColumn<bool>("removable");
+
+    QTest::newRow("removable destination") << true;
+    QTest::newRow("fixed destination") << false;
+}
+
+void JobTest::putReportsRemovableDestination()
+{
+    // Data written to a removable device can still be in the page cache when the job ends, so the job
+    // is notified to flush the destination folder. Other destinations do not ask for a flush.
+    QFETCH(bool, removable);
+#ifndef Q_OS_LINUX
+    QSKIP("The file worker flushes a removable device with syncfs, which only Linux has");
+#endif
+    if (removable) {
+        qputenv("KIO_FILE_FORCE_REMOVABLE", "1");
+    }
+    const auto unsetRemovable = qScopeGuard([] {
+        qunsetenv("KIO_FILE_FORCE_REMOVABLE");
+    });
+
+    QTemporaryDir sandbox(homeTmpDir() + "removableXXXXXX");
+    QVERIFY(sandbox.isValid());
+    const QString dest = sandbox.filePath(QStringLiteral("put"));
+
+    KIO::TransferJob *job = KIO::put(QUrl::fromLocalFile(dest), -1, KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    bool sent = false;
+    connect(job, &KIO::TransferJob::dataReq, this, [&sent](KIO::Job *, QByteArray &data) {
+        if (!sent) {
+            data = QByteArrayLiteral("Hello world");
+            sent = true;
+        }
+    });
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QVERIFY(QFile::exists(dest));
+    QCOMPARE(job->metaData().value(QStringLiteral("flush-destination")) == QLatin1String("true"), removable);
+}
+
 void JobTest::putPermissionKept()
 {
     const QString filePath = homeTmpDir() + "fileFromHome";
