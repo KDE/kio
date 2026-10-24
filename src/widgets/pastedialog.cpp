@@ -18,6 +18,7 @@
 #include <QLineEdit>
 #include <QMimeDatabase>
 #include <QMimeType>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 using namespace Qt::StringLiterals;
@@ -160,6 +161,10 @@ KIO::PasteDialog::PasteDialog(const QString &title, const QString &label, const 
 
     QDialogButtonBox *buttonBox = new QDialogButtonBox(this);
     buttonBox->setStandardButtons(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    auto okButton = buttonBox->button(QDialogButtonBox::Ok);
+    connect(m_lineEdit, &QLineEdit::textChanged, this, [this, okButton]() {
+        okButton->setEnabled(!m_lineEdit->text().isEmpty());
+    });
     connect(buttonBox, &QDialogButtonBox::accepted, this, &QDialog::accept);
     connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     topLayout->addWidget(buttonBox);
