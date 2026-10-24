@@ -884,7 +884,7 @@ static MountTraits mountTraitsFor([[maybe_unused]] int dirFd, [[maybe_unused]] c
     if (mount) {
         found.removable = KIOPrivate::isOnRemovableDevice(*mount);
         found.cifs = mountIsCifs(mount);
-        found.slow = mount->mountType() == QLatin1String("nfs") || mount->mountType() == QLatin1String("nfs4");
+        found.slow = mount->probablySlow();
     }
     QMutexLocker locker(&traitsMutex);
     if (mountId != 0) {
@@ -937,6 +937,9 @@ WritebackPolicy writebackPolicyFor([[maybe_unused]] int destDirFd, [[maybe_unuse
     if (mount.cifs) {
         return {smbWindow, false};
     }
+    // Any other filesystem that KMountPoint takes for slow: NFS, other network filesystems, and FUSE
+    // filesystems not on a device, such as rclone. A FUSE filesystem that writes through leaves
+    // nothing in the page cache, and its windows cost a call that has nothing to write.
     if (mount.slow) {
         return {localWindow, false};
     }
