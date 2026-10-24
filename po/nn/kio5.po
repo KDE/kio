@@ -7505,7 +7505,9 @@ msgid "&Open with %1"
 msgstr "&Opna med %1"
 
 #: widgets/kfileitemactions.cpp:929
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:menu"
+#| msgid "&Open Folder With"
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Opna mappa med"
