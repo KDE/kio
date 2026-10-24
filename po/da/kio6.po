@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-23 00:44+0000\n"
+"POT-Creation-Date: 2026-10-24 00:45+0000\n"
 "PO-Revision-Date: 2025-10-31 23:33+0100\n"
 "Last-Translator: Rasmus Rosendahl-Kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -3964,7 +3964,7 @@ msgstr "Fejl under gemning af billede til %1"
 msgid "Icon file too big, download aborted"
 msgstr "Ikonfilen er for stor, download afbrudt"
 
-#: gui/filepreviewjob.cpp:297
+#: gui/filepreviewjob.cpp:314
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"

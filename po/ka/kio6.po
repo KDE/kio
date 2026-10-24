@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-23 00:44+0000\n"
+"POT-Creation-Date: 2026-10-24 00:45+0000\n"
 "PO-Revision-Date: 2026-10-22 06:11+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -3906,7 +3906,7 @@ msgstr "გამოსახულების %1-ში ჩაწერის 
 msgid "Icon file too big, download aborted"
 msgstr "ხატულის ფაილი მეტისმეტად დიდია. გადმოწერა შეწყვეტილია"
 
-#: gui/filepreviewjob.cpp:297
+#: gui/filepreviewjob.cpp:314
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"

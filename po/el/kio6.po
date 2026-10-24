@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-23 00:44+0000\n"
-"PO-Revision-Date: 2026-10-16 15:23+0300\n"
+"POT-Creation-Date: 2026-10-24 00:45+0000\n"
+"PO-Revision-Date: 2026-10-23 14:52+0300\n"
 "Last-Translator: Petros Vidalis <pvidalis@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -3993,7 +3993,7 @@ msgstr "Σφάλμα αποθήκευσης εικόνας στο %1"
 msgid "Icon file too big, download aborted"
 msgstr "Πολύ μεγάλο αρχείο εικονιδίου, εγκατάλειψη λήψης"
 
-#: gui/filepreviewjob.cpp:297
+#: gui/filepreviewjob.cpp:314
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -4002,11 +4002,10 @@ msgstr ""
 "συμβολικός δεσμός: %1"
 
 #: gui/kemailclientlauncherjob.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to open the file."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to open email client"
-msgstr "Αποτυχία ανοίγματος του αρχείου."
+msgstr "Αποτυχία ανοίγματος του προγράμματος ηλεκτρονικού ταχυδρομείου"
 
 #: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
@@ -5448,14 +5447,12 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kfileitemactions.cpp:777
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Open Folder With…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
-msgstr[0] "Άνοιγμα &φακέλου με…"
-msgstr[1] "Άνοιγμα &φακέλου με…"
+msgstr[0] "Άν&οιγμα φακέλου με…"
+msgstr[1] "Άν&οιγμα φακέλων με…"
 
 #: widgets/kfileitemactions.cpp:777
 #, kde-format
@@ -5470,13 +5467,12 @@ msgid "&Run Executable"
 msgstr "&Εκκίνηση Εκτελέσιμου"
 
 #: widgets/kfileitemactions.cpp:857
-#, fuzzy, kde-format
-#| msgid "&Open folder with %1"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open folder with %2"
 msgid_plural "&Open folders with %2"
-msgstr[0] "Άνοιγμα φα&κέλου με %1"
-msgstr[1] "Άνοιγμα φα&κέλου με %1"
+msgstr[0] "Άν&οιγμα φακέλου με %2"
+msgstr[1] "Άν&οιγμα φακέλων με %2"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -5484,14 +5480,12 @@ msgid "&Open with %1"
 msgstr "Ά&νοιγμα με %1"
 
 #: widgets/kfileitemactions.cpp:891
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgid_plural "&Open Folders With"
-msgstr[0] "Άνοιγ&μα φακέλου με"
-msgstr[1] "Άνοιγ&μα φακέλου με"
+msgstr[0] "Άν&οιγμα φακέλου με"
+msgstr[1] "Άνοιγ&μα φακέλων με"
 
 #: widgets/kfileitemactions.cpp:891
 #, kde-format

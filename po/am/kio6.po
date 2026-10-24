@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-23 00:44+0000\n"
+"POT-Creation-Date: 2026-10-24 00:45+0000\n"
 "PO-Revision-Date: 2026-05-04 17:15+0300\n"
 "Last-Translator: Wesenseged <kde-i18n-de@kde.org>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -3799,7 +3799,7 @@ msgstr "ምስል ወደ %1 ማስቀመጥ ላይ ስህተት"
 msgid "Icon file too big, download aborted"
 msgstr "የአዶ ፋይል በጣም ትልቅ ነው፣ ማውረድ ተቋርጧል"
 
-#: gui/filepreviewjob.cpp:297
+#: gui/filepreviewjob.cpp:314
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
