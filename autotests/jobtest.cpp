@@ -3299,6 +3299,25 @@ void JobTest::chmodFileSetAcl()
 #elif defined(Q_OS_FREEBSD)
     QSKIP("The test is not adapted for FreeBSD yet");
 #else
+    // A named-user entry makes this an *extended* ACL
+    QByteArray want = "user::rw-\nuser:root:rwx\ngroup::rw-\nmask::rwx\nother::r--\n";
+
+    // Setting this ACL needs a filesystem with ACL support, and a user namespace that maps uid 0.
+    {
+        const QString probePath = homeTmpDir() + "fileForAclProbe";
+        createTestFile(probePath);
+        acl_t probe = acl_from_text(want.constData());
+        const int result = probe ? acl_set_file(QFile::encodeName(probePath).constData(), ACL_TYPE_ACCESS, probe) : -1;
+        const int error = errno;
+        if (probe) {
+            acl_free(probe);
+        }
+        QFile::remove(probePath);
+        if (result != 0) {
+            QSKIP(qPrintable(QStringLiteral("The system cannot set the ACL of the test: %1").arg(qt_error_string(error))));
+        }
+    }
+
     const QString filePath = homeTmpDir() + "fileForChmodAcl";
     createTestFile(filePath);
     KFileItem item(QUrl::fromLocalFile(filePath));
@@ -3307,8 +3326,6 @@ void JobTest::chmodFileSetAcl()
     KIO::Job *job = KIO::chmod(items, item.permissions(), S_IWGRP, QString(), QString(), false, KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
 
-    // A named-user entry makes this an *extended* ACL
-    QByteArray want = "user::rw-\nuser:root:rwx\ngroup::rw-\nmask::rwx\nother::r--\n";
     job->addMetaData(QStringLiteral("ACL_STRING"), want);
 
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
