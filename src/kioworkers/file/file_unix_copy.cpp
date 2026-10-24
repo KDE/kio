@@ -43,6 +43,7 @@
 #include <deque>
 #include <fcntl.h>
 #include <functional>
+#include <memory>
 #include <mutex>
 #include <poll.h>
 #include <stdint.h>
@@ -325,6 +326,9 @@ struct AdaptiveChunk {
 static constexpr off_t s_minWindow = 1024 * 1024;
 static constexpr std::chrono::milliseconds s_windowWriteback = 200ms;
 
+// How often a copy that waits for a window checks whether it was cancelled.
+static constexpr std::chrono::milliseconds s_cancelCheck = 100ms;
+
 struct WritebackWindow {
     int fd = -1;
     off_t maxSize = 0; // 0: the kernel writes back on its own
@@ -332,50 +336,69 @@ struct WritebackWindow {
     off_t windowStart = 0; // start of the window that the copy is writing
     off_t progressLimit = size; // the progress reported so far is at most this
 
-    WritebackWindow(int destFd, off_t maxWindow)
+    WritebackWindow(int destFd, off_t maxWindow, std::function<bool()> killed)
         : fd(destFd)
         , maxSize(maxWindow)
+        , isKilled(std::move(killed))
     {
     }
 
     ~WritebackWindow()
     {
-        if (helper.joinable()) {
-            {
-                std::lock_guard lock(mutex);
-                stopping = true;
-            }
-            changed.notify_all();
+        if (!helper.joinable()) {
+            return;
+        }
+        {
+            std::lock_guard lock(shared->mutex);
+            shared->stopping = true;
+        }
+        shared->changed.notify_all();
+        // The writeback of a window cannot be interrupted. After a cancel, the helper finishes it on its
+        // own instead of holding up the cancel.
+        if (cancelled || (isKilled && isKilled())) {
+            helper.detach();
+        } else {
             helper.join();
         }
     }
 
-    // written is the end of the data written so far. On failure errno is set.
+    // written is the end of the data written so far. On failure errno is set, ECANCELED on cancel.
     bool advance([[maybe_unused]] off_t written)
     {
 #if HAVE_SYNC_FILE_RANGE
         if (size == 0 || written - windowStart < size) {
             return true;
         }
-        std::unique_lock lock(mutex);
+        std::unique_lock lock(shared->mutex);
         if (!helper.joinable()) {
-            helper = std::thread(&WritebackWindow::writeBack, this);
+            // A descriptor of its own stays open when the helper outlives the copy after a cancel.
+            const int helperFd = ::fcntl(fd, F_DUPFD_CLOEXEC, 0);
+            if (helperFd < 0) {
+                return false;
+            }
+            helper = std::thread(&WritebackWindow::writeBack, shared, helperFd);
         }
-        pending.push_back({windowStart, written});
-        changed.notify_all();
-        changed.wait(lock, [this] {
-            return writtenBack >= windowStart || error != 0;
-        });
-        if (error != 0) {
-            errno = error;
+        shared->pending.push_back({windowStart, written});
+        shared->changed.notify_all();
+        while (!shared->changed.wait_for(lock, s_cancelCheck, [this] {
+            return shared->writtenBack >= windowStart || shared->error != 0;
+        })) {
+            if (isKilled && isKilled()) {
+                cancelled = true;
+                errno = ECANCELED;
+                return false;
+            }
+        }
+        if (shared->error != 0) {
+            errno = shared->error;
             return false;
         }
-        if (lastWindowNs > 0) {
-            resize(lastWindowBytes, lastWindowNs);
-            lastWindowNs = 0;
+        if (shared->lastWindowNs > 0) {
+            resize(shared->lastWindowBytes, shared->lastWindowNs);
+            shared->lastWindowNs = 0;
         }
         windowStart = written;
-        progressLimit = qMax(progressLimit, writtenBack + size);
+        progressLimit = qMax(progressLimit, shared->writtenBack + size);
 #endif
         return true;
     }
@@ -394,53 +417,63 @@ private:
         off_t end;
     };
 
-    std::thread helper{};
-    std::mutex mutex{};
-    std::condition_variable changed{};
-    std::deque<Range> pending{}; // windows handed over and not written back yet
-    off_t writtenBack = 0; // the data before this offset is written back
-    int error = 0; // errno of a writeback that failed
-    bool stopping = false;
-    off_t lastWindowBytes = 0;
-    qint64 lastWindowNs = 0; // time the helper took to write back its last window, 0 once used
+    // What the copy and the helper share. The helper keeps it alive when it outlives the copy.
+    struct Shared {
+        std::mutex mutex{};
+        std::condition_variable changed{};
+        std::deque<Range> pending{}; // windows handed over and not written back yet
+        off_t writtenBack = 0; // the data before this offset is written back
+        int error = 0; // errno of a writeback that failed
+        bool stopping = false;
+        off_t lastWindowBytes = 0;
+        qint64 lastWindowNs = 0; // time the helper took to write back its last window, 0 once used
+    };
 
-    // Runs on the helper thread.
-    void writeBack()
+    std::function<bool()> isKilled;
+    std::shared_ptr<Shared> shared = std::make_shared<Shared>();
+    std::thread helper{};
+    bool cancelled = false;
+
+    // Runs on the helper thread, which owns helperFd.
+    static void writeBack([[maybe_unused]] std::shared_ptr<Shared> state, int helperFd)
     {
+        const auto closeFd = qScopeGuard([helperFd] {
+            ::close(helperFd);
+        });
 #if HAVE_SYNC_FILE_RANGE
-        std::unique_lock lock(mutex);
+        std::unique_lock lock(state->mutex);
         while (true) {
-            changed.wait(lock, [this] {
-                return stopping || !pending.empty();
+            state->changed.wait(lock, [&state] {
+                return state->stopping || !state->pending.empty();
             });
-            if (stopping) {
+            if (state->stopping) {
                 return;
             }
-            const Range range = pending.front();
-            pending.pop_front();
+            const Range range = state->pending.front();
+            state->pending.pop_front();
             lock.unlock();
 
             QElapsedTimer timer;
             timer.start();
             constexpr unsigned writeAndWait = SYNC_FILE_RANGE_WAIT_BEFORE | SYNC_FILE_RANGE_WRITE | SYNC_FILE_RANGE_WAIT_AFTER;
-            const int failure = ::sync_file_range(fd, range.start, range.end - range.start, writeAndWait) == 0 ? 0 : errno;
+            const int failure = ::sync_file_range(helperFd, range.start, range.end - range.start, writeAndWait) == 0 ? 0 : errno;
 #if HAVE_FADVISE
             if (failure == 0) {
                 // Written back and not read again: the pages can go.
-                ::posix_fadvise(fd, range.start, range.end - range.start, POSIX_FADV_DONTNEED);
+                ::posix_fadvise(helperFd, range.start, range.end - range.start, POSIX_FADV_DONTNEED);
             }
 #endif
             const qint64 elapsedNs = qMax<qint64>(timer.nsecsElapsed(), 1);
 
             lock.lock();
             if (failure != 0) {
-                error = failure;
+                state->error = failure;
             } else {
-                writtenBack = range.end;
-                lastWindowBytes = range.end - range.start;
-                lastWindowNs = elapsedNs;
+                state->writtenBack = range.end;
+                state->lastWindowBytes = range.end - range.start;
+                state->lastWindowNs = elapsedNs;
             }
-            changed.notify_all();
+            state->changed.notify_all();
             if (failure != 0) {
                 return;
             }
@@ -468,7 +501,7 @@ bool copyFds(int sourceFd,
              bool *readFailed = nullptr,
              KIO::filesize_t writebackWindow = 0)
 {
-    WritebackWindow window(destFd, off_t(writebackWindow));
+    WritebackWindow window(destFd, off_t(writebackWindow), isKilled);
     const KIO::filesize_t progressBase = bytesCopied; // the running total before this file
 #if HAVE_COPY_FILE_RANGE
     QElapsedTimer timer;
