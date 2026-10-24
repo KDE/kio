@@ -72,6 +72,7 @@ public:
      * Special commands supported by this worker:
      * 1 - mount
      * 2 - unmount
+     * 3 - flush the filesystem of a folder on a removable device
      */
     KIO::WorkerResult special(const QByteArray &data) override;
     KIO::WorkerResult unmount(const QString &point);
@@ -79,6 +80,8 @@ public:
 #ifndef Q_OS_WIN
     // Whether the folder is on a removable device. Linux only.
     static bool isOnRemovableDevice(const QString &folder);
+    // Writes back the data of the filesystem that holds the folder, when it is on a removable device.
+    KIO::WorkerResult flushRemovableFolder(const QString &folder);
 #endif
 
 #if HAVE_POSIX_ACL

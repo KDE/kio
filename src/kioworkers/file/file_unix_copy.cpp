@@ -33,6 +33,7 @@
 
 #include <chrono>
 
+#include <KLocalizedString>
 #include <QDebug>
 #include <kmountpoint.h>
 
@@ -717,6 +718,30 @@ bool FileProtocol::isOnRemovableDevice(const QString &folder)
     const bool removable = isFolderOnRemovableDevice(fd, folder);
     ::close(fd);
     return removable;
+}
+
+WorkerResult FileProtocol::flushRemovableFolder(const QString &folder)
+{
+    const int fd = ::open(QFile::encodeName(folder).constData(), O_RDONLY | O_DIRECTORY | O_CLOEXEC);
+    if (fd < 0) {
+        // The folder that the copy just wrote to cannot be reached, as when the device is unplugged, so
+        // the data may not be on it.
+        return WorkerResult::fail(KIO::ERR_CANNOT_WRITE, folder);
+    }
+    const auto closeFd = qScopeGuard([fd] {
+        ::close(fd);
+    });
+    if (!isFolderOnRemovableDevice(fd, folder)) {
+        return WorkerResult::pass();
+    }
+#ifdef Q_OS_LINUX
+    infoMessage(i18n("Writing the copied data to the device..."));
+    if (::syncfs(fd) != 0) {
+        const int err = errno;
+        return WorkerResult::fail((err == ENOSPC || err == EDQUOT) ? KIO::ERR_DISK_FULL : KIO::ERR_CANNOT_WRITE, folder);
+    }
+#endif
+    return WorkerResult::pass();
 }
 
 WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _mode, JobFlags _flags)

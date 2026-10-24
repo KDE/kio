@@ -357,6 +357,56 @@ void JobTest::putReportsRemovableDestination()
     QCOMPARE(job->metaData().value(QStringLiteral("flush-destination")) == QLatin1String("true"), removable);
 }
 
+void JobTest::flushRemovableFolder_data()
+{
+    QTest::addColumn<bool>("removable");
+    QTest::addColumn<bool>("folderExists");
+
+    QTest::newRow("removable destination") << true << true;
+    QTest::newRow("fixed destination") << false << true;
+    QTest::newRow("unplugged destination") << true << false;
+}
+
+void JobTest::flushRemovableFolder()
+{
+    // The flush command writes back a folder on a removable device and notifies the job while it
+    // runs. It does nothing for another folder, and fails for a folder that is gone, whose data may
+    // not have reached the device.
+    QFETCH(bool, removable);
+    QFETCH(bool, folderExists);
+#ifndef Q_OS_LINUX
+    QSKIP("The file worker flushes a removable device with syncfs, which only Linux has");
+#endif
+    if (removable) {
+        qputenv("KIO_FILE_FORCE_REMOVABLE", "1");
+    }
+    const auto unsetRemovable = qScopeGuard([] {
+        qunsetenv("KIO_FILE_FORCE_REMOVABLE");
+    });
+
+    QTemporaryDir sandbox(homeTmpDir() + "removableXXXXXX");
+    QVERIFY(sandbox.isValid());
+    const QString folder = sandbox.filePath(folderExists ? QStringLiteral(".") : QStringLiteral("unplugged"));
+
+    QByteArray packedArgs;
+    QDataStream stream(&packedArgs, QIODevice::WriteOnly);
+    stream << int(3) << folder;
+    KIO::SimpleJob *job = KIO::special(QUrl::fromLocalFile(folder), packedArgs, KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QStringList messages;
+    connect(job, &KJob::infoMessage, this, [&messages](KJob *, const QString &message) {
+        messages.append(message);
+    });
+
+    if (!folderExists) {
+        QVERIFY(!job->exec());
+        QCOMPARE(job->error(), KIO::ERR_CANNOT_WRITE);
+        return;
+    }
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QCOMPARE(messages.contains(QStringLiteral("Writing the copied data to the device...")), removable);
+}
+
 void JobTest::putPermissionKept()
 {
     const QString filePath = homeTmpDir() + "fileFromHome";
