@@ -880,6 +880,14 @@ void CopyJobPrivate::slotReport()
         break;
     }
 
+    case STATE_DELETING_SOURCES:
+        // The sources of a move to a removable device are deleted one by one after the flush.
+        if (m_bURLDirty && !m_keptSources.isEmpty()) {
+            m_bURLDirty = false;
+            emitDeleting(q, m_keptSources.constFirst().info.uSource);
+        }
+        break;
+
     case STATE_CREATING_DIRS:
         q->setProcessedAmount(KJob::Directories, m_processedDirs);
         if (m_bURLDirty) {
@@ -2532,6 +2540,7 @@ void CopyJobPrivate::deleteKeptSources()
     // The source is deleted only when it has not changed since its copy, which may be long before
     // the flush.
     state = STATE_DELETING_SOURCES;
+    m_bURLDirty = true;
     KIO::StatJob *job = statKeptSource(m_keptSources.constFirst().info.uSource);
     job->setParentJob(q);
     q->addSubjob(job);
