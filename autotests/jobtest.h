@@ -64,6 +64,8 @@ private Q_SLOTS:
     void killedMoveFlushesRemovableDestination();
     void moveToTargetUrlFlushesRemovableDestination();
     void copyLargeFileWithWritebackWindow();
+    void putLargeFileWithWritebackWindow_data();
+    void putLargeFileWithWritebackWindow();
     void copyFileToSetgidDirectory_data();
     void copyFileToSetgidDirectory();
     void copyFilePreservesAcl();

@@ -984,15 +984,73 @@ WritebackPolicy writebackPolicyFor([[maybe_unused]] int destDirFd, [[maybe_unuse
 
 } // namespace
 
-bool FileProtocol::isOnRemovableDevice(const QString &folder)
+struct DestinationWriteback::Private {
+    Private(int fd, const WritebackPolicy &writebackPolicy, const QString &destFolder, std::function<bool()> isKilled)
+        : policy(writebackPolicy)
+        , window(fd, off_t(writebackPolicy.window), std::move(isKilled))
+        , folder(destFolder)
+    {
+    }
+
+    WritebackPolicy policy;
+    WritebackWindow window;
+    QString folder;
+    bool fileFlushed = false;
+};
+
+DestinationWriteback::DestinationWriteback(int fd, const QString &folder, std::function<bool()> isKilled)
 {
-    const int fd = ::open(QFile::encodeName(folder).constData(), O_RDONLY | O_DIRECTORY | O_CLOEXEC);
-    if (fd < 0) {
+    WritebackPolicy policy;
+    const int dirFd = ::open(QFile::encodeName(folder).constData(), O_RDONLY | O_DIRECTORY | O_CLOEXEC);
+    if (dirFd >= 0) {
+        policy = writebackPolicyFor(dirFd, folder);
+        ::close(dirFd);
+    }
+    d = std::make_unique<Private>(fd, policy, folder, std::move(isKilled));
+}
+
+DestinationWriteback::~DestinationWriteback() = default;
+
+bool DestinationWriteback::isActive() const
+{
+    return d->policy.window > 0;
+}
+
+bool DestinationWriteback::isRemovable() const
+{
+    return d->policy.flushWindowedFile;
+}
+
+bool DestinationWriteback::advance(off_t written)
+{
+    return d->window.advance(written);
+}
+
+bool DestinationWriteback::flushLargeFile(off_t size)
+{
+    // The window has written back all but its last two windows, so this waits for those only.
+    if (!d->policy.flushWindowedFile || d->policy.window == 0 || KIO::filesize_t(size) <= d->policy.window) {
+        return true;
+    }
+    if (::fsync(d->window.fd) != 0) {
         return false;
     }
-    const bool removable = isFolderOnRemovableDevice(fd, folder);
-    ::close(fd);
-    return removable;
+    d->fileFlushed = true;
+    return true;
+}
+
+void DestinationWriteback::flushFolder()
+{
+    if (!d->fileFlushed) {
+        return;
+    }
+    const int dirFd = ::open(QFile::encodeName(d->folder).constData(), O_RDONLY | O_DIRECTORY | O_CLOEXEC);
+    if (dirFd < 0 || ::fsync(dirFd) != 0) {
+        qCWarning(KIO_FILE) << "Could not flush the folder" << d->folder << ":" << strerror(errno);
+    }
+    if (dirFd >= 0) {
+        ::close(dirFd);
+    }
 }
 
 WorkerResult FileProtocol::flushRemovableFolder(const QString &folder)

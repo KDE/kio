@@ -30,6 +30,38 @@
 #include <QLoggingCategory>
 Q_DECLARE_LOGGING_CATEGORY(KIO_FILE)
 
+#ifndef Q_OS_WIN
+#include <functional>
+#include <memory>
+
+// Writes the data of a file back window by window while it is written, as a copy does, when its
+// folder is on a removable device or a network filesystem.
+class DestinationWriteback
+{
+public:
+    DestinationWriteback(int fd, const QString &folder, std::function<bool()> isKilled);
+    ~DestinationWriteback();
+
+    // True when the data is written back window by window.
+    bool isActive() const;
+    // True when the folder is on a removable device.
+    bool isRemovable() const;
+    // written is the end of the data written to the file so far. On failure errno is set, ECANCELED
+    // on cancel.
+    bool advance(off_t written);
+    // Flushes the file when the folder is on a removable device and the file is larger than a
+    // window. On failure errno is set.
+    bool flushLargeFile(off_t size);
+    // Flushes the folder after flushLargeFile flushed the file, for the entry of the file under its
+    // final name.
+    void flushFolder();
+
+private:
+    struct Private;
+    std::unique_ptr<Private> d;
+};
+#endif
+
 class FileProtocol : public QObject, public KIO::WorkerBase
 {
     Q_OBJECT
@@ -78,8 +110,6 @@ public:
     KIO::WorkerResult unmount(const QString &point);
     KIO::WorkerResult mount(bool _ro, const char *_fstype, const QString &dev, const QString &point);
 #ifndef Q_OS_WIN
-    // Whether the folder is on a removable device. Linux only.
-    static bool isOnRemovableDevice(const QString &folder);
     // Writes back the data of the filesystem that holds the folder, when it is on a removable device.
     KIO::WorkerResult flushRemovableFolder(const QString &folder);
 #endif

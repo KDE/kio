@@ -1479,6 +1479,56 @@ void JobTest::copyLargeFileWithWritebackWindow()
     QVERIFY(source.readAll() == copy.readAll());
 }
 
+void JobTest::putLargeFileWithWritebackWindow_data()
+{
+    QTest::addColumn<bool>("removable");
+
+    QTest::newRow("removable destination") << true;
+    QTest::newRow("fixed destination") << false;
+}
+
+void JobTest::putLargeFileWithWritebackWindow()
+{
+    // Data that a job sends to a removable device, as a copy from another protocol does, is written
+    // back window by window and gives the same file. The worker asks the job to flush the
+    // destination folder for the files smaller than a window.
+    QFETCH(bool, removable);
+    if (removable) {
+        qputenv("KIO_FILE_FORCE_REMOVABLE", "1");
+    }
+    const auto unsetRemovable = qScopeGuard([] {
+        qunsetenv("KIO_FILE_FORCE_REMOVABLE");
+    });
+
+    QTemporaryDir sandbox(homeTmpDir() + "writebackXXXXXX");
+    QVERIFY(sandbox.isValid());
+    const QString dest = sandbox.filePath(QStringLiteral("large_put"));
+
+    // Several windows, and each MiB is different from the others.
+    constexpr int blocks = 24;
+    constexpr qint64 blockSize = 1024 * 1024;
+    KIO::TransferJob *job = KIO::put(QUrl::fromLocalFile(dest), -1, KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    int sent = 0;
+    connect(job, &KIO::TransferJob::dataReq, this, [&sent](KIO::Job *, QByteArray &data) {
+        if (sent < blocks) {
+            data = QByteArray(blockSize, char(sent));
+            ++sent;
+        }
+    });
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+#ifdef Q_OS_LINUX
+    QCOMPARE(job->metaData().value(QStringLiteral("flush-destination")) == QLatin1String("true"), removable);
+#endif
+
+    QFile written(dest);
+    QVERIFY(written.open(QIODevice::ReadOnly));
+    QCOMPARE(written.size(), blocks * blockSize);
+    for (int i = 0; i < blocks; ++i) {
+        QVERIFY(written.read(blockSize) == QByteArray(blockSize, char(i)));
+    }
+}
+
 void JobTest::copyFileToSetgidDirectory_data()
 {
     QTest::addColumn<int>("permissions");

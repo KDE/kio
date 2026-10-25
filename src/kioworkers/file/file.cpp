@@ -23,6 +23,7 @@
 #include <cerrno>
 #ifndef Q_OS_WIN
 #include <fcntl.h>
+#include <optional>
 #include <sys/statvfs.h>
 #include <utime.h>
 #endif
@@ -652,6 +653,9 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
     int error = 0;
     QString dest;
     QFile f;
+#ifndef Q_OS_WIN
+    std::optional<DestinationWriteback> writeback;
+#endif
 
     // Loop until we got 0 (end of data)
     do {
@@ -695,6 +699,11 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
                         f.setPermissions(modeToQFilePermissions(initialMode));
                     }
                 }
+#ifndef Q_OS_WIN
+                writeback.emplace(f.handle(), QFileInfo(dest).absolutePath(), [this] {
+                    return wasKilled();
+                });
+#endif
             }
 
             if (f.write(buffer) == -1) {
@@ -706,6 +715,13 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
                     error = KIO::ERR_CANNOT_WRITE;
                 }
             }
+#ifndef Q_OS_WIN
+            // The window writes back what reached the file, so the buffer of f is written first.
+            if (error == 0 && writeback->isActive() && (!f.flush() || !writeback->advance(f.pos()))) {
+                error = (errno == ENOSPC || errno == EDQUOT) ? KIO::ERR_DISK_FULL : KIO::ERR_CANNOT_WRITE;
+                result = -1;
+            }
+#endif
         } else {
             qCWarning(KIO_FILE) << "readData() returned" << result;
             error = KIO::ERR_CANNOT_WRITE;
@@ -750,6 +766,12 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
     }
 #endif
 
+#ifndef Q_OS_WIN
+    if (!f.flush() || !writeback->flushLargeFile(f.pos())) {
+        return WorkerResult::fail((errno == ENOSPC || errno == EDQUOT) ? KIO::ERR_DISK_FULL : KIO::ERR_CANNOT_WRITE, dest_orig);
+    }
+#endif
+
     f.close();
 
     if (f.error() != QFile::NoError) {
@@ -784,6 +806,9 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
         org::kde::KDirNotify::emitFileRenamed(QUrl::fromLocalFile(dest), QUrl::fromLocalFile(dest_orig));
 #endif
     }
+#ifndef Q_OS_WIN
+    writeback->flushFolder();
+#endif
 
     // set final permissions
     if (_mode != -1 && !(_flags & KIO::Resume)) {
@@ -825,9 +850,9 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
 #endif
 
 #ifndef Q_OS_WIN
-    if (isOnRemovableDevice(QFileInfo(dest_orig).absolutePath())) {
-        // The data is still in the page cache. The job asks for the flush of the folder once its last
-        // file is written.
+    if (writeback->isRemovable()) {
+        // A file smaller than the window is still in the page cache. The job asks for the flush of
+        // the folder once its last file is written.
         setMetaData(QStringLiteral("flush-destination"), QStringLiteral("true"));
     }
 #endif
