@@ -26,3 +26,6 @@
 
 /* Defined if system has the renameat2 function. */
 #cmakedefine01 HAVE_RENAMEAT2
+
+/* Defined if system has the sync_file_range function. */
+#cmakedefine01 HAVE_SYNC_FILE_RANGE
