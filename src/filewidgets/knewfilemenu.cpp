@@ -1473,7 +1473,9 @@ void KNewFileMenuPrivate::showNewDirNameDlg(const QString &name)
 
     m_fileDialog->setWindowTitle(m_windowTitle.isEmpty() ? i18nc("@title:window", "Create New Folder") : m_windowTitle);
 
-    m_label->setText(i18n("Create new folder in %1:", m_baseUrl.toDisplayString(QUrl::PreferLocalFile | QUrl::StripTrailingSlash)));
+    m_label->setText(xi18nc("@label",
+                            "Create new folder in <filename>%1</filename>:",
+                            mostLocalUrl(m_baseUrl).toDisplayString(QUrl::PreferLocalFile | QUrl::StripTrailingSlash)));
 
     m_lineEdit->setText(name);
     m_lineEdit->setPlaceholderText(i18nc("@info:placeholder", "Enter folder name"));
