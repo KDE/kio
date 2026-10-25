@@ -1194,6 +1194,122 @@ void JobTest::copyFolderFlushesRemovableDestination()
     }
 }
 
+void JobTest::copyStoppedByErrorFlushesRemovableDestination_data()
+{
+    QTest::addColumn<bool>("move");
+
+    QTest::newRow("copy") << false;
+    QTest::newRow("move") << true;
+}
+
+void JobTest::copyStoppedByErrorFlushesRemovableDestination()
+{
+    // A copy to a removable device that stops on an error still writes the files that it copied to
+    // the device, and reports the error that stopped it. A move deletes the sources of those files.
+    QFETCH(bool, move);
+#ifndef Q_OS_LINUX
+    QSKIP("The file worker flushes a removable device with syncfs, which only Linux has");
+#endif
+    if (move && otherTmpDirIsOnSamePartition()) {
+        QSKIP("A move on one partition renames the folder, and copies nothing");
+    }
+    qputenv("KIO_FILE_FORCE_REMOVABLE", "1");
+    const auto unsetRemovable = qScopeGuard([] {
+        qunsetenv("KIO_FILE_FORCE_REMOVABLE");
+    });
+
+    QTemporaryDir sandbox(homeTmpDir() + "flushXXXXXX");
+    QVERIFY(sandbox.isValid());
+    QTemporaryDir otherSandbox(otherTmpDir() + "flushXXXXXX");
+    QVERIFY(otherSandbox.isValid());
+    const QTemporaryDir &srcSandbox = move ? otherSandbox : sandbox;
+    const QString srcFolder = srcSandbox.filePath(QStringLiteral("smallFiles"));
+    const QString srcLater = srcSandbox.filePath(QStringLiteral("later"));
+    const QString srcConflict = srcLater + QStringLiteral("/conflict");
+    const QString destDir = sandbox.filePath(QStringLiteral("device"));
+    for (int i = 0; i < 3; ++i) {
+        createTestFile(srcFolder + QStringLiteral("/file%1").arg(i));
+    }
+    createTestFile(srcConflict);
+    createTestFile(destDir + QStringLiteral("/later/conflict"));
+
+    // The files of the first folder are copied first, then the conflict in the second one stops the
+    // job.
+    const QList<QUrl> sources{QUrl::fromLocalFile(srcFolder), QUrl::fromLocalFile(srcLater)};
+    const QUrl destUrl = QUrl::fromLocalFile(destDir);
+    KIO::CopyJob *job = move ? KIO::move(sources, destUrl, KIO::HideProgressInfo) : KIO::copy(sources, destUrl, KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    job->setUiDelegateExtension(nullptr);
+    job->setWriteIntoExistingDirectories(true);
+    QStringList messages;
+    connect(job, &KJob::infoMessage, this, [&messages](KJob *, const QString &message) {
+        messages.append(message);
+    });
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), KIO::ERR_FILE_ALREADY_EXIST);
+    QVERIFY(messages.contains(QStringLiteral("Writing the copied data to the device...")));
+
+    for (int i = 0; i < 3; ++i) {
+        QVERIFY(QFile::exists(destDir + QStringLiteral("/smallFiles/file%1").arg(i)));
+    }
+    QCOMPARE(QDir(srcFolder).entryList(QDir::Files).size(), move ? 0 : 3);
+    QVERIFY(QFile::exists(srcConflict));
+}
+
+void JobTest::killedMoveFlushesRemovableDestination()
+{
+    // A move to a removable device that the user cancels still writes the files that it moved to the
+    // device, then deletes their sources.
+#ifndef Q_OS_LINUX
+    QSKIP("The file worker flushes a removable device with syncfs, which only Linux has");
+#endif
+    if (otherTmpDirIsOnSamePartition()) {
+        QSKIP("A move on one partition renames the folder, and copies nothing");
+    }
+    qputenv("KIO_FILE_FORCE_REMOVABLE", "1");
+    const auto unsetRemovable = qScopeGuard([] {
+        qunsetenv("KIO_FILE_FORCE_REMOVABLE");
+    });
+
+    QTemporaryDir sandbox(homeTmpDir() + "flushXXXXXX");
+    QVERIFY(sandbox.isValid());
+    QTemporaryDir otherSandbox(otherTmpDir() + "flushXXXXXX");
+    QVERIFY(otherSandbox.isValid());
+    const QString srcFolder = otherSandbox.filePath(QStringLiteral("smallFiles"));
+    const QString srcLarge = otherSandbox.filePath(QStringLiteral("large"));
+    // The test mode of the file worker slows down a copy into a folder named slow.
+    const QString destDir = sandbox.filePath(QStringLiteral("slowDevice"));
+    QVERIFY(QDir().mkpath(destDir));
+    for (int i = 0; i < 3; ++i) {
+        createTestFile(srcFolder + QStringLiteral("/file%1").arg(i));
+    }
+    createTestFile(srcLarge, false, QByteArray(8 * 1024 * 1024, 'x'));
+
+    const QList<QUrl> sources{QUrl::fromLocalFile(srcFolder), QUrl::fromLocalFile(srcLarge)};
+    KIO::CopyJob *job = KIO::move(sources, QUrl::fromLocalFile(destDir), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    job->setUiDelegateExtension(nullptr);
+    int moved = 0;
+    FileCopyWatcher watcher;
+    watcher.onFileCopied = [&moved, job](KIO::FileCopyJob *) {
+        if (++moved == 3) {
+            // The large file is being moved when the job is killed.
+            QTimer::singleShot(0, job, [job] {
+                job->kill();
+            });
+        }
+    };
+    job->installEventFilter(&watcher);
+    QVERIFY(!job->exec());
+    QCOMPARE(moved, 3);
+
+    for (int i = 0; i < 3; ++i) {
+        QVERIFY(QFile::exists(destDir + QStringLiteral("/smallFiles/file%1").arg(i)));
+    }
+    QTRY_COMPARE(QDir(srcFolder).entryList(QDir::Files).size(), 0);
+    QVERIFY(QFile::exists(srcLarge));
+}
+
 void JobTest::moveToTargetUrlFlushesRemovableDestination()
 {
     // A destination that a worker maps to a local folder through UDS_TARGET_URL is flushed too. Its

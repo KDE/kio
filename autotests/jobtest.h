@@ -59,6 +59,9 @@ private Q_SLOTS:
     void fileSystemFreeSpace();
     void copyFolderFlushesRemovableDestination_data();
     void copyFolderFlushesRemovableDestination();
+    void copyStoppedByErrorFlushesRemovableDestination_data();
+    void copyStoppedByErrorFlushesRemovableDestination();
+    void killedMoveFlushesRemovableDestination();
     void moveToTargetUrlFlushesRemovableDestination();
     void copyFileToSetgidDirectory_data();
     void copyFileToSetgidDirectory();

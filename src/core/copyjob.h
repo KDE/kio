@@ -119,6 +119,11 @@ public:
     /*!
      * \reimp
      */
+    bool doKill() override;
+
+    /*!
+     * \reimp
+     */
     bool doResume() override;
 
 Q_SIGNALS:
