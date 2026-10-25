@@ -270,6 +270,9 @@ struct CopyRequest {
     // The largest window of written data after which its writeback is started. 0 leaves writeback
     // to the kernel.
     KIO::filesize_t writebackWindow = 0;
+    // A file larger than the window is on the device, with its name and its times, before the copy
+    // reports it done.
+    bool flushWindowedFile = false;
 };
 
 struct CopyReport {
@@ -780,8 +783,18 @@ CopyReport copyFileAt(int srcDirFd,
 
     preserve(sourceFd, destFd, st, request, request.existing != ExistingDest::Truncate, destDirGroup); // both fds still open
 
+    // The window has written back all but its last two windows, so this waits for those only.
+    const bool flush = request.flushWindowedFile && request.writebackWindow > 0 && KIO::filesize_t(st.st_size) > request.writebackWindow;
+    if (flush && ::fsync(destFd) != 0) {
+        return {CopyOutcome::Failed, CopyStage::Transfer, errno, false};
+    }
+
     if (publishViaRename && ::renameat(destDirFd, outName.constData(), destDirFd, destName.constData()) != 0) {
         return {CopyOutcome::Failed, CopyStage::Publish, errno, false};
+    }
+    // The entry of the file in the folder, under its final name.
+    if (flush && ::fsync(destDirFd) != 0) {
+        qCWarning(KIO_FILE) << "Could not flush the folder of" << QFile::decodeName(destName) << ":" << strerror(errno);
     }
 
     cleanupOutput.dismiss();
@@ -899,11 +912,16 @@ bool isFolderOnRemovableDevice([[maybe_unused]] int dirFd, [[maybe_unused]] cons
 #endif
 }
 
-// The window of written data after which a copy to the folder starts its writeback, or 0 to leave
-// writeback to the kernel. A removable device takes long to write back a large file, and a network
-// filesystem holds up other requests to the share while it writes one back. A local fixed disk
-// writes back fast enough on its own.
-KIO::filesize_t writebackWindowFor([[maybe_unused]] int destDirFd, [[maybe_unused]] const QString &destDir)
+struct WritebackPolicy {
+    KIO::filesize_t window = 0; // see CopyRequest::writebackWindow
+    bool flushWindowedFile = false; // see CopyRequest::flushWindowedFile
+};
+
+// How a copy to the folder writes its data back. A removable device takes long to write back a large
+// file, and can be unplugged once the copy reports it is done, so a large file is flushed there. A
+// network filesystem holds up other requests to the share while it writes a large file back. A local
+// fixed disk writes back fast enough on its own.
+WritebackPolicy writebackPolicyFor([[maybe_unused]] int destDirFd, [[maybe_unused]] const QString &destDir)
 {
 #if HAVE_SYNC_FILE_RANGE
     // The largest windows. On a fast link each window waits for the server to confirm the one before
@@ -913,18 +931,18 @@ KIO::filesize_t writebackWindowFor([[maybe_unused]] int destDirFd, [[maybe_unuse
     constexpr KIO::filesize_t smbWindow = 128 * 1024 * 1024;
 
     if (isFolderOnRemovableDevice(destDirFd, destDir)) {
-        return localWindow;
+        return {localWindow, true};
     }
     const MountTraits mount = mountTraitsFor(destDirFd, destDir);
     if (mount.cifs) {
-        return smbWindow;
+        return {smbWindow, false};
     }
     if (mount.slow) {
-        return localWindow;
+        return {localWindow, false};
     }
-    return 0;
+    return {};
 #else
-    return 0;
+    return {};
 #endif
 }
 
@@ -1066,7 +1084,9 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
     // extended ACL at all.
     request.preserveAcl = (_mode == -1);
     request.tryReflink = !slowTestMode; // sharing the data is instant, and a slow copy is the point of the test mode
-    request.writebackWindow = writebackWindowFor(dfd, QFile::decodeName(_destDir.isEmpty() ? QByteArray(".") : _destDir));
+    const WritebackPolicy writeback = writebackPolicyFor(dfd, QFile::decodeName(_destDir.isEmpty() ? QByteArray(".") : _destDir));
+    request.writebackWindow = writeback.window;
+    request.flushWindowedFile = writeback.flushWindowedFile;
 
     const auto isKilled = [this] {
         return wasKilled();
