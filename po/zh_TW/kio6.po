@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:45+0000\n"
+"POT-Creation-Date: 2026-10-25 00:46+0000\n"
 "PO-Revision-Date: 2026-10-01 01:03+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -4047,17 +4047,17 @@ msgstr ""
 "無法變更該權限\n"
 "%1"
 
-#: kioworkers/file/file.cpp:879 kioworkers/file/file.cpp:971
+#: kioworkers/file/file.cpp:894 kioworkers/file/file.cpp:986
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "無法開啟暫存檔"
 
-#: kioworkers/file/file.cpp:903
+#: kioworkers/file/file.cpp:918
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "找不到 mount 程式"
 
-#: kioworkers/file/file.cpp:980
+#: kioworkers/file/file.cpp:995
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "找不到 umount 程式"
@@ -4076,6 +4076,11 @@ msgstr "無法取得使用者 %1 的代碼。"
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "無法取得群組 %1 的代碼。"
+
+#: kioworkers/file/file_unix_copy.cpp:738
+#, kde-format
+msgid "Writing the copied data to the device..."
+msgstr ""
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format

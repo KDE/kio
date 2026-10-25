@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:45+0000\n"
+"POT-Creation-Date: 2026-10-25 00:46+0000\n"
 "PO-Revision-Date: 2026-01-27 20:13+0000\n"
 "Last-Translator: César A. P. Cláudio <cesarapclaudio@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
@@ -4316,17 +4316,17 @@ msgstr ""
 "Não foi possível alterar as permissões de\n"
 "%1"
 
-#: kioworkers/file/file.cpp:879 kioworkers/file/file.cpp:971
+#: kioworkers/file/file.cpp:894 kioworkers/file/file.cpp:986
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Não foi possível abrir o ficheiro temporário."
 
-#: kioworkers/file/file.cpp:903
+#: kioworkers/file/file.cpp:918
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Não foi possível encontrar o programa \"mount\""
 
-#: kioworkers/file/file.cpp:980
+#: kioworkers/file/file.cpp:995
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Não foi possível encontrar o programa \"umount\""
@@ -4345,6 +4345,11 @@ msgstr "Não foi possível obter o ID do utilizador %1"
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Não foi possível obter o ID do grupo %1"
+
+#: kioworkers/file/file_unix_copy.cpp:738
+#, kde-format
+msgid "Writing the copied data to the device..."
+msgstr ""
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format

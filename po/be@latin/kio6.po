@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:45+0000\n"
+"POT-Creation-Date: 2026-10-25 00:46+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -4354,18 +4354,18 @@ msgstr ""
 "Nie ŭdalosia zmianić pravy dostupu dlia\n"
 "%1"
 
-#: kioworkers/file/file.cpp:879 kioworkers/file/file.cpp:971
+#: kioworkers/file/file.cpp:894 kioworkers/file/file.cpp:986
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "Nie ŭdalosia zmianić nazvu časovaha fajla"
 
-#: kioworkers/file/file.cpp:903
+#: kioworkers/file/file.cpp:918
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nie ŭdalosia znajsci prahramu \"mount\""
 
-#: kioworkers/file/file.cpp:980
+#: kioworkers/file/file.cpp:995
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nie ŭdalosia znajsci prahramu \"umount\""
@@ -4386,6 +4386,11 @@ msgstr ""
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nie ŭdalosia atrymać identyfikatar hrupy dlia padadzienaj hrupy %1"
+
+#: kioworkers/file/file_unix_copy.cpp:738
+#, kde-format
+msgid "Writing the copied data to the device..."
+msgstr ""
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format

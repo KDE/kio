@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:45+0000\n"
+"POT-Creation-Date: 2026-10-25 00:46+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -4314,18 +4314,18 @@ msgstr ""
 "Ayinakutshintsha iimvumelwano ze\n"
 "%1"
 
-#: kioworkers/file/file.cpp:879 kioworkers/file/file.cpp:971
+#: kioworkers/file/file.cpp:894 kioworkers/file/file.cpp:986
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "Ayinakuyinika Ifayile Yetutyana Igama kwakhona"
 
-#: kioworkers/file/file.cpp:903
+#: kioworkers/file/file.cpp:918
 #, fuzzy, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Ayinakufumana udweliso lwenkqubo '%1'"
 
-#: kioworkers/file/file.cpp:980
+#: kioworkers/file/file.cpp:995
 #, fuzzy, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Ayinakufumana udweliso lwenkqubo '%1'"
@@ -4343,6 +4343,11 @@ msgstr "Ayinakungena kulawulo %1"
 #: kioworkers/file/file_unix.cpp:847
 #, kde-format
 msgid "Could not get group id for given group name %1"
+msgstr ""
+
+#: kioworkers/file/file_unix_copy.cpp:738
+#, kde-format
+msgid "Writing the copied data to the device..."
 msgstr ""
 
 #: kioworkers/ftp/ftp.cpp:361

@@ -22,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-24 00:45+0000\n"
-"PO-Revision-Date: 2026-10-18 10:31+0200\n"
+"POT-Creation-Date: 2026-10-25 00:46+0000\n"
+"PO-Revision-Date: 2026-10-23 09:20+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -4318,17 +4318,17 @@ msgstr ""
 "Impossible de modifier les droits d'accès de\n"
 "« %1 »"
 
-#: kioworkers/file/file.cpp:879 kioworkers/file/file.cpp:971
+#: kioworkers/file/file.cpp:894 kioworkers/file/file.cpp:986
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Impossible d'ouvrir le fichier temporaire"
 
-#: kioworkers/file/file.cpp:903
+#: kioworkers/file/file.cpp:918
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Impossible de trouver le programme « mount »."
 
-#: kioworkers/file/file.cpp:980
+#: kioworkers/file/file.cpp:995
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Impossible de trouver le programme « umount »."
@@ -4347,6 +4347,11 @@ msgstr "Impossible de trouver l'identifiant de l'utilisateur nommé %1"
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Impossible de trouver l'identifiant de du groupe nommé %1"
+
+#: kioworkers/file/file_unix_copy.cpp:738
+#, kde-format
+msgid "Writing the copied data to the device..."
+msgstr ""
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format
@@ -5481,14 +5486,12 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kfileitemactions.cpp:777
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Open Folder With…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
-msgstr[0] "&Ouvrir un dossier avec..."
-msgstr[1] "&Ouvrir un dossier avec..."
+msgstr[0] "&Ouvrir le dossier avec..."
+msgstr[1] "&Ouvrir les dossiers avec..."
 
 #: widgets/kfileitemactions.cpp:777
 #, kde-format
@@ -5503,13 +5506,12 @@ msgid "&Run Executable"
 msgstr "Lancer un &Exécutable"
 
 #: widgets/kfileitemactions.cpp:857
-#, fuzzy, kde-format
-#| msgid "&Open folder with %1"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open folder with %2"
 msgid_plural "&Open folders with %2"
-msgstr[0] "&Ouvrir un dossier avec %1"
-msgstr[1] "&Ouvrir un dossier avec %1"
+msgstr[0] "&Ouvrir le dossier avec %2"
+msgstr[1] "&Ouvrir les dossiers avec %2"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -5517,14 +5519,12 @@ msgid "&Open with %1"
 msgstr "&Ouvrir avec %1"
 
 #: widgets/kfileitemactions.cpp:891
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgid_plural "&Open Folders With"
-msgstr[0] "&Ouvrir un dossier avec"
-msgstr[1] "&Ouvrir un dossier avec"
+msgstr[0] "&Ouvrir le dossier avec"
+msgstr[1] "&Ouvrir les dossiers avec"
 
 #: widgets/kfileitemactions.cpp:891
 #, kde-format
