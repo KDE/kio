@@ -1052,6 +1052,27 @@ void JobTest::fileSystemFreeSpace()
     QVERIFY(!missingJob->exec());
 }
 
+// Calls onFileCopied for each file that a CopyJob copies, as soon as the copy of that file is done.
+class FileCopyWatcher : public QObject
+{
+public:
+    std::function<void(KIO::FileCopyJob *)> onFileCopied;
+
+    bool eventFilter(QObject *, QEvent *event) override
+    {
+        if (event->type() == QEvent::ChildAdded) {
+            if (auto *fileJob = qobject_cast<KIO::FileCopyJob *>(static_cast<QChildEvent *>(event)->child())) {
+                connect(fileJob, &KJob::result, this, [this, fileJob] {
+                    if (!fileJob->error()) {
+                        onFileCopied(fileJob);
+                    }
+                });
+            }
+        }
+        return false;
+    }
+};
+
 void JobTest::copyFolderFlushesRemovableDestination_data()
 {
     QTest::addColumn<bool>("removable");
@@ -1120,16 +1141,24 @@ void JobTest::copyFolderFlushesRemovableDestination()
     });
     int copied = 0;
     const QString editedSource = src + QStringLiteral("/file0");
+    QStringList reportedFiles;
     connect(job, &KIO::CopyJob::copyingDone, this, [&](KIO::Job *, const QUrl &from, const QUrl &, const QDateTime &, bool directory, bool) {
-        if (unplugged && !directory && ++copied == 3) {
+        if (!directory) {
+            reportedFiles.append(from.fileName());
+        }
+    });
+    FileCopyWatcher watcher;
+    watcher.onFileCopied = [&](KIO::FileCopyJob *fileJob) {
+        if (unplugged && ++copied == 3) {
             QVERIFY(QDir().rename(destDir, sandbox.filePath(QStringLiteral("unplugged"))));
         }
-        if (edited && from.toLocalFile() == editedSource) {
+        if (edited && fileJob->srcUrl().toLocalFile() == editedSource) {
             QFile file(editedSource);
             QVERIFY(file.open(QIODevice::Append));
             QVERIFY(file.write("edited") > 0);
         }
-    });
+    };
+    job->installEventFilter(&watcher);
     QStringList warnings;
     connect(job, &KJob::warning, this, [&warnings](KJob *, const QString &message) {
         warnings.append(message);
@@ -1154,6 +1183,9 @@ void JobTest::copyFolderFlushesRemovableDestination()
         QVERIFY(QFile::exists(editedSource));
         QCOMPARE(QDir(src).entryList(QDir::Files), QStringList{QStringLiteral("file0")});
         QCOMPARE(warnings.size(), 1);
+        // The undo record does not hold the file whose source stayed
+        reportedFiles.sort();
+        QCOMPARE(reportedFiles, (QStringList{QStringLiteral("file1"), QStringLiteral("file2")}));
     } else if (move) {
         QVERIFY(!QFile::exists(src));
         if (flushed) {
