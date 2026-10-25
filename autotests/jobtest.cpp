@@ -1194,6 +1194,127 @@ void JobTest::copyFolderFlushesRemovableDestination()
     }
 }
 
+void JobTest::moveToTargetUrlFlushesRemovableDestination()
+{
+    // A destination that a worker maps to a local folder through UDS_TARGET_URL is flushed too. Its
+    // files go through put, and a moved source stays until the flush is done.
+#ifndef Q_OS_LINUX
+    QSKIP("The file worker flushes a removable device with syncfs, which only Linux has");
+#endif
+    qputenv("KIO_FILE_FORCE_REMOVABLE", "1");
+    const auto unsetRemovable = qScopeGuard([] {
+        qunsetenv("KIO_FILE_FORCE_REMOVABLE");
+    });
+
+    QTemporaryDir sandbox(homeTmpDir() + "flushXXXXXX");
+    QVERIFY(sandbox.isValid());
+    const QString deviceDir = sandbox.filePath(QStringLiteral("device"));
+    QVERIFY(QDir().mkpath(deviceDir));
+    const QString src = sandbox.filePath(QStringLiteral("file0"));
+    createTestFile(src);
+
+    // kio-test-flush:/device is deviceDir, through UDS_TARGET_URL. Its put writes there, and reports
+    // flush-destination as the file worker does for a removable device.
+    class Factory : public KIO::WorkerFactory
+    {
+    public:
+        explicit Factory(const QString &deviceDir)
+            : KIO::WorkerFactory()
+            , m_deviceDir(deviceDir)
+        {
+        }
+        std::unique_ptr<KIO::WorkerBase> createWorker(const QByteArray &pool, const QByteArray &app) override
+        {
+            class TargetWorker : public KIO::WorkerBase
+            {
+            public:
+                TargetWorker(const QString &deviceDir, const QByteArray &pool, const QByteArray &app)
+                    : WorkerBase(QByteArrayLiteral("kio-test-flush"), pool, app)
+                    , m_deviceDir(deviceDir)
+                {
+                }
+
+                Q_REQUIRED_RESULT KIO::WorkerResult stat(const QUrl &url) override
+                {
+                    const QFileInfo info(localPath(url));
+                    if (!info.exists()) {
+                        return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toString());
+                    }
+                    KIO::UDSEntry entry;
+                    entry.fastInsert(KIO::UDSEntry::UDS_NAME, url.fileName());
+                    entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, info.isDir() ? S_IFDIR : S_IFREG);
+                    entry.fastInsert(KIO::UDSEntry::UDS_SIZE, info.size());
+                    if (url.path() == QLatin1String("/device")) {
+                        entry.fastInsert(KIO::UDSEntry::UDS_TARGET_URL, QUrl::fromLocalFile(m_deviceDir).toString());
+                    }
+                    statEntry(entry);
+                    return KIO::WorkerResult::pass();
+                }
+
+                Q_REQUIRED_RESULT KIO::WorkerResult put(const QUrl &url, int, KIO::JobFlags) override
+                {
+                    QFile file(localPath(url));
+                    if (!file.open(QIODevice::WriteOnly)) {
+                        return KIO::WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_WRITING, url.toString());
+                    }
+                    while (true) {
+                        dataReq();
+                        QByteArray buffer;
+                        if (readData(buffer) <= 0) {
+                            break;
+                        }
+                        file.write(buffer);
+                    }
+                    setMetaData(QStringLiteral("flush-destination"), QStringLiteral("true"));
+                    return KIO::WorkerResult::pass();
+                }
+
+                // The default builds a translated error string, and the first one of the process must be
+                // built on the main thread
+                Q_REQUIRED_RESULT KIO::WorkerResult fileSystemFreeSpace(const QUrl &url) override
+                {
+                    return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, url.toString());
+                }
+
+            private:
+                QString localPath(const QUrl &url) const
+                {
+                    QString path = url.path();
+                    path.remove(0, int(strlen("/device")));
+                    return m_deviceDir + path;
+                }
+
+                const QString m_deviceDir;
+            };
+
+            return std::make_unique<TargetWorker>(m_deviceDir, pool, app);
+        }
+
+    private:
+        const QString m_deviceDir;
+    };
+    auto factory = std::make_shared<Factory>(deviceDir);
+    KIO::Worker::setTestWorkerFactory(factory);
+
+    KIO::CopyJob *job = KIO::move(QUrl::fromLocalFile(src), QUrl(QStringLiteral("kio-test-flush:/device")), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    job->setUiDelegateExtension(nullptr);
+    bool flushed = false;
+    bool sourceDuringFlush = false;
+    connect(job, &KJob::infoMessage, this, [&](KJob *, const QString &message) {
+        if (message == QLatin1String("Writing the copied data to the device...")) {
+            flushed = true;
+            sourceDuringFlush = QFile::exists(src);
+        }
+    });
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QVERIFY(QFile::exists(deviceDir + QStringLiteral("/file0")));
+    QVERIFY(flushed);
+    QVERIFY(sourceDuringFlush);
+    QVERIFY(!QFile::exists(src));
+}
+
 void JobTest::copyFileToSetgidDirectory_data()
 {
     QTest::addColumn<int>("permissions");
