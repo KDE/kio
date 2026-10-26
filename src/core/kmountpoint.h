@@ -212,11 +212,25 @@ public:
      */
     QStringList mountOptions() const;
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 32)
     /*!
      * Returns \c true if the filesystem is "probably" slow, e.g. a network mount,
      * \c false otherwise.
+     *
+     * \deprecated[6.32] Use isOnRemoteStorage.
      */
+    // TODO KF7: remove
+    KIOCORE_DEPRECATED_VERSION(6, 32, "Use isOnRemoteStorage()")
     bool probablySlow() const;
+#endif
+
+    /*!
+     * Returns \c true if the filesystem is a network mount, an automounter
+     * or a FUSE filesystem not backed by a block device, \c false otherwise.
+     *
+     * \since 6.32
+     */
+    bool isOnRemoteStorage() const;
 
     /*!
      * \value SupportsChmod

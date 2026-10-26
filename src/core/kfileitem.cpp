@@ -1016,7 +1016,7 @@ bool KFileItemPrivate::isSlow() const
             // No local path means a remote worker URL, which is always slow.
             m_slow = Slow;
         } else {
-            // Ask the mount this item lives on. probablySlow() is backed by libmount's own
+            // Ask the mount this item lives on. isOnRemoteStorage() is backed by libmount's own
             // network-filesystem detection plus autofs/subfs/kio-fuse, so it recognizes remote
             // filesystems (nfs, cifs, sshfs, ftpfs, kio-fuse, ...) even when they are mounted
             // locally. Resolving the path stats it, which can block on a remote filesystem, so the
@@ -1024,10 +1024,10 @@ bool KFileItemPrivate::isSlow() const
             // mount that went away or was mounted again under a new id, so the item counts as slow.
             if (const auto mountId = m_entry.numberValue(KIO::UDSEntry::UDS_MOUNT_ID, 0)) {
                 const KMountPoint::Ptr mountPoint = KMountPoint::currentMountPointForUniqueId(mountId);
-                m_slow = (!mountPoint || mountPoint->probablySlow()) ? Slow : Fast;
+                m_slow = (!mountPoint || mountPoint->isOnRemoteStorage()) ? Slow : Fast;
             } else {
                 const KMountPoint::Ptr mountPoint = KMountPoint::currentMountPointForPath(path);
-                m_slow = (mountPoint && mountPoint->probablySlow()) ? Slow : Fast;
+                m_slow = (mountPoint && mountPoint->isOnRemoteStorage()) ? Slow : Fast;
             }
         }
     }

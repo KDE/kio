@@ -936,7 +936,7 @@ static MountTraits mountTraitsFor([[maybe_unused]] int dirFd, [[maybe_unused]] c
     if (mount) {
         found.removable = KIOPrivate::isOnRemovableDevice(*mount);
         found.cifs = mountIsCifs(mount);
-        found.slow = mount->probablySlow();
+        found.slow = mount->isOnRemoteStorage();
     }
     QMutexLocker locker(&traitsMutex);
     if (mountId != 0) {

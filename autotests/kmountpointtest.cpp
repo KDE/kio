@@ -191,7 +191,7 @@ void KMountPointTest::testCurrentMountPoints()
     const KMountPoint::Ptr rootMountPoint = mountPoints.findByPath(QStringLiteral("/"));
     QVERIFY(rootMountPoint);
     QCOMPARE(rootMountPoint->mountPoint(), QStringLiteral("/"));
-    QVERIFY(!rootMountPoint->probablySlow());
+    QVERIFY(!rootMountPoint->isOnRemoteStorage());
 
     QT_STATBUF rootStatBuff;
     QCOMPARE(QT_STAT("/", &rootStatBuff), 0);
@@ -310,7 +310,7 @@ void KMountPointTest::testPossibleMountPoints()
     QCOMPARE(rootMountPoint->mountPoint(), QStringLiteral("/"));
     QVERIFY(rootMountPoint->realDeviceName().startsWith(QLatin1String("/"))); // Usually /dev, but can be /host/ubuntu/disks/root.disk...
     QVERIFY(!rootMountPoint->mountOptions().contains(QLatin1String("noauto"))); // how would this work?
-    QVERIFY(!rootMountPoint->probablySlow());
+    QVERIFY(!rootMountPoint->isOnRemoteStorage());
 #endif
 }
 
@@ -382,7 +382,7 @@ void KMountPointTest::testMountPointForUniqueIdMatchesTable()
         QCOMPARE(byId->mountedFrom(), fromTable->mountedFrom());
         QCOMPARE(byId->deviceId(), fromTable->deviceId());
         QCOMPARE(byId->mountId(), fromTable->mountId());
-        QCOMPARE(byId->probablySlow(), fromTable->probablySlow());
+        QCOMPARE(byId->isOnRemoteStorage(), fromTable->isOnRemoteStorage());
         QCOMPARE(byId->isPseudoFs(), fromTable->isPseudoFs());
         ++compared;
     }
