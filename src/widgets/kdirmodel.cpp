@@ -176,7 +176,7 @@ public:
     bool isOnNetwork() const
     {
         if (!item().isNull() && m_fsType == FsTypeUnknown) {
-            m_fsType = item().isSlow() ? NetworkFs : LocalFs;
+            m_fsType = item().isOnRemoteStorage() ? NetworkFs : LocalFs;
         }
         return m_fsType == NetworkFs;
     }

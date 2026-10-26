@@ -1034,7 +1034,14 @@ bool KFileItemPrivate::isSlow() const
     return m_slow == Slow;
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 32)
 bool KFileItem::isSlow() const
+{
+    return isOnRemoteStorage();
+}
+#endif
+
+bool KFileItem::isOnRemoteStorage() const
 {
     if (!d) {
         return false;
