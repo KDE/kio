@@ -41,7 +41,7 @@ int main(int argc, char **argv)
         qDebug() << "no mount point for path" << url << "found";
     } else {
         qDebug() << mp->mountPoint() << "is the mount point for path" << url;
-        qDebug() << url << "is probably" << (mp->probablySlow() ? "slow" : "normal") << "mounted";
+        qDebug() << url << "is probably" << (mp->isOnRemoteStorage() ? "slow" : "normal") << "mounted";
     }
 
     url = QUrl::fromLocalFile(QDir::homePath());

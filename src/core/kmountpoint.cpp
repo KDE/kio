@@ -933,7 +933,14 @@ KMountPoint::Ptr KMountPoint::currentMountPointForPath(const QString &path)
     return currentMountPoints().findByPath(path);
 }
 
+#if KIOCORE_BUILD_DEPRECATED_SINCE(6, 32)
 bool KMountPoint::probablySlow() const
+{
+    return isOnRemoteStorage();
+}
+#endif
+
+bool KMountPoint::isOnRemoteStorage() const
 {
     /* clang-format off */
     return isOnNetwork()

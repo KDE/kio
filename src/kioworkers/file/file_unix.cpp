@@ -86,7 +86,7 @@ static QMimeDatabase::MatchMode mimeMatchModeFor(const StatStruct &buf, const QS
 #if HAVE_STATX_MNT_ID_UNIQUE
     if (buf.stx_mask & STATX_MNT_ID_UNIQUE) {
         const KMountPoint::Ptr mount = KMountPoint::currentMountPointForUniqueId(stat_mnt_id(buf));
-        return mount && mount->probablySlow() ? QMimeDatabase::MatchExtension : QMimeDatabase::MatchDefault;
+        return mount && mount->isOnRemoteStorage() ? QMimeDatabase::MatchExtension : QMimeDatabase::MatchDefault;
     }
 #else
     Q_UNUSED(buf);
