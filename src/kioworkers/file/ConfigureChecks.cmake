@@ -18,5 +18,15 @@ check_function_exists(renameat2 HAVE_RENAMEAT2)
 
 check_function_exists(posix_fadvise    HAVE_FADVISE)                  # KIO worker
 check_function_exists(sync_file_range  HAVE_SYNC_FILE_RANGE)
+# The sendfile() of FreeBSD and macOS takes other arguments and only writes to a socket. The one of
+# Linux copies from a file to a file.
+check_cxx_source_compiles("
+#include <sys/sendfile.h>
+#include <sys/types.h>
+int main()
+{
+    off_t *offset = nullptr;
+    return sendfile(1, 0, offset, 4096) < 0;
+}" HAVE_SENDFILE)
 
 check_struct_has_member("struct dirent" d_type dirent.h HAVE_DIRENT_D_TYPE LANGUAGE CXX)

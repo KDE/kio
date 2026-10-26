@@ -68,6 +68,10 @@
 #include <unistd.h>
 #endif
 
+#if HAVE_SENDFILE
+#include <sys/sendfile.h>
+#endif
+
 #if HAVE_SYS_XATTR_H
 #include <sys/xattr.h>
 // BSD uses a different include
@@ -506,8 +510,11 @@ bool copyFds(int sourceFd,
 #if HAVE_COPY_FILE_RANGE
     QElapsedTimer timer;
     timer.start();
-    KIO::filesize_t copied = 0; // bytes copied for this file by copy_file_range
+    KIO::filesize_t copied = 0; // bytes copied for this file by copy_file_range or sendfile
     AdaptiveChunk cfrChunk{s_copyChunk, s_copyChunk, s_maxCopyChunk};
+    // copy_file_range() fails with EXDEV between two filesystems, such as from the local disk to a
+    // USB stick. sendfile() copies between any two files without the data going through user space.
+    bool useSendfile = false;
     while (copied < size) {
         size_t want = size_t(qMin<KIO::filesize_t>(size - copied, cfrChunk.size));
         if (window.size > 0) {
@@ -515,12 +522,24 @@ bool copyFds(int sourceFd,
             want = qMin(want, size_t(window.size));
         }
         const auto copyStart = timer.durationElapsed();
+#if HAVE_SENDFILE
+        const ssize_t n = useSendfile ? ::sendfile(destFd, sourceFd, nullptr, want) : ::copy_file_range(sourceFd, nullptr, destFd, nullptr, want, 0);
+#else
         const ssize_t n = ::copy_file_range(sourceFd, nullptr, destFd, nullptr, want, 0);
+#endif
         const auto elapsed = timer.durationElapsed() - copyStart;
         if (n < 0) {
             if (errno == EINTR) {
                 continue;
             }
+#if HAVE_SENDFILE
+            // copy_file_range() cannot copy between these two files. Any other error, such as EIO or
+            // ENOSPC, would fail sendfile() the same way.
+            if (!useSendfile && (errno == EXDEV || errno == ENOSYS || errno == EOPNOTSUPP || errno == EINVAL)) {
+                useSendfile = true;
+                continue;
+            }
+#endif
             break; // fall back to read/write for the remainder
         }
         if (n == 0) {

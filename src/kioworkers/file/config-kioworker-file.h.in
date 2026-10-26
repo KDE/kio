@@ -29,3 +29,6 @@
 
 /* Defined if system has the sync_file_range function. */
 #cmakedefine01 HAVE_SYNC_FILE_RANGE
+
+/* Defined if system has the Linux sendfile function. */
+#cmakedefine01 HAVE_SENDFILE
