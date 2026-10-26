@@ -244,7 +244,7 @@ void KDirListerTest::testListedItemsCarryMountId()
     QCOMPARE(items.count(), fileCount());
     for (const KFileItem &item : items) {
         QCOMPARE(item.entry().numberValue(KIO::UDSEntry::UDS_MOUNT_ID), qint64(mount->mountId()));
-        QVERIFY(!item.isSlow());
+        QVERIFY(!item.isOnRemoteStorage());
     }
 }
 

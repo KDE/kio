@@ -85,8 +85,16 @@ class KIOCORE_EXPORT KFileItem
 
     /*!
      * \property KFileItem::isSlow
+     * \deprecated[6.32] Use isOnRemoteStorage.
      */
-    Q_PROPERTY(bool isSlow READ isSlow)
+    // TODO KF7: remove
+    Q_PROPERTY(bool isSlow READ isOnRemoteStorage)
+
+    /*!
+     * \property KFileItem::isOnRemoteStorage
+     * \since 6.32
+     */
+    Q_PROPERTY(bool isOnRemoteStorage READ isOnRemoteStorage)
 
     /*!
      * \property KFileItem::isDesktopFile
@@ -422,12 +430,24 @@ public:
      */
     bool isHidden() const;
 
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 32)
     /*!
      * Returns \c true if the file is a remote URL, or a local file on a network mount.
      * It will return \c false only for really-local file systems.
      * \since 4.7.4
+     * \deprecated[6.32] Use isOnRemoteStorage.
      */
+    // TODO KF7: remove
+    KIOCORE_DEPRECATED_VERSION(6, 32, "Use isOnRemoteStorage()")
     bool isSlow() const;
+#endif
+
+    /*!
+     * Returns \c true if the file is a remote URL, or a local file on a network mount.
+     * It will return \c false only for really-local file systems.
+     * \since 6.32
+     */
+    bool isOnRemoteStorage() const;
 
     /*!
      * Checks whether the file is a readable local .desktop file,

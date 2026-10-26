@@ -1181,8 +1181,8 @@ void KFileItemTest::testItemOnUnknownMountIsSlow()
     // Unique mount ids start above 2^31, so 1 names no mount.
     entryOnUnknownMount.fastInsert(KIO::UDSEntry::UDS_MOUNT_ID, 1);
 
-    QVERIFY(KFileItem(entryOnUnknownMount, QUrl::fromLocalFile(path)).isSlow());
-    QVERIFY(!KFileItem(entry, QUrl::fromLocalFile(path)).isSlow());
+    QVERIFY(KFileItem(entryOnUnknownMount, QUrl::fromLocalFile(path)).isOnRemoteStorage());
+    QVERIFY(!KFileItem(entry, QUrl::fromLocalFile(path)).isOnRemoteStorage());
 }
 
 #include "moc_kfileitemtest.cpp"

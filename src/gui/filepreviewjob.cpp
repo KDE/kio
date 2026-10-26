@@ -319,7 +319,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
 
     const KConfigGroup cg(KSharedConfig::openConfig(), QStringLiteral("PreviewSettings"));
     const bool isLocalAndFast =
-        (itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !m_fileItem.isSlow();
+        (itemUrl.isLocalFile() || KProtocolInfo::protocolClass(itemUrl.scheme()) == QLatin1String(":local")) && !m_fileItem.isOnRemoteStorage();
 
     if (!isLocalAndFast) {
         // For remote items the "IgnoreMaximumSize" plugin property is not respected
