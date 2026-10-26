@@ -35,10 +35,13 @@
 #include <QDebug>
 #include <kmountpoint.h>
 
+#include <atomic>
 #include <cerrno>
 #include <cstdio>
 #include <fcntl.h>
 #include <stdint.h>
+#include <thread>
+#include <vector>
 
 #ifdef Q_OS_LINUX
 
@@ -927,11 +930,73 @@ WorkerResult FileProtocol::batchStat(QDataStream &stream)
 
     UDSEntryList entries;
     entries.resize(count);
+
+    // Each folder is opened once, and its files are stat-ed by their names relative to it.
+    struct Item {
+        QString path;
+        QByteArray name;
+        int folder; // index in folderFds
+    };
+    std::vector<Item> items;
+    items.reserve(count);
+    std::vector<int> folderFds;
+    const auto closeFolders = qScopeGuard([&folderFds] {
+        for (const int fd : folderFds) {
+            if (fd >= 0) {
+                ::close(fd);
+            }
+        }
+    });
+    QByteArray lastFolder;
+    bool slowFolder = false;
     for (qint32 i = 0; i < count; ++i) {
         QString path;
         stream >> path;
-        const QByteArray _path = QFile::encodeName(path);
-        createUDSEntry(QFileInfo(path).fileName(), AT_FDCWD, _path.constData(), _path, entries[i], details, path);
+        const QByteArray encoded = QFile::encodeName(path);
+        const qsizetype slash = encoded.lastIndexOf('/');
+        const QByteArray folder = slash > 0 ? encoded.left(slash) : QByteArray(slash == 0 ? "/" : ".");
+        if (folderFds.empty() || folder != lastFolder) {
+            const int fd = ::open(folder.constData(), O_RDONLY | O_DIRECTORY | O_CLOEXEC);
+            folderFds.push_back(fd);
+            lastFolder = folder;
+            if (fd >= 0 && !slowFolder) {
+                const KMountPoint::Ptr mount = KMountPoint::currentMountPointForPath(QFile::decodeName(folder));
+                slowFolder = mount && mount->probablySlow();
+            }
+        }
+        const int folderFd = folderFds.back();
+        items.push_back({path, folderFd >= 0 ? encoded.mid(slash + 1) : encoded, int(folderFds.size()) - 1});
+    }
+
+    // Taken once, so that no thread detaches the list.
+    UDSEntry *const slots = entries.data();
+    const auto statItem = [&](qsizetype i) {
+        const Item &item = items[i];
+        const int folderFd = folderFds[item.folder] >= 0 ? folderFds[item.folder] : AT_FDCWD;
+        createUDSEntry(QFileInfo(item.path).fileName(), folderFd, item.name.constData(), QFile::encodeName(item.path), slots[i], details, item.path);
+    };
+
+    // On a slow mount the threads overlap their waits for the server. A local disk gains nothing.
+    static constexpr int s_slowMountThreads = 16;
+    const int threadCount = slowFolder ? int(qMin<qsizetype>(s_slowMountThreads, count)) : 1;
+    if (threadCount <= 1) {
+        for (qsizetype i = 0; i < count; ++i) {
+            statItem(i);
+        }
+    } else {
+        std::atomic<qsizetype> next{0};
+        std::vector<std::thread> threads;
+        threads.reserve(threadCount);
+        for (int t = 0; t < threadCount; ++t) {
+            threads.emplace_back([&] {
+                for (qsizetype i = next++; i < count; i = next++) {
+                    statItem(i);
+                }
+            });
+        }
+        for (std::thread &thread : threads) {
+            thread.join();
+        }
     }
     listEntries(entries);
     return WorkerResult::pass();
