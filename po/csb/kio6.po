@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:46+0000\n"
+"POT-Creation-Date: 2026-10-26 00:45+0000\n"
 "PO-Revision-Date: 2009-08-03 17:47+0200\n"
 "Last-Translator: Michôł Òstrowsczi <michol@linuxcsb.org>\n"
 "Language-Team: Kashubian <i18n-csb@linuxcsb.org>\n"
@@ -3782,23 +3782,24 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Ni mòże ùsôdzëc kataloga"
 
-#: filewidgets/knewfilemenu.cpp:1476
-#, fuzzy, kde-format
+#: filewidgets/knewfilemenu.cpp:1477
+#, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Create new folder in:\n"
 #| "%1"
-msgid "Create new folder in %1:"
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
 msgstr ""
 "Ùsôdzë nowi katalog w:\n"
 "%1"
 
-#: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1536
+#: filewidgets/knewfilemenu.cpp:1538
 #, fuzzy, kde-format
 #| msgid "Default Policy"
 msgid "Default"
@@ -6942,7 +6943,7 @@ msgctxt "@label"
 msgid "Data format:"
 msgstr "Fòrmat pòdôwków:"
 
-#: widgets/pastedialog.cpp:68
+#: widgets/pastedialog.cpp:75
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"

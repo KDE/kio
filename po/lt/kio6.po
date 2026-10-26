@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:46+0000\n"
-"PO-Revision-Date: 2026-10-18 19:11+0300\n"
+"POT-Creation-Date: 2026-10-26 00:45+0000\n"
+"PO-Revision-Date: 2026-10-26 00:13+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.9\n"
+"X-Generator: Poedit 3.10\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -3766,18 +3766,21 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Sukurti naują aplanką"
 
-#: filewidgets/knewfilemenu.cpp:1476
-#, kde-format
-msgid "Create new folder in %1:"
-msgstr "Sukurti naują aplanką ties %1:"
+#: filewidgets/knewfilemenu.cpp:1477
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid "Cannot transfer <filename>%1</filename>"
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "Nepavyko perduoti <filename>%1</filename>"
 
-#: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Įveskite aplanko pavadinimą"
 
-#: filewidgets/knewfilemenu.cpp:1536
+#: filewidgets/knewfilemenu.cpp:1538
 #, kde-format
 msgid "Default"
 msgstr "Numatytasis"
@@ -4283,7 +4286,7 @@ msgstr "Nepavyko gauti nurodytos grupės pavadinimo %1 grupės ID"
 #: kioworkers/file/file_unix_copy.cpp:738
 #, kde-format
 msgid "Writing the copied data to the device..."
-msgstr ""
+msgstr "Nukopijuoti duomenys rašomi į įrenginį..."
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format
@@ -5417,16 +5420,14 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kfileitemactions.cpp:777
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Open Folder With…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
 msgstr[0] "&Atverti aplanką naudojant…"
-msgstr[1] "&Atverti aplanką naudojant…"
-msgstr[2] "&Atverti aplanką naudojant…"
-msgstr[3] "&Atverti aplanką naudojant…"
+msgstr[1] "&Atverti aplankus naudojant…"
+msgstr[2] "&Atverti aplankus naudojant…"
+msgstr[3] "&Atverti aplankus naudojant…"
 
 #: widgets/kfileitemactions.cpp:777
 #, kde-format
@@ -5441,15 +5442,14 @@ msgid "&Run Executable"
 msgstr "&Paleisti vykdomąjį"
 
 #: widgets/kfileitemactions.cpp:857
-#, fuzzy, kde-format
-#| msgid "&Open folder with %1"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open folder with %2"
 msgid_plural "&Open folders with %2"
-msgstr[0] "&Atverti aplanką naudojant %1"
-msgstr[1] "&Atverti aplanką naudojant %1"
-msgstr[2] "&Atverti aplanką naudojant %1"
-msgstr[3] "&Atverti aplanką naudojant %1"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -5457,16 +5457,14 @@ msgid "&Open with %1"
 msgstr "&Atverti naudojant %1"
 
 #: widgets/kfileitemactions.cpp:891
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgid_plural "&Open Folders With"
 msgstr[0] "&Atverti aplanką naudojant"
-msgstr[1] "&Atverti aplanką naudojant"
-msgstr[2] "&Atverti aplanką naudojant"
-msgstr[3] "&Atverti aplanką naudojant"
+msgstr[1] "&Atverti aplankus naudojant"
+msgstr[2] "&Atverti aplankus naudojant"
+msgstr[3] "&Atverti aplankus naudojant"
 
 #: widgets/kfileitemactions.cpp:891
 #, kde-format
@@ -6988,7 +6986,7 @@ msgctxt "@label"
 msgid "Data format:"
 msgstr "Duomenų formatas:"
 
-#: widgets/pastedialog.cpp:68
+#: widgets/pastedialog.cpp:75
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -7819,6 +7817,9 @@ msgstr "Tai paleis programą:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Jei nepasitikite šia programa, spustelėkite Atsisakyti"
+
+#~ msgid "Create new folder in %1:"
+#~ msgstr "Sukurti naują aplanką ties %1:"
 
 #~ msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 #~ msgstr "Nepavyksta nukopijuoti failo iš %1 į %2. (Klaidos nr.: %3)"

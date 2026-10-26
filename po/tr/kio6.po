@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:46+0000\n"
-"PO-Revision-Date: 2026-10-22 19:28+0300\n"
+"POT-Creation-Date: 2026-10-26 00:45+0000\n"
+"PO-Revision-Date: 2026-10-25 20:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -3694,18 +3694,21 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Yeni Klasör Oluştur"
 
-#: filewidgets/knewfilemenu.cpp:1476
-#, kde-format
-msgid "Create new folder in %1:"
-msgstr "%1 içinde yeni klasör oluştur:"
+#: filewidgets/knewfilemenu.cpp:1477
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid "Cannot transfer <filename>%1</filename>"
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "<filename>%1</filename> aktarılamıyor"
 
-#: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Klasör adını gir…"
 
-#: filewidgets/knewfilemenu.cpp:1536
+#: filewidgets/knewfilemenu.cpp:1538
 #, kde-format
 msgid "Default"
 msgstr "Öntanımlı"
@@ -4216,7 +4219,7 @@ msgstr "Verilen %1 grup adı için grup kimliği alınamadı"
 #: kioworkers/file/file_unix_copy.cpp:738
 #, kde-format
 msgid "Writing the copied data to the device..."
-msgstr ""
+msgstr "Kopyalanan veri aygıta yazılıyor…"
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format
@@ -6876,7 +6879,7 @@ msgctxt "@label"
 msgid "Data format:"
 msgstr "Veri biçimi:"
 
-#: widgets/pastedialog.cpp:68
+#: widgets/pastedialog.cpp:75
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -7670,6 +7673,9 @@ msgstr "Bu eylem, şu uygulamayı başlatır:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Eğer bu uygulamaya güvenmiyorsanız İptal’e tıklayın"
+
+#~ msgid "Create new folder in %1:"
+#~ msgstr "%1 içinde yeni klasör oluştur:"
 
 #~ msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 #~ msgstr "Dosya %1 konumundan %2 konumuna kopyalanamadı. (Hata: %3)"

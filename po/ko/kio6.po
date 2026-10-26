@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:46+0000\n"
+"POT-Creation-Date: 2026-10-26 00:45+0000\n"
 "PO-Revision-Date: 2026-10-03 22:34+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -3641,18 +3641,21 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "새 폴더 만들기"
 
-#: filewidgets/knewfilemenu.cpp:1476
-#, kde-format
-msgid "Create new folder in %1:"
-msgstr "%1에 새 폴더 만들기:"
+#: filewidgets/knewfilemenu.cpp:1477
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid "Cannot transfer <filename>%1</filename>"
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "<filename>%1</filename>을(를) 전송할 수 없음"
 
-#: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "폴더 이름 입력"
 
-#: filewidgets/knewfilemenu.cpp:1536
+#: filewidgets/knewfilemenu.cpp:1538
 #, kde-format
 msgid "Default"
 msgstr "기본값"
@@ -6781,7 +6784,7 @@ msgctxt "@label"
 msgid "Data format:"
 msgstr "데이터 형식:"
 
-#: widgets/pastedialog.cpp:68
+#: widgets/pastedialog.cpp:75
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1(%2)"
@@ -7569,6 +7572,9 @@ msgstr "다음 프로그램을 시작합니다:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "이 프로그램을 신뢰할 수 없다면 취소를 클릭하십시오"
+
+#~ msgid "Create new folder in %1:"
+#~ msgstr "%1에 새 폴더 만들기:"
 
 #~ msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 #~ msgstr "%1에서 %2(으)로 파일을 복사할 수 없습니다. (오류 번호: %3)"

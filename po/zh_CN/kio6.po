@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:46+0000\n"
+"POT-Creation-Date: 2026-10-26 00:45+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3552,18 +3552,21 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "创建新文件夹"
 
-#: filewidgets/knewfilemenu.cpp:1476
-#, kde-format
-msgid "Create new folder in %1:"
-msgstr "新建文件夹到 %1："
+#: filewidgets/knewfilemenu.cpp:1477
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid "Cannot transfer <filename>%1</filename>"
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "无法传输文件 <filename>%1</filename>"
 
-#: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "输入文件夹名称"
 
-#: filewidgets/knewfilemenu.cpp:1536
+#: filewidgets/knewfilemenu.cpp:1538
 #, kde-format
 msgid "Default"
 msgstr "默认"
@@ -6648,7 +6651,7 @@ msgctxt "@label"
 msgid "Data format:"
 msgstr "数据格式："
 
-#: widgets/pastedialog.cpp:68
+#: widgets/pastedialog.cpp:75
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -7403,3 +7406,6 @@ msgstr "这将启动此程序："
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "如果您不信任此程序，请点击取消"
+
+#~ msgid "Create new folder in %1:"
+#~ msgstr "新建文件夹到 %1："

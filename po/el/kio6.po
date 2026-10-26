@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:46+0000\n"
+"POT-Creation-Date: 2026-10-26 00:45+0000\n"
 "PO-Revision-Date: 2026-10-23 14:52+0300\n"
 "Last-Translator: Petros Vidalis <pvidalis@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -3792,18 +3792,21 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Δημιουργία νέου φακέλου"
 
-#: filewidgets/knewfilemenu.cpp:1476
-#, kde-format
-msgid "Create new folder in %1:"
-msgstr "Δημιουργία νέου φακέλου στο %1:"
+#: filewidgets/knewfilemenu.cpp:1477
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid "Cannot transfer <filename>%1</filename>"
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "Αδύνατη η μεταφορά <filename>%1</filename>"
 
-#: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Εισαγάγετε όνομα φακέλου"
 
-#: filewidgets/knewfilemenu.cpp:1536
+#: filewidgets/knewfilemenu.cpp:1538
 #, kde-format
 msgid "Default"
 msgstr "Προεπιλογή"
@@ -7005,7 +7008,7 @@ msgctxt "@label"
 msgid "Data format:"
 msgstr "Μορφή δεδομένων:"
 
-#: widgets/pastedialog.cpp:68
+#: widgets/pastedialog.cpp:75
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (θύρα %2)"
@@ -7812,6 +7815,9 @@ msgstr "Αυτό εκκινεί το πρόγραμμα:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Αν δεν εμπιστεύεστε το πρόγραμμα αυτό, κάντε κλικ στην ακύρωση"
+
+#~ msgid "Create new folder in %1:"
+#~ msgstr "Δημιουργία νέου φακέλου στο %1:"
 
 #~ msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 #~ msgstr ""

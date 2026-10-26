@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:46+0000\n"
+"POT-Creation-Date: 2026-10-26 00:45+0000\n"
 "PO-Revision-Date: 2007-11-04 18:29+0545\n"
 "Last-Translator: Shyam Krishna Bal <shyamkrishna_bal@yahoo.com>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -3878,24 +3878,25 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "फोल्डर सिर्जना गर्न सकेन"
 
-#: filewidgets/knewfilemenu.cpp:1476
-#, fuzzy, kde-format
+#: filewidgets/knewfilemenu.cpp:1477
+#, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Create new folder in:\n"
 #| "%1"
-msgid "Create new folder in %1:"
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
 msgstr ""
 "यसमा नयाँ फोल्डर सिर्जना गर्नुहोस्:\n"
 "%1"
 
-#: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "फरक प्रयोगकर्ताको रूपमा चलाउनुहोस्"
 
-#: filewidgets/knewfilemenu.cpp:1536
+#: filewidgets/knewfilemenu.cpp:1538
 #, fuzzy, kde-format
 #| msgid "Default"
 msgid "Default"
@@ -7234,7 +7235,7 @@ msgctxt "@label"
 msgid "Data format:"
 msgstr "डेटा ढाँचा:"
 
-#: widgets/pastedialog.cpp:68
+#: widgets/pastedialog.cpp:75
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:46+0000\n"
-"PO-Revision-Date: 2026-10-22 18:16+0200\n"
+"POT-Creation-Date: 2026-10-26 00:45+0000\n"
+"PO-Revision-Date: 2026-10-25 16:53+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -3791,18 +3791,21 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Nieuwe map aanmaken"
 
-#: filewidgets/knewfilemenu.cpp:1476
-#, kde-format
-msgid "Create new folder in %1:"
-msgstr "Nieuwe map aanmaken in %1:"
+#: filewidgets/knewfilemenu.cpp:1477
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid "Cannot transfer <filename>%1</filename>"
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "Kan <filename>%1</filename> niet overdragen"
 
-#: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Mapnaam invoeren"
 
-#: filewidgets/knewfilemenu.cpp:1536
+#: filewidgets/knewfilemenu.cpp:1538
 #, kde-format
 msgid "Default"
 msgstr "Standaard"
@@ -4316,7 +4319,7 @@ msgstr "Kon de groeps-id voor opgegeven groepsnaam %1 niet verkrijgen"
 #: kioworkers/file/file_unix_copy.cpp:738
 #, kde-format
 msgid "Writing the copied data to the device..."
-msgstr ""
+msgstr "De gekopieerde gegevens worden naar het apparaat geschreven"
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format
@@ -7002,7 +7005,7 @@ msgctxt "@label"
 msgid "Data format:"
 msgstr "Gegevensopmaak:"
 
-#: widgets/pastedialog.cpp:68
+#: widgets/pastedialog.cpp:75
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -7809,6 +7812,9 @@ msgstr "Dit start het programma:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Als u dit programma niet vertrouwt, klik op Annuleren"
+
+#~ msgid "Create new folder in %1:"
+#~ msgstr "Nieuwe map aanmaken in %1:"
 
 #~ msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 #~ msgstr "Bestand kan niet van %1 naar %2 worden gekopieerd. (foutcode: %3)"

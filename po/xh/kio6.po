@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:46+0000\n"
+"POT-Creation-Date: 2026-10-26 00:45+0000\n"
 "PO-Revision-Date: 2002-11-04 09:22SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -3831,19 +3831,20 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Ayinakwenza Umngxuma"
 
-#: filewidgets/knewfilemenu.cpp:1476
-#, fuzzy, kde-format
-msgid "Create new folder in %1:"
+#: filewidgets/knewfilemenu.cpp:1477
+#, fuzzy, kde-kuit-format
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
 msgstr "Yenza ulawulo olutsha kwi:"
 
-#: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, fuzzy, kde-format
 #| msgid "Ru&n as a different user"
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Se&benzisa njengomsebenzisi owahlukileyo"
 
-#: filewidgets/knewfilemenu.cpp:1536
+#: filewidgets/knewfilemenu.cpp:1538
 #, fuzzy, kde-format
 msgid "Default"
 msgstr "(Okudaliweyo)"
@@ -6985,7 +6986,7 @@ msgctxt "@label"
 msgid "Data format:"
 msgstr "Ifomati yefayile:"
 
-#: widgets/pastedialog.cpp:68
+#: widgets/pastedialog.cpp:75
 #, fuzzy, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (ufako %2)"

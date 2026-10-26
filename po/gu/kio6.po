@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:46+0000\n"
+"POT-Creation-Date: 2026-10-26 00:45+0000\n"
 "PO-Revision-Date: 2026-03-31 23:12+0530\n"
 "Last-Translator: CrazyCourt651 <CrazyCourt651@gmail.com>\n"
 "Language-Team: Gujarati\n"
@@ -3683,18 +3683,21 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "નવું ફોલ્ડર બનાવો"
 
-#: filewidgets/knewfilemenu.cpp:1476
-#, kde-format
-msgid "Create new folder in %1:"
-msgstr "અહીં નવું ફોલ્ડર બનાવો:%1:"
+#: filewidgets/knewfilemenu.cpp:1477
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid "Cannot transfer <filename>%1</filename>"
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "<filename>%1</filename> ને સ્થાનાંતરિત કરી શકાતું નથી"
 
-#: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "ફોલ્ડર નામ દાખલ કરો"
 
-#: filewidgets/knewfilemenu.cpp:1536
+#: filewidgets/knewfilemenu.cpp:1538
 #, kde-format
 msgid "Default"
 msgstr "મૂળભૂત"
@@ -6858,7 +6861,7 @@ msgctxt "@label"
 msgid "Data format:"
 msgstr "માહિતી બંધારણ:"
 
-#: widgets/pastedialog.cpp:68
+#: widgets/pastedialog.cpp:75
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -7640,6 +7643,9 @@ msgstr "આ કાર્યક્રમ શરૂ કરશે:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "જો તમને આ પ્રોગ્રામ પર વિશ્વાસ ન હોય, તો રદ કરો પર ક્લિક કરો"
+
+#~ msgid "Create new folder in %1:"
+#~ msgstr "અહીં નવું ફોલ્ડર બનાવો:%1:"
 
 #~ msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 #~ msgstr "%1 માંથી %2 પર ફાઇલ નકલ કરી શકાતી નથી. (ક્ષતિક્રમ: %3)"

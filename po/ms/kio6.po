@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:46+0000\n"
+"POT-Creation-Date: 2026-10-26 00:45+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -3728,20 +3728,21 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Cipta Folder"
 
-#: filewidgets/knewfilemenu.cpp:1476
-#, fuzzy, kde-format
-msgid "Create new folder in %1:"
+#: filewidgets/knewfilemenu.cpp:1477
+#, fuzzy, kde-kuit-format
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
 msgstr ""
 "Cipta folder baru dalam:\n"
 "%1"
 
-#: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, fuzzy, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "&Laksanakan sebagai pengguna lain"
 
-#: filewidgets/knewfilemenu.cpp:1536
+#: filewidgets/knewfilemenu.cpp:1538
 #, fuzzy, kde-format
 msgid "Default"
 msgstr " (Default)"
@@ -6895,7 +6896,7 @@ msgctxt "@label"
 msgid "Data format:"
 msgstr "Format datas"
 
-#: widgets/pastedialog.cpp:68
+#: widgets/pastedialog.cpp:75
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"

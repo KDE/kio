@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:46+0000\n"
-"PO-Revision-Date: 2026-10-22 06:11+0200\n"
+"POT-Creation-Date: 2026-10-26 00:45+0000\n"
+"PO-Revision-Date: 2026-10-25 05:19+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3708,18 +3708,21 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "ახალი საქაღალდის შექმნა"
 
-#: filewidgets/knewfilemenu.cpp:1476
-#, kde-format
-msgid "Create new folder in %1:"
-msgstr "ახალი საქაღალდის შექმნა %1-ში:"
+#: filewidgets/knewfilemenu.cpp:1477
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid "Cannot transfer <filename>%1</filename>"
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "<filename>%1</filename>-ის გადატანის შეცდომა"
 
-#: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "შეიყვანეთ საქაღალდის სახელი"
 
-#: filewidgets/knewfilemenu.cpp:1536
+#: filewidgets/knewfilemenu.cpp:1538
 #, kde-format
 msgid "Default"
 msgstr "ნაგულისხმევი"
@@ -4225,7 +4228,7 @@ msgstr "ჯგუფის, %1, gid-ის მოძებნის შეცდ
 #: kioworkers/file/file_unix_copy.cpp:738
 #, kde-format
 msgid "Writing the copied data to the device..."
-msgstr ""
+msgstr "დაკოპირებული მონაცემების ჩაწერა მოწყობილობაზე..."
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format
@@ -6881,7 +6884,7 @@ msgctxt "@label"
 msgid "Data format:"
 msgstr "მონაცემების ფორმატი:"
 
-#: widgets/pastedialog.cpp:68
+#: widgets/pastedialog.cpp:75
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -7673,6 +7676,9 @@ msgstr "ეს გაუშვებს პროგრამას:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "თუ ამ პროგრამას არ ენდობით, გაუქმებას დააწექით"
+
+#~ msgid "Create new folder in %1:"
+#~ msgstr "ახალი საქაღალდის შექმნა %1-ში:"
 
 #~ msgid "Cannot copy file from %1 to %2. (Errno: %3)"
 #~ msgstr "%1-ის %2-ში კოპირების შეცდომა. (შეცდომის კოდი: %3)"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:46+0000\n"
+"POT-Creation-Date: 2026-10-26 00:45+0000\n"
 "PO-Revision-Date: 2014-02-25 01:34+0100\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -3853,17 +3853,18 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "&Torüchnehmen: Orner opstellen"
 
-#: filewidgets/knewfilemenu.cpp:1476
-#, fuzzy, kde-format
+#: filewidgets/knewfilemenu.cpp:1477
+#, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Create new folder in:\n"
 #| "%1"
-msgid "Create new folder in %1:"
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
 msgstr ""
 "Nieg Orner opstellen in:\n"
 "%1"
 
-#: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Enter a different name"
@@ -3871,7 +3872,7 @@ msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "En anner Naam ingeven"
 
-#: filewidgets/knewfilemenu.cpp:1536
+#: filewidgets/knewfilemenu.cpp:1538
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox The default character set"
 #| msgid "Default"
@@ -7212,7 +7213,7 @@ msgctxt "@label"
 msgid "Data format:"
 msgstr "Datenformaat:"
 
-#: widgets/pastedialog.cpp:68
+#: widgets/pastedialog.cpp:75
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio trunk\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-25 00:46+0000\n"
+"POT-Creation-Date: 2026-10-26 00:45+0000\n"
 "PO-Revision-Date: 2021-08-26 06:59+0000\n"
 "Last-Translator: Vivek K J <vivekkj2004@gmail.com>\n"
 "Language-Team: Malayalam <https://kde.smc.org.in/projects/kde/kiokio5/ml/>\n"
@@ -3623,20 +3623,21 @@ msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "അറ ഉണ്ടാക്കുക"
 
-#: filewidgets/knewfilemenu.cpp:1476
-#, fuzzy, kde-format
-msgid "Create new folder in %1:"
-msgstr ""
-"ഇവിടെ പുതിയ ഫോള്‍ഡര്‍ ഉണ്ടാക്കുക:\n"
-"%1"
+#: filewidgets/knewfilemenu.cpp:1477
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid "Cannot transfer <filename>%1</filename>"
+msgctxt "@label"
+msgid "Create new folder in <filename>%1</filename>:"
+msgstr "<filename>%1</filename> കൈമാറാൻ കഴിഞ്ഞില്ല"
 
-#: filewidgets/knewfilemenu.cpp:1479 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1536
+#: filewidgets/knewfilemenu.cpp:1538
 #, fuzzy, kde-format
 #| msgctxt "@item:inlistbox The default character set"
 #| msgid "Default"
@@ -6668,7 +6669,7 @@ msgctxt "@label"
 msgid "Data format:"
 msgstr "ഡേറ്റാ രീതി:"
 
-#: widgets/pastedialog.cpp:68
+#: widgets/pastedialog.cpp:75
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -7423,6 +7424,12 @@ msgstr ""
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "ഈ പ്രോഗ്രാമിനെ വിശ്വാസമില്ലെങ്കിൽ, റദ്ദാക്കുക്ക ക്ലിക്ക് ചെയ്യുക"
+
+#, fuzzy
+#~ msgid "Create new folder in %1:"
+#~ msgstr ""
+#~ "ഇവിടെ പുതിയ ഫോള്‍ഡര്‍ ഉണ്ടാക്കുക:\n"
+#~ "%1"
 
 #, fuzzy
 #~ msgid "Link to Device"
