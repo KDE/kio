@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-26 00:45+0000\n"
+"POT-Creation-Date: 2026-10-27 00:56+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -46,7 +46,7 @@ msgstr ""
 "Nie ŭdalosia zmianić ulasnika fajla <filename>%1</filename>. Vy nie majecie "
 "pravoŭ dostupu, patrebnych dlia vykanannia hetaha dziejannia."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:651
+#: core/copyjob.cpp:204 kioworkers/file/file_unix.cpp:651
 #, fuzzy, kde-format
 #| msgctxt ""
 #| "The first arg is the path to the symlink that couldnt be created, the "
@@ -64,7 +64,7 @@ msgstr ""
 "Nie ŭdalosia stvaryć simvaličnuju spasylku \"%1\".\n"
 "Metavaja fajlavaja sistema (%2) nie padtrymlivaje simvaličnych spasylak."
 
-#: core/copyjob.cpp:209
+#: core/copyjob.cpp:216
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -79,7 +79,7 @@ msgstr ""
 "Kali abrać \"Zamianić\", to ŭsio nieprydatnyja simvaly ŭ nazvach zamieniacca "
 "simvalam \"_\"."
 
-#: core/copyjob.cpp:217
+#: core/copyjob.cpp:224
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -94,26 +94,31 @@ msgstr ""
 "Kali abrać \"Zamianić\", to ŭsio nieprydatnyja simvaly ŭ nazvach zamieniacca "
 "simvalam \"_\"."
 
-#: core/copyjob.cpp:1492 core/job_error.cpp:588
+#: core/copyjob.cpp:1566 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Kataloh užo isnuje"
 
-#: core/copyjob.cpp:1833 core/copyjob.cpp:2567 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2858 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fajl užo isnuje"
 
-#: core/copyjob.cpp:1833 core/copyjob.cpp:2567
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2858
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Užo isnuje kataloh z takoj nazvaj"
 
-#: core/copyjob.cpp:1991 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:2063 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Smietnica"
+
+#: core/copyjob.cpp:2579
+#, kde-format
+msgid "%1 changed after it was copied, so it was not deleted."
+msgstr ""
 
 #: core/desktopexecparser.cpp:335
 #, kde-format
@@ -4339,7 +4344,7 @@ msgstr "Zahad dlia vykanannia"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL-adras(y) abo lakaĺny(ja) fajl(y) dlia \"command\""
 
-#: kioworkers/file/file.cpp:744 kioworkers/file/file.cpp:801
+#: kioworkers/file/file.cpp:760 kioworkers/file/file.cpp:826
 #, fuzzy, kde-format
 #| msgid "Could not change ownership for %1."
 msgctxt "@info"
@@ -4348,7 +4353,7 @@ msgid ""
 "%1"
 msgstr "Nie ŭdalosia zmianić ulasnika dlia %1."
 
-#: kioworkers/file/file.cpp:792
+#: kioworkers/file/file.cpp:817
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4357,18 +4362,18 @@ msgstr ""
 "Nie ŭdalosia zmianić pravy dostupu dlia\n"
 "%1"
 
-#: kioworkers/file/file.cpp:894 kioworkers/file/file.cpp:986
+#: kioworkers/file/file.cpp:919 kioworkers/file/file.cpp:1011
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "Nie ŭdalosia zmianić nazvu časovaha fajla"
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:943
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nie ŭdalosia znajsci prahramu \"mount\""
 
-#: kioworkers/file/file.cpp:995
+#: kioworkers/file/file.cpp:1020
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nie ŭdalosia znajsci prahramu \"umount\""
@@ -4390,7 +4395,7 @@ msgstr ""
 msgid "Could not get group id for given group name %1"
 msgstr "Nie ŭdalosia atrymać identyfikatar hrupy dlia padadzienaj hrupy %1"
 
-#: kioworkers/file/file_unix_copy.cpp:738
+#: kioworkers/file/file_unix_copy.cpp:1090
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr ""
@@ -7236,14 +7241,14 @@ msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Ustavić"
 
-#: widgets/pastedialog.cpp:57
+#: widgets/pastedialog.cpp:58
 #, fuzzy, kde-format
 #| msgid "Data format:"
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Farmat danych:"
 
-#: widgets/pastedialog.cpp:75
+#: widgets/pastedialog.cpp:76
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"

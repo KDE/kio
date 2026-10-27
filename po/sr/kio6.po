@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-26 00:45+0000\n"
+"POT-Creation-Date: 2026-10-27 00:56+0000\n"
 "PO-Revision-Date: 2026-10-09 16:00+0200\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 "Не могу да изменим власништво над фајлом <filename>%1</filename>. Немате "
 "довољно дозвола за овакву измену."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:651
+#: core/copyjob.cpp:204 kioworkers/file/file_unix.cpp:651
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -61,7 +61,7 @@ msgstr ""
 "Не могу да направим симболичку везу „%1“.\n"
 "Одредишни фајл систем (%2) не подржава симболичке везе."
 
-#: core/copyjob.cpp:209
+#: core/copyjob.cpp:216
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -76,7 +76,7 @@ msgstr ""
 "Избором „Замени“ сви лоши знакови (у имену одредишне фасцикле) биће замењени "
 "подвлаком „_“."
 
-#: core/copyjob.cpp:217
+#: core/copyjob.cpp:224
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -91,26 +91,31 @@ msgstr ""
 "Избором „Замени“ сви лоши знакови (у имену одредишног фајла) биће замењени "
 "подвлаком „_“."
 
-#: core/copyjob.cpp:1492 core/job_error.cpp:588
+#: core/copyjob.cpp:1566 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Фасцикла већ постоји"
 
-#: core/copyjob.cpp:1833 core/copyjob.cpp:2567 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2858 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Фајл већ постоји"
 
-#: core/copyjob.cpp:1833 core/copyjob.cpp:2567
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2858
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Већ постоји као фасцикла"
 
-#: core/copyjob.cpp:1991 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:2063 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Смеће"
+
+#: core/copyjob.cpp:2579
+#, kde-format
+msgid "%1 changed after it was copied, so it was not deleted."
+msgstr ""
 
 #: core/desktopexecparser.cpp:335
 #, kde-format
@@ -4237,7 +4242,7 @@ msgstr "Наредба за извршавање"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "УРЛ‑ови или локални фајлови употребљени за „command“"
 
-#: kioworkers/file/file.cpp:744 kioworkers/file/file.cpp:801
+#: kioworkers/file/file.cpp:760 kioworkers/file/file.cpp:826
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4247,7 +4252,7 @@ msgstr ""
 "Не могу да променим власника и групу за\n"
 "%1"
 
-#: kioworkers/file/file.cpp:792
+#: kioworkers/file/file.cpp:817
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4256,17 +4261,17 @@ msgstr ""
 "Не могу да изменим дозволе за\n"
 "‘%1’"
 
-#: kioworkers/file/file.cpp:894 kioworkers/file/file.cpp:986
+#: kioworkers/file/file.cpp:919 kioworkers/file/file.cpp:1011
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Не могу да отворим привремени фајл"
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:943
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Не могу да нађем наредбу mount"
 
-#: kioworkers/file/file.cpp:995
+#: kioworkers/file/file.cpp:1020
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Не могу да нађем наредбу umount"
@@ -4286,7 +4291,7 @@ msgstr "Не могу да добавим кориснички ИД за дат�
 msgid "Could not get group id for given group name %1"
 msgstr "Не могу да добавим групни ИД за дато име групе %1"
 
-#: kioworkers/file/file_unix_copy.cpp:738
+#: kioworkers/file/file_unix_copy.cpp:1090
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr ""
@@ -7038,13 +7043,13 @@ msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Налепи"
 
-#: widgets/pastedialog.cpp:57
+#: widgets/pastedialog.cpp:58
 #, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Формат података:"
 
-#: widgets/pastedialog.cpp:75
+#: widgets/pastedialog.cpp:76
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-26 00:45+0000\n"
+"POT-Creation-Date: 2026-10-27 00:56+0000\n"
 "PO-Revision-Date: 2026-10-10 12:35+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -47,7 +47,7 @@ msgstr ""
 "Klarte ikkje endra eigarskapen til fila <filename>%1</filename>. Du har "
 "ikkje tilstrekkeleg løyve til å utføra endringa."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:651
+#: core/copyjob.cpp:204 kioworkers/file/file_unix.cpp:651
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -59,7 +59,7 @@ msgstr ""
 "Klarte ikkje oppretta symbolsk lenkje «%1».\n"
 "Filsystemet du overfører til (%2) støttar ikkje symbolske lenkjer."
 
-#: core/copyjob.cpp:209
+#: core/copyjob.cpp:216
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -72,7 +72,7 @@ msgstr ""
 "Filsystemet (%2) til målmappa godtek ikkje desse teikna i mappenamn: %3\n"
 "Vel «Byt ut» for å byta ut ugyldige teikn (i målmappa) med underteikn («_»)."
 
-#: core/copyjob.cpp:217
+#: core/copyjob.cpp:224
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -85,26 +85,31 @@ msgstr ""
 "Filsystemet (%2) til målfila godtek ikkje desse teikna i filnamn: %3\n"
 "Vel «Byt ut» for å byta ut ugyldige teikn (i målfila) med underteikn («_»)."
 
-#: core/copyjob.cpp:1492 core/job_error.cpp:588
+#: core/copyjob.cpp:1566 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Mappa finst frå før"
 
-#: core/copyjob.cpp:1833 core/copyjob.cpp:2567 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2858 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fila finst frå før"
 
-#: core/copyjob.cpp:1833 core/copyjob.cpp:2567
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2858
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Finst frå før som mappe"
 
-#: core/copyjob.cpp:1991 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:2063 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Papirkorg"
+
+#: core/copyjob.cpp:2579
+#, kde-format
+msgid "%1 changed after it was copied, so it was not deleted."
+msgstr ""
 
 #: core/desktopexecparser.cpp:335
 #, kde-format
@@ -4175,7 +4180,7 @@ msgstr "Kommando som skal køyrast"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "Nettadresser eller lokale filer som skal brukast for «kommando»"
 
-#: kioworkers/file/file.cpp:744 kioworkers/file/file.cpp:801
+#: kioworkers/file/file.cpp:760 kioworkers/file/file.cpp:826
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4185,7 +4190,7 @@ msgstr ""
 "Klarte ikkje byta eigar og gruppe for\n"
 "%1"
 
-#: kioworkers/file/file.cpp:792
+#: kioworkers/file/file.cpp:817
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4194,17 +4199,17 @@ msgstr ""
 "Klarte ikkje endra løyva for\n"
 "%1"
 
-#: kioworkers/file/file.cpp:894 kioworkers/file/file.cpp:986
+#: kioworkers/file/file.cpp:919 kioworkers/file/file.cpp:1011
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Klarte ikkje opna mellombels fil"
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:943
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Fann ikkje programmet «mount»"
 
-#: kioworkers/file/file.cpp:995
+#: kioworkers/file/file.cpp:1020
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Fann ikkje programmet «unmount»"
@@ -4224,7 +4229,7 @@ msgstr "Klarte ikkje henta brukar-ID-en til det oppgjevne brukarnamnet %1."
 msgid "Could not get group id for given group name %1"
 msgstr "Klarte ikkje henta gruppe-ID-en til det oppgjevne gruppenamnet %1."
 
-#: kioworkers/file/file_unix_copy.cpp:738
+#: kioworkers/file/file_unix_copy.cpp:1090
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr ""
@@ -6889,13 +6894,13 @@ msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Lim inn"
 
-#: widgets/pastedialog.cpp:57
+#: widgets/pastedialog.cpp:58
 #, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Dataformat:"
 
-#: widgets/pastedialog.cpp:75
+#: widgets/pastedialog.cpp:76
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
@@ -7713,6 +7718,3 @@ msgstr "Dette vil starta programmet:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Viss du ikkje stolar på programmet, trykk «Avbryt»."
-
-#~ msgid "Create new folder in %1:"
-#~ msgstr "Lag ny mappe i %1:"

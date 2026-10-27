@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-26 00:45+0000\n"
+"POT-Creation-Date: 2026-10-27 00:56+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 "<filename>%1</filename> सञ्चिकायाः स्वामित्वं परिवर्तयितुं न शक्तम्। परिवर्तनं कर्तुं भवतः "
 "सञ्चिकायाः अपर्याप्तप्रवेशः अस्ति ।."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:651
+#: core/copyjob.cpp:204 kioworkers/file/file_unix.cpp:651
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -54,7 +54,7 @@ msgstr ""
 "\"%1\" इति symlink निर्मातुं न शक्तम् । \n"
 "गन्तव्यसञ्चिकातन्त्रम् (%2) प्रतीकसम्बद्धानि न समर्थयति ।."
 
-#: core/copyjob.cpp:209
+#: core/copyjob.cpp:216
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -68,7 +68,7 @@ msgstr ""
 "प्रतिस्थापनं चित्वा यत्किमपि अमान्यं वर्णं (गन्तव्यपुटनाम्नि) underscore \"_\" इत्यनेन "
 "प्रतिस्थाप्यते ।."
 
-#: core/copyjob.cpp:217
+#: core/copyjob.cpp:224
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -82,26 +82,31 @@ msgstr ""
 "प्रतिस्थापनं चित्वा यत्किमपि अमान्यं वर्णं (गन्तव्यपुटनाम्नि) underscore \"_\" इत्यनेन "
 "प्रतिस्थाप्यते ।."
 
-#: core/copyjob.cpp:1492 core/job_error.cpp:588
+#: core/copyjob.cpp:1566 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "पुटं पूर्वमेव विद्यते"
 
-#: core/copyjob.cpp:1833 core/copyjob.cpp:2567 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2858 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "सञ्चिका पूर्वमेव विद्यते"
 
-#: core/copyjob.cpp:1833 core/copyjob.cpp:2567
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2858
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "पूर्वमेव पुटं इति रूपेण विद्यते"
 
-#: core/copyjob.cpp:1991 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:2063 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "पुनःप्रयोगस्य कूपः"
+
+#: core/copyjob.cpp:2579
+#, kde-format
+msgid "%1 changed after it was copied, so it was not deleted."
+msgstr ""
 
 #: core/desktopexecparser.cpp:335
 #, kde-format
@@ -4141,7 +4146,7 @@ msgstr "निष्पादनार्थं आदेशः"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'command' कृते प्रयुक्ताः URL(s) अथवा स्थानीयसञ्चिका।"
 
-#: kioworkers/file/file.cpp:744 kioworkers/file/file.cpp:801
+#: kioworkers/file/file.cpp:760 kioworkers/file/file.cpp:826
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4149,25 +4154,25 @@ msgid ""
 "%1"
 msgstr "%1 तस्य कृते स्वामिनं समूहं च परिवर्तयितुं न शक्तवान्"
 
-#: kioworkers/file/file.cpp:792
+#: kioworkers/file/file.cpp:817
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
 "%1"
 msgstr "%1 तस्य अनुमतिः परिवर्तयितुं न शक्तवान्"
 
-#: kioworkers/file/file.cpp:894 kioworkers/file/file.cpp:986
+#: kioworkers/file/file.cpp:919 kioworkers/file/file.cpp:1011
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "अस्थायीसञ्चिकायाः नामान्तरणं कर्तुं न शक्तवान्"
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:943
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" इति कार्यक्रमः न लब्धः ।"
 
-#: kioworkers/file/file.cpp:995
+#: kioworkers/file/file.cpp:1020
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" इति कार्यक्रमः न लब्धः ।"
@@ -4187,7 +4192,7 @@ msgstr "दत्तस्य उपयोक्तृनाम %1 कृते 
 msgid "Could not get group id for given group name %1"
 msgstr "दत्तसमूहनाम %1 कृते समूह id प्राप्तुं न शक्तम्"
 
-#: kioworkers/file/file_unix_copy.cpp:738
+#: kioworkers/file/file_unix_copy.cpp:1090
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr ""
@@ -6874,14 +6879,14 @@ msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "स्थापितु"
 
-#: widgets/pastedialog.cpp:57
+#: widgets/pastedialog.cpp:58
 #, fuzzy, kde-format
 #| msgid "Data format:"
 msgctxt "@label"
 msgid "Data format:"
 msgstr "तिथि प्रारूपम्:"
 
-#: widgets/pastedialog.cpp:75
+#: widgets/pastedialog.cpp:76
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"

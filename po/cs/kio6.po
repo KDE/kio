@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-26 00:45+0000\n"
-"PO-Revision-Date: 2026-10-25 11:47+0100\n"
+"POT-Creation-Date: 2026-10-27 00:56+0000\n"
+"PO-Revision-Date: 2026-10-26 12:53+0100\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -47,7 +47,7 @@ msgstr ""
 "Nelze změnit vlastnictví souboru<filename>%1</filename>. Nemáte dostatečná "
 "přístupová práva k vykonání této změny vlastností souboru."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:651
+#: core/copyjob.cpp:204 kioworkers/file/file_unix.cpp:651
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -59,7 +59,7 @@ msgstr ""
 "Nelze vytvořit symbolický odkaz %1.\n"
 "Cílový souborový systém (%2) nepodporuje symbolické odkazy."
 
-#: core/copyjob.cpp:209
+#: core/copyjob.cpp:216
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -74,7 +74,7 @@ msgstr ""
 "Výběrem Nahradit dojde k nahrazení jakýchkoliv neplatných znaků (v cílovém "
 "názvu složky) podtržítkem \"_\"."
 
-#: core/copyjob.cpp:217
+#: core/copyjob.cpp:224
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -89,26 +89,31 @@ msgstr ""
 "Výběrem Nahradit dojde k nahrazení jakýchkoliv neplatných znaků (v cílovém "
 "názvu souboru) podtržítkem \"_\"."
 
-#: core/copyjob.cpp:1492 core/job_error.cpp:588
+#: core/copyjob.cpp:1566 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Složka již existuje"
 
-#: core/copyjob.cpp:1833 core/copyjob.cpp:2567 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2858 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Soubor již existuje"
 
-#: core/copyjob.cpp:1833 core/copyjob.cpp:2567
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2858
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Již existuje jako složka"
 
-#: core/copyjob.cpp:1991 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:2063 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Koš"
+
+#: core/copyjob.cpp:2579
+#, kde-format
+msgid "%1 changed after it was copied, so it was not deleted."
+msgstr ""
 
 #: core/desktopexecparser.cpp:335
 #, kde-format
@@ -3720,12 +3725,10 @@ msgid "Create New Folder"
 msgstr "Vytvořit novou složku"
 
 #: filewidgets/knewfilemenu.cpp:1477
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Create new folder in <filename>%1</filename>:"
-msgstr "Nelze přesunout <filename>%1</filename>"
+msgstr "Vytvořit novou složku v <filename>%1</filename>"
 
 #: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
@@ -4189,7 +4192,7 @@ msgstr "Příkaz ke spuštění"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL nebo lokální soubor pro 'příkaz'"
 
-#: kioworkers/file/file.cpp:744 kioworkers/file/file.cpp:801
+#: kioworkers/file/file.cpp:760 kioworkers/file/file.cpp:826
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4199,7 +4202,7 @@ msgstr ""
 "Nelze změnit vlastníka a skupinu pro\n"
 "%1"
 
-#: kioworkers/file/file.cpp:792
+#: kioworkers/file/file.cpp:817
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4208,17 +4211,17 @@ msgstr ""
 "Nelze změnit přístupová práva\n"
 "k %1"
 
-#: kioworkers/file/file.cpp:894 kioworkers/file/file.cpp:986
+#: kioworkers/file/file.cpp:919 kioworkers/file/file.cpp:1011
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Nelze otevřít dočasný soubor"
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:943
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nelze nalézt program \"mount\"."
 
-#: kioworkers/file/file.cpp:995
+#: kioworkers/file/file.cpp:1020
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nelze nalézt program \"umount\"."
@@ -4238,7 +4241,7 @@ msgstr "Nelze získat ID uživatele pro uživatele %1"
 msgid "Could not get group id for given group name %1"
 msgstr "Nelze získat ID skupiny pro skupinu %1"
 
-#: kioworkers/file/file_unix_copy.cpp:738
+#: kioworkers/file/file_unix_copy.cpp:1090
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr "Zápis zkopírovaných dat do zařízení..."
@@ -6889,13 +6892,13 @@ msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Vložit"
 
-#: widgets/pastedialog.cpp:57
+#: widgets/pastedialog.cpp:58
 #, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Formát dat:"
 
-#: widgets/pastedialog.cpp:75
+#: widgets/pastedialog.cpp:76
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"

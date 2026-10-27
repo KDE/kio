@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-26 00:45+0000\n"
+"POT-Creation-Date: 2026-10-27 00:56+0000\n"
 "PO-Revision-Date: 2026-09-27 21:13+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: pl\n"
@@ -45,7 +45,7 @@ msgstr ""
 "Nie można zmienić właściciela pliku <filename>%1</filename>. "
 "Niewystarczające uprawnienia do pliku."
 
-#: core/copyjob.cpp:197 kioworkers/file/file_unix.cpp:651
+#: core/copyjob.cpp:204 kioworkers/file/file_unix.cpp:651
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -57,7 +57,7 @@ msgstr ""
 "Nie można utworzyć dowiązania symbolicznego \"%1\".\n"
 "Docelowy system plików (%2) nie obsługuje dowiązań symbolicznych."
 
-#: core/copyjob.cpp:209
+#: core/copyjob.cpp:216
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -72,7 +72,7 @@ msgstr ""
 "Wybranie zastąpienie zastąpi każdy nieprawidłowy znak (w nazwie katalogu "
 "docelowego) znakiem podkreślenia \"_\"."
 
-#: core/copyjob.cpp:217
+#: core/copyjob.cpp:224
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -87,26 +87,31 @@ msgstr ""
 "Wybranie zastąpienie zastąpi każdy nieprawidłowy znak (w nazwie pliku "
 "docelowego) znakiem podkreślenia \"_\"."
 
-#: core/copyjob.cpp:1492 core/job_error.cpp:588
+#: core/copyjob.cpp:1566 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Katalog już istnieje"
 
-#: core/copyjob.cpp:1833 core/copyjob.cpp:2567 core/filecopyjob.cpp:371
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2858 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Plik już istnieje"
 
-#: core/copyjob.cpp:1833 core/copyjob.cpp:2567
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2858
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Istnieje już jako katalog"
 
-#: core/copyjob.cpp:1991 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:2063 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Kosz"
+
+#: core/copyjob.cpp:2579
+#, kde-format
+msgid "%1 changed after it was copied, so it was not deleted."
+msgstr ""
 
 #: core/desktopexecparser.cpp:335
 #, kde-format
@@ -4189,7 +4194,7 @@ msgstr "Polecenie do wykonania"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "Adresy URL lub lokalny plik(i) używany dla 'polecenia'"
 
-#: kioworkers/file/file.cpp:744 kioworkers/file/file.cpp:801
+#: kioworkers/file/file.cpp:760 kioworkers/file/file.cpp:826
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4199,7 +4204,7 @@ msgstr ""
 "Nie można zmienić właściciela i grupy dla\n"
 "%1"
 
-#: kioworkers/file/file.cpp:792
+#: kioworkers/file/file.cpp:817
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4208,17 +4213,17 @@ msgstr ""
 "Nie można zmienić praw do\n"
 "%1"
 
-#: kioworkers/file/file.cpp:894 kioworkers/file/file.cpp:986
+#: kioworkers/file/file.cpp:919 kioworkers/file/file.cpp:1011
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Nie można otworzyć pliku tymczasowego"
 
-#: kioworkers/file/file.cpp:918
+#: kioworkers/file/file.cpp:943
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Nie można znaleźć programu \"mount\""
 
-#: kioworkers/file/file.cpp:995
+#: kioworkers/file/file.cpp:1020
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Nie można znaleźć programu \"umount\""
@@ -4238,7 +4243,7 @@ msgstr "Nie można pobrać identyfikatora użytkownika dla danej nazwy %1"
 msgid "Could not get group id for given group name %1"
 msgstr "Nie można pobrać identyfikatora grupy dla danej nazwy %1"
 
-#: kioworkers/file/file_unix_copy.cpp:738
+#: kioworkers/file/file_unix_copy.cpp:1090
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr ""
@@ -6925,13 +6930,13 @@ msgctxt "@action:inmenu"
 msgid "Paste"
 msgstr "Wklej"
 
-#: widgets/pastedialog.cpp:57
+#: widgets/pastedialog.cpp:58
 #, kde-format
 msgctxt "@label"
 msgid "Data format:"
 msgstr "Format danych:"
 
-#: widgets/pastedialog.cpp:75
+#: widgets/pastedialog.cpp:76
 #, kde-format
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
