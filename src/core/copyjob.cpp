@@ -2829,6 +2829,7 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                     options |= RenameDialog_DestIsDirectory;
                 }
 
+                slotReport();
                 if (m_reportTimer) {
                     m_reportTimer->stop();
                 }
