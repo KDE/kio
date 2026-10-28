@@ -690,15 +690,24 @@ void preserveAttrs([[maybe_unused]] int sourceFd,
                    uid_t euid,
                    DestDirGroup destDirGroup)
 {
-    // The created file is asked whether it already carries the mode wanted, rather than the
-    // process for its umask, which costs a /proc read per file. An overwritten file kept its stale
-    // bits, and open() does not reliably set the special bits, so both still go through fchmod.
+    // The created file is asked whether it already carries the mode wanted. That mode came back
+    // with the create, after the umask, a default ACL or the server applied theirs, and writing
+    // data does not change it. statx asks for the mode alone: fstat also asks for the size and the
+    // times, which a network filesystem fetches from the server again after a write. An
+    // overwritten file kept its stale bits, and open() does not reliably set the special bits, so
+    // both still go through fchmod.
     if (request.permissions != NewFilePermissions::SystemDefault) {
         const mode_t mode = (request.permissions == NewFilePermissions::Explicit ? request.explicitMode : mode_t(st.st_mode)) & 07777;
         bool createdModeAlreadyCorrect = false;
         if (destFreshlyCreated && (mode & mode_t(07000)) == 0) {
+#if HAVE_STATX
+            struct statx created;
+            createdModeAlreadyCorrect =
+                ::statx(destFd, "", AT_EMPTY_PATH | AT_STATX_DONT_SYNC, STATX_MODE, &created) == 0 && (created.stx_mode & 07777) == mode;
+#else
             struct stat created;
             createdModeAlreadyCorrect = ::fstat(destFd, &created) == 0 && (created.st_mode & mode_t(07777)) == mode;
+#endif
         }
         if (!createdModeAlreadyCorrect && ::fchmod(destFd, mode) != 0) {
             qCWarning(KIO_FILE) << "copy: could not preserve permissions:" << strerror(errno);
