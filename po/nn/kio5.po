@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2026-10-10 12:35+0200\n"
+"PO-Revision-Date: 2026-10-27 19:59+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -4358,7 +4358,7 @@ msgstr "ikkje støtta"
 #: ioslaves/trash/kio_trash_win.cpp:260
 #, kde-format
 msgid "Internal error in copyOrMove, should never happen"
-msgstr "Intern feil i «copyOrMove». Dette skal ikkje skje."
+msgstr "Intern feil i «copyOrMove». Dette skal aldri skje."
 
 #: ioslaves/trash/ktrash.cpp:28
 #, kde-format
@@ -7505,9 +7505,7 @@ msgid "&Open with %1"
 msgstr "&Opna med %1"
 
 #: widgets/kfileitemactions.cpp:929
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgstr "&Opna mappa med"
