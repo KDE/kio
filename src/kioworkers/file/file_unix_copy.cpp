@@ -28,6 +28,7 @@
 #include <QMutex>
 #include <QScopeGuard>
 #include <QThread>
+#include <QThreadPool>
 #include <QUrl>
 #include <qplatformdefs.h>
 
@@ -45,6 +46,7 @@
 #include <deque>
 #include <fcntl.h>
 #include <functional>
+#include <limits>
 #include <memory>
 #include <mutex>
 #include <poll.h>
@@ -72,6 +74,17 @@
 
 #if HAVE_SENDFILE
 #include <sys/sendfile.h>
+#endif
+
+#if HAVE_LIBURING
+#include <atomic>
+#include <latch>
+#include <liburing.h>
+#include <sys/mman.h>
+#include <sys/syscall.h>
+#include <vector>
+// After sys/mman.h, whose macros it defines again with the same values.
+#include <linux/mman.h> // struct cachestat, Linux 6.5
 #endif
 
 #if HAVE_SYS_XATTR_H
@@ -1156,6 +1169,145 @@ WorkerResult FileProtocol::flushRemovableFolder(const QString &folder)
     return WorkerResult::pass();
 }
 
+#if HAVE_LIBURING
+// The ring of the batch copy. It lives as long as the worker and only the worker's thread submits to
+// it, which IORING_SETUP_SINGLE_ISSUER and IORING_SETUP_DEFER_TASKRUN rely on: completions are
+// processed when that thread waits, not by interrupting it.
+class CopyRing
+{
+public:
+    // nullptr when KIO_BATCH_URING=0, or when the kernel or a seccomp filter refuses io_uring.
+    // KIO_BATCH_URING_INLINE_OPEN=0 opens local files through the ring as well.
+    static CopyRing *create();
+    ~CopyRing();
+
+    struct io_uring ring;
+    int depth = 32; // files of one window
+    // Files up to this size go through the ring, and a larger file through copyFileAt after the
+    // window. The ring reads the files of a window at the same time, which a cold source and a slow
+    // destination gain from at any size, and it writes back as copyFileAt does. A fully cached local
+    // source under 1 MiB still goes to copy_file_range, see cachedCopyMaxSize. KIO_BATCH_URING_MAX_FILE
+    // sets it in bytes.
+    qint64 maxFileSize = std::numeric_limits<qint64>::max();
+    bool dataSync = true; // a slow destination writes back the data of a window in the ring
+    // Between two local folders the files are opened and created with plain calls. The ring runs
+    // statx and a creating open on its worker threads, which costs more than the call itself on
+    // a local filesystem.
+    bool inlineLocalOpens = true;
+    // Between two local folders, a source smaller than this whose data is all in the page cache is
+    // copied with copy_file_range: once in the kernel, where a read and a write copy it twice. From
+    // 1 MiB the ring is faster even then, since its worker threads copy the files of a window on
+    // several CPUs where copy_file_range copies one file at a time. The check is one cachestat
+    // call, about as costly as an fstat below 1 MiB. A slow destination keeps the ring, where the
+    // writes of a window overlap. -1 when it is off.
+    qint64 cachedCopyMaxSize = 1024 * 1024;
+    // One slot of chunkSize per file of a window. The data of a file is read into its slot and
+    // written from it a chunk at a time. Registered as buffer 0 when bufferRegistered.
+    static constexpr size_t chunkSize = 64 * 1024;
+    char *buffer = nullptr;
+    size_t bufferSize = 0;
+    bool bufferRegistered = false;
+    // A table of 2 * depth registered files: slot 2i holds the source of file i of the window,
+    // 2i + 1 its destination.
+    bool fixedFiles = false;
+    // Sets the permissions, times, owner and extended attributes of the files of a window on a
+    // slow destination at the same time. io_uring has no request for them, and on a network
+    // filesystem each one waits for the server. nullptr when KIO_BATCH_URING_META_THREADS=0.
+    std::unique_ptr<QThreadPool> metadataPool;
+    // Set when a submission or a wait failed. The worker drops the ring after the batch, and the
+    // next batch makes a fresh one.
+    bool broken = false;
+};
+
+CopyRing *CopyRing::create()
+{
+    if (qEnvironmentVariable("KIO_BATCH_URING") == QLatin1String("0")) {
+        return nullptr;
+    }
+    auto copyRing = std::make_unique<CopyRing>();
+    bool ok = false;
+    const int depth = qEnvironmentVariableIntValue("KIO_BATCH_URING_DEPTH", &ok);
+    copyRing->depth = ok && depth > 0 ? qMin(depth, 256) : 32;
+    copyRing->dataSync = qEnvironmentVariable("KIO_BATCH_URING_FSYNC") != QLatin1String("0");
+    const qint64 maxFile = qEnvironmentVariable("KIO_BATCH_URING_MAX_FILE").toLongLong(&ok);
+    if (ok && maxFile >= 0) {
+        copyRing->maxFileSize = maxFile;
+    }
+    copyRing->inlineLocalOpens = qEnvironmentVariable("KIO_BATCH_URING_INLINE_OPEN") != QLatin1String("0");
+    // KIO_BATCH_URING_CACHESTAT_MAX sets the size from which a file is not checked, -1 turns the
+    // check off.
+    const int cachedMax = qEnvironmentVariableIntValue("KIO_BATCH_URING_CACHESTAT_MAX", &ok);
+    if (ok) {
+        copyRing->cachedCopyMaxSize = cachedMax;
+    }
+    const int threads = qEnvironmentVariableIntValue("KIO_BATCH_URING_META_THREADS", &ok);
+    if (!ok || threads > 0) {
+        copyRing->metadataPool = std::make_unique<QThreadPool>();
+        copyRing->metadataPool->setMaxThreadCount(ok ? qMin(threads, 64) : 16);
+    }
+    // KIO_BATCH_URING_PLAIN=1 sets up the ring without the flags and registrations below, to
+    // measure what they bring.
+    const bool plain = qEnvironmentVariableIntValue("KIO_BATCH_URING_PLAIN") == 1;
+
+    // Three requests per file at most in each stage. The flags are tried newest first:
+    // SINGLE_ISSUER and DEFER_TASKRUN came in Linux 6.1, SUBMIT_ALL in 5.18.
+    const unsigned entries = unsigned(3 * copyRing->depth);
+    const unsigned flagSets[] = {
+        IORING_SETUP_SUBMIT_ALL | IORING_SETUP_SINGLE_ISSUER | IORING_SETUP_DEFER_TASKRUN,
+        IORING_SETUP_SUBMIT_ALL | IORING_SETUP_COOP_TASKRUN,
+        IORING_SETUP_SUBMIT_ALL,
+        0,
+    };
+    bool ready = false;
+    for (const unsigned flags : flagSets) {
+        if (plain && (flags & (IORING_SETUP_SINGLE_ISSUER | IORING_SETUP_COOP_TASKRUN))) {
+            continue;
+        }
+        if (io_uring_queue_init(entries, &copyRing->ring, flags) == 0) {
+            ready = true;
+            break;
+        }
+    }
+    if (!ready) {
+        return nullptr;
+    }
+    copyRing->bufferSize = size_t(copyRing->depth) * chunkSize;
+    void *buffer = ::mmap(nullptr, copyRing->bufferSize, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+    if (buffer == MAP_FAILED) {
+        io_uring_queue_exit(&copyRing->ring);
+        return nullptr;
+    }
+    copyRing->buffer = static_cast<char *>(buffer);
+    if (plain) {
+        return copyRing.release();
+    }
+
+    // io_uring_enter then finds the ring without looking up its descriptor each time.
+    io_uring_register_ring_fd(&copyRing->ring);
+
+    // Registered memory counts against RLIMIT_MEMLOCK. When it is refused, the slots are used with
+    // plain reads and writes.
+    const struct iovec iov = {buffer, copyRing->bufferSize};
+    copyRing->bufferRegistered = io_uring_register_buffers(&copyRing->ring, &iov, 1) == 0;
+
+    copyRing->fixedFiles = io_uring_register_files_sparse(&copyRing->ring, entries) == 0;
+    return copyRing.release();
+}
+
+CopyRing::~CopyRing()
+{
+    io_uring_queue_exit(&ring); // also drops the registered files and buffer
+    if (buffer) {
+        ::munmap(buffer, bufferSize);
+    }
+}
+
+void CopyRingDeleter::operator()(CopyRing *ring) const
+{
+    delete ring;
+}
+#endif
+
 namespace
 {
 // Copies each op and reports its ItemOutcome, so the worker can stream progress, defer
@@ -1355,10 +1507,682 @@ int BatchCopyEngine::copyRun(const QList<BatchCopyOp> &ops, qsizetype first, qsi
     return 0;
 }
 
-// NOTE: io_uring has no opcode for copy_file_range, so it could only pipeline the metadata calls
-// around a data move that still goes through copy_file_range. Measured that way it came out
-// *slower* than copying serially for warm-cache local files, the metadata calls being cheap there
-// already. It is worth another look once the data move itself can be submitted to a ring.
+#if HAVE_LIBURING
+// Copies the files of a batch through copyRing, a window at a time: up to depth files that share
+// both folders. The stages of copyRun put the requests of the whole window in flight at once.
+class UringCopyEngine : public BatchCopyEngine
+{
+public:
+    UringCopyEngine(CopyRing *copyRing, PreserveFn preserve, gid_t egid, std::function<bool()> isKilled, bool tryReflink)
+        : BatchCopyEngine(std::move(preserve), egid, std::move(isKilled), tryReflink)
+        , m_copyRing(copyRing)
+    {
+    }
+
+protected:
+    qsizetype runLength(const QList<BatchCopyOp> &ops, qsizetype first) const override;
+    int copyRun(const QList<BatchCopyOp> &ops, qsizetype first, qsizetype count, KIO::filesize_t &bytesCopied, const OnItem &onItem) override;
+    void srcDirOpened(int dirFd, const QString &folder) override
+    {
+        m_srcSlow = mountTraitsFor(dirFd, folder).slow;
+    }
+    void destDirOpened(int dirFd, const QString &folder) override
+    {
+        // KIO_BATCH_URING_FORCE_SLOW=1 treats a local folder as a network one, with the writeback
+        // window of NFS, to test those stages.
+        static const bool forceSlow = qEnvironmentVariableIntValue("KIO_BATCH_URING_FORCE_SLOW") == 1;
+        m_destSlow = forceSlow || mountTraitsFor(dirFd, folder).slow;
+        if (forceSlow && m_request.writebackWindow == 0) {
+            m_request.writebackWindow = 16 * 1024 * 1024;
+        }
+    }
+
+private:
+    // Submits the queued requests and hands each completion to onCompletion with its user_data and
+    // result. Returns 0, or the errno of a ring that failed.
+    int submitAndReap(unsigned queued, const std::function<void(quint64 data, int res)> &onCompletion);
+    // Submits the queued requests, 0 or an errno.
+    int submitQueued(unsigned queued);
+    // Waits for the next completion. A request on a stalled server never completes, so the wait
+    // wakes every s_cancelCheck to ask whether the job was cancelled. On cancel, the requests in
+    // flight are cancelled once and m_windowKilled is set. Returns 0 or an errno.
+    int waitCompletion(struct io_uring_cqe **cqe);
+
+    CopyRing *m_copyRing;
+    bool m_windowKilled = false;
+    unsigned m_ringOutstanding = 0; // requests submitted whose completion is not reaped yet
+    bool m_destSlow = false; // m_destDirFd is on a network or other slow mount
+    bool m_srcSlow = false; // m_srcDirFd is on a network or other slow mount
+};
+
+qsizetype UringCopyEngine::runLength(const QList<BatchCopyOp> &ops, qsizetype first) const
+{
+    const QByteArray srcDir = splitDir(ops.at(first).src).first;
+    const QByteArray destDir = splitDir(ops.at(first).dest).first;
+    qsizetype count = 1;
+    while (first + count < ops.size() && count < m_copyRing->depth && splitDir(ops.at(first + count).src).first == srcDir
+           && splitDir(ops.at(first + count).dest).first == destDir) {
+        ++count;
+    }
+    return count;
+}
+
+// True when every page of the file is in the page cache. A kernel older than 6.5 has no cachestat
+// and gets false, after which it is not asked again.
+static bool isFullyCached(int fd, quint64 size)
+{
+#ifdef SYS_cachestat
+    static std::atomic<bool> unsupported{false};
+    if (unsupported) {
+        return false;
+    }
+    struct cachestat_range range = {0, 0}; // to the end of the file
+    struct cachestat cached = {};
+    if (::syscall(SYS_cachestat, fd, &range, &cached, 0) != 0) {
+        if (errno == ENOSYS) {
+            unsupported = true;
+        }
+        return false;
+    }
+    static const quint64 pageSize = quint64(::sysconf(_SC_PAGESIZE));
+    return cached.nr_cache >= (size + pageSize - 1) / pageSize;
+#else
+    Q_UNUSED(fd)
+    Q_UNUSED(size)
+    return false;
+#endif
+}
+
+int UringCopyEngine::submitQueued(unsigned queued)
+{
+    // A request that fails while it is read, such as an open of an empty name, can stop the
+    // submission there. The ones after it are still queued and go with the next call.
+    unsigned submitted = 0;
+    while (submitted < queued) {
+        const int ret = io_uring_submit(&m_copyRing->ring);
+        if (ret == -EINTR) {
+            continue;
+        }
+        if (ret <= 0) {
+            return ret < 0 ? -ret : EIO;
+        }
+        submitted += unsigned(ret);
+        m_ringOutstanding += unsigned(ret);
+    }
+    return 0;
+}
+
+int UringCopyEngine::submitAndReap(unsigned queued, const std::function<void(quint64 data, int res)> &onCompletion)
+{
+    if (queued == 0) {
+        return 0;
+    }
+    if (const int err = submitQueued(queued)) {
+        return err;
+    }
+    for (unsigned n = 0; n < queued; ++n) {
+        struct io_uring_cqe *cqe = nullptr;
+        if (const int err = waitCompletion(&cqe)) {
+            return err;
+        }
+        onCompletion(io_uring_cqe_get_data64(cqe), cqe->res);
+        io_uring_cqe_seen(&m_copyRing->ring, cqe);
+        --m_ringOutstanding;
+    }
+    return 0;
+}
+
+// The completion of the request that cancels the others carries this tag, and is not handed on.
+// Not ~0, which liburing uses for the timeouts of its own waits on kernels before 5.11.
+static constexpr quint64 s_cancelTag = ~quint64(0) - 1;
+
+int UringCopyEngine::waitCompletion(struct io_uring_cqe **cqe)
+{
+    while (true) {
+        struct __kernel_timespec timeout = {0, std::chrono::nanoseconds(s_cancelCheck).count()};
+        const int ret = io_uring_wait_cqe_timeout(&m_copyRing->ring, cqe, &timeout);
+        if (ret == -EINTR) {
+            continue;
+        }
+        if (ret == -ETIME) {
+            if (!m_windowKilled && m_isKilled()) {
+                m_windowKilled = true;
+                // IORING_ASYNC_CANCEL_ANY came in Linux 5.19. Without it the requests run to the end.
+                if (struct io_uring_sqe *sqe = io_uring_get_sqe(&m_copyRing->ring)) {
+                    io_uring_prep_cancel64(sqe, 0, IORING_ASYNC_CANCEL_ANY);
+                    io_uring_sqe_set_data64(sqe, s_cancelTag);
+                    submitQueued(1);
+                }
+            }
+            continue;
+        }
+        if (ret < 0) {
+            return -ret;
+        }
+        if (io_uring_cqe_get_data64(*cqe) == s_cancelTag) {
+            io_uring_cqe_seen(&m_copyRing->ring, *cqe);
+            --m_ringOutstanding;
+            continue;
+        }
+        return 0;
+    }
+}
+
+// The files of one window go through the ring a stage at a time: open the sources and read their
+// status, create the destinations, move the data, then close everything. On a network filesystem
+// the requests of a stage are in flight together, where the serial loop waits for each in turn.
+// There is no opcode for fchmod, futimens or fchown, so the metadata is still set one file at a time.
+int UringCopyEngine::copyRun(const QList<BatchCopyOp> &ops, qsizetype first, qsizetype count, KIO::filesize_t &bytesCopied, const OnItem &onItem)
+{
+    struct File {
+        QByteArray srcName;
+        QByteArray destName;
+        int srcFd = -1;
+        int destFd = -1;
+        int err = 0; // the first failure, 0 when there is none
+        bool conflict = false; // the destination exists
+        bool large = false; // left to copyFileAt
+        bool counted = false; // its bytes are in bytesCopied
+        bool created = false; // the window made the destination
+        struct statx stx;
+    };
+    std::vector<File> files(count);
+    for (qsizetype i = 0; i < count; ++i) {
+        files[i].srcName = splitDir(ops.at(first + i).src).second;
+        files[i].destName = splitDir(ops.at(first + i).dest).second;
+    }
+
+    const bool inlineOpens = m_copyRing->inlineLocalOpens && !m_srcSlow && !m_destSlow;
+
+    // After a cancel the files go no further, and are taken back after the close.
+    m_windowKilled = false;
+    auto markKilled = [&] {
+        if (!m_windowKilled) {
+            return;
+        }
+        for (File &f : files) {
+            if (f.err == 0) {
+                f.err = ECANCELED;
+            }
+        }
+    };
+
+    // A failed submission or wait leaves requests in flight that write into files, and a window half
+    // done. They are cancelled and waited for, the descriptors closed, and the copies the window
+    // made deleted. None of the files is reported, so the caller copies them one at a time, and
+    // the ring is not used again. The requests still queued are submitted with the cancel, and the
+    // opens among them complete through lateDone, so their descriptors and files are known.
+    auto failWindow = [&](int err, const std::function<void(quint64 data, int res)> &lateDone = {}) {
+        m_copyRing->broken = true;
+        if (struct io_uring_sqe *sqe = io_uring_get_sqe(&m_copyRing->ring)) {
+            io_uring_prep_cancel64(sqe, 0, IORING_ASYNC_CANCEL_ANY);
+            io_uring_sqe_set_data64(sqe, s_cancelTag);
+        }
+        const int submitted = io_uring_submit(&m_copyRing->ring);
+        if (submitted > 0) {
+            m_ringOutstanding += unsigned(submitted);
+        }
+        while (m_ringOutstanding > 0) {
+            struct io_uring_cqe *cqe = nullptr;
+            const int ret = io_uring_wait_cqe(&m_copyRing->ring, &cqe);
+            if (ret == -EINTR) {
+                continue;
+            }
+            if (ret < 0) {
+                break; // the ring itself failed, nothing more completes
+            }
+            const quint64 data = io_uring_cqe_get_data64(cqe);
+            if (data != s_cancelTag && lateDone) {
+                lateDone(data, cqe->res);
+            }
+            io_uring_cqe_seen(&m_copyRing->ring, cqe);
+            --m_ringOutstanding;
+        }
+        m_ringOutstanding = 0;
+        if (m_copyRing->fixedFiles) {
+            std::vector<int> cleared(size_t(2 * count), -1);
+            io_uring_register_files_update(&m_copyRing->ring, 0, cleared.data(), unsigned(cleared.size()));
+        }
+        for (File &f : files) {
+            if (f.srcFd >= 0) {
+                ::close(f.srcFd);
+            }
+            if (f.destFd >= 0) {
+                ::close(f.destFd);
+            }
+            if (f.created) {
+                ::unlinkat(m_destDirFd, f.destName.constData(), 0);
+            }
+            if (f.counted) {
+                bytesCopied -= f.stx.stx_size;
+            }
+        }
+        return err;
+    };
+
+    // Stage 1: the sources. statx by name follows a symlink the way open does.
+    auto sourceDone = [&](quint64 data, int res) {
+        File &f = files[data / 2];
+        if (data % 2 == 0 && res >= 0) {
+            f.srcFd = res;
+        } else if (res < 0 && f.err == 0) {
+            f.err = -res;
+        }
+    };
+    unsigned queued = 0;
+    for (qsizetype i = 0; i < count; ++i) {
+        if (inlineOpens) {
+            const int fd = ::openat(m_srcDirFd, files[i].srcName.constData(), O_RDONLY | O_NONBLOCK | O_CLOEXEC);
+            sourceDone(quint64(i) * 2, fd >= 0 ? fd : -errno);
+            if (fd >= 0) {
+                sourceDone(quint64(i) * 2 + 1, ::statx(fd, "", AT_EMPTY_PATH, STATX_BASIC_STATS, &files[i].stx) == 0 ? 0 : -errno);
+            }
+            continue;
+        }
+        struct io_uring_sqe *sqe = io_uring_get_sqe(&m_copyRing->ring);
+        io_uring_prep_openat(sqe, m_srcDirFd, files[i].srcName.constData(), O_RDONLY | O_NONBLOCK | O_CLOEXEC, 0);
+        io_uring_sqe_set_data64(sqe, quint64(i) * 2);
+        sqe = io_uring_get_sqe(&m_copyRing->ring);
+        io_uring_prep_statx(sqe, m_srcDirFd, files[i].srcName.constData(), 0, STATX_BASIC_STATS, &files[i].stx);
+        io_uring_sqe_set_data64(sqe, quint64(i) * 2 + 1);
+        queued += 2;
+    }
+    if (const int err = submitAndReap(queued, sourceDone)) {
+        return failWindow(err, sourceDone);
+    }
+    markKilled();
+
+    // Stage 2: the destinations, created with the mode of their source. O_EXCL is the conflict check.
+    auto destDone = [&](quint64 data, int res) {
+        File &f = files[data];
+        if (res >= 0) {
+            f.destFd = res;
+            f.created = true;
+        } else if (res == -EEXIST) {
+            f.conflict = true;
+        } else {
+            f.err = -res;
+        }
+    };
+    queued = 0;
+    for (qsizetype i = 0; i < count; ++i) {
+        File &f = files[i];
+        if (f.err != 0) {
+            continue;
+        }
+        if (!S_ISREG(f.stx.stx_mode)) {
+            f.err = EINVAL;
+            continue;
+        }
+        if (qint64(f.stx.stx_size) > m_copyRing->maxFileSize) {
+            f.large = true;
+            continue;
+        }
+        const int flags = O_WRONLY | O_CREAT | O_NOFOLLOW | O_CLOEXEC | O_EXCL;
+        if (inlineOpens) {
+            const int fd = ::openat(m_destDirFd, f.destName.constData(), flags, f.stx.stx_mode & 07777);
+            destDone(quint64(i), fd >= 0 ? fd : -errno);
+            continue;
+        }
+        struct io_uring_sqe *sqe = io_uring_get_sqe(&m_copyRing->ring);
+        io_uring_prep_openat(sqe, m_destDirFd, f.destName.constData(), flags, f.stx.stx_mode & 07777);
+        io_uring_sqe_set_data64(sqe, quint64(i));
+        ++queued;
+    }
+    if (const int err = submitAndReap(queued, destDone)) {
+        return failWindow(err, destDone);
+    }
+    markKilled();
+
+    // The sources and destinations of the window go in the registered file table, so the requests on
+    // them below take a slot instead of a descriptor lookup each. The table holds a reference of its
+    // own, which is dropped before the close of stage 5 so the close is the last one.
+    std::vector<int> table;
+    bool useTable = false;
+    if (m_copyRing->fixedFiles) {
+        table.resize(size_t(2 * count));
+        for (qsizetype i = 0; i < count; ++i) {
+            table[2 * i] = files[i].destFd >= 0 ? files[i].srcFd : -1;
+            table[2 * i + 1] = files[i].destFd;
+        }
+        const int updated = io_uring_register_files_update(&m_copyRing->ring, 0, table.data(), unsigned(table.size()));
+        useTable = updated == int(table.size());
+        if (!useTable && updated > 0) {
+            // Some slots took a reference, which would keep their files open past the close.
+            std::fill(table.begin(), table.end(), -1);
+            io_uring_register_files_update(&m_copyRing->ring, 0, table.data(), unsigned(table.size()));
+        }
+    }
+    // The descriptor, or the table slot, a request on file i names.
+    auto target = [&](qsizetype i, bool dest, struct io_uring_sqe *sqe) {
+        if (useTable) {
+            sqe->fd = int(2 * i + (dest ? 1 : 0));
+            sqe->flags |= IOSQE_FIXED_FILE;
+        }
+    };
+
+    // Stage 3: the data, a chunk at a time through the slot of each file: a read linked to the
+    // write of the same chunk. The next chunk of a file is queued when its write completes, so the
+    // files of a window move at the same time in depth * chunkSize of memory.
+    //
+    // Where the destination has a writeback window, the write that ends a window of a file is linked
+    // to a sync_file_range of that window, and the next chunk waits for it. The window of the
+    // destination is shared by the files of the ring window, so the data waiting for writeback stays
+    // what one copyFileAt keeps.
+    enum ChunkRequest : quint64 {
+        ChunkRead,
+        ChunkWrite,
+        ChunkSync,
+        ChunkRequests
+    };
+    queued = 0;
+    unsigned inflight = 0;
+    std::vector<bool> retry(count, false);
+    std::vector<bool> syncing(count, false);
+    std::vector<quint64> offset(count, 0);
+    quint64 syncWindow = 0;
+    if (m_request.writebackWindow > 0) {
+        syncWindow = qMax<quint64>(CopyRing::chunkSize, m_request.writebackWindow / quint64(count) / CopyRing::chunkSize * CopyRing::chunkSize);
+    }
+    auto chunkLength = [&](qsizetype i) {
+        return unsigned(qMin<quint64>(CopyRing::chunkSize, files[i].stx.stx_size - offset[i]));
+    };
+    auto queueChunk = [&](qsizetype i) {
+        File &f = files[i];
+        char *slot = m_copyRing->buffer + size_t(i) * CopyRing::chunkSize;
+        const unsigned length = chunkLength(i);
+        const quint64 end = offset[i] + length;
+        struct io_uring_sqe *sqe = io_uring_get_sqe(&m_copyRing->ring);
+        if (m_copyRing->bufferRegistered) {
+            io_uring_prep_read_fixed(sqe, f.srcFd, slot, length, offset[i], 0);
+        } else {
+            io_uring_prep_read(sqe, f.srcFd, slot, length, offset[i]);
+        }
+        io_uring_sqe_set_flags(sqe, IOSQE_IO_LINK);
+        target(i, false, sqe);
+        io_uring_sqe_set_data64(sqe, quint64(i) * ChunkRequests + ChunkRead);
+        sqe = io_uring_get_sqe(&m_copyRing->ring);
+        if (m_copyRing->bufferRegistered) {
+            io_uring_prep_write_fixed(sqe, f.destFd, slot, length, offset[i], 0);
+        } else {
+            io_uring_prep_write(sqe, f.destFd, slot, length, offset[i]);
+        }
+        target(i, true, sqe);
+        io_uring_sqe_set_data64(sqe, quint64(i) * ChunkRequests + ChunkWrite);
+        queued += 2;
+        inflight += 2;
+        // The last window of a file is left to the fsync of stage 3b.
+        if (syncWindow > 0 && end < f.stx.stx_size && end % syncWindow == 0) {
+            io_uring_sqe_set_flags(sqe, sqe->flags | IOSQE_IO_LINK);
+            sqe = io_uring_get_sqe(&m_copyRing->ring);
+            constexpr unsigned writeAndWait = SYNC_FILE_RANGE_WAIT_BEFORE | SYNC_FILE_RANGE_WRITE | SYNC_FILE_RANGE_WAIT_AFTER;
+            io_uring_prep_sync_file_range(sqe, f.destFd, unsigned(syncWindow), end - syncWindow, writeAndWait);
+            target(i, true, sqe);
+            io_uring_sqe_set_data64(sqe, quint64(i) * ChunkRequests + ChunkSync);
+            syncing[i] = true;
+            ++queued;
+            ++inflight;
+        }
+    };
+    // Reported as the chunks are written, so a window of large files shows progress. Stage 4b
+    // reports again only past what this reached.
+    KIO::filesize_t windowWritten = 0;
+    KIO::filesize_t reported = bytesCopied;
+    auto queueNext = [&](qsizetype i) {
+        File &f = files[i];
+        if (offset[i] >= f.stx.stx_size) {
+            return;
+        }
+        if (m_isKilled()) {
+            f.err = ECANCELED;
+            return;
+        }
+        queueChunk(i);
+    };
+    // A short read or write, or a request cancelled by the one it is linked to, stops the chunks of
+    // the file, and stage 4 copies it again. A failed writeback fails the file.
+    auto chunkDone = [&](quint64 data, int res) {
+        const qsizetype i = qsizetype(data / ChunkRequests);
+        File &f = files[i];
+        if (retry[i] || f.err != 0) {
+            return;
+        }
+        switch (data % ChunkRequests) {
+        case ChunkRead:
+            if (res < 0 || unsigned(res) != chunkLength(i)) {
+                retry[i] = true;
+            }
+            return;
+        case ChunkWrite:
+            if (res < 0 || unsigned(res) != chunkLength(i)) {
+                retry[i] = true;
+                return;
+            }
+            offset[i] += quint64(res);
+            windowWritten += KIO::filesize_t(res);
+            if (m_onProgress && bytesCopied + windowWritten > reported) {
+                reported = bytesCopied + windowWritten;
+                m_onProgress(reported);
+            }
+            if (!syncing[i]) {
+                queueNext(i);
+            }
+            return;
+        case ChunkSync:
+            syncing[i] = false;
+            if (res < 0) {
+                f.err = -res;
+                return;
+            }
+            queueNext(i);
+            return;
+        }
+    };
+    const bool checkCached = m_copyRing->cachedCopyMaxSize >= 0 && !m_srcSlow && !m_destSlow;
+    for (qsizetype i = 0; i < count; ++i) {
+        File &f = files[i];
+        if (f.destFd < 0 || f.stx.stx_size == 0 || f.err != 0) {
+            continue;
+        }
+#ifdef FICLONE
+        if (m_request.tryReflink && ::ioctl(f.destFd, FICLONE, f.srcFd) != -1) {
+            continue;
+        }
+#endif
+        if (checkCached && qint64(f.stx.stx_size) < m_copyRing->cachedCopyMaxSize && isFullyCached(f.srcFd, f.stx.stx_size)) {
+            KIO::filesize_t ignored = 0;
+            if (!copyFds(f.srcFd, f.destFd, f.stx.stx_size, ignored, m_isKilled)) {
+                f.err = errno;
+            }
+            continue;
+        }
+        queueChunk(i);
+    }
+    while (inflight > 0) {
+        if (const int err = submitQueued(queued)) {
+            return failWindow(err);
+        }
+        queued = 0;
+        struct io_uring_cqe *cqe = nullptr;
+        if (const int err = waitCompletion(&cqe)) {
+            return failWindow(err);
+        }
+        // Every completion already posted, then one submission for the chunks they queued.
+        unsigned head;
+        unsigned seen = 0;
+        io_uring_for_each_cqe(&m_copyRing->ring, head, cqe)
+        {
+            ++seen;
+            --m_ringOutstanding;
+            const quint64 data = io_uring_cqe_get_data64(cqe);
+            if (data == s_cancelTag) {
+                continue;
+            }
+            chunkDone(data, cqe->res);
+            --inflight;
+        }
+        io_uring_cq_advance(&m_copyRing->ring, seen);
+    }
+    markKilled();
+
+    // Stage 3b, on a network mount: write back the data of the window. The NFS client keeps the writes
+    // in the page cache and sends them before a setattr, so futimens would otherwise send the data of
+    // each file in turn. A failed write shows up here.
+    if (m_destSlow && m_copyRing->dataSync) {
+        queued = 0;
+        for (qsizetype i = 0; i < count; ++i) {
+            const File &f = files[i];
+            if (f.destFd < 0 || f.stx.stx_size == 0 || retry[i] || f.err != 0) {
+                continue;
+            }
+            struct io_uring_sqe *sqe = io_uring_get_sqe(&m_copyRing->ring);
+            io_uring_prep_fsync(sqe, f.destFd, IORING_FSYNC_DATASYNC);
+            target(i, true, sqe);
+            io_uring_sqe_set_data64(sqe, quint64(i));
+            ++queued;
+        }
+        if (const int err = submitAndReap(queued, [&](quint64 data, int res) {
+                if (res < 0 && files[data].err == 0) {
+                    files[data].err = -res;
+                }
+            })) {
+            return failWindow(err);
+        }
+    }
+    markKilled();
+
+    // Stage 4: what a short transfer left, one file at a time.
+    std::vector<qsizetype> copied;
+    copied.reserve(size_t(count));
+    for (qsizetype i = 0; i < count; ++i) {
+        File &f = files[i];
+        if (f.destFd < 0 || f.err != 0) {
+            continue;
+        }
+        if (retry[i]) {
+            KIO::filesize_t ignored = 0;
+            bool readFailed = false;
+            if (::lseek(f.srcFd, 0, SEEK_SET) != 0 || ::lseek(f.destFd, 0, SEEK_SET) != 0 || ::ftruncate(f.destFd, 0) != 0
+                || !copyFds(f.srcFd, f.destFd, f.stx.stx_size, ignored, m_isKilled, {}, &readFailed)) {
+                f.err = errno;
+                continue;
+            }
+        }
+        copied.push_back(i);
+    }
+
+    // Stage 4b: the metadata, on the pool of the ring for a slow destination, else in turn.
+    auto preserveFile = [this, &files](qsizetype i) {
+        const File &f = files[i];
+        struct stat st = {};
+        st.st_mode = f.stx.stx_mode;
+        st.st_uid = f.stx.stx_uid;
+        st.st_gid = f.stx.stx_gid;
+        st.st_size = off_t(f.stx.stx_size);
+        st.st_atim = {time_t(f.stx.stx_atime.tv_sec), long(f.stx.stx_atime.tv_nsec)};
+        st.st_mtim = {time_t(f.stx.stx_mtime.tv_sec), long(f.stx.stx_mtime.tv_nsec)};
+        m_preserve(f.srcFd, f.destFd, st, m_request, true, m_destDirGroup);
+    };
+    if (m_destSlow && m_copyRing->metadataPool && copied.size() > 1) {
+        // A latch rather than waitForDone(), which also stops the threads of the pool.
+        std::latch done(std::ptrdiff_t(copied.size()));
+        for (const qsizetype i : copied) {
+            m_copyRing->metadataPool->start([&preserveFile, &done, i] {
+                preserveFile(i);
+                done.count_down();
+            });
+        }
+        done.wait();
+    } else {
+        for (const qsizetype i : copied) {
+            preserveFile(i);
+        }
+    }
+    for (const qsizetype i : copied) {
+        bytesCopied += files[i].stx.stx_size;
+        files[i].counted = true;
+        if (m_onProgress && bytesCopied > reported) {
+            m_onProgress(bytesCopied);
+        }
+    }
+
+    // Stage 5: close everything. A network filesystem can report a failed write only here.
+    if (useTable) {
+        std::fill(table.begin(), table.end(), -1);
+        io_uring_register_files_update(&m_copyRing->ring, 0, table.data(), unsigned(table.size()));
+    }
+    // A descriptor belongs to the ring once its close is queued, so a failed window does not close
+    // it a second time.
+    queued = 0;
+    for (qsizetype i = 0; i < count; ++i) {
+        for (int *fd : {&files[i].srcFd, &files[i].destFd}) {
+            if (*fd >= 0) {
+                struct io_uring_sqe *sqe = io_uring_get_sqe(&m_copyRing->ring);
+                io_uring_prep_close(sqe, *fd);
+                io_uring_sqe_set_data64(sqe, quint64(i) * 2 + (fd == &files[i].destFd ? 1 : 0));
+                *fd = -1;
+                ++queued;
+            }
+        }
+    }
+    if (const int err = submitAndReap(queued, [&](quint64 data, int res) {
+            File &f = files[data / 2];
+            if (data % 2 == 1 && res < 0 && f.err == 0) {
+                f.err = -res;
+            }
+        })) {
+        return failWindow(err);
+    }
+
+    // A file that failed after its destination was made leaves nothing behind. From the file that
+    // stops the batch on, the copies of the window are taken back too, since they are never reported.
+    auto discard = [&](File &f) {
+        if (f.created && ::unlinkat(m_destDirFd, f.destName.constData(), 0) != 0 && errno != ENOENT) {
+            qCWarning(KIO_FILE) << "Could not delete partially copied file" << QFile::decodeName(f.destName);
+        }
+        f.created = false;
+        if (f.counted) {
+            bytesCopied -= f.stx.stx_size;
+            f.counted = false;
+        }
+    };
+    for (qsizetype i = 0; i < count; ++i) {
+        File &f = files[i];
+        const BatchCopyOp &op = ops.at(first + i);
+        int stopErr = 0;
+        if (f.large) {
+            stopErr = copyOne(op, f.srcName, f.destName, bytesCopied, onItem);
+        } else {
+            onItem(op.index, ItemOutcome::Begin, 0);
+            if (f.conflict) {
+                onItem(op.index, ItemOutcome::Conflict, 0);
+            } else if (f.err != 0) {
+                discard(f);
+                if (f.err == ECANCELED || isFatalCopyError(f.err)) {
+                    if (f.err != ECANCELED) {
+                        onItem(op.index, ItemOutcome::Abort, f.err);
+                    }
+                    stopErr = f.err;
+                } else {
+                    onItem(op.index, ItemOutcome::Defer, f.err);
+                }
+            } else {
+                onItem(op.index, ItemOutcome::Done, 0);
+            }
+        }
+        if (stopErr != 0) {
+            for (qsizetype j = i + 1; j < count; ++j) {
+                discard(files[j]);
+            }
+            return stopErr;
+        }
+    }
+    return 0;
+}
+#endif
+
+// NOTE: io_uring has no opcode for copy_file_range. UringCopyEngine moves the data of a file with
+// reads and writes instead, so the whole file can go through the ring.
 } // namespace
 
 WorkerResult FileProtocol::batchCopy(QDataStream &stream)
@@ -1414,13 +2238,22 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
     // the group a freshly created file already has is worked out per destination directory by the
     // engine and handed in.
     const gid_t egid = ::getegid();
-    auto engine = std::make_unique<BatchCopyEngine>(
-        makePreserveFn(this, ::geteuid()),
-        egid,
-        [this] {
-            return wasKilled();
-        },
-        tryReflink);
+    auto isKilled = [this] {
+        return wasKilled();
+    };
+    std::unique_ptr<BatchCopyEngine> engine;
+#if HAVE_LIBURING
+    if (!m_copyRingTried) {
+        m_copyRingTried = true;
+        m_copyRing.reset(CopyRing::create());
+    }
+    if (m_copyRing) {
+        engine = std::make_unique<UringCopyEngine>(m_copyRing.get(), makePreserveFn(this, ::geteuid()), egid, isKilled, tryReflink);
+    }
+#endif
+    if (!engine) {
+        engine = std::make_unique<BatchCopyEngine>(makePreserveFn(this, ::geteuid()), egid, isKilled, tryReflink);
+    }
 
     // Progress + completion reporting, batched on one ~100ms gate so a large run does not flood the
     // app. Each tick sends one data packet holding "qint32 current, QList<qint32> done", where
@@ -1430,11 +2263,14 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
     // exact total. Deferred and errored items are not reported here, they come back in the answer
     // packet.
     KIO::filesize_t bytesDone = 0;
+    // The byte total the engine reported last. It runs ahead of bytesDone while the ring writes the
+    // files of a window, which count in bytesDone only once their metadata is set.
+    KIO::filesize_t bytesWritten = 0;
     QElapsedTimer reportTimer;
     QList<qint32> doneSinceReport;
     qint32 inFlight = -1; // file about to be / being copied
     auto flushReport = [&]() {
-        processedSize(bytesDone);
+        processedSize(qMax(bytesDone, bytesWritten));
         if (inFlight < 0 && doneSinceReport.isEmpty()) {
             return;
         }
@@ -1447,7 +2283,8 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
     };
     // Bytes as they are copied, on the same gate: a file large enough to take seconds then advances
     // the byte total while it is being copied, instead of standing still until the next file starts.
-    engine->setProgressHook([&](KIO::filesize_t) {
+    engine->setProgressHook([&](KIO::filesize_t total) {
+        bytesWritten = qMax(bytesWritten, total);
         if (!reportTimer.isValid() || reportTimer.hasExpired(100)) {
             flushReport();
         }
@@ -1474,11 +2311,22 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
         }
     });
     inFlight = -1; // nothing in flight anymore; final flush carries the remaining completed indices
+    bytesWritten = 0; // the exact total, without what was written for files then taken back
     flushReport();
+
+    const bool copiedToRemovable = engine->copiedToRemovable();
+    engine.reset();
+#if HAVE_LIBURING
+    // A ring that failed is dropped, and the next batch makes a fresh one.
+    if (m_copyRing && m_copyRing->broken) {
+        m_copyRing.reset();
+        m_copyRingTried = false;
+    }
+#endif
 
     // The answer goes out once, when the batch is over. Why a file was left is not in it: the
     // caller copies it on its own and gets the conflict or the error from that attempt.
-    if (engine->copiedToRemovable()) {
+    if (copiedToRemovable) {
         // As in copy(): the job flushes the folder once its last file is copied. data() sends it along
         // with the answer, also when the batch fails.
         setMetaData(QStringLiteral("flush-destination"), QStringLiteral("true"));

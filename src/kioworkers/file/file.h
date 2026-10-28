@@ -64,6 +64,13 @@ private:
 
 class QDataStream;
 
+#if HAVE_LIBURING
+class CopyRing;
+struct CopyRingDeleter {
+    void operator()(CopyRing *ring) const;
+};
+#endif
+
 class FileProtocol : public QObject, public KIO::WorkerBase
 {
     Q_OBJECT
@@ -165,6 +172,12 @@ private:
 
     bool testMode = false;
     KIO::StatDetails getStatDetails();
+
+#if HAVE_LIBURING
+    // The io_uring of the batch copy, made by the first batch and kept until one fails.
+    std::unique_ptr<CopyRing, CopyRingDeleter> m_copyRing;
+    bool m_copyRingTried = false;
+#endif
 };
 
 #endif

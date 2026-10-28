@@ -32,3 +32,6 @@
 
 /* Defined if system has the Linux sendfile function. */
 #cmakedefine01 HAVE_SENDFILE
+
+/* Defined if the batch copy can submit through io_uring (liburing). */
+#cmakedefine01 HAVE_LIBURING

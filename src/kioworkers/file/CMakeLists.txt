@@ -18,6 +18,15 @@ endif()
 
 check_include_files(sys/xattr.h HAVE_SYS_XATTR_H)
 
+# The batch copy submits the files of a run through io_uring when liburing is there.
+if(CMAKE_SYSTEM_NAME MATCHES "Linux")
+    find_package(PkgConfig)
+    if(PkgConfig_FOUND)
+        pkg_check_modules(LIBURING IMPORTED_TARGET liburing)
+    endif()
+endif()
+set(HAVE_LIBURING ${LIBURING_FOUND})
+
 configure_file(config-kioworker-file.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-kioworker-file.h)
 
 configure_file(config-stat-unix.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-stat-unix.file.h)
@@ -41,4 +50,8 @@ endif ()
 
 if(ACL_FOUND)
    target_link_libraries(kio_file ${ACL_LIBS})
+endif()
+
+if(LIBURING_FOUND)
+   target_link_libraries(kio_file PkgConfig::LIBURING)
 endif()
