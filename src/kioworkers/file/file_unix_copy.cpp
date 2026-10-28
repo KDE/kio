@@ -1178,7 +1178,7 @@ public:
     {
         m_onProgress = std::move(onProgress);
     }
-    ~BatchCopyEngine()
+    virtual ~BatchCopyEngine()
     {
         if (m_srcDirFd >= 0) {
             ::close(m_srcDirFd);
@@ -1194,7 +1194,31 @@ public:
         return m_copiedToRemovable;
     }
 
-private:
+protected:
+    using OnItem = std::function<void(int index, ItemOutcome outcome, int err)>;
+    // How many ops from first on go to one copyRun. They all share the two folders of ops[first]
+    // when there is more than one.
+    virtual qsizetype runLength(const QList<BatchCopyOp> &ops, qsizetype first) const
+    {
+        Q_UNUSED(ops)
+        Q_UNUSED(first)
+        return 1;
+    }
+    // Copies ops[first] to ops[first + count - 1] and reports each with onItem. Returns the errno
+    // that stops the batch, or 0.
+    virtual int copyRun(const QList<BatchCopyOp> &ops, qsizetype first, qsizetype count, KIO::filesize_t &bytesCopied, const OnItem &onItem);
+    // Called with a source or destination folder just opened, once per folder.
+    virtual void srcDirOpened(int dirFd, const QString &folder)
+    {
+        Q_UNUSED(dirFd)
+        Q_UNUSED(folder)
+    }
+    virtual void destDirOpened(int dirFd, const QString &folder)
+    {
+        Q_UNUSED(dirFd)
+        Q_UNUSED(folder)
+    }
+
     // Keeps one source and one destination directory open at a time, so consecutive files in the
     // same directory (the common case) are reached with openat() instead of re-resolving the full
     // path. heldFd and heldPath are the directory currently open, and are replaced when another one
@@ -1219,7 +1243,11 @@ private:
     }
     bool ensureSrcDir(const QByteArray &dir)
     {
-        return holdDir(dir, m_srcDirFd, m_srcDirPath) >= 0;
+        const int openedFd = holdDir(dir, m_srcDirFd, m_srcDirPath);
+        if (openedFd > 0) {
+            srcDirOpened(openedFd, QFile::decodeName(dir.isEmpty() ? QByteArray(".") : dir));
+        }
+        return openedFd >= 0;
     }
     bool ensureDestDir(const QByteArray &dir)
     {
@@ -1237,8 +1265,12 @@ private:
         m_request.writebackWindow = writeback.window;
         m_request.flushWindowedFile = writeback.flushWindowedFile;
         m_copiedToRemovable = m_copiedToRemovable || isFolderOnRemovableDevice(openedFd, folder);
+        destDirOpened(openedFd, folder);
         return true;
     }
+
+    // The copy of one file, the way the serial loop does it. Returns the errno that stops the batch, or 0.
+    int copyOne(const BatchCopyOp &op, const QByteArray &srcName, const QByteArray &destName, KIO::filesize_t &bytesCopied, const OnItem &onItem);
 
     PreserveFn m_preserve; // applied to each successfully copied file (perms/times/owner/ACL)
     gid_t m_egid; // effective gid: the group new files get outside set-group-ID directories
@@ -1254,14 +1286,42 @@ private:
     DestDirGroup m_destDirGroup; // group files freshly created in m_destDirFd come out with
 };
 
+int BatchCopyEngine::copyOne(const BatchCopyOp &op, const QByteArray &srcName, const QByteArray &destName, KIO::filesize_t &bytesCopied, const OnItem &onItem)
+{
+    onItem(op.index, ItemOutcome::Begin, 0); // about to copy this file
+
+    const CopyReport report =
+        copyFileAt(m_srcDirFd, srcName, m_destDirFd, destName, m_destDirGroup, m_request, bytesCopied, m_preserve, m_isKilled, m_onProgress);
+    switch (report.outcome) {
+    case CopyOutcome::Copied:
+        onItem(op.index, ItemOutcome::Done, 0);
+        break;
+    case CopyOutcome::Conflict:
+        onItem(op.index, ItemOutcome::Conflict, 0);
+        break;
+    case CopyOutcome::Failed:
+        if (report.err == ECANCELED) {
+            return ECANCELED; // cancelled mid-file
+        }
+        if (isFatalCopyError(report.err)) {
+            onItem(op.index, ItemOutcome::Abort, report.err);
+            return report.err; // stop the batch
+        }
+        onItem(op.index, ItemOutcome::Defer, report.err);
+        break;
+    }
+    return 0;
+}
+
 int BatchCopyEngine::copyBatch(const QList<BatchCopyOp> &ops, KIO::filesize_t &bytesCopied, const std::function<void(int, ItemOutcome, int)> &onItem)
 {
-    for (const auto &op : ops) {
+    for (qsizetype i = 0; i < ops.size();) {
         if (m_isKilled()) {
             return ECANCELED; // cancelled between files
         }
-        const auto [srcDir, srcName] = splitDir(op.src);
-        const auto [destDir, destName] = splitDir(op.dest);
+        const BatchCopyOp &op = ops.at(i);
+        const QByteArray srcDir = splitDir(op.src).first;
+        const QByteArray destDir = splitDir(op.dest).first;
 
         errno = 0;
         if (!ensureSrcDir(srcDir) || !ensureDestDir(destDir)) {
@@ -1271,30 +1331,25 @@ int BatchCopyEngine::copyBatch(const QList<BatchCopyOp> &ops, KIO::filesize_t &b
                 return err;
             }
             onItem(op.index, ItemOutcome::Defer, err);
+            ++i;
             continue;
         }
 
-        onItem(op.index, ItemOutcome::Begin, 0); // about to copy this file
+        const qsizetype count = runLength(ops, i);
+        if (const int err = copyRun(ops, i, count, bytesCopied, onItem)) {
+            return err;
+        }
+        i += count;
+    }
+    return 0;
+}
 
-        const CopyReport report =
-            copyFileAt(m_srcDirFd, srcName, m_destDirFd, destName, m_destDirGroup, m_request, bytesCopied, m_preserve, m_isKilled, m_onProgress);
-        switch (report.outcome) {
-        case CopyOutcome::Copied:
-            onItem(op.index, ItemOutcome::Done, 0);
-            break;
-        case CopyOutcome::Conflict:
-            onItem(op.index, ItemOutcome::Conflict, 0);
-            break;
-        case CopyOutcome::Failed:
-            if (report.err == ECANCELED) {
-                return ECANCELED; // cancelled mid-file
-            }
-            if (isFatalCopyError(report.err)) {
-                onItem(op.index, ItemOutcome::Abort, report.err);
-                return report.err; // stop the batch
-            }
-            onItem(op.index, ItemOutcome::Defer, report.err);
-            break;
+int BatchCopyEngine::copyRun(const QList<BatchCopyOp> &ops, qsizetype first, qsizetype count, KIO::filesize_t &bytesCopied, const OnItem &onItem)
+{
+    for (qsizetype i = first; i < first + count; ++i) {
+        const BatchCopyOp &op = ops.at(i);
+        if (const int err = copyOne(op, splitDir(op.src).second, splitDir(op.dest).second, bytesCopied, onItem)) {
+            return err;
         }
     }
     return 0;
