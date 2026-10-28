@@ -2231,15 +2231,16 @@ bool CopyJobPrivate::tryBatchCopyFiles()
     if (m_defaultPermissions || m_ignoreSourcePermissions) {
         return false;
     }
-    // The batch command runs synchronously in the worker and is not killable mid-flight, so reserve
-    // it for a local, responsive destination. Skip FAT/NTFS, whose name/symlink quirks the per-file
-    // path handles.
+    // A network or slow destination takes the batch too: there the worker keeps the requests of many
+    // files in flight, where the per-file path waits for each in turn. The worker checks for a cancel
+    // between chunks and while it waits for the server. Skip FAT/NTFS, whose name/symlink quirks the
+    // per-file path handles.
     if (m_batchDestEligible == BatchDestEligibility::Unknown) {
         m_batchDestEligible = BatchDestEligibility::NotEligible;
         if (m_globalDest.isLocalFile()) {
             const KMountPoint::Ptr destMp = KMountPoint::currentMountPointForPath(m_globalDest.toLocalFile());
             // Reuse the cached fs-type probe (see 19ed9a03) for the FAT/NTFS check.
-            if (destMp && !destMp->isOnNetwork() && !destMp->probablySlow() && !isFatOrNtfs(globalDestFsType())) {
+            if (destMp && !isFatOrNtfs(globalDestFsType())) {
                 m_batchDestEligible = BatchDestEligibility::Eligible;
                 m_batchReflinkFlag = destMp->testFileSystemFlag(KMountPoint::SupportsFileCloning) ? 0x1 : 0x0;
             }
