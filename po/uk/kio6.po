@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-27 00:56+0000\n"
-"PO-Revision-Date: 2026-10-26 18:37+0200\n"
+"PO-Revision-Date: 2026-10-27 12:15+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -114,7 +114,7 @@ msgstr "Смітник"
 #: core/copyjob.cpp:2579
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
-msgstr ""
+msgstr "%1 змінено після копіювання, тому його не було вилучено."
 
 #: core/desktopexecparser.cpp:335
 #, kde-format

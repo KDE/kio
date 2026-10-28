@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-27 00:56+0000\n"
-"PO-Revision-Date: 2026-09-14 18:29+0200\n"
+"PO-Revision-Date: 2026-10-27 16:42+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
 "Language: ia\n"
@@ -2344,7 +2344,7 @@ msgstr ""
 #| msgid "Could not enter folder %1."
 msgctxt "@info %1 is a folder path"
 msgid "Could not create the folder %1."
-msgstr "On non pote insertar dossier %1."
+msgstr "Non poteva crear le dossier: <nl/><filename>%2</filename><nl/>%1"
 
 #: core/openwith.cpp:100 core/openwith.cpp:113
 #, fuzzy, kde-format
@@ -3822,7 +3822,7 @@ msgstr "Tu pote cambiar le icone plus tarde in proprietates de dossier."
 #, fuzzy, kde-format
 #| msgid "Location:"
 msgid "Copy Location"
-msgstr "Location:"
+msgstr "Copia location"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
 #: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42
@@ -5426,9 +5426,7 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kfileitemactions.cpp:777
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Open Folder With…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
@@ -5453,7 +5451,7 @@ msgstr "&Executa executabile"
 msgctxt "@action:inmenu"
 msgid "&Open folder with %2"
 msgid_plural "&Open folders with %2"
-msgstr[0] "&Aperi dossier con %1"
+msgstr[0] "&Aperi dossier con ..."
 msgstr[1] "&Aperi dossier con %1"
 
 #: widgets/kfileitemactions.cpp:858
@@ -5462,9 +5460,7 @@ msgid "&Open with %1"
 msgstr "&Aperi con %1"
 
 #: widgets/kfileitemactions.cpp:891
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgid_plural "&Open Folders With"
@@ -7263,36 +7259,32 @@ msgid "Replace filename"
 msgstr "Ante nomine de file"
 
 #: widgets/renamefiledialog.cpp:284
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name before the filename"
 msgid "Before filename"
 msgstr "Ante nomine de file"
 
 #: widgets/renamefiledialog.cpp:285
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text after filename"
-#| msgid "After filename"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name after the filename"
 msgid "After filename"
 msgstr "Post pomine de file"
 
 #: widgets/renamefiledialog.cpp:338
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "Template putting the number before the old file name, # is replaced by a "
 "number later"
 msgid "#_"
-msgstr ""
+msgstr "_"
 
 #: widgets/renamefiledialog.cpp:340
-#, kde-format
+#, fuzzy, kde-format
 msgctxt ""
 "Template putting the number after the old file name, # is replaced by a "
 "number later"
 msgid "_#"
-msgstr ""
+msgstr "_"
 
 #: widgets/renamefiledialog.cpp:342
 #, kde-format

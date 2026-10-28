@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-27 00:56+0000\n"
-"PO-Revision-Date: 2026-10-23 09:20+0200\n"
+"PO-Revision-Date: 2026-10-26 08:54+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -4359,7 +4359,7 @@ msgstr "Impossible de trouver l'identifiant de du groupe nommé %1"
 #: kioworkers/file/file_unix_copy.cpp:1090
 #, kde-format
 msgid "Writing the copied data to the device..."
-msgstr ""
+msgstr "Écriture des données copiées sur le périphérique..."
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format

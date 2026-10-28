@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-27 00:56+0000\n"
-"PO-Revision-Date: 2026-10-26 04:21+0100\n"
+"PO-Revision-Date: 2026-10-27 09:56+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -108,7 +108,7 @@ msgstr "ნაგვის ყუთი"
 #: core/copyjob.cpp:2579
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
-msgstr ""
+msgstr "%1 შეიცვალა მისი კოპირების შემდეგ, ასე რომ ის არ წაიშალა."
 
 #: core/desktopexecparser.cpp:335
 #, kde-format

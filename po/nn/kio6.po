@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-27 00:56+0000\n"
-"PO-Revision-Date: 2026-10-10 12:35+0200\n"
+"PO-Revision-Date: 2026-10-27 19:59+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
 "Language: nn\n"
@@ -2283,27 +2283,25 @@ msgstr "Klarte ikkje fastsetja filtype for %1"
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "No file type can be defined for the extension \"%1\"."
-msgstr ""
+msgstr "Ingen filtype kan definerast for filetternamnet «%1»."
 
 #: core/openwith.cpp:96
-#, fuzzy, kde-format
-#| msgid "Could not enter folder %1."
+#, kde-format
 msgctxt "@info %1 is a folder path"
 msgid "Could not create the folder %1."
-msgstr "Klarte ikkje gå inn i mappa %1."
+msgstr "Klarte ikkje oppretta mappa «%1»."
 
 #: core/openwith.cpp:100 core/openwith.cpp:113
-#, fuzzy, kde-format
-#| msgid "Could not write to file %1."
+#, kde-format
 msgctxt "@info %1 is a file path, %2 the error"
 msgid "Could not write the file type definition %1: %2"
-msgstr "Klarte ikkje skriva til fila %1."
+msgstr "Klarte ikkje lagra filtype-definisjonen %1: %2"
 
 #: core/openwith.cpp:120
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "Could not update the file type database with the extension \"%1\"."
-msgstr ""
+msgstr "Klarte ikkje oppdatera filtype­databasen med filetternamnet «%1»."
 
 #: core/openwith.cpp:149
 #, kde-format
@@ -3710,12 +3708,10 @@ msgid "Create New Folder"
 msgstr "Lag ny mappe"
 
 #: filewidgets/knewfilemenu.cpp:1477
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Create new folder in <filename>%1</filename>:"
-msgstr "Kan ikkje overføra <filename>%1</filename>"
+msgstr "Opprett ny mappe i <filename>%1</filename>:"
 
 #: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
@@ -3918,11 +3914,10 @@ msgstr ""
 "lenkje: %1"
 
 #: gui/kemailclientlauncherjob.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to open the file."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to open email client"
-msgstr "Klarte ikkje opna fila."
+msgstr "Klarte ikkje opna e-postprogram"
 
 #: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
@@ -4232,7 +4227,7 @@ msgstr "Klarte ikkje henta gruppe-ID-en til det oppgjevne gruppenamnet %1."
 #: kioworkers/file/file_unix_copy.cpp:1090
 #, kde-format
 msgid "Writing the copied data to the device..."
-msgstr ""
+msgstr "Skriv kopierte data til eininga …"
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format
@@ -4597,16 +4592,14 @@ msgstr "Denne fila er i papirkorga frå før."
 
 #: kioworkers/trash/kio_trash_win.cpp:216
 #: kioworkers/trash/kio_trash_win.cpp:231
-#, fuzzy, kde-format
-#| msgid "The resource cannot be deleted."
+#, kde-format
 msgid "The trash item %1 cannot be restored."
-msgstr "Ressursen kan ikkje slettast."
+msgstr "Papirkorgelementet %1 kan ikkje gjenopprettast."
 
 #: kioworkers/trash/kio_trash_win.cpp:255
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in rename, should never happen"
-msgstr "Intern feil i «copyOrMove». Dette skal ikkje skje."
+msgstr "Intern feil ved endring av filnamn. Dette skal aldri skje."
 
 #: kioworkers/trash/kio_trash_win.cpp:268
 #, kde-format
@@ -4614,15 +4607,14 @@ msgid "not supported"
 msgstr "ikkje støtta"
 
 #: kioworkers/trash/kio_trash_win.cpp:276
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in copy, should never happen"
-msgstr "Intern feil i «copyOrMove». Dette skal ikkje skje."
+msgstr "Intern feil i ved kopiering. Dette skal aldri skje."
 
 #: kioworkers/trash/kio_trash_win.cpp:512
 #, kde-format
 msgid "Trash operation failed with error code 0x%1."
-msgstr ""
+msgstr "Papirkorg-handlinga gav feilkoden 0x%1."
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format
@@ -5358,14 +5350,12 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kfileitemactions.cpp:777
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Open Folder With…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
 msgstr[0] "&Opna mappa med …"
-msgstr[1] "&Opna mappa med …"
+msgstr[1] "&Opna mappene med …"
 
 #: widgets/kfileitemactions.cpp:777
 #, kde-format
@@ -5380,13 +5370,12 @@ msgid "&Run Executable"
 msgstr "&Køyr programfil"
 
 #: widgets/kfileitemactions.cpp:857
-#, fuzzy, kde-format
-#| msgid "&Open folder with %1"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open folder with %2"
 msgid_plural "&Open folders with %2"
-msgstr[0] "&Opna mappa med %1"
-msgstr[1] "&Opna mappa med %1"
+msgstr[0] "&Opna mappa med %2"
+msgstr[1] "&Opna mappene med %2"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -5394,14 +5383,12 @@ msgid "&Open with %1"
 msgstr "&Opna med %1"
 
 #: widgets/kfileitemactions.cpp:891
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgid_plural "&Open Folders With"
 msgstr[0] "&Opna mappa med"
-msgstr[1] "&Opna mappa med"
+msgstr[1] "&Opna mappene med"
 
 #: widgets/kfileitemactions.cpp:891
 #, kde-format
@@ -5679,15 +5666,10 @@ msgstr ""
 "«%1»"
 
 #: widgets/kopenwithdialog.cpp:773
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\""
+#, kde-format
 msgctxt "@option:check %1 is a file name extension"
 msgid "&Remember application association for all \"*.%1\" files"
-msgstr ""
-"&Hugs programtilknytinga for alle filer av typen\n"
-"«%1»"
+msgstr "&Hugs programtilknytinga for alle «*.%1»-filer"
 
 #: widgets/kopenwithdialog.cpp:781
 #, kde-format
@@ -6608,30 +6590,24 @@ msgid "C&hecksums"
 msgstr "&Sjekksummar"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2306
-#, fuzzy, kde-format
-#| msgctxt "@info:progress computation in the background"
-#| msgid "Verifying checksum…"
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum… (%1%)"
-msgstr "Stadfestar sjekksum …"
+msgstr "Stadfestar sjekksum … (%1 %)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2414
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2636
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash for multiple files"
 msgid "Calculating… (%1/%2)"
-msgstr "Reknar ut …"
+msgstr "Reknar ut … (%1/%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2431
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2638
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash"
 msgid "Calculating… (%1%)"
-msgstr "Reknar ut …"
+msgstr "Reknar ut … (%1 %)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
 #, kde-format
@@ -7132,32 +7108,18 @@ msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> er ikkje eit gyldig filnamn."
 
 #: widgets/renamefiledialog.cpp:235
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this folder's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view."
-msgstr ""
-"Viss du har eit punktum fremst i filnamnet, vert mappa gøymd.\n"
-"Er du sikker på at du vil endra filnamnet?"
+msgstr "Viss du har eit punktum fremst i filnamnet, vert mappa gøymd."
 
 #: widgets/renamefiledialog.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this file's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view."
-msgstr ""
-"Viss du har eit punktum fremst i filnamnet, vert fila gøymd.\n"
-"Er du sikker på at du vil endra filnamnet?"
+msgstr "Viss du har eit punktum fremst i filnamnet, vert fila gøymd."
 
 #: widgets/renamefiledialog.cpp:244
 #, kde-format
@@ -7165,6 +7127,7 @@ msgctxt "@info"
 msgid ""
 "The file's type may change, which could prevent it from opening correctly."
 msgstr ""
+"Filtypen kan verta endra, slik at fila ikkje lenger kan opnast skikkeleg."
 
 #: widgets/renamefiledialog.cpp:265
 #, kde-format
@@ -7181,25 +7144,19 @@ msgid "# will be replaced by ascending numbers starting with:"
 msgstr "# vert bytt ut med stigande tal frå:"
 
 #: widgets/renamefiledialog.cpp:283
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#, kde-format
 msgctxt "@item:inlistbox the new name is the whole file name"
 msgid "Replace filename"
-msgstr "Før filnamnet"
+msgstr "Byt ut filnamn"
 
 #: widgets/renamefiledialog.cpp:284
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name before the filename"
 msgid "Before filename"
 msgstr "Før filnamnet"
 
 #: widgets/renamefiledialog.cpp:285
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text after filename"
-#| msgid "After filename"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name after the filename"
 msgid "After filename"
 msgstr "Etter filnamnet"
@@ -7210,7 +7167,7 @@ msgctxt ""
 "Template putting the number before the old file name, # is replaced by a "
 "number later"
 msgid "#_"
-msgstr ""
+msgstr "#_"
 
 #: widgets/renamefiledialog.cpp:340
 #, kde-format
@@ -7218,7 +7175,7 @@ msgctxt ""
 "Template putting the number after the old file name, # is replaced by a "
 "number later"
 msgid "_#"
-msgstr ""
+msgstr "_#"
 
 #: widgets/renamefiledialog.cpp:342
 #, kde-format

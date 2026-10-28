@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-27 00:56+0000\n"
-"PO-Revision-Date: 2026-10-26 09:40+0100\n"
+"PO-Revision-Date: 2026-10-27 10:14+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -115,6 +115,7 @@ msgstr "Paperera"
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
 msgstr ""
+"%1 ha canviat després que s'hagi copiat, de manera que no s'ha suprimit."
 
 #: core/desktopexecparser.cpp:335
 #, kde-format
