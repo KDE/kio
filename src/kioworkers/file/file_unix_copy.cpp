@@ -1315,15 +1315,26 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
         return WorkerResult::fail(KIO::ERR_INTERNAL, i18n("Malformed batch copy request"));
     }
 
-    BatchCopyEngine engine(
-        makePreserveFn(this, ::geteuid()),
-        ::getegid(),
-        [this] {
-            return wasKilled();
-        },
-        bool(request->flags & KIO::BatchCopyFlagReflink));
+    const gid_t egid = ::getegid();
+    const bool tryReflink = request->flags & KIO::BatchCopyFlagReflink;
+    auto isKilled = [this] {
+        return wasKilled();
+    };
+    std::unique_ptr<BatchCopyEngine> engine;
+#if HAVE_LIBURING
+    if (!m_copyRingTried) {
+        m_copyRingTried = true;
+        m_copyRing.reset(CopyRing::create());
+    }
+    if (m_copyRing) {
+        engine = makeUringCopyEngine(m_copyRing.get(), makePreserveFn(this, ::geteuid()), egid, isKilled, tryReflink);
+    }
+#endif
+    if (!engine) {
+        engine = std::make_unique<BatchCopyEngine>(makePreserveFn(this, ::geteuid()), egid, isKilled, tryReflink);
+    }
     BatchProgressReporter progress(this);
-    engine.setProgressHook([&](KIO::filesize_t bytesDone) {
+    engine->setProgressHook([&](KIO::filesize_t bytesDone) {
         progress.copying(bytesDone);
     });
 
@@ -1331,12 +1342,12 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
     // Sent with the first file to a removable device, so a cancelled job flushes too.
     bool flushAnnounced = false;
     const auto started = [&](int index) {
-        if (!flushAnnounced && engine.copiedToRemovable()) {
+        if (!flushAnnounced && engine->copiedToRemovable()) {
             setMetaData(QStringLiteral("flush-destination"), QStringLiteral("true"));
             sendMetaData();
             flushAnnounced = true;
         }
-        progress.started(index, engine.bytesCopied());
+        progress.started(index, engine->bytesCopied());
     };
     const auto handled = [&](int index, BatchItemResult result) {
         if (result == BatchItemResult::Copied) {
@@ -1345,8 +1356,17 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
             deferred.append(index);
         }
     };
-    const int stopErrno = engine.copyFiles(sortedBatchCopyOps(*request), started, handled);
-    progress.finish(engine.bytesCopied());
+    const int stopErrno = engine->copyFiles(sortedBatchCopyOps(*request), started, handled);
+    progress.finish(engine->bytesCopied());
+
+    engine.reset();
+#if HAVE_LIBURING
+    // A ring that failed is dropped, and the next batch makes a fresh one.
+    if (m_copyRing && m_copyRing->broken) {
+        m_copyRing.reset();
+        m_copyRingTried = false;
+    }
+#endif
 
     // The job copies each deferred file on its own, and gets the conflict or the error then.
     data(KIO::writeBatchCopyPacket(KIO::BatchCopyAnswer{deferred}));

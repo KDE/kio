@@ -10,6 +10,8 @@
 
 // What the batch copy engines of the file worker share.
 
+#include "config-kioworker-file.h"
+
 #include <kio/global.h>
 
 #include <QFile>
@@ -22,6 +24,11 @@
 #include <memory>
 #include <sys/stat.h>
 #include <unistd.h>
+
+#if HAVE_LIBURING
+#include <QThreadPool>
+#include <liburing.h>
+#endif
 
 // One file of a batch copy command, which copies many local files in one worker command.
 struct BatchCopyOp {
@@ -246,5 +253,42 @@ protected:
     bool m_deferDestDir = false; // m_destDir is on a network or FUSE mount, the job copies its files
     DestDirGroup m_destDirGroup; // the group of a file created in m_destDir
 };
+
+#if HAVE_LIBURING
+// The ring of the batch copy. It lives as long as the worker, and only the worker's thread
+// submits to it.
+class CopyRing
+{
+public:
+    // nullptr when KIO_BATCH_URING=0, or when the kernel or a seccomp filter refuses io_uring.
+    static CopyRing *create();
+    ~CopyRing();
+
+    struct io_uring ring;
+    static constexpr int depth = 32; // files of one window
+    // Between two local folders, a source smaller than this whose data is all in the page cache is
+    // copied with copy_file_range: once in the kernel, where a read and a write copy it twice. From
+    // 1 MiB the ring is faster even then, since its worker threads copy the files of a window on
+    // several CPUs where copy_file_range copies one file at a time. The check is one cachestat
+    // call, about as costly as an fstat below 1 MiB. A slow destination keeps the ring, where the
+    // writes of a window overlap.
+    static constexpr qint64 cachedCopyMaxSize = 1024 * 1024;
+    // One slot of chunkSize per file of a window. The data of a file is read into its slot and
+    // written from it a chunk at a time.
+    static constexpr size_t chunkSize = 64 * 1024;
+    char *buffer = nullptr;
+    size_t bufferSize = 0;
+    // Sets the permissions, times, owner and extended attributes of the files of a window on a
+    // slow destination at the same time. io_uring has no request for them, and on a network
+    // filesystem each one waits for the server.
+    QThreadPool metadataPool;
+    // Set when a submission or a wait failed. The worker drops the ring after the batch, and the
+    // next batch makes a fresh one.
+    bool broken = false;
+};
+
+// Copies the files of a batch through copyRing, a window of files that share both folders at a time.
+std::unique_ptr<BatchCopyEngine> makeUringCopyEngine(CopyRing *copyRing, PreserveFn preserve, gid_t egid, KilledFn isKilled, bool tryReflink);
+#endif
 
 #endif // FILE_UNIX_COPY_P_H
