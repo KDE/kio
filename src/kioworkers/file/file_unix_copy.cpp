@@ -14,6 +14,7 @@
 
 #include "batchcopypackets_p.h"
 #include "file.h"
+#include "file_unix_copy_p.h"
 #include "kmountpoint_p.h"
 #include "stat_unix.h"
 
@@ -244,70 +245,6 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd, XattrNamespac
 }
 #endif // HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
 
-namespace
-{
-// One file of a batch copy command, which copies many local files in one worker command.
-struct BatchCopyOp {
-    int index; // position in the request
-    QString src;
-    QString dest;
-};
-
-// What became of one file of a batch. CopyOutcome is the result of the copy itself.
-enum class BatchItemResult {
-    Copied,
-    Conflict, // the destination exists, the job resolves it
-    Deferred, // this file failed, the job copies it on its own
-    BatchFailed, // this file failed in a way that stops the whole batch
-};
-
-enum class CopyOutcome {
-    Copied,
-    Conflict,
-    Failed, // errno is set
-};
-
-enum class CopyStage {
-    OpenSource,
-    OpenDest,
-    Transfer,
-    Publish, // renaming the finished ".part" over the destination
-};
-
-enum class ExistingDest {
-    Refuse, // leave what is there alone and report a conflict
-    Replace, // write a sibling ".part" and rename it over the destination once it is complete
-    Truncate, // write over the file that is there, without a ".part"
-};
-
-enum class NewFilePermissions {
-    FromSource, // the mode the source file carries
-    SystemDefault, // what open() gives a new file, that is 0666 as the umask filters it
-    Explicit, // the mode the request names
-};
-
-struct CopyRequest {
-    ExistingDest existing = ExistingDest::Refuse;
-    NewFilePermissions permissions = NewFilePermissions::FromSource;
-    mode_t explicitMode = 0; // the mode to set where permissions names Explicit
-    bool preserveOwner = true; // carry over the source's user and group
-    bool preserveAcl = true; // carry over the source's access ACL where an extended attribute does not already
-    bool tryReflink = false; // offer the filesystem the chance to share extents (FICLONE) instead of copying
-    // The largest window of written data after which its writeback is started. 0 leaves writeback
-    // to the kernel.
-    KIO::filesize_t writebackWindow = 0;
-    // A file larger than the window is on the device, with its name and its times, before the copy
-    // reports it done.
-    bool flushWindowedFile = false;
-};
-
-struct CopyReport {
-    CopyOutcome outcome = CopyOutcome::Copied;
-    CopyStage stage = CopyStage::Transfer;
-    int err = 0;
-    bool readFailed = false; // a read error on the source, as against a write error on the destination
-};
-
 // An error that every next file of the batch would hit as well.
 bool isFatalBatchCopyError(int err)
 {
@@ -324,6 +261,28 @@ bool isFatalBatchCopyError(int err)
         return false;
     }
 }
+
+namespace
+{
+enum class CopyOutcome {
+    Copied,
+    Conflict,
+    Failed, // errno is set
+};
+
+enum class CopyStage {
+    OpenSource,
+    OpenDest,
+    Transfer,
+    Publish, // renaming the finished ".part" over the destination
+};
+
+struct CopyReport {
+    CopyOutcome outcome = CopyOutcome::Copied;
+    CopyStage stage = CopyStage::Transfer;
+    int err = 0;
+    bool readFailed = false; // a read error on the source, as against a write error on the destination
+};
 
 // Smaller chunks measured ~25-30% slower on large cold copies.
 static constexpr size_t s_copyChunk = 512 * 1024;
@@ -372,9 +331,6 @@ struct AdaptiveChunk {
 // The first window is s_minWindow, and a window at most doubles the one before it.
 static constexpr off_t s_minWindow = 1024 * 1024;
 static constexpr std::chrono::milliseconds s_windowWriteback = 200ms;
-
-// How often a copy that waits for a window checks whether it was cancelled.
-static constexpr std::chrono::milliseconds s_cancelCheck = 100ms;
 
 struct WritebackWindow {
     int fd = -1;
@@ -536,17 +492,16 @@ private:
     }
 };
 
-// size, from the caller's fstat, bounds the loop so it stops at EOF without an extra probing call.
-// On cancel errno is ECANCELED; on failure errno is left set and readFailed, if given, says which
-// end failed.
+} // namespace
+
 bool copyFds(int sourceFd,
              int destFd,
              [[maybe_unused]] KIO::filesize_t size,
              KIO::filesize_t &bytesCopied,
              const std::function<bool()> &isKilled,
-             const std::function<void(KIO::filesize_t)> &onProgress = {},
-             bool *readFailed = nullptr,
-             KIO::filesize_t writebackWindow = 0)
+             const std::function<void(KIO::filesize_t)> &onProgress,
+             bool *readFailed,
+             KIO::filesize_t writebackWindow)
 {
     WritebackWindow window(destFd, off_t(writebackWindow), isKilled);
     const KIO::filesize_t progressBase = bytesCopied; // the running total before this file
@@ -675,10 +630,8 @@ bool copyFds(int sourceFd,
     return true;
 }
 
-struct DestDirGroup {
-    gid_t createdGid = 0;
-    bool imposedByDir = false;
-};
+namespace
+{
 
 // Runs with both fds still open, so the changes land on the file just written rather than on
 // whatever the path resolves to now. Every step is best-effort and only warns.
@@ -758,9 +711,6 @@ void preserveAttrs([[maybe_unused]] int sourceFd,
     }
 #endif
 }
-
-using PreserveFn =
-    std::function<void(int sourceFd, int destFd, const struct stat &st, const CopyRequest &request, bool destFreshlyCreated, DestDirGroup destDirGroup)>;
 
 // The extended attributes go through the worker, which knows the namespace and ENOTSUP quirks.
 PreserveFn makePreserveFn(FileProtocol *worker, uid_t euid)
@@ -958,17 +908,9 @@ static bool mountTableChanged()
 }
 #endif
 
-// What a copy to a folder needs to know about the mount that holds it.
-struct MountTraits {
-    bool removable = false;
-    bool cifs = false;
-    bool slow = false;
-};
+} // namespace
 
-// The traits of the mount that holds the folder. The mount table gives them, so the server of a
-// network filesystem is not asked. They are kept for each mount, whose unique id is never given to
-// another mount, or else for each device. Linux only.
-static MountTraits mountTraitsFor([[maybe_unused]] int dirFd, [[maybe_unused]] const QString &dir)
+MountTraits mountTraitsFor([[maybe_unused]] int dirFd, [[maybe_unused]] const QString &dir)
 {
 #ifdef Q_OS_LINUX
     quint64 mountId = 0;
@@ -1018,6 +960,9 @@ static MountTraits mountTraitsFor([[maybe_unused]] int dirFd, [[maybe_unused]] c
     return {};
 #endif
 }
+
+namespace
+{
 
 // Whether the folder is on a removable device, which can be unplugged once a copy reports it is done.
 // Linux only, where syncfs() can flush the device.
@@ -1167,197 +1112,110 @@ WorkerResult FileProtocol::flushRemovableFolder(const QString &folder)
     return WorkerResult::pass();
 }
 
-namespace
+void BatchCopyEngine::settleDestDir(const QString &dir)
 {
-// A folder held open by its path, while the files in it are copied.
-class HeldDir
+    const int fd = m_destDir.fd();
+    m_destDirGroup = destDirGroupFor(fd, m_egid);
+    // The same writeback as copy().
+    const WritebackPolicy writeback = writebackPolicyFor(fd, dir);
+    m_request.writebackWindow = writeback.window;
+    m_request.flushWindowedFile = writeback.flushWindowedFile;
+    const bool removable = isFolderOnRemovableDevice(fd, dir);
+    if (removable) {
+        m_copiedToRemovable = true;
+    }
+    // Besides a removable device, writebackPolicyFor() only gives a window to a network or FUSE
+    // mount.
+    m_deferDestDir = writeback.window > 0 && !removable;
+}
+
+int BatchCopyEngine::copyOne(const BatchCopyOp &op, const ItemStartFn &onItemStart, const ItemResultFn &onItemResult)
 {
-public:
-    enum class HoldResult {
-        Failed, // errno is set
-        AlreadyHeld,
-        Opened, // in place of the folder held before
-    };
+    onItemStart(op.index);
 
-    HeldDir() = default;
-    ~HeldDir()
-    {
-        if (m_fd >= 0) {
-            ::close(m_fd);
+    const CopyReport report = copyFileAt(m_srcDir.fd(),
+                                         QFile::encodeName(QFileInfo(op.src).fileName()),
+                                         m_destDir.fd(),
+                                         QFile::encodeName(QFileInfo(op.dest).fileName()),
+                                         m_destDirGroup,
+                                         m_request,
+                                         m_bytesCopied,
+                                         m_preserve,
+                                         m_isKilled,
+                                         m_onProgress);
+    switch (report.outcome) {
+    case CopyOutcome::Copied:
+        onItemResult(op.index, BatchItemResult::Copied);
+        break;
+    case CopyOutcome::Conflict:
+        onItemResult(op.index, BatchItemResult::Conflict);
+        break;
+    case CopyOutcome::Failed:
+        if (report.err == ECANCELED) {
+            return ECANCELED;
         }
-    }
-    Q_DISABLE_COPY_MOVE(HeldDir)
-
-    HoldResult hold(const QString &dir)
-    {
-        if (m_fd >= 0 && dir == m_path) {
-            return HoldResult::AlreadyHeld;
+        // A read error only concerns its own source file, such as a bad sector.
+        if (!report.readFailed && isFatalBatchCopyError(report.err)) {
+            onItemResult(op.index, BatchItemResult::BatchFailed);
+            return report.err;
         }
-        const int fd = ::open(QFile::encodeName(dir).constData(), O_RDONLY | O_DIRECTORY | O_CLOEXEC);
-        if (fd < 0) {
-            return HoldResult::Failed;
-        }
-        if (m_fd >= 0) {
-            ::close(m_fd);
-        }
-        m_fd = fd;
-        m_path = dir;
-        return HoldResult::Opened;
+        onItemResult(op.index, BatchItemResult::Deferred);
+        break;
     }
-    int fd() const
-    {
-        return m_fd;
-    }
-
-private:
-    int m_fd = -1;
-    QString m_path;
-};
-
-using KilledFn = std::function<bool()>;
-
-// Copies the files of a batch one after the other, holding one source and one destination folder
-// open at a time.
-class BatchCopyEngine
-{
-public:
-    using ItemStartFn = std::function<void(int index)>;
-    using ItemResultFn = std::function<void(int index, BatchItemResult result)>;
-
-    BatchCopyEngine(PreserveFn preserve, gid_t egid, KilledFn isKilled, bool tryReflink)
-        : m_preserve(std::move(preserve))
-        , m_egid(egid)
-        , m_isKilled(std::move(isKilled))
-        , m_request{.tryReflink = tryReflink}
-    {
-    }
-    // Called with the running byte total while a file is copied.
-    void setProgressHook(std::function<void(KIO::filesize_t)> onProgress)
-    {
-        m_onProgress = std::move(onProgress);
-    }
-    // Returns the errno that stopped the batch, or 0 once every file was handled.
-    int copyFiles(const QList<BatchCopyOp> &ops, const ItemStartFn &onItemStart, const ItemResultFn &onItemResult);
-    // The bytes of the files copied so far.
-    KIO::filesize_t bytesCopied() const
-    {
-        return m_bytesCopied;
-    }
-    // True once a file went to a folder on a removable device.
-    bool copiedToRemovable() const
-    {
-        return m_copiedToRemovable;
-    }
-
-private:
-    // False with errno set when dir cannot be opened.
-    bool ensureSrcDir(const QString &dir)
-    {
-        return m_srcDir.hold(dir) != HeldDir::HoldResult::Failed;
-    }
-    bool ensureDestDir(const QString &dir)
-    {
-        const HeldDir::HoldResult result = m_destDir.hold(dir);
-        if (result == HeldDir::HoldResult::Opened) {
-            settleDestDir(dir);
-        }
-        return result != HeldDir::HoldResult::Failed;
-    }
-    // What the files copied to the folder just opened have in common.
-    void settleDestDir(const QString &dir)
-    {
-        const int fd = m_destDir.fd();
-        m_destDirGroup = destDirGroupFor(fd, m_egid);
-        // The same writeback as copy().
-        const WritebackPolicy writeback = writebackPolicyFor(fd, dir);
-        m_request.writebackWindow = writeback.window;
-        m_request.flushWindowedFile = writeback.flushWindowedFile;
-        const bool removable = isFolderOnRemovableDevice(fd, dir);
-        if (removable) {
-            m_copiedToRemovable = true;
-        }
-        // Besides a removable device, writebackPolicyFor() only gives a window to a network or FUSE
-        // mount.
-        m_deferDestDir = writeback.window > 0 && !removable;
-    }
-
-    PreserveFn m_preserve; // applies the permissions, times, owner and ACL of the source to each copied file
-    gid_t m_egid;
-    KilledFn m_isKilled;
-    std::function<void(KIO::filesize_t)> m_onProgress;
-    KIO::filesize_t m_bytesCopied = 0;
-    CopyRequest m_request; // the same for every file of the batch
-
-    HeldDir m_srcDir;
-    HeldDir m_destDir;
-    bool m_copiedToRemovable = false;
-    bool m_deferDestDir = false; // m_destDir is on a network or FUSE mount, the job copies its files
-    DestDirGroup m_destDirGroup; // the group of a file created in m_destDir
-};
+    return 0;
+}
 
 int BatchCopyEngine::copyFiles(const QList<BatchCopyOp> &ops, const ItemStartFn &onItemStart, const ItemResultFn &onItemResult)
 {
-    for (const auto &op : ops) {
+    for (qsizetype i = 0; i < ops.size();) {
         if (m_isKilled()) {
             return ECANCELED;
         }
-        const QFileInfo src(op.src);
-        const QFileInfo dest(op.dest);
+        const BatchCopyOp &op = ops.at(i);
 
         errno = 0;
-        if (!ensureSrcDir(src.path())) {
+        if (!ensureSrcDir(QFileInfo(op.src).path())) {
             onItemResult(op.index, BatchItemResult::Deferred);
+            ++i;
             continue;
         }
-        if (!ensureDestDir(dest.path())) {
+        if (!ensureDestDir(QFileInfo(op.dest).path())) {
             const int err = errno;
             if (isFatalBatchCopyError(err)) {
                 onItemResult(op.index, BatchItemResult::BatchFailed);
                 return err;
             }
             onItemResult(op.index, BatchItemResult::Deferred);
+            ++i;
             continue;
         }
         if (m_deferDestDir) {
             onItemResult(op.index, BatchItemResult::Deferred);
+            ++i;
             continue;
         }
 
-        onItemStart(op.index);
+        const qsizetype count = runLength(ops, i);
+        if (const int err = copyRun(ops, i, count, onItemStart, onItemResult)) {
+            return err;
+        }
+        i += count;
+    }
+    return 0;
+}
 
-        const CopyReport report = copyFileAt(m_srcDir.fd(),
-                                             QFile::encodeName(src.fileName()),
-                                             m_destDir.fd(),
-                                             QFile::encodeName(dest.fileName()),
-                                             m_destDirGroup,
-                                             m_request,
-                                             m_bytesCopied,
-                                             m_preserve,
-                                             m_isKilled,
-                                             m_onProgress);
-        switch (report.outcome) {
-        case CopyOutcome::Copied:
-            onItemResult(op.index, BatchItemResult::Copied);
-            break;
-        case CopyOutcome::Conflict:
-            onItemResult(op.index, BatchItemResult::Conflict);
-            break;
-        case CopyOutcome::Failed:
-            if (report.err == ECANCELED) {
-                return ECANCELED;
-            }
-            // A read error only concerns its own source file, such as a bad sector.
-            if (!report.readFailed && isFatalBatchCopyError(report.err)) {
-                onItemResult(op.index, BatchItemResult::BatchFailed);
-                return report.err;
-            }
-            onItemResult(op.index, BatchItemResult::Deferred);
-            break;
+int BatchCopyEngine::copyRun(const QList<BatchCopyOp> &ops, qsizetype first, qsizetype count, const ItemStartFn &onItemStart, const ItemResultFn &onItemResult)
+{
+    for (qsizetype i = first; i < first + count; ++i) {
+        if (const int err = copyOne(ops.at(i), onItemStart, onItemResult)) {
+            return err;
         }
     }
     return 0;
 }
 
+namespace
+{
 // The files of a request, in the order that the engine copies them: the files of one folder follow
 // each other, so each folder is opened once. Each keeps its index in the request.
 QList<BatchCopyOp> sortedBatchCopyOps(const KIO::BatchCopyRequest &request)
