@@ -92,7 +92,7 @@ bool Job::removeSubjob(KJob *jobBase)
 
 static QString url_description_string(const QUrl &url)
 {
-    return url.scheme() == QLatin1String("data") ? QStringLiteral("data:[...]") : KStringHandler::csqueeze(url.toDisplayString(QUrl::PreferLocalFile), 100);
+    return url.scheme() == QLatin1String("data") ? QStringLiteral("data:[...]") : url.toDisplayString(QUrl::PreferLocalFile);
 }
 
 KIO::JobPrivate::~JobPrivate()
