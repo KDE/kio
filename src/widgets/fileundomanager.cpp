@@ -152,6 +152,16 @@ public:
         Q_EMIT description(this, i18n("Deleting"), qMakePair(i18n("File"), url.toDisplayString()));
     }
 
+    void setTotalFiles(qulonglong files)
+    {
+        setTotalAmount(KJob::Files, files);
+    }
+
+    void incrementProcessedFiles()
+    {
+        setProcessedAmount(KJob::Files, processedAmount(KJob::Files) + 1);
+    }
+
     void emitResult()
     {
         KIO::Job::emitResult();
@@ -487,6 +497,7 @@ void FileUndoManagerPrivate::startUndoOrRedo(bool redo)
 
     qCDebug(KIO_WIDGETS) << "starting with" << undoStateToString(m_undoState);
     m_undoJob = new UndoJob(m_uiInterface->showProgressInfo());
+    m_undoJob->setTotalFiles(m_currentCmd.m_opQueue.size());
     auto func = [this, redo]() {
         processStep(redo);
     };
@@ -721,6 +732,7 @@ void FileUndoManagerPrivate::undoStepMovingFiles()
     }
 
     m_currentCmd.m_opQueue.dequeue();
+    m_undoJob->incrementProcessedFiles();
     // The above KIO jobs are lowlevel, they don't trigger KDirNotify notification
     // So we need to do it ourselves (but schedule it to the end of the undo, to compress them)
     QUrl url = op.m_dst.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
@@ -767,6 +779,7 @@ void FileUndoManagerPrivate::redoStepMovingFiles()
     }
 
     m_currentCmd.m_opQueue.dequeue();
+    m_undoJob->incrementProcessedFiles();
     // The above KIO jobs are lowlevel, they don't trigger KDirNotify notification
     // So we need to do it ourselves (but schedule it to the end of the undo, to compress them)
     QUrl url = op.m_dst.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
