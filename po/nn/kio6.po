@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-27 00:56+0000\n"
+"POT-Creation-Date: 2026-10-29 00:49+0000\n"
 "PO-Revision-Date: 2026-10-27 19:59+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -90,13 +90,13 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "Mappa finst frå før"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2858 core/filecopyjob.cpp:394
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2859 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fila finst frå før"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2858
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2859
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Finst frå før som mappe"

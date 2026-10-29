@@ -22,8 +22,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-27 00:56+0000\n"
-"PO-Revision-Date: 2026-10-26 08:54+0100\n"
+"POT-Creation-Date: 2026-10-29 00:49+0000\n"
+"PO-Revision-Date: 2026-10-27 12:39+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -109,13 +109,13 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "Le dossier existe déjà"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2858 core/filecopyjob.cpp:394
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2859 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Le fichier existe déjà"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2858
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2859
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Existe déjà en tant que dossier"
@@ -3827,12 +3827,10 @@ msgid "Create New Folder"
 msgstr "Créer un nouveau dossier"
 
 #: filewidgets/knewfilemenu.cpp:1477
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Create new folder in <filename>%1</filename>:"
-msgstr "Impossible de transférer <filename>%1</filename>"
+msgstr "Créer un nouveau dossier dans <filename>%1</filename> :"
 
 #: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format

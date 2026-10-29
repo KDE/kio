@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-27 00:56+0000\n"
+"POT-Creation-Date: 2026-10-29 00:49+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -90,13 +90,13 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "Priečinok už existuje"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2858 core/filecopyjob.cpp:394
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2859 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Súbor už existuje"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2858
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2859
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Už existuje ako priečinok"
@@ -109,7 +109,7 @@ msgstr "Kôš"
 #: core/copyjob.cpp:2579
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
-msgstr ""
+msgstr "%1 sa po skopírovaní zmenil, preto nebol odstránený."
 
 #: core/desktopexecparser.cpp:335
 #, kde-format
@@ -3717,12 +3717,10 @@ msgid "Create New Folder"
 msgstr "Vytvoriť priečinok"
 
 #: filewidgets/knewfilemenu.cpp:1477
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Create new folder in <filename>%1</filename>:"
-msgstr "Nepodarilo sa preniesť <filename>%1</filename>"
+msgstr "Vytvoriť nový priečinok v <filename>%1</filename>:"
 
 #: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format

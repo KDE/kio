@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-27 00:56+0000\n"
+"POT-Creation-Date: 2026-10-29 00:49+0000\n"
 "PO-Revision-Date: 2026-10-03 22:34+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -88,13 +88,13 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "폴더가 이미 존재함"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2858 core/filecopyjob.cpp:394
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2859 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "파일이 이미 존재함"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2858
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2859
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "이미 폴더로 존재함"

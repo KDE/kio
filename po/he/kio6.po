@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-27 00:56+0000\n"
+"POT-Creation-Date: 2026-10-29 00:49+0000\n"
 "PO-Revision-Date: 2026-10-16 15:04+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -98,13 +98,13 @@ msgstr ""
 msgid "Folder Already Exists"
 msgstr "התיקייה כבר קיימת"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2858 core/filecopyjob.cpp:394
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2859 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "הקובץ כבר קיים"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2858
+#: core/copyjob.cpp:1905 core/copyjob.cpp:2859
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "כבר קיים בתור תיקייה"
