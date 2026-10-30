@@ -181,7 +181,6 @@ public:
     Connection::ReadMode readMode;
 };
 
-class ConnectionServerPrivate;
 }
 
 #endif

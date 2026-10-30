@@ -7,7 +7,6 @@
 
 #include "commandlauncherjob.h"
 #include "../core/global.h"
-#include "kiogui_debug.h"
 #include "kprocessrunner_p.h"
 #include <KLocalizedString>
 #include <KShell>

@@ -23,7 +23,6 @@ class Job;
 }
 
 class KJob;
-class QCommandLineParser;
 
 class KIOExec : public QObject
 {

@@ -17,7 +17,6 @@
 #include <QUrl>
 #include <solid/device.h>
 
-class KDirLister;
 namespace Solid
 {
 class Block;

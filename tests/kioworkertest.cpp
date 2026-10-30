@@ -19,7 +19,6 @@
 #include <kprotocolinfo.h>
 
 // QT_STAT_LNK on Windows
-#include "kioglobal_p.h"
 
 #include <KJobUiDelegate>
 
@@ -36,7 +35,6 @@
 #include <QThread>
 #include <QTimer>
 #include <QUrl>
-#include <qplatformdefs.h>
 
 using namespace KIO;
 

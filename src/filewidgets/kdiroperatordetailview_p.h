@@ -12,8 +12,6 @@
 
 #include <kfile.h>
 
-class QAbstractItemModel;
-
 /*!
  * Default detail view for KDirOperator using
  * custom resizing options and columns.

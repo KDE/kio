@@ -24,8 +24,6 @@
  * in-process on the client side.
  */
 
-class QByteArray;
-
 class QUrl;
 
 #if !defined(TESTKIO)

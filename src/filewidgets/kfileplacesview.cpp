@@ -42,9 +42,7 @@
 #include <KProtocolInfo>
 #include <KSharedConfig>
 #include <defaults-kfile.h> // ConfigGroup, PlacesIconsAutoresize, PlacesIconsStaticSize
-#include <kdirnotify.h>
 #include <kio/filesystemfreespacejob.h>
-#include <kmountpoint.h>
 #include <kpropertiesdialog.h>
 #include <solid/opticaldisc.h>
 #include <solid/opticaldrive.h>

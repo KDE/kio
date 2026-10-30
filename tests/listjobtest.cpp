@@ -6,8 +6,6 @@
 
 #include <kio/listjob.h>
 
-#include <iostream>
-
 #include <QCoreApplication>
 #include <QDebug>
 #include <QDir>

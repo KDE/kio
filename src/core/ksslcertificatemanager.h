@@ -18,7 +18,6 @@
 
 #include <memory>
 
-class QDBusArgument;
 class KSslCertificateRulePrivate;
 class KSslCertificateManagerPrivate;
 

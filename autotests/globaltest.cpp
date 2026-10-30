@@ -9,7 +9,6 @@
 #include <QTest>
 
 #include "global.h"
-#include "kioglobal_p.h"
 
 #include <QFile>
 

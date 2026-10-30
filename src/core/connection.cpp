@@ -16,8 +16,6 @@
 #include <QDebug>
 #include <QIODevice>
 
-#include <cerrno>
-
 using namespace KIO;
 
 void ConnectionPrivate::dequeue()

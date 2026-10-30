@@ -10,7 +10,6 @@
 
 #include "openwithhandlerinterface.h"
 
-class QDialog;
 class QWidget;
 
 namespace KIO

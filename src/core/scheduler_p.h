@@ -84,8 +84,6 @@ private:
     QSet<KIO::SimpleJob *> m_runningJobs;
 };
 
-class SchedulerPrivate;
-
 class SerialPicker
 {
 public:

@@ -24,7 +24,6 @@
 #include <optional>
 
 class QComboBox;
-class QLineEdit;
 class KJob;
 namespace KIO
 {

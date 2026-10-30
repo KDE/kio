@@ -5,20 +5,10 @@
 
 #include <QDebug>
 
-#include <qplatformdefs.h>
-
-#include <libxml/HTMLtree.h>
-#include <libxml/debugXML.h>
-#include <libxml/parserInternals.h>
-#include <libxml/xmlIO.h>
-#include <libxml/xmlmemory.h>
 #include <libxml/xmlversion.h>
 
 #include <libexslt/exslt.h>
-#include <libxslt/transform.h>
-#include <libxslt/xsltInternals.h>
 #include <libxslt/xsltconfig.h>
-#include <libxslt/xsltutils.h>
 
 // Pseudo plugin class to embed meta data
 class KIOPluginForMetaData : public QObject

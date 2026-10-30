@@ -15,7 +15,6 @@
 #include <QUrl>
 #include <algorithm>
 #include <kprotocolmanager.h>
-#include <kprotocolmanager_p.h>
 
 // Tests both KProtocolInfo and KProtocolManager
 

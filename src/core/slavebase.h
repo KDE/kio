@@ -25,7 +25,6 @@ class QUrl;
 
 namespace KIO
 {
-class Connection;
 class ConnectionBackend;
 class SlaveBasePrivate;
 

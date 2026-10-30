@@ -8,7 +8,6 @@
 #include "kio/skipdialog.h"
 
 #include <assert.h>
-#include <stdio.h>
 
 #include <QDialogButtonBox>
 #include <QLabel>

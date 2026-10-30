@@ -13,7 +13,6 @@
 
 #include <KIO/StatJob>
 #include <KLocalizedString>
-#include <kfileitem.h>
 #include <kprotocolinfo.h>
 
 #include <QDir>
@@ -21,7 +20,6 @@
 #include <QMimeDatabase>
 
 #include <algorithm>
-#include <numeric>
 
 struct LocationData {
     QUrl url;

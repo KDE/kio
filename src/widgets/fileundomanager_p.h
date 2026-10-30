@@ -18,7 +18,6 @@ class KJob;
 
 namespace KIO
 {
-class FileUndoManagerAdaptor;
 
 struct BasicOperation {
     enum Type : unsigned char {

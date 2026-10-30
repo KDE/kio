@@ -11,9 +11,7 @@
 #include <QList>
 #include <QTemporaryFile>
 #include <QTest>
-#include <qplatformdefs.h>
 
-#include <kfileitem.h>
 #include <udsentry.h>
 
 #include "kiotesthelper.h"

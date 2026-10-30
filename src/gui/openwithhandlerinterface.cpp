@@ -7,7 +7,6 @@
 
 #include "openwithhandlerinterface.h"
 
-#include "kiocoredebug.h"
 #include <QFile>
 #include <QSaveFile>
 
