@@ -31,6 +31,7 @@
 #include <QUrl>
 #include <qplatformdefs.h>
 
+#include <bit>
 #include <chrono>
 
 #include <KLocalizedString>
@@ -291,6 +292,10 @@ struct CopyReport {
 static constexpr size_t s_copyChunk = 512 * 1024;
 #if HAVE_COPY_FILE_RANGE
 static constexpr size_t s_maxCopyChunk = 128 * 1024 * 1024;
+// ZFS clones only whole records, up to 16 MiB and 1 MiB by default, and copies any other range. A
+// server-side copy over NFS or SMB passes each call's range to the filesystem of the server.
+// copy_file_range() calls start and end on this boundary, except at the end of the file, until a call is slow.
+static constexpr size_t s_cloneAlignment = 8 * 1024 * 1024;
 static constexpr std::chrono::nanoseconds s_copyLatencyTargetLower = 200ms;
 static constexpr std::chrono::nanoseconds s_copyLatencyTargetUpper = 250ms;
 static constexpr std::chrono::nanoseconds s_copyLatencyTarget = 225ms;
@@ -298,10 +303,11 @@ static constexpr std::chrono::nanoseconds s_copyLatencyTarget = 225ms;
 // Larger chunks copy faster over the network, but a cancel or a progress update waits for the chunk being copied.
 // Shrinking in one step to the speed of the slow call keeps a sudden slowdown to one slow call.
 // A short call, such as the end of a file, says nothing about a larger chunk.
+// size stays a multiple of min.
 struct AdaptiveChunk {
     size_t size;
-    const size_t min;
-    const size_t max;
+    size_t min;
+    size_t max;
 
     void update(std::chrono::nanoseconds elapsed, size_t copied)
     {
@@ -310,7 +316,7 @@ struct AdaptiveChunk {
                 size = qMin(size * 2, max);
             }
         } else if (elapsed > s_copyLatencyTargetUpper) {
-            size = qMax(size_t(copied * s_copyLatencyTarget.count() / elapsed.count()), min);
+            size = qMax(size_t(copied * s_copyLatencyTarget.count() / elapsed.count()) / min * min, min);
         }
     }
 };
@@ -511,15 +517,22 @@ bool copyFds(int sourceFd,
     QElapsedTimer timer;
     timer.start();
     KIO::filesize_t copied = 0; // bytes copied for this file by copy_file_range or sendfile
-    AdaptiveChunk cfrChunk{s_copyChunk, s_copyChunk, s_maxCopyChunk};
+    AdaptiveChunk cfrChunk{s_cloneAlignment, s_cloneAlignment, s_maxCopyChunk};
     // copy_file_range() fails with EXDEV between two filesystems, such as from the local disk to a
     // USB stick. sendfile() copies between any two files without the data going through user space.
     bool useSendfile = false;
+    bool aligned = true;
     while (copied < size) {
         size_t want = size_t(qMin<KIO::filesize_t>(size - copied, cfrChunk.size));
         if (window.size > 0) {
             // A chunk larger than the window would leave more data than the window to write back.
-            want = qMin(want, size_t(window.size));
+            want = qMin(want, size_t(qMax(window.size, off_t(cfrChunk.min))));
+        }
+        if (aligned && copied + want < size) {
+            // The largest power of two in the chunk keeps the calls on records of up to the chunk size
+            // once it grows. After a short call, the next one goes back to the boundary.
+            const size_t boundary = qMax(std::bit_floor(want), s_cloneAlignment);
+            want = size_t((copied + want) / boundary * boundary - copied);
         }
         const auto copyStart = timer.durationElapsed();
 #if HAVE_SENDFILE
@@ -537,6 +550,9 @@ bool copyFds(int sourceFd,
             // ENOSPC, would fail sendfile() the same way.
             if (!useSendfile && (errno == EXDEV || errno == ENOSYS || errno == EOPNOTSUPP || errno == EINVAL)) {
                 useSendfile = true;
+                // Nothing to clone: small chunks keep a cancel quick on a slow destination.
+                aligned = false;
+                cfrChunk = AdaptiveChunk{s_copyChunk, s_copyChunk, s_maxCopyChunk};
                 continue;
             }
 #endif
@@ -544,6 +560,12 @@ bool copyFds(int sourceFd,
         }
         if (n == 0) {
             break; // unexpected early EOF (source shrank underneath us); finish via read/write
+        }
+        if (aligned && elapsed > s_copyLatencyTargetUpper) {
+            // A clone takes milliseconds, so a slow call moves the data, such as over the network
+            // between two NFS or SMB mounts. Small chunks then keep a cancel quick.
+            aligned = false;
+            cfrChunk.min = s_copyChunk;
         }
         cfrChunk.update(elapsed, size_t(n));
         copied += n;
