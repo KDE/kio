@@ -64,6 +64,7 @@ enum Message {
     MSG_OPENED,
     MSG_WRITTEN,
     MSG_PRIVILEGE_EXEC,
+    MSG_BATCH_COPY_ITEM, // the outcome of one item of a batch copy
     // add new ones here once a release is done, to avoid breaking binary compatibility
 };
 
@@ -116,6 +117,8 @@ Q_SIGNALS:
 
     void open();
     void written(KIO::filesize_t);
+    // index of the item in the request, 0 when it was copied
+    void batchCopyItemFinished(int index, int error, const QString &errorText);
     void close();
 
     void privilegeOperationRequested();

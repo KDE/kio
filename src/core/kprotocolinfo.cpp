@@ -43,6 +43,9 @@ KProtocolInfoPrivate::KProtocolInfoPrivate(const QString &name, const QString &e
     m_supportsTruncating = json.value(QStringLiteral("truncating")).toBool();
     m_canCopyFromFile = json.value(QStringLiteral("copyFromFile")).toBool();
     m_canCopyToFile = json.value(QStringLiteral("copyToFile")).toBool();
+    m_canBatchCopy = json.value(QStringLiteral("batchCopy")).toBool();
+    m_canBatchCopyFromFile = json.value(QStringLiteral("batchCopyFromFile")).toBool();
+    m_canBatchCopyToFile = json.value(QStringLiteral("batchCopyToFile")).toBool();
     m_canRenameFromFile = json.value(QStringLiteral("renameFromFile")).toBool();
     m_canRenameToFile = json.value(QStringLiteral("renameToFile")).toBool();
     m_canDeleteRecursive = json.value(QStringLiteral("deleteRecursive")).toBool();

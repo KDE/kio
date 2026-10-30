@@ -315,6 +315,23 @@ bool KProtocolManager::canCopyToFile(const QUrl &url)
     return prot->m_canCopyToFile;
 }
 
+bool KProtocolManagerPrivate::canBatchCopy(const QUrl &src, const QUrl &dest)
+{
+    if (src.scheme() == dest.scheme()) {
+        const KProtocolInfoPrivate *prot = findProtocol(src);
+        return prot && prot->m_canBatchCopy;
+    }
+    if (src.isLocalFile()) {
+        const KProtocolInfoPrivate *prot = findProtocol(dest);
+        return prot && prot->m_canBatchCopyFromFile;
+    }
+    if (dest.isLocalFile()) {
+        const KProtocolInfoPrivate *prot = findProtocol(src);
+        return prot && prot->m_canBatchCopyToFile;
+    }
+    return false;
+}
+
 bool KProtocolManager::canRenameFromFile(const QUrl &url)
 {
     KProtocolInfoPrivate *prot = findProtocol(url);

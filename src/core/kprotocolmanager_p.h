@@ -29,6 +29,10 @@ public:
     ~KProtocolManagerPrivate();
     void sync();
 
+    // Whether a worker copies files from src to dest with KIO::BatchCopyWorker, from the
+    // "batchCopy", "batchCopyFromFile" and "batchCopyToFile" keys of its metadata.
+    static bool canBatchCopy(const QUrl &src, const QUrl &dest);
+
     QMutex mutex; // protects all member vars
     KSharedConfig::Ptr configPtr;
 

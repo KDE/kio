@@ -190,6 +190,9 @@ public:
 
     void written(KIO::filesize_t _bytes);
 
+    // error is 0 when the item was copied
+    void batchCopyItemFinished(int index, int error, const QString &errorText);
+
     /*
      * \since 5.66
      */
@@ -921,6 +924,7 @@ protected:
         AppConnectionMade = 0,
         GetFileSystemFreeSpace = 1, // KF6 TODO: Turn into a virtual method
         Truncate = 2, // KF6 TODO: Turn into a virtual method
+        BatchCopy = 3, // data is a BatchCopyRequest
     };
     virtual void virtual_hook(int id, void *data);
 

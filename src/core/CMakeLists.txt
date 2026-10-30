@@ -59,6 +59,8 @@ target_sources(KF6KIOCore PRIVATE
   storedtransferjob.cpp
   transferjob.cpp
   filesystemfreespacejob.cpp
+  batchcopyjob.cpp
+  batchcopyworker.cpp
   scheduler.cpp
   kprotocolmanager.cpp
   hostinfo.cpp
@@ -261,6 +263,7 @@ ecm_generate_headers(KIOCore_Namespaced_CamelCase_HEADERS
   FileSystemFreeSpaceJob
   BatchRenameJob
   WorkerBase
+  BatchCopyWorker
   WorkerFactory
   ForwardingWorkerBase
   UntrustedProgramHandlerInterface

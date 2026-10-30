@@ -208,6 +208,13 @@ public:
     void written(KIO::filesize_t _bytes);
 
     /*!
+     * Reports the outcome of the item at \a index of a batch copy, see BatchCopyWorker::batchCopy().
+     *
+     * \since 6.32
+     */
+    void batchCopyItemFinished(int index, const WorkerResult &result);
+
+    /*!
      *
      */
     void truncated(KIO::filesize_t _length);

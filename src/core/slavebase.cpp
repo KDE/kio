@@ -9,6 +9,7 @@
 */
 
 #include "slavebase.h"
+#include "batchcopy_p.h"
 
 #include <config-kiocore.h>
 
@@ -619,6 +620,14 @@ void SlaveBase::written(KIO::filesize_t _bytes)
     send(MSG_WRITTEN, static_cast<quint64>(_bytes));
 }
 
+void SlaveBase::batchCopyItemFinished(int index, int error, const QString &errorText)
+{
+    QByteArray data;
+    QDataStream stream(&data, QIODevice::WriteOnly);
+    stream << qint32(index) << qint32(error) << errorText;
+    send(MSG_BATCH_COPY_ITEM, data);
+}
+
 void SlaveBase::position(KIO::filesize_t _pos)
 {
     send(INF_POSITION, static_cast<quint64>(_pos));
@@ -807,6 +816,8 @@ KIOCORE_EXPORT QString unsupportedActionErrorString(const QString &protocol, int
         return i18n("Renaming or moving files within %1 is not supported.", protocol);
     case CMD_SYMLINK:
         return i18n("Creating symlinks is not supported with protocol %1.", protocol);
+    case CMD_BATCH_COPY:
+        return i18n("Copying several files in one request is not supported with protocol %1.", protocol);
     case CMD_COPY:
         return i18n("Copying files within %1 is not supported.", protocol);
     case CMD_DEL:
@@ -1268,6 +1279,19 @@ void SlaveBase::dispatch(int command, const QByteArray &data)
         qCWarning(KIO_CORE) << "Got unexpected CMD_NONE!";
         break;
     }
+    case CMD_BATCH_COPY: {
+        BatchCopyRequest request;
+        stream >> request;
+        if (stream.status() != QDataStream::Ok) {
+            error(ERR_INTERNAL, i18n("Malformed batch copy request"));
+            break;
+        }
+        d->m_state = d->InsideMethod;
+        virtual_hook(BatchCopy, &request);
+        d->verifyState("batchCopy()");
+        d->m_state = d->Idle;
+        break;
+    }
     case CMD_FILESYSTEMFREESPACE: {
         url = carried<QUrl>(d->incomingPayload, stream);
 
@@ -1447,6 +1471,10 @@ void SlaveBase::virtual_hook(int id, void *data)
     }
     case Truncate: {
         error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_TRUNCATE));
+        break;
+    }
+    case BatchCopy: {
+        error(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_BATCH_COPY));
         break;
     }
     }

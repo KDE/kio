@@ -53,6 +53,7 @@ enum Command {
     CMD_FILESYSTEMFREESPACE = 95,
     CMD_TRUNCATE = 96,
     CMD_SSLERRORANSWER,
+    CMD_BATCH_COPY, // KIO::BatchCopyWorker
     // Add new ones here once a release is done, to avoid breaking binary compatibility.
     // Note that protocol-specific commands shouldn't be added here, but should use special.
 };

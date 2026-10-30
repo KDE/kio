@@ -135,6 +135,11 @@ void WorkerBase::written(KIO::filesize_t _bytes)
     d->bridge.written(_bytes);
 }
 
+void WorkerBase::batchCopyItemFinished(int index, const WorkerResult &result)
+{
+    d->bridge.batchCopyItemFinished(index, result.success() ? 0 : result.error(), result.success() ? QString() : result.errorString());
+}
+
 void WorkerBase::position(KIO::filesize_t _pos)
 {
     d->bridge.position(_pos);

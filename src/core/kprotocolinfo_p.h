@@ -42,6 +42,9 @@ public:
     bool m_determineMimetypeFromExtension : 1;
     bool m_canCopyFromFile : 1;
     bool m_canCopyToFile : 1;
+    bool m_canBatchCopy : 1; // see KIO::BatchCopyWorker
+    bool m_canBatchCopyFromFile : 1;
+    bool m_canBatchCopyToFile : 1;
     bool m_showPreviews : 1;
     bool m_canRenameFromFile : 1;
     bool m_canRenameToFile : 1;

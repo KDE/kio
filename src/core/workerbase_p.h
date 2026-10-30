@@ -10,6 +10,7 @@
 #ifndef WORKERBASE_P_H
 #define WORKERBASE_P_H
 
+#include "batchcopy_p.h"
 #include "workerbase.h"
 
 #include <commands_p.h>
@@ -195,6 +196,14 @@ protected:
             return;
         case SlaveBase::Truncate:
             maybeError(base->truncate(*static_cast<KIO::filesize_t *>(data)));
+            return;
+        case SlaveBase::BatchCopy:
+            if (auto *batchWorker = dynamic_cast<BatchCopyWorker *>(base)) {
+                const auto *request = static_cast<BatchCopyRequest *>(data);
+                finalize(batchWorker->batchCopy(request->items, request->flags));
+                return;
+            }
+            maybeError(WorkerResult::fail(ERR_UNSUPPORTED_ACTION, unsupportedActionErrorString(protocolName(), CMD_BATCH_COPY)));
             return;
         }
 

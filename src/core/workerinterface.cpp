@@ -158,6 +158,14 @@ bool WorkerInterface::dispatch(int _cmd, const QByteArray &rawdata)
     case MSG_CONNECTED:
         Q_EMIT connected();
         break;
+    case MSG_BATCH_COPY_ITEM: {
+        qint32 index;
+        qint32 error;
+        QString errorText;
+        stream >> index >> error >> errorText;
+        Q_EMIT batchCopyItemFinished(index, error, errorText);
+        break;
+    }
     case MSG_WRITTEN: {
         const KIO::filesize_t size = carried<quint64>(m_incomingPayload, stream);
         Q_EMIT written(size);
