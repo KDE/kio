@@ -37,6 +37,7 @@ ecm_add_tests(
  workercanceltest.cpp
  copyjobfreespacetest.cpp
  batchcopyworkertest.cpp
+ copyjobbatchcopytest.cpp
  udsentrytest.cpp
  urlutiltest.cpp
  batchrenamejobtest.cpp

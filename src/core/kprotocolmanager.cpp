@@ -315,8 +315,18 @@ bool KProtocolManager::canCopyToFile(const QUrl &url)
     return prot->m_canCopyToFile;
 }
 
+Q_GLOBAL_STATIC(QString, s_batchCopyFromFileForTesting)
+
+void KProtocolManagerPrivate::setBatchCopyFromFileForTesting(const QString &protocol)
+{
+    *s_batchCopyFromFileForTesting = protocol;
+}
+
 bool KProtocolManagerPrivate::canBatchCopy(const QUrl &src, const QUrl &dest)
 {
+    if (src.isLocalFile() && !s_batchCopyFromFileForTesting->isEmpty() && dest.scheme() == *s_batchCopyFromFileForTesting) {
+        return true;
+    }
     if (src.scheme() == dest.scheme()) {
         const KProtocolInfoPrivate *prot = findProtocol(src);
         return prot && prot->m_canBatchCopy;

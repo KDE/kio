@@ -33,6 +33,10 @@ public:
     // "batchCopy", "batchCopyFromFile" and "batchCopyToFile" keys of its metadata.
     static bool canBatchCopy(const QUrl &src, const QUrl &dest);
 
+    // Makes canBatchCopy() accept a copy from local files to protocol. The in-process test workers
+    // have no metadata.
+    static void setBatchCopyFromFileForTesting(const QString &protocol);
+
     QMutex mutex; // protects all member vars
     KSharedConfig::Ptr configPtr;
 

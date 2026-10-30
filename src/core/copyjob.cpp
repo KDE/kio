@@ -10,6 +10,8 @@
 
 #include "copyjob.h"
 #include "../utils_p.h"
+#include "batchcopyjob_p.h"
+#include "batchcopyworker.h"
 #include "copyjob_p.h"
 #include "deletejob.h"
 #include "filecopyjob.h"
@@ -30,6 +32,7 @@
 #include <KLocalizedString>
 
 #include "kprotocolmanager.h"
+#include "kprotocolmanager_p.h"
 #include "worker_p.h"
 #include <KDirWatch>
 
@@ -121,6 +124,7 @@ enum CopyJobState {
     STATE_CREATING_DIRS,
     STATE_CONFLICT_CREATING_DIRS,
     STATE_COPYING_FILES,
+    STATE_COPYING_FILES_BATCH,
     STATE_CONFLICT_COPYING_FILES,
     STATE_SETTING_DIR_ATTRIBUTES,
     STATE_FLUSHING,
@@ -249,6 +253,8 @@ struct CopyInfo {
     QDateTime ctime;
     QDateTime mtime;
     KIO::filesize_t size; // 0 for dirs
+    bool isRegularFile = false; // UDS_FILE_TYPE is a regular file
+    bool copyOnItsOwn = false; // a batch copy did not copy it
 };
 
 class KIO::CopyJobPrivate : public KIO::JobPrivate
@@ -362,6 +368,18 @@ public:
 
     bool m_autoSkipFatSymlinks = false;
 
+    // A run of files is copied with one KIO::BatchCopyJob, see tryBatchCopyFiles(). Once a file of
+    // a batch needs handling on its own, the rest of the job goes through the per-file path.
+    bool m_useBatchCopy = true;
+    int m_batchCount = 0; // entries at the front of filesToCopy in the batch in flight
+    QSet<int> m_batchCopied; // batch indices the worker reported as copied
+    QSet<int> m_batchFailed; // batch indices the worker reported an error for
+    int m_batchCurrent = -1; // first batch index without an outcome, -1 when none
+    // The answer for the last source and destination checked, see canBatchCopyBetween().
+    QUrl m_batchCheckedSource;
+    QUrl m_batchCheckedDest;
+    bool m_batchCheckedAnswer = false;
+
     enum SkipType {
         // No skip dialog is involved
         NoSkipType = 0,
@@ -422,6 +440,11 @@ public:
         }
         return *m_globalDestFsType;
     }
+    bool tryBatchCopyFiles(); // true when it started a batch
+    bool canBatchCopyBetween(const QUrl &source, const QUrl &dest);
+    void slotBatchItemFinished(int index, int error);
+    void slotResultCopyingBatch(KJob *job);
+    int destPermissions(const CopyInfo &info) const;
     void processCopyNextFile(const QList<CopyInfo>::Iterator &it, int result, SkipType skipType);
 
     void slotResultDeletingDirs(KJob *job);
@@ -848,14 +871,18 @@ void CopyJobPrivate::slotReport()
         break;
     }
 
-    case STATE_COPYING_FILES: {
+    case STATE_COPYING_FILES:
+    case STATE_COPYING_FILES_BATCH: {
         const bool bytesTotalUnknown = (m_totalSize == 0);
         const bool noByteProgress = ((m_processedSize + m_fileProcessedSize) == 0);
-        const qulonglong handledFiles = m_processedFiles + m_skippedFiles;
+        // The files of a batch count as they are reported, not when the batch ends.
+        const qulonglong filesDone = m_processedFiles + m_batchCopied.size();
+        const qulonglong handledFiles = filesDone + m_skippedFiles;
         const bool countInFiles = (bytesTotalUnknown || noByteProgress) && (handledFiles + filesToCopy.count()) > 0;
 
         // The count says which file the job is on, so the one in hand belongs in it.
-        q->setProcessedAmount(KJob::Files, m_processedFiles + (m_fileInFlight ? 1 : 0));
+        const bool oneInHand = m_fileInFlight || m_batchCurrent >= 0;
+        q->setProcessedAmount(KJob::Files, filesDone + (oneInHand ? 1 : 0));
         q->setProcessedAmount(KJob::Bytes, m_processedSize + m_fileProcessedSize);
         if (countInFiles) {
             // A file the user skipped is one the job is done with, as in the renaming branch above.
@@ -982,6 +1009,7 @@ void CopyJobPrivate::addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &
         info.ctime = info.ctime.addMSecs(creationTimeNsOffset / 1000000);
     }
     info.size = static_cast<KIO::filesize_t>(entry.numberValue(KIO::UDSEntry::UDS_SIZE, -1));
+    info.isRegularFile = Utils::isRegFileMask(static_cast<mode_t>(entry.numberValue(KIO::UDSEntry::UDS_FILE_TYPE, 0)));
     const bool isDir = entry.isDir();
 
     if (!isDir && info.size != KIO::invalidFilesize) {
@@ -2146,6 +2174,160 @@ bool CopyJobPrivate::handleMsdosFsQuirks(QList<CopyInfo>::Iterator it, KFileSyst
     return false; // Not handled, move on
 }
 
+int CopyJobPrivate::destPermissions(const CopyInfo &info) const
+{
+    // If source isn't local and target is local, we ignore the original permissions
+    // Otherwise, files downloaded from HTTP end up with -r--r--r--
+    if (m_defaultPermissions || (m_ignoreSourcePermissions && info.uDest.isLocalFile())) {
+        return -1;
+    }
+    return info.permissions;
+}
+
+bool CopyJobPrivate::tryBatchCopyFiles()
+{
+    Q_Q(CopyJob);
+
+    if (m_mode != CopyJob::Copy || !m_useBatchCopy) {
+        return false;
+    }
+    // The per-file path renames or skips the names that FAT, NTFS and MTP refuse.
+    if (destDisallowsMsdosChars(m_globalDest, globalDestFsType())) {
+        return false;
+    }
+    const CopyInfo &first = filesToCopy.constFirst();
+    if (!canBatchCopyBetween(first.uSource, first.uDest)) {
+        return false;
+    }
+
+    // Each batch is one worker command. The cap bounds the request, and the job can stop or retry
+    // between two batches.
+    static constexpr int s_maxBatchFiles = 512;
+
+    QList<KIO::BatchCopyItem> items;
+    for (const CopyInfo &info : std::as_const(filesToCopy)) {
+        // The batch only creates new files, so a file to overwrite ends the run.
+        if (items.size() == s_maxBatchFiles || info.copyOnItsOwn || !info.isRegularFile || !info.linkDest.isEmpty() || !compareUrls(info.uSource, first.uSource)
+            || !compareUrls(info.uDest, first.uDest) || info.uSource == info.uDest || shouldSkip(info.uDest.path()) || shouldOverwriteFile(info.uDest.path())) {
+            break;
+        }
+        items.append({info.uSource, info.uDest, destPermissions(info), info.mtime, info.size});
+    }
+    if (items.size() < 2) {
+        return false;
+    }
+
+    // The worker that runs the command, as file_copy() picks it.
+    const QUrl workerUrl = first.uSource.isLocalFile() && !first.uDest.isLocalFile() ? first.uDest : first.uSource;
+    KIO::BatchCopyJob *job = KIO::batchCopy(workerUrl, items, HideProgressInfo);
+    job->setParentJob(q);
+    m_batchCount = items.size();
+    m_batchCopied.clear();
+    m_batchFailed.clear();
+    m_batchCurrent = 0;
+    m_currentSrcURL = first.uSource;
+    m_currentDestURL = first.uDest;
+    m_bURLDirty = true;
+    state = STATE_COPYING_FILES_BATCH;
+
+    q->addSubjob(job);
+    // speed is computed locally
+    QObject::disconnect(job, &KJob::speed, q, nullptr);
+    q->connect(job, &KIO::BatchCopyJob::itemFinished, q, [this](int index, int error) {
+        slotBatchItemFinished(index, error);
+    });
+    q->connect(job, &Job::processedSize, q, [this](KJob *job, qulonglong processedSize) {
+        slotProcessedSize(job, processedSize);
+    });
+    return true;
+}
+
+bool CopyJobPrivate::canBatchCopyBetween(const QUrl &source, const QUrl &dest)
+{
+    // The protocol lookup takes a lock, and a job copies most of its files between the same two
+    // places.
+    if (!m_batchCheckedSource.isEmpty() && compareUrls(source, m_batchCheckedSource) && compareUrls(dest, m_batchCheckedDest)) {
+        return m_batchCheckedAnswer;
+    }
+    m_batchCheckedSource = source;
+    m_batchCheckedDest = dest;
+    // One worker process has to reach both ends, as for file_copy().
+    const bool oneWorker = source.scheme() != dest.scheme() || compareUrls(source, dest);
+    m_batchCheckedAnswer = oneWorker && KProtocolManagerPrivate::canBatchCopy(source, dest);
+    return m_batchCheckedAnswer;
+}
+
+void CopyJobPrivate::slotBatchItemFinished(int index, int error)
+{
+    if (index < 0 || index >= m_batchCount || m_batchCopied.contains(index) || m_batchFailed.contains(index)) {
+        return;
+    }
+    if (error) {
+        // slotResultCopyingBatch() hands the file to the per-file path.
+        m_batchFailed.insert(index);
+    } else {
+        m_batchCopied.insert(index);
+        const CopyInfo &info = filesToCopy.at(index);
+        reportFileDone(info, finalDestUrl(info.uSource, info.uDest));
+        if (m_freeSpace != KIO::invalidFilesize && info.size != KIO::invalidFilesize) {
+            m_freeSpace -= info.size;
+        }
+    }
+
+    while (m_batchCurrent >= 0 && (m_batchCopied.contains(m_batchCurrent) || m_batchFailed.contains(m_batchCurrent))) {
+        m_batchCurrent = m_batchCurrent + 1 < m_batchCount ? m_batchCurrent + 1 : -1;
+    }
+    if (m_batchCurrent >= 0) {
+        m_currentSrcURL = filesToCopy.at(m_batchCurrent).uSource;
+        m_currentDestURL = filesToCopy.at(m_batchCurrent).uDest;
+        m_bURLDirty = true;
+    }
+}
+
+void CopyJobPrivate::slotResultCopyingBatch(KJob *job)
+{
+    Q_Q(CopyJob);
+
+    if (job->error() == ERR_USER_CANCELED) {
+        finishWithError(job);
+        return;
+    }
+
+    // The files without a successful outcome go back to the per-file path, which copies each one
+    // on its own and asks about a conflict or an error. The next batches go on without them.
+    QList<CopyInfo> remaining;
+    for (int i = 0; i < m_batchCount; ++i) {
+        const CopyInfo &info = filesToCopy.at(i);
+        if (m_batchCopied.contains(i)) {
+            if (info.size != KIO::invalidFilesize) {
+                m_processedSize += info.size;
+            }
+            ++m_processedFiles;
+        } else {
+            remaining.append(info);
+            remaining.last().copyOnItsOwn = true;
+        }
+    }
+    // A worker without the batch command fails it with ERR_UNSUPPORTED_ACTION. After that, or
+    // after an error that stopped a batch, the rest of the job goes through the per-file path.
+    if (job->error()) {
+        m_useBatchCopy = false;
+    }
+    filesToCopy = remaining + filesToCopy.mid(m_batchCount);
+
+    m_batchCount = 0;
+    m_batchCopied.clear();
+    m_batchFailed.clear();
+    m_batchCurrent = -1;
+    m_fileProcessedSize = 0;
+
+    m_incomingMetaData += static_cast<KIO::Job *>(job)->metaData();
+    q->removeSubjob(job);
+    Q_ASSERT(!q->hasSubjobs());
+    state = STATE_COPYING_FILES;
+    copyNextFile();
+}
+
 void CopyJobPrivate::copyNextFile()
 {
     Q_Q(CopyJob);
@@ -2188,6 +2370,10 @@ void CopyJobPrivate::copyNextFile()
     }
 
     if (bCopyFile) { // any file to create, finally ?
+        if (tryBatchCopyFiles()) {
+            return;
+        }
+
         const KFileSystemType::Type destFileSystem = globalDestFsType();
         if (destDisallowsMsdosChars(m_globalDest, destFileSystem)) {
             if (handleMsdosFsQuirks(it, destFileSystem)) {
@@ -2267,12 +2453,7 @@ void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, in
         bOverwrite = shouldOverwriteFile(destFile);
     }
 
-    // If source isn't local and target is local, we ignore the original permissions
-    // Otherwise, files downloaded from HTTP end up with -r--r--r--
-    int permissions = (*it).permissions;
-    if (m_defaultPermissions || (m_ignoreSourcePermissions && uDest.isLocalFile())) {
-        permissions = -1;
-    }
+    const int permissions = destPermissions(*it);
     const JobFlags flags = bOverwrite ? Overwrite : DefaultFlags;
 
     m_bCurrentOperationIsLink = false;
@@ -3025,6 +3206,9 @@ void CopyJob::slotResult(KJob *job)
         break;
     case STATE_COPYING_FILES:
         d->slotResultCopyingFiles(job);
+        break;
+    case STATE_COPYING_FILES_BATCH:
+        d->slotResultCopyingBatch(job);
         break;
     case STATE_CONFLICT_COPYING_FILES:
         d->slotResultErrorCopyingFiles(job);
