@@ -61,8 +61,6 @@ public:
     QModelIndex emptyingTrashIndex() const;
     void setEmptyingTrashIndex(const QModelIndex &index);
 
-    qreal contentsOpacity(const QModelIndex &index) const;
-
     bool pointIsHeaderArea(const QPoint &pos) const;
     bool pointIsTeardownAction(const QPoint &pos) const;
 

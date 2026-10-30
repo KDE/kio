@@ -123,11 +123,6 @@ public:
     static void add(const QUrl &url, const QString &desktopEntryName, KRecentDocument::RecentDocumentGroups groups);
 
     /*!
-     *
-     */
-    static bool clearEntriesOldestEntries(int maxEntries);
-
-    /*!
      * \since 6.6
      */
     static void removeFile(const QUrl &url);

@@ -188,7 +188,6 @@ private:
     void slotStandardThumbData(KIO::Job *, const QImage &);
     // Checks if thumbnail is on encrypted partition different than thumbRoot
     CachePolicy canBeCached(const QString &path);
-    int getDeviceId(const QString &path);
     void saveThumbnailData(QImage &thumb);
     bool preparePluginForMimetype(const QString &mimeType);
     static void saveThumbnailToCache(const QImage &thumb, const QString &path);

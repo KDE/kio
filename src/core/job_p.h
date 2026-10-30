@@ -85,8 +85,6 @@ public:
     JobUiDelegateExtension *m_uiDelegateExtension;
     Job *q_ptr;
 
-    void slotSpeed(KJob *job, unsigned long speed);
-
     static void emitMoving(KIO::Job *, const QUrl &src, const QUrl &dest);
     static void emitRenaming(KIO::Job *, const QUrl &src, const QUrl &dest);
     static void emitCopying(KIO::Job *, const QUrl &src, const QUrl &dest);

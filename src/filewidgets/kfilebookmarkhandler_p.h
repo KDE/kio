@@ -23,8 +23,6 @@ public:
     explicit KFileBookmarkHandler(KFileWidget *widget);
     ~KFileBookmarkHandler() override;
 
-    QMenu *popupMenu();
-
     // KBookmarkOwner interface:
     QString currentTitle() const override;
     QUrl currentUrl() const override;
@@ -42,8 +40,6 @@ Q_SIGNALS:
     void openUrl(const QString &url);
 
 private:
-    void importOldBookmarks(const QString &path, KBookmarkManager *manager);
-
     KFileWidget *m_widget;
     QMenu *m_menu;
     KBookmarkMenu *m_bookmarkMenu;

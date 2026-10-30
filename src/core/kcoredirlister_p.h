@@ -45,7 +45,6 @@ class KCoreDirListerPrivate
 public:
     explicit KCoreDirListerPrivate(KCoreDirLister *qq);
 
-    void emitCachedItems(const QUrl &, bool, bool);
     void slotInfoMessage(KJob *, const QString &);
     void slotPercent(KJob *, unsigned long);
     void slotTotalSize(KJob *, qulonglong);
