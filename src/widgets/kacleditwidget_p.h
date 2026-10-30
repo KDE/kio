@@ -27,7 +27,6 @@ class KACLListView;
 class QStackedWidget;
 class QCheckBox;
 class QAbstractButton;
-class QColorGroup;
 
 class KACLListView : public QTreeWidget
 {

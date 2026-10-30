@@ -19,9 +19,6 @@
 #include <QImage>
 #include <QPainter>
 
-#include <cmath>
-#include <string.h>
-
 using namespace KIO;
 
 static const quint32 stack_blur8_mul[255] = {

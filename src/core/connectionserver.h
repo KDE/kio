@@ -16,7 +16,6 @@
 
 namespace KIO
 {
-class ConnectionServerPrivate;
 class Connection;
 class SocketConnectionBackend;
 

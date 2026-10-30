@@ -8,7 +8,6 @@
 */
 
 #include "filesystemfreespacejob.h"
-#include "job.h"
 #include "job_p.h"
 #include <worker_p.h>
 

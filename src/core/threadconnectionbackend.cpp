@@ -7,8 +7,6 @@
 
 #include "threadconnectionbackend_p.h"
 
-#include "kiocoredebug.h"
-
 using namespace KIO;
 
 ThreadConnectionBackend::ThreadConnectionBackend(Role role, QObject *parent)

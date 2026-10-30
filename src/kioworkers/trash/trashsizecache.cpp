@@ -9,7 +9,6 @@
 #include "trashsizecache.h"
 
 #include "discspaceutil.h"
-#include "kiotrashdebug.h"
 
 #include <QDateTime>
 #include <QDir>

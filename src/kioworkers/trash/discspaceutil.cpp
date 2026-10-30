@@ -6,7 +6,6 @@
 */
 
 #include "discspaceutil.h"
-#include "kiotrashdebug.h"
 
 #include <QDirIterator>
 #include <QFileInfo>

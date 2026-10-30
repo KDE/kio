@@ -7,7 +7,6 @@
 */
 
 #include "mkdirjob.h"
-#include "job.h"
 #include "job_p.h"
 #include "kiocoredebug.h"
 #include <kurlauthorized.h>

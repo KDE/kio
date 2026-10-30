@@ -18,8 +18,6 @@
 #include <QRegularExpression>
 #include <QtTestWidgets>
 
-#include <iostream>
-
 QTEST_MAIN(KUriFilterTest)
 
 static const char *const s_uritypes[] = {"NetProtocol", "LOCAL_FILE", "LOCAL_DIR", "EXECUTABLE", "HELP", "SHELL", "BLOCKED", "ERROR", "UNKNOWN"};

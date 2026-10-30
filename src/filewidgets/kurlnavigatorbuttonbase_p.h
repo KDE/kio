@@ -11,7 +11,6 @@
 #include <QColor>
 #include <QPushButton>
 
-class QUrl;
 class QEvent;
 
 class KUrlNavigator;

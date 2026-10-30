@@ -14,7 +14,6 @@
 #include <kio/emptytrashjob.h>
 #include <kio/job.h>
 #include <kio/jobuidelegatefactory.h>
-#include <kio_widgets_debug.h>
 
 #include <KJobWidgets>
 #include <KJobWindows>

@@ -10,8 +10,6 @@
 #include "job.h"
 #include "job_p.h"
 
-#include <time.h>
-
 #include <KLocalizedString>
 #include <KStringHandler>
 

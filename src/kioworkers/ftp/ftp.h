@@ -18,8 +18,6 @@
 
 class QTcpServer;
 class QTcpSocket;
-class QNetworkProxy;
-class QAuthenticator;
 
 struct FtpEntry {
     QString name;

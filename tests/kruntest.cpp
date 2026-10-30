@@ -22,7 +22,6 @@
 #include <QTest> // QFINDTESTDATA
 
 #include <QDir>
-#include <qplatformdefs.h>
 
 static const int s_maxJobs = 100;
 

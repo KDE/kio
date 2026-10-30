@@ -15,17 +15,14 @@
 #include <KLineEdit> // For KUrlRequester::lineEdit()
 #include <KLocalizedString>
 #include <kio/global.h>
-#include <kprotocolinfo.h>
 #include <kurlrequester.h>
 
 #include <QApplication>
 #include <QCheckBox>
 #include <QDialogButtonBox>
 #include <QFormLayout>
-#include <qdrawutil.h>
 
 #include <KConfigGroup>
-#include <qplatformdefs.h>
 
 bool KFilePlaceEditDialog::getInformation(bool allowGlobal,
                                           QUrl &url,
