@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:49+0000\n"
+"POT-Creation-Date: 2026-10-31 00:47+0000\n"
 "PO-Revision-Date: 2026-10-02 22:43+0300\n"
 "Last-Translator: Lasse Liehu-Inui <lasse.liehu@iki.fi>\n"
 "Language-Team: Finnish <kde-l10n-fi@kde.org>\n"
@@ -4263,7 +4263,7 @@ msgstr "Käyttäjä-ID annetulle nimelle %1 ei saatavilla."
 msgid "Could not get group id for given group name %1"
 msgstr "Ryhmän %1 ryhmätunuksen selvittäminen epäonnistui."
 
-#: kioworkers/file/file_unix_copy.cpp:1090
+#: kioworkers/file/file_unix_copy.cpp:1112
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr ""

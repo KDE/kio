@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:49+0000\n"
+"POT-Creation-Date: 2026-10-31 00:47+0000\n"
 "PO-Revision-Date: 2024-04-26 14:54-0400\n"
 "Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
 "Language-Team: C <kde-i18n-doc@kde.org>\n"
@@ -4085,7 +4085,7 @@ msgstr "mi ken ala kama jo e nanpa jan tan nimi jan %1"
 msgid "Could not get group id for given group name %1"
 msgstr "mi ken ala kama jo e nanpa kulupu tan nimi kulupu %1"
 
-#: kioworkers/file/file_unix_copy.cpp:1090
+#: kioworkers/file/file_unix_copy.cpp:1112
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr ""

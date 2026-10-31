@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:49+0000\n"
+"POT-Creation-Date: 2026-10-31 00:47+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -4192,7 +4192,7 @@ msgstr "दत्तस्य उपयोक्तृनाम %1 कृते 
 msgid "Could not get group id for given group name %1"
 msgstr "दत्तसमूहनाम %1 कृते समूह id प्राप्तुं न शक्तम्"
 
-#: kioworkers/file/file_unix_copy.cpp:1090
+#: kioworkers/file/file_unix_copy.cpp:1112
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr ""

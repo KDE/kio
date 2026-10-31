@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:49+0000\n"
+"POT-Creation-Date: 2026-10-31 00:47+0000\n"
 "PO-Revision-Date: 2025-03-23 07:29+0100\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -4268,7 +4268,7 @@ msgstr "Ne eblis akiri uzantidentigilon por donita uzantnomo %1"
 msgid "Could not get group id for given group name %1"
 msgstr "Ne eblis akiri grupidentigilon por donita grupnomo %1"
 
-#: kioworkers/file/file_unix_copy.cpp:1090
+#: kioworkers/file/file_unix_copy.cpp:1112
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr ""

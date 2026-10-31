@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-29 00:49+0000\n"
+"POT-Creation-Date: 2026-10-31 00:47+0000\n"
 "PO-Revision-Date: 2026-10-28 20:37+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -4286,7 +4286,7 @@ msgstr "Nepavyko gauti naudotojo id pateiktam naudotojui %1"
 msgid "Could not get group id for given group name %1"
 msgstr "Nepavyko gauti nurodytos grupės pavadinimo %1 grupės ID"
 
-#: kioworkers/file/file_unix_copy.cpp:1090
+#: kioworkers/file/file_unix_copy.cpp:1112
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr "Nukopijuoti duomenys rašomi į įrenginį..."
