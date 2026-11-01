@@ -5517,7 +5517,8 @@ msgstr "Contido:"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Open with:"
 msgid "Open with:"
 msgstr "Abrir con:"
 
