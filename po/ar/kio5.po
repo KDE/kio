@@ -8,7 +8,7 @@
 # AbdulAziz AlSharif <a.a-a.s@hotmail.com>, 2007.
 # عبدالعزيز الشريف <a.a-a.s@hotmail.com>, 2007.
 # Youssef Chahibi <chahibi@gmail.com>, 2007.
-# SPDX-FileCopyrightText: 2008, 2009, 2024, 2025, 2026 zayed <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2008-2009, 2024-2026 zayed <zayed.alsaidi@gmail.com>
 # Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2010, 2021, 2022, 2023.
 # Safa Alfulaij <safa1996alfulaij@gmail.com>, 2014, 2016, 2017, 2018.
 msgid ""
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 09:00+0000\n"
-"PO-Revision-Date: 2026-08-19 17:50+0400\n"
+"PO-Revision-Date: 2026-10-31 21:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -7511,7 +7511,7 @@ msgstr "ا&فتح في %1"
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
-msgstr "ا&فتح المجلد بـ"
+msgstr "ا&فتح المجلد باستخدام"
 
 #: widgets/kfileitemactions.cpp:929
 #, kde-format
