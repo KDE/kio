@@ -2184,9 +2184,10 @@ bool CopyJobPrivate::handleMsdosFsQuirks(QList<CopyInfo>::Iterator it, KFileSyst
     return false; // Not handled, move on
 }
 
-// A mount on local storage, judged on the folder the destination resolves to. The worker defers
-// the files of a network or FUSE mount below it. FAT, exFAT and NTFS take no batch, because a batch
-// skips the per-file handling of their file names and the FAT32 size limit.
+// Any mount, judged on the folder the destination resolves to. On a network or FUSE mount the worker
+// keeps the requests of many files in flight, where the per-file path waits for each in turn. FAT,
+// exFAT and NTFS take no batch, because a batch skips the per-file handling of their file names and
+// the FAT32 size limit.
 bool CopyJobPrivate::batchDestinationEligible()
 {
     if (m_batchDestEligibility == BatchDestEligibility::Unknown) {
@@ -2196,7 +2197,7 @@ bool CopyJobPrivate::batchDestinationEligible()
             const QString resolvedDest = QFileInfo(destPath).canonicalFilePath();
             const KMountPoint::Ptr destMp = KMountPoint::currentMountPointForPath(resolvedDest.isEmpty() ? destPath : resolvedDest);
             const bool msdosQuirks = KIOPrivate::destinationDisallowsMsdosChars(m_globalDest, globalDestFsType());
-            if (destMp && !destMp->isOnRemoteStorage() && !msdosQuirks) {
+            if (destMp && !msdosQuirks) {
                 m_batchDestEligibility = BatchDestEligibility::Eligible;
                 m_batchDestFlags = destMp->testFileSystemFlag(KMountPoint::SupportsFileCloning) ? KIO::BatchCopyFlagReflink : 0;
             }

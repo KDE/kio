@@ -1120,13 +1120,9 @@ void BatchCopyEngine::settleDestDir(const QString &dir)
     const WritebackPolicy writeback = writebackPolicyFor(fd, dir);
     m_request.writebackWindow = writeback.window;
     m_request.flushWindowedFile = writeback.flushWindowedFile;
-    const bool removable = isFolderOnRemovableDevice(fd, dir);
-    if (removable) {
+    if (isFolderOnRemovableDevice(fd, dir)) {
         m_copiedToRemovable = true;
     }
-    // Besides a removable device, writebackPolicyFor() only gives a window to a network or FUSE
-    // mount.
-    m_deferDestDir = writeback.window > 0 && !removable;
 }
 
 int BatchCopyEngine::copyOne(const BatchCopyOp &op, const ItemStartFn &onItemStart, const ItemResultFn &onItemResult)
@@ -1185,11 +1181,6 @@ int BatchCopyEngine::copyFiles(const QList<BatchCopyOp> &ops, const ItemStartFn 
                 onItemResult(op.index, BatchItemResult::BatchFailed);
                 return err;
             }
-            onItemResult(op.index, BatchItemResult::Deferred);
-            ++i;
-            continue;
-        }
-        if (m_deferDestDir) {
             onItemResult(op.index, BatchItemResult::Deferred);
             ++i;
             continue;

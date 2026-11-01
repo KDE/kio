@@ -250,7 +250,6 @@ protected:
     HeldDir m_srcDir;
     HeldDir m_destDir;
     bool m_copiedToRemovable = false;
-    bool m_deferDestDir = false; // m_destDir is on a network or FUSE mount, the job copies its files
     DestDirGroup m_destDirGroup; // the group of a file created in m_destDir
 };
 
