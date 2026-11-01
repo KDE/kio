@@ -23,6 +23,11 @@ public:
      * to see a job report more than once, and cannot make the job slower, so it shortens the wait.
      */
     KIOCORE_EXPORT static void setReportTimeout(std::chrono::milliseconds timeout);
+
+    /*!
+     * The number of batch copy commands that every CopyJob of the process has sent to a worker.
+     */
+    KIOCORE_EXPORT static int batchCopyCommandsSent();
 };
 }
 #endif

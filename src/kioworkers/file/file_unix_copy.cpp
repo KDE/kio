@@ -12,6 +12,7 @@
 
 // The copying side of the file worker: FileProtocol::copy() and the helpers only it uses.
 
+#include "batchcopypackets_p.h"
 #include "file.h"
 #include "kmountpoint_p.h"
 #include "stat_unix.h"
@@ -1230,6 +1231,12 @@ private:
         heldPath = dir;
         return fd;
     }
+    // A folder on a network filesystem or another slow mount below the destination of the job: its
+    // files are handed back to the job, which copies them one by one.
+    bool destDirIsSlow() const
+    {
+        return m_destDirSlow;
+    }
     bool ensureSrcDir(const QByteArray &dir)
     {
         return holdDir(dir, m_srcDirFd, m_srcDirPath) >= 0;
@@ -1249,7 +1256,10 @@ private:
         const WritebackPolicy writeback = writebackPolicyFor(openedFd, folder);
         m_request.writebackWindow = writeback.window;
         m_request.flushWindowedFile = writeback.flushWindowedFile;
-        m_copiedToRemovable = m_copiedToRemovable || isFolderOnRemovableDevice(openedFd, folder);
+        const bool removable = isFolderOnRemovableDevice(openedFd, folder);
+        m_copiedToRemovable = m_copiedToRemovable || removable;
+        // Only a removable device and a slow mount get a writeback window.
+        m_destDirSlow = writeback.window > 0 && !removable;
         return true;
     }
 
@@ -1264,6 +1274,7 @@ private:
     int m_destDirFd = -1;
     QByteArray m_destDirPath;
     bool m_copiedToRemovable = false;
+    bool m_destDirSlow = false; // m_destDirFd is on a network filesystem or another slow mount
     DestDirGroup m_destDirGroup; // group files freshly created in m_destDirFd come out with
 };
 
@@ -1277,13 +1288,22 @@ int BatchCopyEngine::copyBatch(const QList<BatchCopyOp> &ops, KIO::filesize_t &b
         const auto [destDir, destName] = splitDir(op.dest);
 
         errno = 0;
-        if (!ensureSrcDir(srcDir) || !ensureDestDir(destDir)) {
-            const int err = errno; // could not open a directory: treat as a per-item failure
+        // A source folder that cannot be opened only concerns its own files.
+        if (!ensureSrcDir(srcDir)) {
+            onItem(op.index, ItemOutcome::Defer, errno);
+            continue;
+        }
+        if (!ensureDestDir(destDir)) {
+            const int err = errno;
             if (isFatalCopyError(err)) {
                 onItem(op.index, ItemOutcome::Abort, err);
                 return err;
             }
             onItem(op.index, ItemOutcome::Defer, err);
+            continue;
+        }
+        if (m_destDirSlow) {
+            onItem(op.index, ItemOutcome::Defer, 0);
             continue;
         }
 
@@ -1302,7 +1322,9 @@ int BatchCopyEngine::copyBatch(const QList<BatchCopyOp> &ops, KIO::filesize_t &b
             if (report.err == ECANCELED) {
                 return ECANCELED; // cancelled mid-file
             }
-            if (isFatalCopyError(report.err)) {
+            // An error on the destination stops the batch when every next file would fail too. A read
+            // error only concerns the source file, such as a bad sector.
+            if (!report.readFailed && isFatalCopyError(report.err)) {
                 onItem(op.index, ItemOutcome::Abort, report.err);
                 return report.err; // stop the batch
             }
@@ -1322,11 +1344,7 @@ int BatchCopyEngine::copyBatch(const QList<BatchCopyOp> &ops, KIO::filesize_t &b
 WorkerResult FileProtocol::batchCopy(QDataStream &stream)
 {
     // Request: qint32 flags (reserved), qint32 count, count x (QString src, QString dest).
-    // Reply: packets on the data channel, each starting with its kind, read by CopyJobPrivate.
-    enum PacketKind : qint32 {
-        PacketProgress = 0, // qint32 current, QList<qint32> finished since the previous packet
-        PacketAnswer = 1, // QList<qint32>: the files the worker did not copy
-    };
+    // Reply: packets on the data channel, each starting with its KIO::BatchCopyPacketKind.
     qint32 flags = 0;
     qint32 count = 0;
     stream >> flags >> count;
@@ -1398,7 +1416,7 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
         }
         QByteArray report;
         QDataStream out(&report, QIODevice::WriteOnly);
-        out << qint32(PacketProgress) << inFlight << doneSinceReport;
+        out << qint32(KIO::BatchCopyPacketProgress) << inFlight << doneSinceReport;
         data(report);
         doneSinceReport.clear();
         reportTimer.restart();
@@ -1411,9 +1429,17 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
         }
     });
 
-    const int abortErr = engine->copyBatch(todo, bytesDone, [&](int index, ItemOutcome outcome, int err) {
+    // The job flushes the folder once the copy is over, also when it is cancelled. So it learns about
+    // a removable device as soon as the first file goes to one.
+    bool flushAnnounced = false;
+    const int abortErr = engine->copyBatch(todo, bytesDone, [&](int index, ItemOutcome outcome, int) {
         switch (outcome) {
         case ItemOutcome::Begin:
+            if (!flushAnnounced && engine->copiedToRemovable()) {
+                setMetaData(QStringLiteral("flush-destination"), QStringLiteral("true"));
+                sendMetaData();
+                flushAnnounced = true;
+            }
             inFlight = index; // about to copy this file
             if (!reportTimer.isValid() || reportTimer.hasExpired(100)) {
                 flushReport();
@@ -1436,14 +1462,9 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
 
     // The answer goes out once, when the batch is over. Why a file was left is not in it: the
     // caller copies it on its own and gets the conflict or the error from that attempt.
-    if (engine->copiedToRemovable()) {
-        // As in copy(): the job flushes the folder once its last file is copied. data() sends it along
-        // with the answer, also when the batch fails.
-        setMetaData(QStringLiteral("flush-destination"), QStringLiteral("true"));
-    }
     QByteArray answer;
     QDataStream out(&answer, QIODevice::WriteOnly);
-    out << qint32(PacketAnswer) << deferred;
+    out << qint32(KIO::BatchCopyPacketAnswer) << deferred;
     data(answer);
 
     if (abortErr == ECANCELED) {

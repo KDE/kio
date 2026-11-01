@@ -115,8 +115,8 @@ public:
     // Writes back the data of the filesystem that holds the folder, when it is on a removable device.
     KIO::WorkerResult flushRemovableFolder(const QString &folder);
 #endif
-    // Batch-copy a list of local files in one command (special() sub-command). Platform-specific:
-    // the real engine is in file_unix.cpp; file_win.cpp returns ERR_UNSUPPORTED_ACTION.
+    // Copies a list of local files in one command, the special() sub-command 4. It needs POSIX, and
+    // fails with ERR_UNSUPPORTED_ACTION elsewhere.
     KIO::WorkerResult batchCopy(QDataStream &stream);
 
 #if HAVE_POSIX_ACL

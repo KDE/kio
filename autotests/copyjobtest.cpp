@@ -5,6 +5,7 @@
     SPDX-License-Identifier: LGPL-2.0-or-later
 */
 
+#include "copyjob_p.h" // KIO::TestPrivate
 #include "kiotesthelper.h" // createTestFile etc.
 #include "mockcoredelegateextensions.h"
 
@@ -50,6 +51,8 @@ private Q_SLOTS:
     void copyManyFilesBatchedOverwriteExistingDest();
     void copyManyFilesBatchedWithUnreadableSource();
     void copyManyFilesBatchedCancelled();
+    void copyManyFilesKeepsBatchingAfterAFileItHandsBack();
+    void killingABatchToARemovableDeviceKeepsItsFlush();
     void copyLargeFilesBatched();
     void copyManyFilesBatchedToSetgidDirectory();
 };
@@ -118,8 +121,7 @@ static std::optional<gid_t> shareDirectoryWithAnotherGroup(const QString &dir)
 // result is identical to the per-file path: content, attribute preservation, the per-file
 // copyingDone() signal (undo and kpropsdlg rely on it), progress, and graceful per-file fallback for
 // conflicts and errors. They QSKIP where the batch path does not engage (e.g. the destination's
-// filesystem is not eligible), detected via the "batchCopy" metadata the batch command always
-// sets.
+// filesystem is not eligible), which KIO::TestPrivate::batchCopyCommandsSent() exposes.
 // Randomized coverage for the batch path: KIO_BATCH_FUZZ_ROUNDS raises the round count and
 // KIO_BATCH_FUZZ_SEED picks another tree, so the same test doubles as a fuzzer when run by hand.
 static quint32 batchFuzzSeed()
@@ -301,12 +303,13 @@ void CopyJobTest::copyManyFilesBatched()
     const QDateTime when(QDate(2001, 2, 3), QTime(4, 5, 6));
     setTimeStamp(src + "f0", when);
 
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
     KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     QSignalSpy spyCopyingDone(job, &KIO::CopyJob::copyingDone);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    if (!job->metaData().contains(QLatin1String("batchCopy"))) {
+    if (KIO::TestPrivate::batchCopyCommandsSent() == batchesBefore) {
         QSKIP("CopyJob did not take the batch path on this filesystem");
     }
 
@@ -369,12 +372,13 @@ void CopyJobTest::copyManyFilesBatchedWithExistingDest()
     // must resolve it (here: the user skips); the rest copy normally.
     createTestFile(dst + "f7", true, "OLD");
 
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
     KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
     simulatePressingSkip(job); // answers Skip without setting auto-skip, so batching stays enabled
     QSignalSpy spyCopyingDone(job, &KIO::CopyJob::copyingDone);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    if (!job->metaData().contains(QLatin1String("batchCopy"))) {
+    if (KIO::TestPrivate::batchCopyCommandsSent() == batchesBefore) {
         QSKIP("CopyJob did not take the batch path on this filesystem");
     }
 
@@ -421,11 +425,12 @@ void CopyJobTest::copyManyFilesBatchedOverwriteExistingDest()
     createTestFile(dst + "f7", true, "OLD-7");
     createTestFile(dst + "f13", true, "OLD-13");
 
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
     KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo | KIO::Overwrite);
     QSignalSpy spyCopyingDone(job, &KIO::CopyJob::copyingDone);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    if (!job->metaData().contains(QLatin1String("batchCopy"))) {
+    if (KIO::TestPrivate::batchCopyCommandsSent() == batchesBefore) {
         QSKIP("CopyJob did not take the batch path on this filesystem");
     }
 
@@ -466,12 +471,13 @@ void CopyJobTest::copyManyFilesBatchedWithUnreadableSource()
         QDir(dst).removeRecursively();
     });
 
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
     KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
     simulatePressingSkip(job); // a per-item error becomes a skip dialog the user answers
     QSignalSpy spyCopyingDone(job, &KIO::CopyJob::copyingDone);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    if (!job->metaData().contains(QLatin1String("batchCopy"))) {
+    if (KIO::TestPrivate::batchCopyCommandsSent() == batchesBefore) {
         QSKIP("CopyJob did not take the batch path on this filesystem");
     }
 
@@ -532,6 +538,96 @@ void CopyJobTest::copyManyFilesBatchedCancelled()
     QCOMPARE(job->error(), KIO::ERR_USER_CANCELED);
 }
 
+void CopyJobTest::copyManyFilesKeepsBatchingAfterAFileItHandsBack()
+{
+    // A destination that exists is copied on its own, and the files after it still go in batches:
+    // 600 files take two batches, the first of 512 files and the second of the 88 after it.
+    const QString src = homeTmpDir() + "batchhandback_src/";
+    const QString dst = homeTmpDir() + "batchhandback_dst/";
+    QDir(src).removeRecursively();
+    QDir(dst).removeRecursively();
+    QDir().mkpath(src);
+    QDir().mkpath(dst);
+    auto cleaner = qScopeGuard([&] {
+        QDir(src).removeRecursively();
+        QDir(dst).removeRecursively();
+    });
+
+    const int n = 600;
+    QList<QUrl> sources;
+    for (int i = 0; i < n; ++i) {
+        const QString f = src + QStringLiteral("f%1").arg(i, 3, 10, QLatin1Char('0'));
+        createTestFile(f, true, QByteArray("new-") + QByteArray::number(i));
+        sources << QUrl::fromLocalFile(f);
+    }
+    createTestFile(dst + "f005", true, "OLD");
+
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
+    KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
+    simulatePressingSkip(job);
+    QSignalSpy spyCopyingDone(job, &KIO::CopyJob::copyingDone);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    if (KIO::TestPrivate::batchCopyCommandsSent() == batchesBefore) {
+        QSKIP("CopyJob did not take the batch path on this filesystem");
+    }
+    QCOMPARE(KIO::TestPrivate::batchCopyCommandsSent() - batchesBefore, 2);
+    QFile kept(dst + "f005");
+    QVERIFY(kept.open(QIODevice::ReadOnly));
+    QCOMPARE(kept.readAll(), QByteArray("OLD"));
+    QCOMPARE(spyCopyingDone.count(), n - 1);
+    QCOMPARE(QDir(dst).entryList(QDir::Files).count(), n);
+}
+
+void CopyJobTest::killingABatchToARemovableDeviceKeepsItsFlush()
+{
+    // A copy to a removable device that is cancelled during a batch still flushes the device, so the
+    // job knows about it once the first file is written there.
+#ifndef Q_OS_LINUX
+    QSKIP("The file worker flushes a removable device with syncfs, which only Linux has");
+#endif
+    qputenv("KIO_FILE_FORCE_REMOVABLE", "1");
+    const auto unsetRemovable = qScopeGuard([] {
+        qunsetenv("KIO_FILE_FORCE_REMOVABLE");
+    });
+    const QString src = homeTmpDir() + "batchkillflush_src/";
+    const QString dst = homeTmpDir() + "batchkillflush_dst/";
+    QDir(src).removeRecursively();
+    QDir(dst).removeRecursively();
+    QDir().mkpath(src);
+    QDir().mkpath(dst);
+    auto cleaner = qScopeGuard([&] {
+        QDir(src).removeRecursively();
+        QDir(dst).removeRecursively();
+    });
+
+    const int n = 40;
+    const QByteArray blob(512 * 1024, 'x');
+    QList<QUrl> sources;
+    for (int i = 0; i < n; ++i) {
+        const QString f = src + QStringLiteral("f%1").arg(i);
+        createTestFile(f, true, blob);
+        sources << QUrl::fromLocalFile(f);
+    }
+
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
+    KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    // The worker names the file it starts in a packet, which comes before its answer, so the batch
+    // is still running for the job when the job is killed.
+    bool killed = false;
+    connect(job, &KIO::CopyJob::copying, this, [job, &killed] {
+        if (!killed) {
+            killed = true;
+            job->kill();
+        }
+    });
+    QVERIFY(!job->exec());
+    QVERIFY(killed);
+    QCOMPARE(KIO::TestPrivate::batchCopyCommandsSent() - batchesBefore, 1);
+    QCOMPARE(job->metaData().value(QStringLiteral("flush-destination")), QStringLiteral("true"));
+}
+
 void CopyJobTest::copyLargeFilesBatched()
 {
     // Large files are not excluded from the batch: the worker copies them in page-sized chunks and
@@ -557,6 +653,7 @@ void CopyJobTest::copyLargeFilesBatched()
         sources << QUrl::fromLocalFile(f);
     }
 
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
     KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     QSignalSpy spyCopyingDone(job, &KIO::CopyJob::copyingDone);
@@ -573,7 +670,7 @@ void CopyJobTest::copyLargeFilesBatched()
     });
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    if (!job->metaData().contains(QLatin1String("batchCopy"))) {
+    if (KIO::TestPrivate::batchCopyCommandsSent() == batchesBefore) {
         QSKIP("CopyJob did not take the batch path on this filesystem");
     }
 
@@ -613,11 +710,12 @@ void CopyJobTest::copyManyFilesBatchedToSetgidDirectory()
         sources << QUrl::fromLocalFile(f);
     }
 
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
     KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(sharedDir), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
-    if (!job->metaData().contains(QLatin1String("batchCopy"))) {
+    if (KIO::TestPrivate::batchCopyCommandsSent() == batchesBefore) {
         QSKIP("CopyJob did not take the batch path on this filesystem");
     }
 
