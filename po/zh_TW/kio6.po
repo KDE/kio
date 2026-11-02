@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-31 00:47+0000\n"
+"POT-Creation-Date: 2026-11-02 00:50+0000\n"
 "PO-Revision-Date: 2026-10-01 01:03+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -3744,7 +3744,7 @@ msgstr ""
 "無法使 %1 服務可被執行，取消執行。\n"
 "%2。"
 
-#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:689
+#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:757
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "您未獲授權去選取應用程式以開啟此檔案。"
@@ -3837,27 +3837,27 @@ msgstr ""
 "%1\n"
 "為 Link 類型，但沒有 URL=... 項目。"
 
-#: gui/openurljob.cpp:405
+#: gui/openurljob.cpp:474
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr "可執行檔「%1」位於遠端檔案系統。因安全性考量，將不啟動。"
 
-#: gui/openurljob.cpp:446
+#: gui/openurljob.cpp:514
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "為了安全，這個環境下不允許啟動執行檔。"
 
-#: gui/openurljob.cpp:476
+#: gui/openurljob.cpp:544
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "「%1」程式需要有執行權限才可執行。"
 
-#: gui/openurljob.cpp:487
+#: gui/openurljob.cpp:555
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3866,12 +3866,12 @@ msgstr ""
 "無法使「%1」檔案能夠執行。\n"
 "%2。"
 
-#: gui/openurljob.cpp:573
+#: gui/openurljob.cpp:641
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "桌面項目檔案 %1 中沒有 Type=... 項目。"
 
-#: gui/openurljob.cpp:675
+#: gui/openurljob.cpp:743
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3881,12 +3881,12 @@ msgstr ""
 "此檔案不完全而不應被開啟。\n"
 "請檢查開啟的應用程式與通知區域是否有進行中的工作或下載。"
 
-#: gui/openurljob.cpp:701
+#: gui/openurljob.cpp:769
 #, kde-format
 msgid "Failed to open the file."
 msgstr "無法開啟檔案。"
 
-#: gui/openurljob.cpp:735
+#: gui/openurljob.cpp:803
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "程式「%1」無法啟動。"
@@ -4797,107 +4797,107 @@ msgstr "正在移到垃圾桶"
 msgid "Deleting"
 msgstr "刪除中"
 
-#: widgets/fileundomanager.cpp:326
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o"
 msgstr "復原(&O)"
 
-#: widgets/fileundomanager.cpp:332
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "復原：複製(&O)"
 
-#: widgets/fileundomanager.cpp:334
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Link"
 msgstr "復原：連結(&O)"
 
-#: widgets/fileundomanager.cpp:336
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Move"
 msgstr "復原：移動(&O)"
 
-#: widgets/fileundomanager.cpp:338
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "復原：重新命名(&O)"
 
-#: widgets/fileundomanager.cpp:340
+#: widgets/fileundomanager.cpp:350
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "復原：丟到垃圾桶(&O)"
 
-#: widgets/fileundomanager.cpp:342
+#: widgets/fileundomanager.cpp:352
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "復原：建立資料夾(&O)"
 
-#: widgets/fileundomanager.cpp:344
+#: widgets/fileundomanager.cpp:354
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "復原：建立資料夾(&O)"
 
-#: widgets/fileundomanager.cpp:346
+#: widgets/fileundomanager.cpp:356
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "復原：建立檔案(&O)"
 
-#: widgets/fileundomanager.cpp:348
+#: widgets/fileundomanager.cpp:358
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "復原：批次重新命名(&O)"
 
-#: widgets/fileundomanager.cpp:357
+#: widgets/fileundomanager.cpp:367
 #, kde-format
 msgid "&Redo"
 msgstr "重做(&R)"
 
-#: widgets/fileundomanager.cpp:363
+#: widgets/fileundomanager.cpp:373
 #, kde-format
 msgid "&Redo: Copy"
 msgstr "重做：複製(&R)"
 
-#: widgets/fileundomanager.cpp:365
+#: widgets/fileundomanager.cpp:375
 #, kde-format
 msgid "&Redo: Link"
 msgstr "重做：連結(&R)"
 
-#: widgets/fileundomanager.cpp:367
+#: widgets/fileundomanager.cpp:377
 #, kde-format
 msgid "&Redo: Move"
 msgstr "重做：移動(&R)"
 
-#: widgets/fileundomanager.cpp:369
+#: widgets/fileundomanager.cpp:379
 #, kde-format
 msgid "&Redo: Rename"
 msgstr "重做：重新命名(&R)"
 
-#: widgets/fileundomanager.cpp:371
+#: widgets/fileundomanager.cpp:381
 #, kde-format
 msgid "&Redo: Trash"
 msgstr "重做：丟到垃圾桶(&R)"
 
-#: widgets/fileundomanager.cpp:373
+#: widgets/fileundomanager.cpp:383
 #, kde-format
 msgid "&Redo: Create Folder"
 msgstr "重做：建立資料夾(&R)"
 
-#: widgets/fileundomanager.cpp:375
+#: widgets/fileundomanager.cpp:385
 #, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "重做：建立資料夾(&R)"
 
-#: widgets/fileundomanager.cpp:377
+#: widgets/fileundomanager.cpp:387
 #, kde-format
 msgid "&Redo: Create File"
 msgstr "重做：建立檔案(&R)"
 
-#: widgets/fileundomanager.cpp:379
+#: widgets/fileundomanager.cpp:389
 #, kde-format
 msgid "&Redo: Batch Rename"
 msgstr "重做：批次重新命名(&R)"
 
-#: widgets/fileundomanager.cpp:906
+#: widgets/fileundomanager.cpp:919
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -4909,7 +4909,7 @@ msgstr ""
 "復原此複製動作會將變更後的檔案刪除，所以所有變更都會遺失。\n"
 "您確定您要刪除 %4 嗎？"
 
-#: widgets/fileundomanager.cpp:916
+#: widgets/fileundomanager.cpp:929
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "確認復原檔案複製動作"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-31 00:47+0000\n"
+"POT-Creation-Date: 2026-11-02 00:50+0000\n"
 "PO-Revision-Date: 2025-09-10 15:28+0630\n"
 "Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -3781,7 +3781,7 @@ msgstr ""
 "ဝန်ဆောင်မှု %1 ကို လုပ်ဆောင်-ဖိုင် မလုပ်နိုင်ခဲ့ပါ၊ ဆောင်ရွက်မှုကို စွန့်လွှတ်နေသည်။\n"
 "%2။"
 
-#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:689
+#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:757
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "ဤဖိုင်ကိုဖွင့်ရန် အပ္ပလီကေးရှင်းရွေးချက်မှုဆောင်ရွက်ဖို့ သင့်အား ခွင့်ပြုထားခြင်းမရှိ။"
@@ -3874,27 +3874,27 @@ msgstr ""
 "%1\n"
 "သည် လင့်ခ် အမျိုးအစားဖြစ်သော်လည်း 'URL=…' မပါဝင်ပါ။"
 
-#: gui/openurljob.cpp:405
+#: gui/openurljob.cpp:474
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
 "reasons it will not be started."
 msgstr "လုပ်ဆောင်-ဖိုင် \"%1\" သည် အဝေးဖိုင်စနစ်တွင်ရှိသည်။ လုံခြုရေးအရ ၎င်းကို စတင်မည်မဟုတ်ပါ။"
 
-#: gui/openurljob.cpp:446
+#: gui/openurljob.cpp:514
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr "လုံခြုံရေးအရ ဤဆက်စပ်နေရာတွင် လုပ်ဆောင်-ဖိုင်များ လွှင့်တင်ခြင်း ခွင့်မပြုထားပါ။"
 
-#: gui/openurljob.cpp:476
+#: gui/openurljob.cpp:544
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "ပရိုဂရမ် \"%1\"ကို လွှင်တင်နိုင်ရန် မောင်းနှင်ရန် ခွင့်ပြုချက် လိုအပ်သည်််။"
 
-#: gui/openurljob.cpp:487
+#: gui/openurljob.cpp:555
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -3903,12 +3903,12 @@ msgstr ""
 "ဖိုင် \"%1\" ကို လုပ်ဆောင်-ဖိုင် မလုပ်နိုင်ခဲ့ပါ။\n"
 "%2။"
 
-#: gui/openurljob.cpp:573
+#: gui/openurljob.cpp:641
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "ဒက်စတော့ပ်စာရင်းမှတ်ချက်ဖိုင် %1 တွင် 'Type=…' မပါဝင်ပါ။"
 
-#: gui/openurljob.cpp:675
+#: gui/openurljob.cpp:743
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -3919,12 +3919,12 @@ msgstr ""
 "သင်ဖွင့်ထားသောအပ္ပလီကေးရှင်းများနှင့် အသိပေးချက်ဧရိယာတွင် လုပ်ဆဲဖြစ်နေသော အလုပ်သို့မဟုတ်ဒေါင်းလုတ်များကို "
 "စစ်ကြည့်ပါ။"
 
-#: gui/openurljob.cpp:701
+#: gui/openurljob.cpp:769
 #, kde-format
 msgid "Failed to open the file."
 msgstr "ဖိုင်ကိုမဖွင့်နိုင်ခဲ့ပါ။"
 
-#: gui/openurljob.cpp:735
+#: gui/openurljob.cpp:803
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "ပရိုဂရမ် \"%1\"ကို လွှင်တင်၍မရပါ။"
@@ -4840,107 +4840,107 @@ msgstr "အမှိုက်ပုံးသို့ ပစ်နေသည်"
 msgid "Deleting"
 msgstr "ဖျက်နေသည်"
 
-#: widgets/fileundomanager.cpp:326
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o"
 msgstr "&oပြန်ဆုတ်"
 
-#: widgets/fileundomanager.cpp:332
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "&oကူးယူခြင်းပြန်ဆုတ်"
 
-#: widgets/fileundomanager.cpp:334
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Link"
 msgstr "&oလင့်ခ်လုပ်ခြင်းပြန်ဆုတ်"
 
-#: widgets/fileundomanager.cpp:336
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Move"
 msgstr "&oရွေ့ပြောင်းခြင်းပြန်ဆုတ်"
 
-#: widgets/fileundomanager.cpp:338
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "&oအမည်ပြောင်းခြင်းပြန်ဆုတ်ရန်"
 
-#: widgets/fileundomanager.cpp:340
+#: widgets/fileundomanager.cpp:350
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "&ပြန်ဆုတ် -အမှိုက်ပုံး"
 
-#: widgets/fileundomanager.cpp:342
+#: widgets/fileundomanager.cpp:352
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "&oဖိုင်တွဲတည်ဆောက်ခြင်းပြန်ဆုတ်"
 
-#: widgets/fileundomanager.cpp:344
+#: widgets/fileundomanager.cpp:354
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "&oဖိုင်တွဲတည်ဆောက်ခြင်းပြန်ဆုတ်"
 
-#: widgets/fileundomanager.cpp:346
+#: widgets/fileundomanager.cpp:356
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "&oဖိုင်ဖန်တီးခြင်းပြန်ဆုတ်"
 
-#: widgets/fileundomanager.cpp:348
+#: widgets/fileundomanager.cpp:358
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "&oအစုလိုက်အပုံလိုက်အမည်ပြောင်းခြင်းပြန်ဆုတ်ရန်"
 
-#: widgets/fileundomanager.cpp:357
+#: widgets/fileundomanager.cpp:367
 #, kde-format
 msgid "&Redo"
 msgstr "&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:363
+#: widgets/fileundomanager.cpp:373
 #, kde-format
 msgid "&Redo: Copy"
 msgstr "ကူးယူချက်-&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:365
+#: widgets/fileundomanager.cpp:375
 #, kde-format
 msgid "&Redo: Link"
 msgstr "ကွင်းဆက်ချိတ်-&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:367
+#: widgets/fileundomanager.cpp:377
 #, kde-format
 msgid "&Redo: Move"
 msgstr "ရွှေ့ပြောင်းမှု-&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:369
+#: widgets/fileundomanager.cpp:379
 #, kde-format
 msgid "&Redo: Rename"
 msgstr "အမည်ပြောင်းမှု-&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:371
+#: widgets/fileundomanager.cpp:381
 #, kde-format
 msgid "&Redo: Trash"
 msgstr "အမှိုက်ပစ်မှု-&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:373
+#: widgets/fileundomanager.cpp:383
 #, kde-format
 msgid "&Redo: Create Folder"
 msgstr "ဖိုင်တွဲဖန်တီးမှု -&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:375
+#: widgets/fileundomanager.cpp:385
 #, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "ဖိုင်တွဲဖန်တီးမှု -&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:377
+#: widgets/fileundomanager.cpp:387
 #, kde-format
 msgid "&Redo: Create File"
 msgstr "ဖိုင်ဖန်တီးမှု -&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:379
+#: widgets/fileundomanager.cpp:389
 #, kde-format
 msgid "&Redo: Batch Rename"
 msgstr "အစုလိုက်အပုံလိုက်အမည်ပြောင်းခြင်းဖိုင်တွဲဖန်တီးမှု -&ပြန်လုပ်"
 
-#: widgets/fileundomanager.cpp:906
+#: widgets/fileundomanager.cpp:919
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -4952,7 +4952,7 @@ msgstr ""
 "ကူးယူမှုကို ပြန်ဆုတ်ပါက ဖိုင်ကို ဖျက်ပစ်မည်ဖြစ်၍ မွမ်းမံချက်အားလုံး ပျောက်ဆုံးကုန်မည်။\n"
 "%4 ကို ဖျက်မှာ သေချာပြီလား။"
 
-#: widgets/fileundomanager.cpp:916
+#: widgets/fileundomanager.cpp:929
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "ဖိုင်ကူးယူမှုအတည်ပြုခြင်းပြန်ဆုတ်ရန်"

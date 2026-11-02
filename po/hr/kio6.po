@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-31 00:47+0000\n"
+"POT-Creation-Date: 2026-11-02 00:50+0000\n"
 "PO-Revision-Date: 2026-09-12 20:25+0200\n"
 "Last-Translator: Igor Dobrača <igor.dobraca@gmail.com>\n"
 "Language-Team: Croatian <kde-i18n-doc@kde.org>\n"
@@ -3889,7 +3889,7 @@ msgstr ""
 "Nije moguće učiniti uslugu %1 izvršnom, prekidam izvršenje.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:689
+#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:757
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Niste ovlašteni za odabir aplikacije koja će otvoriti ovu datoteku."
@@ -3984,7 +3984,7 @@ msgstr ""
 "%1\n"
 "je tipa veze ali nema URL… unos."
 
-#: gui/openurljob.cpp:405
+#: gui/openurljob.cpp:474
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -3993,7 +3993,7 @@ msgstr ""
 "Izvršna datoteka \"%1\" nalazi se na udaljenom datotečnom sustavu. Iz "
 "sigurnosnih razloga neće biti pokrenuta."
 
-#: gui/openurljob.cpp:446
+#: gui/openurljob.cpp:514
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4001,7 +4001,7 @@ msgstr ""
 "Iz sigurnosnih razloga, pokretanje izvršnih datoteka nije dopušteno u ovom "
 "kontekstu."
 
-#: gui/openurljob.cpp:476
+#: gui/openurljob.cpp:544
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4010,7 +4010,7 @@ msgstr ""
 "Program \"%1\" mora imati dozvolu za izvršnu datoteku prije nego što se može "
 "pokrenuti."
 
-#: gui/openurljob.cpp:487
+#: gui/openurljob.cpp:555
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4019,12 +4019,12 @@ msgstr ""
 "Nije moguće učiniti datoteku \"%1\" izvršnom.\n"
 "%2."
 
-#: gui/openurljob.cpp:573
+#: gui/openurljob.cpp:641
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Stavka datoteke na radnoj površini %1  nema Type… unos."
 
-#: gui/openurljob.cpp:675
+#: gui/openurljob.cpp:743
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4035,12 +4035,12 @@ msgstr ""
 "Provjerite otvorene prijave i područje obavijesti za eventualne zadatke ili "
 "preuzimanja."
 
-#: gui/openurljob.cpp:701
+#: gui/openurljob.cpp:769
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Nisam uspio otvoriti datoteku."
 
-#: gui/openurljob.cpp:735
+#: gui/openurljob.cpp:803
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Program \"%1\" nije mogao biti pokrenut."
@@ -4969,107 +4969,107 @@ msgstr "Premjesti u smeće"
 msgid "Deleting"
 msgstr "Brisanje"
 
-#: widgets/fileundomanager.cpp:326
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o"
 msgstr "P&oništi"
 
-#: widgets/fileundomanager.cpp:332
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "P&oništi: kopiranje"
 
-#: widgets/fileundomanager.cpp:334
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Link"
 msgstr "P&oništi: povezivanje"
 
-#: widgets/fileundomanager.cpp:336
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Move"
 msgstr "P&oništi: premještanje"
 
-#: widgets/fileundomanager.cpp:338
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "P&oništiti: preimenovanje"
 
-#: widgets/fileundomanager.cpp:340
+#: widgets/fileundomanager.cpp:350
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "P&oništiti: Bacanje u smeće"
 
-#: widgets/fileundomanager.cpp:342
+#: widgets/fileundomanager.cpp:352
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "Poništi: stvori mapu"
 
-#: widgets/fileundomanager.cpp:344
+#: widgets/fileundomanager.cpp:354
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "Und&o: Stvori mape(e)"
 
-#: widgets/fileundomanager.cpp:346
+#: widgets/fileundomanager.cpp:356
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "P&oništi: stvori datoteku"
 
-#: widgets/fileundomanager.cpp:348
+#: widgets/fileundomanager.cpp:358
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "Und&o: Preimenovanje serije"
 
-#: widgets/fileundomanager.cpp:357
+#: widgets/fileundomanager.cpp:367
 #, kde-format
 msgid "&Redo"
 msgstr "&Redo"
 
-#: widgets/fileundomanager.cpp:363
+#: widgets/fileundomanager.cpp:373
 #, kde-format
 msgid "&Redo: Copy"
 msgstr "&Redo: Kopiraj"
 
-#: widgets/fileundomanager.cpp:365
+#: widgets/fileundomanager.cpp:375
 #, kde-format
 msgid "&Redo: Link"
 msgstr "&Redo: Link"
 
-#: widgets/fileundomanager.cpp:367
+#: widgets/fileundomanager.cpp:377
 #, kde-format
 msgid "&Redo: Move"
 msgstr "&Redo: Move"
 
-#: widgets/fileundomanager.cpp:369
+#: widgets/fileundomanager.cpp:379
 #, kde-format
 msgid "&Redo: Rename"
 msgstr "&Redo: Preimenovanje"
 
-#: widgets/fileundomanager.cpp:371
+#: widgets/fileundomanager.cpp:381
 #, kde-format
 msgid "&Redo: Trash"
 msgstr "&Redo: Smeće"
 
-#: widgets/fileundomanager.cpp:373
+#: widgets/fileundomanager.cpp:383
 #, kde-format
 msgid "&Redo: Create Folder"
 msgstr "&Redo: Stvori mapu"
 
-#: widgets/fileundomanager.cpp:375
+#: widgets/fileundomanager.cpp:385
 #, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "&Redo: Stvori mapu(e)"
 
-#: widgets/fileundomanager.cpp:377
+#: widgets/fileundomanager.cpp:387
 #, kde-format
 msgid "&Redo: Create File"
 msgstr "&Redo: Kreiraj datoteku"
 
-#: widgets/fileundomanager.cpp:379
+#: widgets/fileundomanager.cpp:389
 #, kde-format
 msgid "&Redo: Batch Rename"
 msgstr "&Redo: Preimenovanje serije"
 
-#: widgets/fileundomanager.cpp:906
+#: widgets/fileundomanager.cpp:919
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5082,7 +5082,7 @@ msgstr ""
 "Odbijanje kopiranja će izbrisati datoteku i sve izmjene bit će izgubljene.\n"
 "Jeste li sigurni da želite izbrisati %4?"
 
-#: widgets/fileundomanager.cpp:916
+#: widgets/fileundomanager.cpp:929
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Poništi potvrdu o kopiranju datoteka"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-31 00:47+0000\n"
+"POT-Creation-Date: 2026-11-02 00:50+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda\n"
@@ -3964,7 +3964,7 @@ msgstr ""
 "Nnemedwa okusobozesa pulguramu empeereze %1 okutandika, omulimu ngusazzamu.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:689
+#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:757
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Tokkirizibwa okulonda puloguramu ey'obikkula fayiro eno."
@@ -4059,7 +4059,7 @@ msgstr ""
 "%1\n"
 "ya kika kya Link naye w'eraga URL eggukirwako wereere."
 
-#: gui/openurljob.cpp:405
+#: gui/openurljob.cpp:474
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4068,7 +4068,7 @@ msgstr ""
 "Fayiro eya puloguramu \"%1\" eri ku sisitemu eya fayiro ey'ebunaayira. "
 "Olw'ensonga za kwerinda tejja okutandikibwa."
 
-#: gui/openurljob.cpp:446
+#: gui/openurljob.cpp:514
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4076,14 +4076,14 @@ msgstr ""
 "Olw'ensonga za bya kwerinda, puloguramu tezikkiriziba okutandikibwa mu "
 "mbeera eriwo kakano."
 
-#: gui/openurljob.cpp:476
+#: gui/openurljob.cpp:544
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr "Okutandika puloguramu \"%1\" kyetaagisa okukyusa ndukusa ezigiriko."
 
-#: gui/openurljob.cpp:487
+#: gui/openurljob.cpp:555
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4092,12 +4092,12 @@ msgstr ""
 "Nnemedwa okusobozesa fayiro \"%1\" okutandikibwa nga puloguramu.\n"
 "%2."
 
-#: gui/openurljob.cpp:573
+#: gui/openurljob.cpp:641
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Fayiro ey'enyunzi ey'awakolerwa %1 ebulamu omuko gwa Type=... ."
 
-#: gui/openurljob.cpp:675
+#: gui/openurljob.cpp:743
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4108,12 +4108,12 @@ msgstr ""
 "Kebera puloguramu zo ezibumbujja n'obubaka obulabikira awakolerwa okulaba "
 "oba waliwo emirimu egya ku fayiro oba okuwanula egitannaba okuggwa."
 
-#: gui/openurljob.cpp:701
+#: gui/openurljob.cpp:769
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Nnemedwa okubikkula fayiro."
 
-#: gui/openurljob.cpp:735
+#: gui/openurljob.cpp:803
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Tekisobose okutandika puloguramu \"%1\"."
@@ -5054,116 +5054,116 @@ msgstr "Twala mu Bisuulidwa"
 msgid "Deleting"
 msgstr "Kugyawo"
 
-#: widgets/fileundomanager.cpp:326
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o"
 msgstr "&Jjulula"
 
-#: widgets/fileundomanager.cpp:332
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "&Jjulula: Okukoppa"
 
-#: widgets/fileundomanager.cpp:334
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Link"
 msgstr "&Jjulula: Okukolawo Nyunzi"
 
-#: widgets/fileundomanager.cpp:336
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Move"
 msgstr "&Jjulula: Okusimbuliza"
 
-#: widgets/fileundomanager.cpp:338
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "&Jjulula: Okukyusa linnya"
 
-#: widgets/fileundomanager.cpp:340
+#: widgets/fileundomanager.cpp:350
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "&Jjulula: Okutwala Mu Bisuulidwa"
 
-#: widgets/fileundomanager.cpp:342
+#: widgets/fileundomanager.cpp:352
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "&Jjulula: Okukolawo Tterekero"
 
-#: widgets/fileundomanager.cpp:344
+#: widgets/fileundomanager.cpp:354
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "&Jjulula: Okukolawo (ma)terekero"
 
-#: widgets/fileundomanager.cpp:346
+#: widgets/fileundomanager.cpp:356
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "&Jjulula: Okukolawo Fayiro"
 
-#: widgets/fileundomanager.cpp:348
+#: widgets/fileundomanager.cpp:358
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "&Jjulula: Okukyusa Mannya Kirindi"
 
-#: widgets/fileundomanager.cpp:357
+#: widgets/fileundomanager.cpp:367
 #, kde-format
 msgid "&Redo"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:363
+#: widgets/fileundomanager.cpp:373
 #, fuzzy, kde-format
 #| msgid "Und&o: Copy"
 msgid "&Redo: Copy"
 msgstr "&Jjulula: Okukoppa"
 
-#: widgets/fileundomanager.cpp:365
+#: widgets/fileundomanager.cpp:375
 #, fuzzy, kde-format
 #| msgid "Und&o: Link"
 msgid "&Redo: Link"
 msgstr "&Jjulula: Okukolawo Nyunzi"
 
-#: widgets/fileundomanager.cpp:367
+#: widgets/fileundomanager.cpp:377
 #, fuzzy, kde-format
 #| msgid "Und&o: Move"
 msgid "&Redo: Move"
 msgstr "&Jjulula: Okusimbuliza"
 
-#: widgets/fileundomanager.cpp:369
+#: widgets/fileundomanager.cpp:379
 #, fuzzy, kde-format
 #| msgid "Und&o: Rename"
 msgid "&Redo: Rename"
 msgstr "&Jjulula: Okukyusa linnya"
 
-#: widgets/fileundomanager.cpp:371
+#: widgets/fileundomanager.cpp:381
 #, fuzzy, kde-format
 #| msgid "Und&o: Trash"
 msgid "&Redo: Trash"
 msgstr "&Jjulula: Okutwala Mu Bisuulidwa"
 
-#: widgets/fileundomanager.cpp:373
+#: widgets/fileundomanager.cpp:383
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgid "&Redo: Create Folder"
 msgstr "&Jjulula: Okukolawo Tterekero"
 
-#: widgets/fileundomanager.cpp:375
+#: widgets/fileundomanager.cpp:385
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder(s)"
 msgid "&Redo: Create Folder(s)"
 msgstr "&Jjulula: Okukolawo (ma)terekero"
 
-#: widgets/fileundomanager.cpp:377
+#: widgets/fileundomanager.cpp:387
 #, fuzzy, kde-format
 #| msgid "Und&o: Create File"
 msgid "&Redo: Create File"
 msgstr "&Jjulula: Okukolawo Fayiro"
 
-#: widgets/fileundomanager.cpp:379
+#: widgets/fileundomanager.cpp:389
 #, fuzzy, kde-format
 #| msgid "Und&o: Batch Rename"
 msgid "&Redo: Batch Rename"
 msgstr "&Jjulula: Okukyusa Mannya Kirindi"
 
-#: widgets/fileundomanager.cpp:906
+#: widgets/fileundomanager.cpp:919
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5176,7 +5176,7 @@ msgstr ""
 "n'ebigikyusidwamu.\n"
 "Okakasa %4 oyagala okugigyawo?"
 
-#: widgets/fileundomanager.cpp:916
+#: widgets/fileundomanager.cpp:929
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Kukakasa Omukolo Ogw'okukola Koppi Gujjululwe"

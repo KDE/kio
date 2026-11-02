@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-31 00:47+0000\n"
+"POT-Creation-Date: 2026-11-02 00:50+0000\n"
 "PO-Revision-Date: 2026-10-27 10:24-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -3930,7 +3930,7 @@ msgstr ""
 "Não foi possível tornar o serviço %1 executável, cancelando a execução.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:689
+#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:757
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -4026,7 +4026,7 @@ msgstr ""
 "%1\n"
 "é do tipo Link, mas não tem a entrada URL=..."
 
-#: gui/openurljob.cpp:405
+#: gui/openurljob.cpp:474
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4035,14 +4035,14 @@ msgstr ""
 "O arquivo executável \"%1\" está localizado em um sistema de arquivos "
 "remoto. Por segurança, ele não será iniciado."
 
-#: gui/openurljob.cpp:446
+#: gui/openurljob.cpp:514
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 "Por motivos de segurança, não é permitido iniciar executáveis neste contexto."
 
-#: gui/openurljob.cpp:476
+#: gui/openurljob.cpp:544
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4051,7 +4051,7 @@ msgstr ""
 "O programa \"%1\" precisa de permissões de execução antes de poder ser "
 "iniciado."
 
-#: gui/openurljob.cpp:487
+#: gui/openurljob.cpp:555
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4060,12 +4060,12 @@ msgstr ""
 "Não foi possível tornar o arquivo \"%1\" executável.\n"
 "%2."
 
-#: gui/openurljob.cpp:573
+#: gui/openurljob.cpp:641
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "O arquivo de entrada de ambiente %1 não possui uma entrada Type=..."
 
-#: gui/openurljob.cpp:675
+#: gui/openurljob.cpp:743
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4076,12 +4076,12 @@ msgstr ""
 "Verifique seus aplicativos abertos e a área de notificação por qualquer "
 "tarefa pendente ou download."
 
-#: gui/openurljob.cpp:701
+#: gui/openurljob.cpp:769
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Falha ao abrir o arquivo."
 
-#: gui/openurljob.cpp:735
+#: gui/openurljob.cpp:803
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "O programa \"%1\" não pôde ser iniciado."
@@ -5014,107 +5014,107 @@ msgstr "Movendo para a lixeira"
 msgid "Deleting"
 msgstr "Excluindo"
 
-#: widgets/fileundomanager.cpp:326
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o"
 msgstr "&Desfazer"
 
-#: widgets/fileundomanager.cpp:332
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "Desfazer: C&opiar"
 
-#: widgets/fileundomanager.cpp:334
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Link"
 msgstr "Desfa&zer: Link"
 
-#: widgets/fileundomanager.cpp:336
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Move"
 msgstr "Desfazer: M&over"
 
-#: widgets/fileundomanager.cpp:338
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "Desfazer: Ren&omear"
 
-#: widgets/fileundomanager.cpp:340
+#: widgets/fileundomanager.cpp:350
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "Desfa&zer: Lixeira"
 
-#: widgets/fileundomanager.cpp:342
+#: widgets/fileundomanager.cpp:352
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "Desfa&zer: Criar pasta"
 
-#: widgets/fileundomanager.cpp:344
+#: widgets/fileundomanager.cpp:354
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "Desfa&zer: Criar pasta(s)"
 
-#: widgets/fileundomanager.cpp:346
+#: widgets/fileundomanager.cpp:356
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "Desfa&zer: Criar arquivo"
 
-#: widgets/fileundomanager.cpp:348
+#: widgets/fileundomanager.cpp:358
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "Desfazer: Ren&omear em lote"
 
-#: widgets/fileundomanager.cpp:357
+#: widgets/fileundomanager.cpp:367
 #, kde-format
 msgid "&Redo"
 msgstr "Desfaze&r"
 
-#: widgets/fileundomanager.cpp:363
+#: widgets/fileundomanager.cpp:373
 #, kde-format
 msgid "&Redo: Copy"
 msgstr "Desfaze&r: Copiar"
 
-#: widgets/fileundomanager.cpp:365
+#: widgets/fileundomanager.cpp:375
 #, kde-format
 msgid "&Redo: Link"
 msgstr "Desfaze&r: Link"
 
-#: widgets/fileundomanager.cpp:367
+#: widgets/fileundomanager.cpp:377
 #, kde-format
 msgid "&Redo: Move"
 msgstr "Desfaze&r: Mover"
 
-#: widgets/fileundomanager.cpp:369
+#: widgets/fileundomanager.cpp:379
 #, kde-format
 msgid "&Redo: Rename"
 msgstr "Desfazer: &Renomear"
 
-#: widgets/fileundomanager.cpp:371
+#: widgets/fileundomanager.cpp:381
 #, kde-format
 msgid "&Redo: Trash"
 msgstr "Desfaze&r: Lixeira"
 
-#: widgets/fileundomanager.cpp:373
+#: widgets/fileundomanager.cpp:383
 #, kde-format
 msgid "&Redo: Create Folder"
 msgstr "Desfazer: Cria&r pasta"
 
-#: widgets/fileundomanager.cpp:375
+#: widgets/fileundomanager.cpp:385
 #, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "Desfazer: Cria&r pasta(s)"
 
-#: widgets/fileundomanager.cpp:377
+#: widgets/fileundomanager.cpp:387
 #, kde-format
 msgid "&Redo: Create File"
 msgstr "Desfazer: Cria&r arquivo"
 
-#: widgets/fileundomanager.cpp:379
+#: widgets/fileundomanager.cpp:389
 #, kde-format
 msgid "&Redo: Batch Rename"
 msgstr "Desfazer: &Renomear em lote"
 
-#: widgets/fileundomanager.cpp:906
+#: widgets/fileundomanager.cpp:919
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5126,7 +5126,7 @@ msgstr ""
 "Desfazer a cópia excluirá o arquivo e todas as modificações serão perdidas.\n"
 "Deseja realmente excluir %4?"
 
-#: widgets/fileundomanager.cpp:916
+#: widgets/fileundomanager.cpp:929
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Confirmação do cancelamento da cópia do arquivo"

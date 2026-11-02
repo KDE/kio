@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-31 00:47+0000\n"
+"POT-Creation-Date: 2026-11-02 00:50+0000\n"
 "PO-Revision-Date: 2026-10-02 22:43+0300\n"
 "Last-Translator: Lasse Liehu-Inui <lasse.liehu@iki.fi>\n"
 "Language-Team: Finnish <kde-l10n-fi@kde.org>\n"
@@ -3904,7 +3904,7 @@ msgstr ""
 "Palvelusta %1 ei voitu tehdä suoritettavaa: keskeytetään suoritus.\n"
 "%2"
 
-#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:689
+#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:757
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr ""
@@ -4001,7 +4001,7 @@ msgstr ""
 "%1\n"
 "on Link-tyyppinen mutta siitä puuttuu URL=-kenttä."
 
-#: gui/openurljob.cpp:405
+#: gui/openurljob.cpp:474
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4010,7 +4010,7 @@ msgstr ""
 "Ohjelmatiedosto ”%1” sijaitsee etätiedostojärjestelmässä. Turvallisuussyistä "
 "sitä ei käynnistetä."
 
-#: gui/openurljob.cpp:446
+#: gui/openurljob.cpp:514
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4018,7 +4018,7 @@ msgstr ""
 "Turvallisuussyistä tässä ympäristössä ei sallita ohjelmatiedostojen "
 "suorittamista."
 
-#: gui/openurljob.cpp:476
+#: gui/openurljob.cpp:544
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4027,7 +4027,7 @@ msgstr ""
 "Ohjelma ”%1” tarvitsee suoritusoikeudet, ennen kuin sen voi käynnistää."
 "Ohjelma ”%1” tarvitsee suoritusoikeudet, ennen kuin sen voi käynnistää."
 
-#: gui/openurljob.cpp:487
+#: gui/openurljob.cpp:555
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4036,12 +4036,12 @@ msgstr ""
 "Tiedostosta ”%1” ei voitu tehdä suoritettavaa.\n"
 "%2"
 
-#: gui/openurljob.cpp:573
+#: gui/openurljob.cpp:641
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Työpöytätietueen tiedostossa %1 ei ole Type-tietoa."
 
-#: gui/openurljob.cpp:675
+#: gui/openurljob.cpp:743
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4052,12 +4052,12 @@ msgstr ""
 "Tarkista avoinna olevat sovellukset sekä ilmoitusalueelta jonossa olevat "
 "tehtävät ja lataukset."
 
-#: gui/openurljob.cpp:701
+#: gui/openurljob.cpp:769
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Tiedoston avaaminen epäonnistui."
 
-#: gui/openurljob.cpp:735
+#: gui/openurljob.cpp:803
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Ohjelmaa ”%1” ei voitu käynnistää."
@@ -4987,107 +4987,107 @@ msgstr "Siirretään roskakoriin"
 msgid "Deleting"
 msgstr "Poistetaan"
 
-#: widgets/fileundomanager.cpp:326
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o"
 msgstr "K&umoa"
 
-#: widgets/fileundomanager.cpp:332
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "K&umoa kopiointi"
 
-#: widgets/fileundomanager.cpp:334
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Link"
 msgstr "K&umoa linkitys"
 
-#: widgets/fileundomanager.cpp:336
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Move"
 msgstr "K&umoa siirto"
 
-#: widgets/fileundomanager.cpp:338
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "K&umoa nimen muutos"
 
-#: widgets/fileundomanager.cpp:340
+#: widgets/fileundomanager.cpp:350
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "K&umoa roskakoriin siirtäminen"
 
-#: widgets/fileundomanager.cpp:342
+#: widgets/fileundomanager.cpp:352
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "K&umoa kansion luominen"
 
-#: widgets/fileundomanager.cpp:344
+#: widgets/fileundomanager.cpp:354
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "K&umoa kansioiden luominen"
 
-#: widgets/fileundomanager.cpp:346
+#: widgets/fileundomanager.cpp:356
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "K&umoa tiedoston luominen"
 
-#: widgets/fileundomanager.cpp:348
+#: widgets/fileundomanager.cpp:358
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "K&umoa nimien muutos"
 
-#: widgets/fileundomanager.cpp:357
+#: widgets/fileundomanager.cpp:367
 #, kde-format
 msgid "&Redo"
 msgstr "Tee &uudelleen"
 
-#: widgets/fileundomanager.cpp:363
+#: widgets/fileundomanager.cpp:373
 #, kde-format
 msgid "&Redo: Copy"
 msgstr "Tee &uudelleen: Kopioi"
 
-#: widgets/fileundomanager.cpp:365
+#: widgets/fileundomanager.cpp:375
 #, kde-format
 msgid "&Redo: Link"
 msgstr "Tee &uudelleen: Linkitä"
 
-#: widgets/fileundomanager.cpp:367
+#: widgets/fileundomanager.cpp:377
 #, kde-format
 msgid "&Redo: Move"
 msgstr "Tee &uudelleen: Siirrä"
 
-#: widgets/fileundomanager.cpp:369
+#: widgets/fileundomanager.cpp:379
 #, kde-format
 msgid "&Redo: Rename"
 msgstr "Tee &uudelleen: Muuta nimeä"
 
-#: widgets/fileundomanager.cpp:371
+#: widgets/fileundomanager.cpp:381
 #, kde-format
 msgid "&Redo: Trash"
 msgstr "Tee &uudelleen: Siirrä roskakoriin"
 
-#: widgets/fileundomanager.cpp:373
+#: widgets/fileundomanager.cpp:383
 #, kde-format
 msgid "&Redo: Create Folder"
 msgstr "Tee &uudelleen: Luo kansio"
 
-#: widgets/fileundomanager.cpp:375
+#: widgets/fileundomanager.cpp:385
 #, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "Tee &uudelleen: Luo kansioita"
 
-#: widgets/fileundomanager.cpp:377
+#: widgets/fileundomanager.cpp:387
 #, kde-format
 msgid "&Redo: Create File"
 msgstr "Tee &uudelleen: Luo tiedosto"
 
-#: widgets/fileundomanager.cpp:379
+#: widgets/fileundomanager.cpp:389
 #, kde-format
 msgid "&Redo: Batch Rename"
 msgstr "Tee &uudelleen: Muuta nimiä eräajona"
 
-#: widgets/fileundomanager.cpp:906
+#: widgets/fileundomanager.cpp:919
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5100,7 +5100,7 @@ msgstr ""
 "Kopioinnin kumoaminen poistaa tiedoston, ja kaikki muutokset menetetään.\n"
 "Haluatko varmasti poistaa kohteen %4?"
 
-#: widgets/fileundomanager.cpp:916
+#: widgets/fileundomanager.cpp:929
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Tiedostokopioinnin kumoamisen vahvistus"

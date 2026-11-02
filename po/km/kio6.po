@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-31 00:47+0000\n"
+"POT-Creation-Date: 2026-11-02 00:50+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -3935,7 +3935,7 @@ msgid ""
 "%2."
 msgstr "មិនអាច​ធ្វើ​ឲ្យ​សេវា %1 ប្រតិបត្តិបាន​បានទេ បោះបង់បង់​កា​រប្រតិបត្តិ"
 
-#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:689
+#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:757
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "អ្នក​មិនត្រូវ​បាន​អនុញ្ញាត​ឲ្យ​បើក​កម្មវិធី​ដើម្បី​បើក​ឯកសារ​នេះ​ឡើយ ។"
@@ -4035,7 +4035,7 @@ msgstr ""
 "%1\n"
 "គឺ​ជា​ប្រភេទ​តំណ ប៉ុន្តែ​មិន​មាន​ធាតុ URL=... ។"
 
-#: gui/openurljob.cpp:405
+#: gui/openurljob.cpp:474
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>The file <b>%1</b> is an executable program. For safety it will not "
@@ -4047,20 +4047,20 @@ msgstr ""
 "<qt>ឯកសារ <b>%1</b> គឺ​ជា​កម្មវិធី​ដែល​អាច​ប្រតិបត្តិ​បាន ។ ដើម្បី​ឲ្យមាន​សុវត្ថិភាព វា​នឹង​មិន​ចាប់ផ្តើម​"
 "ទេ ។</qt>"
 
-#: gui/openurljob.cpp:446
+#: gui/openurljob.cpp:514
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
 msgstr ""
 
-#: gui/openurljob.cpp:476
+#: gui/openurljob.cpp:544
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
 msgstr ""
 
-#: gui/openurljob.cpp:487
+#: gui/openurljob.cpp:555
 #, fuzzy, kde-format
 #| msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgid ""
@@ -4068,12 +4068,12 @@ msgid ""
 "%2."
 msgstr "<qt>មិន​ទាន់​មាន​ឯកសារ​ពុម្ព <b>%1</b> នៅ​ឡើយទេ ។</qt>"
 
-#: gui/openurljob.cpp:573
+#: gui/openurljob.cpp:641
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "ឯកសារ​ធាតុ​ផ្ទៃតុ %1 មិន​មាន​ធាតុ Type=... ឡើយ ។"
 
-#: gui/openurljob.cpp:675
+#: gui/openurljob.cpp:743
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4081,13 +4081,13 @@ msgid ""
 "or downloads."
 msgstr ""
 
-#: gui/openurljob.cpp:701
+#: gui/openurljob.cpp:769
 #, fuzzy, kde-format
 #| msgid "Cannot open file"
 msgid "Failed to open the file."
 msgstr "មិន​អាច​បើក​ឯកសារ​បាន​ទេ"
 
-#: gui/openurljob.cpp:735
+#: gui/openurljob.cpp:803
 #, fuzzy, kde-format
 #| msgid "The file \"%1\" could not be found"
 msgid "The program \"%1\" could not be launched."
@@ -5029,118 +5029,118 @@ msgstr "ផ្លាស់ទី​ទៅ​ធុង​សំរាម"
 msgid "Deleting"
 msgstr "លុប"
 
-#: widgets/fileundomanager.cpp:326
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o"
 msgstr "មិនធ្វើវិញ"
 
-#: widgets/fileundomanager.cpp:332
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "មិនធ្វើ​វិញ ៖ ចម្លង"
 
-#: widgets/fileundomanager.cpp:334
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Link"
 msgstr "មិនធ្វើ​វិញ ៖ តំណ"
 
-#: widgets/fileundomanager.cpp:336
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Move"
 msgstr "មិនធ្វើ​វិញ ៖ ផ្លាស់ទី"
 
-#: widgets/fileundomanager.cpp:338
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "មិនធ្វើ​វិញ ៖ ប្ដូរ​ឈ្មោះ"
 
-#: widgets/fileundomanager.cpp:340
+#: widgets/fileundomanager.cpp:350
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "មិន​ធ្វើវិញ ៖ លុប"
 
-#: widgets/fileundomanager.cpp:342
+#: widgets/fileundomanager.cpp:352
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "មិនធ្វើ​វិញ ៖ បង្កើត​ថត"
 
-#: widgets/fileundomanager.cpp:344
+#: widgets/fileundomanager.cpp:354
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgid "Und&o: Create Folder(s)"
 msgstr "មិនធ្វើ​វិញ ៖ បង្កើត​ថត"
 
-#: widgets/fileundomanager.cpp:346
+#: widgets/fileundomanager.cpp:356
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "មិនធ្វើ​វិញ ៖ បង្កើត​ឯកសារ"
 
-#: widgets/fileundomanager.cpp:348
+#: widgets/fileundomanager.cpp:358
 #, fuzzy, kde-format
 #| msgid "Und&o: Rename"
 msgid "Und&o: Batch Rename"
 msgstr "មិនធ្វើ​វិញ ៖ ប្ដូរ​ឈ្មោះ"
 
-#: widgets/fileundomanager.cpp:357
+#: widgets/fileundomanager.cpp:367
 #, kde-format
 msgid "&Redo"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:363
+#: widgets/fileundomanager.cpp:373
 #, fuzzy, kde-format
 #| msgid "Und&o: Copy"
 msgid "&Redo: Copy"
 msgstr "មិនធ្វើ​វិញ ៖ ចម្លង"
 
-#: widgets/fileundomanager.cpp:365
+#: widgets/fileundomanager.cpp:375
 #, fuzzy, kde-format
 #| msgid "Und&o: Link"
 msgid "&Redo: Link"
 msgstr "មិនធ្វើ​វិញ ៖ តំណ"
 
-#: widgets/fileundomanager.cpp:367
+#: widgets/fileundomanager.cpp:377
 #, fuzzy, kde-format
 #| msgid "Und&o: Move"
 msgid "&Redo: Move"
 msgstr "មិនធ្វើ​វិញ ៖ ផ្លាស់ទី"
 
-#: widgets/fileundomanager.cpp:369
+#: widgets/fileundomanager.cpp:379
 #, fuzzy, kde-format
 #| msgid "Und&o: Rename"
 msgid "&Redo: Rename"
 msgstr "មិនធ្វើ​វិញ ៖ ប្ដូរ​ឈ្មោះ"
 
-#: widgets/fileundomanager.cpp:371
+#: widgets/fileundomanager.cpp:381
 #, fuzzy, kde-format
 #| msgid "Und&o: Trash"
 msgid "&Redo: Trash"
 msgstr "មិន​ធ្វើវិញ ៖ លុប"
 
-#: widgets/fileundomanager.cpp:373
+#: widgets/fileundomanager.cpp:383
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgid "&Redo: Create Folder"
 msgstr "មិនធ្វើ​វិញ ៖ បង្កើត​ថត"
 
-#: widgets/fileundomanager.cpp:375
+#: widgets/fileundomanager.cpp:385
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgid "&Redo: Create Folder(s)"
 msgstr "មិនធ្វើ​វិញ ៖ បង្កើត​ថត"
 
-#: widgets/fileundomanager.cpp:377
+#: widgets/fileundomanager.cpp:387
 #, fuzzy, kde-format
 #| msgid "Und&o: Create File"
 msgid "&Redo: Create File"
 msgstr "មិនធ្វើ​វិញ ៖ បង្កើត​ឯកសារ"
 
-#: widgets/fileundomanager.cpp:379
+#: widgets/fileundomanager.cpp:389
 #, fuzzy, kde-format
 #| msgid "Und&o: Rename"
 msgid "&Redo: Batch Rename"
 msgstr "មិនធ្វើ​វិញ ៖ ប្ដូរ​ឈ្មោះ"
 
-#: widgets/fileundomanager.cpp:906
+#: widgets/fileundomanager.cpp:919
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5152,7 +5152,7 @@ msgstr ""
 "ការ​មិនធ្វើ​ការ​ចម្លង​វិញ នឹង​លុប​ឯកសារ ហើយ​ការ​កែប្រែ​ទាំងអស់​នឹង​ត្រូវបាត់ ។\n"
 "តើ​អ្នក​ពិតជា​ចង់​លុប %4 ឬ ?"
 
-#: widgets/fileundomanager.cpp:916
+#: widgets/fileundomanager.cpp:929
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "មិនធ្វើ​ការ​អះអាង​ចម្លង​ឯកសារ​ទេ"

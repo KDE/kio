@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-10-31 00:47+0000\n"
+"POT-Creation-Date: 2026-11-02 00:50+0000\n"
 "PO-Revision-Date: 2026-07-03 22:06+0100\n"
 "Last-Translator: deck <altronic25@protonmail.com>\n"
 "Language-Team: English <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -3960,7 +3960,7 @@ msgstr ""
 "bhforghníomhú.\n"
 "%2."
 
-#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:689
+#: gui/applicationlauncherjob.cpp:302 gui/openurljob.cpp:757
 #, kde-format
 msgid "You are not authorized to select an application to open this file."
 msgstr "Níl cead agat feidhmchlár a roghnú chun an comhad seo a oscailt."
@@ -4055,7 +4055,7 @@ msgstr ""
 "%1\n"
 "de chineál Nasc ach níl aon iontráil URL=... ann."
 
-#: gui/openurljob.cpp:405
+#: gui/openurljob.cpp:474
 #, kde-format
 msgid ""
 "The executable file \"%1\" is located on a remote filesystem. For safety "
@@ -4064,7 +4064,7 @@ msgstr ""
 "Tá an comhad inrite \"%1\" suite ar chóras comhad iargúlta. Ar chúiseanna "
 "sábháilteachta, ní thosófar é."
 
-#: gui/openurljob.cpp:446
+#: gui/openurljob.cpp:514
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
@@ -4072,7 +4072,7 @@ msgstr ""
 "Ar chúiseanna slándála, ní cheadaítear comhaid inrite a sheoladh sa "
 "chomhthéacs seo."
 
-#: gui/openurljob.cpp:476
+#: gui/openurljob.cpp:544
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
@@ -4081,7 +4081,7 @@ msgstr ""
 "Caithfidh cead inrite a bheith ag an gclár \"%1\" sula bhféadfar é a "
 "sheoladh."
 
-#: gui/openurljob.cpp:487
+#: gui/openurljob.cpp:555
 #, kde-format
 msgid ""
 "Unable to make file \"%1\" executable.\n"
@@ -4090,12 +4090,12 @@ msgstr ""
 "Ní féidir an comhad \"%1\" a dhéanamh inrite.\n"
 "%2."
 
-#: gui/openurljob.cpp:573
+#: gui/openurljob.cpp:641
 #, kde-format
 msgid "The desktop entry file %1 has no Type=... entry."
 msgstr "Níl iontráil `Type=...' i gcomhad na hiontrála deisce %1."
 
-#: gui/openurljob.cpp:675
+#: gui/openurljob.cpp:743
 #, kde-format
 msgid ""
 "This file is incomplete and should not be opened.\n"
@@ -4106,12 +4106,12 @@ msgstr ""
 "Seiceáil d’fheidhmchláir oscailte agus an limistéar fógraí le haghaidh aon "
 "tascanna nó íoslódálacha atá ar feitheamh."
 
-#: gui/openurljob.cpp:701
+#: gui/openurljob.cpp:769
 #, kde-format
 msgid "Failed to open the file."
 msgstr "Theip ar an gcomhad a oscailt."
 
-#: gui/openurljob.cpp:735
+#: gui/openurljob.cpp:803
 #, kde-format
 msgid "The program \"%1\" could not be launched."
 msgstr "Níorbh fhéidir an clár \"%1\" a sheoladh."
@@ -5107,107 +5107,107 @@ msgstr "Ag bogadh go dtí an Bruscar"
 msgid "Deleting"
 msgstr "Scriosadh"
 
-#: widgets/fileundomanager.cpp:326
+#: widgets/fileundomanager.cpp:336
 #, kde-format
 msgid "Und&o"
 msgstr "&Cealaigh"
 
-#: widgets/fileundomanager.cpp:332
+#: widgets/fileundomanager.cpp:342
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "&Cealaigh: Cóipeáil"
 
-#: widgets/fileundomanager.cpp:334
+#: widgets/fileundomanager.cpp:344
 #, kde-format
 msgid "Und&o: Link"
 msgstr "&Cealaigh: Nasc"
 
-#: widgets/fileundomanager.cpp:336
+#: widgets/fileundomanager.cpp:346
 #, kde-format
 msgid "Und&o: Move"
 msgstr "&Cealaigh: Bogadh"
 
-#: widgets/fileundomanager.cpp:338
+#: widgets/fileundomanager.cpp:348
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "&Cealaigh: Athainmniú"
 
-#: widgets/fileundomanager.cpp:340
+#: widgets/fileundomanager.cpp:350
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "&Cealaigh: Cur sa Bhruscar"
 
-#: widgets/fileundomanager.cpp:342
+#: widgets/fileundomanager.cpp:352
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "&Cealaigh: Fillteán a Chruthú"
 
-#: widgets/fileundomanager.cpp:344
+#: widgets/fileundomanager.cpp:354
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "Dí-&scrios: Cruthaigh Fillteán(í)"
 
-#: widgets/fileundomanager.cpp:346
+#: widgets/fileundomanager.cpp:356
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "&Cealaigh: Comhad a Chruthú"
 
-#: widgets/fileundomanager.cpp:348
+#: widgets/fileundomanager.cpp:358
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "Dí-ainmniú: Baisc"
 
-#: widgets/fileundomanager.cpp:357
+#: widgets/fileundomanager.cpp:367
 #, kde-format
 msgid "&Redo"
 msgstr "&Athdhéanamh"
 
-#: widgets/fileundomanager.cpp:363
+#: widgets/fileundomanager.cpp:373
 #, kde-format
 msgid "&Redo: Copy"
 msgstr "&Athdhéanamh: Cóipeáil"
 
-#: widgets/fileundomanager.cpp:365
+#: widgets/fileundomanager.cpp:375
 #, kde-format
 msgid "&Redo: Link"
 msgstr "&Athdhéanamh: Nasc"
 
-#: widgets/fileundomanager.cpp:367
+#: widgets/fileundomanager.cpp:377
 #, kde-format
 msgid "&Redo: Move"
 msgstr "&Athdhéanamh: Bog"
 
-#: widgets/fileundomanager.cpp:369
+#: widgets/fileundomanager.cpp:379
 #, kde-format
 msgid "&Redo: Rename"
 msgstr "&Athdhéanamh: Athainmnigh"
 
-#: widgets/fileundomanager.cpp:371
+#: widgets/fileundomanager.cpp:381
 #, kde-format
 msgid "&Redo: Trash"
 msgstr "&Athdhéanamh: Bruscar"
 
-#: widgets/fileundomanager.cpp:373
+#: widgets/fileundomanager.cpp:383
 #, kde-format
 msgid "&Redo: Create Folder"
 msgstr "&Athdhéanamh: Cruthaigh Fillteán"
 
-#: widgets/fileundomanager.cpp:375
+#: widgets/fileundomanager.cpp:385
 #, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "&Athdhéanamh: Cruthaigh Fillteán(anna)"
 
-#: widgets/fileundomanager.cpp:377
+#: widgets/fileundomanager.cpp:387
 #, kde-format
 msgid "&Redo: Create File"
 msgstr "&Athdhéanamh: Cruthaigh Comhad"
 
-#: widgets/fileundomanager.cpp:379
+#: widgets/fileundomanager.cpp:389
 #, kde-format
 msgid "&Redo: Batch Rename"
 msgstr "&Athdhéanamh: Athainmniú Baisce"
 
-#: widgets/fileundomanager.cpp:906
+#: widgets/fileundomanager.cpp:919
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5221,7 +5221,7 @@ msgstr ""
 "mionathrú.\n"
 "An bhfuil tú cinnte gur mhaith leat %4 a scriosadh?"
 
-#: widgets/fileundomanager.cpp:916
+#: widgets/fileundomanager.cpp:929
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Deimhniú: Cealaigh Cóipeáil an Chomhaid"
