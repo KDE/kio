@@ -541,6 +541,17 @@ public:
     void readConfig(KConfigGroup &group);
 #endif
 
+    /*!
+     * reads the state configuration for this widget from the given config group
+     *
+     * This includes things like recent URLs.
+     *
+     * \a group the KConfigGroup to read from
+     *
+     * \since 6.32
+     */
+    void readStateConfig(KConfigGroup &group);
+
 private:
     friend class KFileWidgetPrivate;
     std::unique_ptr<KFileWidgetPrivate> const d;

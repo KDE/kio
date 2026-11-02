@@ -3027,6 +3027,12 @@ void KFileWidget::readConfig(KConfigGroup &group)
 }
 #endif
 
+void KFileWidget::readStateConfig(KConfigGroup &group)
+{
+    d->m_stateConfigGroup = group;
+    d->readRecentFiles();
+}
+
 QString KFileWidgetPrivate::locationEditCurrentText() const
 {
     return QDir::fromNativeSeparators(m_locationEdit->currentText());
