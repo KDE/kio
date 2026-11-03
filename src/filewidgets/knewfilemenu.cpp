@@ -22,6 +22,7 @@
 #include <kio/namefinderjob.h>
 #include <kio/statjob.h>
 #include <kio/storedtransferjob.h>
+#include <kioglobal_p.h>
 #include <kpropertiesdialog.h>
 #include <kprotocolinfo.h>
 #include <kprotocolmanager.h>
@@ -399,6 +400,13 @@ public:
     void _k_slotTextChanged(const QString &text);
 
     /*
+     * The name of the file system of m_baseUrl when the folder or file names it holds cannot have
+     * the characters of KIOPrivate::msdosInvalidChars() found in text, and an empty string
+     * otherwise.
+     */
+    QString fileSystemRejectingName(const QString &text) const;
+
+    /*
      * Callback in KNewFileMenu for the Symlink Dialog. Handles dialog input and gives over
      * to executeStrategy()
      */
@@ -481,6 +489,10 @@ public:
     QTimer *m_delayedSlotTextChangedTimer;
 
     QUrl m_baseUrl;
+    // The file system type of m_fileSystemTypeUrl, kept while the dialog checks the names typed
+    // for the same folder.
+    mutable QUrl m_fileSystemTypeUrl;
+    mutable KFileSystemType::Type m_fileSystemType = KFileSystemType::Unknown;
 
     bool m_selectDirWhenAlreadyExists = false;
     bool m_acceptedPressed = false;
@@ -1134,6 +1146,19 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
         m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     }
 
+    // The file system of the folder cannot store some characters of the name
+    else if (const QString fileSystemName = fileSystemRejectingName(text); !fileSystemName.isEmpty()) {
+        m_messageWidget->setText(xi18nc("@info %2 is a file system name such as FAT or NTFS, %3 is a list of characters",
+                                        "The name <filename>%1</filename> cannot be used because the file system of this folder (%2) does not "
+                                        "allow these characters in names: %3",
+                                        text,
+                                        fileSystemName,
+                                        QString(KIOPrivate::msdosInvalidChars())));
+        m_messageWidget->setMessageType(KMessageWidget::Error);
+        m_messageWidget->animatedShow();
+        m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+    }
+
     // File or folder would be hidden; show warning
     else if (text.startsWith(QLatin1Char('.'))) {
         m_messageWidget->setText(xi18nc("@info", "The name <filename>%1</filename> starts with a dot, so it will be hidden by default.", text));
@@ -1245,6 +1270,29 @@ void KNewFileMenuPrivate::_k_slotTextChanged(const QString &text)
     }
 
     m_text = text;
+}
+
+QString KNewFileMenuPrivate::fileSystemRejectingName(const QString &text) const
+{
+    // A slash separates the folders of a new path. On Windows a backslash does too, and both have
+    // their own message.
+    QString name = text;
+    name.remove(QLatin1Char('/'));
+#ifdef Q_OS_WIN
+    name.remove(QLatin1Char('\\'));
+#endif
+    if (!KIOPrivate::hasMsdosInvalidChars(name)) {
+        return QString();
+    }
+    // Finding the type parses the mount table, so it runs once per folder.
+    if (m_fileSystemTypeUrl != m_baseUrl) {
+        m_fileSystemTypeUrl = m_baseUrl;
+        m_fileSystemType = m_baseUrl.isLocalFile() ? KFileSystemType::fileSystemType(m_baseUrl.toLocalFile()) : KFileSystemType::Unknown;
+    }
+    if (!KIOPrivate::destinationDisallowsMsdosChars(m_baseUrl, m_fileSystemType)) {
+        return QString();
+    }
+    return KIOPrivate::destinationFileSystemName(m_baseUrl, m_fileSystemType);
 }
 
 void KNewFileMenu::setSelectDirWhenAlreadyExist(bool shouldSelectExistingDir)

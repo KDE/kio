@@ -10,6 +10,7 @@
 #include <KCollapsibleGroupBox>
 #include <KConfigGroup>
 #include <KDesktopFile>
+#include <KFileSystemType>
 #include <KIO/StoredTransferJob>
 #include <KMessageWidget>
 #include <KSharedConfig>
@@ -17,6 +18,7 @@
 #include <QDialog>
 #include <QLineEdit>
 #include <QMenu>
+#include <kioglobal_p.h>
 #include <knameandurlinputdialog.h>
 #include <knewfilemenu.h>
 #include <kpropertiesdialog.h>
@@ -452,6 +454,70 @@ private Q_SLOTS:
         // No need to create new file, we just want to see if the OK button is enabled or not
         QCOMPARE(okButton->isEnabled(), filenameAllowed);
         cancelButton->click();
+    }
+
+    void testNameWithCharactersTheFolderRejects_data()
+    {
+        QTest::addColumn<QString>("actionText"); // the action we're clicking on
+        QTest::addColumn<QUrl>("folder"); // where the new item goes
+        QTest::addColumn<QString>("typedFilename"); // what the user is typing
+        QTest::addColumn<bool>("filenameAllowed"); // is the filename allowed, compared to OK button status
+
+        // MTP storage rejects the characters that FAT and NTFS reject, whatever its file system.
+        const QUrl mtpFolder(QStringLiteral("mtp:/device/storage"));
+        const QUrl localFolder = QUrl::fromLocalFile(m_tmpDir.path());
+        QTest::newRow("folder with a colon on MTP") << "Folder..." << mtpFolder << "a:b" << false;
+        QTest::newRow("text file with a question mark on MTP") << "Text File" << mtpFolder << "why?.txt" << false;
+        QTest::newRow("sub-folders on MTP") << "Folder..." << mtpFolder << "a/b" << true;
+        QTest::newRow("folder with a colon in a local folder") << "Folder..." << localFolder << "a:b" << true;
+    }
+
+    void testNameWithCharactersTheFolderRejects()
+    {
+        QFETCH(QString, actionText);
+        QFETCH(QUrl, folder);
+        QFETCH(QString, typedFilename);
+        QFETCH(bool, filenameAllowed);
+
+        // The local folder of the test is on a file system that allows these characters.
+        if (folder.isLocalFile() && KIOPrivate::destinationDisallowsMsdosChars(folder, KFileSystemType::fileSystemType(folder.toLocalFile()))) {
+            QSKIP("The temporary folder is on a file system that rejects these characters");
+        }
+
+        QWidget parentWidget;
+        KNewFileMenu menu(this);
+        menu.setModal(false);
+        menu.setParentWidget(&parentWidget);
+        menu.setSelectDirWhenAlreadyExist(false);
+        menu.setWorkingDirectory(folder);
+        menu.checkUpToDate();
+        openActionText(&menu, actionText);
+
+        QDialog *dialog;
+        // QTRY_ because a NameFinderJob could be running and the dialog will be shown when
+        // it finishes.
+        QTRY_VERIFY(dialog = parentWidget.findChild<QDialog *>());
+
+        QLineEdit *lineEdit = dialog->findChild<QLineEdit *>();
+        QVERIFY(lineEdit);
+        KMessageWidget *msgWidget = dialog->findChild<KMessageWidget *>();
+        QVERIFY(msgWidget);
+        QDialogButtonBox *buttonsList = dialog->findChild<QDialogButtonBox *>();
+        QVERIFY(buttonsList);
+        auto okButton = buttonsList->button(QDialogButtonBox::Ok);
+        QVERIFY(okButton);
+
+        lineEdit->setText(typedFilename);
+        if (filenameAllowed) {
+            // Give the delayed check of the name the time to run.
+            QTest::qWait(500);
+            QVERIFY(okButton->isEnabled());
+            QVERIFY(!msgWidget->text().contains(QLatin1String("does not allow these characters")));
+        } else {
+            QTRY_VERIFY(!okButton->isEnabled());
+            QVERIFY(msgWidget->text().contains(QLatin1String("(MTP)")));
+        }
+        buttonsList->button(QDialogButtonBox::Cancel)->click();
     }
 
     void testNoCustomIconOnFile()
