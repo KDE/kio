@@ -503,18 +503,14 @@ KIO::WorkerResult TrashProtocol::stat(const QUrl &url)
         entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, 0700);
         entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QString::fromLatin1("inode/directory"));
 
-        // The trash root is virtual; its modification time is the most recent change to
-        // any local drive's recycle bin, so the views refresh when something is added or
-        // removed. The bin folder's own timestamp tracks that, and reading it from the
-        // filesystem avoids the shell enumeration, which can stall on a drive that is not
-        // a ready local disk.
+        // The trash root is virtual. Its modification time is the most recent change to the
+        // user's recycle-bin folder on any local drive. The shell adds and removes the $I and
+        // $R files in that folder, so its timestamp changes with every item, while the one of
+        // $Recycle.Bin does not.
         qint64 latest = 0;
-        const QStringList drives = localRecycleBinDrives();
-        for (const QString &drive : drives) {
-            const QFileInfo binInfo(drive + QLatin1String("$Recycle.Bin"));
-            if (binInfo.exists()) {
-                latest = qMax(latest, binInfo.lastModified().toSecsSinceEpoch());
-            }
+        const QStringList binDirs = userRecycleBinDirs(localRecycleBinDrives());
+        for (const QString &binDir : binDirs) {
+            latest = qMax(latest, QFileInfo(binDir).lastModified().toSecsSinceEpoch());
         }
         entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, latest);
     } else {
