@@ -15,9 +15,11 @@
 #include <QDataStream>
 #include <QDateTime>
 #include <QDir>
+#include <QDirIterator>
 #include <QFile>
 #include <QFileInfo>
 #include <QMimeDatabase>
+#include <QSettings>
 #include <QTimeZone>
 
 #include <KConfigGroup>
@@ -278,6 +280,54 @@ std::optional<TrashLocation> locate(const QStringList &binDirs, const QUrl &url)
     location.localPath = location.relativePath.isEmpty() ? item->rPath : item->rPath + QLatin1Char('/') + location.relativePath;
     return location;
 }
+
+// True when the size of the file, or of all the files in the folder, is above limit bytes.
+bool isLargerThan(const QString &path, qint64 limit)
+{
+    const QFileInfo info(path);
+    if (!info.isDir()) {
+        return info.size() > limit;
+    }
+    qint64 total = 0;
+    QDirIterator it(path, QDir::Files | QDir::Hidden | QDir::System | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
+    while (it.hasNext()) {
+        total += it.nextFileInfo().size();
+        if (total > limit) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// True when the policy "Do not move deleted files to the Recycle Bin" is set.
+bool recycleBinDisabledByPolicy()
+{
+    for (const QString &root : {QStringLiteral("HKEY_CURRENT_USER"), QStringLiteral("HKEY_LOCAL_MACHINE")}) {
+        const QSettings policy(root + QLatin1String("\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer"), QSettings::NativeFormat);
+        if (policy.value(QStringLiteral("NoRecycleFiles"), 0).toInt() != 0) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// The GUID of the volume mounted at the given root, such as C:\, with its braces. The shell
+// keeps the recycle-bin settings of each volume under this name. Empty if it is unknown.
+QString volumeGuid(const QString &volumeRoot)
+{
+    wchar_t name[64] = {0};
+    if (!GetVolumeNameForVolumeMountPointW(reinterpret_cast<LPCWSTR>(volumeRoot.utf16()), name, 64)) {
+        return QString();
+    }
+    // The name has the form \\?\Volume{GUID}\.
+    const QString volumeName = QString::fromWCharArray(name);
+    const qsizetype open = volumeName.indexOf(QLatin1Char('{'));
+    const qsizetype close = volumeName.indexOf(QLatin1Char('}'));
+    if (open < 0 || close < open) {
+        return QString();
+    }
+    return volumeName.mid(open, close - open + 1);
+}
 } // namespace
 
 TrashProtocol::TrashProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app)
@@ -367,11 +417,53 @@ KIO::WorkerResult TrashProtocol::copy(const QUrl &src, const QUrl &dest, int /*p
     return KIO::WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, i18n("Internal error in copy, should never happen"));
 }
 
+KIO::WorkerResult TrashProtocol::checkRecyclable(const QUrl &url, const QString &winPath) const
+{
+    // The mount point of the volume that holds the file, such as C:\.
+    wchar_t volume[MAX_PATH + 1] = {0};
+    if (!GetVolumePathNameW(reinterpret_cast<LPCWSTR>(winPath.utf16()), volume, MAX_PATH + 1)) {
+        return KIO::WorkerResult::fail(KIO::ERR_TRASH_NOT_AVAILABLE, url.toDisplayString());
+    }
+    const QString volumeRoot = QString::fromWCharArray(volume);
+
+    // The trash lists the recycle bins of the fixed local drives only. A network share, a
+    // removable drive or a volume mounted in a folder has no recycle bin listed here.
+    if (GetDriveTypeW(volume) != DRIVE_FIXED || !localRecycleBinDrives().contains(volumeRoot, Qt::CaseInsensitive)) {
+        return KIO::WorkerResult::fail(KIO::ERR_TRASH_NOT_AVAILABLE, url.toDisplayString());
+    }
+    if (recycleBinDisabledByPolicy()) {
+        return KIO::WorkerResult::fail(KIO::ERR_TRASH_NOT_AVAILABLE, url.toDisplayString());
+    }
+
+    // The settings of the recycle bin of this volume. NukeOnDelete is set by "Don't move files
+    // to the Recycle Bin", and MaxCapacity is the size of the bin in megabytes.
+    const QString guid = volumeGuid(volumeRoot);
+    if (guid.isEmpty()) {
+        return KIO::WorkerResult::pass();
+    }
+    const QSettings settings(QLatin1String("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\BitBucket\\Volume\\") + guid,
+                             QSettings::NativeFormat);
+    if (settings.value(QStringLiteral("NukeOnDelete"), 0).toInt() != 0) {
+        return KIO::WorkerResult::fail(KIO::ERR_TRASH_NOT_AVAILABLE, url.toDisplayString());
+    }
+    bool hasCapacity = false;
+    const qint64 capacityMegabytes = settings.value(QStringLiteral("MaxCapacity")).toLongLong(&hasCapacity);
+    if (hasCapacity && isLargerThan(winPath, capacityMegabytes * 1024 * 1024)) {
+        return KIO::WorkerResult::fail(KIO::ERR_TRASH_FILE_TOO_LARGE, url.toDisplayString());
+    }
+    return KIO::WorkerResult::pass();
+}
+
 KIO::WorkerResult TrashProtocol::trashLocalFile(const QUrl &url)
 {
     // QUrl::toLocalFile() gives the drive-letter path the shell accepts (QUrl::path()
     // would prefix a slash).
     const QString winPath = QDir::toNativeSeparators(url.toLocalFile());
+    // With FOF_ALLOWUNDO, the shell deletes for good, without asking, a file that its recycle
+    // bin cannot keep. Such a file gets an error instead, so the user can choose to delete it.
+    if (const KIO::WorkerResult check = checkRecyclable(url, winPath); !check.success()) {
+        return check;
+    }
     // SHFileOperationW's pFrom must be double-null terminated.
     QByteArray buffer((winPath.length() + 2) * 2, 0);
     memcpy(buffer.data(), winPath.utf16(), winPath.length() * 2);

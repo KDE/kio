@@ -63,6 +63,10 @@ private:
     [[nodiscard]] KIO::WorkerResult restore(const QUrl &trashURL, const QUrl &destURL);
     // Lists a trashed folder, or a folder inside one.
     [[nodiscard]] KIO::WorkerResult listTrashedDirectory(const QUrl &url);
+    // Passes when the recycle bin of the volume that holds the file can keep it. Fails with
+    // ERR_TRASH_NOT_AVAILABLE when the volume has no recycle bin listed in the trash or when the
+    // bin is turned off, and with ERR_TRASH_FILE_TOO_LARGE when the file is larger than the bin.
+    [[nodiscard]] KIO::WorkerResult checkRecyclable(const QUrl &url, const QString &winPath) const;
     // Sends a local file to the recycle bin, shared by copy() and rename().
     [[nodiscard]] KIO::WorkerResult trashLocalFile(const QUrl &url);
 
