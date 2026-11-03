@@ -387,6 +387,7 @@ KIO::WorkerResult TrashProtocol::restore(const QUrl &trashURL, const QUrl & /*de
         return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("The trash item %1 cannot be restored.", trashURL.toDisplayString()));
     }
     QFile::remove(item->iPath);
+    updateRecycleBin();
     return KIO::WorkerResult::pass();
 }
 
@@ -491,7 +492,9 @@ KIO::WorkerResult TrashProtocol::trashLocalFile(const QUrl &url)
     // confirmation, error or progress dialogs. SHFileOperationW is synchronous and
     // apartment independent, unlike IFileOperation.
     op.fFlags = FOF_NOCONFIRMATION | FOF_NOERRORUI | FOF_SILENT | FOF_ALLOWUNDO;
-    return translateError(SHFileOperationW(&op));
+    const KIO::WorkerResult result = translateError(SHFileOperationW(&op));
+    updateRecycleBin();
+    return result;
 }
 
 KIO::WorkerResult TrashProtocol::stat(const QUrl &url)
@@ -549,6 +552,7 @@ KIO::WorkerResult TrashProtocol::del(const QUrl &url, bool /*isfile*/)
 
     const bool removed = item->isDir ? QDir(item->rPath).removeRecursively() : QFile::remove(item->rPath);
     QFile::remove(item->iPath);
+    updateRecycleBin();
     if (!removed) {
         return KIO::WorkerResult::fail(KIO::ERR_CANNOT_DELETE, url.toDisplayString());
     }
@@ -632,6 +636,7 @@ KIO::WorkerResult TrashProtocol::special(const QByteArray &data)
             }
             QFile::remove(item.iPath);
         }
+        updateRecycleBin();
         return KIO::WorkerResult::pass();
     }
     case 2:
@@ -681,8 +686,19 @@ QStringList TrashProtocol::localRecycleBinDrives() const
 void TrashProtocol::updateRecycleBin()
 {
     // The bin is empty when no local drive holds a recycled item. Reading the items from
-    // the filesystem keeps the worker off the shell recycle-bin APIs entirely.
-    const bool bEmpty = recycledItems(userRecycleBinDirs(localRecycleBinDrives())).isEmpty();
+    // the filesystem keeps the worker off the shell recycle-bin APIs entirely. The search
+    // stops at the first item.
+    bool bEmpty = true;
+    const QStringList binDirs = userRecycleBinDirs(localRecycleBinDrives());
+    for (const QString &binDir : binDirs) {
+        QDirIterator it(binDir, {QStringLiteral("$I*")}, QDir::Files | QDir::Hidden | QDir::System);
+        while (bEmpty && it.hasNext()) {
+            bEmpty = !readRecycledItem(it.next());
+        }
+        if (!bEmpty) {
+            break;
+        }
+    }
     KConfigGroup group = m_config.group(QStringLiteral("Status"));
     group.writeEntry("Empty", bEmpty);
     m_config.sync();

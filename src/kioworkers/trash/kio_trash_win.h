@@ -56,7 +56,7 @@ private:
     // mappings, virtual or stale volumes) can wedge the shell recycle-bin calls and are
     // left out.
     [[nodiscard]] QStringList localRecycleBinDrives() const;
-    // Refreshes the cached empty/full state of the recycle bin in trashrc.
+    // Writes the empty or full state of the recycle bin to trashrc.
     void updateRecycleBin();
     // Restores a recycle-bin item to its original location, shared by rename() (moving
     // an item out of the trash) and special() (the restore command).
