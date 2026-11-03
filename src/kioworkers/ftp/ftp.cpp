@@ -216,6 +216,17 @@ void FtpInternal::ftpCloseControlConnection()
     m_bBusy = false;
 }
 
+// Waits until socket holds a whole line, the peer closes the connection, or no data arrives for
+// DEFAULT_READ_TIMEOUT seconds.
+static void waitForLine(QTcpSocket *socket)
+{
+    while (!socket->canReadLine()) {
+        if (!socket->waitForReadyRead(DEFAULT_READ_TIMEOUT * 1000)) {
+            return;
+        }
+    }
+}
+
 /*!
  * Returns the last response from the server (iOffset >= 0)  -or-  reads a new response
  * (iOffset < 0). The result is returned (with iOffset chars skipped for iOffset > 0).
@@ -239,7 +250,7 @@ const char *FtpInternal::ftpResponse(int iOffset)
         // "nnn-text" we loop here until a final "nnn text" line is
         // reached. Only data from the final line will be stored.
         do {
-            while (!m_control->canReadLine() && m_control->waitForReadyRead((DEFAULT_READ_TIMEOUT * 1000))) { }
+            waitForLine(m_control);
             m_lastControlLine = m_control->readLine();
             m_lastMultilineResponse.append(QString::fromUtf8(m_lastControlLine).trimmed());
             pTxt = m_lastControlLine.data();
@@ -1765,7 +1776,7 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
 
     // get a line from the data connection ...
     while (true) {
-        while (!m_data->canReadLine() && m_data->waitForReadyRead((DEFAULT_READ_TIMEOUT * 1000))) { }
+        waitForLine(m_data);
         QByteArray data = m_data->readLine();
         if (data.size() == 0) {
             break;
