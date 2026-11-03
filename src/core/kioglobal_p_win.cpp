@@ -7,6 +7,7 @@
 #include "kioglobal_p.h"
 
 #include <QDebug>
+#include <QDir>
 #include <QFile>
 #include <QFileInfo>
 
@@ -152,6 +153,21 @@ KIOCORE_EXPORT int kio_windows_lstat(const char *path, QT_STATBUF *buffer)
         buffer->st_mode |= QT_STAT_LNK;
     }
     return result;
+}
+
+KIOCORE_EXPORT QString KIOPrivate::windowsFileSystemName(const QString &path)
+{
+    const QString nativePath = QDir::toNativeSeparators(path);
+    // The mount point of the volume that holds the path, such as C:\.
+    wchar_t volume[MAX_PATH + 1] = {0};
+    if (!GetVolumePathNameW(reinterpret_cast<LPCWSTR>(nativePath.utf16()), volume, MAX_PATH + 1)) {
+        return QString();
+    }
+    wchar_t name[MAX_PATH + 1] = {0};
+    if (!GetVolumeInformationW(volume, nullptr, 0, nullptr, nullptr, nullptr, name, MAX_PATH + 1)) {
+        return QString();
+    }
+    return QString::fromWCharArray(name);
 }
 
 KIOCORE_EXPORT bool KIOPrivate::changeOwnership(const QString &file, KUserId newOwner, KGroupId newGroup)

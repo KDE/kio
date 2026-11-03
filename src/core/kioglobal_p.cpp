@@ -81,7 +81,14 @@ static bool isMtpScheme(const QUrl &url)
 bool KIOPrivate::destinationDisallowsMsdosChars(const QUrl &url, KFileSystemType::Type fsType)
 {
     if (url.isLocalFile()) {
+#ifdef Q_OS_WIN
+        // The Windows file APIs reject these characters on every volume, and KFileSystemType
+        // reports Unknown for all of them.
+        Q_UNUSED(fsType)
+        return true;
+#else
         return fsType == KFileSystemType::Fat || fsType == KFileSystemType::Exfat || fsType == KFileSystemType::Ntfs;
+#endif
     }
     return isMtpScheme(url);
 }
@@ -91,5 +98,12 @@ QString KIOPrivate::destinationFileSystemName(const QUrl &url, KFileSystemType::
     if (isMtpScheme(url)) {
         return QStringLiteral("MTP");
     }
+#ifdef Q_OS_WIN
+    if (url.isLocalFile()) {
+        if (const QString name = windowsFileSystemName(url.toLocalFile()); !name.isEmpty()) {
+            return name;
+        }
+    }
+#endif
     return KFileSystemType::fileSystemName(fsType);
 }

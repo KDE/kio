@@ -150,8 +150,8 @@ KIOCORE_EXPORT bool hasMsdosInvalidChars(QStringView name);
 
 /*!
  * Returns true if a file name at \a url cannot hold the characters of msdosInvalidChars(): \a url
- * is a local folder on a FAT, exFAT or NTFS file system, or MTP storage. \a fsType is the file
- * system type of a local \a url.
+ * is a local folder on a FAT, exFAT or NTFS file system, any local folder on Windows, or MTP
+ * storage. \a fsType is the file system type of a local \a url.
  * \internal
  */
 KIOCORE_EXPORT bool destinationDisallowsMsdosChars(const QUrl &url, KFileSystemType::Type fsType);
@@ -162,6 +162,15 @@ KIOCORE_EXPORT bool destinationDisallowsMsdosChars(const QUrl &url, KFileSystemT
  * \internal
  */
 KIOCORE_EXPORT QString destinationFileSystemName(const QUrl &url, KFileSystemType::Type fsType);
+
+#ifdef Q_OS_WIN
+/*!
+ * Returns the name of the file system that holds the local \a path, such as NTFS or FAT32, or an
+ * empty string if the volume cannot be queried.
+ * \internal
+ */
+KIOCORE_EXPORT QString windowsFileSystemName(const QString &path);
+#endif
 
 /*!
  * Returns an icon name for a standard path,
