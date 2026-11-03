@@ -281,7 +281,11 @@ private:
     void stopListJob(const QUrl &url, bool silent);
 
     KIO::ListJob *jobForUrl(const QUrl &url, KIO::ListJob *not_job = nullptr);
-    const QUrl &joburl(KIO::ListJob *job);
+    // The url of the directory that the cache holds for job: the url it was started for, or the
+    // url that slotRedirection() moved that directory to. A job that follows a redirection changes
+    // its own url, and an update job keeps the directory it was started for.
+    QUrl joburl(KIO::ListJob *job);
+    void setJobUrl(KIO::ListJob *job, const QUrl &url);
 
     void killJob(KIO::ListJob *job);
 

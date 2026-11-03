@@ -30,6 +30,7 @@
 #include <QDebug>
 #include <QTest>
 
+#include <atomic>
 #include <optional>
 
 using namespace Qt::StringLiterals;
@@ -2005,6 +2006,76 @@ void KDirListerTest::testSFTPRedirect()
     // This should not list any items: We have already done it in the previous iteration.
     // If this lists items, the view (for example in Dolphin) will have the items duplicated.
     QCOMPARE(*itemsOnCompletion, 0);
+}
+
+void KDirListerTest::testUpdateRedirectedToAnotherUrl()
+{
+    // An SMB share asks for a login and then redirects to the same share with the user name in
+    // the url. This worker lists the share at once the first time, and redirects every later
+    // listing to the url with a user name, the way such an update comes back.
+    class Factory : public KIO::WorkerFactory
+    {
+    public:
+        using KIO::WorkerFactory::WorkerFactory;
+        std::unique_ptr<KIO::WorkerBase> createWorker(const QByteArray &pool, const QByteArray &app) override
+        {
+            class LoginRedirectWorker : public KIO::WorkerBase
+            {
+            public:
+                LoginRedirectWorker(const QByteArray &pool, const QByteArray &app, std::atomic<int> *listings)
+                    : WorkerBase(QByteArrayLiteral("kio-test-login"), pool, app)
+                    , m_listings(listings)
+                {
+                }
+
+                Q_REQUIRED_RESULT KIO::WorkerResult listDir(const QUrl &url) override
+                {
+                    if (url.userName().isEmpty() && m_listings->fetch_add(1) > 0) {
+                        QUrl withUser(url);
+                        withUser.setUserName(u"user"_s);
+                        redirection(withUser);
+                        // The job lists the new url once this one passes.
+                        return KIO::WorkerResult::pass();
+                    }
+                    auto entry = [](const QString &name) {
+                        KIO::UDSEntry entry;
+                        entry.fastInsert(KIO::UDSEntry::UDS_NAME, name);
+                        entry.fastInsert(KIO::UDSEntry::UDS_FILE_TYPE, name == u"." ? S_IFDIR : S_IFREG);
+                        return entry;
+                    };
+                    listEntry(entry(u"."_s));
+                    listEntry(entry(u"file.txt"_s));
+                    return KIO::WorkerResult::pass();
+                }
+
+            private:
+                std::atomic<int> *m_listings;
+            };
+
+            return std::make_unique<LoginRedirectWorker>(pool, app, &m_listings);
+        }
+
+    private:
+        std::atomic<int> m_listings = 0;
+    };
+    // The worker keeps only a weak reference to its factory. The protocol has a name of its own,
+    // so that its idle worker serves no other test.
+    auto factory = std::make_shared<Factory>();
+    KIO::Worker::setTestWorkerFactory(factory);
+
+    const QUrl shareUrl(u"kio-test-login://host/share"_s);
+    MyDirLister dirLister;
+    dirLister.openUrl(shareUrl);
+    QTRY_VERIFY_WITH_TIMEOUT(dirLister.isFinished(), 2000);
+    QCOMPARE(dirLister.items().count(), 1);
+
+    // The update ends at a url that the cache does not hold. The lister finishes it, and keeps
+    // its item.
+    const int completedBefore = dirLister.spyCompleted.count();
+    dirLister.updateDirectory(shareUrl);
+    QTRY_VERIFY_WITH_TIMEOUT(dirLister.spyCompleted.count() > completedBefore, 2000);
+    QTRY_VERIFY_WITH_TIMEOUT(dirLister.isFinished(), 2000);
+    QCOMPARE(dirLister.items().count(), 1);
 }
 
 void KDirListerTest::testDuplicatedEntries()

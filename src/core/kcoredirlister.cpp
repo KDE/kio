@@ -225,6 +225,7 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
 
             KIO::ListJob *job = KIO::listDir(_url, KIO::HideProgressInfo);
             job->setDetails(listingDetails(lister->requestMimeTypeWhileListing()));
+            setJobUrl(job, _url);
             runningListJobs.insert(job, KIO::UDSEntryList());
 
             lister->jobStarted(job);
@@ -638,6 +639,8 @@ void KCoreDirListerCache::updateDirectory(const QUrl &_dir)
     Q_ASSERT(listers.isEmpty() || killed);
 
     job = KIO::listDir(dir, KIO::HideProgressInfo);
+    // An update job does not follow a redirection, so its listing still updates dir.
+    setJobUrl(job, dir);
     runningListJobs.insert(job, KIO::UDSEntryList());
 
     const bool requestFromListers = std::any_of(listers.cbegin(), listers.cend(), [](KCoreDirLister *lister) {
@@ -1420,7 +1423,7 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
     Q_ASSERT(j);
     KIO::ListJob *job = static_cast<KIO::ListJob *>(j);
 
-    QUrl oldUrl(job->url()); // here we really need the old url!
+    QUrl oldUrl(joburl(job)); // the url the cache holds for the job
     QUrl newUrl(url);
 
     // strip trailing slashes
@@ -1436,6 +1439,9 @@ void KCoreDirListerCache::slotRedirection(KIO::Job *j, const QUrl &url)
     }
 
     qCDebug(KIO_CORE_DIRLISTER) << oldUrl << "->" << newUrl;
+
+    // The directory moves to newUrl below.
+    setJobUrl(job, newUrl);
 
 #ifdef DEBUG_CACHE
     // Can't do that here. KCoreDirListerCache::joburl() will use the new url already,
@@ -1772,7 +1778,16 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
     // once we are updating dirs that are only in the cache this will fail!
     Q_ASSERT(!listers.isEmpty());
 
-    if (job->error()) {
+    DirItem *dir = itemsInUse.value(jobUrl, nullptr);
+    if (!dir) {
+        qCWarning(KIO_CORE) << "Internal error: itemsInUse did not contain" << jobUrl;
+#ifndef NDEBUG
+        printDebug();
+#endif
+    }
+
+    // A listing with no directory to apply it to ends like a failed one.
+    if (job->error() || !dir) {
         for (KCoreDirLister *lister : listers) {
             lister->d->jobDone(job);
 
@@ -1798,16 +1813,7 @@ void KCoreDirListerCache::slotUpdateResult(KJob *j)
         return;
     }
 
-    DirItem *dir = itemsInUse.value(jobUrl, nullptr);
-    if (!dir) {
-        qCWarning(KIO_CORE) << "Internal error: itemsInUse did not contain" << jobUrl;
-#ifndef NDEBUG
-        printDebug();
-#endif
-        Q_ASSERT(dir);
-    } else {
-        dir->complete = true;
-    }
+    dir->complete = true;
 
     // check if anyone wants the MIME types immediately
     bool delayedMimeTypes = true;
@@ -1974,13 +1980,20 @@ KIO::ListJob *KCoreDirListerCache::jobForUrl(const QUrl &url, KIO::ListJob *not_
     return nullptr;
 }
 
-const QUrl &KCoreDirListerCache::joburl(KIO::ListJob *job)
+static constexpr const char *s_jobUrlProperty = "_kdlc_url";
+
+QUrl KCoreDirListerCache::joburl(KIO::ListJob *job)
 {
-    if (job->redirectionUrl().isValid()) {
-        return job->redirectionUrl();
-    } else {
-        return job->url();
+    const QUrl url = job->property(s_jobUrlProperty).toUrl();
+    if (url.isValid()) {
+        return url;
     }
+    return job->redirectionUrl().isValid() ? job->redirectionUrl() : job->url();
+}
+
+void KCoreDirListerCache::setJobUrl(KIO::ListJob *job, const QUrl &url)
+{
+    job->setProperty(s_jobUrlProperty, url);
 }
 
 void KCoreDirListerCache::killJob(KIO::ListJob *job)
