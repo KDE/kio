@@ -25,6 +25,8 @@
 
 #include <optional>
 
+#include <sddl.h>
+
 // Pseudo plugin class to embed meta data
 class KIOPluginForMetaData : public QObject
 {
@@ -116,39 +118,74 @@ QString payloadPathFor(const QString &iPath)
     return info.absolutePath() + QLatin1String("/$R") + info.fileName().mid(2);
 }
 
-// All recycle-bin items found under the given drive roots. Reads the filesystem directly
+// The string form of the current user's SID, such as S-1-5-21-..., or an empty string if the
+// process token cannot be read.
+QString currentUserSid()
+{
+    HANDLE token = nullptr;
+    if (!OpenProcessToken(GetCurrentProcess(), TOKEN_QUERY, &token)) {
+        return QString();
+    }
+    QString sid;
+    DWORD length = 0;
+    GetTokenInformation(token, TokenUser, nullptr, 0, &length);
+    if (length > 0) {
+        QByteArray buffer(static_cast<qsizetype>(length), Qt::Uninitialized);
+        if (GetTokenInformation(token, TokenUser, buffer.data(), length, &length)) {
+            LPWSTR text = nullptr;
+            if (ConvertSidToStringSidW(reinterpret_cast<const TOKEN_USER *>(buffer.constData())->User.Sid, &text)) {
+                sid = QString::fromWCharArray(text);
+                LocalFree(text);
+            }
+        }
+    }
+    CloseHandle(token);
+    return sid;
+}
+
+// The current user's recycle-bin folders, <drive>$Recycle.Bin\<user SID>, on the given drive
+// roots. The folders of the other users are left out, even when the process can read them.
+QStringList userRecycleBinDirs(const QStringList &drives)
+{
+    static const QString sid = currentUserSid();
+    QStringList dirs;
+    if (sid.isEmpty()) {
+        return dirs;
+    }
+    for (const QString &drive : drives) {
+        const QString dir = drive + QLatin1String("$Recycle.Bin/") + sid;
+        if (QFileInfo(dir).isDir()) {
+            dirs << dir;
+        }
+    }
+    return dirs;
+}
+
+// All recycle-bin items found in the given recycle-bin folders. Reads the filesystem directly
 // so it never enumerates the aggregate shell folder, which can stall on a drive that is
 // not a ready local disk.
-QList<RecycledItem> recycledItems(const QStringList &drives)
+QList<RecycledItem> recycledItems(const QStringList &binDirs)
 {
     QList<RecycledItem> items;
-    for (const QString &drive : drives) {
-        QDir bin(drive + QLatin1String("$Recycle.Bin"));
-        if (!bin.exists()) {
-            continue;
-        }
-        // The bin holds one subfolder per user, named after the user's SID.
-        const QFileInfoList userBins = bin.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot | QDir::Hidden | QDir::System);
-        for (const QFileInfo &userBin : userBins) {
-            QDir dir(userBin.absoluteFilePath());
-            const QFileInfoList infoFiles = dir.entryInfoList({QStringLiteral("$I*")}, QDir::Files | QDir::Hidden | QDir::System);
-            for (const QFileInfo &infoFile : infoFiles) {
-                RecycledItem item;
-                item.iPath = infoFile.absoluteFilePath();
-                item.rPath = payloadPathFor(item.iPath);
-                const QFileInfo payload(item.rPath);
-                if (!payload.exists()) {
-                    continue; // a $I metadata file with no $R payload, skip it
-                }
-                item.isDir = payload.isDir();
-                if (!readInfoFile(item.iPath, item.originalPath, item.size, item.deletedAt)) {
-                    // Unreadable metadata: fall back to what the payload itself reports.
-                    item.originalPath = payload.fileName();
-                    item.size = payload.size();
-                    item.deletedAt = payload.lastModified();
-                }
-                items.append(item);
+    for (const QString &binDir : binDirs) {
+        QDir dir(binDir);
+        const QFileInfoList infoFiles = dir.entryInfoList({QStringLiteral("$I*")}, QDir::Files | QDir::Hidden | QDir::System);
+        for (const QFileInfo &infoFile : infoFiles) {
+            RecycledItem item;
+            item.iPath = infoFile.absoluteFilePath();
+            item.rPath = payloadPathFor(item.iPath);
+            const QFileInfo payload(item.rPath);
+            if (!payload.exists()) {
+                continue; // a $I metadata file with no $R payload, skip it
             }
+            item.isDir = payload.isDir();
+            if (!readInfoFile(item.iPath, item.originalPath, item.size, item.deletedAt)) {
+                // Unreadable metadata: fall back to what the payload itself reports.
+                item.originalPath = payload.fileName();
+                item.size = payload.size();
+                item.deletedAt = payload.lastModified();
+            }
+            items.append(item);
         }
     }
     return items;
@@ -156,9 +193,9 @@ QList<RecycledItem> recycledItems(const QStringList &drives)
 
 // The item whose $R payload has the given file name. The $R name is the item's
 // identifier in its trash: URL.
-std::optional<RecycledItem> findRecycledItem(const QStringList &drives, const QString &payloadName)
+std::optional<RecycledItem> findRecycledItem(const QStringList &binDirs, const QString &payloadName)
 {
-    const QList<RecycledItem> items = recycledItems(drives);
+    const QList<RecycledItem> items = recycledItems(binDirs);
     for (const RecycledItem &item : items) {
         if (QFileInfo(item.rPath).fileName() == payloadName) {
             return item;
@@ -208,7 +245,7 @@ KIO::WorkerResult TrashProtocol::restore(const QUrl &trashURL, const QUrl & /*de
     // An item is restored to the original location recorded in its $I metadata, so the
     // requested destination is ignored. Move the $R payload back to that location and
     // drop the $I metadata.
-    const std::optional<RecycledItem> item = findRecycledItem(localRecycleBinDrives(), trashURL.path().mid(1));
+    const std::optional<RecycledItem> item = findRecycledItem(userRecycleBinDirs(localRecycleBinDrives()), trashURL.path().mid(1));
     if (!item) {
         return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, trashURL.toDisplayString());
     }
@@ -321,7 +358,7 @@ KIO::WorkerResult TrashProtocol::stat(const QUrl &url)
         entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, latest);
     } else {
         // A specific trashed item, addressed by its $R file name.
-        const std::optional<RecycledItem> item = findRecycledItem(localRecycleBinDrives(), url.path().mid(1));
+        const std::optional<RecycledItem> item = findRecycledItem(userRecycleBinDirs(localRecycleBinDrives()), url.path().mid(1));
         if (!item) {
             return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toDisplayString());
         }
@@ -335,7 +372,7 @@ KIO::WorkerResult TrashProtocol::del(const QUrl &url, bool /*isfile*/)
 {
     // Permanently remove the item, addressed by its $R file name: drop both the $R
     // payload and its $I metadata.
-    const std::optional<RecycledItem> item = findRecycledItem(localRecycleBinDrives(), url.path().mid(1));
+    const std::optional<RecycledItem> item = findRecycledItem(userRecycleBinDirs(localRecycleBinDrives()), url.path().mid(1));
     if (!item) {
         return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toDisplayString());
     }
@@ -364,7 +401,7 @@ KIO::WorkerResult TrashProtocol::listDir(const QUrl &url)
     // Read each local drive's recycle bin from the filesystem rather than enumerating the
     // aggregate shell folder, whose enumeration can stall on a drive that is not a ready
     // local disk.
-    const QList<RecycledItem> items = recycledItems(localRecycleBinDrives());
+    const QList<RecycledItem> items = recycledItems(userRecycleBinDirs(localRecycleBinDrives()));
     for (const RecycledItem &item : items) {
         KIO::UDSEntry entry;
         fillEntry(item, entry);
@@ -384,7 +421,7 @@ KIO::WorkerResult TrashProtocol::special(const QByteArray &data)
         // Empty the bin by dropping the $R payload and $I metadata of every item on each
         // local drive. A global SHEmptyRecycleBin would walk every volume and can stall on
         // a drive that is not a ready local disk.
-        const QList<RecycledItem> items = recycledItems(localRecycleBinDrives());
+        const QList<RecycledItem> items = recycledItems(userRecycleBinDirs(localRecycleBinDrives()));
         for (const RecycledItem &item : items) {
             if (item.isDir) {
                 QDir(item.rPath).removeRecursively();
@@ -443,7 +480,7 @@ void TrashProtocol::updateRecycleBin()
 {
     // The bin is empty when no local drive holds a recycled item. Reading the items from
     // the filesystem keeps the worker off the shell recycle-bin APIs entirely.
-    const bool bEmpty = recycledItems(localRecycleBinDrives()).isEmpty();
+    const bool bEmpty = recycledItems(userRecycleBinDirs(localRecycleBinDrives())).isEmpty();
     KConfigGroup group = m_config.group(QStringLiteral("Status"));
     group.writeEntry("Empty", bEmpty);
     m_config.sync();
@@ -461,7 +498,7 @@ KIO::WorkerResult TrashProtocol::get(const QUrl &url)
 {
     // A trash item is virtual, so resolve it to its $R payload on disk and stream that
     // file's contents back.
-    const std::optional<RecycledItem> item = findRecycledItem(localRecycleBinDrives(), url.path().mid(1));
+    const std::optional<RecycledItem> item = findRecycledItem(userRecycleBinDirs(localRecycleBinDrives()), url.path().mid(1));
     if (!item) {
         return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toDisplayString());
     }
