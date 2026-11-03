@@ -163,6 +163,31 @@ QStringList userRecycleBinDirs(const QStringList &drives)
     return dirs;
 }
 
+// The recycle-bin item described by the given $I metadata file. Empty when the file or its $R
+// payload does not exist.
+std::optional<RecycledItem> readRecycledItem(const QString &iPath)
+{
+    const QFileInfo infoFile(iPath);
+    if (!infoFile.isFile()) {
+        return std::nullopt;
+    }
+    RecycledItem item;
+    item.iPath = infoFile.absoluteFilePath();
+    item.rPath = payloadPathFor(item.iPath);
+    const QFileInfo payload(item.rPath);
+    if (!payload.exists()) {
+        return std::nullopt; // a $I metadata file with no $R payload
+    }
+    item.isDir = payload.isDir();
+    if (!readInfoFile(item.iPath, item.originalPath, item.size, item.deletedAt)) {
+        // Unreadable metadata: fall back to what the payload itself reports.
+        item.originalPath = payload.fileName();
+        item.size = payload.size();
+        item.deletedAt = payload.lastModified();
+    }
+    return item;
+}
+
 // All recycle-bin items found in the given recycle-bin folders. Reads the filesystem directly
 // so it never enumerates the aggregate shell folder, which can stall on a drive that is
 // not a ready local disk.
@@ -173,33 +198,23 @@ QList<RecycledItem> recycledItems(const QStringList &binDirs)
         QDir dir(binDir);
         const QFileInfoList infoFiles = dir.entryInfoList({QStringLiteral("$I*")}, QDir::Files | QDir::Hidden | QDir::System);
         for (const QFileInfo &infoFile : infoFiles) {
-            RecycledItem item;
-            item.iPath = infoFile.absoluteFilePath();
-            item.rPath = payloadPathFor(item.iPath);
-            const QFileInfo payload(item.rPath);
-            if (!payload.exists()) {
-                continue; // a $I metadata file with no $R payload, skip it
+            if (std::optional<RecycledItem> item = readRecycledItem(infoFile.absoluteFilePath())) {
+                items.append(std::move(*item));
             }
-            item.isDir = payload.isDir();
-            if (!readInfoFile(item.iPath, item.originalPath, item.size, item.deletedAt)) {
-                // Unreadable metadata: fall back to what the payload itself reports.
-                item.originalPath = payload.fileName();
-                item.size = payload.size();
-                item.deletedAt = payload.lastModified();
-            }
-            items.append(item);
         }
     }
     return items;
 }
 
 // The item whose $R payload has the given file name. The $R name is the item's
-// identifier in its trash: URL.
+// identifier in its trash: URL. Only the $I file with the same suffix is read.
 std::optional<RecycledItem> findRecycledItem(const QStringList &binDirs, const QString &payloadName)
 {
-    const QList<RecycledItem> items = recycledItems(binDirs);
-    for (const RecycledItem &item : items) {
-        if (QFileInfo(item.rPath).fileName() == payloadName) {
+    if (!payloadName.startsWith(QLatin1String("$R")) || payloadName.contains(QLatin1Char('/')) || payloadName.contains(QLatin1Char('\\'))) {
+        return std::nullopt;
+    }
+    for (const QString &binDir : binDirs) {
+        if (std::optional<RecycledItem> item = readRecycledItem(binDir + QLatin1String("/$I") + payloadName.mid(2))) {
             return item;
         }
     }
