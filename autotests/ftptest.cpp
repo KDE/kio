@@ -246,6 +246,10 @@ private Q_SLOTS:
         QTest::addColumn<bool>("readOnlyDirWritable");
 
         QTest::newRow("list") << QStringLiteral("list") << false;
+        // Without UNIX.mode or perm the rights are unknown, the entries are not reported read-only (bug 527976).
+        QTest::newRow("mlsd-bare") << QStringLiteral("mlsd-bare") << true;
+        QTest::newRow("mlsd-perm") << QStringLiteral("mlsd-perm") << false;
+        QTest::newRow("mlsd-unix") << QStringLiteral("mlsd-unix") << false;
         // MLST in FEAT but no MLSD: the LIST fallback is parsed as LIST.
         QTest::newRow("mlsd-refused") << QStringLiteral("mlsd-refused") << false;
     }
