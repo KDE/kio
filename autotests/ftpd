@@ -55,6 +55,76 @@ class MangledDiskFileSystem < Ftpd::DiskFileSystem
   end
 end
 
+# Optional third argument: how the server answers directory listings.
+#   list         - no MLST in FEAT, LIST only (default)
+#   mlsd-bare    - MLSD with type, size and modify only
+#   mlsd-perm    - MLSD with the RFC 3659 perm fact
+#   mlsd-unix    - MLSD with perm and UNIX.mode; perm always claims write access, UNIX.mode is the real mode
+#   mlsd-refused - MLST in FEAT but MLSD is an unknown command
+MLSD_MODE = ARGV.fetch(2, 'list')
+
+module Ftpd
+  class CmdFeat
+    alias extensions_orig extensions
+    def extensions
+      return extensions_orig if MLSD_MODE == 'list'
+
+      extensions_orig + ['MLST type*;size*;modify*;perm*;UNIX.mode*']
+    end
+  end
+
+  class CmdMlsd < CommandHandler
+    def cmd_mlsd(argument)
+      close_data_server_socket_when_done do
+        # Closes the passive data socket first, as a server without MLSD would.
+        unimplemented_error if MLSD_MODE == 'mlsd-refused'
+        ensure_logged_in
+        path = File.expand_path(argument || '.', name_prefix)
+        ensure_accessible path
+        ensure_exists path
+        ensure_directory path
+        # The cdir entry is named by its full path, as some servers do.
+        lines = [mlsd_line(file_system.file_info(path), 'cdir', path),
+                 mlsd_line(file_system.file_info(path), 'pdir', '..')]
+        file_system.dir(File.join(path, '*')).sort.each do |child|
+          info = file_system.file_info(child)
+          lines << mlsd_line(info, info.directory? ? 'dir' : 'file', File.basename(child))
+        end
+        transmit_file(StringIO.new(lines.join), 'A')
+      end
+    end
+
+    private
+
+    def mlsd_line(info, type, name)
+      dir = type != 'file'
+      writable = MLSD_MODE == 'mlsd-unix' || (info.mode & 0o200) != 0
+      facts = ["type=#{type}", "size=#{info.size}", "modify=#{info.mtime.utc.strftime('%Y%m%d%H%M%S')}"]
+      if MLSD_MODE != 'mlsd-bare'
+        rights = if dir
+                   writable ? 'flcdmpe' : 'fle'
+                 else
+                   writable ? 'adfrw' : 'r'
+                 end
+        facts << "perm=#{rights}"
+      end
+      facts << format('UNIX.mode=0%o', info.mode & 0o777) if MLSD_MODE == 'mlsd-unix'
+      "#{facts.join(';')}; #{name}\r\n"
+    end
+  end
+
+  class CommandHandlerFactory
+    class << self
+      alias standard_command_handlers_orig standard_command_handlers
+      def standard_command_handlers
+        return standard_command_handlers_orig unless MLSD_MODE.start_with?('mlsd-')
+
+        standard_command_handlers_orig + [CmdMlsd]
+      end
+    end
+  end
+end
+
 class Driver
   def initialize(temp_dir)
     @temp_dir = temp_dir

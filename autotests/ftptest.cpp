@@ -6,12 +6,16 @@
 
 #include <kio/copyjob.h>
 #include <kio/listjob.h>
+#include <kio/statjob.h>
 #include <kio/storedtransferjob.h>
 
 #include <QBuffer>
+#include <QDir>
 #include <QProcess>
+#include <QScopeGuard>
 #include <QStandardPaths>
 #include <QTest>
+#include <QTimeZone>
 
 class FTPTest : public QObject
 {
@@ -30,11 +34,11 @@ public:
     QUrl m_url = QUrl("ftp://localhost");
 
 private Q_SLOTS:
-    static void runDaemon(QProcess &proc, QUrl &url, const QTemporaryDir &remoteDir)
+    static void runDaemon(QProcess &proc, QUrl &url, const QTemporaryDir &remoteDir, const QString &listingMode = QStringLiteral("list"))
     {
         QVERIFY(remoteDir.isValid());
         proc.setProgram(RubyExe_EXECUTABLE);
-        proc.setArguments({QFINDTESTDATA("ftpd"), QStringLiteral("0"), remoteDir.path()});
+        proc.setArguments({QFINDTESTDATA("ftpd"), QStringLiteral("0"), remoteDir.path(), listingMode});
         proc.setProcessChannelMode(QProcess::ForwardedOutputChannel);
         qDebug() << proc.arguments();
         proc.start();
@@ -234,6 +238,81 @@ private Q_SLOTS:
         QVERIFY2(job->exec(), qUtf8Printable(job->errorString()));
         QCOMPARE(job->error(), 0);
         QVERIFY(entryNames.contains(QStringLiteral(".")));
+    }
+
+    void testListingModes_data()
+    {
+        QTest::addColumn<QString>("listingMode");
+        QTest::addColumn<bool>("readOnlyDirWritable");
+
+        QTest::newRow("list") << QStringLiteral("list") << false;
+        // MLST in FEAT but no MLSD: the LIST fallback is parsed as LIST.
+        QTest::newRow("mlsd-refused") << QStringLiteral("mlsd-refused") << false;
+    }
+
+    void testListingModes()
+    {
+        QFETCH(QString, listingMode);
+        QFETCH(bool, readOnlyDirWritable);
+
+        QTemporaryDir remoteDir;
+        const QDateTime fileTime(QDate(2026, 3, 4), QTime(5, 6, 7), QTimeZone::UTC);
+        {
+            QFile file(remoteDir.filePath(QStringLiteral("file")));
+            QVERIFY(file.open(QFile::WriteOnly));
+            file.write("12345");
+            QVERIFY(file.flush());
+            QVERIFY(file.setFileTime(fileTime, QFileDevice::FileModificationTime));
+        }
+        QVERIFY(QDir(remoteDir.path()).mkdir(QStringLiteral("writable")));
+        QVERIFY(QDir(remoteDir.path()).mkdir(QStringLiteral("readonly")));
+        QVERIFY(QFile::setPermissions(remoteDir.filePath(QStringLiteral("readonly")),
+                                      QFile::ReadOwner | QFile::ExeOwner | QFile::ReadGroup | QFile::ExeGroup | QFile::ReadOther | QFile::ExeOther));
+
+        QProcess daemon;
+        QUrl daemonUrl(QStringLiteral("ftp://localhost"));
+        runDaemon(daemon, daemonUrl, remoteDir, listingMode);
+        auto stopDaemon = qScopeGuard([&daemon] {
+            daemon.kill();
+            daemon.waitForFinished();
+        });
+
+        QHash<QString, KIO::UDSEntry> entries;
+        daemonUrl.setPath(QStringLiteral("/"));
+        auto listJob = KIO::listDir(daemonUrl, KIO::HideProgressInfo);
+        listJob->setUiDelegate(nullptr);
+        connect(listJob, &KIO::ListJob::entries, this, [&entries](KIO::Job *, const KIO::UDSEntryList &list) {
+            for (const auto &entry : list) {
+                entries.insert(entry.stringValue(KIO::UDSEntry::UDS_NAME), entry);
+            }
+        });
+        QVERIFY2(listJob->exec(), qUtf8Printable(listJob->errorString()));
+
+        QStringList names = entries.keys();
+        names.sort();
+        QCOMPARE(names, QStringList({QStringLiteral("."), QStringLiteral("file"), QStringLiteral("readonly"), QStringLiteral("writable")}));
+
+        const auto isWritable = [](const KIO::UDSEntry &entry) {
+            return (entry.numberValue(KIO::UDSEntry::UDS_ACCESS) & 0222) != 0;
+        };
+        const KIO::UDSEntry file = entries.value(QStringLiteral("file"));
+        QCOMPARE(file.numberValue(KIO::UDSEntry::UDS_SIZE), 5);
+        QVERIFY(isWritable(file));
+        if (listingMode.startsWith(QLatin1String("mlsd-")) && listingMode != QLatin1String("mlsd-refused")) {
+            // LIST only has minute precision
+            QCOMPARE(file.numberValue(KIO::UDSEntry::UDS_MODIFICATION_TIME), fileTime.toSecsSinceEpoch());
+        }
+        QVERIFY(entries.value(QStringLiteral("writable")).isDir());
+        QVERIFY(isWritable(entries.value(QStringLiteral("writable"))));
+        QVERIFY(entries.value(QStringLiteral("readonly")).isDir());
+        QCOMPARE(isWritable(entries.value(QStringLiteral("readonly"))), readOnlyDirWritable);
+
+        // stat of an existing file as a copy destination: it lists the parent with LIST <name>.
+        daemonUrl.setPath(QStringLiteral("/file"));
+        auto statJob = KIO::stat(daemonUrl, KIO::StatJob::DestinationSide, KIO::StatDefaultDetails, KIO::HideProgressInfo);
+        statJob->setUiDelegate(nullptr);
+        QVERIFY2(statJob->exec(), qUtf8Printable(statJob->errorString()));
+        QCOMPARE(statJob->statResult().numberValue(KIO::UDSEntry::UDS_SIZE), 5);
     }
 };
 

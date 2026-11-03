@@ -460,6 +460,11 @@ private: // data members
      */
     bool m_mlsdSupported = false;
 
+    /*!
+     * true if the open data connection carries an MLSD listing, false for a LIST one
+     */
+    bool m_listingIsMlsd = false;
+
     enum {
         epsvUnknown = 0x01,
         epsvAllUnknown = 0x02,

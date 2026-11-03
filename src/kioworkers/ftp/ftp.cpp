@@ -1432,6 +1432,7 @@ Result FtpInternal::stat(const QUrl &url)
         return Result::fail(ERR_CANNOT_ENTER_DIRECTORY, parentDir);
     }
 
+    m_listingIsMlsd = false;
     result = ftpOpenCommand("LIST", listarg, 'I', ERR_DOES_NOT_EXIST);
     if (!result.success()) {
         qCritical() << "COULD NOT LIST";
@@ -1613,6 +1614,7 @@ Result FtpInternal::ftpOpenDir(const QString &path)
     if (m_mlsdSupported) {
         result = ftpOpenCommand("MLSD", QString(), 'I', KJob::NoError);
     }
+    m_listingIsMlsd = result.success();
 
     // Don't use the path in the list command:
     // We changed into this directory anyway - so it's enough just to send "list".
@@ -1654,7 +1656,7 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
         const char *buffer = data.data();
         qCDebug(KIO_FTP) << "dir > " << buffer;
 
-        if (m_mlsdSupported) {
+        if (m_listingIsMlsd) {
             // MLSD format: fact=value;fact=value; filename
             // Example: Type=file;Size=123;Modify=20260826123000; my file.txt
             QString line = QString::fromUtf8(data).trimmed();
