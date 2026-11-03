@@ -78,6 +78,7 @@ private Q_SLOTS:
     void trashAbsoluteUrl();
     void trashEmptyDirectory();
     void trashDirectoryWithFiles();
+    void browseTrashedDirectory();
     void restoreFromTrash();
     void deleteFromTrash();
     void getFileContents();
@@ -254,6 +255,55 @@ void KioTrashWinTest::trashDirectoryWithFiles()
     QVERIFY(QFileInfo::exists(dirPath + QLatin1String("/file1.txt")));
     QCOMPARE(recycleBinItemCount(), 0);
     // Permanently deleting a trashed item is covered by deleteortrashjobtest.
+}
+
+void KioTrashWinTest::browseTrashedDirectory()
+{
+    const QString dirPath = createTestDir(QStringLiteral("browsedir"), 2);
+    QVERIFY(!dirPath.isEmpty());
+
+    QVERIFY2(KIO::trash(QUrl::fromLocalFile(dirPath), KIO::HideProgressInfo)->exec(), "could not trash directory");
+
+    const QList<KIO::UDSEntry> entries = listTrash();
+    QCOMPARE(entries.count(), 1);
+
+    QUrl dirUrl;
+    dirUrl.setScheme(QStringLiteral("trash"));
+    dirUrl.setPath(QLatin1Char('/') + entries.first().stringValue(KIO::UDSEntry::UDS_NAME));
+
+    // Listing the trashed directory shows its files, not the trash again.
+    KIO::ListJob *listJob = KIO::listDir(dirUrl, KIO::HideProgressInfo, KIO::ListJob::ListFlag::IncludeHidden | KIO::ListJob::ListFlag::ExcludeDotAndDotDot);
+    QStringList names;
+    connect(listJob, &KIO::ListJob::entries, listJob, [&names](KIO::Job *, const KIO::UDSEntryList &list) {
+        for (const KIO::UDSEntry &entry : list) {
+            names << entry.stringValue(KIO::UDSEntry::UDS_NAME);
+        }
+    });
+    QVERIFY2(listJob->exec(), qPrintable(listJob->errorString()));
+    names.sort();
+    QCOMPARE(names, QStringList({QStringLiteral("file0.txt"), QStringLiteral("file1.txt")}));
+
+    QUrl fileUrl = dirUrl;
+    fileUrl.setPath(dirUrl.path() + QLatin1String("/file0.txt"));
+
+    // A file inside the trashed directory can be stated and read.
+    KIO::StatJob *statJob = KIO::stat(fileUrl, KIO::HideProgressInfo);
+    QVERIFY2(statJob->exec(), qPrintable(statJob->errorString()));
+    QVERIFY(!statJob->statResult().isDir());
+    QCOMPARE(statJob->statResult().numberValue(KIO::UDSEntry::UDS_SIZE), 8LL);
+
+    KIO::StoredTransferJob *getJob = KIO::storedGet(fileUrl, KIO::NoReload, KIO::HideProgressInfo);
+    QVERIFY2(getJob->exec(), qPrintable(getJob->errorString()));
+    QCOMPARE(getJob->data(), QByteArray("trash me"));
+
+    // Listing a file fails, and a file inside a trashed directory cannot be deleted on its own.
+    KIO::ListJob *listFileJob = KIO::listDir(fileUrl, KIO::HideProgressInfo);
+    QVERIFY(!listFileJob->exec());
+    QCOMPARE(listFileJob->error(), KIO::ERR_IS_FILE);
+
+    KIO::DeleteJob *deleteJob = KIO::del(fileUrl, KIO::HideProgressInfo);
+    QVERIFY(!deleteJob->exec());
+    QCOMPARE(recycleBinItemCount(), 1);
 }
 
 void KioTrashWinTest::restoreFromTrash()

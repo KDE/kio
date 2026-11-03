@@ -229,6 +229,55 @@ void fillEntry(const RecycledItem &item, KIO::UDSEntry &entry)
         entry.fastInsert(KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory"));
     }
 }
+
+// Describe a file or folder inside a trashed folder. UDS_NAME is its file name on disk. It is
+// read-only, like everything inside the Unix trash.
+void fillInnerEntry(const QFileInfo &info, KIO::UDSEntry &entry)
+{
+    const bool isDir = info.isDir();
+    entry.insert({{KIO::UDSEntry::UDS_SIZE, isDir ? 0 : info.size()},
+                  {KIO::UDSEntry::UDS_FILE_TYPE, isDir ? S_IFDIR : S_IFREG},
+                  {KIO::UDSEntry::UDS_ACCESS, isDir ? 0500 : 0400},
+                  {KIO::UDSEntry::UDS_MODIFICATION_TIME, info.lastModified().toSecsSinceEpoch()}});
+    if (isDir) {
+        entry.insert({{KIO::UDSEntry::UDS_NAME, info.fileName()}, {KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory")}});
+    } else {
+        entry.insert({{KIO::UDSEntry::UDS_NAME, info.fileName()}});
+    }
+}
+
+// The target of a trash: URL. The URL path is /<$R name> for a recycle-bin item, and
+// /<$R name>/<relative path> for a file or folder inside a trashed folder. relativePath is
+// empty for the item itself, and localPath is the path of the target on disk.
+struct TrashLocation {
+    RecycledItem item;
+    QString relativePath;
+    QString localPath;
+};
+
+// The target of the URL among the items of the given recycle-bin folders. Empty when no item
+// has that $R name, or when the path holds a "." or ".." segment.
+std::optional<TrashLocation> locate(const QStringList &binDirs, const QUrl &url)
+{
+    const QStringList segments = url.path().split(QLatin1Char('/'), Qt::SkipEmptyParts);
+    if (segments.isEmpty()) {
+        return std::nullopt;
+    }
+    for (const QString &segment : segments) {
+        if (segment == QLatin1String(".") || segment == QLatin1String("..")) {
+            return std::nullopt;
+        }
+    }
+    const std::optional<RecycledItem> item = findRecycledItem(binDirs, segments.first());
+    if (!item) {
+        return std::nullopt;
+    }
+    TrashLocation location;
+    location.item = *item;
+    location.relativePath = segments.mid(1).join(QLatin1Char('/'));
+    location.localPath = location.relativePath.isEmpty() ? item->rPath : item->rPath + QLatin1Char('/') + location.relativePath;
+    return location;
+}
 } // namespace
 
 TrashProtocol::TrashProtocol(const QByteArray &protocol, const QByteArray &pool, const QByteArray &app)
@@ -245,10 +294,15 @@ KIO::WorkerResult TrashProtocol::restore(const QUrl &trashURL, const QUrl & /*de
     // An item is restored to the original location recorded in its $I metadata, so the
     // requested destination is ignored. Move the $R payload back to that location and
     // drop the $I metadata.
-    const std::optional<RecycledItem> item = findRecycledItem(userRecycleBinDirs(localRecycleBinDrives()), trashURL.path().mid(1));
-    if (!item) {
+    const std::optional<TrashLocation> location = locate(userRecycleBinDirs(localRecycleBinDrives()), trashURL);
+    if (!location) {
         return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, trashURL.toDisplayString());
     }
+    // Only a whole item is restored, as in the Unix trash.
+    if (!location->relativePath.isEmpty()) {
+        return KIO::WorkerResult::fail(KIO::ERR_ACCESS_DENIED, trashURL.toDisplayString());
+    }
+    const RecycledItem *item = &location->item;
     if (item->originalPath.isEmpty()) {
         return KIO::WorkerResult::fail(KIO::ERR_WORKER_DEFINED, i18n("The trash item %1 cannot be restored.", trashURL.toDisplayString()));
     }
@@ -357,12 +411,20 @@ KIO::WorkerResult TrashProtocol::stat(const QUrl &url)
         }
         entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, latest);
     } else {
-        // A specific trashed item, addressed by its $R file name.
-        const std::optional<RecycledItem> item = findRecycledItem(userRecycleBinDirs(localRecycleBinDrives()), url.path().mid(1));
-        if (!item) {
+        // A trashed item, addressed by its $R file name, or a file or folder inside it.
+        const std::optional<TrashLocation> location = locate(userRecycleBinDirs(localRecycleBinDrives()), url);
+        if (!location) {
             return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toDisplayString());
         }
-        fillEntry(*item, entry);
+        if (location->relativePath.isEmpty()) {
+            fillEntry(location->item, entry);
+        } else {
+            const QFileInfo info(location->localPath);
+            if (!info.exists()) {
+                return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toDisplayString());
+            }
+            fillInnerEntry(info, entry);
+        }
     }
     statEntry(entry);
     return KIO::WorkerResult::pass();
@@ -372,10 +434,15 @@ KIO::WorkerResult TrashProtocol::del(const QUrl &url, bool /*isfile*/)
 {
     // Permanently remove the item, addressed by its $R file name: drop both the $R
     // payload and its $I metadata.
-    const std::optional<RecycledItem> item = findRecycledItem(userRecycleBinDirs(localRecycleBinDrives()), url.path().mid(1));
-    if (!item) {
+    const std::optional<TrashLocation> location = locate(userRecycleBinDirs(localRecycleBinDrives()), url);
+    if (!location) {
         return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toDisplayString());
     }
+    // Only a whole item is deleted, as in the Unix trash.
+    if (!location->relativePath.isEmpty()) {
+        return KIO::WorkerResult::fail(KIO::ERR_ACCESS_DENIED, url.toDisplayString());
+    }
+    const RecycledItem *item = &location->item;
 
     const bool removed = item->isDir ? QDir(item->rPath).removeRecursively() : QFile::remove(item->rPath);
     QFile::remove(item->iPath);
@@ -388,6 +455,10 @@ KIO::WorkerResult TrashProtocol::del(const QUrl &url, bool /*isfile*/)
 KIO::WorkerResult TrashProtocol::listDir(const QUrl &url)
 {
     qCDebug(KIO_TRASH) << "TrashProtocol::listDir(): " << url;
+
+    if (!url.path().split(QLatin1Char('/'), Qt::SkipEmptyParts).isEmpty()) {
+        return listTrashedDirectory(url);
+    }
 
     // A directory listing is expected to describe the directory itself with a "." entry.
     // The trash root is virtual and has no shell item, so describe it directly.
@@ -405,6 +476,34 @@ KIO::WorkerResult TrashProtocol::listDir(const QUrl &url)
     for (const RecycledItem &item : items) {
         KIO::UDSEntry entry;
         fillEntry(item, entry);
+        listEntry(entry);
+    }
+    return KIO::WorkerResult::pass();
+}
+
+KIO::WorkerResult TrashProtocol::listTrashedDirectory(const QUrl &url)
+{
+    const std::optional<TrashLocation> location = locate(userRecycleBinDirs(localRecycleBinDrives()), url);
+    if (!location) {
+        return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toDisplayString());
+    }
+    const QFileInfo info(location->localPath);
+    if (!info.exists()) {
+        return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toDisplayString());
+    }
+    if (!info.isDir()) {
+        return KIO::WorkerResult::fail(KIO::ERR_IS_FILE, url.toDisplayString());
+    }
+
+    KIO::UDSEntry self;
+    self.insert({{KIO::UDSEntry::UDS_NAME, QStringLiteral(".")}, {KIO::UDSEntry::UDS_MIME_TYPE, QStringLiteral("inode/directory")}});
+    self.insert({{KIO::UDSEntry::UDS_FILE_TYPE, S_IFDIR}, {KIO::UDSEntry::UDS_ACCESS, 0500}});
+    listEntry(self);
+
+    const QFileInfoList children = QDir(location->localPath).entryInfoList(QDir::AllEntries | QDir::NoDotAndDotDot | QDir::Hidden | QDir::System);
+    for (const QFileInfo &child : children) {
+        KIO::UDSEntry entry;
+        fillInnerEntry(child, entry);
         listEntry(entry);
     }
     return KIO::WorkerResult::pass();
@@ -498,22 +597,29 @@ KIO::WorkerResult TrashProtocol::get(const QUrl &url)
 {
     // A trash item is virtual, so resolve it to its $R payload on disk and stream that
     // file's contents back.
-    const std::optional<RecycledItem> item = findRecycledItem(userRecycleBinDirs(localRecycleBinDrives()), url.path().mid(1));
-    if (!item) {
+    const std::optional<TrashLocation> location = locate(userRecycleBinDirs(localRecycleBinDrives()), url);
+    if (!location) {
         return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toDisplayString());
     }
 
-    if (item->isDir) {
+    const QFileInfo info(location->localPath);
+    if (!info.exists()) {
+        return KIO::WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, url.toDisplayString());
+    }
+    if (info.isDir()) {
         return KIO::WorkerResult::fail(KIO::ERR_IS_DIRECTORY, url.toDisplayString());
     }
 
-    QFile file(item->rPath);
+    QFile file(location->localPath);
     if (!file.open(QIODevice::ReadOnly)) {
         return KIO::WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_READING, url.toDisplayString());
     }
 
-    // Detect the type from the original name, which carries the real extension.
-    mimeType(QMimeDatabase().mimeTypeForFile(item->originalPath.isEmpty() ? item->rPath : item->originalPath).name());
+    // Detect the type from the original name, which carries the real extension. A file inside a
+    // trashed folder keeps its own name.
+    const RecycledItem &item = location->item;
+    const QString typePath = !location->relativePath.isEmpty() ? location->localPath : (item.originalPath.isEmpty() ? item.rPath : item.originalPath);
+    mimeType(QMimeDatabase().mimeTypeForFile(typePath).name());
     totalSize(file.size());
 
     KIO::filesize_t processed = 0;

@@ -61,6 +61,8 @@ private:
     // Restores a recycle-bin item to its original location, shared by rename() (moving
     // an item out of the trash) and special() (the restore command).
     [[nodiscard]] KIO::WorkerResult restore(const QUrl &trashURL, const QUrl &destURL);
+    // Lists a trashed folder, or a folder inside one.
+    [[nodiscard]] KIO::WorkerResult listTrashedDirectory(const QUrl &url);
     // Sends a local file to the recycle bin, shared by copy() and rename().
     [[nodiscard]] KIO::WorkerResult trashLocalFile(const QUrl &url);
 
