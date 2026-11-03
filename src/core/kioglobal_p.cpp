@@ -9,6 +9,8 @@
 
 #include <QStandardPaths>
 
+#include <algorithm>
+
 using LocationMap = QMap<QString, QString>;
 
 static QMap<QString, QString> standardLocationsMap()
@@ -53,4 +55,41 @@ QString KIOPrivate::iconForStandardPath(const QString &localDirectory)
         path.chop(1);
     }
     return map.value(path, QString());
+}
+
+// https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file#naming-conventions
+QLatin1StringView KIOPrivate::msdosInvalidChars()
+{
+    return QLatin1StringView(R"(<>:"/\|?*)");
+}
+
+bool KIOPrivate::hasMsdosInvalidChars(QStringView name)
+{
+    const QLatin1StringView invalidChars = msdosInvalidChars();
+    return std::any_of(invalidChars.begin(), invalidChars.end(), [name](const char c) {
+        return name.contains(QLatin1Char(c));
+    });
+}
+
+// MTP storage rejects the same set of reserved characters libmtp inherits from the
+// Windows MTP API (see bug 489288), regardless of the device's actual filesystem.
+static bool isMtpScheme(const QUrl &url)
+{
+    return url.scheme() == QLatin1String("mtp");
+}
+
+bool KIOPrivate::destinationDisallowsMsdosChars(const QUrl &url, KFileSystemType::Type fsType)
+{
+    if (url.isLocalFile()) {
+        return fsType == KFileSystemType::Fat || fsType == KFileSystemType::Exfat || fsType == KFileSystemType::Ntfs;
+    }
+    return isMtpScheme(url);
+}
+
+QString KIOPrivate::destinationFileSystemName(const QUrl &url, KFileSystemType::Type fsType)
+{
+    if (isMtpScheme(url)) {
+        return QStringLiteral("MTP");
+    }
+    return KFileSystemType::fileSystemName(fsType);
 }

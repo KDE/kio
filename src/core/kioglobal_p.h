@@ -12,7 +12,12 @@
 #include <functional>
 #include <qplatformdefs.h>
 
+#include <KFileSystemType>
 #include <KUser>
+
+#include <QLatin1StringView>
+#include <QStringView>
+#include <QUrl>
 
 #ifdef Q_OS_WIN
 // windows just sets the mode_t access rights bits to the same value for user+group+other.
@@ -130,6 +135,33 @@ KIOCORE_EXPORT bool createSymlink(const QString &source, const QString &destinat
  * \internal
  */
 KIOCORE_EXPORT bool changeOwnership(const QString &file, KUserId newOwner, KGroupId newGroup);
+
+/*!
+ * Returns the characters that FAT, exFAT, NTFS and MTP storage do not allow in a file name.
+ * \internal
+ */
+KIOCORE_EXPORT QLatin1StringView msdosInvalidChars();
+
+/*!
+ * Returns true if \a name holds one of the characters of msdosInvalidChars().
+ * \internal
+ */
+KIOCORE_EXPORT bool hasMsdosInvalidChars(QStringView name);
+
+/*!
+ * Returns true if a file name at \a url cannot hold the characters of msdosInvalidChars(): \a url
+ * is a local folder on a FAT, exFAT or NTFS file system, or MTP storage. \a fsType is the file
+ * system type of a local \a url.
+ * \internal
+ */
+KIOCORE_EXPORT bool destinationDisallowsMsdosChars(const QUrl &url, KFileSystemType::Type fsType);
+
+/*!
+ * Returns the name of the file system at \a url for a message: "MTP" for MTP storage, the name of
+ * \a fsType otherwise.
+ * \internal
+ */
+KIOCORE_EXPORT QString destinationFileSystemName(const QUrl &url, KFileSystemType::Type fsType);
 
 /*!
  * Returns an icon name for a standard path,

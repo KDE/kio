@@ -146,19 +146,9 @@ static bool compareUrls(const QUrl &srcUrl, const QUrl &destUrl)
     /* clang-format on */
 }
 
-// https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file#naming-conventions
-static const char s_msdosInvalidChars[] = R"(<>:"/\|?*)";
-
-static bool hasInvalidChars(const QString &dest)
-{
-    return std::any_of(std::begin(s_msdosInvalidChars), std::end(s_msdosInvalidChars), [=](const char c) {
-        return dest.contains(QLatin1Char(c));
-    });
-}
-
 static void cleanMsdosDestName(QString &name)
 {
-    for (const char c : s_msdosInvalidChars) {
+    for (const char c : KIOPrivate::msdosInvalidChars()) {
         name.replace(QLatin1Char(c), QLatin1String("_"));
     }
 }
@@ -166,34 +156,6 @@ static void cleanMsdosDestName(QString &name)
 static bool isFatFs(KFileSystemType::Type fsType)
 {
     return fsType == KFileSystemType::Fat || fsType == KFileSystemType::Exfat;
-}
-
-static bool isFatOrNtfs(KFileSystemType::Type fsType)
-{
-    return fsType == KFileSystemType::Ntfs || isFatFs(fsType);
-}
-
-// MTP storage rejects the same set of reserved characters libmtp inherits from the
-// Windows MTP API (see bug 489288), regardless of the device's actual filesystem.
-static bool isMtpScheme(const QUrl &url)
-{
-    return url.scheme() == QLatin1String("mtp");
-}
-
-static bool destDisallowsMsdosChars(const QUrl &url, KFileSystemType::Type fsType)
-{
-    if (url.isLocalFile()) {
-        return isFatOrNtfs(fsType);
-    }
-    return isMtpScheme(url);
-}
-
-static QString destFilesystemDisplayName(const QUrl &url, KFileSystemType::Type fsType)
-{
-    if (isMtpScheme(url)) {
-        return QStringLiteral("MTP");
-    }
-    return KFileSystemType::fileSystemName(fsType);
 }
 
 static QString symlinkSupportMsg(const QString &path, const QString &fsName)
@@ -218,7 +180,7 @@ static QString invalidCharsSupportMsg(const QString &path, const QString &fsName
             "Selecting Replace will replace any invalid characters (in the destination folder name) with an underscore \"_\".",
             path,
             fsName,
-            QLatin1String(s_msdosInvalidChars));
+            KIOPrivate::msdosInvalidChars());
     } else {
         msg = i18n(
             "Could not create \"%1\".\n"
@@ -226,7 +188,7 @@ static QString invalidCharsSupportMsg(const QString &path, const QString &fsName
             "Selecting Replace will replace any invalid characters (in the destination file name) with an underscore \"_\".",
             path,
             fsName,
-            QLatin1String(s_msdosInvalidChars));
+            KIOPrivate::msdosInvalidChars());
     }
 
     return msg;
@@ -1594,9 +1556,9 @@ void CopyJobPrivate::createNextDir()
             // uDest doesn't exist yet, check the filesystem of the parent dir
             destFileSystem = KFileSystemType::fileSystemType(it->uDest.adjusted(QUrl::StripTrailingSlash | QUrl::RemoveFilename).toLocalFile());
         }
-        if (destDisallowsMsdosChars(it->uDest, destFileSystem)) {
+        if (KIOPrivate::destinationDisallowsMsdosChars(it->uDest, destFileSystem)) {
             const QString dirName = it->uDest.adjusted(QUrl::StripTrailingSlash).fileName();
-            if (hasInvalidChars(dirName)) {
+            if (KIOPrivate::hasMsdosInvalidChars(dirName)) {
                 // We already asked the user?
                 if (m_autoReplaceInvalidChars) {
                     processCreateNextDir(it, KIO::Result_ReplaceInvalidChars);
@@ -1607,7 +1569,7 @@ void CopyJobPrivate::createNextDir()
                 }
 
                 const QString msg = invalidCharsSupportMsg(it->uDest.toDisplayString(QUrl::PreferLocalFile),
-                                                           destFilesystemDisplayName(it->uDest, destFileSystem),
+                                                           KIOPrivate::destinationFileSystemName(it->uDest, destFileSystem),
                                                            true /* isDir */);
 
                 if (auto *askUserActionInterface = KIO::delegateExtension<KIO::AskUserActionInterface *>(q)) {
@@ -2104,7 +2066,7 @@ bool CopyJobPrivate::handleMsdosFsQuirks(QList<CopyInfo>::Iterator it, KFileSyst
         }
         options = KIO::SkipDialog_Hide_Retry;
         msg = symlinkSupportMsg(it->uDest.toLocalFile(), KFileSystemType::fileSystemName(fsType));
-    } else if (hasInvalidChars(it->uDest.fileName())) {
+    } else if (KIOPrivate::hasMsdosInvalidChars(it->uDest.fileName())) {
         skipType = SkipInvalidChars;
         if (m_autoReplaceInvalidChars) { // Have we already asked the user?
             processCopyNextFile(it, KIO::Result_ReplaceInvalidChars, skipType);
@@ -2115,7 +2077,7 @@ bool CopyJobPrivate::handleMsdosFsQuirks(QList<CopyInfo>::Iterator it, KFileSyst
         }
 
         options = KIO::SkipDialog_Replace_Invalid_Chars;
-        msg = invalidCharsSupportMsg(it->uDest.toDisplayString(QUrl::PreferLocalFile), destFilesystemDisplayName(it->uDest, fsType));
+        msg = invalidCharsSupportMsg(it->uDest.toDisplayString(QUrl::PreferLocalFile), KIOPrivate::destinationFileSystemName(it->uDest, fsType));
     }
 
     if (!msg.isEmpty()) {
@@ -2189,7 +2151,7 @@ void CopyJobPrivate::copyNextFile()
 
     if (bCopyFile) { // any file to create, finally ?
         const KFileSystemType::Type destFileSystem = globalDestFsType();
-        if (destDisallowsMsdosChars(m_globalDest, destFileSystem)) {
+        if (KIOPrivate::destinationDisallowsMsdosChars(m_globalDest, destFileSystem)) {
             if (handleMsdosFsQuirks(it, destFileSystem)) {
                 return;
             }
