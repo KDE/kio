@@ -30,6 +30,7 @@
 #include <cerrno>
 #include <cstdlib>
 #include <cstring>
+#include <optional>
 
 #include <QAuthenticator>
 #include <QCoreApplication>
@@ -1286,8 +1287,10 @@ void FtpInternal::ftpCreateUDSEntry(const QString &filename, const FtpEntry &ftp
     entry.reserveNumbers(5);
     entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
     entry.fastInsert(KIO::UDSEntry::UDS_SIZE, ftpEnt.size);
-    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, ftpEnt.date.toSecsSinceEpoch());
-    entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, ftpEnt.date.time().msec() * 1000000);
+    if (ftpEnt.date.isValid()) {
+        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME, ftpEnt.date.toSecsSinceEpoch());
+        entry.fastInsert(KIO::UDSEntry::UDS_MODIFICATION_TIME_NS_OFFSET, ftpEnt.date.time().msec() * 1000000);
+    }
     entry.fastInsert(KIO::UDSEntry::UDS_ACCESS, ftpEnt.access);
     entry.fastInsert(KIO::UDSEntry::UDS_USER, ftpEnt.owner);
     if (!ftpEnt.group.isEmpty()) {
@@ -1641,6 +1644,121 @@ Result FtpInternal::ftpOpenDir(const QString &path)
     return Result::pass();
 }
 
+// RFC 3659 "perm" lists the rights of the logged-in user, so only the user bits are set.
+static mode_t accessFromMlsdPerm(QStringView perm, bool isDir)
+{
+    const auto has = [perm](char16_t c) {
+        return perm.contains(QChar(c), Qt::CaseInsensitive);
+    };
+    mode_t access = 0;
+    if (isDir) {
+        if (has(u'l')) {
+            access |= S_IRUSR;
+        }
+        if (has(u'c') || has(u'm')) {
+            access |= S_IWUSR;
+        }
+        if (has(u'e')) {
+            access |= S_IXUSR;
+        }
+    } else {
+        if (has(u'r')) {
+            access |= S_IRUSR;
+        }
+        if (has(u'w') || has(u'a')) {
+            access |= S_IWUSR;
+        }
+    }
+    return access;
+}
+
+// Parses an MLSD line, "fact=value;fact=value; name". Returns std::nullopt for a line to skip.
+// UNIX.mode wins over perm; with neither, the entry gets the mode stat() reports.
+static std::optional<FtpEntry> parseMlsdLine(QString line)
+{
+    // Only the line ending is removed, a name can start or end with a space.
+    while (line.endsWith(u'\n') || line.endsWith(u'\r')) {
+        line.chop(1);
+    }
+    const qsizetype spaceIdx = line.indexOf(u' ');
+    if (spaceIdx == -1) {
+        return std::nullopt;
+    }
+
+    FtpEntry de;
+    de.name = line.mid(spaceIdx + 1);
+    de.type = S_IFREG;
+    de.size = 0;
+
+    bool isCurrentDir = false;
+    std::optional<mode_t> unixMode;
+    std::optional<QStringView> perm;
+
+    const QStringView facts = QStringView(line).left(spaceIdx);
+    for (const QStringView fact : facts.split(u';', Qt::SkipEmptyParts)) {
+        const qsizetype eqIdx = fact.indexOf(u'=');
+        if (eqIdx == -1) {
+            continue;
+        }
+        const QStringView name = fact.left(eqIdx);
+        const QStringView value = fact.mid(eqIdx + 1);
+
+        if (name.compare(u"type", Qt::CaseInsensitive) == 0) {
+            if (value.compare(u"pdir", Qt::CaseInsensitive) == 0) {
+                return std::nullopt;
+            } else if (value.compare(u"cdir", Qt::CaseInsensitive) == 0) {
+                isCurrentDir = true;
+                de.type = S_IFDIR;
+            } else if (value.startsWith(u"dir", Qt::CaseInsensitive)) {
+                de.type = S_IFDIR;
+            } else if (value.startsWith(u"OS.unix=slink", Qt::CaseInsensitive)) {
+                de.type = S_IFLNK;
+
+                // Check for target attached after colon (e.g., "OS.unix=slink:/usr/local/...")
+                const qsizetype colonPos = value.indexOf(u':');
+                if (colonPos != -1 && colonPos + 1 < value.length()) {
+                    de.link = value.mid(colonPos + 1).toString();
+                }
+            }
+        } else if (name.compare(u"size", Qt::CaseInsensitive) == 0) {
+            de.size = value.toLongLong();
+        } else if (name.compare(u"modify", Qt::CaseInsensitive) == 0) {
+            // The value is YYYYMMDDHHMMSS[.sss], left(14) drops the fraction of a second.
+            const QString seconds = value.left(14).toString();
+            de.date = QDateTime::fromString(seconds, QStringLiteral("yyyyMMddHHmmss"));
+            de.date.setTimeZone(QTimeZone("UTC"));
+        } else if (name.compare(u"perm", Qt::CaseInsensitive) == 0) {
+            perm = value;
+        } else if (name.compare(u"unix.mode", Qt::CaseInsensitive) == 0) {
+            bool ok = false;
+            const uint mode = value.toUInt(&ok, 8);
+            if (ok) {
+                unixMode = mode & 07777;
+            }
+        } else if (name.compare(u"unix.owner", Qt::CaseInsensitive) == 0) {
+            de.owner = value.toString();
+        } else if (name.compare(u"unix.group", Qt::CaseInsensitive) == 0) {
+            de.group = value.toString();
+        }
+    }
+
+    // The cdir entry describes the listed directory itself, whatever name the server gives it.
+    if (isCurrentDir) {
+        de.name = QStringLiteral(".");
+    } else if (de.name == QLatin1String(".") || de.name == QLatin1String("..")) {
+        return std::nullopt;
+    }
+
+    if (unixMode) {
+        de.access = *unixMode;
+    } else if (perm) {
+        de.access = accessFromMlsdPerm(*perm, de.type == S_IFDIR);
+    } else {
+        de.access = de.type == S_IFDIR ? 0755 : 0644;
+    }
+    return de;
+}
+
 bool FtpInternal::ftpReadDir(FtpEntry &de)
 {
     Q_ASSERT(m_data);
@@ -1657,66 +1775,11 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
         qCDebug(KIO_FTP) << "dir > " << buffer;
 
         if (m_listingIsMlsd) {
-            // MLSD format: fact=value;fact=value; filename
-            // Example: Type=file;Size=123;Modify=20260826123000; my file.txt
-            QString line = QString::fromUtf8(data).trimmed();
-            int spaceIdx = line.indexOf(QLatin1Char(' '));
-            if (spaceIdx == -1)
-                continue;
-
-            QString factsPart = line.left(spaceIdx);
-            de.name = line.mid(spaceIdx + 1);
-            if (de.name == QLatin1String(".") || de.name == QLatin1String(".."))
-                continue;
-
-            de.type = S_IFREG;
-            de.size = 0;
-            de.access = S_IRUSR | S_IRGRP | S_IROTH; // Default readable
-
-            int start = 0;
-            while (start < factsPart.length()) {
-                int end = factsPart.indexOf(QLatin1Char(';'), start);
-                if (end == -1)
-                    end = factsPart.length();
-
-                int eqIdx = factsPart.indexOf(QLatin1Char('='), start);
-                if (eqIdx != -1 && eqIdx < end) {
-                    QString name = factsPart.mid(start, eqIdx - start).toLower();
-                    QString value = factsPart.mid(eqIdx + 1, end - eqIdx - 1);
-
-                    if (name == QLatin1String("type")) {
-                        if (value.startsWith(QLatin1String("dir"), Qt::CaseInsensitive)) {
-                            de.type = S_IFDIR;
-                        } else if (value.startsWith(QLatin1String("OS.unix=slink"), Qt::CaseInsensitive)) {
-                            de.type = S_IFLNK;
-
-                            // Check for target attached after colon (e.g., "OS.unix=slink:/usr/local/...")
-                            int colonPos = value.indexOf(QLatin1Char(':'));
-                            if (colonPos != -1 && colonPos + 1 < value.length()) {
-                                de.link = value.mid(colonPos + 1);
-                            }
-                        }
-                    } else if (name == QLatin1String("size")) {
-                        de.size = value.toLongLong();
-                    } else if (name == QLatin1String("modify")) {
-                        // Format: YYYYMMDDHHMMSS[.sss]
-                        de.date = QDateTime::fromString(value.left(14), QStringLiteral("yyyyMMddHHmmss"));
-                        de.date.setTimeZone(QTimeZone("UTC"));
-                    } else if (name == QLatin1String("unix.mode")) {
-                        bool ok;
-                        uint mode = value.toUInt(&ok, 8);
-                        if (ok)
-                            de.access = mode;
-                    } else if (name == QLatin1String("unix.owner")) {
-                        de.owner = value;
-                    } else if (name == QLatin1String("unix.group")) {
-                        de.group = value;
-                    }
-                }
-
-                start = end + 1;
+            if (std::optional<FtpEntry> entry = parseMlsdLine(QString::fromUtf8(data))) {
+                de = std::move(*entry);
+                return true;
             }
-            return true;
+            continue;
         }
 
         // Normally the listing looks like
