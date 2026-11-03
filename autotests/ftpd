@@ -61,6 +61,7 @@ end
 #   mlsd-perm    - MLSD with the RFC 3659 perm fact
 #   mlsd-unix    - MLSD with perm and UNIX.mode; perm always claims write access, UNIX.mode is the real mode
 #   mlsd-refused - MLST in FEAT but MLSD is an unknown command
+#   mlsd-stall   - MLSD as mlsd-perm, but the data connection stops sending after the first line
 MLSD_MODE = ARGV.fetch(2, 'list')
 
 module Ftpd
@@ -90,7 +91,17 @@ module Ftpd
           info = file_system.file_info(child)
           lines << mlsd_line(info, info.directory? ? 'dir' : 'file', File.basename(child))
         end
-        transmit_file(StringIO.new(lines.join), 'A')
+        if MLSD_MODE == 'mlsd-stall'
+          open_data_connection do |data_socket|
+            data_socket.write(lines.first)
+            data_socket.flush
+            sleep(60)
+            data_socket.write(lines.drop(1).join)
+          end
+          reply '226 Transfer complete'
+        else
+          transmit_file(StringIO.new(lines.join), 'A')
+        end
       end
     end
 

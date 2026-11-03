@@ -318,6 +318,27 @@ private Q_SLOTS:
         QVERIFY2(statJob->exec(), qUtf8Printable(statJob->errorString()));
         QCOMPARE(statJob->statResult().numberValue(KIO::UDSEntry::UDS_SIZE), 5);
     }
+
+    void testListingStalls()
+    {
+        QTemporaryDir remoteDir;
+        QVERIFY(QDir(remoteDir.path()).mkdir(QStringLiteral("folder")));
+
+        QProcess daemon;
+        QUrl daemonUrl(QStringLiteral("ftp://localhost"));
+        runDaemon(daemon, daemonUrl, remoteDir, QStringLiteral("mlsd-stall"));
+        auto stopDaemon = qScopeGuard([&daemon] {
+            daemon.kill();
+            daemon.waitForFinished();
+        });
+
+        // A listing that stops arriving is an error, not a shorter listing.
+        daemonUrl.setPath(QStringLiteral("/"));
+        auto listJob = KIO::listDir(daemonUrl, KIO::HideProgressInfo);
+        listJob->setUiDelegate(nullptr);
+        QVERIFY(!listJob->exec());
+        QCOMPARE(listJob->error(), KIO::ERR_SERVER_TIMEOUT);
+    }
 };
 
 QTEST_MAIN(FTPTest)
