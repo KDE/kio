@@ -274,10 +274,15 @@ public:
 
     // used by listDir
     Q_REQUIRED_RESULT Result ftpOpenDir(const QString &path);
+    enum class ReadDirResult {
+        Entry, // ftpEnt holds the next entry
+        End, // the server closed the data connection
+        TimedOut, // no data arrived for DEFAULT_READ_TIMEOUT seconds
+    };
     /*!
-     * Called to parse directory listings, call this until it returns false
+     * Called to parse directory listings, call this until it returns something else than Entry
      */
-    bool ftpReadDir(FtpEntry &ftpEnt);
+    ReadDirResult ftpReadDir(FtpEntry &ftpEnt);
 
     /*!
      * Helper to fill an UDSEntry

@@ -217,14 +217,15 @@ void FtpInternal::ftpCloseControlConnection()
 }
 
 // Waits until socket holds a whole line, the peer closes the connection, or no data arrives for
-// DEFAULT_READ_TIMEOUT seconds.
-static void waitForLine(QTcpSocket *socket)
+// DEFAULT_READ_TIMEOUT seconds. Returns false only in the last case.
+static bool waitForLine(QTcpSocket *socket)
 {
     while (!socket->canReadLine()) {
         if (!socket->waitForReadyRead(DEFAULT_READ_TIMEOUT * 1000)) {
-            return;
+            return socket->error() != QAbstractSocket::SocketTimeoutError || socket->state() != QAbstractSocket::ConnectedState;
         }
     }
+    return true;
 }
 
 /*!
@@ -1460,7 +1461,8 @@ Result FtpInternal::stat(const QUrl &url)
     QUrl linkURL;
     FtpEntry ftpEnt;
     QList<FtpEntry> ftpValidateEntList;
-    while (ftpReadDir(ftpEnt)) {
+    ReadDirResult readResult;
+    while ((readResult = ftpReadDir(ftpEnt)) == ReadDirResult::Entry) {
         if (!ftpEnt.name.isEmpty() && ftpEnt.name.at(0).isSpace()) {
             ftpValidateEntList.append(ftpEnt);
             continue;
@@ -1472,6 +1474,13 @@ Result FtpInternal::stat(const QUrl &url)
             bFound = maybeEmitStatEntry(ftpEnt, filename, isDir);
         }
         qCDebug(KIO_FTP) << ftpEnt.name;
+    }
+    if (readResult == ReadDirResult::TimedOut) {
+        // The server stopped answering, so both connections are dropped without QUIT and the next
+        // command logs in again.
+        ftpCloseDataConnection();
+        ftpCloseControlConnection();
+        return Result::fail(ERR_SERVER_TIMEOUT, m_host);
     }
 
     for (int i = 0, count = ftpValidateEntList.count(); i < count; ++i) {
@@ -1564,7 +1573,8 @@ Result FtpInternal::listDir(const QUrl &url)
 
     bool hasDot = false;
 
-    while (ftpReadDir(ftpEnt)) {
+    ReadDirResult readResult;
+    while ((readResult = ftpReadDir(ftpEnt)) == ReadDirResult::Entry) {
         qCDebug(KIO_FTP) << ftpEnt.name;
         // Q_ASSERT( !ftpEnt.name.isEmpty() );
         if (!ftpEnt.name.isEmpty()) {
@@ -1586,6 +1596,13 @@ Result FtpInternal::listDir(const QUrl &url)
             q->listEntry(entry);
             entry.clear();
         }
+    }
+    if (readResult == ReadDirResult::TimedOut) {
+        // The server stopped answering, so both connections are dropped without QUIT and the next
+        // command logs in again.
+        ftpCloseDataConnection();
+        ftpCloseControlConnection();
+        return Result::fail(ERR_SERVER_TIMEOUT, m_host);
     }
 
     // inject dot entry if it is missing
@@ -1770,13 +1787,16 @@ static std::optional<FtpEntry> parseMlsdLine(QString line)
     return de;
 }
 
-bool FtpInternal::ftpReadDir(FtpEntry &de)
+FtpInternal::ReadDirResult FtpInternal::ftpReadDir(FtpEntry &de)
 {
     Q_ASSERT(m_data);
 
     // get a line from the data connection ...
     while (true) {
-        waitForLine(m_data);
+        if (!waitForLine(m_data)) {
+            qCWarning(KIO_FTP) << "No listing data for" << DEFAULT_READ_TIMEOUT << "seconds";
+            return ReadDirResult::TimedOut;
+        }
         QByteArray data = m_data->readLine();
         if (data.size() == 0) {
             break;
@@ -1788,7 +1808,7 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
         if (m_listingIsMlsd) {
             if (std::optional<FtpEntry> entry = parseMlsdLine(QString::fromUtf8(data))) {
                 de = std::move(*entry);
-                return true;
+                return ReadDirResult::Entry;
             }
             continue;
         }
@@ -2011,10 +2031,10 @@ bool FtpInternal::ftpReadDir(FtpEntry &de)
 
             de.date = QDateTime(QDate(year, month, day), QTime(hour, minute));
             qCDebug(KIO_FTP) << de.date;
-            return true;
+            return ReadDirResult::Entry;
         }
     } // line invalid, loop to get another line
-    return false;
+    return ReadDirResult::End;
 }
 
 //===============================================================================
