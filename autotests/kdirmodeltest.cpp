@@ -1512,10 +1512,18 @@ void KDirModelTest::testHasChildren()
     QVERIFY(m_dirIndex.isValid());
     QVERIFY(m_dirModel->hasChildren(m_dirIndex));
 
+    // An update of another folder can complete meanwhile, so wait for this folder only.
     auto listDir = [this](const QModelIndex &index) {
-        QSignalSpy completedSpy(m_dirModel->dirLister(), qOverload<>(&KDirLister::completed));
+        const QUrl url = m_dirModel->itemForIndex(index).url().adjusted(QUrl::StripTrailingSlash);
+        QSignalSpy completedSpy(m_dirModel->dirLister(), &KCoreDirLister::listingDirCompleted);
         m_dirModel->fetchMore(index);
-        return completedSpy.wait();
+        return QTest::qWaitFor(
+            [&] {
+                return std::any_of(completedSpy.cbegin(), completedSpy.cend(), [&](const QList<QVariant> &args) {
+                    return args.at(0).toUrl().adjusted(QUrl::StripTrailingSlash) == url;
+                });
+            },
+            5000);
     };
     // Now list subdir/
     QVERIFY(listDir(m_dirIndex));
