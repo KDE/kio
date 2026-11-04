@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-02 00:50+0000\n"
+"POT-Creation-Date: 2026-11-04 00:58+0000\n"
 "PO-Revision-Date: 2025-12-07 00:08-0500\n"
 "Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
 "Language-Team: sq\n"
@@ -2289,17 +2289,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Gabim i Padokumentuar"
 
-#: core/kfileitem.cpp:1535
+#: core/kfileitem.cpp:1542
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Lidhje Simbolike te %1)"
 
-#: core/kfileitem.cpp:1537
+#: core/kfileitem.cpp:1544
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Lidhje te %2)"
 
-#: core/kfileitem.cpp:1540
+#: core/kfileitem.cpp:1547
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Shpie tek %1)"

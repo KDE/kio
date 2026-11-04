@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-02 00:50+0000\n"
-"PO-Revision-Date: 2026-10-16 15:04+0300\n"
+"POT-Creation-Date: 2026-11-04 00:58+0000\n"
+"PO-Revision-Date: 2026-11-03 20:26+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -117,7 +117,7 @@ msgstr "אשפה"
 #: core/copyjob.cpp:2579
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
-msgstr ""
+msgstr "%1 השתנה לאחר שהועתק, לכן לא נמחק."
 
 #: core/desktopexecparser.cpp:335
 #, kde-format
@@ -2205,17 +2205,17 @@ msgstr "נא לפרמט את כונן היעד כך שישתמש במערכת ק
 msgid "Undocumented Error"
 msgstr "שגיאה לא מתועדת"
 
-#: core/kfileitem.cpp:1535
+#: core/kfileitem.cpp:1542
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(קישור סמלי אל %1)"
 
-#: core/kfileitem.cpp:1537
+#: core/kfileitem.cpp:1544
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, קישור אל %2)"
 
-#: core/kfileitem.cpp:1540
+#: core/kfileitem.cpp:1547
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (מצביע אל %1)"
@@ -3644,12 +3644,10 @@ msgid "Create New Folder"
 msgstr "יצירת תיקייה חדשה"
 
 #: filewidgets/knewfilemenu.cpp:1477
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Create new folder in <filename>%1</filename>:"
-msgstr "אי אפשר להעביר את <filename>%1</filename>"
+msgstr "יצירת תיקייה חדשה בתוך <filename>%1</filename>:"
 
 #: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
@@ -3849,11 +3847,10 @@ msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr "FilePreviewJob: מדלג על קובץ ריק, כנראה קישור סמלי פגום: %1"
 
 #: gui/kemailclientlauncherjob.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to open the file."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to open email client"
-msgstr "פתיחת הקובץ נכשלה."
+msgstr "פתיחת לקוח הדוא״ל נכשלה"
 
 #: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
@@ -4157,7 +4154,7 @@ msgstr "אי אפשר לאתר את מזהה הקבוצה של שם הקבוצה
 #: kioworkers/file/file_unix_copy.cpp:1112
 #, kde-format
 msgid "Writing the copied data to the device..."
-msgstr ""
+msgstr "הנתונים המועתקים נכתבים למכשיר…"
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format
@@ -5275,16 +5272,14 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kfileitemactions.cpp:777
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Open Folder With…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
-msgstr[0] "פתיחת &תיקייה עם…"
-msgstr[1] "פתיחת &תיקייה עם…"
-msgstr[2] "פתיחת &תיקייה עם…"
-msgstr[3] "פתיחת &תיקייה עם…"
+msgstr[0] "&פתיחת תיקייה…"
+msgstr[1] "פתיחת &תיקיות עם…"
+msgstr[2] "פתיחת &תיקיות עם…"
+msgstr[3] "פתיחת &תיקיות עם…"
 
 #: widgets/kfileitemactions.cpp:777
 #, kde-format
@@ -5299,15 +5294,14 @@ msgid "&Run Executable"
 msgstr "ה&רצת קובץ הפעלה"
 
 #: widgets/kfileitemactions.cpp:857
-#, fuzzy, kde-format
-#| msgid "&Open folder with %1"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open folder with %2"
 msgid_plural "&Open folders with %2"
-msgstr[0] "פתיחת &תיקייה עם %1"
-msgstr[1] "פתיחת &תיקייה עם %1"
-msgstr[2] "פתיחת &תיקייה עם %1"
-msgstr[3] "פתיחת &תיקייה עם %1"
+msgstr[0] "פתיחת &תיקייה עם %2"
+msgstr[1] "פתיחת &תיקיות עם %2"
+msgstr[2] "פתיחת &תיקיות עם %2"
+msgstr[3] "פתיחת &תיקיות עם %2"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -5315,16 +5309,14 @@ msgid "&Open with %1"
 msgstr "&פתיחה עם %1"
 
 #: widgets/kfileitemactions.cpp:891
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgid_plural "&Open Folders With"
-msgstr[0] "&פתיחת תיקייה עם"
-msgstr[1] "&פתיחת תיקייה עם"
-msgstr[2] "&פתיחת תיקייה עם"
-msgstr[3] "&פתיחת תיקייה עם"
+msgstr[0] "פתיחת &תיקייה עם"
+msgstr[1] "&פתיחת תיקיות עם"
+msgstr[2] "&פתיחת תיקיות עם"
+msgstr[3] "&פתיחת תיקיות עם"
 
 #: widgets/kfileitemactions.cpp:891
 #, kde-format

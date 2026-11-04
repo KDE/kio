@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-02 00:50+0000\n"
+"POT-Creation-Date: 2026-11-04 00:58+0000\n"
 "PO-Revision-Date: 2026-10-27 12:15+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
@@ -2281,17 +2281,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Недокументована помилка"
 
-#: core/kfileitem.cpp:1535
+#: core/kfileitem.cpp:1542
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Символічне посилання на %1)"
 
-#: core/kfileitem.cpp:1537
+#: core/kfileitem.cpp:1544
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, посилання на %2)"
 
-#: core/kfileitem.cpp:1540
+#: core/kfileitem.cpp:1547
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Вказує до %1)"

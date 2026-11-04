@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-02 00:50+0000\n"
+"POT-Creation-Date: 2026-11-04 00:58+0000\n"
 "PO-Revision-Date: 2026-10-30 12:45+0100\n"
 "Last-Translator: giovanni <g.sora@tiscali.it>\n"
 "Language-Team: Interlingua <kde-i18n-doc@kde.org>\n"
@@ -2303,17 +2303,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Error non documentate"
 
-#: core/kfileitem.cpp:1535
+#: core/kfileitem.cpp:1542
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Ligamine symbolic a %1)"
 
-#: core/kfileitem.cpp:1537
+#: core/kfileitem.cpp:1544
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Attacca a %2)"
 
-#: core/kfileitem.cpp:1540
+#: core/kfileitem.cpp:1547
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Il puncta a %1)"

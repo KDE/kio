@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-02 00:50+0000\n"
-"PO-Revision-Date: 2026-10-25 20:12+0300\n"
+"POT-Creation-Date: 2026-11-04 00:58+0000\n"
+"PO-Revision-Date: 2026-11-03 22:21+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -123,7 +123,7 @@ msgstr "Çöp Kutusu"
 #: core/copyjob.cpp:2579
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
-msgstr ""
+msgstr "%1, kopyalandıktan sonra değiştirildi; bu yüzden silinmedi."
 
 #: core/desktopexecparser.cpp:335
 #, kde-format
@@ -2237,17 +2237,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Belgelenmeyen Hata"
 
-#: core/kfileitem.cpp:1535
+#: core/kfileitem.cpp:1542
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(%1 Konumuna Sembolik Bağlantı)"
 
-#: core/kfileitem.cpp:1537
+#: core/kfileitem.cpp:1544
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, %2 Konumuna Bağlantı)"
 
-#: core/kfileitem.cpp:1540
+#: core/kfileitem.cpp:1547
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (%1 konumuna işaret ediyor)"
@@ -3700,12 +3700,10 @@ msgid "Create New Folder"
 msgstr "Yeni Klasör Oluştur"
 
 #: filewidgets/knewfilemenu.cpp:1477
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Create new folder in <filename>%1</filename>:"
-msgstr "<filename>%1</filename> aktarılamıyor"
+msgstr "<filename>%1</filename> içinde yeni klasör oluştur:"
 
 #: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
