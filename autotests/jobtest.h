@@ -178,6 +178,11 @@ private Q_SLOTS:
     void renameOntoExistingFileKeepsIt();
     void renameDirOntoEmptyDirKeepsIt();
     void renameMissingSourceFails();
+    void renameToNameWithCharactersTheFolderRejects_data();
+    void renameToNameWithCharactersTheFolderRejects();
+#ifndef Q_OS_WIN
+    void renameToNameWithCharactersTheFolderAccepts();
+#endif
     void statWithNanosecondTimeOffset();
 
     // Remote tests

@@ -4758,6 +4758,61 @@ void JobTest::renameMissingSourceFails()
     QVERIFY(!QFile::exists(dest));
 }
 
+void JobTest::renameToNameWithCharactersTheFolderRejects_data()
+{
+    QTest::addColumn<KIO::SkipDialog_Result>("answer");
+    QTest::addColumn<QString>("expectedName");
+
+    QTest::newRow("cancel") << KIO::Result_Skip << u"a:b.txt"_s;
+    QTest::newRow("replace") << KIO::Result_ReplaceInvalidChars << u"a_b.txt"_s;
+}
+
+// MTP storage rejects the MS-DOS characters whatever the device, so the job asks before it reaches
+// a worker.
+void JobTest::renameToNameWithCharactersTheFolderRejects() // #414478
+{
+    QFETCH(KIO::SkipDialog_Result, answer);
+    QFETCH(QString, expectedName);
+
+    KIO::CopyJob *job = KIO::moveAs(QUrl(u"mtp:/device/storage/a.txt"_s), QUrl(u"mtp:/device/storage/a:b.txt"_s), KIO::HideProgressInfo);
+    job->setAutoDelete(false);
+    job->setUiDelegate(new KJobUiDelegate);
+    auto *askUser = new MockAskUserInterface(job->uiDelegate());
+    askUser->m_skipResult = answer;
+    QSignalSpy resultSpy(job, &KJob::result);
+
+    job->start();
+    QTRY_COMPARE(askUser->m_askUserSkipCalled, 1);
+    QCOMPARE(job->destUrl().fileName(), expectedName);
+
+    if (answer == KIO::Result_ReplaceInvalidChars) {
+        // The rename goes on with the new name; what the MTP worker does with it is not tested here.
+        job->kill();
+    } else {
+        QTRY_COMPARE(resultSpy.count(), 1);
+        QCOMPARE(job->error(), int(KIO::ERR_USER_CANCELED));
+    }
+    delete job;
+}
+
+#ifndef Q_OS_WIN
+void JobTest::renameToNameWithCharactersTheFolderAccepts() // #414478
+{
+    const QString src = homeTmpDir() + u"fileToRename"_s;
+    const QString dest = homeTmpDir() + u"a:b?.txt"_s;
+    createTestFile(src);
+
+    KIO::CopyJob *job = KIO::moveAs(QUrl::fromLocalFile(src), QUrl::fromLocalFile(dest), KIO::HideProgressInfo);
+    job->setUiDelegate(new KJobUiDelegate);
+    auto *askUser = new MockAskUserInterface(job->uiDelegate());
+
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QCOMPARE(askUser->m_askUserSkipCalled, 0);
+    QVERIFY(QFile::exists(dest));
+    QFile::remove(dest);
+}
+#endif
+
 void JobTest::renameFileWithNoUDSACCESS() // #510567
 {
     // This mock worker is needed to emulate very specific copyjob case

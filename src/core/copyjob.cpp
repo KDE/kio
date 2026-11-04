@@ -194,6 +194,17 @@ static QString invalidCharsSupportMsg(const QString &path, const QString &fsName
     return msg;
 }
 
+static QString invalidCharsInNewNameMsg(const QString &path, const QString &fsName)
+{
+    return i18n(
+        "Could not rename to \"%1\".\n"
+        "The destination filesystem (%2) disallows the following characters in names: %3\n"
+        "Selecting Replace will replace any invalid characters (in the new name) with an underscore \"_\".",
+        path,
+        fsName,
+        KIOPrivate::msdosInvalidChars());
+}
+
 #ifdef BUILD_TESTING
 void KIO::TestPrivate::setReportTimeout(std::chrono::milliseconds timeout)
 {
@@ -429,6 +440,10 @@ public:
     QUrl finalDestUrl(const QUrl &src, const QUrl &dest) const;
 
     void slotStart();
+    // Asks to replace the characters of the new name that its file system rejects, and returns
+    // false when there is nothing to ask.
+    bool askToReplaceInvalidCharsInNewName();
+    void statDestination();
     void slotEntries(KIO::Job *, const KIO::UDSEntryList &list);
     void slotSubError(KIO::ListJob *job, KIO::ListJob *subJob);
     void addCopyInfoFromUDSEntry(const UDSEntry &entry, const QUrl &srcUrl, bool srcIsDir, const QUrl &currentDest);
@@ -519,6 +534,63 @@ void CopyJobPrivate::slotStart()
             return;
         }
     }
+
+    // A move to a given name is a rename, and a direct rename skips the name checks of the copy path.
+    if (m_mode == CopyJob::CopyMode::Move && m_asMethod && askToReplaceInvalidCharsInNewName()) {
+        return;
+    }
+
+    statDestination();
+}
+
+bool CopyJobPrivate::askToReplaceInvalidCharsInNewName()
+{
+    Q_Q(CopyJob);
+
+    const QString newName = m_dest.fileName();
+    if (!KIOPrivate::hasMsdosInvalidChars(newName)) {
+        return false;
+    }
+    const QUrl parentUrl = m_dest.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+    const KFileSystemType::Type fsType = parentUrl.isLocalFile() ? KFileSystemType::fileSystemType(parentUrl.toLocalFile()) : KFileSystemType::Unknown;
+    if (!KIOPrivate::destinationDisallowsMsdosChars(m_dest, fsType)) {
+        return false;
+    }
+    // Without a user to ask, the job renames as it did before.
+    auto *askUserActionInterface = KIO::delegateExtension<KIO::AskUserActionInterface *>(q);
+    if (!askUserActionInterface) {
+        return false;
+    }
+
+    auto skipSignal = &KIO::AskUserActionInterface::askUserSkipResult;
+    QObject::connect(askUserActionInterface, skipSignal, q, [=, this](SkipDialog_Result result, KJob *parentJob) {
+        Q_ASSERT(parentJob == q);
+        // Only receive askUserSkipResult once per skip dialog
+        QObject::disconnect(askUserActionInterface, skipSignal, q, nullptr);
+
+        // With one item the dialog offers only Replace and Cancel.
+        if (result != KIO::Result_ReplaceInvalidChars) {
+            q->setError(ERR_USER_CANCELED);
+            q->emitResult();
+            return;
+        }
+        QString cleanName = newName;
+        cleanMsdosDestName(cleanName);
+        QString path = m_dest.path();
+        path.replace(path.size() - newName.size(), newName.size(), cleanName);
+        m_dest.setPath(path);
+        m_globalDest = m_dest;
+        statDestination();
+    });
+
+    const QString msg = invalidCharsInNewNameMsg(m_dest.toDisplayString(QUrl::PreferLocalFile), KIOPrivate::destinationFileSystemName(m_dest, fsType));
+    askUserActionInterface->askUserSkip(q, KIO::SkipDialog_Replace_Invalid_Chars, msg);
+    return true;
+}
+
+void CopyJobPrivate::statDestination()
+{
+    Q_Q(CopyJob);
 
     /*
        We call the functions directly instead of using signals.
