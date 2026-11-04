@@ -427,6 +427,53 @@ private Q_SLOTS:
         dialog->deleteLater();
     }
 
+    // MTP storage rejects the MS-DOS characters whatever the device. #414478
+    void refusesANameThatTheFileSystemOfTheFolderRejects()
+    {
+        const KFileItem item(QUrl(QStringLiteral("mtp:/device/storage/a.txt")), QStringLiteral("text/plain"), S_IFREG);
+        KIO::RenameFileDialog dialog({item}, nullptr);
+        auto *nameEdit = dialog.findChild<QLineEdit *>();
+        QVERIFY(nameEdit);
+
+        nameEdit->setText(QStringLiteral("a:b.txt"));
+        QVERIFY(!acceptButton(dialog)->isEnabled());
+
+        nameEdit->setText(QStringLiteral("a_b.txt"));
+        QVERIFY(acceptButton(dialog)->isEnabled());
+    }
+
+    void refusesABatchRenameThatTheFileSystemOfTheFolderRejects()
+    {
+        const KFileItemList items{
+            KFileItem(QUrl(QStringLiteral("mtp:/device/storage/a.txt")), QStringLiteral("text/plain"), S_IFREG),
+            KFileItem(QUrl(QStringLiteral("mtp:/device/storage/b.txt")), QStringLiteral("text/plain"), S_IFREG),
+        };
+        KIO::RenameFileDialog dialog(items, nullptr);
+        QComboBox *combo = renameOperation(dialog);
+        QVERIFY(combo);
+        combo->setCurrentIndex(Enumerate);
+        auto *nameTemplate = dialog.findChild<QLineEdit *>(QStringLiteral("enumerateTemplate"));
+        QVERIFY(nameTemplate);
+
+        nameTemplate->setText(QStringLiteral("new?#"));
+        QVERIFY(!acceptButton(dialog)->isEnabled());
+
+        nameTemplate->setText(QStringLiteral("new #"));
+        QVERIFY(acceptButton(dialog)->isEnabled());
+    }
+
+#ifndef Q_OS_WIN
+    void acceptsANameThatTheFileSystemOfTheFolderAccepts()
+    {
+        KIO::RenameFileDialog dialog({m_items.first()}, nullptr);
+        auto *nameEdit = dialog.findChild<QLineEdit *>();
+        QVERIFY(nameEdit);
+
+        nameEdit->setText(QStringLiteral("a:b.txt"));
+        QVERIFY(acceptButton(dialog)->isEnabled());
+    }
+#endif
+
 private:
     // The operations the dialog offers, in the order it lists them.
     enum Operation {

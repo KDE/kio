@@ -19,11 +19,13 @@
 #include <KLocalizedString>
 #include <KMessageWidget>
 #include <KSharedConfig>
+#include <kioglobal_p.h>
 
 #include <QComboBox>
 #include <QDialogButtonBox>
 #include <QFile>
 #include <QHBoxLayout>
+#include <QHash>
 #include <QLabel>
 #include <QLineEdit>
 #include <QMimeDatabase>
@@ -652,7 +654,48 @@ public:
     QWidget *m_contentWidget;
 
     std::unique_ptr<RenameOperationAbstractStrategy> renameStrategy;
+
+    // A new name that holds characters which the file system of its folder rejects, with the
+    // name of that file system. Both are empty when every new name fits.
+    struct RejectedName {
+        QString name;
+        QString fileSystemName;
+    };
+    RejectedName nameRejectedByFileSystem();
+
+    // The file system type of each folder that holds items, found once per folder since finding
+    // it parses the mount table.
+    QHash<QUrl, KFileSystemType::Type> fileSystemTypes;
 };
+
+RenameFileDialog::RenameFileDialogPrivate::RejectedName RenameFileDialog::RenameFileDialogPrivate::nameRejectedByFileSystem()
+{
+    const auto rename = renameStrategy->renameFunction();
+    for (const KFileItem &item : std::as_const(items)) {
+        QString newName;
+        if (renameOneItem) {
+            newName = rename(item.url().fileName());
+        } else {
+            // The same name that BatchRenameJob builds.
+            QString extension;
+            const QString baseName = Utils::splitFileNameExtension(item.url().fileName(), renamesAsDirectory(item), &extension);
+            newName = Utils::appendFileNameExtension(rename(baseName), extension);
+        }
+        if (!KIOPrivate::hasMsdosInvalidChars(newName)) {
+            continue;
+        }
+        const QUrl folderUrl = item.url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash);
+        auto it = fileSystemTypes.constFind(folderUrl);
+        if (it == fileSystemTypes.constEnd()) {
+            const auto type = folderUrl.isLocalFile() ? KFileSystemType::fileSystemType(folderUrl.toLocalFile()) : KFileSystemType::Unknown;
+            it = fileSystemTypes.insert(folderUrl, type);
+        }
+        if (KIOPrivate::destinationDisallowsMsdosChars(item.url(), *it)) {
+            return {newName, KIOPrivate::destinationFileSystemName(item.url(), *it)};
+        }
+    }
+    return {};
+}
 
 RenameFileDialog::RenameFileDialog(const KFileItemList &items, QWidget *parent)
     : QDialog(parent)
@@ -844,6 +887,16 @@ void RenameFileDialog::slotStateChanged()
         validationResult = invalid(xi18nc("@info", "<filename>%1</filename> cannot be renamed to an empty file name.", firstItem.name()));
     } else {
         validationResult = d->renameStrategy->validate(d->items, previewText);
+    }
+    if (validationResult.result != Result::Invalid) {
+        if (const auto rejected = d->nameRejectedByFileSystem(); !rejected.name.isEmpty()) {
+            validationResult = invalid(xi18nc("@info %2 is a file system name such as FAT or NTFS, %3 is a list of characters",
+                                              "The name <filename>%1</filename> cannot be used because the file system of this folder (%2) does not "
+                                              "allow these characters in names: %3",
+                                              rejected.name,
+                                              rejected.fileSystemName,
+                                              QString(KIOPrivate::msdosInvalidChars())));
+        }
     }
     d->okButton->setEnabled(validationResult.result == Result::Ok || validationResult.result == Result::Warning);
     if (validationResult.result == Result::Ok || validationResult.text.isEmpty()) {
