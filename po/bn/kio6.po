@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 00:58+0000\n"
+"POT-Creation-Date: 2026-11-05 00:51+0000\n"
 "PO-Revision-Date: 2009-01-09 21:08-0800\n"
 "Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
 "Language-Team: en_US <kde-translation@bengalinux.org>\n"
@@ -49,7 +49,7 @@ msgstr ""
 "<qt><b>%1</b> ফাইলটির মালিকানা পাল্টানো যায়নি, কারণ তার জন্য প্রয়োজনীয় অনুমতি "
 "আপনার নেই।</qt>"
 
-#: core/copyjob.cpp:204 kioworkers/file/file_unix.cpp:651
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:651
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -64,7 +64,7 @@ msgstr ""
 "সিমবলিক লিঙ্ক %1 তৈরি করা যায়নি।\n"
 "অনুগ্রহ করে অনুমতি পরীক্ষা করুন।"
 
-#: core/copyjob.cpp:216
+#: core/copyjob.cpp:178
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -74,7 +74,7 @@ msgid ""
 "folder name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:224
+#: core/copyjob.cpp:186
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -84,28 +84,28 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1566 core/job_error.cpp:588
+#: core/copyjob.cpp:1528 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "ফোল্ডার আগে থেকেই আছে"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2859 core/filecopyjob.cpp:394
+#: core/copyjob.cpp:1867 core/copyjob.cpp:2821 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "ফাইল আগে থেকেই আছে"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2859
+#: core/copyjob.cpp:1867 core/copyjob.cpp:2821
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "ফোল্ডার হিসেবে আগে থেকেই আছে"
 
-#: core/copyjob.cpp:2063 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:2025 kioworkers/trash/kio_trash.cpp:294
 #, fuzzy, kde-format
 msgid "Trash"
 msgstr "ক্যাশ (Cache) ফাঁকা করো"
 
-#: core/copyjob.cpp:2579
+#: core/copyjob.cpp:2541
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
 msgstr ""
@@ -3374,55 +3374,55 @@ msgid ""
 "files shown.</qt>"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:233
+#: filewidgets/knewfilemenu.cpp:234
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:558
+#: filewidgets/knewfilemenu.cpp:570
 #, fuzzy, kde-format
 #| msgid "Store"
 msgid "Sorry"
 msgstr "হ্যাঁ"
 
-#: filewidgets/knewfilemenu.cpp:569
+#: filewidgets/knewfilemenu.cpp:581
 #, fuzzy, kde-format
 #| msgid "The file or folder %1 does not exist."
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "%1 নামক ফাইল বা ফোল্ডারের কোনো অস্তিত্ব নেই।"
 
-#: filewidgets/knewfilemenu.cpp:589 filewidgets/knewfilemenu.cpp:602
+#: filewidgets/knewfilemenu.cpp:601 filewidgets/knewfilemenu.cpp:614
 #, kde-format
 msgid "Name for new link:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:592
+#: filewidgets/knewfilemenu.cpp:604
 #, fuzzy, kde-format
 #| msgid "Creating"
 msgid "Create Symlink"
 msgstr "তৈরি করা হচ্ছে"
 
-#: filewidgets/knewfilemenu.cpp:606
+#: filewidgets/knewfilemenu.cpp:618
 #, fuzzy, kde-format
 msgid "Create link to URL"
 msgstr "গন্তব্য:"
 
-#: filewidgets/knewfilemenu.cpp:650
+#: filewidgets/knewfilemenu.cpp:662
 #, fuzzy, kde-format
 #| msgid "C&reate"
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
 msgstr "তৈরি &করো"
 
-#: filewidgets/knewfilemenu.cpp:784 filewidgets/knewfilemenu.cpp:806
+#: filewidgets/knewfilemenu.cpp:796 filewidgets/knewfilemenu.cpp:818
 #, fuzzy, kde-format
 #| msgid "%1 B"
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1 বাইট"
 
-#: filewidgets/knewfilemenu.cpp:1131
+#: filewidgets/knewfilemenu.cpp:1143
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3430,7 +3430,17 @@ msgid ""
 "use by the operating system."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1139
+#: filewidgets/knewfilemenu.cpp:1152
+#, kde-kuit-format
+msgctxt ""
+"@info %2 is a file system name such as FAT or NTFS, %3 is a list of "
+"characters"
+msgid ""
+"The name <filename>%1</filename> cannot be used because the file system of "
+"this folder (%2) does not allow these characters in names: %3"
+msgstr ""
+
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3438,7 +3448,7 @@ msgid ""
 "default."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1147
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3447,27 +3457,27 @@ msgid ""
 "potential oddities."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1165
+#: filewidgets/knewfilemenu.cpp:1190
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1179
+#: filewidgets/knewfilemenu.cpp:1204
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1191
+#: filewidgets/knewfilemenu.cpp:1216
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1196
+#: filewidgets/knewfilemenu.cpp:1221
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1235
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3475,47 +3485,47 @@ msgid ""
 "possible since it would overlap with the location of a user's home folder."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1219
+#: filewidgets/knewfilemenu.cpp:1244
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
 "may be confusing or dangerous when using the terminal to delete things."
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1291
+#: filewidgets/knewfilemenu.cpp:1339
 #, fuzzy, kde-kuit-format
 #| msgid "An older item named '%1' already exists."
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "'%1' নামের একটি পুরনো বস্তু আগে থেকেই আছে।"
 
-#: filewidgets/knewfilemenu.cpp:1293
+#: filewidgets/knewfilemenu.cpp:1341
 #, fuzzy, kde-kuit-format
 #| msgid "A file named %1 already exists."
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "%1 ফাইলটি আগে থেকেই আছে।"
 
-#: filewidgets/knewfilemenu.cpp:1379
+#: filewidgets/knewfilemenu.cpp:1427
 #, fuzzy, kde-format
 #| msgid "C&reate"
 msgid "Create New"
 msgstr "তৈরি &করো"
 
-#: filewidgets/knewfilemenu.cpp:1451
+#: filewidgets/knewfilemenu.cpp:1499
 #, fuzzy, kde-format
 #| msgid "New Folder"
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "নতুন ফোল্ডার"
 
-#: filewidgets/knewfilemenu.cpp:1474
+#: filewidgets/knewfilemenu.cpp:1522
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "ফোল্ডার তৈরি করা যায়নি"
 
-#: filewidgets/knewfilemenu.cpp:1477
+#: filewidgets/knewfilemenu.cpp:1525
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "Create new folder in:\n"
@@ -3526,13 +3536,13 @@ msgstr ""
 "%1-এ \n"
 "নতুন ফোল্ডার তৈরি করো"
 
-#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr ""
 
-#: filewidgets/knewfilemenu.cpp:1538
+#: filewidgets/knewfilemenu.cpp:1586
 #, fuzzy, kde-format
 #| msgid "Default Policy"
 msgid "Default"

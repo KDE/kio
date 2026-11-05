@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 00:58+0000\n"
+"POT-Creation-Date: 2026-11-05 00:51+0000\n"
 "PO-Revision-Date: 2025-09-13 12:21+0200\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@nuug.no>\n"
@@ -58,7 +58,7 @@ msgstr ""
 "<qt>Klarte ikke endre eierskapet til fila <b>%1</b>. Du har ikke "
 "tilstrekkelig tillatelser til å utføre endringa.</qt>"
 
-#: core/copyjob.cpp:204 kioworkers/file/file_unix.cpp:651
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:651
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -70,7 +70,7 @@ msgstr ""
 "Klarte ikke opprette symbolsk lenke «%1».\n"
 "Filsystemet du overfører til (%2) støtter ikke symbolske lenker."
 
-#: core/copyjob.cpp:216
+#: core/copyjob.cpp:178
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -83,7 +83,7 @@ msgstr ""
 "Filsystemet (%2) til målmappa godtar ikke disse tegnene i mappenavn: %3\n"
 "Velg «Bytt ut» for å bytte ut ugyldige tegn (i målmappa) med undertegn («_»)."
 
-#: core/copyjob.cpp:224
+#: core/copyjob.cpp:186
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -96,28 +96,28 @@ msgstr ""
 "Filsystemet (%2) til målfila godtar ikke disse tegnene i filnavn: %3\n"
 "Velg «Bytt ut» for å bytte ut ugyldige tegn (i målfila) med undertegn («_»)."
 
-#: core/copyjob.cpp:1566 core/job_error.cpp:588
+#: core/copyjob.cpp:1528 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Mappa finnes fra før"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2859 core/filecopyjob.cpp:394
+#: core/copyjob.cpp:1867 core/copyjob.cpp:2821 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fila finnes fra før"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2859
+#: core/copyjob.cpp:1867 core/copyjob.cpp:2821
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Finnes fra før som mappe"
 
-#: core/copyjob.cpp:2063 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:2025 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Papirkurv"
 
-#: core/copyjob.cpp:2579
+#: core/copyjob.cpp:2541
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
 msgstr ""
@@ -3572,50 +3572,50 @@ msgstr ""
 "<qt>Dette er filtypevelgeren. Du bruker den til å velge i hvilket format "
 "fila skal lagres.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:233
+#: filewidgets/knewfilemenu.cpp:234
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Skriv inn %1 filnavn."
 
-#: filewidgets/knewfilemenu.cpp:558
+#: filewidgets/knewfilemenu.cpp:570
 #, kde-format
 msgid "Sorry"
 msgstr "Beklager"
 
-#: filewidgets/knewfilemenu.cpp:569
+#: filewidgets/knewfilemenu.cpp:581
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Mal-fila <b>%1</b> finnes ikke.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:589 filewidgets/knewfilemenu.cpp:602
+#: filewidgets/knewfilemenu.cpp:601 filewidgets/knewfilemenu.cpp:614
 #, kde-format
 msgid "Name for new link:"
 msgstr "Navn på ny lenke:"
 
-#: filewidgets/knewfilemenu.cpp:592
+#: filewidgets/knewfilemenu.cpp:604
 #, kde-format
 msgid "Create Symlink"
 msgstr "Lag symbolsk lenke"
 
-#: filewidgets/knewfilemenu.cpp:606
+#: filewidgets/knewfilemenu.cpp:618
 #, kde-format
 msgid "Create link to URL"
 msgstr "Opprett en lenke til URL"
 
-#: filewidgets/knewfilemenu.cpp:650
+#: filewidgets/knewfilemenu.cpp:662
 #, fuzzy, kde-format
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
 msgstr "Lag ny"
 
-#: filewidgets/knewfilemenu.cpp:784 filewidgets/knewfilemenu.cpp:806
+#: filewidgets/knewfilemenu.cpp:796 filewidgets/knewfilemenu.cpp:818
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1131
+#: filewidgets/knewfilemenu.cpp:1143
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3625,7 +3625,23 @@ msgstr ""
 "Navnet <filename>%1</filename> kan ikke brukes, da det er forbeholdt "
 "operativsystemet."
 
-#: filewidgets/knewfilemenu.cpp:1139
+#: filewidgets/knewfilemenu.cpp:1152
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The name <filename>%1</filename> cannot be used because it is reserved "
+#| "for use by the operating system."
+msgctxt ""
+"@info %2 is a file system name such as FAT or NTFS, %3 is a list of "
+"characters"
+msgid ""
+"The name <filename>%1</filename> cannot be used because the file system of "
+"this folder (%2) does not allow these characters in names: %3"
+msgstr ""
+"Navnet <filename>%1</filename> kan ikke brukes, da det er forbeholdt "
+"operativsystemet."
+
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3635,7 +3651,7 @@ msgstr ""
 "Navnet <filename>%1</filename> har punktum som første tegn, og blir derfor "
 "gjemt som standard."
 
-#: filewidgets/knewfilemenu.cpp:1147
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3647,27 +3663,27 @@ msgstr ""
 "at det blir vist før alle andre ved alfabetisk sortering, samt andre rare "
 "ting."
 
-#: filewidgets/knewfilemenu.cpp:1165
+#: filewidgets/knewfilemenu.cpp:1190
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Bruker du skråstreker i mappenavn, vil det lage undermapper, slik:"
 
-#: filewidgets/knewfilemenu.cpp:1179
+#: filewidgets/knewfilemenu.cpp:1204
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Bruker du skåstreker i mappenavn, vil det lage undermapper."
 
-#: filewidgets/knewfilemenu.cpp:1191
+#: filewidgets/knewfilemenu.cpp:1216
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Du kan ikke bruke skråstreker i fil- og mappenavn."
 
-#: filewidgets/knewfilemenu.cpp:1196
+#: filewidgets/knewfilemenu.cpp:1221
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Du kan ikke bruke omvendte skråstreker i fil- og mappenavn."
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1235
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3677,7 +3693,7 @@ msgstr ""
 "Opprettelse av fil eller mappe med navnet <filename>%1</filename> er ikke "
 "mulig siden den ville overlappe med adressen til en brukers hjemmemappe."
 
-#: filewidgets/knewfilemenu.cpp:1219
+#: filewidgets/knewfilemenu.cpp:1244
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3686,36 +3702,36 @@ msgstr ""
 "Du bør ikke ha tilde (~) som første tegn i fil- eller mappenavn, da det kan "
 "være forvirrende eller farlig når du bruker terminalen til å slette ting."
 
-#: filewidgets/knewfilemenu.cpp:1291
+#: filewidgets/knewfilemenu.cpp:1339
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Det finnes allerede en mappe med navnet <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1293
+#: filewidgets/knewfilemenu.cpp:1341
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Det finnes allerede en fil med navnet <filename>%1</filename>."
 
-#: filewidgets/knewfilemenu.cpp:1379
+#: filewidgets/knewfilemenu.cpp:1427
 #, kde-format
 msgid "Create New"
 msgstr "Lag ny"
 
-#: filewidgets/knewfilemenu.cpp:1451
+#: filewidgets/knewfilemenu.cpp:1499
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Ny mappe"
 
-#: filewidgets/knewfilemenu.cpp:1474
+#: filewidgets/knewfilemenu.cpp:1522
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Lag ny mappe"
 
-#: filewidgets/knewfilemenu.cpp:1477
+#: filewidgets/knewfilemenu.cpp:1525
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Cannot transfer <filename>%1</filename>"
@@ -3723,13 +3739,13 @@ msgctxt "@label"
 msgid "Create new folder in <filename>%1</filename>:"
 msgstr "Kan ikke overføre <filename>%1</filename>"
 
-#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, fuzzy, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Skriv inn %1 filnavn."
 
-#: filewidgets/knewfilemenu.cpp:1538
+#: filewidgets/knewfilemenu.cpp:1586
 #, fuzzy, kde-format
 msgid "Default"
 msgstr "Eier (standard)"

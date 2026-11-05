@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 00:58+0000\n"
+"POT-Creation-Date: 2026-11-05 00:51+0000\n"
 "PO-Revision-Date: 2026-10-07 15:22+0200\n"
 "Last-Translator: Stéfan Driaan Turvey <stefanturvey1912@gmail.com>\n"
 "Language-Team: Afrikaans <kde-i18n-doc@kde.org>\n"
@@ -44,7 +44,7 @@ msgstr ""
 "Kon nie die eienaarskap van lêer <filename>%1</filename> verander nie. Jy "
 "het onvoldoende toegang tot die lêer om die verandering aan te bring."
 
-#: core/copyjob.cpp:204 kioworkers/file/file_unix.cpp:651
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:651
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -56,7 +56,7 @@ msgstr ""
 "Kon nie simboliese skakel \"%1\" skep nie.\n"
 "Die bestemmingslêerstelsel (%2) ondersteun nie simboliese skakels nie."
 
-#: core/copyjob.cpp:216
+#: core/copyjob.cpp:178
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -71,7 +71,7 @@ msgstr ""
 "As jy Vervang kies, word enige ongeldige karakters (in die "
 "bestemmingsgidsnaam) met 'n onderstreep \"_\" vervang."
 
-#: core/copyjob.cpp:224
+#: core/copyjob.cpp:186
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -86,28 +86,28 @@ msgstr ""
 "As jy Vervang kies, word enige ongeldige karakters (in die "
 "bestemmingslêernaam) met 'n onderstreep \"_\" vervang."
 
-#: core/copyjob.cpp:1566 core/job_error.cpp:588
+#: core/copyjob.cpp:1528 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Die Gids Bestaan Alreeds"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2859 core/filecopyjob.cpp:394
+#: core/copyjob.cpp:1867 core/copyjob.cpp:2821 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Die lêer Bestaan Alreeds"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2859
+#: core/copyjob.cpp:1867 core/copyjob.cpp:2821
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Bestaan alreeds as 'n gids"
 
-#: core/copyjob.cpp:2063 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:2025 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Asblik"
 
-#: core/copyjob.cpp:2579
+#: core/copyjob.cpp:2541
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
 msgstr ""
@@ -3605,50 +3605,50 @@ msgstr ""
 "<qt>Hierdie is die lêertipekieser. Dit word gebruik om die formaat van die "
 "gewysde lêers te kies.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:233
+#: filewidgets/knewfilemenu.cpp:234
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Voer %1-lêernaam in:"
 
-#: filewidgets/knewfilemenu.cpp:558
+#: filewidgets/knewfilemenu.cpp:570
 #, kde-format
 msgid "Sorry"
 msgstr "Jammer"
 
-#: filewidgets/knewfilemenu.cpp:569
+#: filewidgets/knewfilemenu.cpp:581
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Die sjabloonlêer <b>%1</b> bestaan nie.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:589 filewidgets/knewfilemenu.cpp:602
+#: filewidgets/knewfilemenu.cpp:601 filewidgets/knewfilemenu.cpp:614
 #, kde-format
 msgid "Name for new link:"
 msgstr "Naam vir nuwe skakel:"
 
-#: filewidgets/knewfilemenu.cpp:592
+#: filewidgets/knewfilemenu.cpp:604
 #, kde-format
 msgid "Create Symlink"
 msgstr "Skep simboliese skakel"
 
-#: filewidgets/knewfilemenu.cpp:606
+#: filewidgets/knewfilemenu.cpp:618
 #, kde-format
 msgid "Create link to URL"
 msgstr "Skep skakel na URL"
 
-#: filewidgets/knewfilemenu.cpp:650
+#: filewidgets/knewfilemenu.cpp:662
 #, kde-format
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
 msgstr "Skep nuwe %1"
 
-#: filewidgets/knewfilemenu.cpp:784 filewidgets/knewfilemenu.cpp:806
+#: filewidgets/knewfilemenu.cpp:796 filewidgets/knewfilemenu.cpp:818
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1131
+#: filewidgets/knewfilemenu.cpp:1143
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3658,7 +3658,23 @@ msgstr ""
 "Die naam <filename>%1</filename> kan nie gebruik word nie, want dit is "
 "gereserveer vir gebruik deur die bedryfstelsel."
 
-#: filewidgets/knewfilemenu.cpp:1139
+#: filewidgets/knewfilemenu.cpp:1152
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The name <filename>%1</filename> cannot be used because it is reserved "
+#| "for use by the operating system."
+msgctxt ""
+"@info %2 is a file system name such as FAT or NTFS, %3 is a list of "
+"characters"
+msgid ""
+"The name <filename>%1</filename> cannot be used because the file system of "
+"this folder (%2) does not allow these characters in names: %3"
+msgstr ""
+"Die naam <filename>%1</filename> kan nie gebruik word nie, want dit is "
+"gereserveer vir gebruik deur die bedryfstelsel."
+
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3668,7 +3684,7 @@ msgstr ""
 "Die naam <filename>%1</filename> begin met 'n punt, dus sal dit by verstek "
 "verskuil wees."
 
-#: filewidgets/knewfilemenu.cpp:1147
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3680,27 +3696,27 @@ msgstr ""
 "dat dit voor ander items gewys word wanneer alfabeties gesorteer word, onder "
 "andere potensiële vreemdhede."
 
-#: filewidgets/knewfilemenu.cpp:1165
+#: filewidgets/knewfilemenu.cpp:1190
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Die gebruik van skuinsstrepe in gidsname sal subgidse skep, soos volg:"
 
-#: filewidgets/knewfilemenu.cpp:1179
+#: filewidgets/knewfilemenu.cpp:1204
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Die gebruik van skuinsstrepe in gidsname sal subgidse skep."
 
-#: filewidgets/knewfilemenu.cpp:1191
+#: filewidgets/knewfilemenu.cpp:1216
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Skuinsstrepe kan nie in lêer- en gidsname gebruik word nie."
 
-#: filewidgets/knewfilemenu.cpp:1196
+#: filewidgets/knewfilemenu.cpp:1221
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Terugskuinsstrepe kan nie in lêer- en gidsname gebruik word nie."
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1235
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3711,7 +3727,7 @@ msgstr ""
 "te skep nie, want dit sou oorvleuel met die ligging van 'n gebruiker se "
 "tuisgids."
 
-#: filewidgets/knewfilemenu.cpp:1219
+#: filewidgets/knewfilemenu.cpp:1244
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3721,36 +3737,36 @@ msgstr ""
 "want dit kan verwarrend of gevaarlik wees wanneer jy die terminaal gebruik "
 "om dinge te skrap."
 
-#: filewidgets/knewfilemenu.cpp:1291
+#: filewidgets/knewfilemenu.cpp:1339
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "'n Gids met die naam <filename>%1</filename> bestaan reeds."
 
-#: filewidgets/knewfilemenu.cpp:1293
+#: filewidgets/knewfilemenu.cpp:1341
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "'n Lêer met die naam <filename>%1</filename> bestaan reeds."
 
-#: filewidgets/knewfilemenu.cpp:1379
+#: filewidgets/knewfilemenu.cpp:1427
 #, kde-format
 msgid "Create New"
 msgstr "Skep nuwe"
 
-#: filewidgets/knewfilemenu.cpp:1451
+#: filewidgets/knewfilemenu.cpp:1499
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Nuwe gids"
 
-#: filewidgets/knewfilemenu.cpp:1474
+#: filewidgets/knewfilemenu.cpp:1522
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Skep nuwe gids"
 
-#: filewidgets/knewfilemenu.cpp:1477
+#: filewidgets/knewfilemenu.cpp:1525
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Cannot transfer <filename>%1</filename>"
@@ -3758,13 +3774,13 @@ msgctxt "@label"
 msgid "Create new folder in <filename>%1</filename>:"
 msgstr "Kan nie <filename>%1</filename> oordra nie"
 
-#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Voer gidsnaam in"
 
-#: filewidgets/knewfilemenu.cpp:1538
+#: filewidgets/knewfilemenu.cpp:1586
 #, kde-format
 msgid "Default"
 msgstr "Verstek"

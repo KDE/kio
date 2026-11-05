@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-04 00:58+0000\n"
+"POT-Creation-Date: 2026-11-05 00:51+0000\n"
 "PO-Revision-Date: 2026-10-02 22:43+0300\n"
 "Last-Translator: Lasse Liehu-Inui <lasse.liehu@iki.fi>\n"
 "Language-Team: Finnish <kde-l10n-fi@kde.org>\n"
@@ -56,7 +56,7 @@ msgstr ""
 "Tiedoston <filename>%1</filename> omistajaa ei voitu muuttaa. Tiedostoon ei "
 "ole riittäviä käyttöoikeuksia."
 
-#: core/copyjob.cpp:204 kioworkers/file/file_unix.cpp:651
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:651
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -68,7 +68,7 @@ msgstr ""
 "Ei voitu luoda symlinkkiä: ”%1”.\n"
 "Kohdetiedostojärjestelmä (%2) ei tue symlinkkejä."
 
-#: core/copyjob.cpp:216
+#: core/copyjob.cpp:178
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -83,7 +83,7 @@ msgstr ""
 "Valitsemalla ”Korvaa” virheelliset merkit kohdekansionimessä korvataan "
 "alaviivoilla (”_”)."
 
-#: core/copyjob.cpp:224
+#: core/copyjob.cpp:186
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -98,28 +98,28 @@ msgstr ""
 "Valitsemalla ”Korvaa” virheelliset merkit kohdetiedostonimessä korvataan "
 "alaviivoilla (”_”)."
 
-#: core/copyjob.cpp:1566 core/job_error.cpp:588
+#: core/copyjob.cpp:1528 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Kansio on jo olemassa"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2859 core/filecopyjob.cpp:394
+#: core/copyjob.cpp:1867 core/copyjob.cpp:2821 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:49
 #, kde-format
 msgid "File Already Exists"
 msgstr "Tiedosto on jo olemassa"
 
-#: core/copyjob.cpp:1905 core/copyjob.cpp:2859
+#: core/copyjob.cpp:1867 core/copyjob.cpp:2821
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "On jo olemassa kansiona"
 
-#: core/copyjob.cpp:2063 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:2025 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Roskakori"
 
-#: core/copyjob.cpp:2579
+#: core/copyjob.cpp:2541
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
 msgstr ""
@@ -3591,50 +3591,50 @@ msgstr ""
 "<qt>Tämä on tiedostotyypin valitsin. Sitä käytetään valitsemaan näytettävät "
 "tiedostot.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:233
+#: filewidgets/knewfilemenu.cpp:234
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
 msgstr "Syötä tiedostonimi (%1):"
 
-#: filewidgets/knewfilemenu.cpp:558
+#: filewidgets/knewfilemenu.cpp:570
 #, kde-format
 msgid "Sorry"
 msgstr "Huomautus"
 
-#: filewidgets/knewfilemenu.cpp:569
+#: filewidgets/knewfilemenu.cpp:581
 #, kde-format
 msgid "<qt>The template file <b>%1</b> does not exist.</qt>"
 msgstr "<qt>Mallitiedostoa <b>%1</b> ei ole olemassa.</qt>"
 
-#: filewidgets/knewfilemenu.cpp:589 filewidgets/knewfilemenu.cpp:602
+#: filewidgets/knewfilemenu.cpp:601 filewidgets/knewfilemenu.cpp:614
 #, kde-format
 msgid "Name for new link:"
 msgstr "Uuden linkin nimi:"
 
-#: filewidgets/knewfilemenu.cpp:592
+#: filewidgets/knewfilemenu.cpp:604
 #, kde-format
 msgid "Create Symlink"
 msgstr "Luo symlinkki"
 
-#: filewidgets/knewfilemenu.cpp:606
+#: filewidgets/knewfilemenu.cpp:618
 #, kde-format
 msgid "Create link to URL"
 msgstr "Luo linkki verkko-osoitteeseen"
 
-#: filewidgets/knewfilemenu.cpp:650
+#: filewidgets/knewfilemenu.cpp:662
 #, kde-format
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
 msgstr "Luo uusi %1"
 
-#: filewidgets/knewfilemenu.cpp:784 filewidgets/knewfilemenu.cpp:806
+#: filewidgets/knewfilemenu.cpp:796 filewidgets/knewfilemenu.cpp:818
 #, kde-format
 msgctxt "@item:inmenu Create New"
 msgid "%1"
 msgstr "%1"
 
-#: filewidgets/knewfilemenu.cpp:1131
+#: filewidgets/knewfilemenu.cpp:1143
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3644,7 +3644,23 @@ msgstr ""
 "Nimeä <filename>%1</filename> ei voi käyttää, koska se on varattu "
 "käyttöjärjestelmän käyttöön."
 
-#: filewidgets/knewfilemenu.cpp:1139
+#: filewidgets/knewfilemenu.cpp:1152
+#, fuzzy, kde-kuit-format
+#| msgctxt "@info"
+#| msgid ""
+#| "The name <filename>%1</filename> cannot be used because it is reserved "
+#| "for use by the operating system."
+msgctxt ""
+"@info %2 is a file system name such as FAT or NTFS, %3 is a list of "
+"characters"
+msgid ""
+"The name <filename>%1</filename> cannot be used because the file system of "
+"this folder (%2) does not allow these characters in names: %3"
+msgstr ""
+"Nimeä <filename>%1</filename> ei voi käyttää, koska se on varattu "
+"käyttöjärjestelmän käyttöön."
+
+#: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3654,7 +3670,7 @@ msgstr ""
 "Nimi <filename>%1</filename> alkaa pisteellä, joten se piilotetaan "
 "oletusarvoisesti."
 
-#: filewidgets/knewfilemenu.cpp:1147
+#: filewidgets/knewfilemenu.cpp:1172
 #, kde-kuit-format
 msgctxt "@info"
 msgid ""
@@ -3667,27 +3683,27 @@ msgstr ""
 "<filename>%1</filename> alkaa välilyönnillä, minkä vuoksi se näytetään "
 "aakkosissa ennen muita kohteita – muiden kummallisuuksien ohella."
 
-#: filewidgets/knewfilemenu.cpp:1165
+#: filewidgets/knewfilemenu.cpp:1190
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders, like so:"
 msgstr "Vinoviivat kansioiden nimissä luovat alikansioita seuraavaan tapaan:"
 
-#: filewidgets/knewfilemenu.cpp:1179
+#: filewidgets/knewfilemenu.cpp:1204
 #, kde-format
 msgid "Using slashes in folder names will create sub-folders."
 msgstr "Vinoviivat kansioiden nimissä luovat alikansioita."
 
-#: filewidgets/knewfilemenu.cpp:1191
+#: filewidgets/knewfilemenu.cpp:1216
 #, kde-format
 msgid "Slashes cannot be used in file and folder names."
 msgstr "Vinoviivaa ei voi käyttää tiedostojen ja kansioiden nimissä"
 
-#: filewidgets/knewfilemenu.cpp:1196
+#: filewidgets/knewfilemenu.cpp:1221
 #, kde-format
 msgid "Backslashes cannot be used in file and folder names."
 msgstr "Kenoviivaa ei voi käyttää tiedostojen tai kansioiden nimissä."
 
-#: filewidgets/knewfilemenu.cpp:1210
+#: filewidgets/knewfilemenu.cpp:1235
 #, kde-kuit-format
 msgctxt "@error"
 msgid ""
@@ -3697,7 +3713,7 @@ msgstr ""
 "Tiedostoa tai kansiota nimeltä <filename>%1</filename> ei voida luoda, koska "
 "se limittyisi käyttäjän kotikansion sijainnin kanssa."
 
-#: filewidgets/knewfilemenu.cpp:1219
+#: filewidgets/knewfilemenu.cpp:1244
 #, kde-format
 msgid ""
 "Starting a file or folder name with a tilde is not recommended because it "
@@ -3707,36 +3723,36 @@ msgstr ""
 "aiheuttaa sekaannuksia tai vaaratilanteen poistettaessa tiedostoja "
 "päätteessä."
 
-#: filewidgets/knewfilemenu.cpp:1291
+#: filewidgets/knewfilemenu.cpp:1339
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A directory with name <filename>%1</filename> already exists."
 msgstr "Kansio nimeltä <filename>%1</filename> on jo olemassa."
 
-#: filewidgets/knewfilemenu.cpp:1293
+#: filewidgets/knewfilemenu.cpp:1341
 #, kde-kuit-format
 msgctxt "@info"
 msgid "A file with name <filename>%1</filename> already exists."
 msgstr "Tiedosto nimeltä <filename>%1</filename> on jo olemassa."
 
-#: filewidgets/knewfilemenu.cpp:1379
+#: filewidgets/knewfilemenu.cpp:1427
 #, kde-format
 msgid "Create New"
 msgstr "Luo uusi"
 
-#: filewidgets/knewfilemenu.cpp:1451
+#: filewidgets/knewfilemenu.cpp:1499
 #, kde-format
 msgctxt "Default name for a new folder"
 msgid "New Folder"
 msgstr "Uusi kansio"
 
-#: filewidgets/knewfilemenu.cpp:1474
+#: filewidgets/knewfilemenu.cpp:1522
 #, kde-format
 msgctxt "@title:window"
 msgid "Create New Folder"
 msgstr "Luo uusi kansio"
 
-#: filewidgets/knewfilemenu.cpp:1477
+#: filewidgets/knewfilemenu.cpp:1525
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Cannot transfer <filename>%1</filename>"
@@ -3744,13 +3760,13 @@ msgctxt "@label"
 msgid "Create new folder in <filename>%1</filename>:"
 msgstr "Tiedostoa <filename>%1</filename> ei voi siirtää"
 
-#: filewidgets/knewfilemenu.cpp:1481 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
 msgstr "Anna kansion nimi"
 
-#: filewidgets/knewfilemenu.cpp:1538
+#: filewidgets/knewfilemenu.cpp:1586
 #, kde-format
 msgid "Default"
 msgstr "Oletus"
