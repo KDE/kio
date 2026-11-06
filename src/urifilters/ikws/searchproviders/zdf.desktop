@@ -4,6 +4,7 @@ Hidden=false
 Keys=zdf
 Name=ZDF Mediathek
 Name[af]=ZDF Mediathek
+Name[am]=ZDF Mediathek
 Name[ar]=ZDF Mediathek
 Name[az]=ZDF Mediathek
 Name[bg]=ZDF Mediathek
@@ -46,6 +47,7 @@ Name[zh_CN]=ZDF Mediathek
 Name[zh_TW]=ZDF Mediathek
 Query=https://www.zdf.de/suche?q=\\{@}
 Query[af]=https://www.zdf.de/suche?q=\\{@}
+Query[am]=https://www.zdf.de/suche?q=\\{@}
 Query[ar]=https://www.zdf.de/suche?q=\\{@}
 Query[az]=https://www.zdf.de/suche?q=\\{@}
 Query[bg]=https://www.zdf.de/suche?q=\\{@}

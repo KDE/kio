@@ -3,6 +3,7 @@ Charset=
 Keys=osm,openstreetmap
 Name=OpenStreetMap
 Name[af]=OpenStreetMap
+Name[am]=OpenStreetMap
 Name[ar]=OpenStreetMap
 Name[az]=OpenStreetMap
 Name[bg]=OpenStreetMap
@@ -46,6 +47,7 @@ Name[zh_CN]=OpenStreetMap
 Name[zh_TW]=OpenStreetMap
 Query=https://www.openstreetmap.org/search?query=\\{@}
 Query[af]=https://www.openstreetmap.org/search?query=\\{@}
+Query[am]=https://www.openstreetmap.org/search?query=\\{@}
 Query[ar]=https://www.openstreetmap.org/search?query=\\{@}
 Query[az]=https://www.openstreetmap.org/search?query=\\{@}
 Query[bg]=https://www.openstreetmap.org/search?query=\\{@}
