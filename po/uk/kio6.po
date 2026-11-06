@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-05 00:51+0000\n"
-"PO-Revision-Date: 2026-10-27 12:15+0200\n"
+"PO-Revision-Date: 2026-11-05 18:07+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -3665,11 +3665,7 @@ msgstr ""
 "зарезервовано операційною системою."
 
 #: filewidgets/knewfilemenu.cpp:1152
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The name <filename>%1</filename> cannot be used because it is reserved "
-#| "for use by the operating system."
+#, kde-kuit-format
 msgctxt ""
 "@info %2 is a file system name such as FAT or NTFS, %3 is a list of "
 "characters"
@@ -3677,8 +3673,8 @@ msgid ""
 "The name <filename>%1</filename> cannot be used because the file system of "
 "this folder (%2) does not allow these characters in names: %3"
 msgstr ""
-"Не можна скористатися назвою <filename>%1</filename>, оскільки таку назву "
-"зарезервовано операційною системою."
+"Не можна скористатися назвою <filename>%1</filename>, оскільки файлова "
+"система цієї теки (%2) забороняє такі символи у назвах: %3"
 
 #: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format

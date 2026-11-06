@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-05 00:51+0000\n"
-"PO-Revision-Date: 2026-11-03 20:26+0200\n"
+"PO-Revision-Date: 2026-11-05 12:58+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -3557,11 +3557,7 @@ msgstr ""
 "ההפעלה."
 
 #: filewidgets/knewfilemenu.cpp:1152
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The name <filename>%1</filename> cannot be used because it is reserved "
-#| "for use by the operating system."
+#, kde-kuit-format
 msgctxt ""
 "@info %2 is a file system name such as FAT or NTFS, %3 is a list of "
 "characters"
@@ -3569,8 +3565,8 @@ msgid ""
 "The name <filename>%1</filename> cannot be used because the file system of "
 "this folder (%2) does not allow these characters in names: %3"
 msgstr ""
-"אי אפשר להשתמש בשם <filename>%1</filename> כיוון שהוא שמור לשימוש מערכת "
-"ההפעלה."
+"אי אפשר להשתמש בשם <filename>%1</filename> כיוון שמערכת הקבצים של התיקייה "
+"הזאת (%2) לא מרשה להשתמש בתווים האלה בשמות: %3"
 
 #: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format

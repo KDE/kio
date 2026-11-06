@@ -2,20 +2,21 @@
 # This file is distributed under the same license as the kio package.
 #
 # SPDX-FileCopyrightText: 2026 Wesenseged <kde-i18n-de@kde.org>
+# SPDX-FileCopyrightText: 2026 Abenezer Wesenseged <wseged@proton.me>
 msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-05 00:51+0000\n"
-"PO-Revision-Date: 2026-05-04 17:15+0300\n"
-"Last-Translator: Wesenseged <kde-i18n-de@kde.org>\n"
-"Language-Team: English <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2026-11-02 15:39+0300\n"
+"Last-Translator: Abenezer Wesenseged <wseged@proton.me>\n"
+"Language-Team: Amharic <kde-l10n-am@kde.org>\n"
 "Language: am\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -105,7 +106,7 @@ msgstr "መጣያ"
 #: core/copyjob.cpp:2541
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
-msgstr ""
+msgstr "%1 ከተገለበጠ በኋላ ስለተለወጠ፣ አልተሰረዘም።"
 
 #: core/desktopexecparser.cpp:335
 #, kde-format
@@ -158,7 +159,7 @@ msgstr[0] "%1 ንጥል"
 msgstr[1] "%1 ንጥሎች"
 
 #: core/global.cpp:92
-#, fuzzy, kde-format
+#, kde-format
 msgid "1 Folder"
 msgid_plural "%1 Folders"
 msgstr[0] "1 አቃፊ"
@@ -2209,27 +2210,25 @@ msgstr "የ%1 ፋይል አይነት ማወቅ አልተቻለም"
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "No file type can be defined for the extension \"%1\"."
-msgstr ""
+msgstr "ለቅጥያው \"%1\" ምንም አይነት የፋይል አይነት መግለጽ አይቻልም።"
 
 #: core/openwith.cpp:96
-#, fuzzy, kde-format
-#| msgid "Could not enter folder %1."
+#, kde-format
 msgctxt "@info %1 is a folder path"
 msgid "Could not create the folder %1."
-msgstr "ወደ አቃፊ %1 መግባት አልተቻለም።"
+msgstr "%1 አቃፊውን መፍጠር አልተቻለም።"
 
 #: core/openwith.cpp:100 core/openwith.cpp:113
-#, fuzzy, kde-format
-#| msgid "Could not write to file %1."
+#, kde-format
 msgctxt "@info %1 is a file path, %2 the error"
 msgid "Could not write the file type definition %1: %2"
-msgstr "ወደ ፋይል %1 መጻፍ አልተቻለም።"
+msgstr "የፋይል አይነት ፍቺን %1 መጻፍ አልተቻለም፦ %2"
 
 #: core/openwith.cpp:120
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "Could not update the file type database with the extension \"%1\"."
-msgstr ""
+msgstr "የፋይል አይነት ዳታቤዙን በኤክስቴንሽን \"%1\" ማዘመን አልተቻለም።"
 
 #: core/openwith.cpp:149
 #, kde-format
@@ -3496,11 +3495,10 @@ msgid "Create link to URL"
 msgstr "ወደ URL አገናኝ ፍጠር"
 
 #: filewidgets/knewfilemenu.cpp:662
-#, fuzzy, kde-format
-#| msgid "Create New"
+#, kde-format
 msgctxt "@title:window New link to a program"
 msgid "Create New %1"
-msgstr "አዲስ ፍጠር"
+msgstr "አዲስ %1 ይፍጠሩ"
 
 #: filewidgets/knewfilemenu.cpp:796 filewidgets/knewfilemenu.cpp:818
 #, kde-format
@@ -3622,12 +3620,10 @@ msgid "Create New Folder"
 msgstr "አዲስ አቃፊ ይፍጠሩ"
 
 #: filewidgets/knewfilemenu.cpp:1525
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Create new folder in <filename>%1</filename>:"
-msgstr "<filename>%1</filename>ን ማስተላለፍ አይቻልም"
+msgstr "በ <filename>%1</filename> ውስጥ አዲስ አቃፊ ይፍጠሩ፦"
 
 #: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
@@ -3673,10 +3669,9 @@ msgid "You can change the icon later in folder properties."
 msgstr "አዶውን በኋላ በአቃፊ ባህሪያት ውስጥ መቀየር ይችላሉ።"
 
 #: filewidgets/kurlnavigator.cpp:611
-#, fuzzy, kde-format
-#| msgid "Location:"
+#, kde-format
 msgid "Copy Location"
-msgstr "መገኛ፦"
+msgstr "መገኛ ቅዳ"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
 #: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42
@@ -3730,9 +3725,7 @@ msgid "Go to Location on Path"
 msgstr "በመንገድ ላይ ወደ ቦታ ይሂዱ"
 
 #: filewidgets/kurlnavigatorplacesselector.cpp:49
-#, fuzzy, kde-format
-#| msgctxt "@item"
-#| msgid "Places"
+#, kde-format
 msgctxt ""
 "@action:button accessible name for the places selector in the URL navigator"
 msgid "Places"
@@ -3830,11 +3823,10 @@ msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr "FilePreviewJob፦ ባዶ ፋይል መዝለል፣ የተሰበረ ሲምሊንክ ሊሆን ይችላል፦ %1"
 
 #: gui/kemailclientlauncherjob.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to open the file."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to open email client"
-msgstr "ፋይሉን መክፈት አልተሳካም።"
+msgstr "የኢሜይል ፕሮግራምን መክፈት አልተቻለም"
 
 #: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
@@ -3941,7 +3933,7 @@ msgstr "ፕሮግራም \"%1\"ን ማስጀመር አልተቻለም።"
 #: gui/systemd/systemdprocessrunner.cpp:200
 #, kde-format
 msgid "Failed to launch process (status code: %1)"
-msgstr ""
+msgstr "ሂደቱን ማስጀመር አልተቻለም (የሁኔታ ኮድ፡ %1)"
 
 #: kioexec/kioexecd.cpp:86
 #, kde-kuit-format
@@ -4137,7 +4129,7 @@ msgstr "ለቡድን ስም %1 የቡድን ID ማግኘት አልተቻለም"
 #: kioworkers/file/file_unix_copy.cpp:1112
 #, kde-format
 msgid "Writing the copied data to the device..."
-msgstr ""
+msgstr "የተገለበጠውን መረጃ ወደ መሳሪያው በመጻፍ ላይ..."
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format
@@ -4494,16 +4486,14 @@ msgstr "ይህ ፋይል አስቀድሞ በቆሻሻ መጣያ ውስጥ አለ
 
 #: kioworkers/trash/kio_trash_win.cpp:216
 #: kioworkers/trash/kio_trash_win.cpp:231
-#, fuzzy, kde-format
-#| msgid "The resource cannot be deleted."
+#, kde-format
 msgid "The trash item %1 cannot be restored."
-msgstr "ምንጩ ሊሰረዝ አይችልም።"
+msgstr "በቆሻሻ መጣያ ውስጥ ያለው %1 ንጥል ወደነበረበት ሊመለስ አይችልም።"
 
 #: kioworkers/trash/kio_trash_win.cpp:255
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in rename, should never happen"
-msgstr "በcopyOrMove ውስጥ ውስጣዊ ስህተት፣ በፍፁም ሊከሰት አይገባም"
+msgstr "ስም በመቀየር ሂደት ውስጥ ውስጣዊ ስህተት ተከስቷል፤ ይህ በፍጹም ሊከሰት የማይገባው ነገር ነው።"
 
 #: kioworkers/trash/kio_trash_win.cpp:268
 #, kde-format
@@ -4511,15 +4501,14 @@ msgid "not supported"
 msgstr "አይደገፍም"
 
 #: kioworkers/trash/kio_trash_win.cpp:276
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in copy, should never happen"
-msgstr "በcopyOrMove ውስጥ ውስጣዊ ስህተት፣ በፍፁም ሊከሰት አይገባም"
+msgstr "በቅጂ ሂደት ውስጥ ውስጣዊ ስህተት ተከስቷል፤ ይህ በፍጹም ሊከሰት የማይገባው ነገር ነው።"
 
 #: kioworkers/trash/kio_trash_win.cpp:512
 #, kde-format
 msgid "Trash operation failed with error code 0x%1."
-msgstr ""
+msgstr "የቆሻሻ (Trash) ክዋኔው በስህተት ኮድ 0x%1 አልተሳካም።"
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format
@@ -5137,7 +5126,7 @@ msgid "Named group"
 msgstr "የተሰየመ ቡድን"
 
 #: widgets/kacleditwidget.cpp:444
-#, fuzzy, kde-format
+#, kde-format
 msgid "User: "
 msgstr "ተጠቃሚ፦ "
 
@@ -5249,14 +5238,12 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kfileitemactions.cpp:777
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Open Folder With…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
-msgstr[0] "አቃፊን ክፈት በ(&O)…"
-msgstr[1] "አቃፊን ክፈት በ(&O)…"
+msgstr[0] "(&O)አቃፊውን በ... ክፈት"
+msgstr[1] "(&O)አቃፊዎችን በ... ክፈት"
 
 #: widgets/kfileitemactions.cpp:777
 #, kde-format
@@ -5271,13 +5258,12 @@ msgid "&Run Executable"
 msgstr "ተፈጻሚውን አስኪድ(&R)"
 
 #: widgets/kfileitemactions.cpp:857
-#, fuzzy, kde-format
-#| msgid "&Open folder with %1"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open folder with %2"
 msgid_plural "&Open folders with %2"
-msgstr[0] "አቃፊን በ%1 ክፈት(&O)"
-msgstr[1] "አቃፊን በ%1 ክፈት(&O)"
+msgstr[0] "(&O)አቃፊውን በ%2 ይክፈቱ"
+msgstr[1] "(&O)አቃፊዎችን በ%2 ይክፈቱ"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -5285,14 +5271,12 @@ msgid "&Open with %1"
 msgstr "በ %1 ክፈት(&O)"
 
 #: widgets/kfileitemactions.cpp:891
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgid_plural "&Open Folders With"
-msgstr[0] "አቃፊን ክፈት በ(&O)"
-msgstr[1] "አቃፊን ክፈት በ(&O)"
+msgstr[0] "(&O)አቃፊን በ... ክፈት"
+msgstr[1] "(&O)አቃፊዎችን በ... ክፈት"
 
 #: widgets/kfileitemactions.cpp:891
 #, kde-format
@@ -5334,8 +5318,7 @@ msgstr "ይዘት፦"
 
 #. i18n: ectx: property (text), widget (QLabel, defaultHandlerLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:138
-#, fuzzy, kde-format
-#| msgid "Open With:"
+#, kde-format
 msgid "Open with:"
 msgstr "ክፈት በ፦"
 
@@ -5361,7 +5344,7 @@ msgstr "መጠን፦"
 #: widgets/kfilepropspluginwidget.ui:259
 #, kde-format
 msgid "Size on disk:"
-msgstr ""
+msgstr "በዲስክ ላይ ያለው መጠን፦"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:308
@@ -5419,29 +5402,25 @@ msgstr "የተደረሰበት፦"
 
 #. i18n: ectx: property (text), widget (QLabel, fsLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:481
-#, fuzzy, kde-format
-#| msgid "File System:"
+#, kde-format
 msgid "File system:"
 msgstr "የፋይል ስርዓት፦"
 
 #. i18n: ectx: property (text), widget (QLabel, mountPointLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:507
-#, fuzzy, kde-format
-#| msgid "Mounted On:"
+#, kde-format
 msgid "Mounted on:"
 msgstr "በ ላይ ተጭኗል፦"
 
 #. i18n: ectx: property (text), widget (QLabel, mountSrcLabel_Left)
 #: widgets/kfilepropspluginwidget.ui:533
-#, fuzzy, kde-format
-#| msgid "Mounted From:"
+#, kde-format
 msgid "Mounted from:"
 msgstr "የተጫነው ከ፦"
 
 #. i18n: ectx: property (text), widget (QLabel, freespaceLabel)
 #: widgets/kfilepropspluginwidget.ui:559
-#, fuzzy, kde-format
-#| msgid "Free Space:"
+#, kde-format
 msgid "Free space:"
 msgstr "ነፃ ቦታ፦"
 
@@ -5569,15 +5548,10 @@ msgstr ""
 "\"%1\"(&R)"
 
 #: widgets/kopenwithdialog.cpp:773
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\""
+#, kde-format
 msgctxt "@option:check %1 is a file name extension"
 msgid "&Remember application association for all \"*.%1\" files"
-msgstr ""
-"ለሁሉም አይነት ፋይሎች የመተግበሪያ ትስስርን አስታውስ\n"
-"\"%1\"(&R)"
+msgstr "ለሁሉም \"*.%1\" ፋይሎች የመተግበሪያ ግንኙነትን አስታውስ(&R)"
 
 #: widgets/kopenwithdialog.cpp:781
 #, kde-format
@@ -5984,8 +5958,7 @@ msgstr ""
 "በቂ ያልሆነ የመፃፍ መዳረሻ ምክንያት ባህሪያትን ማስቀመጥ አልተቻለም፦<nl/><filename>%1</filename>።"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:159
-#, fuzzy, kde-format
-#| msgid "%1 (%2)"
+#, kde-format
 msgctxt ""
 "@label the size of a file or folder, first rounded and then to the byte"
 msgid "%1 (%2)"
@@ -5996,8 +5969,8 @@ msgstr "%1 (%2)"
 msgctxt "@item the exact size of a file or folder"
 msgid "%1 byte"
 msgid_plural "%1 bytes"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 ባይት"
+msgstr[1] "%1 ባይትስ"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:263
 #, kde-format
@@ -6048,16 +6021,13 @@ msgid "Unknown size"
 msgstr "ያልታወቀ መጠን"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:739
-#, fuzzy, kde-format
-#| msgid ""
-#| "Calculating... %1 (%2)\n"
-#| "%3, %4"
+#, kde-format
 msgid ""
 "Calculating... %1\n"
 "%2, %3"
 msgstr ""
-"በማስላት ላይ… %1 (%2)\n"
-"%3፣ %4"
+"በማስላት ላይ... %1\n"
+"%2፣ %3"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:741
 #: widgets/kpropertiesdialogbuiltin_p.cpp:756
@@ -6474,30 +6444,24 @@ msgid "C&hecksums"
 msgstr "ቼክሰም(&H)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2306
-#, fuzzy, kde-format
-#| msgctxt "@info:progress computation in the background"
-#| msgid "Verifying checksum…"
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum… (%1%)"
-msgstr "ቼክሰምን በማረጋገጥ ላይ…"
+msgstr "ቼክሰም (checksum) በመረጋገጥ ላይ… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2414
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2636
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash for multiple files"
 msgid "Calculating… (%1/%2)"
-msgstr "በማስላት ላይ…"
+msgstr "በማስላት ላይ… (%1/%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2431
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2638
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash"
 msgid "Calculating… (%1%)"
-msgstr "በማስላት ላይ…"
+msgstr "በማስላት ላይ… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
 #, kde-format
@@ -6985,21 +6949,21 @@ msgstr "<filename>%1</filename> ተቀባይንት ያለው የፋይል ስም
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view."
-msgstr ""
+msgstr "የዚህን አቃፊ ስም መጀመሪያ ላይ ነጥብ መጨመር አቃፊውን እንዳይታይ ይደብቀዋል።"
 
 #: widgets/renamefiledialog.cpp:236
 #, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view."
-msgstr ""
+msgstr "የዚህን ፋይል ስም መጀመሪያ ላይ ነጥብ መጨመር ፋይሉን እንዳይታይ ይደብቀዋል።"
 
 #: widgets/renamefiledialog.cpp:244
 #, kde-format
 msgctxt "@info"
 msgid ""
 "The file's type may change, which could prevent it from opening correctly."
-msgstr ""
+msgstr "የፋይሉ አይነት ሊቀየር ይችላል፤ ይህ ደግሞ ፋይሉ በትክክል እንዳይከፈት ሊያደርግ ይችላል።"
 
 #: widgets/renamefiledialog.cpp:265
 #, kde-format
@@ -7016,25 +6980,19 @@ msgid "# will be replaced by ascending numbers starting with:"
 msgstr "# ከዚህ ጀምሮ በሚጨምሩ ቁጥሮች ይተካል፦"
 
 #: widgets/renamefiledialog.cpp:283
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#, kde-format
 msgctxt "@item:inlistbox the new name is the whole file name"
 msgid "Replace filename"
-msgstr "ከፋይል ስም በፊት"
+msgstr "የፋይል ስም ተካ"
 
 #: widgets/renamefiledialog.cpp:284
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text before filename"
-#| msgid "Before filename"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name before the filename"
 msgid "Before filename"
 msgstr "ከፋይል ስም በፊት"
 
 #: widgets/renamefiledialog.cpp:285
-#, fuzzy, kde-format
-#| msgctxt "@item:inlistbox as in insert text after filename"
-#| msgid "After filename"
+#, kde-format
 msgctxt "@item:inlistbox as in insert the new name after the filename"
 msgid "After filename"
 msgstr "ከፋይል ስም ቡሃላ"
@@ -7045,7 +7003,7 @@ msgctxt ""
 "Template putting the number before the old file name, # is replaced by a "
 "number later"
 msgid "#_"
-msgstr ""
+msgstr "#_"
 
 #: widgets/renamefiledialog.cpp:340
 #, kde-format
@@ -7053,7 +7011,7 @@ msgctxt ""
 "Template putting the number after the old file name, # is replaced by a "
 "number later"
 msgid "_#"
-msgstr ""
+msgstr "_#"
 
 #: widgets/renamefiledialog.cpp:342
 #, kde-format
@@ -7097,7 +7055,7 @@ msgstr "ንድፍ"
 #, kde-format
 msgctxt "@info with as in replacing [value] with [value]"
 msgid "With:"
-msgstr "ከ፦"
+msgstr "በ፦"
 
 #: widgets/renamefiledialog.cpp:459
 #, kde-format
@@ -7206,12 +7164,10 @@ msgid "<filename>%1</filename> cannot be renamed to an empty file name."
 msgstr "<filename>%1</filename> ወደ ባዶ የፋይል ስም መቀየር አይቻልም።"
 
 #: widgets/renamefilewarningdialog.cpp:58
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Rename Item"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename and Hide"
-msgstr "ንጥሉን እንደገና ይሰይሙ"
+msgstr "እንደገና ይሰይሙ እና ይደብቁ"
 
 #: widgets/renamefilewarningdialog.cpp:60
 #, kde-format
@@ -7220,6 +7176,8 @@ msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"የዚህን አቃፊ ስም መጀመሪያ ላይ ነጥብ መጨመር አቃፊውን እንዳይታይ ይደብቀዋል።\n"
+"አሁንም ስሙን መቀየር ይፈልጋሉ?"
 
 #: widgets/renamefilewarningdialog.cpp:61
 #, kde-format
@@ -7228,19 +7186,20 @@ msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view.\n"
 "Do you still want to rename it?"
 msgstr ""
+"የዚህን አቃፊ ስም መጀመሪያ ላይ ነጥብ መጨመር አቃፊውን እንዳይታይ ይደብቀዋል።\n"
+"አሁንም ስሙን መቀየር ይፈልጋሉ?"
 
 #: widgets/renamefilewarningdialog.cpp:62
-#, fuzzy, kde-format
-#| msgid "Home Folder"
+#, kde-format
 msgctxt "@title:window"
 msgid "Hide this Folder?"
-msgstr "መነሻ አቃፊ"
+msgstr "ይህንን አቃፊ ደብቅ?"
 
 #: widgets/renamefilewarningdialog.cpp:62
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
-msgstr ""
+msgstr "ይህን ፋይል ደብቅ?"
 
 #: widgets/renamefilewarningdialog.cpp:68
 #: widgets/renamefilewarningdialog.cpp:118
@@ -7251,11 +7210,10 @@ msgid "Do not ask again"
 msgstr "እንደገና አትጠይቅ"
 
 #: widgets/renamefilewarningdialog.cpp:99
-#, fuzzy, kde-format
-#| msgid "&Rename"
+#, kde-format
 msgctxt "@action:button"
 msgid "Rename"
-msgstr "እንደገና ይሰይሙ(&R)"
+msgstr "እንደገና ይሰይሙ"
 
 #: widgets/renamefilewarningdialog.cpp:104
 #, kde-format
@@ -7266,6 +7224,9 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"ይህ የፋይሉን አይነት የማይታወቅ ያደርገዋል።\n"
+"የፋይሉ ይዘት አይቀየርም፤ ነገር ግን መተግበሪያዎች ፋይሉን ላይያውቁት ይችላሉ።\n"
+"አሁንም ስሙን መቀየር ይፈልጋሉ?"
 
 #: widgets/renamefilewarningdialog.cpp:108
 #, kde-format
@@ -7276,12 +7237,15 @@ msgid ""
 "it.\n"
 "Do you still want to rename it?"
 msgstr ""
+"ይህ የፋይሉን አይነት ከ\"%1\" ወደ \"%2\" ይለውጠዋል።\n"
+"የፋይሉ ይዘት አይቀየርም፤ ነገር ግን መተግበሪያዎች ፋይሉን ለይተው ማወቅ ላይችሉ ይችላሉ።\n"
+"አሁንም ስሙን መቀየር ይፈልጋሉ?"
 
 #: widgets/renamefilewarningdialog.cpp:115
 #, kde-format
 msgctxt "@title:window"
 msgid "Change File Type"
-msgstr ""
+msgstr "የፋይል አይነት ይቀይሩ"
 
 #: widgets/skipdialog.cpp:29
 #, kde-format

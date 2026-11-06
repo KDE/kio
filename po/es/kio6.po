@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-05 00:51+0000\n"
-"PO-Revision-Date: 2026-10-27 11:25+0100\n"
+"PO-Revision-Date: 2026-11-05 11:54+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -3698,11 +3698,7 @@ msgstr ""
 "para que lo use el sistema operativo."
 
 #: filewidgets/knewfilemenu.cpp:1152
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The name <filename>%1</filename> cannot be used because it is reserved "
-#| "for use by the operating system."
+#, kde-kuit-format
 msgctxt ""
 "@info %2 is a file system name such as FAT or NTFS, %3 is a list of "
 "characters"
@@ -3710,8 +3706,8 @@ msgid ""
 "The name <filename>%1</filename> cannot be used because the file system of "
 "this folder (%2) does not allow these characters in names: %3"
 msgstr ""
-"El nombre <filename>%1</filename> no se puede usar porque está reservado "
-"para que lo use el sistema operativo."
+"El nombre <filename>%1</filename> no se puede usar porque el sistema de "
+"archivos de esta carpeta (%2) no permite estos caracteres en el nombre: %3"
 
 #: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format

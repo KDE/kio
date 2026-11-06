@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-05 00:51+0000\n"
-"PO-Revision-Date: 2026-10-27 07:46+0200\n"
+"PO-Revision-Date: 2026-11-05 07:47+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -3674,11 +3674,7 @@ msgstr ""
 "зарезервировано для использования операционной системой."
 
 #: filewidgets/knewfilemenu.cpp:1152
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The name <filename>%1</filename> cannot be used because it is reserved "
-#| "for use by the operating system."
+#, kde-kuit-format
 msgctxt ""
 "@info %2 is a file system name such as FAT or NTFS, %3 is a list of "
 "characters"
@@ -3686,8 +3682,8 @@ msgid ""
 "The name <filename>%1</filename> cannot be used because the file system of "
 "this folder (%2) does not allow these characters in names: %3"
 msgstr ""
-"Имя «<filename>%1</filename>» нельзя использовать, потому что оно "
-"зарезервировано для использования операционной системой."
+"Имя «<filename>%1</filename>» нельзя использовать, потому что файловая "
+"система этой папки (%2) не допускает в именах следующие символы: %3"
 
 #: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format

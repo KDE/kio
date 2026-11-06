@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-05 00:51+0000\n"
-"PO-Revision-Date: 2026-10-28 22:58+0100\n"
+"PO-Revision-Date: 2026-11-05 12:31+0100\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -3634,11 +3634,7 @@ msgstr ""
 "použití operačním systémem."
 
 #: filewidgets/knewfilemenu.cpp:1152
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The name <filename>%1</filename> cannot be used because it is reserved "
-#| "for use by the operating system."
+#, kde-kuit-format
 msgctxt ""
 "@info %2 is a file system name such as FAT or NTFS, %3 is a list of "
 "characters"
@@ -3646,8 +3642,8 @@ msgid ""
 "The name <filename>%1</filename> cannot be used because the file system of "
 "this folder (%2) does not allow these characters in names: %3"
 msgstr ""
-"Název nelze použít <filename>%1</filename><nl/>protože je rezervován pro "
-"použití operačním systémem."
+"Název <filename>%1</filename> nelze použít, protože souborový systém této "
+"složky (%2) nepovoluje použití těchto znaků v názvech: %3"
 
 #: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format

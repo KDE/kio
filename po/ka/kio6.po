@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-05 00:51+0000\n"
-"PO-Revision-Date: 2026-10-27 09:56+0100\n"
+"PO-Revision-Date: 2026-11-05 05:33+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3624,11 +3624,7 @@ msgstr ""
 "სისტემის მიერაა დარეზერვებულია."
 
 #: filewidgets/knewfilemenu.cpp:1152
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The name <filename>%1</filename> cannot be used because it is reserved "
-#| "for use by the operating system."
+#, kde-kuit-format
 msgctxt ""
 "@info %2 is a file system name such as FAT or NTFS, %3 is a list of "
 "characters"
@@ -3636,8 +3632,9 @@ msgid ""
 "The name <filename>%1</filename> cannot be used because the file system of "
 "this folder (%2) does not allow these characters in names: %3"
 msgstr ""
-"სახელის: <filename>%1</filename> გამოყენება შეუძლებელია; ის ოპერაციული "
-"სისტემის მიერაა დარეზერვებულია."
+"სახელის: <filename>%1</filename> გამოყენება შეუძლებელია, რადგან ამ "
+"საქაღალდის ფაილური სისტემას (%2) ამ სიმბოლოებს სახელში გამოყენების "
+"მხარდაჭერა არ გააჩნია: %3"
 
 #: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
