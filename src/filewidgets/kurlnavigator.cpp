@@ -1464,7 +1464,7 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
         if (underMouse()) {
             option.state |= QStyle::State_MouseOver;
         }
-        style()->drawPrimitive(QStyle::PE_FrameLineEdit, &option, &painter, this);
+        style()->drawPrimitive(QStyle::PE_PanelLineEdit, &option, &painter, this);
     }
 }
 
