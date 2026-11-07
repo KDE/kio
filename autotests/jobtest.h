@@ -88,6 +88,7 @@ private Q_SLOTS:
     void suspendCopy();
     void listRecursive();
     void listRecursiveExcludeDots();
+    void listRecursiveEntersFoldersOnly();
     void listRecursiveExcludeDotsHiddenToggle();
     void multipleListRecursive();
     void listFile();

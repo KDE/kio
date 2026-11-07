@@ -2415,6 +2415,47 @@ static QByteArray expectedListRecursiveOutputExcludeDots()
         "fileFromHome");
 }
 
+// A recursive listing lists the content of every folder below the one it started from, and lists files
+// and symbolic links without going into them, a link to a folder included.
+void JobTest::listRecursiveEntersFoldersOnly()
+{
+    QTemporaryDir dir(homeTmpDir() + "listrecursiveXXXXXX");
+    QVERIFY(dir.isValid());
+    QVERIFY(QDir(dir.path()).mkpath(QStringLiteral("folder/subfolder")));
+    createTestFile(dir.filePath(QStringLiteral("file")));
+    createTestFile(dir.filePath(QStringLiteral("folder/file")));
+    createTestFile(dir.filePath(QStringLiteral("folder/subfolder/file")));
+#ifndef Q_OS_WIN
+    QCOMPARE(::symlink("folder", QFile::encodeName(dir.filePath(QStringLiteral("link to folder"))).constData()), 0);
+    QCOMPARE(::symlink("file", QFile::encodeName(dir.filePath(QStringLiteral("link to file"))).constData()), 0);
+#endif
+
+    QStringList names;
+    KIO::ListJob *job =
+        KIO::listRecursive(QUrl::fromLocalFile(dir.path()), KIO::HideProgressInfo, KIO::ListJob::ListFlag::ExcludeDot | KIO::ListJob::ListFlag::ExcludeDotDot);
+    job->setUiDelegate(nullptr);
+    connect(job, &KIO::ListJob::entries, this, [&names](KIO::Job *, const KIO::UDSEntryList &entries) {
+        for (const KIO::UDSEntry &entry : entries) {
+            names.append(entry.stringValue(KIO::UDSEntry::UDS_NAME));
+        }
+    });
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    names.sort();
+
+    QStringList expected{
+        QStringLiteral("file"),
+        QStringLiteral("folder"),
+        QStringLiteral("folder/file"),
+        QStringLiteral("folder/subfolder"),
+        QStringLiteral("folder/subfolder/file"),
+    };
+#ifndef Q_OS_WIN
+    expected << QStringLiteral("link to file") << QStringLiteral("link to folder");
+#endif
+    expected.sort();
+    QCOMPARE(names, expected);
+}
+
 void JobTest::listRecursiveExcludeDots()
 {
     // Note: many other tests must have been run before since we rely on the files they created

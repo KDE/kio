@@ -93,6 +93,10 @@ void ListJobPrivate::maybeRecurse(const KIO::UDSEntryList &list)
     }
 
     for (const KIO::UDSEntry &entry : list) {
+        if (!entry.isDir() || entry.isLink()) {
+            continue;
+        }
+
         QUrl itemURL;
         const QString udsUrl = entry.stringValue(KIO::UDSEntry::UDS_URL);
         QString filename;
@@ -104,10 +108,6 @@ void ListJobPrivate::maybeRecurse(const KIO::UDSEntryList &list)
             filename = entry.stringValue(KIO::UDSEntry::UDS_NAME);
             Q_ASSERT(!filename.isEmpty()); // we'll recurse forever otherwise :)
             itemURL.setPath(Utils::concatPaths(itemURL.path(), filename));
-        }
-
-        if (!entry.isDir() || entry.isLink()) {
-            continue;
         }
 
         Q_ASSERT(!filename.isEmpty());
