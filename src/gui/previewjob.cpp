@@ -144,6 +144,7 @@ public:
     QMap<QString, int> deviceIdByPathTable;
 
     QTimer nextBatchScheduler;
+    QPointer<PathsFileDeviceIdsJob> pathsFileDeviceIdsJob;
 
     // Items whose cached thumbnail is still to be looked up, those that had none, and the pool
     // and watcher the lookups of the batch in flight run on.
@@ -214,6 +215,10 @@ void PreviewJobPrivate::startPreview()
 {
     Q_Q(PreviewJob);
 
+    if (q->isFinished()) {
+        return;
+    }
+
     nextBatchScheduler.setSingleShot(true);
     nextBatchScheduler.callOnTimeout(q, [this]() {
         startNextFilePreviewJobBatch();
@@ -243,10 +248,11 @@ void PreviewJobPrivate::startPreview()
     // last add thumbRoot, to not add cost to above paths.contains() check
     paths.append(setupData.thumbRoot);
 
-    auto *const pathsFileDeviceIdsJob = new PathsFileDeviceIdsJob(paths);
+    pathsFileDeviceIdsJob = new PathsFileDeviceIdsJob(paths);
+    pathsFileDeviceIdsJob->setParent(q);
     QObject::connect(pathsFileDeviceIdsJob, &KIO::Job::result, q, [this](KJob *job) {
-        auto *const pathsFileDeviceIdsJob = static_cast<PathsFileDeviceIdsJob *>(job);
-        deviceIdByPathTable = pathsFileDeviceIdsJob->takeDeviceIdByPathTable();
+        auto *const resultPathsFileDeviceIdsJob = static_cast<PathsFileDeviceIdsJob *>(job);
+        deviceIdByPathTable = resultPathsFileDeviceIdsJob->takeDeviceIdByPathTable();
         // caching info about thumbroot device id separately, to avoid repeated lookup
         setupData.thumbRootDeviceId = deviceIdForLocalPath(setupData.thumbRoot);
 
@@ -501,6 +507,10 @@ void PreviewJobPrivate::cancelCachedThumbnailLookups()
 bool PreviewJob::doKill()
 {
     Q_D(PreviewJob);
+    d->nextBatchScheduler.stop();
+    if (d->pathsFileDeviceIdsJob) {
+        d->pathsFileDeviceIdsJob->kill();
+    }
     d->cancelCachedThumbnailLookups();
     return KIO::Job::doKill();
 }
