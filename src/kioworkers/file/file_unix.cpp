@@ -169,6 +169,9 @@ static bool createUDSEntry(const QString &filename,
         // dev, inode
         numberEntries += 2;
     }
+    if (details & KIO::StatSizeOnDisk) {
+        numberEntries += 1;
+    }
     if (details & KIO::StatMimeType) {
         // mimetype
         stringEntries += 1;
@@ -434,7 +437,6 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
     };
 #endif
     // qDebug() << "========= LIST " << url << "details=" << details << " =========";
-    UDSEntry entry;
 
     QT_DIRENT *ep;
     while ((ep = QT_READDIR(dp)) != nullptr) {
@@ -443,7 +445,7 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
             return WorkerResult::pass();
         }
 
-        entry.clear();
+        UDSEntry entry;
 
         const QString filename = QFile::decodeName(ep->d_name);
 
@@ -485,14 +487,17 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
                 // even if we don't know the link dest (and DeleteJob doesn't care...)
                 entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, QStringLiteral("Dummy Link Target"));
             }
-            listEntry(entry);
+            listEntry(std::move(entry));
 
         } else {
-            QString fullPath = Utils::slashAppended(path);
-            fullPath += filename;
-
+            // The path of the entry is only read for its ACL, and the full path only for its MIME type.
+            QString fullPath;
+            if (details & KIO::StatMimeType) {
+                fullPath = Utils::slashAppended(path) + filename;
+            }
             const QByteArray name(ep->d_name);
-            if (createUDSEntry(filename, dirfd(dp), name, encodedBasePath + name, entry, details, fullPath)) {
+            const QByteArray entryPath = (details & KIO::StatAcl) ? encodedBasePath + name : QByteArray();
+            if (createUDSEntry(filename, dirfd(dp), name, entryPath, entry, details, fullPath)) {
 #if HAVE_SYS_XATTR_H && HAVE_DIRENT_D_TYPE
                 if (isOnNtfsMount(entry) && isNtfsHidden(fullPath)) {
                     bool ntfsHidden = true;
@@ -511,7 +516,7 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
                     }
                 }
 #endif
-                listEntry(entry);
+                listEntry(std::move(entry));
             }
         }
     }
