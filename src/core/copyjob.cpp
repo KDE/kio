@@ -349,6 +349,7 @@ public:
     bool m_useBatchCopy = true;
 #endif
     int m_batchCount = 0; // entries at the front of filesToCopy in the batch in flight
+    QSet<int> m_batchReported; // batch indices the worker reported copied
     int m_batchInFlight = -1; // batch index being copied, -1 between files
     QSet<int> m_batchDeferred; // batch indices the worker deferred
     bool m_batchAnswered = false; // the worker sent its answer packet
@@ -426,6 +427,7 @@ public:
     int batchableRunLength(KIO::filesize_t &bytes) const;
     void slotBatchCopyData(const QByteArray &data);
     void batchAnswerReceived(const QList<qint32> &deferred);
+    void batchProgressReceived(qint32 current, const QList<qint32> &done);
     void slotResultCopyingBatch(KJob *job);
 
     // False only when both sizes are known and bytes exceed the free space.
@@ -807,6 +809,12 @@ void CopyJobPrivate::sourceStated(const UDSEntry &entry, const QUrl &sourceUrl)
 bool CopyJob::doKill()
 {
     Q_D(CopyJob);
+    // Keep the flush-destination metadata of a batch before the kill drops the subjob.
+    if (d->state == STATE_COPYING_FILES_BATCH && !subjobs().isEmpty()) {
+        if (auto *batch = qobject_cast<KIO::Job *>(subjobs().constFirst())) {
+            d->m_incomingMetaData += batch->metaData();
+        }
+    }
     if (!Job::doKill()) {
         return false;
     }
@@ -871,12 +879,14 @@ void CopyJobPrivate::slotReport()
     case STATE_COPYING_FILES_BATCH: {
         const bool bytesTotalUnknown = (m_totalSize == 0);
         const bool noByteProgress = ((m_processedSize + m_fileProcessedSize) == 0);
-        const qulonglong handledFiles = m_processedFiles + m_skippedFiles;
+        // Files a batch reported copied count before the batch ends.
+        const qulonglong filesDone = m_processedFiles + m_batchReported.size();
+        const qulonglong handledFiles = filesDone + m_skippedFiles;
         const bool countInFiles = (bytesTotalUnknown || noByteProgress) && (handledFiles + filesToCopy.count()) > 0;
 
         // The file being copied counts, whether this job or a batch copies it.
         const bool fileInProgress = m_fileInFlight || m_batchInFlight >= 0;
-        q->setProcessedAmount(KJob::Files, m_processedFiles + (fileInProgress ? 1 : 0));
+        q->setProcessedAmount(KJob::Files, filesDone + (fileInProgress ? 1 : 0));
         q->setProcessedAmount(KJob::Bytes, m_processedSize + m_fileProcessedSize);
         if (countInFiles) {
             // A file the user skipped is one the job is done with, as in the renaming branch above.
@@ -2242,16 +2252,14 @@ bool CopyJobPrivate::tryBatchCopyFiles()
         request.files.append({ci.uSource.toLocalFile(), ci.uDest.toLocalFile()});
     }
 
-    // The answer of the batch comes back on the data channel.
+    // The answer and the progress of the batch come back on the data channel.
     KIO::SpecialJob *job = new KIO::SpecialJob(m_globalDest, KIO::writeBatchCopyRequest(request));
     job->setParentJob(q);
-    m_currentSrcURL = filesToCopy.at(0).uSource;
-    m_currentDestURL = filesToCopy.at(0).uDest;
-    m_bURLDirty = true;
     m_batchCount = fileCount;
     m_batchDeferred.clear();
     m_batchAnswered = false;
-    m_batchInFlight = 0; // the worker starts on a file straight away
+    m_batchReported.clear();
+    m_batchInFlight = -1;
     state = STATE_COPYING_FILES_BATCH;
 #ifdef BUILD_TESTING
     ++s_batchCopyCommandsSent;
@@ -2267,12 +2275,15 @@ bool CopyJobPrivate::tryBatchCopyFiles()
     return true;
 }
 
-// Only the answer is read, see BatchCopyPacketKind. A packet that does not decode is dropped.
+// See BatchCopyPacketKind. A packet that does not decode is dropped, the result of the batch
+// still accounts for every file.
 void CopyJobPrivate::slotBatchCopyData(const QByteArray &data)
 {
     const KIO::BatchCopyPacket packet = KIO::readBatchCopyPacket(data);
     if (const auto *answer = std::get_if<KIO::BatchCopyAnswer>(&packet)) {
         batchAnswerReceived(answer->deferred);
+    } else if (const auto *progress = std::get_if<KIO::BatchCopyProgress>(&packet)) {
+        batchProgressReceived(progress->current, progress->finished);
     }
 }
 
@@ -2284,6 +2295,32 @@ void CopyJobPrivate::batchAnswerReceived(const QList<qint32> &deferred)
         }
     }
     m_batchAnswered = true;
+}
+
+void CopyJobPrivate::batchProgressReceived(qint32 current, const QList<qint32> &done)
+{
+    Q_Q(CopyJob);
+    bool reported = false;
+    for (const qint32 idx : std::as_const(done)) {
+        if (idx >= 0 && idx < m_batchCount && !m_batchReported.contains(idx)) {
+            m_batchReported.insert(idx);
+            reported = true;
+            const CopyInfo &ci = filesToCopy.at(idx);
+            Q_EMIT q->copyingDone(q, ci.uSource, finalDestUrl(ci.uSource, ci.uDest), ci.mtime, false /*directory*/, false /*renamed*/);
+        }
+    }
+    const int inFlight = (current >= 0 && current < m_batchCount) ? current : -1;
+    const bool currentChanged = inFlight >= 0 && inFlight != m_batchInFlight;
+    m_batchInFlight = inFlight;
+    if (currentChanged) {
+        const CopyInfo &ci = filesToCopy.at(m_batchInFlight);
+        m_currentSrcURL = ci.uSource;
+        m_currentDestURL = ci.uDest;
+        m_bURLDirty = true;
+    }
+    if (currentChanged || reported) {
+        slotReport();
+    }
 }
 
 void CopyJobPrivate::slotResultCopyingBatch(KJob *job)
@@ -2308,6 +2345,8 @@ void CopyJobPrivate::slotResultCopyingBatch(KJob *job)
         if (kiojob) {
             m_incomingMetaData += kiojob->metaData();
         }
+        m_fileProcessedSize = 0;
+        m_batchReported.clear();
         q->removeSubjob(job);
         Q_ASSERT(!q->hasSubjobs());
         state = STATE_COPYING_FILES;
@@ -2315,8 +2354,22 @@ void CopyJobPrivate::slotResultCopyingBatch(KJob *job)
     };
 
     if (job->error()) {
-        // The command failed, for example on a full disk. The files are copied one by one, which
-        // reports the error.
+        if (job->error() == ERR_USER_CANCELED) {
+            // A cancel ends the whole job.
+            q->Job::slotResult(job);
+            return;
+        }
+        // The command failed, for example on a full disk. The files reported copied are done, the
+        // others are copied one by one.
+        QList<CopyInfo> retry;
+        for (int i = 0; i < fileCount && i < filesToCopy.size(); ++i) {
+            if (m_batchReported.contains(i)) {
+                accountCopied(filesToCopy.at(i));
+            } else {
+                retry.append(filesToCopy.at(i));
+            }
+        }
+        filesToCopy = retry + filesToCopy.mid(fileCount);
         fallBackToPerFile();
         return;
     }
@@ -2335,11 +2388,11 @@ void CopyJobPrivate::slotResultCopyingBatch(KJob *job)
             deferredFiles.append(ci);
             deferredFiles.last().deferred = true;
         } else {
-            Q_EMIT q->copyingDone(q, ci.uSource, finalDestUrl(ci.uSource, ci.uDest), ci.mtime, false /*directory*/, false /*renamed*/);
             accountCopied(ci);
         }
     }
     m_fileProcessedSize = 0;
+    m_batchReported.clear();
 
     if (deferredFiles.isEmpty()) {
         filesToCopy.remove(0, fileCount);

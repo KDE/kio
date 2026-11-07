@@ -1217,6 +1217,11 @@ public:
         , m_isKilled(std::move(isKilled))
     {
     }
+    // Called with the running byte total while a file is copied.
+    void setProgressHook(std::function<void(KIO::filesize_t)> onProgress)
+    {
+        m_onProgress = std::move(onProgress);
+    }
     // Returns the errno that stopped the batch, or 0 once every file was handled.
     int copyFiles(const QList<BatchCopyOp> &ops, KIO::filesize_t &bytesCopied, const ItemStartFn &onItemStart, const ItemResultFn &onItemResult);
     // True once a file went to a folder on a removable device.
@@ -1260,6 +1265,7 @@ private:
     PreserveFn m_preserve; // applies the permissions, times, owner and ACL of the source to each copied file
     gid_t m_egid;
     KilledFn m_isKilled;
+    std::function<void(KIO::filesize_t)> m_onProgress;
     CopyRequest m_request; // the same for every file of the batch
 
     HeldDir m_srcDir;
@@ -1307,7 +1313,8 @@ int BatchCopyEngine::copyFiles(const QList<BatchCopyOp> &ops, KIO::filesize_t &b
                                              m_request,
                                              bytesCopied,
                                              m_preserve,
-                                             m_isKilled);
+                                             m_isKilled,
+                                             m_onProgress);
         switch (report.outcome) {
         case CopyOutcome::Copied:
             onItemResult(op.index, BatchItemResult::Copied);
@@ -1428,9 +1435,19 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
         return wasKilled();
     });
     BatchProgressReporter progress(this);
+    engine.setProgressHook([&](KIO::filesize_t) {
+        progress.flushIfDue();
+    });
 
     QList<qint32> deferred; // indices deferred to the job
+    // Sent with the first file to a removable device, so a cancelled job flushes too.
+    bool flushAnnounced = false;
     const auto started = [&](int index) {
+        if (!flushAnnounced && engine.copiedToRemovable()) {
+            setMetaData(QStringLiteral("flush-destination"), QStringLiteral("true"));
+            sendMetaData();
+            flushAnnounced = true;
+        }
         progress.started(index);
     };
     const auto handled = [&](int index, BatchItemResult result) {
@@ -1443,10 +1460,6 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
     const int stopErrno = engine.copyFiles(sortedBatchCopyOps(*request), progress.bytesDone(), started, handled);
     progress.finish();
 
-    if (engine.copiedToRemovable()) {
-        // As in copy(), the job flushes the folder once the copy is over. It goes with the answer.
-        setMetaData(QStringLiteral("flush-destination"), QStringLiteral("true"));
-    }
     // The job copies each deferred file on its own, and gets the conflict or the error then.
     data(KIO::writeBatchCopyPacket(KIO::BatchCopyAnswer{deferred}));
     return batchCopyResult(stopErrno);

@@ -50,7 +50,9 @@ private Q_SLOTS:
     void copyManyFilesBatchedWithExistingDest();
     void copyManyFilesBatchedOverwriteExistingDest();
     void copyManyFilesBatchedWithUnreadableSource();
+    void copyManyFilesBatchedCancelled();
     void copyManyFilesKeepsBatchingAfterADeferredFile();
+    void killingABatchToARemovableDeviceKeepsItsFlush();
     void copyLargeFilesBatched();
     void copyManyFilesBatchedToSetgidDirectory();
 };
@@ -317,8 +319,27 @@ void CopyJobTest::copyManyFilesBatched()
         QVERIFY2(out.open(QIODevice::ReadOnly), qPrintable(out.fileName()));
         QCOMPARE(out.readAll(), QByteArray("batch-") + QByteArray::number(i));
     }
-    // The per-file copyingDone() signal must fire once per file even when batched.
+    // The per-file copyingDone() signal must fire once per file even when batched, and each must
+    // carry the right source/destination - i.e. the indices the worker streams map back correctly.
     QCOMPARE(spyCopyingDone.count(), n);
+    QStringList copiedFrom;
+    QStringList copiedTo;
+    for (const QList<QVariant> &args : std::as_const(spyCopyingDone)) {
+        copiedFrom << args.at(1).toUrl().toLocalFile();
+        copiedTo << args.at(2).toUrl().toLocalFile();
+    }
+    QStringList expectedFrom;
+    QStringList expectedTo;
+    for (int i = 0; i < n; ++i) {
+        expectedFrom << src + QStringLiteral("f%1").arg(i);
+        expectedTo << dst + QStringLiteral("f%1").arg(i);
+    }
+    copiedFrom.sort();
+    copiedTo.sort();
+    expectedFrom.sort();
+    expectedTo.sort();
+    QCOMPARE(copiedFrom, expectedFrom);
+    QCOMPARE(copiedTo, expectedTo);
     QCOMPARE(job->totalAmount(KJob::Files), n);
     QCOMPARE(job->processedAmount(KJob::Files), n);
     QCOMPARE(job->percent(), 100);
@@ -474,6 +495,49 @@ void CopyJobTest::copyManyFilesBatchedWithUnreadableSource()
     QCOMPARE(job->processedAmount(KJob::Files), n - 1);
 }
 
+void CopyJobTest::copyManyFilesBatchedCancelled()
+{
+    // Cancelling a batch copy must fail the job with ERR_USER_CANCELED, never report success. (A
+    // user kill() is handled by Job::doKill(), which clears the in-flight batch subjob quietly; the
+    // symmetric guard in slotResultCopyingBatch additionally stops it resuming the per-file path if
+    // a worker ever delivers ERR_USER_CANCELED as a batch result, mirroring the single-file path.)
+    const QString src = homeTmpDir() + "batchcancel_src/";
+    const QString dst = homeTmpDir() + "batchcancel_dst/";
+    QDir(src).removeRecursively();
+    QDir(dst).removeRecursively();
+    QDir().mkpath(src);
+    QDir().mkpath(dst);
+    auto cleaner = qScopeGuard([&] {
+        QDir(src).removeRecursively();
+        QDir(dst).removeRecursively();
+    });
+
+    const int n = 40;
+    const QByteArray blob(512 * 1024, 'x');
+    QList<QUrl> sources;
+    for (int i = 0; i < n; ++i) {
+        const QString f = src + QStringLiteral("f%1").arg(i);
+        createTestFile(f, true, blob);
+        sources << QUrl::fromLocalFile(f);
+    }
+
+    KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+
+    // Cancel as soon as the batch reports byte progress, i.e. while it is still copying.
+    bool killed = false;
+    connect(job, &KIO::Job::processedSize, this, [job, &killed](KJob *, qulonglong processedSize) {
+        if (processedSize > 0 && !killed) {
+            killed = true;
+            job->kill();
+        }
+    });
+
+    QVERIFY(!job->exec()); // the cancel must fail the job, not report success
+    QVERIFY(killed); // sanity: the cancel actually fired
+    QCOMPARE(job->error(), KIO::ERR_USER_CANCELED);
+}
+
 void CopyJobTest::copyManyFilesKeepsBatchingAfterADeferredFile()
 {
     // A destination that exists is copied on its own, and the files after it still go in batches:
@@ -515,6 +579,55 @@ void CopyJobTest::copyManyFilesKeepsBatchingAfterADeferredFile()
     QCOMPARE(QDir(dst).entryList(QDir::Files).count(), n);
 }
 
+void CopyJobTest::killingABatchToARemovableDeviceKeepsItsFlush()
+{
+    // A copy to a removable device that is cancelled during a batch still flushes the device, so the
+    // job knows about it once the first file is written there.
+#ifndef Q_OS_LINUX
+    QSKIP("The file worker flushes a removable device with syncfs, which only Linux has");
+#endif
+    qputenv("KIO_FILE_FORCE_REMOVABLE", "1");
+    const auto unsetRemovable = qScopeGuard([] {
+        qunsetenv("KIO_FILE_FORCE_REMOVABLE");
+    });
+    const QString src = homeTmpDir() + "batchkillflush_src/";
+    const QString dst = homeTmpDir() + "batchkillflush_dst/";
+    QDir(src).removeRecursively();
+    QDir(dst).removeRecursively();
+    QDir().mkpath(src);
+    QDir().mkpath(dst);
+    auto cleaner = qScopeGuard([&] {
+        QDir(src).removeRecursively();
+        QDir(dst).removeRecursively();
+    });
+
+    const int n = 40;
+    const QByteArray blob(512 * 1024, 'x');
+    QList<QUrl> sources;
+    for (int i = 0; i < n; ++i) {
+        const QString f = src + QStringLiteral("f%1").arg(i);
+        createTestFile(f, true, blob);
+        sources << QUrl::fromLocalFile(f);
+    }
+
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
+    KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    // The worker names the file it starts in a packet, which comes before its answer, so the batch
+    // is still running for the job when the job is killed.
+    bool killed = false;
+    connect(job, &KIO::CopyJob::copying, this, [job, &killed] {
+        if (!killed) {
+            killed = true;
+            job->kill();
+        }
+    });
+    QVERIFY(!job->exec());
+    QVERIFY(killed);
+    QCOMPARE(KIO::TestPrivate::batchCopyCommandsSent() - batchesBefore, 1);
+    QCOMPARE(job->metaData().value(QStringLiteral("flush-destination")), QStringLiteral("true"));
+}
+
 void CopyJobTest::copyLargeFilesBatched()
 {
     // Large files are not excluded from the batch: the worker copies them in page-sized chunks and
@@ -544,6 +657,17 @@ void CopyJobTest::copyLargeFilesBatched()
     KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
     job->setUiDelegate(nullptr);
     QSignalSpy spyCopyingDone(job, &KIO::CopyJob::copyingDone);
+    // The file count reported while the batch runs counts the files the worker has finished and the
+    // one it is on, so it walks up to the total and never past it, and never backwards.
+    qulonglong lastFiles = 0;
+    connect(job, &KJob::processedAmountChanged, this, [&](KJob *, KJob::Unit unit, qulonglong amount) {
+        if (unit != KJob::Files) {
+            return;
+        }
+        QVERIFY(amount <= qulonglong(n));
+        QVERIFY(amount >= lastFiles);
+        lastFiles = amount;
+    });
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
 
     if (KIO::TestPrivate::batchCopyCommandsSent() == batchesBefore) {
