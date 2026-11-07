@@ -144,9 +144,8 @@ static bool createUDSEntry(const QString &filename,
     int numberEntries = 0;
     int stringEntries = 0;
     if (details & KIO::StatBasic) {
-        // access, type, size, and the filename. The link destination is only there for a
-        // symlink, which is not known yet, so the rare entry that carries one grows for it
-        // rather than every entry keeping room it never uses.
+        // access, type, size, and the filename. The link destination of a symlink is added
+        // to these once the lstat tells which entry is one.
         numberEntries += 3;
         stringEntries += 1;
     }
@@ -186,13 +185,6 @@ static bool createUDSEntry(const QString &filename,
         numberEntries += 1;
     }
 #endif
-    entry.reserveNumbers(numberEntries);
-    entry.reserveStrings(stringEntries);
-
-    if (details & KIO::StatBasic) {
-        entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
-    }
-
     bool isBrokenSymLink = false;
 #if HAVE_POSIX_ACL
     QByteArray targetPath = path;
@@ -201,7 +193,19 @@ static bool createUDSEntry(const QString &filename,
     StatStruct buff;
 
     if (LSTATAT(dirFd, name.constData(), &buff, details) == 0) {
-        if (Utils::isLinkMask(stat_mode(buff))) {
+        const bool isSymLink = Utils::isLinkMask(stat_mode(buff));
+        if (isSymLink && (details & (KIO::StatBasic | KIO::StatResolveSymlink))) {
+            // the link destination
+            stringEntries += 1;
+        }
+        entry.reserveNumbers(numberEntries);
+        entry.reserveStrings(stringEntries);
+
+        if (details & KIO::StatBasic) {
+            entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
+        }
+
+        if (isSymLink) {
             QByteArray linkTargetBuffer;
             if (details & (KIO::StatBasic | KIO::StatResolveSymlink)) {
                 linkTargetBuffer = readlinkToBuffer(buff, dirFd, name);
@@ -460,6 +464,13 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
          *
          */
         if (details == KIO::StatBasic) {
+            // the type, then the name and the link destination of a symlink
+            entry.reserveNumbers(1);
+#if HAVE_DIRENT_D_TYPE
+            entry.reserveStrings(ep->d_type == DT_LNK ? 2 : 1);
+#else
+            entry.reserveStrings(1);
+#endif
             entry.fastInsert(KIO::UDSEntry::UDS_NAME, filename);
             mode_t type = 0;
 #if HAVE_DIRENT_D_TYPE
