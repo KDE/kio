@@ -204,6 +204,8 @@ static QString invalidCharsSupportMsg(const QString &path, const QString &fsName
 #ifdef BUILD_TESTING
 // The number of batch copy commands sent by every CopyJob of the process.
 static int s_batchCopyCommandsSent = 0;
+// The number of files that every CopyJob of the process copied with a file_copy job of their own.
+static int s_fileCopyJobsStarted = 0;
 
 void KIO::TestPrivate::setReportTimeout(std::chrono::milliseconds timeout)
 {
@@ -213,6 +215,11 @@ void KIO::TestPrivate::setReportTimeout(std::chrono::milliseconds timeout)
 int KIO::TestPrivate::batchCopyCommandsSent()
 {
     return s_batchCopyCommandsSent;
+}
+
+int KIO::TestPrivate::fileCopyJobsStarted()
+{
+    return s_fileCopyJobsStarted;
 }
 #endif
 
@@ -2232,8 +2239,8 @@ bool CopyJobPrivate::tryBatchCopyFiles()
     if (m_bOverwriteWhenOlder || !m_overwriteList.isEmpty() || m_bAutoSkipFiles || m_bAutoRenameFiles) {
         return false;
     }
-    // A batch never overwrites, the worker defers an existing destination. It gives each new
-    // file the permissions of its source.
+    // Unless every file may be overwritten, the worker defers an existing destination. It gives
+    // each new file the permissions of its source.
     if (m_defaultPermissions || m_ignoreSourcePermissions) {
         return false;
     }
@@ -2253,6 +2260,9 @@ bool CopyJobPrivate::tryBatchCopyFiles()
     // Only for a run that goes: when it does not, this function runs again for each file.
     KIO::BatchCopyRequest request;
     request.flags = m_batchDestFlags;
+    if (m_bOverwriteAllFiles) {
+        request.flags |= KIO::BatchCopyFlagOverwrite;
+    }
     request.files.reserve(run.fileCount);
     for (const CopyInfo &ci : std::as_const(filesToCopy) | std::views::take(run.fileCount)) {
         request.files.append({ci.uSource.toLocalFile(), ci.uDest.toLocalFile()});
@@ -2585,6 +2595,9 @@ void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, in
         // Observer::self()->slotMoving( this, uSource, uDest );
     } else { // Copying a file
         KIO::FileCopyJob *copyJob = KIO::file_copy(uSource, uDest, permissions, flags | HideProgressInfo /*no GUI*/);
+#ifdef BUILD_TESTING
+        ++s_fileCopyJobsStarted;
+#endif
         copyJob->setParentJob(q); // in case of rename dialog
         copyJob->setSourceSize((*it).size);
         copyJob->setModificationTime((*it).mtime);

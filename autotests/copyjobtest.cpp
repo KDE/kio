@@ -49,6 +49,9 @@ private Q_SLOTS:
     void copyManyFilesBatched();
     void copyManyFilesBatchedWithExistingDest();
     void copyManyFilesBatchedOverwriteExistingDest();
+    void copyManyFilesBatchedOverwriteOntoFolder();
+    void copyManyFilesBatchedOverwriteThroughFolderSymlink();
+    void copyManyFilesBatchedOverwriteOntoFifo();
     void copyManyFilesBatchedWithUnreadableSource();
     void copyManyFilesBatchedCancelled();
     void copyManyFilesKeepsBatchingAfterADeferredFile();
@@ -418,14 +421,19 @@ void CopyJobTest::copyManyFilesBatchedOverwriteExistingDest()
         createTestFile(f, true, QByteArray("new-") + QByteArray::number(i));
         sources << QUrl::fromLocalFile(f);
     }
-    // Two destinations already exist. Under Overwrite the batch must NOT forfeit the fast path: the
-    // gather stops the run at an existing destination (the batch never overwrites, it opens O_EXCL),
-    // and each existing file is overwritten by the per-file path. Every file ends up with the new
-    // content, and the run before/after each existing file still goes through the batch.
+    // Two destinations are files and one is a symlink to a file outside the copy. Under Overwrite
+    // the batch replaces all three, and the file the symlink points to keeps its content.
     createTestFile(dst + "f7", true, "OLD-7");
     createTestFile(dst + "f13", true, "OLD-13");
+    const QString linkTarget = homeTmpDir() + "manybatchov_target";
+    createTestFile(linkTarget, true, "TARGET");
+    auto targetCleaner = qScopeGuard([&] {
+        QFile::remove(linkTarget);
+    });
+    QVERIFY(QFile::link(linkTarget, dst + "f3"));
 
     const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
+    const int fileCopiesBefore = KIO::TestPrivate::fileCopyJobsStarted();
     KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo | KIO::Overwrite);
     QSignalSpy spyCopyingDone(job, &KIO::CopyJob::copyingDone);
     QVERIFY2(job->exec(), qPrintable(job->errorString()));
@@ -434,14 +442,142 @@ void CopyJobTest::copyManyFilesBatchedOverwriteExistingDest()
         QSKIP("CopyJob did not take the batch path on this filesystem");
     }
 
-    // Every destination - including the two that pre-existed - now holds the fresh source content.
+    QCOMPARE(KIO::TestPrivate::batchCopyCommandsSent() - batchesBefore, 1);
+    QCOMPARE(KIO::TestPrivate::fileCopyJobsStarted() - fileCopiesBefore, 0);
     for (int i = 0; i < n; ++i) {
         QFile out(dst + QStringLiteral("f%1").arg(i));
         QVERIFY2(out.open(QIODevice::ReadOnly), qPrintable(out.fileName()));
         QCOMPARE(out.readAll(), QByteArray("new-") + QByteArray::number(i));
     }
-    QCOMPARE(spyCopyingDone.count(), n); // all files copied (fresh via batch, existing via per-file)
+    QVERIFY(!QFileInfo(dst + "f3").isSymLink());
+    QFile target(linkTarget);
+    QVERIFY(target.open(QIODevice::ReadOnly));
+    QCOMPARE(target.readAll(), QByteArray("TARGET"));
+    QCOMPARE(spyCopyingDone.count(), n);
     QCOMPARE(job->processedAmount(KJob::Files), n);
+}
+
+void CopyJobTest::copyManyFilesBatchedOverwriteOntoFolder()
+{
+    const QString src = homeTmpDir() + "manybatchovdir_src/";
+    const QString dst = homeTmpDir() + "manybatchovdir_dst/";
+    QDir(src).removeRecursively();
+    QDir(dst).removeRecursively();
+    QDir().mkpath(src);
+    QDir().mkpath(dst);
+    auto cleaner = qScopeGuard([&] {
+        QDir(src).removeRecursively();
+        QDir(dst).removeRecursively();
+    });
+
+    const int n = 5;
+    QList<QUrl> sources;
+    for (int i = 0; i < n; ++i) {
+        const QString f = src + QStringLiteral("f%1").arg(i);
+        createTestFile(f, true, QByteArray("new-") + QByteArray::number(i));
+        sources << QUrl::fromLocalFile(f);
+    }
+    // A folder holds the name of one file. Overwrite replaces files, not a folder.
+    QDir().mkpath(dst + "f2");
+    createTestFile(dst + "f2/inside", true, "INSIDE");
+
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
+    KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo | KIO::Overwrite);
+    job->setUiDelegate(nullptr);
+    // The worker defers the file, and the per-file copy reports the folder.
+    QVERIFY(!job->exec());
+    if (KIO::TestPrivate::batchCopyCommandsSent() == batchesBefore) {
+        QSKIP("CopyJob did not take the batch path on this filesystem");
+    }
+    QCOMPARE(job->error(), KIO::ERR_DIR_ALREADY_EXIST);
+    QVERIFY(QFileInfo(dst + "f2").isDir());
+    QFile inside(dst + "f2/inside");
+    QVERIFY(inside.open(QIODevice::ReadOnly));
+    QCOMPARE(inside.readAll(), QByteArray("INSIDE"));
+    QVERIFY(!QFileInfo::exists(dst + "f2.part"));
+}
+
+void CopyJobTest::copyManyFilesBatchedOverwriteThroughFolderSymlink()
+{
+    const QString src = homeTmpDir() + "manybatchovlink_src/";
+    const QString dst = homeTmpDir() + "manybatchovlink_dst";
+    QDir(src).removeRecursively();
+    QFile::remove(dst);
+    QDir().mkpath(src);
+    auto cleaner = qScopeGuard([&] {
+        QFile::remove(dst);
+        QDir(src).removeRecursively();
+    });
+
+    const int n = 5;
+    QList<QUrl> sources;
+    for (int i = 0; i < n; ++i) {
+        const QString f = src + QStringLiteral("f%1").arg(i);
+        createTestFile(f, true, QByteArray("data-") + QByteArray::number(i));
+        sources << QUrl::fromLocalFile(f);
+    }
+    // The destination folder is the source folder, under another name.
+    QVERIFY(QFile::link(src, dst));
+    const auto inode = [](const QString &path) {
+        QT_STATBUF st;
+        return QT_STAT(QFile::encodeName(path).constData(), &st) == 0 ? st.st_ino : 0;
+    };
+    const auto inodeBefore = inode(src + "f0");
+
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
+    KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo | KIO::Overwrite);
+    job->setUiDelegate(nullptr);
+    // The worker defers each file, and the per-file copy reports that it is its own destination.
+    QVERIFY(!job->exec());
+    if (KIO::TestPrivate::batchCopyCommandsSent() == batchesBefore) {
+        QSKIP("CopyJob did not take the batch path on this filesystem");
+    }
+    QCOMPARE(job->error(), KIO::ERR_IDENTICAL_FILES);
+    QCOMPARE(inode(src + "f0"), inodeBefore);
+    for (int i = 0; i < n; ++i) {
+        QFile file(src + QStringLiteral("f%1").arg(i));
+        QVERIFY(file.open(QIODevice::ReadOnly));
+        QCOMPARE(file.readAll(), QByteArray("data-") + QByteArray::number(i));
+        QVERIFY(!QFileInfo::exists(file.fileName() + ".part"));
+    }
+}
+
+void CopyJobTest::copyManyFilesBatchedOverwriteOntoFifo()
+{
+    const QString src = homeTmpDir() + "manybatchovfifo_src/";
+    const QString dst = homeTmpDir() + "manybatchovfifo_dst/";
+    QDir(src).removeRecursively();
+    QDir(dst).removeRecursively();
+    QDir().mkpath(src);
+    QDir().mkpath(dst);
+    auto cleaner = qScopeGuard([&] {
+        QDir(src).removeRecursively();
+        QDir(dst).removeRecursively();
+    });
+
+    const int n = 5;
+    QList<QUrl> sources;
+    for (int i = 0; i < n; ++i) {
+        const QString f = src + QStringLiteral("f%1").arg(i);
+        createTestFile(f, true, QByteArray("new-") + QByteArray::number(i));
+        sources << QUrl::fromLocalFile(f);
+    }
+    // A named pipe holds the name of one file. Overwrite replaces files and symlinks only.
+    const QByteArray fifo = QFile::encodeName(dst + "f2");
+    QCOMPARE(::mkfifo(fifo.constData(), 0600), 0);
+
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
+    KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo | KIO::Overwrite);
+    job->setUiDelegate(nullptr);
+    QVERIFY(!job->exec());
+    if (KIO::TestPrivate::batchCopyCommandsSent() == batchesBefore) {
+        QSKIP("CopyJob did not take the batch path on this filesystem");
+    }
+    QCOMPARE(job->error(), KIO::ERR_FILE_ALREADY_EXIST);
+    QT_STATBUF st;
+    QCOMPARE(QT_LSTAT(fifo.constData(), &st), 0);
+    QVERIFY(S_ISFIFO(st.st_mode));
+    QVERIFY(!QFileInfo::exists(dst + "f2.part"));
 }
 
 void CopyJobTest::copyManyFilesBatchedWithUnreadableSource()

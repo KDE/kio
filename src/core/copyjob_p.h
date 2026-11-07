@@ -28,6 +28,12 @@ public:
      * The number of batch copy commands that every CopyJob of the process has sent to a worker.
      */
     KIOCORE_EXPORT static int batchCopyCommandsSent();
+
+    /*!
+     * The number of files that every CopyJob of the process has copied with a file_copy job of
+     * their own.
+     */
+    KIOCORE_EXPORT static int fileCopyJobsStarted();
 };
 }
 #endif

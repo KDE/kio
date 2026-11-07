@@ -1215,11 +1215,12 @@ public:
     using ItemStartFn = std::function<void(int index)>;
     using ItemResultFn = std::function<void(int index, BatchItemResult result)>;
 
-    BatchCopyEngine(PreserveFn preserve, gid_t egid, KilledFn isKilled, bool tryReflink)
+    BatchCopyEngine(PreserveFn preserve, gid_t egid, KilledFn isKilled, bool tryReflink, bool overwrite)
         : m_preserve(std::move(preserve))
         , m_egid(egid)
         , m_isKilled(std::move(isKilled))
         , m_request{.tryReflink = tryReflink}
+        , m_overwrite(overwrite)
     {
     }
     // Called with the running byte total while a file is copied.
@@ -1278,6 +1279,7 @@ private:
     std::function<void(KIO::filesize_t)> m_onProgress;
     KIO::filesize_t m_bytesCopied = 0;
     CopyRequest m_request; // the same for every file of the batch
+    bool m_overwrite; // a file that exists at a destination name is replaced
 
     HeldDir m_srcDir;
     HeldDir m_destDir;
@@ -1285,6 +1287,24 @@ private:
     bool m_deferDestDir = false; // m_destDir is on a network or FUSE mount, the job copies its files
     DestDirGroup m_destDirGroup; // the group of a file created in m_destDir
 };
+
+// Whether the entry at the destination name may be replaced: a regular file or a symlink, which is
+// looked at and not followed, and which is not the source file itself.
+static bool isReplaceable(int srcDirFd, const QByteArray &srcName, int destDirFd, const QByteArray &destName)
+{
+    struct stat destSt;
+    if (::fstatat(destDirFd, destName.constData(), &destSt, AT_SYMLINK_NOFOLLOW) != 0) {
+        return errno == ENOENT; // gone since the create failed: the replace creates it
+    }
+    if (!S_ISREG(destSt.st_mode) && !S_ISLNK(destSt.st_mode)) {
+        return false;
+    }
+    struct stat srcSt;
+    if (::fstatat(srcDirFd, srcName.constData(), &srcSt, 0) != 0) {
+        return false;
+    }
+    return srcSt.st_dev != destSt.st_dev || srcSt.st_ino != destSt.st_ino;
+}
 
 int BatchCopyEngine::copyFiles(const QList<BatchCopyOp> &ops, const ItemStartFn &onItemStart, const ItemResultFn &onItemResult)
 {
@@ -1316,16 +1336,25 @@ int BatchCopyEngine::copyFiles(const QList<BatchCopyOp> &ops, const ItemStartFn 
 
         onItemStart(op.index);
 
-        const CopyReport report = copyFileAt(m_srcDir.fd(),
-                                             QFile::encodeName(src.fileName()),
-                                             m_destDir.fd(),
-                                             QFile::encodeName(dest.fileName()),
-                                             m_destDirGroup,
-                                             m_request,
-                                             m_bytesCopied,
-                                             m_preserve,
-                                             m_isKilled,
-                                             m_onProgress);
+        const QByteArray srcName = QFile::encodeName(src.fileName());
+        const QByteArray destName = QFile::encodeName(dest.fileName());
+        const auto copyWith = [&](const CopyRequest &request) {
+            return copyFileAt(m_srcDir.fd(), srcName, m_destDir.fd(), destName, m_destDirGroup, request, m_bytesCopied, m_preserve, m_isKilled, m_onProgress);
+        };
+        CopyReport report = copyWith(m_request);
+        if (report.outcome == CopyOutcome::Conflict && m_overwrite) {
+            // A folder, a special file or the source itself at the name: the job copies this file
+            // on its own.
+            if (!isReplaceable(m_srcDir.fd(), srcName, m_destDir.fd(), destName)) {
+                onItemResult(op.index, BatchItemResult::Deferred);
+                continue;
+            }
+            // Replace writes a ".part" and renames it over the name, which replaces a symlink
+            // rather than writing through it.
+            CopyRequest replace = m_request;
+            replace.existing = ExistingDest::Replace;
+            report = copyWith(replace);
+        }
         switch (report.outcome) {
         case CopyOutcome::Copied:
             onItemResult(op.index, BatchItemResult::Copied);
@@ -1454,7 +1483,8 @@ WorkerResult FileProtocol::batchCopy(QDataStream &stream)
         [this] {
             return wasKilled();
         },
-        bool(request->flags & KIO::BatchCopyFlagReflink));
+        bool(request->flags & KIO::BatchCopyFlagReflink),
+        bool(request->flags & KIO::BatchCopyFlagOverwrite));
     BatchProgressReporter progress(this);
     engine.setProgressHook([&](KIO::filesize_t bytesDone) {
         progress.copying(bytesDone);
