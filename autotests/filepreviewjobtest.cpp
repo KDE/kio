@@ -8,6 +8,7 @@
 #include "filepreviewjobtest.h"
 
 #include "../src/gui/filepreviewjob.h"
+#include "../src/gui/previewjob.h"
 #include "../src/gui/standardthumbnailjob_p.h"
 #include "../src/gui/thumbnailcache_p.h"
 #include "worker_p.h" // KIO::Worker::setTestWorkerFactory
@@ -24,6 +25,7 @@
 #include <QFileInfo>
 #include <QImage>
 #include <QJsonObject>
+#include <QPointer>
 #include <QProcess>
 #include <QScopeGuard>
 #include <QSignalSpy>
@@ -63,6 +65,16 @@ static QImage makeCachedThumb(int cachedW, int cachedH, const QByteArray &origNa
 
 namespace
 {
+class PreviewJobWithAccess : public KIO::PreviewJob
+{
+public:
+    using KIO::PreviewJob::PreviewJob;
+    const QList<KJob *> &jobs() const
+    {
+        return subjobs();
+    }
+};
+
 // A remote file, kio-test://host/<name>, that a preview has to download first.
 // "fails.mp4" sends 8 KiB, then the transfer breaks. "slow.mp4" sends 8 KiB every 20 ms until the
 // transfer is killed, or for 1 s.
@@ -187,6 +199,37 @@ void FilePreviewJobTest::testTimeoutTimerStoppedOnFinish()
     QCOMPARE(resultSpy.count(), 1);
 
     delete job;
+}
+
+void FilePreviewJobTest::testKilledPreviewJobCleansUpHelperSubjobs()
+{
+    QTemporaryFile file;
+    QVERIFY(file.open());
+    file.write("test");
+    file.close();
+
+    const KFileItem item(QUrl::fromLocalFile(file.fileName()));
+    const KFileItemList items{item};
+
+    auto job = std::make_unique<PreviewJobWithAccess>(items, QSize(128, 128));
+    job->setAutoDelete(false);
+
+    // The helper is a child, not a subjob, and too short-lived for QTRY_VERIFY to catch.
+    QPointer<KIO::Job> helperJob;
+    QVERIFY(QTest::qWaitFor(
+        [&]() {
+            helperJob = job->findChild<KIO::Job *>(QString(), Qt::FindDirectChildrenOnly);
+            return !helperJob.isNull();
+        },
+        10000));
+    QVERIFY(job->jobs().isEmpty());
+    QSignalSpy helperFinished(helperJob.data(), &KJob::finished);
+
+    QVERIFY(job->kill());
+
+    QCOMPARE(helperFinished.size(), 1);
+    QTRY_VERIFY(helperJob.isNull());
+    QVERIFY(job->jobs().isEmpty());
 }
 
 void FilePreviewJobTest::testCacheSizeValidation_data()
