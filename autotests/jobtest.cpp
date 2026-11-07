@@ -3152,6 +3152,45 @@ void JobTest::statWithInode()
 }
 
 #ifndef Q_OS_WIN
+// The number of hard links comes only when asked for, from a stat and from a listing alike, and it
+// counts every name the file has.
+void JobTest::statWithLinkCount()
+{
+    QTemporaryDir dir(homeTmpDir() + "linkcountXXXXXX");
+    QVERIFY(dir.isValid());
+    const QString filePath = dir.filePath(QStringLiteral("file"));
+    createTestFile(filePath);
+    const QUrl url = QUrl::fromLocalFile(filePath);
+
+    KIO::StatJob *job = KIO::stat(url, KIO::StatJob::SourceSide, KIO::StatLinkCount, KIO::HideProgressInfo);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QCOMPARE(job->statResult().count(), 1);
+    QCOMPARE(job->statResult().numberValue(KIO::UDSEntry::UDS_LINK_COUNT, -1), 1);
+
+    job = KIO::stat(url, KIO::StatJob::SourceSide, KIO::StatBasic, KIO::HideProgressInfo);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QVERIFY(!job->statResult().contains(KIO::UDSEntry::UDS_LINK_COUNT));
+
+    const QString otherNamePath = dir.filePath(QStringLiteral("other name"));
+    QCOMPARE(::link(QFile::encodeName(filePath).constData(), QFile::encodeName(otherNamePath).constData()), 0);
+
+    job = KIO::stat(url, KIO::StatJob::SourceSide, KIO::StatLinkCount, KIO::HideProgressInfo);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QCOMPARE(job->statResult().numberValue(KIO::UDSEntry::UDS_LINK_COUNT, -1), 2);
+
+    KIO::ListJob *listJob = KIO::listDir(QUrl::fromLocalFile(dir.path()), KIO::HideProgressInfo);
+    listJob->setDetails(KIO::StatBasic | KIO::StatLinkCount);
+    QHash<QString, long long> linkCounts;
+    connect(listJob, &KIO::ListJob::entries, this, [&linkCounts](KIO::Job *, const KIO::UDSEntryList &entries) {
+        for (const KIO::UDSEntry &entry : entries) {
+            linkCounts.insert(entry.stringValue(KIO::UDSEntry::UDS_NAME), entry.numberValue(KIO::UDSEntry::UDS_LINK_COUNT, -1));
+        }
+    });
+    QVERIFY2(listJob->exec(), qPrintable(listJob->errorString()));
+    QCOMPARE(linkCounts.value(QStringLiteral("file")), 2);
+    QCOMPARE(linkCounts.value(QStringLiteral("other name")), 2);
+}
+
 void JobTest::statSymlink()
 {
     const QString filePath = homeTmpDir() + "fileFromHome";

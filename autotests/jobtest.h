@@ -124,6 +124,7 @@ private Q_SLOTS:
     void statDetailsBasicSetDetails();
     void statWithInode();
 #ifndef Q_OS_WIN
+    void statWithLinkCount();
     void statSymlink();
     void statTimeResolution();
 #endif

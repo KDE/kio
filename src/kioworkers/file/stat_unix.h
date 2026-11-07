@@ -58,6 +58,10 @@ inline uint32_t statxMask(KIO::StatDetails details)
         // the space taken up on the storage
         mask |= STATX_BLOCKS;
     }
+    if (details & KIO::StatLinkCount) {
+        // the number of hard links
+        mask |= STATX_NLINK;
+    }
     if (details & KIO::StatUser) {
         // uid, gid
         mask |= STATX_UID | STATX_GID;
@@ -134,6 +138,14 @@ inline static bool stat_has_size_on_disk(const struct statx &buf)
 inline static uint64_t stat_size_on_disk(const struct statx &buf)
 {
     return uint64_t(buf.stx_blocks) * 512;
+}
+inline static bool stat_has_link_count(const struct statx &buf)
+{
+    return (buf.stx_mask & STATX_NLINK) != 0;
+}
+inline static uint64_t stat_link_count(const struct statx &buf)
+{
+    return buf.stx_nlink;
 }
 inline static uint32_t stat_uid(const struct statx &buf)
 {
@@ -239,6 +251,14 @@ inline static uint64_t stat_size_on_disk(const QT_STATBUF &buf)
     return uint64_t(buf.st_blocks) * s_statBlockSize;
 }
 #endif
+inline static bool stat_has_link_count(const QT_STATBUF &)
+{
+    return true;
+}
+inline static uint64_t stat_link_count(const QT_STATBUF &buf)
+{
+    return buf.st_nlink;
+}
 inline static uint32_t stat_uid(const QT_STATBUF &buf)
 {
     return buf.st_uid;

@@ -263,6 +263,10 @@ static bool createUDSEntry(const QString &filename,
         entry.fastInsert(KIO::UDSEntry::UDS_SIZE_ON_DISK, isBrokenSymLink ? 0LL : static_cast<long long>(stat_size_on_disk(buff)));
     }
 
+    if ((details & KIO::StatLinkCount) && !isBrokenSymLink && stat_has_link_count(buff)) {
+        entry.fastInsert(KIO::UDSEntry::UDS_LINK_COUNT, static_cast<long long>(stat_link_count(buff)));
+    }
+
     if (details & KIO::StatUser) {
         const auto uid = stat_uid(buff);
         const auto gid = stat_gid(buff);

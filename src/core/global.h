@@ -352,6 +352,7 @@ enum PrivilegeOperationStatus {
  * \value [since 6.24] StatTimeNsOffset Stat will provide nanosecond precision offsets when available
  * \value [since 6.30] StatSizeOnDisk the space the file takes up on its storage, see UDS_SIZE_ON_DISK. Off by default, since a listing carries one number
  * per entry and most callers only want the size of the data
+ * \value [since 6.33] StatLinkCount the number of hard links to the file, see UDS_LINK_COUNT. Off by default, for the same reason as StatSizeOnDisk
  */
 enum StatDetail {
     StatNoDetails = 0x0,
@@ -368,6 +369,7 @@ enum StatDetail {
     StatMountId = 0x200,
     StatTimeNsOffset = 0x400 | StatTime,
     StatSizeOnDisk = 0x800,
+    StatLinkCount = 0x1000,
 };
 Q_DECLARE_FLAGS(StatDetails, StatDetail)
 
