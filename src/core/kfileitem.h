@@ -87,7 +87,6 @@ class KIOCORE_EXPORT KFileItem
      * \property KFileItem::isSlow
      * \deprecated[6.32] Use isOnRemoteStorage.
      */
-    // TODO KF7: remove
     Q_PROPERTY(bool isSlow READ isOnRemoteStorage)
 
     /*!
@@ -437,7 +436,6 @@ public:
      * \since 4.7.4
      * \deprecated[6.32] Use isOnRemoteStorage.
      */
-    // TODO KF7: remove
     KIOCORE_DEPRECATED_VERSION(6, 32, "Use isOnRemoteStorage()")
     bool isSlow() const;
 #endif
