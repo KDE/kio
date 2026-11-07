@@ -725,6 +725,11 @@ void SlaveBase::statEntry(const UDSEntry &entry)
 
 void SlaveBase::listEntry(const UDSEntry &entry)
 {
+    listEntry(UDSEntry(entry));
+}
+
+void SlaveBase::listEntry(UDSEntry &&entry)
+{
     if (wasKilled() && !d->warnedListEntryAfterKill) {
         d->warnedListEntryAfterKill = true;
         qCDebug(KIO_CORE) << "listEntry() called after the worker was killed:" << mProtocol
@@ -742,7 +747,7 @@ void SlaveBase::listEntry(const UDSEntry &entry)
         d->m_timeSinceLastBatch.restart();
     }
 
-    d->pendingListEntries.append(entry);
+    d->pendingListEntries.append(std::move(entry));
 
     // If more then KIO_MAX_SEND_BATCH_TIME time is passed, emit the current batch
     // Also emit if we have piled up a large number of entries already, to save memory (and time)

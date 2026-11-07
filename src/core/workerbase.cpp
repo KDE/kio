@@ -191,6 +191,11 @@ void WorkerBase::listEntry(const UDSEntry &entry)
     d->bridge.listEntry(entry);
 }
 
+void WorkerBase::listEntry(UDSEntry &&entry)
+{
+    d->bridge.listEntry(std::move(entry));
+}
+
 void WorkerBase::listEntries(const UDSEntryList &list)
 {
     d->bridge.listEntries(list);

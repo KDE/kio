@@ -755,6 +755,12 @@ public:
     void listEntry(const UDSEntry &entry);
 
     /*
+     * Same as listEntry(const UDSEntry &), taking \a entry over rather than sharing it with the caller.
+     * \since 6.33
+     */
+    void listEntry(UDSEntry &&entry);
+
+    /*
      * Internal: adopt a ready-made connection backend instead of connecting to a
      * socket address. Used for in-process workers paired via ThreadConnectionBackend.
      * Takes ownership of \a backend.

@@ -839,6 +839,15 @@ public:
      */
     void listEntry(const UDSEntry &entry);
 
+    /*!
+     * Same as listEntry(const UDSEntry &), but takes \a entry over, so the listed entry is not shared
+     * with the caller. \a entry must not be used afterwards, other than to assign a new UDSEntry to it.
+     * A worker that fills one entry after another passes each with std::move.
+     *
+     * \since 6.33
+     */
+    void listEntry(UDSEntry &&entry);
+
 #if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 29)
     /*!
      * Internal function to connect a worker to either the worker pool or the application.
