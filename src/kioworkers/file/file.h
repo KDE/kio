@@ -62,6 +62,8 @@ private:
 };
 #endif
 
+class QDataStream;
+
 class FileProtocol : public QObject, public KIO::WorkerBase
 {
     Q_OBJECT
@@ -113,6 +115,8 @@ public:
     // Writes back the data of the filesystem that holds the folder, when it is on a removable device.
     KIO::WorkerResult flushRemovableFolder(const QString &folder);
 #endif
+    // Copies a list of local files, the special() sub-command 4. POSIX only.
+    KIO::WorkerResult batchCopy(QDataStream &stream);
 
 #if HAVE_POSIX_ACL
     static bool isExtendedACL(acl_t acl);

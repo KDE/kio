@@ -12,6 +12,7 @@
 
 // The copying side of the file worker: FileProtocol::copy() and the helpers only it uses.
 
+#include "batchcopypackets_p.h"
 #include "file.h"
 #include "kmountpoint_p.h"
 #include "stat_unix.h"
@@ -24,6 +25,7 @@
 
 #include <QElapsedTimer>
 #include <QFile>
+#include <QFileInfo>
 #include <QHash>
 #include <QMutex>
 #include <QScopeGuard>
@@ -37,6 +39,8 @@
 #include <KLocalizedString>
 #include <QDebug>
 #include <kmountpoint.h>
+
+#include <QDataStream>
 
 #include <cerrno>
 #include <condition_variable>
@@ -241,6 +245,21 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd, XattrNamespac
 
 namespace
 {
+// One file of a batch copy command, which copies many local files in one worker command.
+struct BatchCopyOp {
+    int index; // position in the request
+    QString src;
+    QString dest;
+};
+
+// What became of one file of a batch. CopyOutcome is the result of the copy itself.
+enum class BatchItemResult {
+    Copied,
+    Conflict, // the destination exists, the job resolves it
+    Deferred, // this file failed, the job copies it on its own
+    BatchFailed, // this file failed in a way that stops the whole batch
+};
+
 enum class CopyOutcome {
     Copied,
     Conflict,
@@ -287,6 +306,23 @@ struct CopyReport {
     int err = 0;
     bool readFailed = false; // a read error on the source, as against a write error on the destination
 };
+
+// An error that every next file of the batch would hit as well.
+bool isFatalBatchCopyError(int err)
+{
+    switch (err) {
+    case ENOSPC:
+    case EDQUOT:
+    case EROFS:
+    case EIO:
+    case ENXIO:
+    case EMFILE:
+    case ENFILE:
+        return true;
+    default:
+        return false;
+    }
+}
 
 // Smaller chunks measured ~25-30% slower on large cold copies.
 static constexpr size_t s_copyChunk = 512 * 1024;
@@ -1116,6 +1152,304 @@ WorkerResult FileProtocol::flushRemovableFolder(const QString &folder)
     }
 #endif
     return WorkerResult::pass();
+}
+
+namespace
+{
+// A folder held open by its path, while the files in it are copied.
+class HeldDir
+{
+public:
+    enum class HoldResult {
+        Failed, // errno is set
+        AlreadyHeld,
+        Opened, // in place of the folder held before
+    };
+
+    HeldDir() = default;
+    ~HeldDir()
+    {
+        if (m_fd >= 0) {
+            ::close(m_fd);
+        }
+    }
+    Q_DISABLE_COPY_MOVE(HeldDir)
+
+    HoldResult hold(const QString &dir)
+    {
+        if (m_fd >= 0 && dir == m_path) {
+            return HoldResult::AlreadyHeld;
+        }
+        const int fd = ::open(QFile::encodeName(dir).constData(), O_RDONLY | O_DIRECTORY | O_CLOEXEC);
+        if (fd < 0) {
+            return HoldResult::Failed;
+        }
+        if (m_fd >= 0) {
+            ::close(m_fd);
+        }
+        m_fd = fd;
+        m_path = dir;
+        return HoldResult::Opened;
+    }
+    int fd() const
+    {
+        return m_fd;
+    }
+
+private:
+    int m_fd = -1;
+    QString m_path;
+};
+
+using KilledFn = std::function<bool()>;
+
+// Copies the files of a batch one after the other, holding one source and one destination folder
+// open at a time.
+class BatchCopyEngine
+{
+public:
+    using ItemStartFn = std::function<void(int index)>;
+    using ItemResultFn = std::function<void(int index, BatchItemResult result)>;
+
+    BatchCopyEngine(PreserveFn preserve, gid_t egid, KilledFn isKilled)
+        : m_preserve(std::move(preserve))
+        , m_egid(egid)
+        , m_isKilled(std::move(isKilled))
+    {
+    }
+    // Returns the errno that stopped the batch, or 0 once every file was handled.
+    int copyFiles(const QList<BatchCopyOp> &ops, KIO::filesize_t &bytesCopied, const ItemStartFn &onItemStart, const ItemResultFn &onItemResult);
+    // True once a file went to a folder on a removable device.
+    bool copiedToRemovable() const
+    {
+        return m_copiedToRemovable;
+    }
+
+private:
+    // False with errno set when dir cannot be opened.
+    bool ensureSrcDir(const QString &dir)
+    {
+        return m_srcDir.hold(dir) != HeldDir::HoldResult::Failed;
+    }
+    bool ensureDestDir(const QString &dir)
+    {
+        const HeldDir::HoldResult result = m_destDir.hold(dir);
+        if (result == HeldDir::HoldResult::Opened) {
+            settleDestDir(dir);
+        }
+        return result != HeldDir::HoldResult::Failed;
+    }
+    // What the files copied to the folder just opened have in common.
+    void settleDestDir(const QString &dir)
+    {
+        const int fd = m_destDir.fd();
+        m_destDirGroup = destDirGroupFor(fd, m_egid);
+        // The same writeback as copy().
+        const WritebackPolicy writeback = writebackPolicyFor(fd, dir);
+        m_request.writebackWindow = writeback.window;
+        m_request.flushWindowedFile = writeback.flushWindowedFile;
+        const bool removable = isFolderOnRemovableDevice(fd, dir);
+        if (removable) {
+            m_copiedToRemovable = true;
+        }
+        // Besides a removable device, writebackPolicyFor() only gives a window to a network or FUSE
+        // mount.
+        m_deferDestDir = writeback.window > 0 && !removable;
+    }
+
+    PreserveFn m_preserve; // applies the permissions, times, owner and ACL of the source to each copied file
+    gid_t m_egid;
+    KilledFn m_isKilled;
+    CopyRequest m_request; // the same for every file of the batch
+
+    HeldDir m_srcDir;
+    HeldDir m_destDir;
+    bool m_copiedToRemovable = false;
+    bool m_deferDestDir = false; // m_destDir is on a network or FUSE mount, the job copies its files
+    DestDirGroup m_destDirGroup; // the group of a file created in m_destDir
+};
+
+int BatchCopyEngine::copyFiles(const QList<BatchCopyOp> &ops, KIO::filesize_t &bytesCopied, const ItemStartFn &onItemStart, const ItemResultFn &onItemResult)
+{
+    for (const auto &op : ops) {
+        if (m_isKilled()) {
+            return ECANCELED;
+        }
+        const QFileInfo src(op.src);
+        const QFileInfo dest(op.dest);
+
+        errno = 0;
+        if (!ensureSrcDir(src.path())) {
+            onItemResult(op.index, BatchItemResult::Deferred);
+            continue;
+        }
+        if (!ensureDestDir(dest.path())) {
+            const int err = errno;
+            if (isFatalBatchCopyError(err)) {
+                onItemResult(op.index, BatchItemResult::BatchFailed);
+                return err;
+            }
+            onItemResult(op.index, BatchItemResult::Deferred);
+            continue;
+        }
+        if (m_deferDestDir) {
+            onItemResult(op.index, BatchItemResult::Deferred);
+            continue;
+        }
+
+        onItemStart(op.index);
+
+        const CopyReport report = copyFileAt(m_srcDir.fd(),
+                                             QFile::encodeName(src.fileName()),
+                                             m_destDir.fd(),
+                                             QFile::encodeName(dest.fileName()),
+                                             m_destDirGroup,
+                                             m_request,
+                                             bytesCopied,
+                                             m_preserve,
+                                             m_isKilled);
+        switch (report.outcome) {
+        case CopyOutcome::Copied:
+            onItemResult(op.index, BatchItemResult::Copied);
+            break;
+        case CopyOutcome::Conflict:
+            onItemResult(op.index, BatchItemResult::Conflict);
+            break;
+        case CopyOutcome::Failed:
+            if (report.err == ECANCELED) {
+                return ECANCELED;
+            }
+            // A read error only concerns its own source file, such as a bad sector.
+            if (!report.readFailed && isFatalBatchCopyError(report.err)) {
+                onItemResult(op.index, BatchItemResult::BatchFailed);
+                return report.err;
+            }
+            onItemResult(op.index, BatchItemResult::Deferred);
+            break;
+        }
+    }
+    return 0;
+}
+
+// The files of a request, in the order that the engine copies them: the files of one folder follow
+// each other, so each folder is opened once. Each keeps its index in the request.
+QList<BatchCopyOp> sortedBatchCopyOps(const KIO::BatchCopyRequest &request)
+{
+    QList<BatchCopyOp> ops;
+    ops.reserve(request.files.size());
+    for (int i = 0; i < request.files.size(); ++i) {
+        ops.push_back({i, request.files.at(i).source, request.files.at(i).destination});
+    }
+    std::sort(ops.begin(), ops.end(), [](const BatchCopyOp &a, const BatchCopyOp &b) {
+        return a.src < b.src;
+    });
+    return ops;
+}
+
+// Sends the progress of a batch to the job, at most one progress packet and one processedSize
+// every 100 ms.
+class BatchProgressReporter
+{
+public:
+    explicit BatchProgressReporter(KIO::WorkerBase *worker)
+        : m_worker(worker)
+    {
+    }
+    // The running byte total, which the engine adds to.
+    KIO::filesize_t &bytesDone()
+    {
+        return m_bytesDone;
+    }
+    void started(int index)
+    {
+        m_inFlight = index;
+        flushIfDue();
+    }
+    void finished(int index)
+    {
+        m_finished.append(index);
+    }
+    void flushIfDue()
+    {
+        if (!m_timer.isValid() || m_timer.hasExpired(100)) {
+            flush();
+        }
+    }
+    // The last packet, with the files finished since the previous one and the exact byte total.
+    void finish()
+    {
+        m_inFlight = -1;
+        flush();
+    }
+
+private:
+    void flush()
+    {
+        m_worker->processedSize(m_bytesDone);
+        if (m_inFlight < 0 && m_finished.isEmpty()) {
+            return;
+        }
+        m_worker->data(KIO::writeBatchCopyPacket(KIO::BatchCopyProgress{m_inFlight, m_finished}));
+        m_finished.clear();
+        m_timer.restart();
+    }
+
+    KIO::WorkerBase *m_worker;
+    KIO::filesize_t m_bytesDone = 0;
+    QElapsedTimer m_timer;
+    QList<qint32> m_finished;
+    qint32 m_inFlight = -1;
+};
+
+// The result of the command, from the errno that stopped the engine. The files already copied stay.
+WorkerResult batchCopyResult(int stopErrno)
+{
+    if (stopErrno == ECANCELED) {
+        return WorkerResult::fail(KIO::ERR_USER_CANCELED, QString());
+    }
+    if (stopErrno != 0) {
+        const int kioError = (stopErrno == ENOSPC || stopErrno == EDQUOT) ? KIO::ERR_DISK_FULL : KIO::ERR_CANNOT_WRITE;
+        return WorkerResult::fail(kioError, QString::fromLocal8Bit(strerror(stopErrno)));
+    }
+    return WorkerResult::pass();
+}
+
+} // namespace
+
+WorkerResult FileProtocol::batchCopy(QDataStream &stream)
+{
+    // See KIO::BatchCopyRequest and KIO::BatchCopyPacket.
+    const std::optional<KIO::BatchCopyRequest> request = KIO::readBatchCopyRequest(stream);
+    if (!request) {
+        return WorkerResult::fail(KIO::ERR_INTERNAL, i18n("Malformed batch copy request"));
+    }
+
+    BatchCopyEngine engine(makePreserveFn(this, ::geteuid()), ::getegid(), [this] {
+        return wasKilled();
+    });
+    BatchProgressReporter progress(this);
+
+    QList<qint32> deferred; // indices deferred to the job
+    const auto started = [&](int index) {
+        progress.started(index);
+    };
+    const auto handled = [&](int index, BatchItemResult result) {
+        if (result == BatchItemResult::Copied) {
+            progress.finished(index);
+        } else {
+            deferred.append(index);
+        }
+    };
+    const int stopErrno = engine.copyFiles(sortedBatchCopyOps(*request), progress.bytesDone(), started, handled);
+    progress.finish();
+
+    if (engine.copiedToRemovable()) {
+        // As in copy(), the job flushes the folder once the copy is over. It goes with the answer.
+        setMetaData(QStringLiteral("flush-destination"), QStringLiteral("true"));
+    }
+    // The job copies each deferred file on its own, and gets the conflict or the error then.
+    data(KIO::writeBatchCopyPacket(KIO::BatchCopyAnswer{deferred}));
+    return batchCopyResult(stopErrno);
 }
 
 WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _mode, JobFlags _flags)

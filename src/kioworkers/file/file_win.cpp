@@ -185,6 +185,11 @@ WorkerResult FileProtocol::copy(const QUrl &src, const QUrl &dest, int _mode, Jo
     return WorkerResult::pass();
 }
 
+WorkerResult FileProtocol::batchCopy(QDataStream &)
+{
+    return WorkerResult::fail(KIO::ERR_UNSUPPORTED_ACTION, QString());
+}
+
 WorkerResult FileProtocol::listDir(const QUrl &url)
 {
     // qDebug() << "========= LIST " << url << " =========";

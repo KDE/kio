@@ -16,6 +16,7 @@
 #include <QStorageInfo>
 
 #include "../../utils_p.h"
+#include "batchcopypackets_p.h"
 #include "kioglobal_p.h"
 #include "statjob.h"
 
@@ -24,7 +25,9 @@
 #ifndef Q_OS_WIN
 #include <fcntl.h>
 #include <optional>
+#include <sys/stat.h>
 #include <sys/statvfs.h>
+#include <unistd.h>
 #include <utime.h>
 #endif
 
@@ -893,6 +896,8 @@ WorkerResult FileProtocol::special(const QByteArray &data)
         return flushRemovableFolder(folder);
     }
 #endif
+    case KIO::BatchCopyCommand:
+        return batchCopy(stream);
     default:
         break;
     }
