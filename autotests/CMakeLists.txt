@@ -63,6 +63,7 @@ endif()
 if (NOT WIN32)
   ecm_add_tests(
     jobtest.cpp
+    copyjobtest.cpp
     kfileitemtest.cpp
     mkpathjobtest.cpp
     krecentdocumenttest.cpp
