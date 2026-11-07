@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-05 00:51+0000\n"
-"PO-Revision-Date: 2026-10-27 10:14+0100\n"
+"PO-Revision-Date: 2026-11-05 08:47+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -3689,11 +3689,7 @@ msgstr ""
 "a l'ús del sistema operatiu."
 
 #: filewidgets/knewfilemenu.cpp:1152
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The name <filename>%1</filename> cannot be used because it is reserved "
-#| "for use by the operating system."
+#, kde-kuit-format
 msgctxt ""
 "@info %2 is a file system name such as FAT or NTFS, %3 is a list of "
 "characters"
@@ -3701,8 +3697,8 @@ msgid ""
 "The name <filename>%1</filename> cannot be used because the file system of "
 "this folder (%2) does not allow these characters in names: %3"
 msgstr ""
-"No es pot utilitzar el nom <filename>%1</filename> perquè està reservat per "
-"a l'ús del sistema operatiu."
+"No es pot utilitzar el nom <filename>%1</filename> perquè està el sistema de "
+"fitxers d'esta carpeta (%2) no permet estos caràcters als noms: %3"
 
 #: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format

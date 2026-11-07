@@ -1,18 +1,19 @@
 # Janet Blackquill <uhhadd@gmail.com>, 2022, 2024.
+# SPDX-FileCopyrightText: 2026 Mittens <mizuf@tutamail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-05 00:51+0000\n"
-"PO-Revision-Date: 2024-04-26 14:54-0400\n"
-"Last-Translator: Janet Blackquill <uhhadd@gmail.com>\n"
-"Language-Team: C <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2026-10-07 18:49-0500\n"
+"Last-Translator: Mizufuwa <mizuf@tutamail.com>\n"
+"Language-Team: English <kde-i18n-doc@kde.org>\n"
 "Language: tok\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n == 0 ? 0 : n == 1 ? 1 : n == 2 ? 2 : 3;\n"
-"X-Generator: Lokalize 22.11.70\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -22,7 +23,7 @@ msgstr "kulupu pi ante toki pi toki pona"
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "lipu toki linluwi sina"
 
 #: core/chmodjob.cpp:197
 #, kde-format
@@ -715,7 +716,7 @@ msgstr "lipu li ken ala lon poki jaki tan suli ona."
 #: core/job_error.cpp:264
 #, kde-format
 msgid "A trash folder could not be found or created for this location."
-msgstr ""
+msgstr "mi ken ala alasa li ken ala pali sin e poki jaki"
 
 #: core/job_error.cpp:267
 #, kde-format
@@ -748,7 +749,7 @@ msgstr "<b>tan wile</b>: "
 #: core/job_error.cpp:310
 #, kde-format
 msgid "<b>Details of the request</b>:"
-msgstr "<b>ijo wile</b>:"
+msgstr "<b>sona pi ijo wile</b>:"
 
 #: core/job_error.cpp:310
 #, kde-format
@@ -1043,6 +1044,9 @@ msgid ""
 "\"KIO worker\") which supports this protocol. Places to search include <a "
 "href=\"https://store.kde.org/\">https://store.kde.org</a>."
 msgstr ""
+"sina ken alasa e namako ilo kon (nimi ni li \"KIO worker\") kepeken linluwi "
+"ilo pi ken toki ilo ni la sina ken alasa e ni kepeken tomo linluwi <a href="
+"\"https://store.kde.org/\">https://store.kde.org/</a>."
 
 #: core/job_error.cpp:517
 #, kde-format
@@ -1228,7 +1232,7 @@ msgstr ""
 #: core/job_error.cpp:635
 #, kde-format
 msgid "Write Access Denied"
-msgstr "e ante ken li ken ala"
+msgstr "mi ken ala ante e ni"
 
 #: core/job_error.cpp:637
 #, kde-format
@@ -1747,7 +1751,7 @@ msgstr ""
 #: core/job_error.cpp:1030
 #, kde-format
 msgid "Out of Memory"
-msgstr "ala e sona lon tenpo lili lon ijo nanpa"
+msgstr "ilo sona lawa li suli mute pi ken ale"
 
 #: core/job_error.cpp:1032
 #, kde-format
@@ -1965,7 +1969,7 @@ msgstr "ijo ala li lon insa"
 #: core/job_error.cpp:1195
 #, kde-format
 msgid "Disk Full"
-msgstr "e poki suli lon ijo nanpa li pini"
+msgstr "ilo poki li jo ale pi ken ona"
 
 #: core/job_error.cpp:1197
 #, kde-format
@@ -1981,6 +1985,9 @@ msgid ""
 "archiving files to removable media storage such as CD-Recordable discs; or "
 "3) obtain more storage capacity."
 msgstr ""
+"o weka e lipu pi mute ike, sina pali tawa nasin mute ni la sina ken weka e "
+"lipu pi mute ike: 1) o weka e ijo pi wile ala; 2) o tawa e lipu tawa ilo "
+"poki ante (sike CD li pona) ; 3) o kama jo e ilo poki sin."
 
 #: core/job_error.cpp:1208
 #, kde-format
@@ -1993,6 +2000,8 @@ msgid ""
 "The operation could not be completed because the source and destination "
 "files are the same file."
 msgstr ""
+"mi ken ala pali tan ni: mi wile pali e lipu sin tu taso lipu sin wan li lipu "
+"sin tu"
 
 #: core/job_error.cpp:1212
 #, kde-format
@@ -2361,7 +2370,7 @@ msgstr "o pali e poki"
 #, kde-format
 msgctxt "Loading bar percent value"
 msgid "%p%"
-msgstr ""
+msgstr "%p%"
 
 #: filewidgets/kdiroperator.cpp:728 filewidgets/kdiroperator.cpp:761
 #, kde-format
@@ -2971,7 +2980,7 @@ msgstr "kepeken '%1' la ilo li pakala"
 #: filewidgets/kfileplacesmodel.cpp:1571
 #, kde-format
 msgid "One or more files on this device are open within an application."
-msgstr ""
+msgstr " ilo kon ante li kepeken e poki wan anu poki mute lon ilo poki ni"
 
 #: filewidgets/kfileplacesmodel.cpp:1574
 #, kde-kuit-format
@@ -2990,7 +2999,7 @@ msgstr[3] ""
 #, kde-format
 msgctxt "separator in list of apps blocking device unmount"
 msgid ", "
-msgstr ""
+msgstr " en "
 
 #: filewidgets/kfileplacesmodel.cpp:1624
 #, kde-format
@@ -3422,7 +3431,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:textbox Prompt for new file of type"
 msgid "Enter %1 filename:"
-msgstr ""
+msgstr "o pana e nimi pi lipu %1"
 
 #: filewidgets/knewfilemenu.cpp:570
 #, kde-format
@@ -3584,7 +3593,7 @@ msgstr "ilo li ken ala tawa e lipu <filename>%1</filename>"
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
-msgstr ""
+msgstr "o pana e nimi pi poki ni"
 
 #: filewidgets/knewfilemenu.cpp:1586
 #, fuzzy, kde-format
@@ -3627,7 +3636,7 @@ msgstr "o wile e &sitelen lili:"
 #: filewidgets/knewfilemenu_newfiledialog.ui:145
 #, kde-format
 msgid "You can change the icon later in folder properties."
-msgstr ""
+msgstr "tenpo sin la sina ken ante e sitelen ni kepeken ilo lawa poki"
 
 #: filewidgets/kurlnavigator.cpp:611
 #, fuzzy, kde-format
@@ -3690,7 +3699,7 @@ msgstr "ijo ante"
 #, kde-format
 msgctxt "@action:button opening a list of locations"
 msgid "Go to Location on Path"
-msgstr ""
+msgstr "o tawa nasin pi nimi nasin"
 
 #: filewidgets/kurlnavigatorplacesselector.cpp:49
 #, fuzzy, kde-format
@@ -3769,7 +3778,7 @@ msgstr "pakala insa: mi ken ala toki e ni tawa jan: \"sina wile e ilo seme?\""
 #, kde-format
 msgctxt "An error message"
 msgid "Empty command provided"
-msgstr ""
+msgstr "sina pana ala e nimi lawa"
 
 #: gui/faviconrequestjob.cpp:108
 #, kde-format
@@ -3859,14 +3868,14 @@ msgstr ""
 #, kde-format
 msgid ""
 "For security reasons, launching executables is not allowed in this context."
-msgstr "awen pi pona ilo la mi ken ala open e ilo lon ni."
+msgstr "nasin leni la mi ken ala open e ilo kon ni."
 
 #: gui/openurljob.cpp:544
 #, kde-format
 msgid ""
 "The program \"%1\" needs to have executable permission before it can be "
 "launched."
-msgstr ""
+msgstr "mi ken ala open e ni tan ni: ilo kon \"%1\" li wile e nanpa lawa ken"
 
 #: gui/openurljob.cpp:555
 #, kde-format
@@ -3903,7 +3912,7 @@ msgstr "ilo \"%1\" li ken ala kama open."
 #: gui/systemd/systemdprocessrunner.cpp:200
 #, kde-format
 msgid "Failed to launch process (status code: %1)"
-msgstr ""
+msgstr "mi ken ala open e ilo kon ni (nanpa pakala: %1)"
 
 #: kioexec/kioexecd.cpp:86
 #, fuzzy, kde-kuit-format
@@ -4387,6 +4396,7 @@ msgid ""
 "Unable to %1 because the destination server refuses to accept the file or "
 "folder."
 msgstr ""
+"mi ken ala \"%1\" tan ni: ilo linluwi ni li wile ala e lipu ni e poki ni."
 
 #: kioworkers/http/http.cpp:1595 kioworkers/http/http.cpp:1708
 #, kde-format
@@ -4861,7 +4871,7 @@ msgstr "o &weka e ante pi nimi mute"
 #: widgets/fileundomanager.cpp:367
 #, kde-format
 msgid "&Redo"
-msgstr ""
+msgstr "&lonsin"
 
 #: widgets/fileundomanager.cpp:373
 #, fuzzy, kde-format
@@ -4943,6 +4953,8 @@ msgid ""
 "filename><nl/><nl/><emphasis strong='true'>This action cannot be undone.</"
 "emphasis>"
 msgstr ""
+"sina wile ala wile weka e ijo ni?<nl/><filename>%1</filename><nl/><nl/"
+"><emphasis strong=\"true\">sina ken ala lon sin e ni.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:233 widgets/jobuidelegate.cpp:247
 #: widgets/jobuidelegate.cpp:259 widgets/widgetsaskuseractionhandler.cpp:205
@@ -4981,6 +4993,8 @@ msgid ""
 "Do you want to permanently delete all items from the Trash?<nl/><nl/"
 "><emphasis strong='true'>This action cannot be undone.</emphasis>"
 msgstr ""
+"sina wile ala wile weka e ijo ale lon poki jaki?<nl/><nl/><emphasis "
+"strong='true'>sina ken ala lon sin e ni.</emphasis>"
 
 #: widgets/jobuidelegate.cpp:260 widgets/widgetsaskuseractionhandler.cpp:301
 #, kde-format
@@ -4995,6 +5009,7 @@ msgid ""
 "Do you really want to move this item to the Trash?<nl/><filename>%1</"
 "filename>"
 msgstr ""
+"sina wile ala wile pana e ijo ni tawa poki jaki?<nl/><filename>%1</filename>"
 
 #: widgets/jobuidelegate.cpp:279
 #, kde-format
@@ -5009,7 +5024,7 @@ msgstr[3] ""
 #, kde-format
 msgctxt "@action:button"
 msgid "Add…"
-msgstr ""
+msgstr "pana..."
 
 #: widgets/kacleditwidget.cpp:75
 #, fuzzy, kde-format
@@ -5041,7 +5056,7 @@ msgstr "kulupu lawa"
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Others"
-msgstr "ijo ante"
+msgstr "jan ante"
 
 #: widgets/kacleditwidget.cpp:239
 #, kde-format
@@ -5344,7 +5359,7 @@ msgstr "suli:"
 #: widgets/kfilepropspluginwidget.ui:259
 #, kde-format
 msgid "Size on disk:"
-msgstr ""
+msgstr "suli pi ilo poki:"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, calculateSizeBtn)
 #: widgets/kfilepropspluginwidget.ui:308
@@ -5570,7 +5585,7 @@ msgstr "&ilo li pini la o weka ala"
 #: widgets/kopenwithdialog.cpp:823
 #, kde-format
 msgid "Get more Apps from Discover"
-msgstr ""
+msgstr "o alasa e ilo kon sin kepeken ilo Discover"
 
 #. i18n: ectx: property (title), widget (QGroupBox, buttonGroup2)
 #: widgets/kpropertiesdesktopadvbase.ui:17
@@ -5715,11 +5730,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel2)
 #: widgets/kpropertiesdesktopbase.ui:42
-#, fuzzy, kde-format
-#| msgctxt "@title:tab File properties"
-#| msgid "&General"
+#, kde-format
 msgid "&Generic name:"
-msgstr "&ale"
+msgstr "&nimi tawa ale:"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, textLabel3)
 #. i18n: ectx: property (whatsThis), widget (QLineEdit, commentEdit)
@@ -5755,7 +5768,7 @@ msgstr "o sitelen e nimi jan. sina sama jan ni la ilo li kepeken."
 #: widgets/kpropertiesdesktopbase.ui:95
 #, kde-format
 msgid "Program:"
-msgstr ""
+msgstr "ilo kon:"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, browseButton)
 #: widgets/kpropertiesdesktopbase.ui:114
@@ -7034,7 +7047,7 @@ msgctxt ""
 "Template putting the number before the old file name, # is replaced by a "
 "number later"
 msgid "#_"
-msgstr ""
+msgstr "#_"
 
 #: widgets/renamefiledialog.cpp:340
 #, kde-format
@@ -7042,7 +7055,7 @@ msgctxt ""
 "Template putting the number after the old file name, # is replaced by a "
 "number later"
 msgid "_#"
-msgstr ""
+msgstr "_#"
 
 #: widgets/renamefiledialog.cpp:342
 #, kde-format
@@ -7131,13 +7144,13 @@ msgstr[3] "o ante e nimi pi ijo wile %1 tawa:"
 #, kde-format
 msgctxt "@label:textbox add text to a filename"
 msgid "Add Text:"
-msgstr ""
+msgstr "pana toki:"
 
 #: widgets/renamefiledialog.cpp:546
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Text to add"
-msgstr ""
+msgstr "toki pi pana sin"
 
 #: widgets/renamefiledialog.cpp:551
 #, fuzzy, kde-format
@@ -7195,7 +7208,7 @@ msgstr "o ante"
 #, kde-format
 msgctxt "@info renaming operation"
 msgid "Add text"
-msgstr ""
+msgstr "pana nimi"
 
 #: widgets/renamefiledialog.cpp:705
 #, fuzzy, kde-format
@@ -7247,7 +7260,7 @@ msgstr "poki pi tomo sina"
 #, kde-format
 msgctxt "@title:window"
 msgid "Hide this File?"
-msgstr ""
+msgstr "o len ala len e lipu ni?"
 
 #: widgets/renamefilewarningdialog.cpp:68
 #: widgets/renamefilewarningdialog.cpp:118
