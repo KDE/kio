@@ -414,6 +414,25 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
     const QByteArray encodedBasePath = _path + '/';
 
     const KIO::StatDetails details = getStatDetails();
+#if HAVE_SYS_XATTR_H && HAVE_DIRENT_D_TYPE
+    // Only an NTFS mount has the hidden attribute: ntfs and ntfs3, or ntfs-3g, which mounts as fuseblk
+    // or under a fuse type with ntfs in its name. The answer holds for the mount id it was looked up
+    // with, 0 being the mount of the listed directory for entries that carry no UDS_MOUNT_ID.
+    bool ntfsMountLookedUp = false;
+    quint64 ntfsMountLookedUpId = 0;
+    bool onNtfsMount = false;
+    const auto isOnNtfsMount = [&](const UDSEntry &listedEntry) {
+        const quint64 mountId = listedEntry.numberValue(KIO::UDSEntry::UDS_MOUNT_ID, 0);
+        if (!ntfsMountLookedUp || mountId != ntfsMountLookedUpId) {
+            const KMountPoint::Ptr mountPoint = mountId != 0 ? KMountPoint::currentMountPointForUniqueId(mountId) : KMountPoint::currentMountPointForPath(path);
+            const QString mountType = mountPoint ? mountPoint->mountType() : QString();
+            onNtfsMount = mountType == QLatin1String("fuseblk") || mountType.contains(QLatin1String("ntfs"));
+            ntfsMountLookedUp = true;
+            ntfsMountLookedUpId = mountId;
+        }
+        return onNtfsMount;
+    };
+#endif
     // qDebug() << "========= LIST " << url << "details=" << details << " =========";
     UDSEntry entry;
 
@@ -475,7 +494,7 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
             const QByteArray name(ep->d_name);
             if (createUDSEntry(filename, dirfd(dp), name, encodedBasePath + name, entry, details, fullPath)) {
 #if HAVE_SYS_XATTR_H && HAVE_DIRENT_D_TYPE
-                if (isNtfsHidden(fullPath)) {
+                if (isOnNtfsMount(entry) && isNtfsHidden(fullPath)) {
                     bool ntfsHidden = true;
 
                     // Bug 392913: NTFS root volume is always "hidden", ignore this
