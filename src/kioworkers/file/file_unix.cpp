@@ -97,8 +97,19 @@ static QMimeDatabase::MatchMode mimeMatchModeFor(const StatStruct &buf, const QS
     return isSlowFs ? QMimeDatabase::MatchExtension : QMimeDatabase::MatchDefault;
 }
 
+// QFile::decodeName, with one allocation. On Unix it is QString::fromLocal8Bit, which equals fromUtf8
+// but allocates twice, and Apple systems also normalize the name, so they keep QFile::decodeName.
+static QString decodeFileName(const char *name)
+{
+#ifdef Q_OS_DARWIN
+    return QFile::decodeName(name);
+#else
+    return QString::fromUtf8(name);
+#endif
+}
+
 // path is relative to dirFd, which is AT_FDCWD for an absolute path
-static QByteArray readlinkToBuffer(const StatStruct &buf, int dirFd, const QByteArray &path)
+static QByteArray readlinkToBuffer(const StatStruct &buf, int dirFd, const char *path)
 {
     // Use readlink on Unix because symLinkTarget turns relative targets into absolute (#352927)
     size_t size = stat_size(buf);
@@ -111,7 +122,7 @@ static QByteArray readlinkToBuffer(const StatStruct &buf, int dirFd, const QByte
     size_t bufferSize = qBound(lowerBound, size + 1, higherBound);
     QByteArray linkTargetBuffer(bufferSize, Qt::Initialization::Uninitialized);
     while (true) {
-        ssize_t n = readlinkat(dirFd, path.constData(), linkTargetBuffer.data(), bufferSize);
+        ssize_t n = readlinkat(dirFd, path, linkTargetBuffer.data(), bufferSize);
         if (n < 0 && errno != ERANGE) {
             /* On AIX 5L v5.3 and HP-UX 11i v2 04/09, readlink returns -1
                with errno == ERANGE if the buffer is too small.
@@ -132,13 +143,8 @@ static QByteArray readlinkToBuffer(const StatStruct &buf, int dirFd, const QByte
 
 // name is relative to dirFd, so a listing does not resolve the directory again for every entry.
 // path is the absolute path of the same file.
-static bool createUDSEntry(const QString &filename,
-                           int dirFd,
-                           const QByteArray &name,
-                           const QByteArray &path,
-                           UDSEntry &entry,
-                           KIO::StatDetails details,
-                           const QString &fullPath)
+static bool
+createUDSEntry(const QString &filename, int dirFd, const char *name, const QByteArray &path, UDSEntry &entry, KIO::StatDetails details, const QString &fullPath)
 {
     assert(entry.count() == 0); // by contract :-)    assert(entry.count() == 0); // by contract :-)
     int numberEntries = 0;
@@ -192,7 +198,7 @@ static bool createUDSEntry(const QString &filename,
 
     StatStruct buff;
 
-    if (LSTATAT(dirFd, name.constData(), &buff, details) == 0) {
+    if (LSTATAT(dirFd, name, &buff, details) == 0) {
         const bool isSymLink = Utils::isLinkMask(stat_mode(buff));
         if (isSymLink && (details & (KIO::StatBasic | KIO::StatResolveSymlink))) {
             // the link destination
@@ -212,13 +218,13 @@ static bool createUDSEntry(const QString &filename,
                 if (linkTargetBuffer.isEmpty()) {
                     return false;
                 }
-                const QString linkTarget = QFile::decodeName(linkTargetBuffer);
+                const QString linkTarget = decodeFileName(linkTargetBuffer.constData());
                 entry.fastInsert(KIO::UDSEntry::UDS_LINK_DEST, linkTarget);
             }
 
             // A symlink
             if (details & KIO::StatResolveSymlink) {
-                if (STATAT(dirFd, name.constData(), &buff, details) == -1) {
+                if (STATAT(dirFd, name, &buff, details) == -1) {
                     isBrokenSymLink = true;
                 } else {
 #if HAVE_POSIX_ACL
@@ -451,7 +457,7 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
 
         UDSEntry entry;
 
-        const QString filename = QFile::decodeName(ep->d_name);
+        const QString filename = decodeFileName(ep->d_name);
 
         /*
          * details == 0 (if statement) is the fast code path.
@@ -506,9 +512,8 @@ WorkerResult FileProtocol::listDir(const QUrl &url)
             if (details & KIO::StatMimeType) {
                 fullPath = Utils::slashAppended(path) + filename;
             }
-            const QByteArray name(ep->d_name);
-            const QByteArray entryPath = (details & KIO::StatAcl) ? encodedBasePath + name : QByteArray();
-            if (createUDSEntry(filename, dirfd(dp), name, entryPath, entry, details, fullPath)) {
+            const QByteArray entryPath = (details & KIO::StatAcl) ? encodedBasePath + ep->d_name : QByteArray();
+            if (createUDSEntry(filename, dirfd(dp), ep->d_name, entryPath, entry, details, fullPath)) {
 #if HAVE_SYS_XATTR_H && HAVE_DIRENT_D_TYPE
                 if (isOnNtfsMount(entry) && isNtfsHidden(fullPath)) {
                     bool ntfsHidden = true;
@@ -929,7 +934,7 @@ WorkerResult FileProtocol::stat(const QUrl &url)
     const KIO::StatDetails details = getStatDetails();
 
     UDSEntry entry;
-    if (!createUDSEntry(url.fileName(), AT_FDCWD, _path, _path, entry, details, path)) {
+    if (!createUDSEntry(url.fileName(), AT_FDCWD, _path.constData(), _path, entry, details, path)) {
         return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, path);
     }
     statEntry(entry);
