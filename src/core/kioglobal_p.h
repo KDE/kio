@@ -11,6 +11,7 @@
 #include "kiocore_export.h"
 #include <functional>
 #include <qplatformdefs.h>
+#include <sys/types.h> // dev_t
 
 #include <KFileSystemType>
 #include <KUser>
@@ -170,6 +171,13 @@ KIOCORE_EXPORT QString destinationFileSystemName(const QUrl &url, KFileSystemTyp
  * \internal
  */
 KIOCORE_EXPORT QString windowsFileSystemName(const QString &path);
+
+/*!
+ * Returns the serial number of the volume that holds the local \a path, which is the device id of
+ * a file on Windows, or 0 if the volume cannot be queried.
+ * \internal
+ */
+KIOCORE_EXPORT dev_t windowsVolumeSerialNumber(const QString &path);
 #endif
 
 /*!

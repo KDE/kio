@@ -155,12 +155,17 @@ KIOCORE_EXPORT int kio_windows_lstat(const char *path, QT_STATBUF *buffer)
     return result;
 }
 
-KIOCORE_EXPORT QString KIOPrivate::windowsFileSystemName(const QString &path)
+// Finds the mount point of the volume that holds the path, such as C:\.
+static bool volumePathName(const QString &path, wchar_t (&volume)[MAX_PATH + 1])
 {
     const QString nativePath = QDir::toNativeSeparators(path);
-    // The mount point of the volume that holds the path, such as C:\.
+    return GetVolumePathNameW(reinterpret_cast<LPCWSTR>(nativePath.utf16()), volume, MAX_PATH + 1);
+}
+
+KIOCORE_EXPORT QString KIOPrivate::windowsFileSystemName(const QString &path)
+{
     wchar_t volume[MAX_PATH + 1] = {0};
-    if (!GetVolumePathNameW(reinterpret_cast<LPCWSTR>(nativePath.utf16()), volume, MAX_PATH + 1)) {
+    if (!volumePathName(path, volume)) {
         return QString();
     }
     wchar_t name[MAX_PATH + 1] = {0};
@@ -168,6 +173,19 @@ KIOCORE_EXPORT QString KIOPrivate::windowsFileSystemName(const QString &path)
         return QString();
     }
     return QString::fromWCharArray(name);
+}
+
+KIOCORE_EXPORT dev_t KIOPrivate::windowsVolumeSerialNumber(const QString &path)
+{
+    // A drive without a medium, such as an empty card reader, fails at once instead of asking
+    // the user to insert one.
+    DWORD previousErrorMode = 0;
+    SetThreadErrorMode(SEM_FAILCRITICALERRORS, &previousErrorMode);
+    wchar_t volume[MAX_PATH + 1] = {0};
+    DWORD serialNumber = 0;
+    const bool ok = volumePathName(path, volume) && GetVolumeInformationW(volume, nullptr, 0, &serialNumber, nullptr, nullptr, nullptr, 0);
+    SetThreadErrorMode(previousErrorMode, nullptr);
+    return ok ? serialNumber : 0;
 }
 
 KIOCORE_EXPORT bool KIOPrivate::changeOwnership(const QString &file, KUserId newOwner, KGroupId newGroup)

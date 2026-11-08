@@ -24,6 +24,7 @@ private Q_SLOTS:
     void testRemovableBlockDevice_data();
     void testRemovableBlockDevice();
     void testNetworkMountIsNotRemovable();
+    void testFindByPathOfATemporaryFolder();
 
 private:
 };

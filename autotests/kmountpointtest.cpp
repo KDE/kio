@@ -137,6 +137,22 @@ void KMountPointTest::testNetworkMountIsNotRemovable()
     }
 }
 
+// A folder is found on the mount point that holds it, which has a device id, on Windows too.
+void KMountPointTest::testFindByPathOfATemporaryFolder()
+{
+    const KMountPoint::List mountPoints = KMountPoint::currentMountPoints();
+    if (mountPoints.isEmpty()) { // can happen in chroot jails
+        QSKIP("mtab is empty");
+    }
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+
+    const KMountPoint::Ptr mountPoint = mountPoints.findByPath(dir.path());
+    QVERIFY(mountPoint);
+    QVERIFY2(QDir::fromNativeSeparators(dir.path()).startsWith(mountPoint->mountPoint(), Qt::CaseInsensitive), qPrintable(mountPoint->mountPoint()));
+    QVERIFY(mountPoint->deviceId() != 0);
+}
+
 QTEST_MAIN(KMountPointTest)
 
 void KMountPointTest::initTestCase()
