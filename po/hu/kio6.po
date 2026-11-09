@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.1\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 02:53+0000\n"
+"POT-Creation-Date: 2026-11-09 00:51+0000\n"
 "PO-Revision-Date: 2026-05-26 22:49+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -43,7 +43,7 @@ msgstr ""
 "Nem sikerült módosítani a(z) <filename>%1</filename> fájl tulajdonosát. "
 "Nincs jogosultsága a módosítás végrehajtásához."
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:651
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:691
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2359,87 +2359,87 @@ msgstr ""
 "A(z) <filename>%1</filename> nem található; adjon meg egy érvényes elérési "
 "utat a programhoz."
 
-#: core/slavebase.cpp:791
+#: core/slavebase.cpp:796
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "A(z) %1 protokollal nem lehet kapcsolatot megnyitni."
 
-#: core/slavebase.cpp:793
+#: core/slavebase.cpp:798
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "A(z) %1 protokollnál nem lehet kapcsolatot lezárni."
 
-#: core/slavebase.cpp:795
+#: core/slavebase.cpp:800
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Fájlok elérésére nem használható a(z) %1 protokoll."
 
-#: core/slavebase.cpp:797
+#: core/slavebase.cpp:802
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Nem lehet írni ide: %1."
 
-#: core/slavebase.cpp:799
+#: core/slavebase.cpp:804
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Nem érhető el speciális művelet a(z) %1 protokollnál."
 
-#: core/slavebase.cpp:801
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Könyvtárak kilistázását nem támogatja a(z) %1 protokoll."
 
-#: core/slavebase.cpp:803
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Adatletöltés nem lehetséges innen: %1."
 
-#: core/slavebase.cpp:805
+#: core/slavebase.cpp:810
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Nem lehet letölteni MIME-típusok jellemzőit innen: %1."
 
-#: core/slavebase.cpp:807
+#: core/slavebase.cpp:812
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Nem lehet fájlokat átnevezni vagy mozgatni ezen belül: %1."
 
-#: core/slavebase.cpp:809
+#: core/slavebase.cpp:814
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Szimbolikus link nem hozható létre a(z) %1 protokollal."
 
-#: core/slavebase.cpp:811
+#: core/slavebase.cpp:816
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Fájlmásolás nem lehetséges ezen belül: %1."
 
-#: core/slavebase.cpp:813
+#: core/slavebase.cpp:818
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Nem lehet fájlokat törölni innen: %1."
 
-#: core/slavebase.cpp:815
+#: core/slavebase.cpp:820
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Könyvtárak létrehozását nem támogatja a(z) %1 protokoll."
 
-#: core/slavebase.cpp:817
+#: core/slavebase.cpp:822
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Fájlattribútumokat nem lehet megváltoztatni a(z) %1 protokollal."
 
-#: core/slavebase.cpp:819
+#: core/slavebase.cpp:824
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Fájlok tulajdonosát nem lehet megváltoztatni %1 protokollal."
 
-#: core/slavebase.cpp:821
+#: core/slavebase.cpp:826
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Fájlmegnyitást nem támogat a(z) %1 protokoll."
 
-#: core/slavebase.cpp:823
+#: core/slavebase.cpp:828
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "A(z) %1 protokoll nem támogatja ezt a műveletet: %2."
@@ -4273,17 +4273,17 @@ msgstr "A „mount” program nem található"
 msgid "Could not find program \"umount\""
 msgstr "Az „umount” program nem található"
 
-#: kioworkers/file/file_unix.cpp:406
+#: kioworkers/file/file_unix.cpp:419
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Nincs adathordozó az eszközben: %1"
 
-#: kioworkers/file/file_unix.cpp:836
+#: kioworkers/file/file_unix.cpp:876
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 felhasználónév azonosítóját"
 
-#: kioworkers/file/file_unix.cpp:847
+#: kioworkers/file/file_unix.cpp:887
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nem sikerült lekérdezni a(z) %1 csoport azonosítóját"

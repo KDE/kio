@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 02:53+0000\n"
+"POT-Creation-Date: 2026-11-09 00:51+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda\n"
@@ -41,7 +41,7 @@ msgstr ""
 "Tekisobose okukyusamu obwanannyini bwa fayiro <filename>%1</filename>. "
 "Endukusa z'olina ku sisitemu eno tezikumala okutuukiriza kino."
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:651
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:691
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2392,90 +2392,90 @@ msgstr ""
 "<filename>%1</filename> kibuze; wandika erinnya nga ddala lya puloguramu "
 "etandikika."
 
-#: core/slavebase.cpp:791
+#: core/slavebase.cpp:796
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Empulizagana ey'ekika kya %1 tesobozesa okussawo enkwatagana."
 
-#: core/slavebase.cpp:793
+#: core/slavebase.cpp:798
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Empulizagana ey'ekika kya %1 tesobozesa okugyawo enkwatagana."
 
-#: core/slavebase.cpp:795
+#: core/slavebase.cpp:800
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Empulizagana ey'ekika kya %1 tesobozesa okutuuka ku fayiro."
 
-#: core/slavebase.cpp:797
+#: core/slavebase.cpp:802
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Okuwandika %1 tekusobosebwa."
 
-#: core/slavebase.cpp:799
+#: core/slavebase.cpp:804
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Tewali bikolwa bya njawulo ebikolera mu mpulizagana ey'ekika kya %1."
 
-#: core/slavebase.cpp:801
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Empulizagana ey'ekika kya %1 tesobozesa okutottola biri mu materekero."
 
-#: core/slavebase.cpp:803
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Okunona data okuva mu %1 tekusobozesebwa."
 
-#: core/slavebase.cpp:805
+#: core/slavebase.cpp:810
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Okunona ebikwata ku kika kya MIME okuva mu %1 tekusobozesebwa."
 
-#: core/slavebase.cpp:807
+#: core/slavebase.cpp:812
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Okukyusa mannya oba okusimbuliza fayiro mu %1 tekusobozesebwa."
 
-#: core/slavebase.cpp:809
+#: core/slavebase.cpp:814
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Empulizagana ey'ekika kya %1 tesobozesa okukola nyunzi ezeeyawudde."
 
-#: core/slavebase.cpp:811
+#: core/slavebase.cpp:816
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Okugya kopi mu fayiro mu %1 tekusobozesebwa."
 
-#: core/slavebase.cpp:813
+#: core/slavebase.cpp:818
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Okugyawo fayiro eza mu %1 tekusobozesebwa."
 
-#: core/slavebase.cpp:815
+#: core/slavebase.cpp:820
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Empulizagana ey'ekika kya %1 tesobozesa okukolawo materekero."
 
-#: core/slavebase.cpp:817
+#: core/slavebase.cpp:822
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr ""
 "Empulizagana ey'ekika kya %1 tesobozesa okukyusa atiributo eza ku fayiro."
 
-#: core/slavebase.cpp:819
+#: core/slavebase.cpp:824
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr ""
 "Empulizagana ey'ekika kya %1 tesobozesa okukyusa obwa nannyini obwa ku "
 "fayiro."
 
-#: core/slavebase.cpp:821
+#: core/slavebase.cpp:826
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Empulizagana ey'ekika kya %1 tesobozesa okubikkula fayiro."
 
-#: core/slavebase.cpp:823
+#: core/slavebase.cpp:828
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Empulizagana ey'ekika kya %1 tesobozesa ekikolwa %2."
@@ -4325,17 +4325,17 @@ msgstr "Puloguramu \"mount\" embuze"
 msgid "Could not find program \"umount\""
 msgstr "Puloguramu \"umount\" embuze"
 
-#: kioworkers/file/file_unix.cpp:406
+#: kioworkers/file/file_unix.cpp:419
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Mu kyuma temuli mediya ya %1"
 
-#: kioworkers/file/file_unix.cpp:836
+#: kioworkers/file/file_unix.cpp:876
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Nnemedwa okufuna ennamba ya mukozesa egendera ku linnya %1"
 
-#: kioworkers/file/file_unix.cpp:847
+#: kioworkers/file/file_unix.cpp:887
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Nnemedwa okufuna ennamba ya guluupu egendera ku guluupu %1"

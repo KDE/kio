@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 02:53+0000\n"
+"POT-Creation-Date: 2026-11-09 00:51+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -48,7 +48,7 @@ msgstr ""
 "Methu newid perchnogaeth y ffeil <filename>%1</filename>. Does ganddych dim "
 "digon o hawliau i gyflawni'r newid."
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:651
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:691
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2378,87 +2378,87 @@ msgstr ""
 "Ni ganfwyd <filename>%1</filename>; atolwg mewnbynnwch llwybr dilys i raglen "
 "gweithrediadwyolyn."
 
-#: core/slavebase.cpp:791
+#: core/slavebase.cpp:796
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Ni chynhelir agor cysylltiadau efo'r protocol %1."
 
-#: core/slavebase.cpp:793
+#: core/slavebase.cpp:798
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Ni chynhelir cau cysylltiadau efo'r protocol %1."
 
-#: core/slavebase.cpp:795
+#: core/slavebase.cpp:800
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Ni chynhelir cyrchu cysylltiadau efo'r protocol %1."
 
-#: core/slavebase.cpp:797
+#: core/slavebase.cpp:802
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Ni chynhelir ysgrifennu at %1."
 
-#: core/slavebase.cpp:799
+#: core/slavebase.cpp:804
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Dim gweithrediadau arbennig ar gael i brotocol %1."
 
-#: core/slavebase.cpp:801
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Ni chynhelir rhestru plygyll efo'r protocol %1."
 
-#: core/slavebase.cpp:803
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Ni chynhelir nôl data oddiwrth %1."
 
-#: core/slavebase.cpp:805
+#: core/slavebase.cpp:810
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr "Ni chynhelir nôl data math mime oddiwrth %1."
 
-#: core/slavebase.cpp:807
+#: core/slavebase.cpp:812
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Ni chynhelir ail-enwi neu symud ffeiliau tu mewn i %1."
 
-#: core/slavebase.cpp:809
+#: core/slavebase.cpp:814
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr "Ni chynhelir creu cysylltau symbolaidd efo'r protocol %1."
 
-#: core/slavebase.cpp:811
+#: core/slavebase.cpp:816
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Ni chynhelir copïo ffeiliau tu mewn i %1."
 
-#: core/slavebase.cpp:813
+#: core/slavebase.cpp:818
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Ni chynhelir dileu ffeiliau o %1."
 
-#: core/slavebase.cpp:815
+#: core/slavebase.cpp:820
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Ni chynhelir creu plygyll efo'r protocol %1."
 
-#: core/slavebase.cpp:817
+#: core/slavebase.cpp:822
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Ni chynhelir newid priodoleddau ffeiliau efo'r protocol %1."
 
-#: core/slavebase.cpp:819
+#: core/slavebase.cpp:824
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Ni chynhelir newid priodoleddau ffeiliau efo'r protocol %1."
 
-#: core/slavebase.cpp:821
+#: core/slavebase.cpp:826
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Ni chynhelir creu plygyll efo'r protocol %1."
 
-#: core/slavebase.cpp:823
+#: core/slavebase.cpp:828
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Nid yw protocol %1 yn cynnal gweithred %2."
@@ -4317,18 +4317,18 @@ msgstr "Methu darganfod y rhaglen \"mount\""
 msgid "Could not find program \"umount\""
 msgstr "Methu darganfod y rhaglen \"umount\""
 
-#: kioworkers/file/file_unix.cpp:406
+#: kioworkers/file/file_unix.cpp:419
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Dim cyfryngau yn dyfais am %1"
 
-#: kioworkers/file/file_unix.cpp:836
+#: kioworkers/file/file_unix.cpp:876
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 "Ni allai cyrchu hunaniaeth defnyddiwr ar gyfer enw defnyddiwr rhowyd %1"
 
-#: kioworkers/file/file_unix.cpp:847
+#: kioworkers/file/file_unix.cpp:887
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr "Ni allai cyrchu hunaniaeth swp ar gyfer enw swp rhowyd %1"

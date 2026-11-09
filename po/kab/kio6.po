@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-08 02:53+0000\n"
+"POT-Creation-Date: 2026-11-09 00:51+0000\n"
 "PO-Revision-Date: 2024-12-08 16:20+0100\n"
 "Last-Translator: ButterflyOfFire <butterflyoffire@protonmail.com>\n"
 "Language-Team: Kabyle\n"
@@ -42,7 +42,7 @@ msgstr ""
 "Ur yezmir ara ad ibeddel bab n ufaylu <filename>%1</filename>. Ur k-id-"
 "ikeffu ara unekcum ɣer ufaylu akken ad tgeḍ abeddel."
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:651
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:691
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -2088,87 +2088,87 @@ msgstr ""
 "<filename>%1</filename> ur yettwaf ara; ttxil-k, sekcem abrid iṣeḥḥan ɣer "
 "wahil yettwagezmen."
 
-#: core/slavebase.cpp:791
+#: core/slavebase.cpp:796
 #, kde-format
 msgid "Opening connections is not supported with the protocol %1."
 msgstr "Tuqqniwin yeldin ur ttwasefrakent ara s uneggaf %1."
 
-#: core/slavebase.cpp:793
+#: core/slavebase.cpp:798
 #, kde-format
 msgid "Closing connections is not supported with the protocol %1."
 msgstr "Amdal n tuqqniwin ur ttwasefrakent ara s uneggaf %1."
 
-#: core/slavebase.cpp:795
+#: core/slavebase.cpp:800
 #, kde-format
 msgid "Accessing files is not supported with the protocol %1."
 msgstr "Anekcum ɣer yifuyla ur yettwasefrak ara s uneggaf %1."
 
-#: core/slavebase.cpp:797
+#: core/slavebase.cpp:802
 #, kde-format
 msgid "Writing to %1 is not supported."
 msgstr "Ṭira ɣer %1 ur yettwasefrak ara."
 
-#: core/slavebase.cpp:799
+#: core/slavebase.cpp:804
 #, kde-format
 msgid "There are no special actions available for protocol %1."
 msgstr "Ulac tigawin tuzzigin i yellan i uneggaf %1."
 
-#: core/slavebase.cpp:801
+#: core/slavebase.cpp:806
 #, kde-format
 msgid "Listing folders is not supported for protocol %1."
 msgstr "Abdar n yikaramen ur yettwasefrak ara i uneggaf %1."
 
-#: core/slavebase.cpp:803
+#: core/slavebase.cpp:808
 #, kde-format
 msgid "Retrieving data from %1 is not supported."
 msgstr "Awway n yisefka seg %1 ur yettwasefrak ara."
 
-#: core/slavebase.cpp:805
+#: core/slavebase.cpp:810
 #, kde-format
 msgid "Retrieving mime type information from %1 is not supported."
 msgstr ""
 
-#: core/slavebase.cpp:807
+#: core/slavebase.cpp:812
 #, kde-format
 msgid "Renaming or moving files within %1 is not supported."
 msgstr "Abeddel n yisem neɣ asenkez n yifuyla deg %1 ur yettwasefrak."
 
-#: core/slavebase.cpp:809
+#: core/slavebase.cpp:814
 #, kde-format
 msgid "Creating symlinks is not supported with protocol %1."
 msgstr ""
 
-#: core/slavebase.cpp:811
+#: core/slavebase.cpp:816
 #, kde-format
 msgid "Copying files within %1 is not supported."
 msgstr "Anɣal anɣal deg %1 ur yettwasefrak ara."
 
-#: core/slavebase.cpp:813
+#: core/slavebase.cpp:818
 #, kde-format
 msgid "Deleting files from %1 is not supported."
 msgstr "Tukksa n yifuyla seg %1 ur yettwasefrak ara."
 
-#: core/slavebase.cpp:815
+#: core/slavebase.cpp:820
 #, kde-format
 msgid "Creating folders is not supported with protocol %1."
 msgstr "Timerna n yikaramen ur yettwasefrak ara s uneggaf %1."
 
-#: core/slavebase.cpp:817
+#: core/slavebase.cpp:822
 #, kde-format
 msgid "Changing the attributes of files is not supported with protocol %1."
 msgstr "Asenfel imyarren n yifuyla ur yettwasefrak ara s uneggaf %1."
 
-#: core/slavebase.cpp:819
+#: core/slavebase.cpp:824
 #, kde-format
 msgid "Changing the ownership of files is not supported with protocol %1."
 msgstr "Asenfel bab n yifuyla ur yettwasefrak ara s uneggaf %1."
 
-#: core/slavebase.cpp:821
+#: core/slavebase.cpp:826
 #, kde-format
 msgid "Opening files is not supported with protocol %1."
 msgstr "Aldya n yifuyla ur yettwasefrak ara s uneggaf %1."
 
-#: core/slavebase.cpp:823
+#: core/slavebase.cpp:828
 #, kde-format
 msgid "Protocol %1 does not support action %2."
 msgstr "Aneggaf %1 ur issefrak ara tigawt %2."
@@ -3896,17 +3896,17 @@ msgstr "Yegguma ad yaf ahil \"mout\""
 msgid "Could not find program \"umount\""
 msgstr "Yegguma ad yaf ahil \"umount\""
 
-#: kioworkers/file/file_unix.cpp:406
+#: kioworkers/file/file_unix.cpp:419
 #, kde-format
 msgid "No media in device for %1"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:836
+#: kioworkers/file/file_unix.cpp:876
 #, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr ""
 
-#: kioworkers/file/file_unix.cpp:847
+#: kioworkers/file/file_unix.cpp:887
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
