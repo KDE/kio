@@ -145,7 +145,7 @@ endif()
 
 ecm_set_disabled_deprecation_versions(
     QT 6.11.0
-    KF 6.27.0
+    KF 6.32.0
 )
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kio6\")
