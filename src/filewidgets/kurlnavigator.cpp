@@ -216,6 +216,7 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
 {
     m_layout->setSpacing(0);
     m_layout->setContentsMargins(0, 0, 0, 0);
+    q->setProperty("_breeze_force_frame", true);
     QStyleOption option;
     option.initFrom(q);
 
@@ -1451,9 +1452,9 @@ void KUrlNavigator::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     QStyleOptionFrame option;
     option.initFrom(this);
+    option.frameShape = QFrame::StyledPanel;
     option.lineWidth = style()->pixelMetric(QStyle::PM_DefaultFrameWidth, &option, this);
     option.midLineWidth = 0;
-    option.frameShape = QFrame::StyledPanel;
 
     if (d->m_backgroundEnabled && !d->m_editable) {
         option.palette.setColor(QPalette::Base, palette().alternateBase().color());
