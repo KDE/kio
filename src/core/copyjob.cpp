@@ -2720,9 +2720,9 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
 
         // Existing dest?
         if (err == ERR_DIR_ALREADY_EXIST || err == ERR_FILE_ALREADY_EXIST || err == ERR_IDENTICAL_FILES) {
-            // Should we skip automatically ?
+            // Should we skip automatically? Also skip when moving onto itself.
             bool isDir = (err == ERR_DIR_ALREADY_EXIST); // ## technically, isDir means "source is dir", not "dest is dir" #######
-            if ((isDir && m_bAutoSkipDirs) || (!isDir && m_bAutoSkipFiles)) {
+            if ((isDir && m_bAutoSkipDirs) || (!isDir && m_bAutoSkipFiles) || (m_mode == CopyJob::CopyMode::Move && m_currentSrcURL == dest)) {
                 // Move on to next source url
                 ++m_skippedFiles;
                 skipSrc(isDir);

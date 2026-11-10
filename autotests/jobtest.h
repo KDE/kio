@@ -161,6 +161,8 @@ private Q_SLOTS:
     void overwriteOlderFiles();
     void overwriteOlderFiles_data();
     void moveAndOverwrite();
+    void moveOntoItself_data();
+    void moveOntoItself();
     void moveOverSymlinkToSelf();
     void copyFileOntoTakenName();
     void createSymlink();

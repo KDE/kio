@@ -4399,6 +4399,29 @@ void JobTest::moveAndOverwrite()
 #endif
 }
 
+void JobTest::moveOntoItself_data()
+{
+    QTest::addColumn<QString>("sourceFile");
+    QTest::addColumn<QString>("testFile");
+
+    QTest::newRow("file") << homeTmpDir() + "test"_L1 << homeTmpDir() + "test"_L1;
+    QTest::newRow("dir") << homeTmpDir() + "folder"_L1 << homeTmpDir() + "folder/test2"_L1;
+}
+
+void JobTest::moveOntoItself()
+{
+    QFETCH(QString, sourceFile);
+    QFETCH(QString, testFile);
+    createTestFile(testFile);
+
+    auto *job = KIO::move(QUrl::fromLocalFile(sourceFile), QUrl::fromLocalFile(homeTmpDir()), KIO::HideProgressInfo);
+    job->setUiDelegate(new KJobUiDelegate);
+    auto *askUser = new MockAskUserInterface(job->uiDelegate());
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    // Shouldn't ask to move onto itself, just skip.
+    QCOMPARE(askUser->m_askUserRenameCalled, 0);
+}
+
 void JobTest::copyFileOntoTakenName()
 {
 #ifndef Q_OS_WIN
