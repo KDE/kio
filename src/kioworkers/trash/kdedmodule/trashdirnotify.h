@@ -8,6 +8,8 @@
 #ifndef TRASHDIRNOTIFY_H
 #define TRASHDIRNOTIFY_H
 
+#include <KMountPoint>
+
 #include <QObject>
 #include <QSet>
 #include <QString>
@@ -31,13 +33,15 @@ public:
 private Q_SLOTS:
     void slotTrashChanged();
     void updateWatchedTrashDirectories();
-    void updateWatchedTrashDirectory(bool accessible, const QString &udi);
 
 private:
     void watchStorageAccessChanges(const Solid::Device &device);
-    void pruneUnavailableWatchedDirectories();
+    // Returns the files/ directory of the trash on the given mount point, or an empty
+    // string if there is none or if it must not be watched.
+    QString trashFilesDirForMountPoint(const KMountPoint::Ptr &mountPoint) const;
 
     TrashImpl m_trashImpl;
+    QString m_homeFilesDir;
     KDirWatch *m_dirWatch;
     QSet<QString> m_watchedDirs;
 };

@@ -533,7 +533,7 @@ bool KMountPoint::isPseudoFs() const
 
 bool KMountPoint::isEncryptedFs() const
 {
-    return d->m_mountType == "fuse.gocryptfs"_L1 || d->m_mountType == "fuse.encfs"_L1;
+    return d->m_mountType == "fuse.gocryptfs"_L1 || d->m_mountType == "fuse.encfs"_L1 || d->m_mountType == "fuse.cryfs"_L1;
 }
 
 // The content of the sysfs attribute at @p path, empty when it is not there.

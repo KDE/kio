@@ -1079,6 +1079,11 @@ QString TrashImpl::trashDirectoryForMountPoint(const QString &mountPoint) const
     return trashForMountPoint(mountPoint, false);
 }
 
+QString TrashImpl::homeTrashDirectory() const
+{
+    return m_trashDirectories.value(0);
+}
+
 QString TrashImpl::trashForMountPoint(const QString &topdir, bool createIfNeeded) const
 {
     // (1) Administrator-created $topdir/.Trash directory

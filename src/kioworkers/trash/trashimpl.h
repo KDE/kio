@@ -127,6 +127,8 @@ public:
     /// \internal Used by TrashDirNotify.
     QString trashDirectoryForMountPoint(const QString &mountPoint) const;
 
+    QString homeTrashDirectory() const;
+
 Q_SIGNALS:
     void leaveModality();
 

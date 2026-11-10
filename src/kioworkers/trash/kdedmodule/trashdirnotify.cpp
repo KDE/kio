@@ -10,6 +10,7 @@
 
 #include <KDirNotify>
 #include <KDirWatch>
+#include <KMountPoint>
 
 #include <Solid/Device>
 #include <Solid/DeviceNotifier>
@@ -21,7 +22,9 @@
 TrashDirNotify::TrashDirNotify()
     : m_dirWatch(new KDirWatch(this))
 {
-    if (!m_trashImpl.init()) {
+    if (m_trashImpl.init()) {
+        m_homeFilesDir = m_trashImpl.homeTrashDirectory() + QLatin1String("/files");
+    } else {
         qCWarning(KIO_TRASHNOTIFY_LOG) << "Failed to initialize the home trash directory, trash notifications may be incomplete";
     }
 
@@ -47,67 +50,41 @@ TrashDirNotify::TrashDirNotify()
 void TrashDirNotify::watchStorageAccessChanges(const Solid::Device &device)
 {
     if (auto *access = device.as<Solid::StorageAccess>()) {
-        connect(access, &Solid::StorageAccess::accessibilityChanged, this, &TrashDirNotify::updateWatchedTrashDirectory);
+        connect(access, &Solid::StorageAccess::accessibilityChanged, this, &TrashDirNotify::updateWatchedTrashDirectories);
     }
 }
 
-void TrashDirNotify::updateWatchedTrashDirectory(bool accessible, const QString &udi)
+QString TrashDirNotify::trashFilesDirForMountPoint(const KMountPoint::Ptr &mountPoint) const
 {
-    if (!accessible) {
-        pruneUnavailableWatchedDirectories();
-        return;
+    // Accessing an unavailable network filesystem may block for a long time.
+    // KDirWatch may poll watched directories with synchronous stat() calls, which
+    // would block kded as well. Avoid probing and watching slow mount points.
+    // Encrypted FUSE filesystems such as Plasma Vaults are considered slow, but are backed by local storage.
+    if (!mountPoint->isEncryptedFs() && (mountPoint->isPseudoFs() || mountPoint->probablySlow())) {
+        return QString();
     }
 
-    const Solid::Device device(udi);
-    auto *access = device.as<Solid::StorageAccess>();
-    const QString mountPoint = access ? access->filePath() : QString();
-    if (mountPoint.isEmpty()) {
-        return;
-    }
-
-    const QString trashDir = m_trashImpl.trashDirectoryForMountPoint(mountPoint);
+    const QString trashDir = m_trashImpl.trashDirectoryForMountPoint(mountPoint->mountPoint());
     if (trashDir.isEmpty()) {
-        return;
+        return QString();
     }
 
     const QString filesDir = trashDir + QLatin1String("/files");
-    if (!QFileInfo::exists(filesDir) || m_watchedDirs.contains(filesDir)) {
-        return;
-    }
-
-    m_watchedDirs.insert(filesDir);
-    m_dirWatch->addDir(filesDir);
-    slotTrashChanged();
-}
-
-void TrashDirNotify::pruneUnavailableWatchedDirectories()
-{
-    bool changed = false;
-
-    for (auto it = m_watchedDirs.begin(); it != m_watchedDirs.end();) {
-        if (!QFileInfo::exists(*it)) {
-            m_dirWatch->removeDir(*it);
-            it = m_watchedDirs.erase(it);
-            changed = true;
-        } else {
-            ++it;
-        }
-    }
-
-    if (changed) {
-        slotTrashChanged();
-    }
+    return QFileInfo::exists(filesDir) ? filesDir : QString();
 }
 
 void TrashDirNotify::updateWatchedTrashDirectories()
 {
-    m_trashImpl.invalidateTrashDirectoriesCache();
-
     QSet<QString> currentDirs;
-    const TrashImpl::TrashDirMap trashDirs = m_trashImpl.trashDirectories();
-    for (const QString &trashDir : trashDirs) {
-        const QString filesDir = trashDir + QLatin1String("/files");
-        if (QFileInfo::exists(filesDir)) {
+    if (!m_homeFilesDir.isEmpty() && QFileInfo::exists(m_homeFilesDir)) {
+        currentDirs.insert(m_homeFilesDir);
+    }
+
+    // Not TrashImpl::trashDirectories(): it probes every mount, including the slow ones.
+    const KMountPoint::List mountPoints = KMountPoint::currentMountPoints();
+    for (const KMountPoint::Ptr &mountPoint : mountPoints) {
+        const QString filesDir = trashFilesDirForMountPoint(mountPoint);
+        if (!filesDir.isEmpty()) {
             currentDirs.insert(filesDir);
         }
     }
