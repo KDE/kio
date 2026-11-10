@@ -138,7 +138,7 @@ void KDirListerTest::initTestCase()
     createTestDirectory(tempPath() + "subdir");
     createTestDirectory(tempPath() + "subdir/subsubdir");
 
-    qRegisterMetaType<QList<QPair<KFileItem, KFileItem>>>();
+    qRegisterMetaType<QList<std::pair<KFileItem, KFileItem>>>();
 }
 
 void KDirListerTest::cleanup()
@@ -560,7 +560,7 @@ void KDirListerTest::testRefreshItems()
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     QCOMPARE(m_refreshedItems.count(), 1);
-    QPair<KFileItem, KFileItem> entry = m_refreshedItems.first();
+    std::pair<KFileItem, KFileItem> entry = m_refreshedItems.first();
     QCOMPARE(entry.first.url().toLocalFile(), fileName);
     QCOMPARE(entry.first.size(), KIO::filesize_t(11));
     QCOMPARE(entry.first.mimetype(), QString("application/octet-stream"));
@@ -611,7 +611,7 @@ void KDirListerTest::testRefreshRootItem()
     QCOMPARE(m_dirLister.spyClearDir.count(), 0);
 
     QCOMPARE(m_refreshedItems.count(), 1);
-    QPair<KFileItem, KFileItem> entry = m_refreshedItems.first();
+    std::pair<KFileItem, KFileItem> entry = m_refreshedItems.first();
     QCOMPARE(entry.first.url().toLocalFile(), path);
     QCOMPARE(entry.first.name(), QString("subdir"));
     QCOMPARE(entry.second.url().toLocalFile(), path);
@@ -722,7 +722,7 @@ void KDirListerTest::testRenameItem()
     QSignalSpy spyRefreshItems(&m_dirLister, &KCoreDirLister::refreshItems);
     QVERIFY(spyRefreshItems.wait(2000));
     QTRY_COMPARE(m_refreshedItems2.count(), 1);
-    QPair<KFileItem, KFileItem> entry = m_refreshedItems2.first();
+    std::pair<KFileItem, KFileItem> entry = m_refreshedItems2.first();
     QCOMPARE(entry.first.url().toLocalFile(), path);
     QCOMPARE(entry.first.mimetype(), QString("application/octet-stream"));
     QCOMPARE(entry.second.url().toLocalFile(), newPath);
@@ -769,7 +769,7 @@ void KDirListerTest::testRenameAndOverwrite() // has to be run after testRenameI
     QTRY_COMPARE(m_dirLister.spyItemsDeleted.count(), 1);
 
     QCOMPARE(m_refreshedItems.count(), 1);
-    QPair<KFileItem, KFileItem> entry = m_refreshedItems.first();
+    std::pair<KFileItem, KFileItem> entry = m_refreshedItems.first();
     QCOMPARE(entry.first.url().toLocalFile(), newPath);
     QCOMPARE(entry.second.url().toLocalFile(), path);
     disconnect(&m_dirLister, nullptr, this, nullptr);
@@ -1460,13 +1460,13 @@ void KDirListerTest::slotNewItems2(const KFileItemList &lst)
     m_items2 += lst;
 }
 
-void KDirListerTest::slotRefreshItems(const QList<QPair<KFileItem, KFileItem>> &lst)
+void KDirListerTest::slotRefreshItems(const QList<std::pair<KFileItem, KFileItem>> &lst)
 {
     m_refreshedItems += lst;
     Q_EMIT refreshItemsReceived();
 }
 
-void KDirListerTest::slotRefreshItems2(const QList<QPair<KFileItem, KFileItem>> &lst)
+void KDirListerTest::slotRefreshItems2(const QList<std::pair<KFileItem, KFileItem>> &lst)
 {
     m_refreshedItems2 += lst;
 }

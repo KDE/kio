@@ -2645,7 +2645,7 @@ void KCoreDirListerPrivate::addRefreshItem(const QUrl &directoryUrl, const KFile
             lstNewItems[directoryUrl].append(item);
         } else {
             Q_ASSERT(!item.isNull());
-            lstRefreshItems.append(qMakePair(oldItem, item));
+            lstRefreshItems.append(std::make_pair(oldItem, item));
         }
     } else if (!refreshItemWasFiltered) {
         // notify the user that the MIME type of a file changed that doesn't match

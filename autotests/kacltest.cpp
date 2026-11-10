@@ -208,9 +208,9 @@ void KACLTest::testSettingExtended()
     const QString expected(QStringLiteral("user::rw-\nuser:root:rwx\nuser:bin:r--\ngroup::rw-\nmask::rwx\nother::r--\n"));
 
     ACLUserPermissionsList users;
-    ACLUserPermissions user = qMakePair(QStringLiteral("root"), (unsigned short)7);
+    ACLUserPermissions user = std::make_pair(QStringLiteral("root"), (unsigned short)7);
     users.append(user);
-    user = qMakePair(QStringLiteral("bin"), (unsigned short)4);
+    user = std::make_pair(QStringLiteral("bin"), (unsigned short)4);
     users.append(user);
     CharlesII.setAllUserPermissions(users);
     QCOMPARE(CharlesII.asString(), expected);
@@ -246,9 +246,9 @@ void KACLTest::testSettingExtended()
 
     CharlesII.setACL(m_testACL); // reset
     ACLGroupPermissionsList groups;
-    ACLGroupPermissions group = qMakePair(QStringLiteral("audio"), (unsigned short)3);
+    ACLGroupPermissions group = std::make_pair(QStringLiteral("audio"), (unsigned short)3);
     groups.append(group);
-    group = qMakePair(QStringLiteral("users"), (unsigned short)4);
+    group = std::make_pair(QStringLiteral("users"), (unsigned short)4);
     groups.append(group);
     CharlesII.setAllGroupPermissions(groups);
     QCOMPARE(CharlesII.asString(), expected2);

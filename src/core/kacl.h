@@ -12,16 +12,19 @@
 #include <qplatformdefs.h>
 
 #include <QList>
+#if KIOCORE_ENABLE_DEPRECATED_SINCE(6, 33)
 #include <QPair>
+#endif
 
 #include <memory>
+#include <utility>
 
-typedef QPair<QString, unsigned short> ACLUserPermissions;
+typedef std::pair<QString, unsigned short> ACLUserPermissions;
 typedef QList<ACLUserPermissions> ACLUserPermissionsList;
 typedef QList<ACLUserPermissions>::iterator ACLUserPermissionsIterator;
 typedef QList<ACLUserPermissions>::const_iterator ACLUserPermissionsConstIterator;
 
-typedef QPair<QString, unsigned short> ACLGroupPermissions;
+typedef std::pair<QString, unsigned short> ACLGroupPermissions;
 typedef QList<ACLGroupPermissions> ACLGroupPermissionsList;
 typedef QList<ACLGroupPermissions>::iterator ACLGroupPermissionsIterator;
 typedef QList<ACLGroupPermissions>::const_iterator ACLGroupPermissionsConstIterator;
@@ -134,7 +137,7 @@ public:
     bool setNamedUserPermissions(const QString &name, unsigned short);
 
     /*! Returns the list of all group permission entries. Each entry consists
-     * of a name/permissions pair. This is a QPair, therefore access is provided
+     * of a name/permissions pair. This is a std::pair, therefore access is provided
      * via the .first and .second members.
      * Returns the list of all group permission entries. */
     ACLUserPermissionsList allUserPermissions() const;
@@ -158,7 +161,7 @@ public:
     bool setNamedGroupPermissions(const QString &name, unsigned short);
 
     /*! Returns the list of all group permission entries. Each entry consists
-     * of a name/permissions pair. This is a QPair, therefore access is provided
+     * of a name/permissions pair. This is a std::pair, therefore access is provided
      * via the .first and .second members.
      * Returns the list of all group permission entries. */
     ACLGroupPermissionsList allGroupPermissions() const;

@@ -156,7 +156,7 @@ public:
 
     static bool supports(const KFileItemList &items);
 
-    using CheckType = QPair<QString, bool>;
+    using CheckType = std::pair<QString, bool>;
 
 private Q_SLOTS:
     void slotInvalidateCache();

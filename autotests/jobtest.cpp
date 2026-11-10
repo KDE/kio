@@ -2635,7 +2635,7 @@ void JobTest::directorySize()
     // Only the data in the files counts, so the total is the same whatever filesystem this runs on.
     // Counting the directories as well used to make it 16428 on ext4, 272 on xfs and 63 on FreeBSD.
     KIO::filesize_t expectedSize = 0;
-    QSet<QPair<dev_t, ino_t>> visited;
+    QSet<std::pair<dev_t, ino_t>> visited;
     QDirIterator it(src, QDir::AllEntries | QDir::Hidden | QDir::System | QDir::NoDotAndDotDot, QDirIterator::Subdirectories);
     while (it.hasNext()) {
         const QFileInfo info(it.next());
@@ -2644,7 +2644,7 @@ void JobTest::directorySize()
         }
         QT_STATBUF buf;
         QCOMPARE(QT_LSTAT(QFile::encodeName(info.absoluteFilePath()).constData(), &buf), 0);
-        const QPair<dev_t, ino_t> key(buf.st_dev, buf.st_ino);
+        const std::pair<dev_t, ino_t> key(buf.st_dev, buf.st_ino);
         if (visited.contains(key)) { // a hard link is counted once, as the job does
             continue;
         }
@@ -3726,18 +3726,18 @@ void JobTest::copyPercentExcludesTheFileInHand()
     // with one file in hand. The file count guards against the last one, which the report the job
     // makes once it has finished them all can also send.
     int samples = 0;
-    QList<QPair<int, unsigned long>> countMismatches; // copied, what the job said
-    QList<QPair<int, unsigned long>> percentMismatches;
+    QList<std::pair<int, unsigned long>> countMismatches; // copied, what the job said
+    QList<std::pair<int, unsigned long>> percentMismatches;
     connect(job, &KIO::CopyJob::copying, this, [&](KIO::Job *, const QUrl &, const QUrl &) {
         if (copied >= fileCount) {
             return;
         }
         ++samples;
         if (job->processedAmount(KJob::Files) != qulonglong(copied) + 1) {
-            countMismatches << qMakePair(copied, static_cast<unsigned long>(job->processedAmount(KJob::Files)));
+            countMismatches << std::make_pair(copied, static_cast<unsigned long>(job->processedAmount(KJob::Files)));
         }
         if (job->percent() != static_cast<unsigned long>(100 * copied / fileCount)) {
-            percentMismatches << qMakePair(copied, job->percent());
+            percentMismatches << std::make_pair(copied, job->percent());
         }
     });
 

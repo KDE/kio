@@ -770,10 +770,10 @@ KACL KACLListView::itemsToACL(bool defaults) const
             newACL.setMaskPermissions(item->value);
             break;
         case NamedUser:
-            users.append(qMakePair(item->text(1), item->value));
+            users.append(std::make_pair(item->text(1), item->value));
             break;
         case NamedGroup:
-            groups.append(qMakePair(item->text(1), item->value));
+            groups.append(std::make_pair(item->text(1), item->value));
             break;
         default:
             break;

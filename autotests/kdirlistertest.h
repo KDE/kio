@@ -127,8 +127,8 @@ private Q_SLOTS:
 protected Q_SLOTS: // 'more private than private slots' - i.e. not seen by qtestlib
     void slotNewItems(const KFileItemList &);
     void slotNewItems2(const KFileItemList &);
-    void slotRefreshItems(const QList<QPair<KFileItem, KFileItem>> &);
-    void slotRefreshItems2(const QList<QPair<KFileItem, KFileItem>> &);
+    void slotRefreshItems(const QList<std::pair<KFileItem, KFileItem>> &);
+    void slotRefreshItems2(const QList<std::pair<KFileItem, KFileItem>> &);
     void slotOpenUrlOnRename(const QUrl &);
 
 Q_SIGNALS:
@@ -149,7 +149,7 @@ private:
     MyDirLister m_dirLister;
     KFileItemList m_items;
     KFileItemList m_items2;
-    QList<QPair<KFileItem, KFileItem>> m_refreshedItems, m_refreshedItems2;
+    QList<std::pair<KFileItem, KFileItem>> m_refreshedItems, m_refreshedItems2;
 };
 
 #endif

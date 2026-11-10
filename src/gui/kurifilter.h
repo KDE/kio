@@ -15,7 +15,9 @@
 
 #include <QHash>
 #include <QObject>
+#if KIOGUI_ENABLE_DEPRECATED_SINCE(6, 33)
 #include <QPair>
+#endif
 #include <QStringList>
 #include <QUrl>
 

@@ -233,7 +233,7 @@ public:
     void _k_slotNewItems(const QUrl &directoryUrl, const KFileItemList &);
     void _k_slotCompleted(const QUrl &directoryUrl);
     void _k_slotDeleteItems(const KFileItemList &);
-    void _k_slotRefreshItems(const QList<QPair<KFileItem, KFileItem>> &);
+    void _k_slotRefreshItems(const QList<std::pair<KFileItem, KFileItem>> &);
     void _k_slotClear();
     void _k_slotRedirection(const QUrl &oldUrl, const QUrl &newUrl);
     void _k_slotJobUrlsChanged(const QStringList &urlList);
@@ -492,7 +492,7 @@ void KDirModel::setDirLister(KDirLister *dirLister)
     connect(d->m_dirLister, &KCoreDirLister::itemsDeleted, this, [this](const KFileItemList &items) {
         d->_k_slotDeleteItems(items);
     });
-    connect(d->m_dirLister, &KCoreDirLister::refreshItems, this, [this](const QList<QPair<KFileItem, KFileItem>> &items) {
+    connect(d->m_dirLister, &KCoreDirLister::refreshItems, this, [this](const QList<std::pair<KFileItem, KFileItem>> &items) {
         d->_k_slotRefreshItems(items);
     });
     connect(d->m_dirLister, qOverload<>(&KCoreDirLister::clear), this, [this]() {
@@ -645,7 +645,7 @@ void KDirModelPrivate::_k_slotDeleteItems(const KFileItemList &items)
 
     // We need to find first item with existing node
     // because the first deleted item could be a hidden file not belonging to any node.
-    auto findFirstNodeAndUrl = [this](const KFileItemList &items) -> QPair<KDirModelNode *, QUrl> {
+    auto findFirstNodeAndUrl = [this](const KFileItemList &items) -> std::pair<KDirModelNode *, QUrl> {
         for (const KFileItem &item : items) {
             Q_ASSERT(!item.isNull());
             const QUrl url = item.url();
@@ -725,7 +725,7 @@ void KDirModelPrivate::_k_slotDeleteItems(const KFileItemList &items)
     }
 }
 
-void KDirModelPrivate::_k_slotRefreshItems(const QList<QPair<KFileItem, KFileItem>> &items)
+void KDirModelPrivate::_k_slotRefreshItems(const QList<std::pair<KFileItem, KFileItem>> &items)
 {
     QModelIndex topLeft;
     QModelIndex bottomRight;

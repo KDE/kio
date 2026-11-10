@@ -152,7 +152,7 @@ public:
 
     typedef QHash<QUrl, KFileItemList> NewItemsHash;
     NewItemsHash lstNewItems;
-    QList<QPair<KFileItem, KFileItem>> lstRefreshItems;
+    QList<std::pair<KFileItem, KFileItem>> lstRefreshItems;
     KFileItemList lstMimeFilteredItems, lstRemoveItems;
 
     QList<CachedItemsJob *> m_cachedItemsJobs;

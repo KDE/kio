@@ -69,7 +69,7 @@ public Q_SLOTS:
         cout << "*** itemsDeleted: " << endl;
         // TODO
     }
-    void refreshItems(const QList<QPair<KFileItem, KFileItem>> &)
+    void refreshItems(const QList<std::pair<KFileItem, KFileItem>> &)
     {
         cout << "*** refreshItems: " << endl;
         // TODO

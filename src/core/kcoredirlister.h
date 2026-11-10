@@ -16,6 +16,7 @@
 #include <QUrl>
 
 #include <memory>
+#include <utility>
 
 class KJob;
 namespace KIO
@@ -634,7 +635,7 @@ Q_SIGNALS:
      * NEW item. This allows to track which item has changed, especially after
      * a renaming.
      */
-    void refreshItems(const QList<QPair<KFileItem, KFileItem>> &items);
+    void refreshItems(const QList<std::pair<KFileItem, KFileItem>> &items);
 
     /*!
      * Emitted to display information about running jobs.

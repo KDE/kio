@@ -123,12 +123,15 @@ public:
 
     void emitCreatingDir(const QUrl &dir)
     {
-        Q_EMIT description(this, i18n("Creating directory"), qMakePair(i18n("Directory"), dir.toDisplayString()));
+        Q_EMIT description(this, i18n("Creating directory"), std::make_pair(i18n("Directory"), dir.toDisplayString()));
     }
 
     void emitCopying(const QUrl &src, const QUrl &dst)
     {
-        Q_EMIT description(this, i18n("Copying"), qMakePair(i18n("Source"), src.toDisplayString()), qMakePair(i18n("Destination"), dst.toDisplayString()));
+        Q_EMIT description(this,
+                           i18n("Copying"),
+                           std::make_pair(i18n("Source"), src.toDisplayString()),
+                           std::make_pair(i18n("Destination"), dst.toDisplayString()));
     }
 
     void emitMovingOrRenaming(const QUrl &src, const QUrl &dest, FileUndoManager::CommandType cmdType)
@@ -149,7 +152,7 @@ public:
 
     void emitDeleting(const QUrl &url)
     {
-        Q_EMIT description(this, i18n("Deleting"), qMakePair(i18n("File"), url.toDisplayString()));
+        Q_EMIT description(this, i18n("Deleting"), std::make_pair(i18n("File"), url.toDisplayString()));
     }
 
     void setTotalFiles(qulonglong files)

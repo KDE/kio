@@ -50,7 +50,7 @@ public:
     bool setMaskPermissions(unsigned short v);
     QString getUserName(uid_t uid) const;
     QString getGroupName(gid_t gid) const;
-    bool setAllUsersOrGroups(const QList<QPair<QString, unsigned short>> &list, acl_tag_t type);
+    bool setAllUsersOrGroups(const QList<std::pair<QString, unsigned short>> &list, acl_tag_t type);
     bool setNamedUserOrGroupPermissions(const QString &name, unsigned short permissions, acl_tag_t type);
 
     acl_t m_acl;
@@ -448,7 +448,7 @@ ACLUserPermissionsList KACL::allUserPermissions() const
             const uid_t id = *(static_cast<uid_t *>(idptr.get()));
             QString name = d->getUserName(id);
             unsigned short permissions = entryToPermissions(entry);
-            ACLUserPermissions pair = qMakePair(name, permissions);
+            ACLUserPermissions pair = std::make_pair(name, permissions);
             list.append(pair);
         }
         ret = acl_get_entry(d->m_acl, ACL_NEXT_ENTRY, &entry);
@@ -458,7 +458,7 @@ ACLUserPermissionsList KACL::allUserPermissions() const
 }
 
 #if HAVE_POSIX_ACL
-bool KACL::KACLPrivate::setAllUsersOrGroups(const QList<QPair<QString, unsigned short>> &list, acl_tag_t type)
+bool KACL::KACLPrivate::setAllUsersOrGroups(const QList<std::pair<QString, unsigned short>> &list, acl_tag_t type)
 {
     bool allIsWell = true;
     bool atLeastOneUserOrGroup = false;
@@ -578,7 +578,7 @@ ACLGroupPermissionsList KACL::allGroupPermissions() const
             const gid_t id = *(static_cast<gid_t *>(idptr.get()));
             QString name = d->getGroupName(id);
             unsigned short permissions = entryToPermissions(entry);
-            ACLGroupPermissions pair = qMakePair(name, permissions);
+            ACLGroupPermissions pair = std::make_pair(name, permissions);
             list.append(pair);
         }
         ret = acl_get_entry(d->m_acl, ACL_NEXT_ENTRY, &entry);

@@ -11,7 +11,6 @@
 #include <QHostInfo>
 #include <QList>
 #include <QMetaType>
-#include <QPair>
 #include <QSemaphore>
 #include <QThread>
 #include <QTime>
