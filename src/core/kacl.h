@@ -135,7 +135,7 @@ public:
 
     /*! Returns the list of all group permission entries. Each entry consists
      * of a name/permissions pair. This is a QPair, therefore access is provided
-     * via the .first and .next members.
+     * via the .first and .second members.
      * Returns the list of all group permission entries. */
     ACLUserPermissionsList allUserPermissions() const;
 
@@ -159,7 +159,7 @@ public:
 
     /*! Returns the list of all group permission entries. Each entry consists
      * of a name/permissions pair. This is a QPair, therefore access is provided
-     * via the .first and .next members.
+     * via the .first and .second members.
      * Returns the list of all group permission entries. */
     ACLGroupPermissionsList allGroupPermissions() const;
 
