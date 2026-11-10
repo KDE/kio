@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-09 00:51+0000\n"
-"PO-Revision-Date: 2026-11-05 07:47+0200\n"
+"PO-Revision-Date: 2026-11-09 04:34+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -2675,7 +2675,7 @@ msgstr "Значки"
 #: filewidgets/kdiroperator.cpp:2160
 #, kde-format
 msgid "Compact View"
-msgstr "Столбцы"
+msgstr "Список"
 
 #: filewidgets/kdiroperator.cpp:2167
 #, kde-format
@@ -3901,11 +3901,12 @@ msgctxt "@item:inmenu"
 msgid "Subversion"
 msgstr "Subversion"
 
+# Сокращено с «Все остальные»: в узком меню протоколов адресной строки стрелка подменю налезала на текст --ayavorsky 2026-11-09
 #: filewidgets/kurlnavigatorschemecombo.cpp:163
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Other"
-msgstr "Все остальные"
+msgstr "Прочие"
 
 #: filewidgets/kurlnavigatortogglebutton.cpp:28
 #, kde-format

@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-09 00:51+0000\n"
-"PO-Revision-Date: 2026-10-27 00:08+0100\n"
+"PO-Revision-Date: 2026-11-07 15:01+0100\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.04.0\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -114,7 +114,7 @@ msgstr "Cestino"
 #: core/copyjob.cpp:2541
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
-msgstr ""
+msgstr "%1 è stato modificato dopo la copia, perciò non è stato eliminato."
 
 #: core/desktopexecparser.cpp:335
 #, kde-format
@@ -3696,11 +3696,7 @@ msgstr ""
 "riservato ad uso esclusivo dal sistema operativo."
 
 #: filewidgets/knewfilemenu.cpp:1152
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The name <filename>%1</filename> cannot be used because it is reserved "
-#| "for use by the operating system."
+#, kde-kuit-format
 msgctxt ""
 "@info %2 is a file system name such as FAT or NTFS, %3 is a list of "
 "characters"
@@ -3708,8 +3704,8 @@ msgid ""
 "The name <filename>%1</filename> cannot be used because the file system of "
 "this folder (%2) does not allow these characters in names: %3"
 msgstr ""
-"Il nome <filename>%1</filename> non può essere usato perché è un nome "
-"riservato ad uso esclusivo dal sistema operativo."
+"Il nome <filename>%1</filename> non può essere usato perché il file system, "
+"o questa cartella (%2), non permette l'uso di questi caratteri nei nomi: %3"
 
 #: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
