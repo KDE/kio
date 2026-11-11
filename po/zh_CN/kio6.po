@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-09 00:51+0000\n"
+"POT-Creation-Date: 2026-11-11 00:57+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -200,14 +200,14 @@ msgid "Moving"
 msgstr "正在移动"
 
 #: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:139
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "来源"
 
 #: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122
-#: widgets/fileundomanager.cpp:137
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -243,7 +243,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "正在删除"
 
-#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:152
+#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:155
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -3622,46 +3622,46 @@ msgstr "选择其他图标…"
 msgid "You can change the icon later in folder properties."
 msgstr "您可以稍后在文件夹属性中更改图标。"
 
-#: filewidgets/kurlnavigator.cpp:611
+#: filewidgets/kurlnavigator.cpp:612
 #, fuzzy, kde-format
 #| msgid "Location:"
 msgid "Copy Location"
 msgstr "位置："
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:616 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "粘贴"
 
-#: filewidgets/kurlnavigator.cpp:635
+#: filewidgets/kurlnavigator.cpp:636
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "在新标签中打开“%1”"
 
-#: filewidgets/kurlnavigator.cpp:643
+#: filewidgets/kurlnavigator.cpp:644
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "在新窗口中打开“%1”"
 
-#: filewidgets/kurlnavigator.cpp:652
+#: filewidgets/kurlnavigator.cpp:653
 #, kde-format
 msgid "Edit"
 msgstr "编辑模式"
 
-#: filewidgets/kurlnavigator.cpp:655
+#: filewidgets/kurlnavigator.cpp:656
 #, kde-format
 msgid "Navigate"
 msgstr "导航模式"
 
-#: filewidgets/kurlnavigator.cpp:670
+#: filewidgets/kurlnavigator.cpp:671
 #, kde-format
 msgid "Show Full Path"
 msgstr "显示完整路径"
 
-#: filewidgets/kurlnavigator.cpp:844
+#: filewidgets/kurlnavigator.cpp:845
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -4489,7 +4489,7 @@ msgstr "清空回收站内容"
 msgid "Restore a trashed file to its original location"
 msgstr "将回收站中的文件恢复到原始位置"
 
-#: kioworkers/trash/trashimpl.cpp:1315
+#: kioworkers/trash/trashimpl.cpp:1320
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "回收站已满。请手动移除其中项目或清空回收站。"
@@ -4759,142 +4759,142 @@ msgstr "您想要启动此文件吗？"
 msgid "Creating directory"
 msgstr "正在创建目录"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:429
-#, kde-format
-msgid "Source"
-msgstr "来源"
-
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:431
-#, kde-format
-msgid "Destination"
-msgstr "目标"
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:132
 #, kde-format
 msgid "Copying"
 msgstr "正在复制"
 
-#: widgets/fileundomanager.cpp:140
+#: widgets/fileundomanager.cpp:133 widgets/renamedialog.cpp:429
+#, kde-format
+msgid "Source"
+msgstr "来源"
+
+#: widgets/fileundomanager.cpp:134 widgets/renamedialog.cpp:431
+#, kde-format
+msgid "Destination"
+msgstr "目标"
+
+#: widgets/fileundomanager.cpp:143
 #, kde-format
 msgid "Moving"
 msgstr "正在移动"
 
-#: widgets/fileundomanager.cpp:140
+#: widgets/fileundomanager.cpp:143
 #, kde-format
 msgid "Renaming"
 msgstr "正在重命名"
 
-#: widgets/fileundomanager.cpp:147
+#: widgets/fileundomanager.cpp:150
 #, kde-format
 msgid "Moving to Trash"
 msgstr "正在移动到回收站"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:155
 #, kde-format
 msgid "Deleting"
 msgstr "正在删除"
 
-#: widgets/fileundomanager.cpp:336
+#: widgets/fileundomanager.cpp:339
 #, kde-format
 msgid "Und&o"
 msgstr "撤销(&O)"
 
-#: widgets/fileundomanager.cpp:342
+#: widgets/fileundomanager.cpp:345
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "撤销：复制(&O)"
 
-#: widgets/fileundomanager.cpp:344
+#: widgets/fileundomanager.cpp:347
 #, kde-format
 msgid "Und&o: Link"
 msgstr "撤销：链接(&O)"
 
-#: widgets/fileundomanager.cpp:346
+#: widgets/fileundomanager.cpp:349
 #, kde-format
 msgid "Und&o: Move"
 msgstr "撤销：移动(&O)"
 
-#: widgets/fileundomanager.cpp:348
+#: widgets/fileundomanager.cpp:351
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "撤销：重命名(&O)"
 
-#: widgets/fileundomanager.cpp:350
+#: widgets/fileundomanager.cpp:353
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "撤销：移动到回收站(&O)"
 
-#: widgets/fileundomanager.cpp:352
+#: widgets/fileundomanager.cpp:355
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "撤销：创建文件夹(&O)"
 
-#: widgets/fileundomanager.cpp:354
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "撤销：创建文件夹(&O)"
 
-#: widgets/fileundomanager.cpp:356
+#: widgets/fileundomanager.cpp:359
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "撤销：创建文件(&O)"
 
-#: widgets/fileundomanager.cpp:358
+#: widgets/fileundomanager.cpp:361
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "撤销(&O)：批量重命名"
 
-#: widgets/fileundomanager.cpp:367
+#: widgets/fileundomanager.cpp:370
 #, kde-format
 msgid "&Redo"
 msgstr "重做(&R)"
 
-#: widgets/fileundomanager.cpp:373
+#: widgets/fileundomanager.cpp:376
 #, kde-format
 msgid "&Redo: Copy"
 msgstr "重做：复制(&R)"
 
-#: widgets/fileundomanager.cpp:375
+#: widgets/fileundomanager.cpp:378
 #, kde-format
 msgid "&Redo: Link"
 msgstr "重做：链接(&R)"
 
-#: widgets/fileundomanager.cpp:377
+#: widgets/fileundomanager.cpp:380
 #, kde-format
 msgid "&Redo: Move"
 msgstr "重做：移动(&R)"
 
-#: widgets/fileundomanager.cpp:379
+#: widgets/fileundomanager.cpp:382
 #, kde-format
 msgid "&Redo: Rename"
 msgstr "重做：重命名(&R)"
 
-#: widgets/fileundomanager.cpp:381
+#: widgets/fileundomanager.cpp:384
 #, kde-format
 msgid "&Redo: Trash"
 msgstr "重做：移动到回收站(&R)"
 
-#: widgets/fileundomanager.cpp:383
+#: widgets/fileundomanager.cpp:386
 #, kde-format
 msgid "&Redo: Create Folder"
 msgstr "重做：创建文件夹(&R)"
 
-#: widgets/fileundomanager.cpp:385
+#: widgets/fileundomanager.cpp:388
 #, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "重做：创建文件夹(&R)"
 
-#: widgets/fileundomanager.cpp:387
+#: widgets/fileundomanager.cpp:390
 #, kde-format
 msgid "&Redo: Create File"
 msgstr "重做：创建文件(&R)"
 
-#: widgets/fileundomanager.cpp:389
+#: widgets/fileundomanager.cpp:392
 #, kde-format
 msgid "&Redo: Batch Rename"
 msgstr "重做：批量重命名(&R)"
 
-#: widgets/fileundomanager.cpp:919
+#: widgets/fileundomanager.cpp:922
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -4906,7 +4906,7 @@ msgstr ""
 "撤销该复制操作将会删除该文件，所有的修改都将丢失。\n"
 "您确定要删除 %4 吗？"
 
-#: widgets/fileundomanager.cpp:929
+#: widgets/fileundomanager.cpp:932
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "确认撤销文件复制"

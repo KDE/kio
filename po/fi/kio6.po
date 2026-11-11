@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-09 00:51+0000\n"
+"POT-Creation-Date: 2026-11-11 00:57+0000\n"
 "PO-Revision-Date: 2026-10-06 12:50+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -221,14 +221,14 @@ msgid "Moving"
 msgstr "Siirretään"
 
 #: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:139
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Lähde"
 
 #: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122
-#: widgets/fileundomanager.cpp:137
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -267,7 +267,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "Poistetaan"
 
-#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:152
+#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:155
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -3800,45 +3800,45 @@ msgstr "Valitse toinen kuvake…"
 msgid "You can change the icon later in folder properties."
 msgstr "Kuvakkeen voi myöhemmin vaihtaa kansion ominaisuuksista."
 
-#: filewidgets/kurlnavigator.cpp:611
+#: filewidgets/kurlnavigator.cpp:612
 #, kde-format
 msgid "Copy Location"
 msgstr "Kopioi sijainti"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:616 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Liitä"
 
-#: filewidgets/kurlnavigator.cpp:635
+#: filewidgets/kurlnavigator.cpp:636
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Avaa ”%1” uuteen välilehteen"
 
-#: filewidgets/kurlnavigator.cpp:643
+#: filewidgets/kurlnavigator.cpp:644
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Avaa ”%1” uuteen ikkunaan"
 
-#: filewidgets/kurlnavigator.cpp:652
+#: filewidgets/kurlnavigator.cpp:653
 #, kde-format
 msgid "Edit"
 msgstr "Muokkaa"
 
-#: filewidgets/kurlnavigator.cpp:655
+#: filewidgets/kurlnavigator.cpp:656
 #, kde-format
 msgid "Navigate"
 msgstr "Sijainti"
 
-#: filewidgets/kurlnavigator.cpp:670
+#: filewidgets/kurlnavigator.cpp:671
 #, kde-format
 msgid "Show Full Path"
 msgstr "Näytä koko polku"
 
-#: filewidgets/kurlnavigator.cpp:844
+#: filewidgets/kurlnavigator.cpp:845
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -4691,7 +4691,7 @@ msgstr "Tyhjennä roskakori"
 msgid "Restore a trashed file to its original location"
 msgstr "Palauta roskakoriin viedyt tiedostot niiden alkuperäisille paikoilleen"
 
-#: kioworkers/trash/trashimpl.cpp:1315
+#: kioworkers/trash/trashimpl.cpp:1320
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Roskakori on täynnä. Tyhjennä se tai poista kohteita itse."
@@ -4962,143 +4962,143 @@ msgstr "Haluaisitko käynnistää tämän tiedoston?"
 msgid "Creating directory"
 msgstr "Luodaan kansiota"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:429
-#, kde-format
-msgid "Source"
-msgstr "Lähde"
-
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:431
-#, kde-format
-msgid "Destination"
-msgstr "Kohde"
-
 # pmap: =:teonnimi=Kopiointi:
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:132
 #, kde-format
 msgid "Copying"
 msgstr "Kopioidaan"
 
-#: widgets/fileundomanager.cpp:140
+#: widgets/fileundomanager.cpp:133 widgets/renamedialog.cpp:429
+#, kde-format
+msgid "Source"
+msgstr "Lähde"
+
+#: widgets/fileundomanager.cpp:134 widgets/renamedialog.cpp:431
+#, kde-format
+msgid "Destination"
+msgstr "Kohde"
+
+#: widgets/fileundomanager.cpp:143
 #, kde-format
 msgid "Moving"
 msgstr "Siirretään"
 
-#: widgets/fileundomanager.cpp:140
+#: widgets/fileundomanager.cpp:143
 #, kde-format
 msgid "Renaming"
 msgstr "Muutetaan nimiä"
 
-#: widgets/fileundomanager.cpp:147
+#: widgets/fileundomanager.cpp:150
 #, kde-format
 msgid "Moving to Trash"
 msgstr "Siirretään roskakoriin"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:155
 #, kde-format
 msgid "Deleting"
 msgstr "Poistetaan"
 
-#: widgets/fileundomanager.cpp:336
+#: widgets/fileundomanager.cpp:339
 #, kde-format
 msgid "Und&o"
 msgstr "K&umoa"
 
-#: widgets/fileundomanager.cpp:342
+#: widgets/fileundomanager.cpp:345
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "K&umoa kopiointi"
 
-#: widgets/fileundomanager.cpp:344
+#: widgets/fileundomanager.cpp:347
 #, kde-format
 msgid "Und&o: Link"
 msgstr "K&umoa linkitys"
 
-#: widgets/fileundomanager.cpp:346
+#: widgets/fileundomanager.cpp:349
 #, kde-format
 msgid "Und&o: Move"
 msgstr "K&umoa siirto"
 
-#: widgets/fileundomanager.cpp:348
+#: widgets/fileundomanager.cpp:351
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "K&umoa nimen muutos"
 
-#: widgets/fileundomanager.cpp:350
+#: widgets/fileundomanager.cpp:353
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "K&umoa roskakoriin siirtäminen"
 
-#: widgets/fileundomanager.cpp:352
+#: widgets/fileundomanager.cpp:355
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "K&umoa kansion luominen"
 
-#: widgets/fileundomanager.cpp:354
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "K&umoa kansioiden luominen"
 
-#: widgets/fileundomanager.cpp:356
+#: widgets/fileundomanager.cpp:359
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "K&umoa tiedoston luominen"
 
-#: widgets/fileundomanager.cpp:358
+#: widgets/fileundomanager.cpp:361
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "K&umoa nimien muutos"
 
-#: widgets/fileundomanager.cpp:367
+#: widgets/fileundomanager.cpp:370
 #, kde-format
 msgid "&Redo"
 msgstr "Tee &uudelleen"
 
-#: widgets/fileundomanager.cpp:373
+#: widgets/fileundomanager.cpp:376
 #, kde-format
 msgid "&Redo: Copy"
 msgstr "Tee &uudelleen: Kopioi"
 
-#: widgets/fileundomanager.cpp:375
+#: widgets/fileundomanager.cpp:378
 #, kde-format
 msgid "&Redo: Link"
 msgstr "Tee &uudelleen: Linkitä"
 
-#: widgets/fileundomanager.cpp:377
+#: widgets/fileundomanager.cpp:380
 #, kde-format
 msgid "&Redo: Move"
 msgstr "Tee &uudelleen: Siirrä"
 
-#: widgets/fileundomanager.cpp:379
+#: widgets/fileundomanager.cpp:382
 #, kde-format
 msgid "&Redo: Rename"
 msgstr "Tee &uudelleen: Muuta nimeä"
 
-#: widgets/fileundomanager.cpp:381
+#: widgets/fileundomanager.cpp:384
 #, kde-format
 msgid "&Redo: Trash"
 msgstr "Tee &uudelleen: Siirrä roskakoriin"
 
-#: widgets/fileundomanager.cpp:383
+#: widgets/fileundomanager.cpp:386
 #, kde-format
 msgid "&Redo: Create Folder"
 msgstr "Tee &uudelleen: Luo kansio"
 
-#: widgets/fileundomanager.cpp:385
+#: widgets/fileundomanager.cpp:388
 #, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "Tee &uudelleen: Luo kansioita"
 
-#: widgets/fileundomanager.cpp:387
+#: widgets/fileundomanager.cpp:390
 #, kde-format
 msgid "&Redo: Create File"
 msgstr "Tee &uudelleen: Luo tiedosto"
 
-#: widgets/fileundomanager.cpp:389
+#: widgets/fileundomanager.cpp:392
 #, kde-format
 msgid "&Redo: Batch Rename"
 msgstr "Tee &uudelleen: Muuta nimiä eräajona"
 
-#: widgets/fileundomanager.cpp:919
+#: widgets/fileundomanager.cpp:922
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5111,7 +5111,7 @@ msgstr ""
 "Kopioinnin kumoaminen poistaa tiedoston, ja kaikki muutokset menetetään.\n"
 "Haluatko varmasti poistaa kohteen %4?"
 
-#: widgets/fileundomanager.cpp:929
+#: widgets/fileundomanager.cpp:932
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "Tiedostokopioinnin kumoamisen vahvistus"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-09 00:51+0000\n"
+"POT-Creation-Date: 2026-11-11 00:57+0000\n"
 "PO-Revision-Date: 2024-01-30 09:25-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -205,14 +205,14 @@ msgid "Moving"
 msgstr "ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
 #: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:139
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "ਸਰੋਤ"
 
 #: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122
-#: widgets/fileundomanager.cpp:137
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -248,7 +248,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "ਹਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:152
+#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:155
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -3652,46 +3652,46 @@ msgstr "ਆਈਕਾਨ ਚੁਣੋ(&i):"
 msgid "You can change the icon later in folder properties."
 msgstr ""
 
-#: filewidgets/kurlnavigator.cpp:611
+#: filewidgets/kurlnavigator.cpp:612
 #, fuzzy, kde-format
 #| msgid "Location:"
 msgid "Copy Location"
 msgstr "ਟਿਕਾਣਾ:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:616 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "ਚੇਪੋ"
 
-#: filewidgets/kurlnavigator.cpp:635
+#: filewidgets/kurlnavigator.cpp:636
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "ਨਵੀਂ ਟੈਬ ਵਿੱਚ \"%1\" ਖੋਲ੍ਹੋ"
 
-#: filewidgets/kurlnavigator.cpp:643
+#: filewidgets/kurlnavigator.cpp:644
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "ਨਵੀਂ ਵਿੰਡੋ ਵਿੱਚ \"%1\" ਖੋਲ੍ਹੋ"
 
-#: filewidgets/kurlnavigator.cpp:652
+#: filewidgets/kurlnavigator.cpp:653
 #, kde-format
 msgid "Edit"
 msgstr "ਸੋਧੋ"
 
-#: filewidgets/kurlnavigator.cpp:655
+#: filewidgets/kurlnavigator.cpp:656
 #, kde-format
 msgid "Navigate"
 msgstr "ਨੇਵੀਗੇਟ"
 
-#: filewidgets/kurlnavigator.cpp:670
+#: filewidgets/kurlnavigator.cpp:671
 #, kde-format
 msgid "Show Full Path"
 msgstr "ਪੂਰਾ ਪਾਥ ਵੇਖੋ"
 
-#: filewidgets/kurlnavigator.cpp:844
+#: filewidgets/kurlnavigator.cpp:845
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Cannot transfer <filename>%1</filename>"
@@ -4517,7 +4517,7 @@ msgstr "ਰੱਦੀ 'ਚ ਮੌਜੂਦਾ ਸਮੱਗਰੀ ਨੂੰ ਖਾ
 msgid "Restore a trashed file to its original location"
 msgstr "ਰੱਦੀ ਵਿਚਲੀ ਫਾਇਲ ਨੂੰ ਅਸਲੀ ਟਿਕਾਣੇ ਉੱਤੇ ਬਹਾਲ ਕਰੋ"
 
-#: kioworkers/trash/trashimpl.cpp:1315
+#: kioworkers/trash/trashimpl.cpp:1320
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "ਰੱਦੀ ਭਰੀ ਹੋਈ ਹੈ। ਇਸ ਨੂੰ ਖਾਲੀ ਕਰੋ ਜਾਂ ਚੀਜ਼ਾਂ ਨੂੰ ਖੁਦ ਹਟਾਓ।"
@@ -4792,154 +4792,154 @@ msgstr "ਇਸ ਫਾਇਲ ਨਾਲ ਤੁਸੀਂ ਕੀ ਕਰਨਾ ਚਾ
 msgid "Creating directory"
 msgstr "ਡਾਇਰੈਕਟਰੀ ਬਣਾਈ ਜਾ ਰਹੀ ਹੈ"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:429
-#, kde-format
-msgid "Source"
-msgstr "ਸਰੋਤ"
-
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:431
-#, kde-format
-msgid "Destination"
-msgstr "ਟਿਕਾਣਾ"
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:132
 #, fuzzy, kde-format
 #| msgctxt "@title job"
 #| msgid "Copying"
 msgid "Copying"
 msgstr "ਕਾਪੀ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: widgets/fileundomanager.cpp:140
+#: widgets/fileundomanager.cpp:133 widgets/renamedialog.cpp:429
+#, kde-format
+msgid "Source"
+msgstr "ਸਰੋਤ"
+
+#: widgets/fileundomanager.cpp:134 widgets/renamedialog.cpp:431
+#, kde-format
+msgid "Destination"
+msgstr "ਟਿਕਾਣਾ"
+
+#: widgets/fileundomanager.cpp:143
 #, kde-format
 msgid "Moving"
 msgstr "ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: widgets/fileundomanager.cpp:140
+#: widgets/fileundomanager.cpp:143
 #, kde-format
 msgid "Renaming"
 msgstr "ਨਾਂ ਬਦਲਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: widgets/fileundomanager.cpp:147
+#: widgets/fileundomanager.cpp:150
 #, fuzzy, kde-format
 #| msgid "Move to Trash"
 msgid "Moving to Trash"
 msgstr "ਰੱਦੀ ਵਿੱਚ ਭੇਜੋ"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:155
 #, kde-format
 msgid "Deleting"
 msgstr "ਹਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: widgets/fileundomanager.cpp:336
+#: widgets/fileundomanager.cpp:339
 #, kde-format
 msgid "Und&o"
 msgstr "ਵਾਪਸ(&o)"
 
-#: widgets/fileundomanager.cpp:342
+#: widgets/fileundomanager.cpp:345
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "ਵਾਪਸ(&o): ਕਾਪੀ"
 
-#: widgets/fileundomanager.cpp:344
+#: widgets/fileundomanager.cpp:347
 #, kde-format
 msgid "Und&o: Link"
 msgstr "ਵਾਪਸ(&o): ਲਿੰਕ"
 
-#: widgets/fileundomanager.cpp:346
+#: widgets/fileundomanager.cpp:349
 #, kde-format
 msgid "Und&o: Move"
 msgstr "ਵਾਪਸ(&o): ਭੇਜੋ"
 
-#: widgets/fileundomanager.cpp:348
+#: widgets/fileundomanager.cpp:351
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "ਵਾਪਸ(&o): ਨਾਂ-ਬਦਲੋ"
 
-#: widgets/fileundomanager.cpp:350
+#: widgets/fileundomanager.cpp:353
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "ਵਾਪਸ(&o): ਰੱਦੀ"
 
-#: widgets/fileundomanager.cpp:352
+#: widgets/fileundomanager.cpp:355
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "ਵਾਪਸ(&o): ਫੋਲਡਰ ਬਣਾਓ"
 
-#: widgets/fileundomanager.cpp:354
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "ਵਾਪਸ(&o): ਫੋਲਡਰ ਬਣਾਓ"
 
-#: widgets/fileundomanager.cpp:356
+#: widgets/fileundomanager.cpp:359
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "ਵਾਪਸ(&o): ਫਾਇਲ ਬਣਾਓ"
 
-#: widgets/fileundomanager.cpp:358
+#: widgets/fileundomanager.cpp:361
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "ਵਾਪਸ(&o): ਇਕੱਠੇ ਨਾਂ-ਬਦਲੋ"
 
-#: widgets/fileundomanager.cpp:367
+#: widgets/fileundomanager.cpp:370
 #, kde-format
 msgid "&Redo"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:373
+#: widgets/fileundomanager.cpp:376
 #, fuzzy, kde-format
 #| msgid "Und&o: Copy"
 msgid "&Redo: Copy"
 msgstr "ਵਾਪਸ(&o): ਕਾਪੀ"
 
-#: widgets/fileundomanager.cpp:375
+#: widgets/fileundomanager.cpp:378
 #, fuzzy, kde-format
 #| msgid "Und&o: Link"
 msgid "&Redo: Link"
 msgstr "ਵਾਪਸ(&o): ਲਿੰਕ"
 
-#: widgets/fileundomanager.cpp:377
+#: widgets/fileundomanager.cpp:380
 #, fuzzy, kde-format
 #| msgid "Und&o: Move"
 msgid "&Redo: Move"
 msgstr "ਵਾਪਸ(&o): ਭੇਜੋ"
 
-#: widgets/fileundomanager.cpp:379
+#: widgets/fileundomanager.cpp:382
 #, fuzzy, kde-format
 #| msgid "Und&o: Rename"
 msgid "&Redo: Rename"
 msgstr "ਵਾਪਸ(&o): ਨਾਂ-ਬਦਲੋ"
 
-#: widgets/fileundomanager.cpp:381
+#: widgets/fileundomanager.cpp:384
 #, fuzzy, kde-format
 #| msgid "Und&o: Trash"
 msgid "&Redo: Trash"
 msgstr "ਵਾਪਸ(&o): ਰੱਦੀ"
 
-#: widgets/fileundomanager.cpp:383
+#: widgets/fileundomanager.cpp:386
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder"
 msgid "&Redo: Create Folder"
 msgstr "ਵਾਪਸ(&o): ਫੋਲਡਰ ਬਣਾਓ"
 
-#: widgets/fileundomanager.cpp:385
+#: widgets/fileundomanager.cpp:388
 #, fuzzy, kde-format
 #| msgid "Und&o: Create Folder(s)"
 msgid "&Redo: Create Folder(s)"
 msgstr "ਵਾਪਸ(&o): ਫੋਲਡਰ ਬਣਾਓ"
 
-#: widgets/fileundomanager.cpp:387
+#: widgets/fileundomanager.cpp:390
 #, fuzzy, kde-format
 #| msgid "Und&o: Create File"
 msgid "&Redo: Create File"
 msgstr "ਵਾਪਸ(&o): ਫਾਇਲ ਬਣਾਓ"
 
-#: widgets/fileundomanager.cpp:389
+#: widgets/fileundomanager.cpp:392
 #, fuzzy, kde-format
 #| msgid "Und&o: Batch Rename"
 msgid "&Redo: Batch Rename"
 msgstr "ਵਾਪਸ(&o): ਇਕੱਠੇ ਨਾਂ-ਬਦਲੋ"
 
-#: widgets/fileundomanager.cpp:919
+#: widgets/fileundomanager.cpp:922
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -4948,7 +4948,7 @@ msgid ""
 "Are you sure you want to delete %4?"
 msgstr ""
 
-#: widgets/fileundomanager.cpp:929
+#: widgets/fileundomanager.cpp:932
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "ਫਾਇਲ ਕਾਪੀ ਨੂੰ ਵਾਪਸ ਲੈਣ ਦੀ ਤਸਦੀਕ"

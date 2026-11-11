@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-09 00:51+0000\n"
+"POT-Creation-Date: 2026-11-11 00:57+0000\n"
 "PO-Revision-Date: 2026-10-03 22:34+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -200,14 +200,14 @@ msgid "Moving"
 msgstr "이동 중"
 
 #: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
-#: widgets/fileundomanager.cpp:136
+#: widgets/fileundomanager.cpp:139
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "원본"
 
 #: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122
-#: widgets/fileundomanager.cpp:137
+#: widgets/fileundomanager.cpp:140
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
@@ -243,7 +243,7 @@ msgctxt "@title job"
 msgid "Deleting"
 msgstr "삭제 중"
 
-#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:152
+#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:155
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
@@ -3713,45 +3713,45 @@ msgstr "다른 아이콘 선택…"
 msgid "You can change the icon later in folder properties."
 msgstr "나중에 폴더 속성에서 아이콘을 변경할 수 있습니다."
 
-#: filewidgets/kurlnavigator.cpp:611
+#: filewidgets/kurlnavigator.cpp:612
 #, kde-format
 msgid "Copy Location"
 msgstr "위치 복사"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:615 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:616 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "붙여넣기"
 
-#: filewidgets/kurlnavigator.cpp:635
+#: filewidgets/kurlnavigator.cpp:636
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "\"%1\"을(를) 새 탭으로 열기"
 
-#: filewidgets/kurlnavigator.cpp:643
+#: filewidgets/kurlnavigator.cpp:644
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "\"%1\"을(를) 새 창으로 열기"
 
-#: filewidgets/kurlnavigator.cpp:652
+#: filewidgets/kurlnavigator.cpp:653
 #, kde-format
 msgid "Edit"
 msgstr "편집"
 
-#: filewidgets/kurlnavigator.cpp:655
+#: filewidgets/kurlnavigator.cpp:656
 #, kde-format
 msgid "Navigate"
 msgstr "탐색"
 
-#: filewidgets/kurlnavigator.cpp:670
+#: filewidgets/kurlnavigator.cpp:671
 #, kde-format
 msgid "Show Full Path"
 msgstr "전체 경로 표시"
 
-#: filewidgets/kurlnavigator.cpp:844
+#: filewidgets/kurlnavigator.cpp:845
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -4591,7 +4591,7 @@ msgstr "휴지통에 있는 내용 비우기"
 msgid "Restore a trashed file to its original location"
 msgstr "휴지통에 버린 파일을 원래 위치로 복원"
 
-#: kioworkers/trash/trashimpl.cpp:1315
+#: kioworkers/trash/trashimpl.cpp:1320
 #, kde-format
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "휴지통이 꽉 찼습니다. 비우거나 수동으로 항목을 삭제하십시오."
@@ -4862,142 +4862,142 @@ msgstr "이 파일을 실행하시겠습니까?"
 msgid "Creating directory"
 msgstr "디렉터리 생성 중"
 
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:429
-#, kde-format
-msgid "Source"
-msgstr "원본"
-
-#: widgets/fileundomanager.cpp:131 widgets/renamedialog.cpp:431
-#, kde-format
-msgid "Destination"
-msgstr "대상"
-
-#: widgets/fileundomanager.cpp:131
+#: widgets/fileundomanager.cpp:132
 #, kde-format
 msgid "Copying"
 msgstr "복사 중"
 
-#: widgets/fileundomanager.cpp:140
+#: widgets/fileundomanager.cpp:133 widgets/renamedialog.cpp:429
+#, kde-format
+msgid "Source"
+msgstr "원본"
+
+#: widgets/fileundomanager.cpp:134 widgets/renamedialog.cpp:431
+#, kde-format
+msgid "Destination"
+msgstr "대상"
+
+#: widgets/fileundomanager.cpp:143
 #, kde-format
 msgid "Moving"
 msgstr "이동 중"
 
-#: widgets/fileundomanager.cpp:140
+#: widgets/fileundomanager.cpp:143
 #, kde-format
 msgid "Renaming"
 msgstr "이름 바꾸는 중"
 
-#: widgets/fileundomanager.cpp:147
+#: widgets/fileundomanager.cpp:150
 #, kde-format
 msgid "Moving to Trash"
 msgstr "휴지통으로 이동 중"
 
-#: widgets/fileundomanager.cpp:152
+#: widgets/fileundomanager.cpp:155
 #, kde-format
 msgid "Deleting"
 msgstr "삭제 중"
 
-#: widgets/fileundomanager.cpp:336
+#: widgets/fileundomanager.cpp:339
 #, kde-format
 msgid "Und&o"
 msgstr "실행 취소(&O)"
 
-#: widgets/fileundomanager.cpp:342
+#: widgets/fileundomanager.cpp:345
 #, kde-format
 msgid "Und&o: Copy"
 msgstr "실행 취소: 복사(&O)"
 
-#: widgets/fileundomanager.cpp:344
+#: widgets/fileundomanager.cpp:347
 #, kde-format
 msgid "Und&o: Link"
 msgstr "실행 취소: 링크 걸기(&O)"
 
-#: widgets/fileundomanager.cpp:346
+#: widgets/fileundomanager.cpp:349
 #, kde-format
 msgid "Und&o: Move"
 msgstr "실행 취소: 이동(&O)"
 
-#: widgets/fileundomanager.cpp:348
+#: widgets/fileundomanager.cpp:351
 #, kde-format
 msgid "Und&o: Rename"
 msgstr "실행 취소: 이름 바꾸기(&O)"
 
-#: widgets/fileundomanager.cpp:350
+#: widgets/fileundomanager.cpp:353
 #, kde-format
 msgid "Und&o: Trash"
 msgstr "실행 취소: 휴지통으로 이동(&O)"
 
-#: widgets/fileundomanager.cpp:352
+#: widgets/fileundomanager.cpp:355
 #, kde-format
 msgid "Und&o: Create Folder"
 msgstr "실행 취소: 폴더 생성(&O)"
 
-#: widgets/fileundomanager.cpp:354
+#: widgets/fileundomanager.cpp:357
 #, kde-format
 msgid "Und&o: Create Folder(s)"
 msgstr "실행 취소: 폴더 생성(&O)"
 
-#: widgets/fileundomanager.cpp:356
+#: widgets/fileundomanager.cpp:359
 #, kde-format
 msgid "Und&o: Create File"
 msgstr "실행 취소: 파일 생성(&O)"
 
-#: widgets/fileundomanager.cpp:358
+#: widgets/fileundomanager.cpp:361
 #, kde-format
 msgid "Und&o: Batch Rename"
 msgstr "실행 취소: 일괄 이름 바꾸기(&O)"
 
-#: widgets/fileundomanager.cpp:367
+#: widgets/fileundomanager.cpp:370
 #, kde-format
 msgid "&Redo"
 msgstr "다시 실행(&R)"
 
-#: widgets/fileundomanager.cpp:373
+#: widgets/fileundomanager.cpp:376
 #, kde-format
 msgid "&Redo: Copy"
 msgstr "다시 실행: 복사(&R)"
 
-#: widgets/fileundomanager.cpp:375
+#: widgets/fileundomanager.cpp:378
 #, kde-format
 msgid "&Redo: Link"
 msgstr "다시 실행: 링크 걸기(&R)"
 
-#: widgets/fileundomanager.cpp:377
+#: widgets/fileundomanager.cpp:380
 #, kde-format
 msgid "&Redo: Move"
 msgstr "다시 실행: 이동(&R)"
 
-#: widgets/fileundomanager.cpp:379
+#: widgets/fileundomanager.cpp:382
 #, kde-format
 msgid "&Redo: Rename"
 msgstr "다시 실행: 이름 바꾸기(&R)"
 
-#: widgets/fileundomanager.cpp:381
+#: widgets/fileundomanager.cpp:384
 #, kde-format
 msgid "&Redo: Trash"
 msgstr "다시 실행: 휴지통으로 이동(&R)"
 
-#: widgets/fileundomanager.cpp:383
+#: widgets/fileundomanager.cpp:386
 #, kde-format
 msgid "&Redo: Create Folder"
 msgstr "다시 실행: 폴더 만들기(&R)"
 
-#: widgets/fileundomanager.cpp:385
+#: widgets/fileundomanager.cpp:388
 #, kde-format
 msgid "&Redo: Create Folder(s)"
 msgstr "다시 실행: 폴더 만들기(&R)"
 
-#: widgets/fileundomanager.cpp:387
+#: widgets/fileundomanager.cpp:390
 #, kde-format
 msgid "&Redo: Create File"
 msgstr "다시 실행: 파일 만들기(&R)"
 
-#: widgets/fileundomanager.cpp:389
+#: widgets/fileundomanager.cpp:392
 #, kde-format
 msgid "&Redo: Batch Rename"
 msgstr "다시 실행: 일괄 이름 바꾸기(&R)"
 
-#: widgets/fileundomanager.cpp:919
+#: widgets/fileundomanager.cpp:922
 #, kde-format
 msgid ""
 "The file %1 was copied from %2, but since then it has apparently been "
@@ -5009,7 +5009,7 @@ msgstr ""
 "파일 복사를 실행 취소하면 파일을 지우며 모든 변경 사항이 삭제됩니다.\n"
 "%4을(를) 삭제하시겠습니까?"
 
-#: widgets/fileundomanager.cpp:929
+#: widgets/fileundomanager.cpp:932
 #, kde-format
 msgid "Undo File Copy Confirmation"
 msgstr "파일 복사 실행 취소 확인"
