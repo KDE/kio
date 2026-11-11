@@ -9,6 +9,7 @@
 #include <KUser>
 #include <QDir>
 #include <QPushButton>
+#include <QRegularExpression>
 #include <QStandardPaths>
 #include <QtTestWidgets>
 
@@ -313,6 +314,32 @@ void KUrlNavigatorTest::testRelativePaths()
     m_navigator->editor()->setCurrentText(QStringLiteral("/a"));
     QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
     QTRY_COMPARE(m_navigator->locationUrl(), QUrl::fromLocalFile("/a"));
+}
+
+void KUrlNavigatorTest::testATypedFullUrlInALocalFolder_data()
+{
+    QTest::addColumn<QString>("input");
+    QTest::addColumn<QUrl>("url");
+
+    QTest::newRow("smb") << QStringLiteral("smb://server") << QUrl(QStringLiteral("smb://server"));
+    QTest::newRow("trash") << QStringLiteral("trash:/") << QUrl(QStringLiteral("trash:/"));
+}
+
+void KUrlNavigatorTest::testATypedFullUrlInALocalFolder()
+{
+    // A full URL typed while a local folder is shown opens as typed, at once, and is never taken
+    // as a folder below the local one.
+    QFETCH(QString, input);
+    QFETCH(QUrl, url);
+
+    QTemporaryDir tempDir;
+    m_navigator->setLocationUrl(QUrl::fromLocalFile(tempDir.path()));
+    m_navigator->setUrlEditable(true);
+
+    QTest::failOnWarning(QRegularExpression(QStringLiteral("Invalid URL")));
+    m_navigator->editor()->setCurrentText(input);
+    QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
+    QCOMPARE(m_navigator->locationUrl(), url);
 }
 
 void KUrlNavigatorTest::testFixUrlPath_data()

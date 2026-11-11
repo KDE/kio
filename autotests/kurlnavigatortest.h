@@ -30,6 +30,8 @@ private Q_SLOTS:
     void testUrlParsing();
 
     void testRelativePaths();
+    void testATypedFullUrlInALocalFolder_data();
+    void testATypedFullUrlInALocalFolder();
 
     void testFixUrlPath_data();
     void testFixUrlPath();
