@@ -15,10 +15,10 @@ int main(int argc, char **argv)
 
     {
         KPropertiesDialog dlg(u);
-        QObject::connect(&dlg, &KPropertiesDialog::applied, []() {
+        QObject::connect(&dlg, &KPropertiesDialog::applied, &dlg, []() {
             qDebug() << "applied";
         });
-        QObject::connect(&dlg, &KPropertiesDialog::canceled, []() {
+        QObject::connect(&dlg, &KPropertiesDialog::canceled, &dlg, []() {
             qDebug() << "canceled";
         });
         dlg.exec();

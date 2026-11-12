@@ -479,14 +479,14 @@ void KUrlRequester::KUrlRequesterPrivate::slotOpenDialog()
             dirOrFileMenu.addAction(fileAction);
             dirOrFileMenu.addAction(dirAction);
 
-            connect(fileAction, &QAction::triggered, [this]() {
+            connect(fileAction, &QAction::triggered, m_parent, [this]() {
                 fileDialogMode = KFile::File;
                 applyFileMode(m_parent->fileDialog(), fileDialogMode, fileDialogAcceptMode);
                 m_fileDialogModeWasDirAndFile = true;
                 createFileDialog();
             });
 
-            connect(dirAction, &QAction::triggered, [this]() {
+            connect(dirAction, &QAction::triggered, m_parent, [this]() {
                 fileDialogMode = KFile::Directory;
                 applyFileMode(m_parent->fileDialog(), fileDialogMode, fileDialogAcceptMode);
                 m_fileDialogModeWasDirAndFile = true;

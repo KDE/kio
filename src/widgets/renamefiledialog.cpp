@@ -190,7 +190,7 @@ public:
         fileNameLabel->setBuddy(fileNameEdit);
         widget->setFocusProxy(fileNameEdit);
 
-        QObject::connect(fileNameEdit, &QLineEdit::textChanged, updateCallback);
+        QObject::connect(fileNameEdit, &QLineEdit::textChanged, parent, updateCallback);
 
         layout->addWidget(fileNameLabel);
         layout->addWidget(fileNameEdit);
@@ -297,9 +297,9 @@ public:
         indexLayout->addWidget(indexSpinBox);
         layout->addLayout(indexLayout);
 
-        QObject::connect(indexSpinBox, &QSpinBox::valueChanged, updateCallback);
-        QObject::connect(placeHolderEdit, &QLineEdit::textChanged, updateCallback);
-        QObject::connect(positionCombo, &QComboBox::currentIndexChanged, positionCombo, [this, updateCallback](int position) {
+        QObject::connect(indexSpinBox, &QSpinBox::valueChanged, parent, updateCallback);
+        QObject::connect(placeHolderEdit, &QLineEdit::textChanged, parent, updateCallback);
+        QObject::connect(positionCombo, &QComboBox::currentIndexChanged, parent, [this, updateCallback](int position) {
             // A template the user has not touched follows the choice, an edited one stays as it is.
             if (placeHolderEdit->text() == defaultTemplate(lastPosition)) {
                 placeHolderEdit->setText(defaultTemplate(position));
@@ -459,8 +459,8 @@ public:
         replacementEdit->setPlaceholderText(i18nc("@info placeholder text", "Replacement"));
         replacementLabel->setBuddy(replacementEdit);
 
-        QObject::connect(patternLineEdit, &QLineEdit::textChanged, updateCallback);
-        QObject::connect(replacementEdit, &QLineEdit::textChanged, updateCallback);
+        QObject::connect(patternLineEdit, &QLineEdit::textChanged, parent, updateCallback);
+        QObject::connect(replacementEdit, &QLineEdit::textChanged, parent, updateCallback);
 
         auto replaceLayout = new QHBoxLayout();
         replaceLayout->setContentsMargins(0, 0, 0, 0);
@@ -551,8 +551,8 @@ public:
         beforeAfterCombo->addItems({i18nc("@item:inlistbox as in insert text before filename", "Before filename"),
                                     i18nc("@item:inlistbox as in insert text after filename", "After filename")});
 
-        QObject::connect(textLineEdit, &QLineEdit::textChanged, updateCallback);
-        QObject::connect(beforeAfterCombo, &QComboBox::currentIndexChanged, updateCallback);
+        QObject::connect(textLineEdit, &QLineEdit::textChanged, parent, updateCallback);
+        QObject::connect(beforeAfterCombo, &QComboBox::currentIndexChanged, parent, updateCallback);
 
         auto addTextLayout = new QHBoxLayout();
         addTextLayout->setContentsMargins(0, 0, 0, 0);

@@ -104,7 +104,7 @@ bool DBusActivationRunner::waitForStarted(int timeout)
 
     QEventLoop loop;
     bool success = false;
-    connect(this, &KProcessRunner::processStarted, [&loop, &success]() {
+    connect(this, &KProcessRunner::processStarted, &loop, [&loop, &success]() {
         loop.quit();
         success = true;
     });
