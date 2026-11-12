@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 04:37+0000\n"
-"PO-Revision-Date: 2023-10-27 11:37+0300\n"
-"Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
+"PO-Revision-Date: 2026-11-11 22:58+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -8321,7 +8321,7 @@ msgstr "%1:"
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
-msgstr "свободно %1 из %2 (использовано %3%)"
+msgstr "свободно %1 из %2 (использовано %3 %)"
 
 #: widgets/kpropertiesdialog.cpp:1363
 #, kde-format
