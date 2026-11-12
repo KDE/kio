@@ -18,8 +18,6 @@
 #include <kio/transferjob.h>
 #include <kprotocolinfo.h>
 
-// QT_STAT_LNK on Windows
-
 #include <KJobUiDelegate>
 
 #include <QApplication>
