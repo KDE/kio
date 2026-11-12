@@ -29,7 +29,7 @@ int main(int argc, char **argv)
         job->setUiDelegate(nullptr);
         job->setDetails(KIO::StatDefaultDetails);
 
-        QObject::connect(job, &KIO::ListJob::entries, [&entriesListed](KIO::Job *, const KIO::UDSEntryList &entries) {
+        QObject::connect(job, &KIO::ListJob::entries, job, [&entriesListed](KIO::Job *, const KIO::UDSEntryList &entries) {
             entriesListed += entries.size();
             qDebug() << "Listed" << entriesListed << "files.";
         });

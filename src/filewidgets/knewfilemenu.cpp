@@ -541,7 +541,7 @@ void KNewFileMenuPrivate::initDialog()
     m_chooseIconBox->hide();
     m_messageWidget->hide();
 
-    QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, [this]() {
+    QObject::connect(m_buttonBox, &QDialogButtonBox::accepted, m_fileDialog, [this]() {
         _k_slotAccepted();
     });
     QObject::connect(m_buttonBox, &QDialogButtonBox::rejected, m_fileDialog, &QDialog::reject);

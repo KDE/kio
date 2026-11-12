@@ -518,7 +518,7 @@ HTTPProtocol::Response HTTPProtocol::makeRequest(const QUrl &url,
     // KIO doesn't handle trailing slashes well (especially in KDirLister), so handle it transparently.
     bool redirectToTrailingSlash = false;
 
-    QObject::connect(reply, &QNetworkReply::metaDataChanged, [this, &mimeTypeEmitted, &redirectToTrailingSlash, reply, dataMode, url, method]() {
+    QObject::connect(reply, &QNetworkReply::metaDataChanged, this, [this, &mimeTypeEmitted, &redirectToTrailingSlash, reply, dataMode, url, method]() {
         const int statusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
 
         if (statusCode >= 300 && statusCode < 400) {

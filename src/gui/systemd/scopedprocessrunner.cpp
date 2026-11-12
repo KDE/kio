@@ -49,19 +49,22 @@ void ScopedProcessRunner::startProcess()
         );
 
     m_transientUnitStartupwatcher = new QDBusPendingCallWatcher(startReply, this);
-    connect(m_transientUnitStartupwatcher, &QDBusPendingCallWatcher::finished, [serviceName, efd](QDBusPendingCallWatcher *watcher) {
-        QDBusPendingReply<QDBusObjectPath> reply = *watcher;
-        watcher->deleteLater();
-        if (reply.isError()) {
-            qCWarning(KIO_GUI) << "Failed to register new cgroup:" << serviceName << reply.error().name() << reply.error().message();
-        } else {
-            qCDebug(KIO_GUI) << "Successfully registered new cgroup:" << serviceName;
-        }
+    connect(m_transientUnitStartupwatcher,
+            &QDBusPendingCallWatcher::finished,
+            m_transientUnitStartupwatcher,
+            [serviceName, efd](QDBusPendingCallWatcher *watcher) {
+                QDBusPendingReply<QDBusObjectPath> reply = *watcher;
+                watcher->deleteLater();
+                if (reply.isError()) {
+                    qCWarning(KIO_GUI) << "Failed to register new cgroup:" << serviceName << reply.error().name() << reply.error().message();
+                } else {
+                    qCDebug(KIO_GUI) << "Successfully registered new cgroup:" << serviceName;
+                }
 
-        // release child and close the eventfd
-        eventfd_write(efd, 1);
-        close(efd);
-    });
+                // release child and close the eventfd
+                eventfd_write(efd, 1);
+                close(efd);
+            });
 }
 
 bool ScopedProcessRunner::waitForStarted(int timeout)
