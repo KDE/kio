@@ -91,10 +91,9 @@ void KACLEditWidget::KACLEditWidgetPrivate::slotUpdateButtons()
     bool atLeastOneIsNotDeletable = false;
     bool atLeastOneIsNotAllowedToChangeType = false;
     int selectedCount = 0;
-    QList<QTreeWidgetItem *> selected = m_listView->selectedItems();
-    QListIterator<QTreeWidgetItem *> it(selected);
-    while (it.hasNext()) {
-        KACLListViewItem *item = static_cast<KACLListViewItem *>(it.next());
+    const auto selected = m_listView->selectedItems();
+    for (QTreeWidgetItem *selectedItem : selected) {
+        KACLListViewItem *item = static_cast<KACLListViewItem *>(selectedItem);
         ++selectedCount;
         if (!item->isDeletable()) {
             atLeastOneIsNotDeletable = true;

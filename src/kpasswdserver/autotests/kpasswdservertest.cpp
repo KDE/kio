@@ -617,15 +617,11 @@ private:
         qlonglong seqNr = 0;
         QList<qlonglong> idList;
 
-        QListIterator<KIO::AuthInfo> it(infos);
-        if (it.hasNext()) {
-            const qlonglong id = server.queryAuthInfoAsync(it.next(), QString(), windowId, seqNr, 16 /*usertime*/);
-            QVERIFY(id >= 0); // requestId, ever increasing
-            idList << id;
-        }
-
-        while (it.hasNext()) {
-            const qlonglong id = server.checkAuthInfoAsync(it.next(), windowId, 16 /*usertime*/);
+        bool firstInfo = true;
+        for (const KIO::AuthInfo &info : infos) {
+            const qlonglong id = firstInfo ? server.queryAuthInfoAsync(info, QString(), windowId, seqNr, 16 /*usertime*/)
+                                           : server.checkAuthInfoAsync(info, windowId, 16 /*usertime*/);
+            firstInfo = false;
             QVERIFY(id >= 0); // requestId, ever increasing
             idList << id;
         }

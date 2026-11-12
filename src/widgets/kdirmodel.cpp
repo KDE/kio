@@ -416,10 +416,8 @@ KDirModelNode *KDirModelPrivate::expandAllParentsUntil(const QUrl &_url) const /
 void KDirModelPrivate::dump()
 {
     qCDebug(category) << "Dumping contents of KDirModel" << q << "dirLister url:" << m_dirLister->url();
-    QHashIterator<QUrl, KDirModelNode *> it(m_nodeHash);
-    while (it.hasNext()) {
-        it.next();
-        qCDebug(category) << it.key() << it.value();
+    for (const auto & [url, node] : m_nodeHash.asKeyValueRange()) {
+        qCDebug(category) << url << node;
     }
 }
 #endif

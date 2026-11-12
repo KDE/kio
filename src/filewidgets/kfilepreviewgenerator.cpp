@@ -697,8 +697,8 @@ void KFilePreviewGeneratorPrivate::clearCutItemsCache()
     KFileItemList previews;
     // Reset the icons of all items that are stored in the cache
     // to use their default MIME type icon.
-    for (auto it = m_cutItemsCache.cbegin(); it != m_cutItemsCache.cend(); ++it) {
-        const QModelIndex index = dirModel->indexForUrl(it.key());
+    for (const auto &url : m_cutItemsCache.keys()) {
+        const QModelIndex index = dirModel->indexForUrl(url);
         if (index.isValid()) {
             dirModel->setData(index, QIcon(), Qt::DecorationRole);
             if (m_previewShown) {

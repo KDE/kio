@@ -459,11 +459,8 @@ void KPasswdServer::removeAuthInfo(const QString &host, const QString &protocol,
 {
     qCDebug(category) << protocol << host << user;
 
-    QHashIterator<QString, AuthInfoContainerList *> dictIterator(m_authDict);
-    while (dictIterator.hasNext()) {
-        dictIterator.next();
-
-        const AuthInfoContainerList *authList = dictIterator.value();
+    const auto authDict = m_authDict;
+    for (const auto &[key, authList] : authDict.asKeyValueRange()) {
         if (!authList) {
             continue;
         }
@@ -472,7 +469,7 @@ void KPasswdServer::removeAuthInfo(const QString &host, const QString &protocol,
             qCDebug(category) << "Evaluating: " << current.info.url.scheme() << current.info.url.host() << current.info.username;
             if (current.info.url.scheme() == protocol && current.info.url.host() == host && (current.info.username == user || user.isEmpty())) {
                 qCDebug(category) << "Removing this entry";
-                removeAuthInfoItem(dictIterator.key(), current.info); // warning, this can modify m_authDict!
+                removeAuthInfoItem(key, current.info); // warning, this can modify m_authDict!
             }
         }
     }
@@ -810,15 +807,15 @@ void KPasswdServer::removeAuthForWindowId(qlonglong windowId)
             continue;
         }
 
-        QMutableListIterator<AuthInfoContainer> it(*authList);
-        while (it.hasNext()) {
-            AuthInfoContainer &current = it.next();
+        for (auto &current : *authList) {
             if (current.expire == AuthInfoContainer::expWindowClose) {
-                if (current.windowList.removeAll(windowId) && current.windowList.isEmpty()) {
-                    it.remove();
-                }
+                current.windowList.removeAll(windowId);
             }
         }
+
+        authList->removeIf([](const AuthInfoContainer &current) {
+            return current.windowList.isEmpty();
+        });
     }
 }
 
@@ -966,9 +963,8 @@ void KPasswdServer::sendResponse(KPasswdServer::Request *request)
 
     // Check all requests in the wait queue.
     Request *waitRequest;
-    QMutableListIterator<Request *> it(m_authWait);
-    while (it.hasNext()) {
-        waitRequest = it.next();
+    for (auto it = m_authWait.begin(); it != m_authWait.end();) {
+        waitRequest = *it;
 
         if (!hasPendingQuery(waitRequest->key, waitRequest->info)) {
             const AuthInfoContainer *result = findAuthInfoItem(waitRequest->key, waitRequest->info);
@@ -993,7 +989,9 @@ void KPasswdServer::sendResponse(KPasswdServer::Request *request)
             }
 
             delete waitRequest;
-            it.remove();
+            it = m_authWait.erase(it);
+        } else {
+            ++it;
         }
     }
 
@@ -1105,33 +1103,33 @@ void KPasswdServer::windowRemoved(WId id)
     bool foundMatch = false;
     if (!m_authInProgress.isEmpty()) {
         const qlonglong windowId = static_cast<qlonglong>(id);
-        QMutableHashIterator<QObject *, Request *> it(m_authInProgress);
-        while (it.hasNext()) {
-            it.next();
+        for (auto it = m_authInProgress.begin(); it != m_authInProgress.end();) {
             if (it.value()->windowId == windowId) {
                 Request *request = it.value();
                 QObject *obj = it.key();
-                it.remove();
+                it = m_authInProgress.erase(it);
                 m_authPrompted.removeAll(QString::number(request->windowId));
                 m_authPrompted.removeAll(request->key);
                 delete obj;
                 delete request;
                 foundMatch = true;
+            } else {
+                ++it;
             }
         }
     }
 
     if (!foundMatch && !m_authRetryInProgress.isEmpty()) {
         const qlonglong windowId = static_cast<qlonglong>(id);
-        QMutableHashIterator<QObject *, Request *> it(m_authRetryInProgress);
-        while (it.hasNext()) {
-            it.next();
+        for (auto it = m_authRetryInProgress.begin(); it != m_authRetryInProgress.end();) {
             if (it.value()->windowId == windowId) {
                 Request *request = it.value();
                 QObject *obj = it.key();
-                it.remove();
+                it = m_authRetryInProgress.erase(it);
                 delete obj;
                 delete request;
+            } else {
+                ++it;
             }
         }
     }
@@ -1139,9 +1137,7 @@ void KPasswdServer::windowRemoved(WId id)
 
 void KPasswdServer::updateCachedRequestKey(QList<KPasswdServer::Request *> &list, const QString &oldKey, const QString &newKey)
 {
-    QListIterator<Request *> it(list);
-    while (it.hasNext()) {
-        Request *r = it.next();
+    for (Request *r : list) {
         if (r->key == oldKey) {
             r->key = newKey;
         }

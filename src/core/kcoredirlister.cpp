@@ -2896,16 +2896,16 @@ void KCoreDirListerCacheDirectoryData::moveListersWithoutCachedItemsJob(const QU
     // Run kdirmodeltest in valgrind to hit the case where an update
     // is triggered while a lister has a CachedItemsJob (different timing...)
     auto listers = listersByStatus(ListerStatus::Listing);
-    QMutableListIterator<KCoreDirLister *> lister_it(listers);
-    while (lister_it.hasNext()) {
-        KCoreDirLister *lister = lister_it.next();
+    for (auto it = listers.begin(); it != listers.end();) {
+        KCoreDirLister *lister = *it;
         if (!lister->d->cachedItemsJobForUrl(url)) {
             // OK, move this lister from "currently listing" to "currently holding".
 
             insertOrModifyLister(lister, ListerStatus::Holding);
-            lister_it.remove();
+            it = listers.erase(it);
         } else {
             qCDebug(KIO_CORE_DIRLISTER) << "Not moving" << lister << "to listersCurrentlyHolding because it still has job" << lister->d->m_cachedItemsJobs;
+            ++it;
         }
     }
 }

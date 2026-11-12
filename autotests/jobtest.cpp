@@ -771,10 +771,8 @@ bool JobTest::setXattr(const QString &dest)
     xattrWriter.setProcessChannelMode(QProcess::MergedChannels);
 
     QHash<QString, QString> attrs = getSampleXattrs();
-    QHashIterator<QString, QString> i(attrs);
-    while (i.hasNext()) {
-        i.next();
-        QStringList arguments = m_setXattrFormatArgs(i.key(), i.value(), dest);
+    for (const auto &[key, value] : attrs.asKeyValueRange()) {
+        QStringList arguments = m_setXattrFormatArgs(key, value, dest);
         xattrWriter.start(m_setXattrCmd, arguments);
         xattrWriter.waitForStarted();
         xattrWriter.waitForFinished(-1);
