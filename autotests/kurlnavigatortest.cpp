@@ -15,6 +15,7 @@
 
 #include "kiotesthelper.h" // createTestDirectory(), createTestSymlink()
 #include "kurlcombobox.h"
+#include "kurlcompletion.h"
 #include "kurlnavigator.h"
 #include <kprotocolinfo.h>
 
@@ -314,6 +315,63 @@ void KUrlNavigatorTest::testRelativePaths()
     m_navigator->editor()->setCurrentText(QStringLiteral("/a"));
     QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
     QTRY_COMPARE(m_navigator->locationUrl(), QUrl::fromLocalFile("/a"));
+}
+
+void KUrlNavigatorTest::testCompletionUsesCurrentDirectory_data()
+{
+    QTest::addColumn<bool>("replaceCompletionObject");
+
+    QTest::newRow("built-in completion object") << false;
+    QTest::newRow("custom completion object") << true;
+}
+
+void KUrlNavigatorTest::testCompletionUsesCurrentDirectory()
+{
+    QFETCH(bool, replaceCompletionObject);
+
+    QTemporaryDir tempDir;
+    const QString tempDirPath = tempDir.path();
+
+    const QString childDirPath = tempDirPath + QLatin1String("/completion-test-dir");
+    createTestDirectory(childDirPath);
+    QVERIFY(QFile::exists(childDirPath));
+
+    const QUrl tempDirUrl = QUrl::fromLocalFile(tempDirPath);
+    const QUrl childDirUrl = QUrl::fromLocalFile(childDirPath);
+
+    KUrlNavigator navigator(nullptr, childDirUrl, nullptr);
+
+    KUrlCompletion *completion = nullptr;
+    if (replaceCompletionObject) {
+        // Replace the completion object like KFileWidget does after constructing the navigator.
+        completion = new KUrlCompletion(KUrlCompletion::DirCompletion);
+        navigator.editor()->setCompletionObject(completion);
+        navigator.editor()->setAutoDeleteCompletionObject(true);
+    } else {
+        completion = qobject_cast<KUrlCompletion *>(navigator.editor()->completionObject());
+    }
+    QVERIFY(completion);
+    QCOMPARE(navigator.editor()->completionObject(), completion);
+
+    // Switching to editable mode has to synchronize the completion object with the current location.
+    navigator.setUrlEditable(true);
+    QCOMPARE(completion->dir(), childDirUrl);
+
+    // Navigating in editable mode updates the completion directory, too.
+    navigator.setLocationUrl(tempDirUrl);
+    QCOMPARE(completion->dir(), tempDirUrl);
+
+    // A relative path has to be completed against the navigator's current directory
+    // instead of KUrlCompletion's default of $HOME.
+    completion->makeCompletion(QStringLiteral("completion-test"));
+    QTRY_VERIFY(!completion->isRunning());
+    QCOMPARE(completion->allMatches(), QStringList{QStringLiteral("completion-test-dir/")});
+
+    // Committing a typed path updates the completion directory as well.
+    navigator.editor()->setCurrentText(QStringLiteral("completion-test-dir"));
+    QTest::keyClick(navigator.editor(), Qt::Key_Enter);
+    QTRY_COMPARE(navigator.locationUrl().adjusted(QUrl::StripTrailingSlash), childDirUrl);
+    QTRY_COMPARE(completion->dir().adjusted(QUrl::StripTrailingSlash), childDirUrl);
 }
 
 void KUrlNavigatorTest::testATypedFullUrlInALocalFolder_data()
