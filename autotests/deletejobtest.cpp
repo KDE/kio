@@ -176,9 +176,8 @@ void DeleteJobTest::deletePartialFailureNotifiesRemovals()
 
 void DeleteJobTest::createTestFiles(const QStringList &fileNames, const QString &path, qint64 bytesEach) const
 {
-    QStringListIterator iterator(fileNames);
-    while (iterator.hasNext()) {
-        const QString filename = path + QDir::separator() + iterator.next();
+    for (const QString &fileName : fileNames) {
+        const QString filename = path + QDir::separator() + fileName;
         QFile file(filename);
         QVERIFY(file.open(QIODevice::WriteOnly));
         if (bytesEach > 0) {
