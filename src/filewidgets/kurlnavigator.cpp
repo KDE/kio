@@ -414,8 +414,9 @@ void KUrlNavigatorPrivate::applyUncommittedUrl(ApplyUrlMethod method)
         }
     }
 
+    const bool isAbsolutePath = text.startsWith(QLatin1Char('/'));
     const QUrl textUrl(text);
-    auto applyText = [this, text, textUrl, applyUrl]() {
+    auto applyText = [this, url, text, textUrl, isAbsolutePath, applyUrl]() {
         // Check if text matches a URI filter
         if (const auto filteredUrl = checkFilters(text); filteredUrl) {
             applyUrl(*filteredUrl);
@@ -423,13 +424,15 @@ void KUrlNavigatorPrivate::applyUncommittedUrl(ApplyUrlMethod method)
         }
 
         if (textUrl.scheme().isEmpty()) {
-            applyUrl(QUrl::fromLocalFile(text));
+            QUrl localUrl = QUrl::fromLocalFile(text);
+            if (!isAbsolutePath) {
+                localUrl.setPath(Utils::concatPaths(url.path(), text));
+            }
+            applyUrl(localUrl);
         } else {
             applyUrl(textUrl);
         }
     };
-
-    const bool isAbsolutePath = text.startsWith(QLatin1Char('/'));
 
     // A full URL such as "smb://server" is not a path below the current url
     if (!isAbsolutePath && !textUrl.isRelative()) {
