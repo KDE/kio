@@ -188,6 +188,7 @@ public:
     QUrl m_homeUrl;
     KUrlNavigatorPlacesSelector *m_placesSelector = nullptr;
     KUrlComboBox *m_pathBox = nullptr;
+    KUrlCompletion *m_completion = nullptr;
     KUrlNavigatorSchemeCombo *m_schemes = nullptr;
     KUrlNavigatorDropDownButton *m_dropDownButton = nullptr;
     KUrlNavigatorButtonBase *m_toggleEditableMode = nullptr;
@@ -274,8 +275,8 @@ KUrlNavigatorPrivate::KUrlNavigatorPrivate(const QUrl &url, KUrlNavigator *qq, K
     m_pathBox->setSizeAdjustPolicy(QComboBox::AdjustToContentsOnFirstShow);
     m_pathBox->installEventFilter(q);
 
-    KUrlCompletion *kurlCompletion = new KUrlCompletion(KUrlCompletion::DirCompletion);
-    m_pathBox->setCompletionObject(kurlCompletion);
+    m_completion = new KUrlCompletion(KUrlCompletion::DirCompletion);
+    m_pathBox->setCompletionObject(m_completion);
     m_pathBox->setAutoDeleteCompletionObject(true);
 
     // TODO KF6: remove this QOverload, only KUrlComboBox::returnPressed(const QString &) will remain
@@ -366,6 +367,7 @@ void KUrlNavigatorPrivate::slotApplyUrl(QUrl url)
     // The URL might have been adjusted by KUrlNavigator::setUrl(), hence
     // synchronize the result in the path box.
     m_pathBox->setUrl(q->locationUrl());
+    m_completion->setDir(q->locationUrl());
 }
 
 std::optional<QUrl> KUrlNavigatorPrivate::checkFilters(const QString &text)
@@ -747,6 +749,7 @@ void KUrlNavigatorPrivate::updateContent()
 
         m_pathBox->show();
         m_pathBox->setUrl(currentUrl);
+        m_completion->setDir(currentUrl);
 
         q->setTabOrder(m_pathBox, m_toggleEditableMode); // Fixes order for the first time switchView() is called.
         updateTabOrder();
