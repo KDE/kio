@@ -93,17 +93,17 @@ void KFileItemTest::testPermissionsString()
 #ifdef Q_OS_UNIX
     // changing home temporarily
     auto home = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
-    setenv("HOME", tempDir.path().toLatin1(), 1);
+    setenv("HOME", tempDir.path().toLatin1().constData(), 1);
 
     QCOMPARE(symlinkItem.getStatusBarInfo(), CaseInsensitiveStringCompareHelper(QStringLiteral("asymlink (Empty document, Link to ~/afile)")));
 
-    setenv("HOME", home.toLatin1(), 1);
+    setenv("HOME", home.toLatin1().constData(), 1);
 #endif
 
 #ifdef Q_OS_UNIX
     // relative Symlink to a file
     QString relativeSymlink = tempDir.path() + "/afolder/relative-symlink";
-    QCOMPARE(::symlink("../afile", relativeSymlink.toLatin1()), 0);
+    QCOMPARE(::symlink("../afile", relativeSymlink.toLatin1().constData()), 0);
     QUrl relativeSymlinkUrl = QUrl::fromLocalFile(relativeSymlink);
     KFileItem relativeSymlinkItem(relativeSymlinkUrl, QString(), KFileItem::Unknown);
     QCOMPARE((uint)relativeSymlinkItem.permissions(), (uint)0604);
