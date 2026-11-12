@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 00:57+0000\n"
+"POT-Creation-Date: 2026-11-12 00:55+0000\n"
 "PO-Revision-Date: 2024-12-15 19:32+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3762,48 +3762,48 @@ msgstr "एक प्रतीक चुनें (&i)"
 msgid "You can change the icon later in folder properties."
 msgstr ""
 
-#: filewidgets/kurlnavigator.cpp:612
+#: filewidgets/kurlnavigator.cpp:624
 #, fuzzy, kde-format
 #| msgid "Location:"
 msgid "Copy Location"
 msgstr "स्थानः"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:616 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:628 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "चिपकाएँ"
 
-#: filewidgets/kurlnavigator.cpp:636
+#: filewidgets/kurlnavigator.cpp:648
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "के साथ खोलें"
 
-#: filewidgets/kurlnavigator.cpp:644
+#: filewidgets/kurlnavigator.cpp:656
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "के साथ खोलें"
 
-#: filewidgets/kurlnavigator.cpp:653
+#: filewidgets/kurlnavigator.cpp:665
 #, kde-format
 msgid "Edit"
 msgstr "संपादन"
 
-#: filewidgets/kurlnavigator.cpp:656
+#: filewidgets/kurlnavigator.cpp:668
 #, kde-format
 msgid "Navigate"
 msgstr "नेविगेट"
 
-#: filewidgets/kurlnavigator.cpp:671
+#: filewidgets/kurlnavigator.cpp:683
 #, kde-format
 msgid "Show Full Path"
 msgstr ""
 
-#: filewidgets/kurlnavigator.cpp:845
+#: filewidgets/kurlnavigator.cpp:857
 #, fuzzy, kde-kuit-format
 #| msgid "Do you really want to delete this item?"
 #| msgid_plural "Do you really want to delete these %1 items?"

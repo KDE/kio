@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 00:57+0000\n"
+"POT-Creation-Date: 2026-11-12 00:55+0000\n"
 "PO-Revision-Date: 2022-07-10 22:32+0100\n"
 "Last-Translator: KD at KGyfieithu <kyfieithu@dotmon.com>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -3855,46 +3855,46 @@ msgstr "Dewis &eicon:"
 msgid "You can change the icon later in folder properties."
 msgstr ""
 
-#: filewidgets/kurlnavigator.cpp:612
+#: filewidgets/kurlnavigator.cpp:624
 #, fuzzy, kde-format
 #| msgid "Location:"
 msgid "Copy Location"
 msgstr "Lleoliad:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:616 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:628 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Gludo"
 
-#: filewidgets/kurlnavigator.cpp:636
+#: filewidgets/kurlnavigator.cpp:648
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Agor \"%1\" yn Tab Newydd"
 
-#: filewidgets/kurlnavigator.cpp:644
+#: filewidgets/kurlnavigator.cpp:656
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Agor \"%1\" yn Ffenestr Newydd"
 
-#: filewidgets/kurlnavigator.cpp:653
+#: filewidgets/kurlnavigator.cpp:665
 #, kde-format
 msgid "Edit"
 msgstr "Golygu"
 
-#: filewidgets/kurlnavigator.cpp:656
+#: filewidgets/kurlnavigator.cpp:668
 #, kde-format
 msgid "Navigate"
 msgstr "Môrlwywio"
 
-#: filewidgets/kurlnavigator.cpp:671
+#: filewidgets/kurlnavigator.cpp:683
 #, kde-format
 msgid "Show Full Path"
 msgstr "Dangos Llwybr Llawn"
 
-#: filewidgets/kurlnavigator.cpp:845
+#: filewidgets/kurlnavigator.cpp:857
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Cannot transfer <filename>%1</filename>"

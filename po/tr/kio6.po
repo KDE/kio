@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 00:57+0000\n"
+"POT-Creation-Date: 2026-11-12 00:55+0000\n"
 "PO-Revision-Date: 2026-11-06 19:47+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -3760,45 +3760,45 @@ msgstr "Başka Simge Seç…"
 msgid "You can change the icon later in folder properties."
 msgstr "Klasör özelliklerinden simgeyi daha sonra değiştirebilirsiniz."
 
-#: filewidgets/kurlnavigator.cpp:612
+#: filewidgets/kurlnavigator.cpp:624
 #, kde-format
 msgid "Copy Location"
 msgstr "Konumu Kopyala"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:616 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:628 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Yapıştır"
 
-#: filewidgets/kurlnavigator.cpp:636
+#: filewidgets/kurlnavigator.cpp:648
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "“%1” Ögesini Yeni Sekmede Aç"
 
-#: filewidgets/kurlnavigator.cpp:644
+#: filewidgets/kurlnavigator.cpp:656
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "“%1” Ögesini Yeni Pencerede Aç"
 
-#: filewidgets/kurlnavigator.cpp:653
+#: filewidgets/kurlnavigator.cpp:665
 #, kde-format
 msgid "Edit"
 msgstr "Düzenle"
 
-#: filewidgets/kurlnavigator.cpp:656
+#: filewidgets/kurlnavigator.cpp:668
 #, kde-format
 msgid "Navigate"
 msgstr "Git"
 
-#: filewidgets/kurlnavigator.cpp:671
+#: filewidgets/kurlnavigator.cpp:683
 #, kde-format
 msgid "Show Full Path"
 msgstr "Tam Yolu Göster"
 
-#: filewidgets/kurlnavigator.cpp:845
+#: filewidgets/kurlnavigator.cpp:857
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"

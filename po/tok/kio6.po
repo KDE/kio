@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 00:57+0000\n"
+"POT-Creation-Date: 2026-11-12 00:55+0000\n"
 "PO-Revision-Date: 2026-10-07 18:49-0500\n"
 "Last-Translator: Mizufuwa <mizuf@tutamail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -3638,19 +3638,19 @@ msgstr "o wile e &sitelen lili:"
 msgid "You can change the icon later in folder properties."
 msgstr "tenpo sin la sina ken ante e sitelen ni kepeken ilo lawa poki"
 
-#: filewidgets/kurlnavigator.cpp:612
+#: filewidgets/kurlnavigator.cpp:624
 #, fuzzy, kde-format
 #| msgid "Location:"
 msgid "Copy Location"
 msgstr "lon:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:616 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:628 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "o pana e lipu tan lipu jo"
 
-#: filewidgets/kurlnavigator.cpp:636
+#: filewidgets/kurlnavigator.cpp:648
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu"
 #| msgid "Open in New Tab"
@@ -3658,7 +3658,7 @@ msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "o open lon nena sin"
 
-#: filewidgets/kurlnavigator.cpp:644
+#: filewidgets/kurlnavigator.cpp:656
 #, fuzzy, kde-format
 #| msgctxt "@item:inmenu"
 #| msgid "Open in New Window"
@@ -3666,22 +3666,22 @@ msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "o open lon lupa sin"
 
-#: filewidgets/kurlnavigator.cpp:653
+#: filewidgets/kurlnavigator.cpp:665
 #, kde-format
 msgid "Edit"
 msgstr "ante"
 
-#: filewidgets/kurlnavigator.cpp:656
+#: filewidgets/kurlnavigator.cpp:668
 #, kde-format
 msgid "Navigate"
 msgstr "o tawa"
 
-#: filewidgets/kurlnavigator.cpp:671
+#: filewidgets/kurlnavigator.cpp:683
 #, kde-format
 msgid "Show Full Path"
 msgstr "o lukin e nasin tawa suli"
 
-#: filewidgets/kurlnavigator.cpp:845
+#: filewidgets/kurlnavigator.cpp:857
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Cannot transfer <filename>%1</filename>"

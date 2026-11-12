@@ -24,8 +24,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-11 00:57+0000\n"
-"PO-Revision-Date: 2026-11-09 04:34+0200\n"
+"POT-Creation-Date: 2026-11-12 00:55+0000\n"
+"PO-Revision-Date: 2026-11-11 23:00+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -3197,7 +3197,7 @@ msgstr "%1: %2"
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
-msgstr "свободно %1 из %2 (использовано %3%)"
+msgstr "свободно %1 из %2 (использовано %3 %)"
 
 #: filewidgets/kfileplacesview.cpp:678
 #, kde-format
@@ -3826,45 +3826,45 @@ msgstr "Выбрать другой значок…"
 msgid "You can change the icon later in folder properties."
 msgstr "Позднее значок можно будет изменить в свойствах папки."
 
-#: filewidgets/kurlnavigator.cpp:612
+#: filewidgets/kurlnavigator.cpp:624
 #, kde-format
 msgid "Copy Location"
 msgstr "Копировать расположение"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:616 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:628 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Вставить"
 
-#: filewidgets/kurlnavigator.cpp:636
+#: filewidgets/kurlnavigator.cpp:648
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Открыть «%1» в новой вкладке"
 
-#: filewidgets/kurlnavigator.cpp:644
+#: filewidgets/kurlnavigator.cpp:656
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Открыть «%1» в новом окне"
 
-#: filewidgets/kurlnavigator.cpp:653
+#: filewidgets/kurlnavigator.cpp:665
 #, kde-format
 msgid "Edit"
 msgstr "Изменить"
 
-#: filewidgets/kurlnavigator.cpp:656
+#: filewidgets/kurlnavigator.cpp:668
 #, kde-format
 msgid "Navigate"
 msgstr "Перейти"
 
-#: filewidgets/kurlnavigator.cpp:671
+#: filewidgets/kurlnavigator.cpp:683
 #, kde-format
 msgid "Show Full Path"
 msgstr "Показывать полный путь"
 
-#: filewidgets/kurlnavigator.cpp:845
+#: filewidgets/kurlnavigator.cpp:857
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -6699,7 +6699,7 @@ msgstr "&Контрольные суммы"
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum… (%1%)"
-msgstr "Проверка контрольной суммы… (%1%)"
+msgstr "Проверка контрольной суммы… (%1 %)"
 
 # BUGME: it's a label, not a button --aspotashev
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2414
@@ -6715,7 +6715,7 @@ msgstr "Вычисление… (%1/%2)"
 #, kde-format
 msgctxt "@info:progress Calculating hash"
 msgid "Calculating… (%1%)"
-msgstr "Вычисление… (%1%)"
+msgstr "Вычисление… (%1 %)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
 #, kde-format
