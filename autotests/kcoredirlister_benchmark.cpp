@@ -324,7 +324,7 @@ void fillNumberOfFiles()
     QTest::addColumn<int>("numberOfFiles");
     for (int i = 0; i < maxPowerOfTen; ++i) {
         // it shows numberOfFiles: 10, 100 or 1000 but the data is the power of ten
-        QTest::newRow(QStringLiteral("%1").arg(pow(10, i + 1)).toLatin1()) << i;
+        QTest::newRow(QStringLiteral("%1").arg(pow(10, i + 1)).toLatin1().constData()) << i;
     }
 }
 

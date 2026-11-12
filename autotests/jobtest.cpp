@@ -453,7 +453,7 @@ void JobTest::flushRemovableFolder()
 void JobTest::putPermissionKept()
 {
     const QString filePath = homeTmpDir() + "fileFromHome";
-    QVERIFY2(::chmod(filePath.toUtf8(), 0644) == 0, strerror(errno));
+    QVERIFY2(::chmod(filePath.toUtf8().constData(), 0644) == 0, strerror(errno));
 
     QUrl u = QUrl::fromLocalFile(filePath);
     KIO::TransferJob *job = KIO::put(u, -1, KIO::Overwrite | KIO::HideProgressInfo);
