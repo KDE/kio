@@ -26,6 +26,7 @@ private Q_SLOTS:
     void testPasteJob();
     void testPasteDataCancel_data();
     void testPasteDataCancel();
+    void testPasteDataReadBeforeClosingDialog();
 
 private:
     QTemporaryDir m_tempDir;

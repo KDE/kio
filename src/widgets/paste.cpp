@@ -113,6 +113,17 @@ static QByteArray chooseFormatAndUrl(const QUrl &u,
 {
     KIO::PasteDialog dlg(i18nc("@title:dialog", "Paste Clipboard Content"), text, defaultFileName(suggestedFileName), formats, widget);
 
+    // On Wayland, the clipboard can only be read while we have keyboard focus,
+    // which we may lose once the dialog is closed, so read it before that.
+    QByteArray ba;
+    QObject::connect(&dlg, &KIO::PasteDialog::aboutToAccept, &dlg, [&]() {
+        const QString chosenFormat = formats[dlg.comboItem()];
+        const QMimeData *data = clipboard ? QApplication::clipboard()->mimeData() : mimeData;
+        if (data->hasFormat(chosenFormat)) {
+            ba = data->data(chosenFormat);
+        }
+    });
+
     if (dlg.exec() != QDialog::Accepted) {
         return QByteArray();
     }
@@ -135,14 +146,6 @@ static QByteArray chooseFormatAndUrl(const QUrl &u,
     const QUrl destUrl = getDestinationUrl(u, *newUrl, widget);
     *newUrl = destUrl;
 
-    // In Qt3, the result of clipboard()->mimeData() only existed until the next
-    // event loop run (see dlg.exec() above), so we re-fetched it.
-    // TODO: This should not be necessary with Qt5; remove this conditional
-    // and test that it still works.
-    if (clipboard) {
-        mimeData = QApplication::clipboard()->mimeData();
-    }
-    const QByteArray ba = mimeData->data(chosenFormat);
     return ba;
 }
 

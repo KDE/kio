@@ -194,4 +194,10 @@ void KIO::PasteDialog::setIcon(const QIcon &icon)
     m_iconLabel->setPixmap(effectiveIcon.pixmap(KIconLoader::SizeHuge));
 }
 
+void KIO::PasteDialog::accept()
+{
+    Q_EMIT aboutToAccept();
+    QDialog::accept();
+}
+
 #include "moc_pastedialog_p.cpp"

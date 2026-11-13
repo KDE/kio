@@ -31,6 +31,11 @@ public:
 
     void setIcon(const QIcon &icon);
 
+    void accept() override;
+
+Q_SIGNALS:
+    void aboutToAccept();
+
 private:
     QLabel *m_label;
     QLabel *m_iconLabel;

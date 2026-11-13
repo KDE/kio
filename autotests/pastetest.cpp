@@ -8,6 +8,7 @@
 #include "pastetest.h"
 
 #include <QApplication>
+#include <QClipboard>
 #include <QDialog>
 #include <QDir>
 #include <QMimeData>
@@ -268,6 +269,61 @@ void KIOPasteTest::testPasteDataCancel()
     QVERIFY(!job->exec());
     QCOMPARE(job->error(), int(KIO::ERR_USER_CANCELED));
     QVERIFY(QDir(destTempDir.path()).isEmpty());
+}
+
+class DialogCheckingMimeData : public QMimeData
+{
+public:
+    explicit DialogCheckingMimeData(bool *dialogVisibleOnRead)
+        : m_dialogVisibleOnRead(dialogVisibleOnRead)
+    {
+    }
+
+protected:
+    QVariant retrieveData(const QString &mimeType, QMetaType type) const override
+    {
+        if (mimeType == QLatin1String("image/png")) {
+            const QWidget *dialog = QApplication::activeModalWidget();
+            *m_dialogVisibleOnRead = dialog && dialog->isVisible();
+        }
+        return QMimeData::retrieveData(mimeType, type);
+    }
+
+private:
+    bool *const m_dialogVisibleOnRead;
+};
+
+void KIOPasteTest::testPasteDataReadBeforeClosingDialog()
+{
+    bool dialogVisibleOnRead = false;
+    auto mimeData = new DialogCheckingMimeData(&dialogVisibleOnRead);
+    mimeData->setData(QStringLiteral("image/png"), QByteArrayLiteral("png data"));
+    mimeData->setData(QStringLiteral("image/bmp"), QByteArrayLiteral("bmp data"));
+    QApplication::clipboard()->setMimeData(mimeData);
+
+    QTemporaryDir destTempDir;
+    QVERIFY(destTempDir.isValid());
+    KIO::PasteJob *job = KIO::paste(QApplication::clipboard()->mimeData(), QUrl::fromLocalFile(destTempDir.path()), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+
+    QTimer timer;
+    connect(&timer, &QTimer::timeout, this, [] {
+        if (auto dialog = qobject_cast<QDialog *>(QApplication::activeModalWidget())) {
+            dialog->accept();
+        }
+    });
+    timer.start(10);
+
+    const bool ok = job->exec();
+    QApplication::clipboard()->clear();
+    QVERIFY(ok);
+    QVERIFY(dialogVisibleOnRead);
+
+    const QStringList files = QDir(destTempDir.path()).entryList(QDir::Files);
+    QCOMPARE(files.size(), 1);
+    QFile file(destTempDir.path() + QLatin1Char('/') + files.first());
+    QVERIFY(file.open(QIODevice::ReadOnly));
+    QCOMPARE(file.readAll(), QByteArrayLiteral("png data"));
 }
 
 #include "moc_pastetest.cpp"
