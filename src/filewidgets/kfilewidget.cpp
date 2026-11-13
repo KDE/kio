@@ -1131,10 +1131,6 @@ void KFileWidgetPrivate::initDirOpWidgets()
         q->setSelectedUrls(urls);
     });
 
-    q->connect(m_ops, &KDirOperator::viewChanged, q, [](QAbstractItemView *newView) {
-        newView->setProperty("_breeze_borders_sides", QVariant::fromValue(QFlags{Qt::TopEdge | Qt::BottomEdge}));
-    });
-
     m_ops->dirLister()->setAutoErrorHandlingEnabled(false);
     q->connect(m_ops->dirLister(), &KDirLister::jobError, q, [this](KIO::Job *job) {
         m_messageWidget->setText(job->errorString());
