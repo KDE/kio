@@ -7,11 +7,14 @@
 
 #include "pastetest.h"
 
+#include <QApplication>
+#include <QDialog>
 #include <QDir>
 #include <QMimeData>
 #include <QSignalSpy>
 #include <QStandardPaths>
 #include <QTest>
+#include <QTimer>
 #include <QUrl>
 
 #include <KFileItem>
@@ -230,6 +233,41 @@ void KIOPasteTest::testPasteJob()
         QCOMPARE(spy.count(), isFile || cut ? 1 : 2);
         QCOMPARE(spy.at(0).at(0).value<QUrl>().toLocalFile(), destFile);
     }
+}
+
+void KIOPasteTest::testPasteDataCancel_data()
+{
+    QTest::addColumn<QStringList>("formats");
+
+    QTest::newRow("one_format") << QStringList{QStringLiteral("image/png")};
+    QTest::newRow("two_formats") << QStringList{QStringLiteral("image/png"), QStringLiteral("image/bmp")};
+}
+
+void KIOPasteTest::testPasteDataCancel()
+{
+    QFETCH(QStringList, formats);
+
+    QMimeData mimeData;
+    for (const QString &format : formats) {
+        mimeData.setData(format, QByteArrayLiteral("data"));
+    }
+
+    QTemporaryDir destTempDir;
+    QVERIFY(destTempDir.isValid());
+    KIO::PasteJob *job = KIO::paste(&mimeData, QUrl::fromLocalFile(destTempDir.path()), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+
+    QTimer timer;
+    connect(&timer, &QTimer::timeout, this, [] {
+        if (auto dialog = qobject_cast<QDialog *>(QApplication::activeModalWidget())) {
+            dialog->reject();
+        }
+    });
+    timer.start(10);
+
+    QVERIFY(!job->exec());
+    QCOMPARE(job->error(), int(KIO::ERR_USER_CANCELED));
+    QVERIFY(QDir(destTempDir.path()).isEmpty());
 }
 
 #include "moc_pastetest.cpp"

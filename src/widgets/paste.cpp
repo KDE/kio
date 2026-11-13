@@ -193,7 +193,10 @@ std::pair<KIO::Job *, int> pasteMimeDataImpl(const QMimeData *mimeData, const QU
         } else if (formats.size() > 1) {
             QUrl newUrl;
             ba = chooseFormatAndUrl(destUrl, mimeData, formats, dialogText, suggestedFilename, widget, clipboard, &newUrl);
-            if (ba.isEmpty() || newUrl.isEmpty()) {
+            if (newUrl.isEmpty()) {
+                return std::make_pair(nullptr, KIO::ERR_USER_CANCELED);
+            }
+            if (ba.isEmpty()) {
                 return std::make_pair(nullptr, KIO::ERR_NO_CONTENT);
             }
             return std::make_pair(putDataAsyncTo(newUrl, ba, widget, KIO::Overwrite), KJob::NoError);
