@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-12 00:55+0000\n"
+"POT-Creation-Date: 2026-11-13 00:53+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -197,91 +197,91 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:104
+#: core/job.cpp:102
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "स्थापनम्"
 
-#: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
+#: core/job.cpp:103 core/job.cpp:111 core/job.cpp:119 core/job.cpp:148
 #: widgets/fileundomanager.cpp:139
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "स्रोतः"
 
-#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122
+#: core/job.cpp:104 core/job.cpp:112 core/job.cpp:120
 #: widgets/fileundomanager.cpp:140
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "गन्तव्यम्"
 
-#: core/job.cpp:112
+#: core/job.cpp:110
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "नामान्तरणम्"
 
-#: core/job.cpp:120
+#: core/job.cpp:118
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "प्रतिलिपिकरणम्"
 
-#: core/job.cpp:128
+#: core/job.cpp:126
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "पुटस्य निर्माणम्"
 
-#: core/job.cpp:129 widgets/fileundomanager.cpp:126
+#: core/job.cpp:127 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
 msgstr "पुटम्"
 
-#: core/job.cpp:135
+#: core/job.cpp:133
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "विलोपयन्"
 
-#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:155
+#: core/job.cpp:134 core/job.cpp:141 widgets/fileundomanager.cpp:155
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
 msgstr "सञ्चिका"
 
-#: core/job.cpp:142
+#: core/job.cpp:140
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "अन्वीक्षणम्"
 
-#: core/job.cpp:149
+#: core/job.cpp:147
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "स्थानान्तरणम्"
 
-#: core/job.cpp:156
+#: core/job.cpp:154
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "संचाद्यते"
 
-#: core/job.cpp:156
+#: core/job.cpp:154
 #, kde-format
 msgid "Device"
 msgstr "यन्त्रम्"
 
-#: core/job.cpp:156 core/job.cpp:161
+#: core/job.cpp:154 core/job.cpp:159
 #, kde-format
 msgid "Mountpoint"
 msgstr "संचादनस्थानम्"
 
-#: core/job.cpp:161
+#: core/job.cpp:159
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
@@ -2661,7 +2661,7 @@ msgstr "पूर्वावलोकनम् दर्शयतु"
 msgid "Open Containing Folder"
 msgstr "यत्र स्थितम् अस्ति तत्र पुटं उद्घाटयन्तु"
 
-#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1274
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1272
 #, kde-format
 msgid "Properties"
 msgstr "गुणाः"
@@ -2791,17 +2791,17 @@ msgstr "सर्वाणि समर्थितानि सञ्चिक�
 msgid "All Files"
 msgstr "सर्वाणि सञ्चिकानि"
 
-#: filewidgets/kfileplaceeditdialog.cpp:68
+#: filewidgets/kfileplaceeditdialog.cpp:65
 #, kde-format
 msgid "Add Places Entry"
 msgstr "स्थानप्रविष्टिः योजयतु"
 
-#: filewidgets/kfileplaceeditdialog.cpp:70
+#: filewidgets/kfileplaceeditdialog.cpp:67
 #, kde-format
 msgid "Edit Places Entry"
 msgstr "स्थानप्रविष्टिः सम्पादयतु"
 
-#: filewidgets/kfileplaceeditdialog.cpp:80
+#: filewidgets/kfileplaceeditdialog.cpp:77
 #, kde-format
 msgid ""
 "<qt>This is the text that will appear in the Places panel.<br /><br />The "
@@ -2813,17 +2813,17 @@ msgstr ""
 "भवितुमर्हति येन भवन्तः स्मर्तुं साहाय्यं करिष्यन्ति यत् एषा प्रविष्टिः किं निर्दिशति । यदि "
 "भवान् लेबलं न लिखति तर्हि तत् स्थानस्य URL तः उत्पन्नं भविष्यति ।</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:86
+#: filewidgets/kfileplaceeditdialog.cpp:83
 #, kde-format
 msgid "L&abel:"
 msgstr "&नामपत्र:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:88
+#: filewidgets/kfileplaceeditdialog.cpp:85
 #, kde-format
 msgid "Enter descriptive label here"
 msgstr "अत्र वर्णनात्मकं नामपत्रम् लिखत"
 
-#: filewidgets/kfileplaceeditdialog.cpp:93
+#: filewidgets/kfileplaceeditdialog.cpp:90
 #, kde-format
 msgid ""
 "<qt>This is the location associated with the entry. Any valid URL may be "
@@ -2836,12 +2836,12 @@ msgstr ""
 "><br />पाठसम्पादनपेटिकायाः पार्श्वे स्थितं गण्ड नुत्वा भवान् समुचितं URL अन्वेषय कर्तुं शक्नोति "
 "।.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:100
+#: filewidgets/kfileplaceeditdialog.cpp:97
 #, kde-format
 msgid "&Location:"
 msgstr "&स्थानम्:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:107
+#: filewidgets/kfileplaceeditdialog.cpp:104
 #, kde-format
 msgid ""
 "<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
@@ -2850,17 +2850,17 @@ msgstr ""
 "<qt>एतत् चिह्नं यत् स्थानफलके दृश्यते ।<br /><br />भिन्नं चिह्नं चिन्वन्तु इति गण्ड नुदन्तु ।</"
 "qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:128
+#: filewidgets/kfileplaceeditdialog.cpp:125
 #, kde-format
 msgid "Choose an &icon:"
 msgstr "एकं चिह्नं चिनोतु:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:138
+#: filewidgets/kfileplaceeditdialog.cpp:135
 #, kde-format
 msgid "&Only show when using this application (%1)"
 msgstr "&केवलं एतस्य अनुप्रयोगस्य उपयोगं कुर्वन् दर्शयतु (%1)"
 
-#: filewidgets/kfileplaceeditdialog.cpp:141
+#: filewidgets/kfileplaceeditdialog.cpp:138
 #, kde-format
 msgid ""
 "<qt>Select this setting if you want this entry to show only when using the "
@@ -3099,96 +3099,96 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "विभाजनप्रबन्धकेन पुनः स्वरूपणं वा सम्पादनं वा कुर्वन्तु"
 
-#: filewidgets/kfileplacesview.cpp:335
+#: filewidgets/kfileplacesview.cpp:333
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:352
+#: filewidgets/kfileplacesview.cpp:350
 #: widgets/kpropertiesdialogbuiltin_p.cpp:722
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 %2 तः मुक्तं (%3% प्रयुक्तम्)"
 
-#: filewidgets/kfileplacesview.cpp:678
+#: filewidgets/kfileplacesview.cpp:676
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (अदृष्ट)"
 
-#: filewidgets/kfileplacesview.cpp:1232
+#: filewidgets/kfileplacesview.cpp:1230
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "पुनःप्रयोगस्य कूपं रिक्तं कुर्वन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1257
+#: filewidgets/kfileplacesview.cpp:1255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "संचयतु"
 
-#: filewidgets/kfileplacesview.cpp:1267
+#: filewidgets/kfileplacesview.cpp:1265
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "नूतन टैब् मध्ये उद्घाटयन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1270
+#: filewidgets/kfileplacesview.cpp:1268
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "नूतनगवाक्ष मध्ये उद्घाटयन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1279
+#: filewidgets/kfileplacesview.cpp:1277
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "प्रविष्टि योजयतु…"
 
-#: filewidgets/kfileplacesview.cpp:1285
+#: filewidgets/kfileplacesview.cpp:1283
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&सम्पादयतु…"
 
-#: filewidgets/kfileplacesview.cpp:1290
+#: filewidgets/kfileplacesview.cpp:1288
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "स्थानेभ्यः निष्कासयन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1294
+#: filewidgets/kfileplacesview.cpp:1292
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&गोपयतु"
 
-#: filewidgets/kfileplacesview.cpp:1302
+#: filewidgets/kfileplacesview.cpp:1300
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "खण्डं गोपयन्तु '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1302
+#: filewidgets/kfileplacesview.cpp:1300
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "खण्डं गोपयन्तु"
 
-#: filewidgets/kfileplacesview.cpp:1310
+#: filewidgets/kfileplacesview.cpp:1308
 #, kde-format
 msgid "&Show All Entries"
 msgstr "सर्वाणि प्रविष्टयः दर्शयतु"
 
-#: filewidgets/kfileplacesview.cpp:1315
+#: filewidgets/kfileplacesview.cpp:1313
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "चिह्नस्य आकार"
 
-#: filewidgets/kfileplacesview.cpp:1436
+#: filewidgets/kfileplacesview.cpp:1434
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3196,25 +3196,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "स्वतः आकारं परिवर्तयतु"
 
-#: filewidgets/kfileplacesview.cpp:1456
+#: filewidgets/kfileplacesview.cpp:1454
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "लघु (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1459
+#: filewidgets/kfileplacesview.cpp:1457
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "मध्यम (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1462
+#: filewidgets/kfileplacesview.cpp:1460
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "बृहत्‌ (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1465
+#: filewidgets/kfileplacesview.cpp:1463
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -3847,7 +3847,7 @@ msgstr "स्थानं सम्पादयितुं नुदन्त�
 msgid "You are not authorized to execute this file."
 msgstr "एतां सञ्चिकां निष्पादयितुं भवान् अधिकृतः नास्ति ।."
 
-#: gui/applicationlauncherjob.cpp:141 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:141 gui/commandlauncherjob.cpp:116
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
@@ -3873,7 +3873,7 @@ msgid ""
 "Internal error: could not prompt the user for which application to start"
 msgstr "आन्तरिकदोषः: उपयोक्तारं कस्य अनुप्रयोगस्य आरम्भः कर्तव्यः इति प्रार्थयितुं न शक्तवान्"
 
-#: gui/commandlauncherjob.cpp:107
+#: gui/commandlauncherjob.cpp:106
 #, kde-format
 msgctxt "An error message"
 msgid "Empty command provided"
@@ -7462,32 +7462,32 @@ msgctxt "@title:window"
 msgid "Change File Type"
 msgstr "सञ्चिकास्वामित्वं परिवर्तयतु"
 
-#: widgets/skipdialog.cpp:29
+#: widgets/skipdialog.cpp:28
 #, kde-format
 msgid "Information"
 msgstr "सूच्यांश"
 
-#: widgets/skipdialog.cpp:48
+#: widgets/skipdialog.cpp:47
 #, kde-format
 msgid "Replace"
 msgstr "पुनरादधाति"
 
-#: widgets/skipdialog.cpp:54
+#: widgets/skipdialog.cpp:53
 #, kde-format
 msgid "Retry"
 msgstr "पुनः प्रयतस्व"
 
-#: widgets/skipdialog.cpp:61
+#: widgets/skipdialog.cpp:60
 #, kde-format
 msgid "Replace All"
 msgstr "सर्वेषां पुनरादधातु"
 
-#: widgets/skipdialog.cpp:68
+#: widgets/skipdialog.cpp:67
 #, kde-format
 msgid "Skip"
 msgstr "क्षिपते"
 
-#: widgets/skipdialog.cpp:72
+#: widgets/skipdialog.cpp:71
 #, kde-format
 msgid "Skip All"
 msgstr "सर्वाणि त्यजन्तु"

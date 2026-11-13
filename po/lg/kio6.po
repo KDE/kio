@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-12 00:55+0000\n"
+"POT-Creation-Date: 2026-11-13 00:53+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda\n"
@@ -199,91 +199,91 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:104
+#: core/job.cpp:102
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "Kusimbuliza"
 
-#: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
+#: core/job.cpp:103 core/job.cpp:111 core/job.cpp:119 core/job.cpp:148
 #: widgets/fileundomanager.cpp:139
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Nnono"
 
-#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122
+#: core/job.cpp:104 core/job.cpp:112 core/job.cpp:120
 #: widgets/fileundomanager.cpp:140
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Kigenderwa"
 
-#: core/job.cpp:112
+#: core/job.cpp:110
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "Kukyusa Linnya"
 
-#: core/job.cpp:120
+#: core/job.cpp:118
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "Kukola Koppi"
 
-#: core/job.cpp:128
+#: core/job.cpp:126
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Kukolawo Tterekero"
 
-#: core/job.cpp:129 widgets/fileundomanager.cpp:126
+#: core/job.cpp:127 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
 msgstr "Tterekero"
 
-#: core/job.cpp:135
+#: core/job.cpp:133
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "Kugyawo"
 
-#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:155
+#: core/job.cpp:134 core/job.cpp:141 widgets/fileundomanager.cpp:155
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
 msgstr "Fayiro"
 
-#: core/job.cpp:142
+#: core/job.cpp:140
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "Kukebejja"
 
-#: core/job.cpp:149
+#: core/job.cpp:147
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "Kusimbuliza"
 
-#: core/job.cpp:156
+#: core/job.cpp:154
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "Kuwanga"
 
-#: core/job.cpp:156
+#: core/job.cpp:154
 #, kde-format
 msgid "Device"
 msgstr "Kyuma"
 
-#: core/job.cpp:156 core/job.cpp:161
+#: core/job.cpp:154 core/job.cpp:159
 #, kde-format
 msgid "Mountpoint"
 msgstr "Awawangirwa"
 
-#: core/job.cpp:161
+#: core/job.cpp:159
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
@@ -2770,7 +2770,7 @@ msgstr "Lagako Ebiri Mu Fayiro"
 msgid "Open Containing Folder"
 msgstr "Bikkula Tterekero Bino Mwe Biri"
 
-#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1274
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1272
 #, kde-format
 msgid "Properties"
 msgstr "Ebikwata ku fayiro"
@@ -2900,17 +2900,17 @@ msgstr "Fayiro Eza Buli Kika Ekitegeerebwa"
 msgid "All Files"
 msgstr "Fayiro ez'eBika Byonna"
 
-#: filewidgets/kfileplaceeditdialog.cpp:68
+#: filewidgets/kfileplaceeditdialog.cpp:65
 #, kde-format
 msgid "Add Places Entry"
 msgstr "Yongerawo Ekisangibwa Ku Kabaawo Ka Bifo"
 
-#: filewidgets/kfileplaceeditdialog.cpp:70
+#: filewidgets/kfileplaceeditdialog.cpp:67
 #, kde-format
 msgid "Edit Places Entry"
 msgstr "Kyusamu Ekisangibwa Ku Kabaawo Ka Bifo"
 
-#: filewidgets/kfileplaceeditdialog.cpp:80
+#: filewidgets/kfileplaceeditdialog.cpp:77
 #, kde-format
 msgid ""
 "<qt>This is the text that will appear in the Places panel.<br /><br />The "
@@ -2923,17 +2923,17 @@ msgstr ""
 "g'eKisangibwa kino. Bw'oleka wereere puloguramu ejja okweyiiyiza ky'eteekawo "
 "nga erabira ku ndagiriro ya URL ey'ekifo.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:86
+#: filewidgets/kfileplaceeditdialog.cpp:83
 #, kde-format
 msgid "L&abel:"
 msgstr "&Okulamba:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:88
+#: filewidgets/kfileplaceeditdialog.cpp:85
 #, kde-format
 msgid "Enter descriptive label here"
 msgstr "Wandika wano okulamba okutangaaza ku kifo"
 
-#: filewidgets/kfileplaceeditdialog.cpp:93
+#: filewidgets/kfileplaceeditdialog.cpp:90
 #, kde-format
 msgid ""
 "<qt>This is the location associated with the entry. Any valid URL may be "
@@ -2947,12 +2947,12 @@ msgstr ""
 ">Bw'okoona eppeesa eririraanye bokisi mw'owandikira ofuna w'osobolera "
 "okunoonyeza endagiriro eya URL gye wetaaga.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:100
+#: filewidgets/kfileplaceeditdialog.cpp:97
 #, kde-format
 msgid "&Location:"
 msgstr "&Obusangiro:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:107
+#: filewidgets/kfileplaceeditdialog.cpp:104
 #, kde-format
 msgid ""
 "<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
@@ -2961,17 +2961,17 @@ msgstr ""
 "<qt>kano k kafaananyi akajja okulabikira ku kabaawo aka Bifo.<br /><br /"
 ">Kookna ku ppeesa okufuna w'olondera akafaananyi.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:128
+#: filewidgets/kfileplaceeditdialog.cpp:125
 #, kde-format
 msgid "Choose an &icon:"
 msgstr "Londa aka&faananyi akayunzi:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:138
+#: filewidgets/kfileplaceeditdialog.cpp:135
 #, kde-format
 msgid "&Only show when using this application (%1)"
 msgstr "&Kino kirabikire mu puloguramu eno mwokka (%1)"
 
-#: filewidgets/kfileplaceeditdialog.cpp:141
+#: filewidgets/kfileplaceeditdialog.cpp:138
 #, kde-format
 msgid ""
 "<qt>Select this setting if you want this entry to show only when using the "
@@ -3212,96 +3212,96 @@ msgstr ""
 "Kozesa Ekiteekateekabibondo okyusamu sisitemu eya fayiro oba okuddamu buto "
 "okugikolawo"
 
-#: filewidgets/kfileplacesview.cpp:335
+#: filewidgets/kfileplacesview.cpp:333
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:352
+#: filewidgets/kfileplacesview.cpp:350
 #: widgets/kpropertiesdialogbuiltin_p.cpp:722
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "Wasigadde %1 ku %2 (kukozesedwako %3%)"
 
-#: filewidgets/kfileplacesview.cpp:678
+#: filewidgets/kfileplacesview.cpp:676
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (ebikise)"
 
-#: filewidgets/kfileplacesview.cpp:1232
+#: filewidgets/kfileplacesview.cpp:1230
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Kunkumula Ebisuulidwa"
 
-#: filewidgets/kfileplacesview.cpp:1257
+#: filewidgets/kfileplacesview.cpp:1255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Wanga"
 
-#: filewidgets/kfileplacesview.cpp:1267
+#: filewidgets/kfileplacesview.cpp:1265
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Bikkulira mu Katimbe Kapya"
 
-#: filewidgets/kfileplacesview.cpp:1270
+#: filewidgets/kfileplacesview.cpp:1268
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Bikkulira mu Ddirisa Ppya"
 
-#: filewidgets/kfileplacesview.cpp:1279
+#: filewidgets/kfileplacesview.cpp:1277
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Yongerawo…"
 
-#: filewidgets/kfileplacesview.cpp:1285
+#: filewidgets/kfileplacesview.cpp:1283
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Kyusa…"
 
-#: filewidgets/kfileplacesview.cpp:1290
+#: filewidgets/kfileplacesview.cpp:1288
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Kigyemu mu Bifo"
 
-#: filewidgets/kfileplacesview.cpp:1294
+#: filewidgets/kfileplacesview.cpp:1292
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "K&isa"
 
-#: filewidgets/kfileplacesview.cpp:1302
+#: filewidgets/kfileplacesview.cpp:1300
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Kisa Ekitundu '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1302
+#: filewidgets/kfileplacesview.cpp:1300
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Kisa Ekitundu"
 
-#: filewidgets/kfileplacesview.cpp:1310
+#: filewidgets/kfileplacesview.cpp:1308
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Laga Ebirimu Byonna"
 
-#: filewidgets/kfileplacesview.cpp:1315
+#: filewidgets/kfileplacesview.cpp:1313
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Bunene Bwa Bufaananayi"
 
-#: filewidgets/kfileplacesview.cpp:1436
+#: filewidgets/kfileplacesview.cpp:1434
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3309,25 +3309,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Obufaananyi Bwekyusize Obunene"
 
-#: filewidgets/kfileplacesview.cpp:1456
+#: filewidgets/kfileplacesview.cpp:1454
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Butono (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1459
+#: filewidgets/kfileplacesview.cpp:1457
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Bwa wakati (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1462
+#: filewidgets/kfileplacesview.cpp:1460
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Bunene (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1465
+#: filewidgets/kfileplacesview.cpp:1463
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -3965,7 +3965,7 @@ msgstr "Koona Wano Okukyusamu Ekifo"
 msgid "You are not authorized to execute this file."
 msgstr "Obuyinza bwolina tebumala okutandika fayiro eno."
 
-#: gui/applicationlauncherjob.cpp:141 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:141 gui/commandlauncherjob.cpp:116
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
@@ -3993,7 +3993,7 @@ msgstr ""
 "Puloguramu efunye kiremya: tekisobose okubuuza omukozesa puloguramu ki "
 "gy'ayagala okutandika"
 
-#: gui/commandlauncherjob.cpp:107
+#: gui/commandlauncherjob.cpp:106
 #, kde-format
 msgctxt "An error message"
 msgid "Empty command provided"
@@ -7656,32 +7656,32 @@ msgctxt "@title:window"
 msgid "Change File Type"
 msgstr "Kyusa Nannyini Fayiro"
 
-#: widgets/skipdialog.cpp:29
+#: widgets/skipdialog.cpp:28
 #, kde-format
 msgid "Information"
 msgstr "Eby'okumanya"
 
-#: widgets/skipdialog.cpp:48
+#: widgets/skipdialog.cpp:47
 #, kde-format
 msgid "Replace"
 msgstr "Kyusa Ekiriwo"
 
-#: widgets/skipdialog.cpp:54
+#: widgets/skipdialog.cpp:53
 #, kde-format
 msgid "Retry"
 msgstr "Ddamu"
 
-#: widgets/skipdialog.cpp:61
+#: widgets/skipdialog.cpp:60
 #, kde-format
 msgid "Replace All"
 msgstr "Byonna Bigyewo Epipya Bidde Mu Bifo Bya Byo"
 
-#: widgets/skipdialog.cpp:68
+#: widgets/skipdialog.cpp:67
 #, kde-format
 msgid "Skip"
 msgstr "Buuka"
 
-#: widgets/skipdialog.cpp:72
+#: widgets/skipdialog.cpp:71
 #, kde-format
 msgid "Skip All"
 msgstr "Byonna Bibuuke"

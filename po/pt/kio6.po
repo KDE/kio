@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-12 00:55+0000\n"
+"POT-Creation-Date: 2026-11-13 00:53+0000\n"
 "PO-Revision-Date: 2026-01-27 20:13+0000\n"
 "Last-Translator: César A. P. Cláudio <cesarapclaudio@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
@@ -272,91 +272,91 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:104
+#: core/job.cpp:102
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "A mover"
 
-#: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
+#: core/job.cpp:103 core/job.cpp:111 core/job.cpp:119 core/job.cpp:148
 #: widgets/fileundomanager.cpp:139
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Origem"
 
-#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122
+#: core/job.cpp:104 core/job.cpp:112 core/job.cpp:120
 #: widgets/fileundomanager.cpp:140
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Destino"
 
-#: core/job.cpp:112
+#: core/job.cpp:110
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "A mudar o nome"
 
-#: core/job.cpp:120
+#: core/job.cpp:118
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "A copiar"
 
-#: core/job.cpp:128
+#: core/job.cpp:126
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "A criar pasta"
 
-#: core/job.cpp:129 widgets/fileundomanager.cpp:126
+#: core/job.cpp:127 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
 msgstr "Pasta"
 
-#: core/job.cpp:135
+#: core/job.cpp:133
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "A eliminar"
 
-#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:155
+#: core/job.cpp:134 core/job.cpp:141 widgets/fileundomanager.cpp:155
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
 msgstr "Ficheiro"
 
-#: core/job.cpp:142
+#: core/job.cpp:140
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "A examinar"
 
-#: core/job.cpp:149
+#: core/job.cpp:147
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "A transferir"
 
-#: core/job.cpp:156
+#: core/job.cpp:154
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "A montar"
 
-#: core/job.cpp:156
+#: core/job.cpp:154
 #, kde-format
 msgid "Device"
 msgstr "Dispositivo"
 
-#: core/job.cpp:156 core/job.cpp:161
+#: core/job.cpp:154 core/job.cpp:159
 #, kde-format
 msgid "Mountpoint"
 msgstr "Montar em"
 
-#: core/job.cpp:161
+#: core/job.cpp:159
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
@@ -2806,7 +2806,7 @@ msgstr "Mostrar Pré-Visualização"
 msgid "Open Containing Folder"
 msgstr "Abrir Localização do Ficheiro"
 
-#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1274
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1272
 #, kde-format
 msgid "Properties"
 msgstr "Propriedades"
@@ -2937,17 +2937,17 @@ msgstr "Todos os Ficheiros Suportados"
 msgid "All Files"
 msgstr "Todos os Ficheiros"
 
-#: filewidgets/kfileplaceeditdialog.cpp:68
+#: filewidgets/kfileplaceeditdialog.cpp:65
 #, kde-format
 msgid "Add Places Entry"
 msgstr "Adicionar Item aos Locais"
 
-#: filewidgets/kfileplaceeditdialog.cpp:70
+#: filewidgets/kfileplaceeditdialog.cpp:67
 #, kde-format
 msgid "Edit Places Entry"
 msgstr "Editar Item dos Locais"
 
-#: filewidgets/kfileplaceeditdialog.cpp:80
+#: filewidgets/kfileplaceeditdialog.cpp:77
 #, kde-format
 msgid ""
 "<qt>This is the text that will appear in the Places panel.<br /><br />The "
@@ -2960,17 +2960,17 @@ msgstr ""
 "item se refere. Se não introduzir nenhuma legenda, a mesma será obtida a "
 "partir do URL da localização.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:86
+#: filewidgets/kfileplaceeditdialog.cpp:83
 #, kde-format
 msgid "L&abel:"
 msgstr "L&egenda:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:88
+#: filewidgets/kfileplaceeditdialog.cpp:85
 #, kde-format
 msgid "Enter descriptive label here"
 msgstr "Introduza uma legenda descritiva aqui"
 
-#: filewidgets/kfileplaceeditdialog.cpp:93
+#: filewidgets/kfileplaceeditdialog.cpp:90
 #, kde-format
 msgid ""
 "<qt>This is the location associated with the entry. Any valid URL may be "
@@ -2983,12 +2983,12 @@ msgstr ""
 "org/pub/kde/stable<br/><br/>Carregue no botão adjacente ao campo de edição "
 "de texto para selecionar um URL apropriado.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:100
+#: filewidgets/kfileplaceeditdialog.cpp:97
 #, kde-format
 msgid "&Location:"
 msgstr "&Localização:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:107
+#: filewidgets/kfileplaceeditdialog.cpp:104
 #, kde-format
 msgid ""
 "<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
@@ -2997,17 +2997,17 @@ msgstr ""
 "<qt>Este é o ícone que irá figurar no painel Locais.<br/><br/> Carregue no "
 "botão para selecionar um ícone diferente.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:128
+#: filewidgets/kfileplaceeditdialog.cpp:125
 #, kde-format
 msgid "Choose an &icon:"
 msgstr "Escolha um &ícone:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:138
+#: filewidgets/kfileplaceeditdialog.cpp:135
 #, kde-format
 msgid "&Only show when using this application (%1)"
 msgstr "Mostrar apenas quando utilizar esta aplicação (%1)"
 
-#: filewidgets/kfileplaceeditdialog.cpp:141
+#: filewidgets/kfileplaceeditdialog.cpp:138
 #, kde-format
 msgid ""
 "<qt>Select this setting if you want this entry to show only when using the "
@@ -3247,96 +3247,96 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "Formatar ou Editar com o Gestor de Partições"
 
-#: filewidgets/kfileplacesview.cpp:335
+#: filewidgets/kfileplacesview.cpp:333
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:352
+#: filewidgets/kfileplacesview.cpp:350
 #: widgets/kpropertiesdialogbuiltin_p.cpp:722
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "%1 livres de %2 (%3% utilizado)"
 
-#: filewidgets/kfileplacesview.cpp:678
+#: filewidgets/kfileplacesview.cpp:676
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (oculto)"
 
-#: filewidgets/kfileplacesview.cpp:1232
+#: filewidgets/kfileplacesview.cpp:1230
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Esvaziar o Lixo"
 
-#: filewidgets/kfileplacesview.cpp:1257
+#: filewidgets/kfileplacesview.cpp:1255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Montar"
 
-#: filewidgets/kfileplacesview.cpp:1267
+#: filewidgets/kfileplacesview.cpp:1265
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Abrir num Novo Separador"
 
-#: filewidgets/kfileplacesview.cpp:1270
+#: filewidgets/kfileplacesview.cpp:1268
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Abrir numa Nova Janela"
 
-#: filewidgets/kfileplacesview.cpp:1279
+#: filewidgets/kfileplacesview.cpp:1277
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Adicionar Item..."
 
-#: filewidgets/kfileplacesview.cpp:1285
+#: filewidgets/kfileplacesview.cpp:1283
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Editar..."
 
-#: filewidgets/kfileplacesview.cpp:1290
+#: filewidgets/kfileplacesview.cpp:1288
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Remover dos Locais"
 
-#: filewidgets/kfileplacesview.cpp:1294
+#: filewidgets/kfileplacesview.cpp:1292
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Ocultar"
 
-#: filewidgets/kfileplacesview.cpp:1302
+#: filewidgets/kfileplacesview.cpp:1300
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Ocultar Secção '%1'"
 
-#: filewidgets/kfileplacesview.cpp:1302
+#: filewidgets/kfileplacesview.cpp:1300
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Ocultar Secção"
 
-#: filewidgets/kfileplacesview.cpp:1310
+#: filewidgets/kfileplacesview.cpp:1308
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Mostrar Todos os Itens"
 
-#: filewidgets/kfileplacesview.cpp:1315
+#: filewidgets/kfileplacesview.cpp:1313
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Tamanho dos Ícones"
 
-#: filewidgets/kfileplacesview.cpp:1436
+#: filewidgets/kfileplacesview.cpp:1434
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3344,25 +3344,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Ajustar Automaticamente"
 
-#: filewidgets/kfileplacesview.cpp:1456
+#: filewidgets/kfileplacesview.cpp:1454
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Pequeno (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1459
+#: filewidgets/kfileplacesview.cpp:1457
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Médio (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1462
+#: filewidgets/kfileplacesview.cpp:1460
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Grande (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1465
+#: filewidgets/kfileplacesview.cpp:1463
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -3998,7 +3998,7 @@ msgstr "Carregue para Editar Localização"
 msgid "You are not authorized to execute this file."
 msgstr "Não tem autorização para executar este ficheiro."
 
-#: gui/applicationlauncherjob.cpp:141 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:141 gui/commandlauncherjob.cpp:116
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
@@ -4027,7 +4027,7 @@ msgstr ""
 "Erro interno: não foi possível solicitar ao utilizador qual a aplicação a "
 "iniciar"
 
-#: gui/commandlauncherjob.cpp:107
+#: gui/commandlauncherjob.cpp:106
 #, kde-format
 msgctxt "An error message"
 msgid "Empty command provided"
@@ -7616,32 +7616,32 @@ msgctxt "@title:window"
 msgid "Change File Type"
 msgstr "Alterar Proprietário do Ficheiro"
 
-#: widgets/skipdialog.cpp:29
+#: widgets/skipdialog.cpp:28
 #, kde-format
 msgid "Information"
 msgstr "Informação"
 
-#: widgets/skipdialog.cpp:48
+#: widgets/skipdialog.cpp:47
 #, kde-format
 msgid "Replace"
 msgstr "Substituir"
 
-#: widgets/skipdialog.cpp:54
+#: widgets/skipdialog.cpp:53
 #, kde-format
 msgid "Retry"
 msgstr "Voltar a tentar"
 
-#: widgets/skipdialog.cpp:61
+#: widgets/skipdialog.cpp:60
 #, kde-format
 msgid "Replace All"
 msgstr "Substituir Tudo"
 
-#: widgets/skipdialog.cpp:68
+#: widgets/skipdialog.cpp:67
 #, kde-format
 msgid "Skip"
 msgstr "Ignorar"
 
-#: widgets/skipdialog.cpp:72
+#: widgets/skipdialog.cpp:71
 #, kde-format
 msgid "Skip All"
 msgstr "Ignorar Tudo"

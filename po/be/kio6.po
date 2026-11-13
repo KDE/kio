@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fc57ad16a28d02dea100ceb1c60de14e\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-12 00:55+0000\n"
+"POT-Creation-Date: 2026-11-13 00:53+0000\n"
 "PO-Revision-Date: 2024-11-24 09:40\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -215,91 +215,91 @@ msgctxt "items: folders, files (size)"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: core/job.cpp:104
+#: core/job.cpp:102
 #, kde-format
 msgctxt "@title job"
 msgid "Moving"
 msgstr "Перамяшчэнне"
 
-#: core/job.cpp:105 core/job.cpp:113 core/job.cpp:121 core/job.cpp:150
+#: core/job.cpp:103 core/job.cpp:111 core/job.cpp:119 core/job.cpp:148
 #: widgets/fileundomanager.cpp:139
 #, kde-format
 msgctxt "The source of a file operation"
 msgid "Source"
 msgstr "Зыходны элемент"
 
-#: core/job.cpp:106 core/job.cpp:114 core/job.cpp:122
+#: core/job.cpp:104 core/job.cpp:112 core/job.cpp:120
 #: widgets/fileundomanager.cpp:140
 #, kde-format
 msgctxt "The destination of a file operation"
 msgid "Destination"
 msgstr "Мэтавы элемент"
 
-#: core/job.cpp:112
+#: core/job.cpp:110
 #, kde-format
 msgctxt "@title job"
 msgid "Renaming"
 msgstr "Змена назвы"
 
-#: core/job.cpp:120
+#: core/job.cpp:118
 #, kde-format
 msgctxt "@title job"
 msgid "Copying"
 msgstr "Капіяванне"
 
-#: core/job.cpp:128
+#: core/job.cpp:126
 #, kde-format
 msgctxt "@title job"
 msgid "Creating directory"
 msgstr "Стварэнне каталога"
 
-#: core/job.cpp:129 widgets/fileundomanager.cpp:126
+#: core/job.cpp:127 widgets/fileundomanager.cpp:126
 #: widgets/kurlrequester.cpp:478
 #, kde-format
 msgid "Directory"
 msgstr "Каталог"
 
-#: core/job.cpp:135
+#: core/job.cpp:133
 #, kde-format
 msgctxt "@title job"
 msgid "Deleting"
 msgstr "Выдаленне"
 
-#: core/job.cpp:136 core/job.cpp:143 widgets/fileundomanager.cpp:155
+#: core/job.cpp:134 core/job.cpp:141 widgets/fileundomanager.cpp:155
 #: widgets/kurlrequester.cpp:477
 #, kde-format
 msgid "File"
 msgstr "Файл"
 
-#: core/job.cpp:142
+#: core/job.cpp:140
 #, kde-format
 msgctxt "@title job"
 msgid "Examining"
 msgstr "Правяранне"
 
-#: core/job.cpp:149
+#: core/job.cpp:147
 #, kde-format
 msgctxt "@title job"
 msgid "Transferring"
 msgstr "Перадача"
 
-#: core/job.cpp:156
+#: core/job.cpp:154
 #, kde-format
 msgctxt "@title job"
 msgid "Mounting"
 msgstr "Мантаванне"
 
-#: core/job.cpp:156
+#: core/job.cpp:154
 #, kde-format
 msgid "Device"
 msgstr "Прылада"
 
-#: core/job.cpp:156 core/job.cpp:161
+#: core/job.cpp:154 core/job.cpp:159
 #, kde-format
 msgid "Mountpoint"
 msgstr "Пункт мантавання"
 
-#: core/job.cpp:161
+#: core/job.cpp:159
 #, kde-format
 msgctxt "@title job"
 msgid "Unmounting"
@@ -2733,7 +2733,7 @@ msgstr "Паказваць мініяцюры"
 msgid "Open Containing Folder"
 msgstr "Адкрыць каталог змесціва"
 
-#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1274
+#: filewidgets/kdiroperator.cpp:2277 filewidgets/kfileplacesview.cpp:1272
 #, kde-format
 msgid "Properties"
 msgstr "Уласцівасці"
@@ -2863,17 +2863,17 @@ msgstr "Усе файлы, якія падтрымліваюцца"
 msgid "All Files"
 msgstr "Усе файлы"
 
-#: filewidgets/kfileplaceeditdialog.cpp:68
+#: filewidgets/kfileplaceeditdialog.cpp:65
 #, kde-format
 msgid "Add Places Entry"
 msgstr "Дадаць размяшчэнне"
 
-#: filewidgets/kfileplaceeditdialog.cpp:70
+#: filewidgets/kfileplaceeditdialog.cpp:67
 #, kde-format
 msgid "Edit Places Entry"
 msgstr "Рэдагаваць размяшчэнне"
 
-#: filewidgets/kfileplaceeditdialog.cpp:80
+#: filewidgets/kfileplaceeditdialog.cpp:77
 #, kde-format
 msgid ""
 "<qt>This is the text that will appear in the Places panel.<br /><br />The "
@@ -2886,17 +2886,17 @@ msgstr ""
 "чаго адносіцца гэты запіс. Калі вы не ўвядзеце тэкст адмеціны, яна будзе "
 "атрымана з URL.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:86
+#: filewidgets/kfileplaceeditdialog.cpp:83
 #, kde-format
 msgid "L&abel:"
 msgstr "Ад&меціна:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:88
+#: filewidgets/kfileplaceeditdialog.cpp:85
 #, kde-format
 msgid "Enter descriptive label here"
 msgstr "Увядзіце сюды апісанне"
 
-#: filewidgets/kfileplaceeditdialog.cpp:93
+#: filewidgets/kfileplaceeditdialog.cpp:90
 #, kde-format
 msgid ""
 "<qt>This is the location associated with the entry. Any valid URL may be "
@@ -2909,12 +2909,12 @@ msgstr ""
 "ftp.kde.org/pub/kde/stable<br /><br />Пстрыкнуўшы кнопку побач з полем "
 "рэдагавання тэксту, вы можаце перайсці па URL.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:100
+#: filewidgets/kfileplaceeditdialog.cpp:97
 #, kde-format
 msgid "&Location:"
 msgstr "&Размяшчэнне:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:107
+#: filewidgets/kfileplaceeditdialog.cpp:104
 #, kde-format
 msgid ""
 "<qt>This is the icon that will appear in the Places panel.<br /><br />Click "
@@ -2923,17 +2923,17 @@ msgstr ""
 "<qt>Гэта значок, які з'явіцца на панэлі размяшчэнняў.<br /><br />Націсніце "
 "на кнопку, каб абраць іншы значок.</qt>"
 
-#: filewidgets/kfileplaceeditdialog.cpp:128
+#: filewidgets/kfileplaceeditdialog.cpp:125
 #, kde-format
 msgid "Choose an &icon:"
 msgstr "&Абраць значок:"
 
-#: filewidgets/kfileplaceeditdialog.cpp:138
+#: filewidgets/kfileplaceeditdialog.cpp:135
 #, kde-format
 msgid "&Only show when using this application (%1)"
 msgstr "&Паказваць толькі пры выкарыстанні гэтай праграмы (%1)"
 
-#: filewidgets/kfileplaceeditdialog.cpp:141
+#: filewidgets/kfileplaceeditdialog.cpp:138
 #, kde-format
 msgid ""
 "<qt>Select this setting if you want this entry to show only when using the "
@@ -3179,96 +3179,96 @@ msgctxt "@action:inmenu"
 msgid "Reformat or Edit with Partition Manager"
 msgstr "Перафарматаваць або рэдагаваць з дапамогай Partition Manager"
 
-#: filewidgets/kfileplacesview.cpp:335
+#: filewidgets/kfileplacesview.cpp:333
 #, kde-format
 msgctxt "@info:tooltip full display text since it is elided: original tooltip"
 msgid "%1: %2"
 msgstr "%1: %2"
 
-#: filewidgets/kfileplacesview.cpp:352
+#: filewidgets/kfileplacesview.cpp:350
 #: widgets/kpropertiesdialogbuiltin_p.cpp:722
 #, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
 msgstr "Вольна %1 з %2 (%3% выкарыстоўваецца)"
 
-#: filewidgets/kfileplacesview.cpp:678
+#: filewidgets/kfileplacesview.cpp:676
 #, kde-format
 msgid "%1 (hidden)"
 msgstr "%1 (схавана)"
 
-#: filewidgets/kfileplacesview.cpp:1232
+#: filewidgets/kfileplacesview.cpp:1230
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Empty Trash"
 msgstr "Ачысціць сметніцу"
 
-#: filewidgets/kfileplacesview.cpp:1257
+#: filewidgets/kfileplacesview.cpp:1255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Mount"
 msgstr "Прымантаваць"
 
-#: filewidgets/kfileplacesview.cpp:1267
+#: filewidgets/kfileplacesview.cpp:1265
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Tab"
 msgstr "Адкрыць у новай укладцы"
 
-#: filewidgets/kfileplacesview.cpp:1270
+#: filewidgets/kfileplacesview.cpp:1268
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open in New Window"
 msgstr "Адкрыць у новым акне"
 
-#: filewidgets/kfileplacesview.cpp:1279
+#: filewidgets/kfileplacesview.cpp:1277
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Add Entry…"
 msgstr "Дадаць запіс…"
 
-#: filewidgets/kfileplacesview.cpp:1285
+#: filewidgets/kfileplacesview.cpp:1283
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Edit…"
 msgstr "&Рэдагаванне…"
 
-#: filewidgets/kfileplacesview.cpp:1290
+#: filewidgets/kfileplacesview.cpp:1288
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Remove from Places"
 msgstr "Выдаліць з размяшчэнняў"
 
-#: filewidgets/kfileplacesview.cpp:1294
+#: filewidgets/kfileplacesview.cpp:1292
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Hide"
 msgstr "&Схаваць"
 
-#: filewidgets/kfileplacesview.cpp:1302
+#: filewidgets/kfileplacesview.cpp:1300
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section '%1'"
 msgstr "Схаваць раздзел \"%1\""
 
-#: filewidgets/kfileplacesview.cpp:1302
+#: filewidgets/kfileplacesview.cpp:1300
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Hide Section"
 msgstr "Схаваць раздзел"
 
-#: filewidgets/kfileplacesview.cpp:1310
+#: filewidgets/kfileplacesview.cpp:1308
 #, kde-format
 msgid "&Show All Entries"
 msgstr "&Паказаць усе запісы"
 
-#: filewidgets/kfileplacesview.cpp:1315
+#: filewidgets/kfileplacesview.cpp:1313
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Icon Size"
 msgstr "Памер значка"
 
-#: filewidgets/kfileplacesview.cpp:1436
+#: filewidgets/kfileplacesview.cpp:1434
 #, kde-format
 msgctxt ""
 "@item:inmenu Auto set icon size based on available space inthe Places side-"
@@ -3276,25 +3276,25 @@ msgctxt ""
 msgid "Auto Resize"
 msgstr "Аўтаматычная змена памеру"
 
-#: filewidgets/kfileplacesview.cpp:1456
+#: filewidgets/kfileplacesview.cpp:1454
 #, kde-format
 msgctxt "Small icon size"
 msgid "Small (%1x%1)"
 msgstr "Маленькія (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1459
+#: filewidgets/kfileplacesview.cpp:1457
 #, kde-format
 msgctxt "Medium icon size"
 msgid "Medium (%1x%1)"
 msgstr "Сярэднія (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1462
+#: filewidgets/kfileplacesview.cpp:1460
 #, kde-format
 msgctxt "Large icon size"
 msgid "Large (%1x%1)"
 msgstr "Вялікія (%1x%1)"
 
-#: filewidgets/kfileplacesview.cpp:1465
+#: filewidgets/kfileplacesview.cpp:1463
 #, kde-format
 msgctxt "Huge icon size"
 msgid "Huge (%1x%1)"
@@ -3950,7 +3950,7 @@ msgstr "Націсніце, каб рэдагаваць размяшчэнне"
 msgid "You are not authorized to execute this file."
 msgstr "Вы не аўтарызаваныя для выканання гэтага файла."
 
-#: gui/applicationlauncherjob.cpp:141 gui/commandlauncherjob.cpp:117
+#: gui/applicationlauncherjob.cpp:141 gui/commandlauncherjob.cpp:116
 #, kde-format
 msgctxt "Launching application"
 msgid "Launching %1"
@@ -3979,7 +3979,7 @@ msgstr ""
 "Унутраная памылка: не ўдалося падказаць карыстальніку, якую праграму "
 "запусціць"
 
-#: gui/commandlauncherjob.cpp:107
+#: gui/commandlauncherjob.cpp:106
 #, kde-format
 msgctxt "An error message"
 msgid "Empty command provided"
@@ -7665,32 +7665,32 @@ msgctxt "@title:window"
 msgid "Change File Type"
 msgstr "Змяніць уласніка файла"
 
-#: widgets/skipdialog.cpp:29
+#: widgets/skipdialog.cpp:28
 #, kde-format
 msgid "Information"
 msgstr "Інфармацыя"
 
-#: widgets/skipdialog.cpp:48
+#: widgets/skipdialog.cpp:47
 #, kde-format
 msgid "Replace"
 msgstr "Замяніць"
 
-#: widgets/skipdialog.cpp:54
+#: widgets/skipdialog.cpp:53
 #, kde-format
 msgid "Retry"
 msgstr "Паўтарыць"
 
-#: widgets/skipdialog.cpp:61
+#: widgets/skipdialog.cpp:60
 #, kde-format
 msgid "Replace All"
 msgstr "Замяніць усё"
 
-#: widgets/skipdialog.cpp:68
+#: widgets/skipdialog.cpp:67
 #, kde-format
 msgid "Skip"
 msgstr "Прапусціць"
 
-#: widgets/skipdialog.cpp:72
+#: widgets/skipdialog.cpp:71
 #, kde-format
 msgid "Skip All"
 msgstr "Прапусціць усё"
