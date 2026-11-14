@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdebase\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-13 00:53+0000\n"
+"POT-Creation-Date: 2026-11-14 01:00+0000\n"
 "PO-Revision-Date: 2025-12-07 00:08-0500\n"
 "Last-Translator: Agron Selimaj <as9902613@gmail.com>\n"
 "Language-Team: sq\n"
@@ -2868,7 +2868,7 @@ msgid "All Supported Files"
 msgstr "Të Gjitha Skedat e Përkrahura"
 
 #: filewidgets/kfilefiltercombo.cpp:169 filewidgets/kfilefiltercombo.cpp:171
-#: filewidgets/kfilewidget.cpp:2057
+#: filewidgets/kfilewidget.cpp:2053
 #, kde-format
 msgid "All Files"
 msgstr "Të Gjithë Skedat"
@@ -3355,7 +3355,7 @@ msgstr "S’u gjet dot skeda “%1”"
 msgid "Cannot open file"
 msgstr "S’hapet dot skeda"
 
-#: filewidgets/kfilewidget.cpp:1216
+#: filewidgets/kfilewidget.cpp:1212
 #, kde-format
 msgid ""
 "<qt>Click this button to enter the parent folder.<br /><br />For instance, "
@@ -3366,46 +3366,46 @@ msgstr ""
 "nëse vendndodhja e tanishme është file:/home/konqi, klikimi i këtij butoni "
 "do t’ju shpjerë te file:/home.</qt>"
 
-#: filewidgets/kfilewidget.cpp:1220
+#: filewidgets/kfilewidget.cpp:1216
 #, kde-format
 msgid "Click this button to move backwards one step in the browsing history."
 msgstr ""
 "Klikoni këtë buton, që të kalohet një hap prapa në historikun e shfletimit."
 
-#: filewidgets/kfilewidget.cpp:1221
+#: filewidgets/kfilewidget.cpp:1217
 #, kde-format
 msgid "Click this button to move forward one step in the browsing history."
 msgstr ""
 "Klikoni këtë buton, që të kalohet një hap para në historikun e shfletimit."
 
-#: filewidgets/kfilewidget.cpp:1223
+#: filewidgets/kfilewidget.cpp:1219
 #, kde-format
 msgid "Click this button to reload the contents of the current location."
 msgstr ""
 "Klikoni këtë buton, që të ringarkohet lënda e vendndodhjes së tanishme."
 
-#: filewidgets/kfilewidget.cpp:1225
+#: filewidgets/kfilewidget.cpp:1221
 #, kde-format
 msgid "Click this button to create a new folder."
 msgstr "Klikoni këtë buton që të krijoni një dosje të re."
 
-#: filewidgets/kfilewidget.cpp:1227
+#: filewidgets/kfilewidget.cpp:1223
 #, kde-format
 msgid "Show Places Panel"
 msgstr "Shfaq Panel Vendesh"
 
-#: filewidgets/kfilewidget.cpp:1234
+#: filewidgets/kfilewidget.cpp:1230
 #, fuzzy, kde-format
 #| msgid "Show Hidden Files"
 msgid "Show Quick Filter"
 msgstr "Shfaq Skeda të Fshehura"
 
-#: filewidgets/kfilewidget.cpp:1242
+#: filewidgets/kfilewidget.cpp:1238
 #, kde-format
 msgid "Options"
 msgstr "Mundësi"
 
-#: filewidgets/kfilewidget.cpp:1245
+#: filewidgets/kfilewidget.cpp:1241
 #, kde-format
 msgid ""
 "<qt>This is the preferences menu for the file dialog. Various options can be "
@@ -3420,12 +3420,12 @@ msgstr ""
 "li><li>shfaqjen e kartelave të fshehura</li><li>panelin Vende</"
 "li><li>paraparje kartelash</li><li>veçim dosjesh nga skeda</li></ul></qt>"
 
-#: filewidgets/kfilewidget.cpp:1264
+#: filewidgets/kfilewidget.cpp:1260
 #, kde-format
 msgid "Bookmarks"
 msgstr "Faqerojtës"
 
-#: filewidgets/kfilewidget.cpp:1268
+#: filewidgets/kfilewidget.cpp:1264
 #, kde-format
 msgid ""
 "<qt>This button allows you to bookmark specific locations. Click on this "
@@ -3440,38 +3440,38 @@ msgstr ""
 "faqerojtësit kudo gjetkë në KDE.</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
-#: filewidgets/kfilewidget.cpp:1313 widgets/kpropertiesdesktopbase.ui:22
+#: filewidgets/kfilewidget.cpp:1309 widgets/kpropertiesdesktopbase.ui:22
 #, kde-format
 msgid "&Name:"
 msgstr "&Emër:"
 
-#: filewidgets/kfilewidget.cpp:1338
+#: filewidgets/kfilewidget.cpp:1334
 #, fuzzy, kde-format
 #| msgid "Undo Changes"
 msgctxt "@info:tooltip"
 msgid "Undo filename change"
 msgstr "Zhbëji Ndryshimet"
 
-#: filewidgets/kfilewidget.cpp:1393
+#: filewidgets/kfilewidget.cpp:1389
 #, fuzzy, kde-format
 #| msgid "Open Containing Folder"
 msgctxt "@info:tooltip"
 msgid "Keep Filter When Changing Folders"
 msgstr "Hap Dosjen Që e Përmban"
 
-#: filewidgets/kfilewidget.cpp:1397
+#: filewidgets/kfilewidget.cpp:1393
 #, kde-format
 msgid "Filter by name…"
 msgstr ""
 
-#: filewidgets/kfilewidget.cpp:1405
+#: filewidgets/kfilewidget.cpp:1401
 #, fuzzy, kde-format
 #| msgid "Hidden Files Last"
 msgctxt "@info:tooltip"
 msgid "Hide Filter Bar"
 msgstr "Të fundit Skedat e Fshehura"
 
-#: filewidgets/kfilewidget.cpp:1454
+#: filewidgets/kfilewidget.cpp:1450
 #, kde-format
 msgid ""
 "<qt>While typing in the text area, you may be presented with possible "
@@ -3484,12 +3484,12 @@ msgstr ""
 "të miut dhe duke përzgjedhur që nga menuja <b>Plotësim Teksti</b> një mënyrë "
 "të parapëlqyer</qt>"
 
-#: filewidgets/kfilewidget.cpp:1461
+#: filewidgets/kfilewidget.cpp:1457
 #, kde-format
 msgid "This is the name to save the file as."
 msgstr "Ky është emri nën të cilin të ruhet skeda."
 
-#: filewidgets/kfilewidget.cpp:1464
+#: filewidgets/kfilewidget.cpp:1460
 #, kde-format
 msgid ""
 "This is the list of files to open. More than one file can be specified by "
@@ -3498,79 +3498,79 @@ msgstr ""
 "Kjo është lista e kartelave për t’u hapur. Mund të tregohet më shumë se një "
 "kartelë, përmes dhënies së kartelave të ndryshme, ndarë me hapësira."
 
-#: filewidgets/kfilewidget.cpp:1469
+#: filewidgets/kfilewidget.cpp:1465
 #, kde-format
 msgid "This is the name of the file to open."
 msgstr "Ky është emri i kartelës për t’u hapur."
 
-#: filewidgets/kfilewidget.cpp:1482
+#: filewidgets/kfilewidget.cpp:1478
 #, kde-format
 msgctxt "@title:window"
 msgid "Places"
 msgstr "Vende"
 
-#: filewidgets/kfilewidget.cpp:1763
+#: filewidgets/kfilewidget.cpp:1759
 #, kde-format
 msgid "The file \"%1\" already exists. Do you wish to overwrite it?"
 msgstr "Skeda “%1” ekziston tashmë. Doni të mbishkruhet?"
 
-#: filewidgets/kfilewidget.cpp:1764
+#: filewidgets/kfilewidget.cpp:1760
 #, kde-format
 msgid "Overwrite File?"
 msgstr "Të mbishkruhet Skeda?"
 
-#: filewidgets/kfilewidget.cpp:1961
+#: filewidgets/kfilewidget.cpp:1957
 #, kde-format
 msgid "You can only select local files."
 msgstr "Mund të përzgjidhni vetëm skeda vendore."
 
-#: filewidgets/kfilewidget.cpp:1961
+#: filewidgets/kfilewidget.cpp:1957
 #, kde-format
 msgid "Remote Files Not Accepted"
 msgstr "S’u Pranuan Skeda të Largëta"
 
-#: filewidgets/kfilewidget.cpp:2055
+#: filewidgets/kfilewidget.cpp:2051
 #, kde-format
 msgid "All Folders"
 msgstr "Të Gjithë Skedarët"
 
-#: filewidgets/kfilewidget.cpp:2079
+#: filewidgets/kfilewidget.cpp:2075
 #, fuzzy, kde-format
 #| msgid "Create Directory"
 msgid "Current Directory: %1"
 msgstr "Krijoni Drejtori"
 
-#: filewidgets/kfilewidget.cpp:2208 widgets/kfileitemactions.cpp:869
+#: filewidgets/kfilewidget.cpp:2204 widgets/kfileitemactions.cpp:869
 #, kde-format
 msgid "&Open"
 msgstr "&Hap"
 
-#: filewidgets/kfilewidget.cpp:2315
+#: filewidgets/kfilewidget.cpp:2311
 #, kde-format
 msgid "Icon size: %1 pixels"
 msgstr "Madhësi ikonash: %1 piksela"
 
-#: filewidgets/kfilewidget.cpp:2482
+#: filewidgets/kfilewidget.cpp:2478
 #, kde-format
 msgid "Automatically select filename e&xtension (%1)"
 msgstr "Përzgjidh vetvetiu &zgjatim emri kartele (%1)"
 
-#: filewidgets/kfilewidget.cpp:2483
+#: filewidgets/kfilewidget.cpp:2479
 #, kde-format
 msgid "the extension <b>%1</b>"
 msgstr "zgjatimi <b>%1</b>"
 
-#: filewidgets/kfilewidget.cpp:2489
+#: filewidgets/kfilewidget.cpp:2485
 #, kde-format
 msgid "Automatically select filename e&xtension"
 msgstr "Përzgjidh vetvetiu &zgjatim emri kartele"
 
-#: filewidgets/kfilewidget.cpp:2490
+#: filewidgets/kfilewidget.cpp:2486
 #, kde-format
 msgid "a suitable extension"
 msgstr "një zgjatim të përshtatshëm"
 
-#: filewidgets/kfilewidget.cpp:2498
+#: filewidgets/kfilewidget.cpp:2494
 #, kde-format
 msgid ""
 "This option enables some convenient features for saving files with "
@@ -3598,12 +3598,12 @@ msgstr ""
 "ol>Nëse s’jeni i sigurt, mbajeni të aktivizuar këtë mundësi, ngaqë i bën "
 "skedat tuaja të administrueshme më lehtë."
 
-#: filewidgets/kfilewidget.cpp:2967
+#: filewidgets/kfilewidget.cpp:2963
 #, kde-format
 msgid "&File type:"
 msgstr "&Lloj kartele:"
 
-#: filewidgets/kfilewidget.cpp:2971
+#: filewidgets/kfilewidget.cpp:2967
 #, kde-format
 msgid ""
 "<qt>This is the file type selector. It is used to select the format that the "
@@ -3612,7 +3612,7 @@ msgstr ""
 "<qt>Ky është përzgjedhësi i llojit të kartelave. Përdoret për të përzgjedhur "
 "formatin nën të cilin do të ruhet skeda.</qt>"
 
-#: filewidgets/kfilewidget.cpp:2973
+#: filewidgets/kfilewidget.cpp:2969
 #, fuzzy, kde-format
 #| msgid ""
 #| "<qt>This is the file type selector. It is used to select the format that "
@@ -7000,19 +7000,19 @@ msgstr ""
 "E papastra ka ndryshuar që kur përdorët “paste”: formati i zgjedhur i datës "
 "s’është më i përdorshëm. Ju lutemi, kopjoni sërish çfarë donit të ngjitnit."
 
-#: widgets/paste.cpp:250
+#: widgets/paste.cpp:253
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Ngjite Një Skedar"
 
-#: widgets/paste.cpp:250
+#: widgets/paste.cpp:253
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Ngjitni Një Skedë"
 
-#: widgets/paste.cpp:252
+#: widgets/paste.cpp:255
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -7020,13 +7020,13 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Ngjitni Një Objekt"
 msgstr[1] "Ngjitni %1 Objekt"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Ngjitni Lëndë Nga e Papastra…"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:261
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
