@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-14 01:00+0000\n"
+"POT-Creation-Date: 2026-11-15 01:02+0000\n"
 "PO-Revision-Date: 2026-10-06 12:50+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -3950,7 +3950,7 @@ msgstr "Virhe tallennettaessa kuvaa sijaintiin %1"
 msgid "Icon file too big, download aborted"
 msgstr "Kuvaketiedosto on liian suuri; lataus keskeytettiin"
 
-#: gui/filepreviewjob.cpp:314
+#: gui/filepreviewjob.cpp:325
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"

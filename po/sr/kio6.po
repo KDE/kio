@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-14 01:00+0000\n"
-"PO-Revision-Date: 2026-10-09 16:00+0200\n"
+"POT-Creation-Date: 2026-11-15 01:02+0000\n"
+"PO-Revision-Date: 2026-11-14 16:15+0100\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr\n"
@@ -115,7 +115,7 @@ msgstr "Смеће"
 #: core/copyjob.cpp:2541
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
-msgstr ""
+msgstr "%1 је измењено после копирања, па није обрисано."
 
 #: core/desktopexecparser.cpp:335
 #, kde-format
@@ -2310,27 +2310,25 @@ msgstr "Не могу да одредим тип фајла за %1"
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "No file type can be defined for the extension \"%1\"."
-msgstr ""
+msgstr "Не може се одредити тип фајла за наставак „%1“."
 
 #: core/openwith.cpp:96
-#, fuzzy, kde-format
-#| msgid "Could not enter folder %1."
+#, kde-format
 msgctxt "@info %1 is a folder path"
 msgid "Could not create the folder %1."
-msgstr "Не могу да уђем у фасциклу ‘%1’."
+msgstr "Не могу да направим фасциклу %1."
 
 #: core/openwith.cpp:100 core/openwith.cpp:113
-#, fuzzy, kde-format
-#| msgid "Could not write to file %1."
+#, kde-format
 msgctxt "@info %1 is a file path, %2 the error"
 msgid "Could not write the file type definition %1: %2"
-msgstr "Не могу да пишем у фајл ‘%1’."
+msgstr "Не могу да упишем дефиницију типа фајла %1: %2"
 
 #: core/openwith.cpp:120
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "Could not update the file type database with the extension \"%1\"."
-msgstr ""
+msgstr "Не могу да додам наставак „%1“ у базу типова фајлова."
 
 #: core/openwith.cpp:149
 #, kde-format
@@ -3680,11 +3678,7 @@ msgstr ""
 "оперативни систем."
 
 #: filewidgets/knewfilemenu.cpp:1152
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The name <filename>%1</filename> cannot be used because it is reserved "
-#| "for use by the operating system."
+#, kde-kuit-format
 msgctxt ""
 "@info %2 is a file system name such as FAT or NTFS, %3 is a list of "
 "characters"
@@ -3692,8 +3686,8 @@ msgid ""
 "The name <filename>%1</filename> cannot be used because the file system of "
 "this folder (%2) does not allow these characters in names: %3"
 msgstr ""
-"Име <filename>%1</filename> не може се употребити зато што је резервисано за "
-"оперативни систем."
+"Име <filename>%1</filename> не може се употребити зато што фајл систем ове "
+"фасцикле (%2) не дозвољава ове знакове у именима: %3"
 
 #: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
@@ -3788,12 +3782,10 @@ msgid "Create New Folder"
 msgstr "Стварање нове фасцикле"
 
 #: filewidgets/knewfilemenu.cpp:1525
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Create new folder in <filename>%1</filename>:"
-msgstr "Не могу да пренесем <filename>%1</filename>"
+msgstr "Направи нову фасциклу у <filename>%1</filename>:"
 
 #: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:397
 #, kde-format
@@ -3986,7 +3978,7 @@ msgstr "Грешка при уписивању слике у %1"
 msgid "Icon file too big, download aborted"
 msgstr "Фајл иконице превелик, преузимање обустављено"
 
-#: gui/filepreviewjob.cpp:314
+#: gui/filepreviewjob.cpp:325
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
@@ -3994,11 +3986,10 @@ msgstr ""
 "FilePreviewJob: прескачем празан фајл, можда је покварена симболичка веза: %1"
 
 #: gui/kemailclientlauncherjob.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to open the file."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to open email client"
-msgstr "Не могу да отворим фајл."
+msgstr "Не могу да отворим клијент е‑поште"
 
 #: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
@@ -4310,7 +4301,7 @@ msgstr "Не могу да добавим групни ИД за дато име
 #: kioworkers/file/file_unix_copy.cpp:1112
 #, kde-format
 msgid "Writing the copied data to the device..."
-msgstr ""
+msgstr "Уписујем копиране податке на уређај..."
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format
@@ -5496,15 +5487,13 @@ msgid "%1"
 msgstr "%1|/|$[ген %1]"
 
 #: widgets/kfileitemactions.cpp:777
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Open Folder With…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
-msgstr[0] "&Отвори фасциклу помоћу…"
-msgstr[1] "&Отвори фасциклу помоћу…"
-msgstr[2] "&Отвори фасциклу помоћу…"
+msgstr[0] "&Отвори фасцикле помоћу…"
+msgstr[1] "&Отвори фасцикле помоћу…"
+msgstr[2] "&Отвори фасцикле помоћу…"
 msgstr[3] "&Отвори фасциклу помоћу…"
 
 #: widgets/kfileitemactions.cpp:777
@@ -5520,15 +5509,14 @@ msgid "&Run Executable"
 msgstr "Покрени &извршни фајл"
 
 #: widgets/kfileitemactions.cpp:857
-#, fuzzy, kde-format
-#| msgid "&Open folder with %1"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open folder with %2"
 msgid_plural "&Open folders with %2"
-msgstr[0] "&Отвори фасциклу помоћу %1|/|&Отвори фасциклу $[инс-п %1]"
-msgstr[1] "&Отвори фасциклу помоћу %1|/|&Отвори фасциклу $[инс-п %1]"
-msgstr[2] "&Отвори фасциклу помоћу %1|/|&Отвори фасциклу $[инс-п %1]"
-msgstr[3] "&Отвори фасциклу помоћу %1|/|&Отвори фасциклу $[инс-п %1]"
+msgstr[0] "&Отвори фасцикле помоћу %2|/|&Отвори фасцикле $[инс-п %2]"
+msgstr[1] "&Отвори фасцикле помоћу %2|/|&Отвори фасцикле $[инс-п %2]"
+msgstr[2] "&Отвори фасцикле помоћу %2|/|&Отвори фасцикле $[инс-п %2]"
+msgstr[3] "&Отвори фасциклу помоћу %2|/|&Отвори фасциклу $[инс-п %2]"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -5536,15 +5524,13 @@ msgid "&Open with %1"
 msgstr "&Отвори помоћу %1|/|&Отвори $[инс-п %1]"
 
 #: widgets/kfileitemactions.cpp:891
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgid_plural "&Open Folders With"
-msgstr[0] "&Отвори фасциклу помоћу"
-msgstr[1] "&Отвори фасциклу помоћу"
-msgstr[2] "&Отвори фасциклу помоћу"
+msgstr[0] "&Отвори фасцикле помоћу"
+msgstr[1] "&Отвори фасцикле помоћу"
+msgstr[2] "&Отвори фасцикле помоћу"
 msgstr[3] "&Отвори фасциклу помоћу"
 
 #: widgets/kfileitemactions.cpp:891
@@ -5826,15 +5812,10 @@ msgstr ""
 "„%1“"
 
 #: widgets/kopenwithdialog.cpp:773
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\""
+#, kde-format
 msgctxt "@option:check %1 is a file name extension"
 msgid "&Remember application association for all \"*.%1\" files"
-msgstr ""
-"Запамти &програм који отвара све фајлове типа\n"
-"„%1“"
+msgstr "Запамти &програм који отвара све фајлове „*.%1“"
 
 #: widgets/kopenwithdialog.cpp:781
 #, kde-format
@@ -6770,30 +6751,24 @@ msgid "C&hecksums"
 msgstr "&Контролне суме"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2306
-#, fuzzy, kde-format
-#| msgctxt "@info:progress computation in the background"
-#| msgid "Verifying checksum…"
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum… (%1%)"
-msgstr "Оверавам контролну суму…"
+msgstr "Оверавам контролну суму… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2414
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2636
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash for multiple files"
 msgid "Calculating… (%1/%2)"
-msgstr "Рачунам…"
+msgstr "Рачунам… (%1/%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2431
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2638
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash"
 msgid "Calculating… (%1%)"
-msgstr "Рачунам…"
+msgstr "Рачунам… (%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2501
 #, kde-format
@@ -7297,32 +7272,18 @@ msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename> није исправно име фајла."
 
 #: widgets/renamefiledialog.cpp:235
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this folder's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view."
-msgstr ""
-"Тачка на почетку имена фасцикле сакриће је из приказа.\n"
-"Желите ли и даље да је преименујете?"
+msgstr "Тачка на почетку имена фасцикле сакриће је из приказа."
 
 #: widgets/renamefiledialog.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this file's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view."
-msgstr ""
-"Тачка на почетку имена фајла сакриће га из приказа.\n"
-"Желите ли и даље да га преименујете?"
+msgstr "Тачка на почетку имена фајла сакриће га из приказа."
 
 #: widgets/renamefiledialog.cpp:244
 #, kde-format
@@ -7330,6 +7291,7 @@ msgctxt "@info"
 msgid ""
 "The file's type may change, which could prevent it from opening correctly."
 msgstr ""
+"Тип фајла би могао да се промени, што може да спречи да се исправно отвори."
 
 #: widgets/renamefiledialog.cpp:265
 #, kde-format
@@ -7908,6 +7870,3 @@ msgstr "Ово ће покренути програм:"
 #, kde-format
 msgid "If you do not trust this program, click Cancel"
 msgstr "Ако не верујете програму, кликните на „Одустани“"
-
-#~ msgid "Create new folder in %1:"
-#~ msgstr "Направи нову фасциклу у %1:"
