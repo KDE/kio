@@ -1571,7 +1571,7 @@ void TestTrash::sizeLimitDeletesOldestDirectory()
         config.sync();
     });
 
-    auto writeFile = [](const QString &path) {
+    auto writeFile = [itemSize](const QString &path) {
         QFile file(path);
         QVERIFY(file.open(QIODevice::WriteOnly));
         QCOMPARE(file.write(QByteArray(itemSize, 'x')), itemSize);
