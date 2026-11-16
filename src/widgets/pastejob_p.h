@@ -57,6 +57,8 @@ public:
         // The progress information comes from the underlying job (so we don't have to forward it here).
         return job;
     }
+
+    static bool hasArkClipboardFormat(const QMimeData *mimeData);
 };
 
 }

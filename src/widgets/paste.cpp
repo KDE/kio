@@ -15,6 +15,7 @@
 #include "kio/renamedialog.h"
 #include "kio/statjob.h"
 #include "pastedialog_p.h"
+#include "pastejob_p.h"
 #include <kdirnotify.h>
 #include <kfileitem.h>
 #include <kfileitemlistproperties.h>
@@ -172,7 +173,7 @@ static QStringList extractFormats(const QMimeData *mimeData)
 
 KIOWIDGETS_EXPORT bool KIO::canPasteMimeData(const QMimeData *data)
 {
-    return data->hasText() || !extractFormats(data).isEmpty();
+    return data->hasText() || !extractFormats(data).isEmpty() || PasteJobPrivate::hasArkClipboardFormat(data);
 }
 
 std::pair<KIO::Job *, int> pasteMimeDataImpl(const QMimeData *mimeData, const QUrl &destUrl, const QString &dialogText, QWidget *widget, bool clipboard)
