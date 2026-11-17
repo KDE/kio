@@ -72,6 +72,7 @@ private Q_SLOTS:
     void testCopyFilePermissionsToSamePartition();
     void testMkdirPermissionsAndOwnership();
     void testMkdirErrors();
+    void testAccessErrors();
     void copyDirectoryToSamePartition();
     void copyDirectoryKeepsUserXattrs();
     void moveDirectoryToOtherPartitionKeepsUserXattrs();

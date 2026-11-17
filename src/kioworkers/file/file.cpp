@@ -181,7 +181,7 @@ WorkerResult FileProtocol::chmod(const QUrl &_url, int permissions)
         (setACL(_path.data(), permissions, false) == -1) ||
         /* if not a directory, cannot set default ACLs */
         (setACL(_path.data(), permissions, true) == -1 && errno != ENOTDIR)) {
-        return WorkerResult::fail(KIO::ERR_CANNOT_CHMOD, path);
+        return errnoFailure(errno, path, KIO::ERR_ACCESS_DENIED, KIO::ERR_CANNOT_CHMOD, "Could not change the permissions of");
     }
 
     return WorkerResult::pass();
@@ -210,7 +210,10 @@ WorkerResult FileProtocol::setModificationTime(const QUrl &_url, const QDateTime
     // UTIME_OMIT leaves the access time as it is, to the nanosecond.
     const struct timespec times[2] = {{0, UTIME_OMIT}, toTimespec(mtime)};
     if (::utimensat(AT_FDCWD, QFile::encodeName(path).constData(), times, 0) != 0) {
-        return WorkerResult::fail(errno == ENOENT ? KIO::ERR_DOES_NOT_EXIST : KIO::ERR_CANNOT_SETTIME, path);
+        if (errno == ENOENT) {
+            return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, path);
+        }
+        return errnoFailure(errno, path, KIO::ERR_ACCESS_DENIED, KIO::ERR_CANNOT_SETTIME, "Could not set the modification time of");
     }
 #else
     QT_STATBUF statbuf;
@@ -226,33 +229,35 @@ WorkerResult FileProtocol::setModificationTime(const QUrl &_url, const QDateTime
     utbuf.actime = statbuf.st_atime; // access time, unchanged
     utbuf.modtime = mtime.toSecsSinceEpoch(); // modification time
     if (::utime(QFile::encodeName(path).constData(), &utbuf) != 0) {
-        return WorkerResult::fail(KIO::ERR_CANNOT_SETTIME, path);
+        return errnoFailure(errno, path, KIO::ERR_ACCESS_DENIED, KIO::ERR_CANNOT_SETTIME, "Could not set the modification time of");
     }
 #endif
 #endif
     return WorkerResult::pass();
 }
 
-#ifdef Q_OS_UNIX
-// The error for a folder at @p path that mkdir() did not create, from its errno @p error.
-static WorkerResult mkdirFailure(int error, const QString &path)
+WorkerResult errnoFailure(int error, const QString &path, KIO::Error accessDenied, KIO::Error otherError, const char *what)
 {
+#ifdef Q_OS_UNIX
     switch (error) {
     case EACCES:
+    case EPERM:
     case EROFS:
-        return WorkerResult::fail(KIO::ERR_WRITE_ACCESS_DENIED, path);
+        return WorkerResult::fail(accessDenied, path);
     case ENOSPC:
     case EDQUOT:
         return WorkerResult::fail(KIO::ERR_DISK_FULL, path);
-    case ENOENT:
-        // The parent folder is missing.
-        return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, QFileInfo(path).absolutePath());
     default:
-        qCWarning(KIO_FILE) << "Could not create folder" << path << ":" << strerror(error);
-        return WorkerResult::fail(KIO::ERR_CANNOT_MKDIR, path);
+        qCWarning(KIO_FILE) << what << path << ":" << strerror(error);
+        break;
     }
-}
+#else
+    Q_UNUSED(error)
+    Q_UNUSED(accessDenied)
+    Q_UNUSED(what)
 #endif
+    return WorkerResult::fail(otherError, path);
+}
 
 WorkerResult FileProtocol::mkdir(const QUrl &_url, int permissions)
 {
@@ -283,7 +288,15 @@ WorkerResult FileProtocol::mkdir(const QUrl &_url, int permissions)
     // even in the window before fchmod() applies the exact bits below (mkdir()'s mode is only ever
     // narrowed by the umask, never widened).
     if (::mkdir(pathEncoded.constData(), permissions == -1 ? 0777 : permissions) != 0) {
-        return mkdirFailure(errno, path);
+        if (errno == ENOENT) {
+            // The parent folder is missing.
+            return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, QFileInfo(path).absolutePath());
+        }
+        if (errno == EPERM) {
+            // The file system does not support folders.
+            return WorkerResult::fail(KIO::ERR_CANNOT_MKDIR, path);
+        }
+        return errnoFailure(errno, path, KIO::ERR_WRITE_ACCESS_DENIED, KIO::ERR_CANNOT_MKDIR, "Could not create folder");
     }
 
     // Apply the exact permissions and ownership through a descriptor to the directory just created,
@@ -385,7 +398,7 @@ WorkerResult FileProtocol::get(const QUrl &_url)
 
     QFile f(path);
     if (!f.open(QIODevice::ReadOnly)) {
-        return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_READING, path);
+        return errnoFailure(errno, path, KIO::ERR_ACCESS_DENIED, KIO::ERR_CANNOT_OPEN_FOR_READING, "Could not open for reading");
     }
 
 #if HAVE_FADVISE
@@ -491,10 +504,9 @@ WorkerResult FileProtocol::open(const QUrl &_url, QIODevice::OpenMode mode)
     mFile = new QFile(openPath);
     if (!mFile->open(mode)) {
         if (mode & QIODevice::ReadOnly) {
-            return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_READING, openPath);
-        } else {
-            return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_WRITING, openPath);
+            return errnoFailure(errno, openPath, KIO::ERR_ACCESS_DENIED, KIO::ERR_CANNOT_OPEN_FOR_READING, "Could not open for reading");
         }
+        return errnoFailure(errno, openPath, KIO::ERR_WRITE_ACCESS_DENIED, KIO::ERR_CANNOT_OPEN_FOR_WRITING, "Could not open for writing");
     }
     // Determine the MIME type of the file to be retrieved, and emit it.
     // This is mandatory in all workers (for KRun/BrowserRun to work).
@@ -707,11 +719,11 @@ KIO::WorkerResult FileProtocol::put(const QUrl &_url, int _mode, KIO::JobFlags _
 
                 if ((_flags & KIO::Resume)) {
                     if (!f.open(QIODevice::ReadWrite | QIODevice::Append)) {
-                        return WorkerResult::fail(KIO::ERR_CANNOT_OPEN_FOR_WRITING, dest);
+                        return errnoFailure(errno, dest, KIO::ERR_WRITE_ACCESS_DENIED, KIO::ERR_CANNOT_OPEN_FOR_WRITING, "Could not open for writing");
                     }
                 } else {
                     if (!f.open(QIODevice::Truncate | QIODevice::WriteOnly)) {
-                        return WorkerResult::fail(KIO::ERR_CANNOT_TRUNCATE, dest);
+                        return errnoFailure(errno, dest, KIO::ERR_WRITE_ACCESS_DENIED, KIO::ERR_CANNOT_TRUNCATE, "Could not open for writing");
                     }
                     if (_mode != -1) {
                         // WABA: Make sure that we keep writing permissions ourselves,

@@ -27,6 +27,7 @@
 #include <kio/deletejob.h>
 #include <kio/directorysizejob.h>
 #include <kio/filecopyjob.h>
+#include <kio/filejob.h>
 #include <kio/filesystemfreespacejob.h>
 #include <kio/listjob.h>
 #include <kio/mimetypejob.h>
@@ -1951,6 +1952,56 @@ void JobTest::testMkdirErrors()
     QVERIFY(!readOnlyJob->exec());
     QCOMPARE(readOnlyJob->error(), int(KIO::ERR_WRITE_ACCESS_DENIED));
     QCOMPARE(readOnlyJob->errorText(), readOnlyParent + "/child");
+#endif
+}
+
+void JobTest::testAccessErrors()
+{
+#if defined(Q_OS_UNIX)
+    if (geteuid() == 0) {
+        QSKIP("root is not refused access to files");
+    }
+
+    // A file without read permission is refused as an access error, not as a file that cannot be
+    // read.
+    const QString unreadableFile = homeTmpDir() + "unreadableFile";
+    createTestFile(unreadableFile);
+    QVERIFY(QFile(unreadableFile).setPermissions(QFile::Permissions()));
+    ScopedCleaner fileCleaner([&] {
+        QFile::setPermissions(unreadableFile, QFile::ReadOwner | QFile::WriteOwner);
+        QFile::remove(unreadableFile);
+    });
+    KIO::StoredTransferJob *getJob = KIO::storedGet(QUrl::fromLocalFile(unreadableFile), KIO::NoReload, KIO::HideProgressInfo);
+    getJob->setUiDelegate(nullptr);
+    QVERIFY(!getJob->exec());
+    QCOMPARE(getJob->error(), int(KIO::ERR_ACCESS_DENIED));
+
+    // Opening a read-only file for writing is refused as a write access error.
+    const QString readOnlyFile = homeTmpDir() + "readOnlyFile";
+    createTestFile(readOnlyFile);
+    QVERIFY(QFile(readOnlyFile).setPermissions(QFile::ReadOwner));
+    ScopedCleaner readOnlyFileCleaner([&] {
+        QFile::setPermissions(readOnlyFile, QFile::ReadOwner | QFile::WriteOwner);
+        QFile::remove(readOnlyFile);
+    });
+    KIO::FileJob *openJob = KIO::open(QUrl::fromLocalFile(readOnlyFile), QIODevice::WriteOnly);
+    openJob->setUiDelegate(nullptr);
+    QSignalSpy openResultSpy(openJob, &KJob::result);
+    QVERIFY(openResultSpy.wait(10000));
+    QCOMPARE(openJob->error(), int(KIO::ERR_WRITE_ACCESS_DENIED));
+
+    // A symlink in a folder without write permission is refused as a write access error.
+    const QString readOnlyDir = homeTmpDir() + "readOnlyDirForNewSymlink";
+    QVERIFY(QDir().mkdir(readOnlyDir));
+    QVERIFY(QFile(readOnlyDir).setPermissions(QFile::ReadOwner | QFile::ExeOwner));
+    ScopedCleaner dirCleaner([&] {
+        QFile::setPermissions(readOnlyDir, QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner);
+        QDir(readOnlyDir).removeRecursively();
+    });
+    KIO::SimpleJob *symlinkJob = KIO::symlink(readOnlyFile, QUrl::fromLocalFile(readOnlyDir + "/link"), KIO::HideProgressInfo);
+    symlinkJob->setUiDelegate(nullptr);
+    QVERIFY(!symlinkJob->exec());
+    QCOMPARE(symlinkJob->error(), int(KIO::ERR_WRITE_ACCESS_DENIED));
 #endif
 }
 

@@ -62,6 +62,12 @@ private:
 };
 #endif
 
+// The failure of an operation on path whose system call set errno to error. On Unix, a refused
+// access, including a read-only file system, gives accessDenied, and a full disk or quota gives
+// ERR_DISK_FULL. Any other errno gives otherError and is logged with what. On Windows, where QFile
+// does not set errno, it always gives otherError.
+KIO::WorkerResult errnoFailure(int error, const QString &path, KIO::Error accessDenied, KIO::Error otherError, const char *what);
+
 class FileProtocol : public QObject, public KIO::WorkerBase
 {
     Q_OBJECT

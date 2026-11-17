@@ -678,8 +678,9 @@ WorkerResult FileProtocol::symlink(const QString &target, const QUrl &_destUrl, 
         }
     }
 
+    const int symlinkError = errno;
     // Permission error, could be that the filesystem doesn't support symlinks
-    if (errno == EPERM) {
+    if (symlinkError == EPERM) {
         // "dest" doesn't exist, get the filesystem type of the parent dir
         const QString parentDir = destUrl.adjusted(QUrl::StripTrailingSlash | QUrl::RemoveFilename).toLocalFile();
         const KFileSystemType::Type fsType = KFileSystemType::fileSystemType(parentDir);
@@ -695,9 +696,10 @@ WorkerResult FileProtocol::symlink(const QString &target, const QUrl &_destUrl, 
 
             return WorkerResult::fail(KIO::ERR_WORKER_DEFINED, msg);
         }
+        return WorkerResult::fail(KIO::ERR_CANNOT_SYMLINK, dest);
     }
 
-    return WorkerResult::fail(KIO::ERR_CANNOT_SYMLINK, dest);
+    return errnoFailure(symlinkError, dest, KIO::ERR_WRITE_ACCESS_DENIED, KIO::ERR_CANNOT_SYMLINK, "Could not create symlink");
 }
 
 WorkerResult FileProtocol::deleteUnder(int dfd, KIO::filesize_t &removed)
@@ -825,13 +827,10 @@ WorkerResult FileProtocol::del(const QUrl &_url, bool isfile)
         // qDebug() << "Deleting file "<< url;
 
         if (::unlink(_path.data()) == -1) {
-            if ((errno == EACCES) || (errno == EPERM)) {
-                return WorkerResult::fail(KIO::ERR_ACCESS_DENIED, path);
-            } else if (errno == EISDIR) {
+            if (errno == EISDIR) {
                 return WorkerResult::fail(KIO::ERR_IS_DIRECTORY, path);
-            } else {
-                return WorkerResult::fail(KIO::ERR_CANNOT_DELETE, path);
             }
+            return errnoFailure(errno, path, KIO::ERR_ACCESS_DENIED, KIO::ERR_CANNOT_DELETE, "Could not delete");
         }
     } else {
         /*!***
@@ -849,12 +848,7 @@ WorkerResult FileProtocol::del(const QUrl &_url, bool isfile)
             return WorkerResult::pass();
         }
         if (QT_RMDIR(_path.data()) == -1) {
-            if ((errno == EACCES) || (errno == EPERM)) {
-                return WorkerResult::fail(KIO::ERR_ACCESS_DENIED, path);
-            } else {
-                // qDebug() << "could not rmdir " << perror;
-                return WorkerResult::fail(KIO::ERR_CANNOT_RMDIR, path);
-            }
+            return errnoFailure(errno, path, KIO::ERR_ACCESS_DENIED, KIO::ERR_CANNOT_RMDIR, "Could not remove folder");
         }
     }
     return WorkerResult::pass();
