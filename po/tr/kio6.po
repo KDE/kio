@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-15 01:02+0000\n"
-"PO-Revision-Date: 2026-11-06 19:47+0300\n"
+"PO-Revision-Date: 2026-11-16 19:10+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2677,12 +2677,12 @@ msgstr "Gizli Dosyaları Göster"
 #: filewidgets/kdiroperator.cpp:2256
 #, kde-format
 msgid "Show Preview Panel"
-msgstr "Önizlemeyi Panelini Göster"
+msgstr "Ön İzleme Panelini Göster"
 
 #: filewidgets/kdiroperator.cpp:2263
 #, kde-format
 msgid "Show Preview"
-msgstr "Önizlemeyi Göster"
+msgstr "Ön İzlemeyi Göster"
 
 #: filewidgets/kdiroperator.cpp:2270
 #, kde-format
@@ -3356,8 +3356,8 @@ msgstr ""
 "<qt>Bu, dosya iletişim kutusu tercihleri menüsüdür. Şunun gibi çeşitli "
 "seçeneklere buradan ulaşılabilir: <ul><li>Dosyaların listede nice "
 "sıralandığı</li><li>Görünüm türleri, simge ve list dahil olmak üzere</"
-"li><li>Gizli dosyaların gösterimi</li><li>Yerler paneli</li><li>Dosya "
-"önizlemeleri</li><li>Klasörleri dosyalardan ayırma</li></ul></qt>"
+"li><li>Gizli dosyaların gösterimi</li><li>Yerler paneli</li><li>Dosya ön "
+"izlemeleri</li><li>Klasörleri dosyalardan ayırma</li></ul></qt>"
 
 #: filewidgets/kfilewidget.cpp:1260
 #, kde-format
@@ -3915,7 +3915,8 @@ msgstr "Simge dosyası çok büyük, indirme iptal edildi"
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr ""
-"Dosya Önizleme: Boş dosya atlanıyor; bozuk bir sembolik bağlantı olabilir: %1"
+"Dosya Ön İzleme: Boş dosya atlanıyor; bozuk bir sembolik bağlantı olabilir: "
+"%1"
 
 #: gui/kemailclientlauncherjob.cpp:119
 #, kde-format
@@ -7338,7 +7339,7 @@ msgstr "Metin Ekle"
 #, kde-format
 msgctxt "@info As in filename renaming preview"
 msgid "Preview:"
-msgstr "Önizleme:"
+msgstr "Ön izleme:"
 
 #: widgets/renamefiledialog.cpp:844
 #, kde-kuit-format
