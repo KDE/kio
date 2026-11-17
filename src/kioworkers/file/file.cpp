@@ -233,6 +233,28 @@ WorkerResult FileProtocol::setModificationTime(const QUrl &_url, const QDateTime
     return WorkerResult::pass();
 }
 
+#ifdef Q_OS_UNIX
+// The error for a folder at @p path that mkdir() did not create, from its errno @p error.
+static WorkerResult mkdirFailure(int error, const QString &path)
+{
+    switch (error) {
+    case EACCES:
+    case EPERM:
+    case EROFS:
+        return WorkerResult::fail(KIO::ERR_WRITE_ACCESS_DENIED, path);
+    case ENOSPC:
+    case EDQUOT:
+        return WorkerResult::fail(KIO::ERR_DISK_FULL, path);
+    case ENOENT:
+        // The parent folder is missing.
+        return WorkerResult::fail(KIO::ERR_DOES_NOT_EXIST, QFileInfo(path).absolutePath());
+    default:
+        qCWarning(KIO_FILE) << "Could not create folder" << path << ":" << strerror(error);
+        return WorkerResult::fail(KIO::ERR_CANNOT_MKDIR, path);
+    }
+}
+#endif
+
 WorkerResult FileProtocol::mkdir(const QUrl &_url, int permissions)
 {
     const QUrl url = localFileWithoutHostname(_url);
@@ -262,7 +284,7 @@ WorkerResult FileProtocol::mkdir(const QUrl &_url, int permissions)
     // even in the window before fchmod() applies the exact bits below (mkdir()'s mode is only ever
     // narrowed by the umask, never widened).
     if (::mkdir(pathEncoded.constData(), permissions == -1 ? 0777 : permissions) != 0) {
-        return WorkerResult::fail(KIO::ERR_CANNOT_MKDIR, path);
+        return mkdirFailure(errno, path);
     }
 
     // Apply the exact permissions and ownership through a descriptor to the directory just created,

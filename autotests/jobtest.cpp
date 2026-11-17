@@ -1926,6 +1926,36 @@ void JobTest::testMkdirPermissionsAndOwnership()
 #endif
 }
 
+void JobTest::testMkdirErrors()
+{
+#if defined(Q_OS_UNIX)
+    // A folder in a missing parent names the parent that does not exist.
+    const QString missingParent = homeTmpDir() + "mkdirMissingParent";
+    KIO::MkdirJob *missingJob = KIO::mkdir(QUrl::fromLocalFile(missingParent + "/child"));
+    missingJob->setUiDelegate(nullptr);
+    QVERIFY(!missingJob->exec());
+    QCOMPARE(missingJob->error(), int(KIO::ERR_DOES_NOT_EXIST));
+    QCOMPARE(missingJob->errorText(), missingParent);
+
+    if (geteuid() == 0) {
+        QSKIP("root can make a folder in a read-only folder");
+    }
+    // A folder in a folder without write permission is refused as an access error.
+    const QString readOnlyParent = homeTmpDir() + "mkdirReadOnlyParent";
+    QVERIFY(QDir().mkdir(readOnlyParent));
+    QVERIFY(QFile(readOnlyParent).setPermissions(QFile::ReadOwner | QFile::ExeOwner));
+    ScopedCleaner cleaner([&] {
+        QVERIFY(QFile(readOnlyParent).setPermissions(QFile::ReadOwner | QFile::WriteOwner | QFile::ExeOwner));
+        QVERIFY(QDir(readOnlyParent).removeRecursively());
+    });
+    KIO::MkdirJob *readOnlyJob = KIO::mkdir(QUrl::fromLocalFile(readOnlyParent + "/child"));
+    readOnlyJob->setUiDelegate(nullptr);
+    QVERIFY(!readOnlyJob->exec());
+    QCOMPARE(readOnlyJob->error(), int(KIO::ERR_WRITE_ACCESS_DENIED));
+    QCOMPARE(readOnlyJob->errorText(), readOnlyParent + "/child");
+#endif
+}
+
 void JobTest::copyDirectoryToOtherPartition()
 {
     // qDebug();
@@ -2349,9 +2379,7 @@ void JobTest::moveDirectoryToReadonlyFilesystem()
     KIO::CopyJob *job2 = KIO::move(sources, dst, KIO::HideProgressInfo);
     job2->setUiDelegate(nullptr);
     QVERIFY(!job2->exec());
-    if (job2->error() != KIO::ERR_CANNOT_MKDIR) { // This can happen when moving between partitions, but on CI it's the same partition so allow both
-        QCOMPARE(job2->error(), expectedErrorCode);
-    }
+    QCOMPARE(job2->error(), expectedErrorCode);
     for (const QUrl &srcUrl : std::as_const(sources)) {
         QVERIFY(QFileInfo::exists(srcUrl.toLocalFile())); // no moving happened
     }
