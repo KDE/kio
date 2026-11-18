@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-15 01:02+0000\n"
+"POT-Creation-Date: 2026-11-18 01:06+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -4625,23 +4625,23 @@ msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
 "पुनःप्रयोगस्य कूपः पूर्णः अस्ति। तत् रिक्तं कुर्वन्तु अथवा हस्तचलितरूपेण वस्तूनि निष्कासयन्तु।."
 
-#: kpasswdserver/kpasswdserver.cpp:617
+#: kpasswdserver/kpasswdserver.cpp:614
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "किं भवन्तः पुनः प्रयासं कर्तुम् इच्छन्ति ?"
 
-#: kpasswdserver/kpasswdserver.cpp:621
+#: kpasswdserver/kpasswdserver.cpp:618
 #, kde-format
 msgid "Retry Authentication"
 msgstr "प्रमाणीकरणस्य पुनः प्रयासं कुर्वन्तु"
 
-#: kpasswdserver/kpasswdserver.cpp:624
+#: kpasswdserver/kpasswdserver.cpp:621
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "पुनः प्रयतस्व"
 
-#: kpasswdserver/kpasswdserver.cpp:904
+#: kpasswdserver/kpasswdserver.cpp:901
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "प्रमाणीकरणसंवादः"
@@ -4656,12 +4656,12 @@ msgstr "अभिगमनं अङ्गीकृतम्"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "%1 संविदम् प्राप्तुं भवतः अनुमतिः नास्ति ।."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:81
+#: urifilters/ikws/kuriikwsfilter.cpp:80
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "न कोऽपि प्राधान्यं अन्वेषणप्रदाता लब्धः ।."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:96
+#: urifilters/ikws/kuriikwsfilter.cpp:95
 #, kde-format
 msgid "No search providers were found."
 msgstr "अन्वेषणप्रदातारः न प्राप्ताः ।."
@@ -5154,125 +5154,125 @@ msgctxt "@action:button"
 msgid "Delete"
 msgstr "विलोपयतु"
 
-#: widgets/kacleditwidget.cpp:227
+#: widgets/kacleditwidget.cpp:226
 #, kde-format
 msgctxt "Unix permissions"
 msgid "Owner"
 msgstr "स्वामी"
 
-#: widgets/kacleditwidget.cpp:231
+#: widgets/kacleditwidget.cpp:230
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Owning Group"
 msgstr "स्वामित्वसमूहः"
 
-#: widgets/kacleditwidget.cpp:235 widgets/kacleditwidget.cpp:247
+#: widgets/kacleditwidget.cpp:234 widgets/kacleditwidget.cpp:246
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Others"
 msgstr "अन्ये"
 
-#: widgets/kacleditwidget.cpp:239
+#: widgets/kacleditwidget.cpp:238
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Mask"
 msgstr "मुखावरण"
 
-#: widgets/kacleditwidget.cpp:243
+#: widgets/kacleditwidget.cpp:242
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Named User"
 msgstr "नामकृतः उपयोक्ता"
 
-#: widgets/kacleditwidget.cpp:254
+#: widgets/kacleditwidget.cpp:253
 #, kde-format
 msgid "Owner (Default)"
 msgstr "स्वामी (पूर्वनिर्धारितम्)"
 
-#: widgets/kacleditwidget.cpp:384
+#: widgets/kacleditwidget.cpp:383
 #, kde-format
 msgid "Edit ACL Entry"
 msgstr "ACL प्रविष्टिं सम्पादयतुप्रविष्टिप्रकारः"
 
-#: widgets/kacleditwidget.cpp:387
+#: widgets/kacleditwidget.cpp:386
 #, kde-format
 msgid "Entry Type"
 msgstr "प्रविष्टिप्रकारः"
 
-#: widgets/kacleditwidget.cpp:394
+#: widgets/kacleditwidget.cpp:393
 #, kde-format
 msgid "Default for new files in this folder"
 msgstr "अस्मिन् पुटे नूतनसञ्चिकानां कृते पूर्वनिर्धारितम्"
 
-#: widgets/kacleditwidget.cpp:401
+#: widgets/kacleditwidget.cpp:400
 #, kde-format
 msgid "Owner"
 msgstr "स्वामी"
 
-#: widgets/kacleditwidget.cpp:406
+#: widgets/kacleditwidget.cpp:405
 #, kde-format
 msgid "Owning Group"
 msgstr "स्वामित्वसमूहः"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1496
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1496
 #, kde-format
 msgid "Others"
 msgstr "अन्ये"
 
-#: widgets/kacleditwidget.cpp:416
+#: widgets/kacleditwidget.cpp:415
 #, kde-format
 msgid "Mask"
 msgstr "मुखावरण"
 
-#: widgets/kacleditwidget.cpp:421
+#: widgets/kacleditwidget.cpp:420
 #, kde-format
 msgid "Named user"
 msgstr "नामकृतः उपयोक्ता"
 
-#: widgets/kacleditwidget.cpp:426
+#: widgets/kacleditwidget.cpp:425
 #, kde-format
 msgid "Named group"
 msgstr "नामसमूहः"
 
-#: widgets/kacleditwidget.cpp:444
+#: widgets/kacleditwidget.cpp:443
 #, kde-format
 msgid "User: "
 msgstr "उपयोक्ता : "
 
-#: widgets/kacleditwidget.cpp:458
+#: widgets/kacleditwidget.cpp:457
 #, kde-format
 msgid "Group: "
 msgstr "समूहम् : "
 
-#: widgets/kacleditwidget.cpp:596
+#: widgets/kacleditwidget.cpp:595
 #, kde-format
 msgid "Type"
 msgstr "प्रकारः"
 
-#: widgets/kacleditwidget.cpp:597
+#: widgets/kacleditwidget.cpp:596
 #, kde-format
 msgid "Name"
 msgstr "नामः"
 
-#: widgets/kacleditwidget.cpp:598
+#: widgets/kacleditwidget.cpp:597
 #, kde-format
 msgctxt "read permission"
 msgid "r"
 msgstr "प"
 
-#: widgets/kacleditwidget.cpp:599
+#: widgets/kacleditwidget.cpp:598
 #, kde-format
 msgctxt "write permission"
 msgid "w"
 msgstr "ल"
 
-#: widgets/kacleditwidget.cpp:600
+#: widgets/kacleditwidget.cpp:599
 #, kde-format
 msgctxt "execute permission"
 msgid "x"
 msgstr "x"
 
-#: widgets/kacleditwidget.cpp:601
+#: widgets/kacleditwidget.cpp:600
 #, kde-format
 msgid "Effective"
 msgstr "प्रभावी"
@@ -5287,43 +5287,43 @@ msgstr "सङ्गणकतन्त्राः विन्यासस्�
 msgid "Updating system configuration…"
 msgstr "सङ्गणकतन्त्राः विन्यासस्य अद्यतनीकरणम्…"
 
-#: widgets/kdirmodel.cpp:1306
+#: widgets/kdirmodel.cpp:1304
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "नामः"
 
-#: widgets/kdirmodel.cpp:1308
+#: widgets/kdirmodel.cpp:1306
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "आकृति"
 
-#: widgets/kdirmodel.cpp:1310
+#: widgets/kdirmodel.cpp:1308
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "तिथि"
 
-#: widgets/kdirmodel.cpp:1312
+#: widgets/kdirmodel.cpp:1310
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "अनुज्ञाः"
 
-#: widgets/kdirmodel.cpp:1314
+#: widgets/kdirmodel.cpp:1312
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "स्वामी"
 
-#: widgets/kdirmodel.cpp:1316
+#: widgets/kdirmodel.cpp:1314
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "समूहम्"
 
-#: widgets/kdirmodel.cpp:1318
+#: widgets/kdirmodel.cpp:1316
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

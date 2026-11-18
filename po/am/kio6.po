@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-15 01:02+0000\n"
+"POT-Creation-Date: 2026-11-18 01:06+0000\n"
 "PO-Revision-Date: 2026-11-02 15:39+0300\n"
 "Last-Translator: Abenezer Wesenseged <wseged@proton.me>\n"
 "Language-Team: Amharic <kde-l10n-am@kde.org>\n"
@@ -4536,23 +4536,23 @@ msgstr "የተጣለ ፋይልን ወደ መጀመሪያው ቦታው ይመል�
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "መጣያው ሞልቷል። ባዶ ያድርጉት ወይም ንጥሎችን ያስወግዱ።"
 
-#: kpasswdserver/kpasswdserver.cpp:617
+#: kpasswdserver/kpasswdserver.cpp:614
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "እንደገና መሞከር ይፈልጋሉ?"
 
-#: kpasswdserver/kpasswdserver.cpp:621
+#: kpasswdserver/kpasswdserver.cpp:618
 #, kde-format
 msgid "Retry Authentication"
 msgstr "ማረጋገጫን እንደገና ይሞክሩ"
 
-#: kpasswdserver/kpasswdserver.cpp:624
+#: kpasswdserver/kpasswdserver.cpp:621
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "እንደገና ይሞክሩ"
 
-#: kpasswdserver/kpasswdserver.cpp:904
+#: kpasswdserver/kpasswdserver.cpp:901
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "የማረጋገጫ ንግግር"
@@ -4567,12 +4567,12 @@ msgstr "መዳረሻ ተከልክሏል።"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "የ%1 ፕሮቶኮሉን የመድረስ ፍቃድ የለዎትም።"
 
-#: urifilters/ikws/kuriikwsfilter.cpp:81
+#: urifilters/ikws/kuriikwsfilter.cpp:80
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "ምንም ተመራጭ የፍለጋ አቅራቢዎች አልተገኙም።"
 
-#: urifilters/ikws/kuriikwsfilter.cpp:96
+#: urifilters/ikws/kuriikwsfilter.cpp:95
 #, kde-format
 msgid "No search providers were found."
 msgstr "ምንም የፍለጋ አቅራቢዎች አልተገኙም።"
@@ -5045,125 +5045,125 @@ msgctxt "@action:button"
 msgid "Delete"
 msgstr "ሰርዝ"
 
-#: widgets/kacleditwidget.cpp:227
+#: widgets/kacleditwidget.cpp:226
 #, kde-format
 msgctxt "Unix permissions"
 msgid "Owner"
 msgstr "ባለቤት"
 
-#: widgets/kacleditwidget.cpp:231
+#: widgets/kacleditwidget.cpp:230
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Owning Group"
 msgstr "የባለቤትነት ቡድን"
 
-#: widgets/kacleditwidget.cpp:235 widgets/kacleditwidget.cpp:247
+#: widgets/kacleditwidget.cpp:234 widgets/kacleditwidget.cpp:246
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Others"
 msgstr "ሌሎች"
 
-#: widgets/kacleditwidget.cpp:239
+#: widgets/kacleditwidget.cpp:238
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Mask"
 msgstr "ማስክ"
 
-#: widgets/kacleditwidget.cpp:243
+#: widgets/kacleditwidget.cpp:242
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Named User"
 msgstr "የተሰየመ ተጠቃሚ"
 
-#: widgets/kacleditwidget.cpp:254
+#: widgets/kacleditwidget.cpp:253
 #, kde-format
 msgid "Owner (Default)"
 msgstr "ባለቤት (ነባሪ)"
 
-#: widgets/kacleditwidget.cpp:384
+#: widgets/kacleditwidget.cpp:383
 #, kde-format
 msgid "Edit ACL Entry"
 msgstr "የACL መግቢያ አርትዕ"
 
-#: widgets/kacleditwidget.cpp:387
+#: widgets/kacleditwidget.cpp:386
 #, kde-format
 msgid "Entry Type"
 msgstr "የመግቢያ ዓይነት"
 
-#: widgets/kacleditwidget.cpp:394
+#: widgets/kacleditwidget.cpp:393
 #, kde-format
 msgid "Default for new files in this folder"
 msgstr "በዚህ አቃፊ ውስጥ ለአዲስ ፋይሎች ነባሪ"
 
-#: widgets/kacleditwidget.cpp:401
+#: widgets/kacleditwidget.cpp:400
 #, kde-format
 msgid "Owner"
 msgstr "ባለቤት"
 
-#: widgets/kacleditwidget.cpp:406
+#: widgets/kacleditwidget.cpp:405
 #, kde-format
 msgid "Owning Group"
 msgstr "የባለቤትነት ቡድን"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1496
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1496
 #, kde-format
 msgid "Others"
 msgstr "ሌሎች"
 
-#: widgets/kacleditwidget.cpp:416
+#: widgets/kacleditwidget.cpp:415
 #, kde-format
 msgid "Mask"
 msgstr "ማስክ"
 
-#: widgets/kacleditwidget.cpp:421
+#: widgets/kacleditwidget.cpp:420
 #, kde-format
 msgid "Named user"
 msgstr "የተሰየመ ተጠቃሚ"
 
-#: widgets/kacleditwidget.cpp:426
+#: widgets/kacleditwidget.cpp:425
 #, kde-format
 msgid "Named group"
 msgstr "የተሰየመ ቡድን"
 
-#: widgets/kacleditwidget.cpp:444
+#: widgets/kacleditwidget.cpp:443
 #, kde-format
 msgid "User: "
 msgstr "ተጠቃሚ፦ "
 
-#: widgets/kacleditwidget.cpp:458
+#: widgets/kacleditwidget.cpp:457
 #, kde-format
 msgid "Group: "
 msgstr "ቡድን፦ "
 
-#: widgets/kacleditwidget.cpp:596
+#: widgets/kacleditwidget.cpp:595
 #, kde-format
 msgid "Type"
 msgstr "አይነት"
 
-#: widgets/kacleditwidget.cpp:597
+#: widgets/kacleditwidget.cpp:596
 #, kde-format
 msgid "Name"
 msgstr "ስም"
 
-#: widgets/kacleditwidget.cpp:598
+#: widgets/kacleditwidget.cpp:597
 #, kde-format
 msgctxt "read permission"
 msgid "r"
 msgstr "r"
 
-#: widgets/kacleditwidget.cpp:599
+#: widgets/kacleditwidget.cpp:598
 #, kde-format
 msgctxt "write permission"
 msgid "w"
 msgstr "w"
 
-#: widgets/kacleditwidget.cpp:600
+#: widgets/kacleditwidget.cpp:599
 #, kde-format
 msgctxt "execute permission"
 msgid "x"
 msgstr "x"
 
-#: widgets/kacleditwidget.cpp:601
+#: widgets/kacleditwidget.cpp:600
 #, kde-format
 msgid "Effective"
 msgstr "ውጤታማ"
@@ -5178,43 +5178,43 @@ msgstr "የስርዓት ውቅርን በማዘመን ላይ"
 msgid "Updating system configuration…"
 msgstr "የስርዓት ውቅርን በማዘመን ላይ…"
 
-#: widgets/kdirmodel.cpp:1306
+#: widgets/kdirmodel.cpp:1304
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "ስም"
 
-#: widgets/kdirmodel.cpp:1308
+#: widgets/kdirmodel.cpp:1306
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "መጠን"
 
-#: widgets/kdirmodel.cpp:1310
+#: widgets/kdirmodel.cpp:1308
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "ቀን"
 
-#: widgets/kdirmodel.cpp:1312
+#: widgets/kdirmodel.cpp:1310
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "ፍቃድ"
 
-#: widgets/kdirmodel.cpp:1314
+#: widgets/kdirmodel.cpp:1312
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "ባለቤት"
 
-#: widgets/kdirmodel.cpp:1316
+#: widgets/kdirmodel.cpp:1314
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "ቡድን"
 
-#: widgets/kdirmodel.cpp:1318
+#: widgets/kdirmodel.cpp:1316
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

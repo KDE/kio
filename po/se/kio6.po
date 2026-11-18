@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-15 01:02+0000\n"
+"POT-Creation-Date: 2026-11-18 01:06+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@nuug.no>\n"
@@ -4513,23 +4513,23 @@ msgstr "Máhcat bálkestuvvon fiilla álggovuolggálaš báikái"
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
 
-#: kpasswdserver/kpasswdserver.cpp:617
+#: kpasswdserver/kpasswdserver.cpp:614
 #, fuzzy, kde-format
 msgid "Do you want to retry?"
 msgstr "Háliidatgo duođas sihkkut dán merkoša?"
 
-#: kpasswdserver/kpasswdserver.cpp:621
+#: kpasswdserver/kpasswdserver.cpp:618
 #, fuzzy, kde-format
 msgid "Retry Authentication"
 msgstr "Bálvaautentiseren"
 
-#: kpasswdserver/kpasswdserver.cpp:624
+#: kpasswdserver/kpasswdserver.cpp:621
 #, fuzzy, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "Geahččal ođđasit"
 
-#: kpasswdserver/kpasswdserver.cpp:904
+#: kpasswdserver/kpasswdserver.cpp:901
 #, fuzzy, kde-format
 msgid "Authentication Dialog"
 msgstr "Duođaštanláseš"
@@ -4544,12 +4544,12 @@ msgstr ""
 msgid "You do not have permission to access the %1 protocol."
 msgstr "Dus ii leat vuoigatvuohta beassat %1-protokollii."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:81
+#: urifilters/ikws/kuriikwsfilter.cpp:80
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr ""
 
-#: urifilters/ikws/kuriikwsfilter.cpp:96
+#: urifilters/ikws/kuriikwsfilter.cpp:95
 #, kde-format
 msgid "No search providers were found."
 msgstr ""
@@ -5016,125 +5016,125 @@ msgctxt "@action:button"
 msgid "Delete"
 msgstr ""
 
-#: widgets/kacleditwidget.cpp:227
+#: widgets/kacleditwidget.cpp:226
 #, kde-format
 msgctxt "Unix permissions"
 msgid "Owner"
 msgstr ""
 
-#: widgets/kacleditwidget.cpp:231
+#: widgets/kacleditwidget.cpp:230
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Owning Group"
 msgstr ""
 
-#: widgets/kacleditwidget.cpp:235 widgets/kacleditwidget.cpp:247
+#: widgets/kacleditwidget.cpp:234 widgets/kacleditwidget.cpp:246
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Others"
 msgstr ""
 
-#: widgets/kacleditwidget.cpp:239
+#: widgets/kacleditwidget.cpp:238
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Mask"
 msgstr ""
 
-#: widgets/kacleditwidget.cpp:243
+#: widgets/kacleditwidget.cpp:242
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Named User"
 msgstr ""
 
-#: widgets/kacleditwidget.cpp:254
+#: widgets/kacleditwidget.cpp:253
 #, kde-format
 msgid "Owner (Default)"
 msgstr ""
 
-#: widgets/kacleditwidget.cpp:384
+#: widgets/kacleditwidget.cpp:383
 #, kde-format
 msgid "Edit ACL Entry"
 msgstr "Doaimmat ACL-merkoša"
 
-#: widgets/kacleditwidget.cpp:387
+#: widgets/kacleditwidget.cpp:386
 #, kde-format
 msgid "Entry Type"
 msgstr "Mearkkusšládja"
 
-#: widgets/kacleditwidget.cpp:394
+#: widgets/kacleditwidget.cpp:393
 #, kde-format
 msgid "Default for new files in this folder"
 msgstr "Standárda ođđa fiillaid várás dán máhpas"
 
-#: widgets/kacleditwidget.cpp:401
+#: widgets/kacleditwidget.cpp:400
 #, kde-format
 msgid "Owner"
 msgstr "Eaiggát"
 
-#: widgets/kacleditwidget.cpp:406
+#: widgets/kacleditwidget.cpp:405
 #, kde-format
 msgid "Owning Group"
 msgstr "Eaiggátjoavku"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1496
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1496
 #, kde-format
 msgid "Others"
 msgstr "Earát"
 
-#: widgets/kacleditwidget.cpp:416
+#: widgets/kacleditwidget.cpp:415
 #, kde-format
 msgid "Mask"
 msgstr "Minsttar"
 
-#: widgets/kacleditwidget.cpp:421
+#: widgets/kacleditwidget.cpp:420
 #, kde-format
 msgid "Named user"
 msgstr "Nammaduvvon geavaheaddji"
 
-#: widgets/kacleditwidget.cpp:426
+#: widgets/kacleditwidget.cpp:425
 #, kde-format
 msgid "Named group"
 msgstr "Nammaduvvon joavku"
 
-#: widgets/kacleditwidget.cpp:444
+#: widgets/kacleditwidget.cpp:443
 #, kde-format
 msgid "User: "
 msgstr "Geavaheaddji: "
 
-#: widgets/kacleditwidget.cpp:458
+#: widgets/kacleditwidget.cpp:457
 #, kde-format
 msgid "Group: "
 msgstr "Joavku: "
 
-#: widgets/kacleditwidget.cpp:596
+#: widgets/kacleditwidget.cpp:595
 #, kde-format
 msgid "Type"
 msgstr "Šládja"
 
-#: widgets/kacleditwidget.cpp:597
+#: widgets/kacleditwidget.cpp:596
 #, kde-format
 msgid "Name"
 msgstr "Namma"
 
-#: widgets/kacleditwidget.cpp:598
+#: widgets/kacleditwidget.cpp:597
 #, kde-format
 msgctxt "read permission"
 msgid "r"
 msgstr "l"
 
-#: widgets/kacleditwidget.cpp:599
+#: widgets/kacleditwidget.cpp:598
 #, kde-format
 msgctxt "write permission"
 msgid "w"
 msgstr "č"
 
-#: widgets/kacleditwidget.cpp:600
+#: widgets/kacleditwidget.cpp:599
 #, kde-format
 msgctxt "execute permission"
 msgid "x"
 msgstr "v"
 
-#: widgets/kacleditwidget.cpp:601
+#: widgets/kacleditwidget.cpp:600
 #, kde-format
 msgid "Effective"
 msgstr "Effektiiva"
@@ -5149,43 +5149,43 @@ msgstr "Ođasmahtimin vuogádatheivehusa"
 msgid "Updating system configuration…"
 msgstr "Ođasmahtimin vuogádatheivehusa."
 
-#: widgets/kdirmodel.cpp:1306
+#: widgets/kdirmodel.cpp:1304
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Namma"
 
-#: widgets/kdirmodel.cpp:1308
+#: widgets/kdirmodel.cpp:1306
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Sturrodat"
 
-#: widgets/kdirmodel.cpp:1310
+#: widgets/kdirmodel.cpp:1308
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Dáhton"
 
-#: widgets/kdirmodel.cpp:1312
+#: widgets/kdirmodel.cpp:1310
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Vuoigatvuođat"
 
-#: widgets/kdirmodel.cpp:1314
+#: widgets/kdirmodel.cpp:1312
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Eaiggát"
 
-#: widgets/kdirmodel.cpp:1316
+#: widgets/kdirmodel.cpp:1314
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Joavku"
 
-#: widgets/kdirmodel.cpp:1318
+#: widgets/kdirmodel.cpp:1316
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

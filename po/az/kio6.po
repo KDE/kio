@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-15 01:02+0000\n"
+"POT-Creation-Date: 2026-11-18 01:06+0000\n"
 "PO-Revision-Date: 2026-09-26 22:00+0400\n"
 "Last-Translator: Kheyyam <xxmn77@gmail.com>\n"
 "Language-Team: Azerbaijani <kde-i18n-doc@kde.org>\n"
@@ -4690,23 +4690,23 @@ msgstr "Səbət atılan faylları onların orijinal yerinə qaytarın"
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Səbət dolub. Onu boşaldın və ya içərisindəkiləri əl ilə silin."
 
-#: kpasswdserver/kpasswdserver.cpp:617
+#: kpasswdserver/kpasswdserver.cpp:614
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "Tıkrarlamaq istəyirsiniz?"
 
-#: kpasswdserver/kpasswdserver.cpp:621
+#: kpasswdserver/kpasswdserver.cpp:618
 #, kde-format
 msgid "Retry Authentication"
 msgstr "Kimlik Doğrulamasını təkrarla"
 
-#: kpasswdserver/kpasswdserver.cpp:624
+#: kpasswdserver/kpasswdserver.cpp:621
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "Təkrar"
 
-#: kpasswdserver/kpasswdserver.cpp:904
+#: kpasswdserver/kpasswdserver.cpp:901
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Kimlik Doğrulaması Dialoqu"
@@ -4721,12 +4721,12 @@ msgstr "Giriş Qadağandır"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "%1 protokoluna giriş icazəniz yoxdur."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:81
+#: urifilters/ikws/kuriikwsfilter.cpp:80
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "Üstünlük verilən axtarış təminatçısı tapılmadı."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:96
+#: urifilters/ikws/kuriikwsfilter.cpp:95
 #, kde-format
 msgid "No search providers were found."
 msgstr "Axtarış təminatçıları tapılmadı."
@@ -5199,125 +5199,125 @@ msgctxt "@action:button"
 msgid "Delete"
 msgstr "Silin"
 
-#: widgets/kacleditwidget.cpp:227
+#: widgets/kacleditwidget.cpp:226
 #, kde-format
 msgctxt "Unix permissions"
 msgid "Owner"
 msgstr "Sahibi"
 
-#: widgets/kacleditwidget.cpp:231
+#: widgets/kacleditwidget.cpp:230
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Owning Group"
 msgstr "Qrupun Sahibi"
 
-#: widgets/kacleditwidget.cpp:235 widgets/kacleditwidget.cpp:247
+#: widgets/kacleditwidget.cpp:234 widgets/kacleditwidget.cpp:246
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Others"
 msgstr "Digəriləri"
 
-#: widgets/kacleditwidget.cpp:239
+#: widgets/kacleditwidget.cpp:238
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Mask"
 msgstr "Maska"
 
-#: widgets/kacleditwidget.cpp:243
+#: widgets/kacleditwidget.cpp:242
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Named User"
 msgstr "Adlanmış İstifadəçi"
 
-#: widgets/kacleditwidget.cpp:254
+#: widgets/kacleditwidget.cpp:253
 #, kde-format
 msgid "Owner (Default)"
 msgstr "Sahibi (Əsl)"
 
-#: widgets/kacleditwidget.cpp:384
+#: widgets/kacleditwidget.cpp:383
 #, kde-format
 msgid "Edit ACL Entry"
 msgstr "ACL qeydini tənzimlə"
 
-#: widgets/kacleditwidget.cpp:387
+#: widgets/kacleditwidget.cpp:386
 #, kde-format
 msgid "Entry Type"
 msgstr "Qeydin növü"
 
-#: widgets/kacleditwidget.cpp:394
+#: widgets/kacleditwidget.cpp:393
 #, kde-format
 msgid "Default for new files in this folder"
 msgstr "Qovluqda yeni fayllar üçün standart"
 
-#: widgets/kacleditwidget.cpp:401
+#: widgets/kacleditwidget.cpp:400
 #, kde-format
 msgid "Owner"
 msgstr "Sahibi"
 
-#: widgets/kacleditwidget.cpp:406
+#: widgets/kacleditwidget.cpp:405
 #, kde-format
 msgid "Owning Group"
 msgstr "Qrupun Sahibi"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1496
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1496
 #, kde-format
 msgid "Others"
 msgstr "Digəriləri"
 
-#: widgets/kacleditwidget.cpp:416
+#: widgets/kacleditwidget.cpp:415
 #, kde-format
 msgid "Mask"
 msgstr "Maska"
 
-#: widgets/kacleditwidget.cpp:421
+#: widgets/kacleditwidget.cpp:420
 #, kde-format
 msgid "Named user"
 msgstr "Adlandırılmış istifadəçi"
 
-#: widgets/kacleditwidget.cpp:426
+#: widgets/kacleditwidget.cpp:425
 #, kde-format
 msgid "Named group"
 msgstr "Adlandırılmış qrup"
 
-#: widgets/kacleditwidget.cpp:444
+#: widgets/kacleditwidget.cpp:443
 #, kde-format
 msgid "User: "
 msgstr "İstifadəçi: "
 
-#: widgets/kacleditwidget.cpp:458
+#: widgets/kacleditwidget.cpp:457
 #, kde-format
 msgid "Group: "
 msgstr "Qrup: "
 
-#: widgets/kacleditwidget.cpp:596
+#: widgets/kacleditwidget.cpp:595
 #, kde-format
 msgid "Type"
 msgstr "Növ"
 
-#: widgets/kacleditwidget.cpp:597
+#: widgets/kacleditwidget.cpp:596
 #, kde-format
 msgid "Name"
 msgstr "Ad"
 
-#: widgets/kacleditwidget.cpp:598
+#: widgets/kacleditwidget.cpp:597
 #, kde-format
 msgctxt "read permission"
 msgid "r"
 msgstr "r"
 
-#: widgets/kacleditwidget.cpp:599
+#: widgets/kacleditwidget.cpp:598
 #, kde-format
 msgctxt "write permission"
 msgid "w"
 msgstr "w"
 
-#: widgets/kacleditwidget.cpp:600
+#: widgets/kacleditwidget.cpp:599
 #, kde-format
 msgctxt "execute permission"
 msgid "x"
 msgstr "x"
 
-#: widgets/kacleditwidget.cpp:601
+#: widgets/kacleditwidget.cpp:600
 #, kde-format
 msgid "Effective"
 msgstr "Effektiv bit"
@@ -5332,43 +5332,43 @@ msgstr "Sistem konfiqurasiyalarının yenilənməsi"
 msgid "Updating system configuration…"
 msgstr "Sistem tənzimləməsi yenilənir..."
 
-#: widgets/kdirmodel.cpp:1306
+#: widgets/kdirmodel.cpp:1304
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Ad"
 
-#: widgets/kdirmodel.cpp:1308
+#: widgets/kdirmodel.cpp:1306
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Ölçü"
 
-#: widgets/kdirmodel.cpp:1310
+#: widgets/kdirmodel.cpp:1308
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Tarix"
 
-#: widgets/kdirmodel.cpp:1312
+#: widgets/kdirmodel.cpp:1310
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "İcazələr"
 
-#: widgets/kdirmodel.cpp:1314
+#: widgets/kdirmodel.cpp:1312
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Sahibi"
 
-#: widgets/kdirmodel.cpp:1316
+#: widgets/kdirmodel.cpp:1314
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Qrup"
 
-#: widgets/kdirmodel.cpp:1318
+#: widgets/kdirmodel.cpp:1316
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

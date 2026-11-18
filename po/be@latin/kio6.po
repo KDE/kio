@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 86ff119b1606fcaa910d6b44fc14b611\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-15 01:02+0000\n"
+"POT-Creation-Date: 2026-11-18 01:06+0000\n"
 "PO-Revision-Date: 2022-08-29 08:53\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian\n"
@@ -4838,23 +4838,23 @@ msgstr "Adnaŭliennie fajla ŭ zychodnaje miesca"
 msgid "The trash is full. Empty it or remove items manually."
 msgstr "Smietnica poŭnaja. Ačyscicie jaje abo vydalicie eliemienty ŭručnuju."
 
-#: kpasswdserver/kpasswdserver.cpp:617
+#: kpasswdserver/kpasswdserver.cpp:614
 #, kde-format
 msgid "Do you want to retry?"
 msgstr "Chočacie paŭtaryć?"
 
-#: kpasswdserver/kpasswdserver.cpp:621
+#: kpasswdserver/kpasswdserver.cpp:618
 #, kde-format
 msgid "Retry Authentication"
 msgstr "Paŭtaryć aŭtentyfikacyju"
 
-#: kpasswdserver/kpasswdserver.cpp:624
+#: kpasswdserver/kpasswdserver.cpp:621
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr "Paŭtaryć"
 
-#: kpasswdserver/kpasswdserver.cpp:904
+#: kpasswdserver/kpasswdserver.cpp:901
 #, kde-format
 msgid "Authentication Dialog"
 msgstr "Dyjalohavaje akno aŭtentyfikacyi"
@@ -4869,12 +4869,12 @@ msgstr "Dostup zabaronieny"
 msgid "You do not have permission to access the %1 protocol."
 msgstr "Vy nie majecie pravoŭ dlia dostupu da pratakola %1."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:81
+#: urifilters/ikws/kuriikwsfilter.cpp:80
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr "Nie znojdziena pieravažnych sistem pošuku."
 
-#: urifilters/ikws/kuriikwsfilter.cpp:96
+#: urifilters/ikws/kuriikwsfilter.cpp:95
 #, kde-format
 msgid "No search providers were found."
 msgstr "Nie znojdziena pieravažnych sistem pošuku."
@@ -5399,125 +5399,125 @@ msgctxt "@action:button"
 msgid "Delete"
 msgstr "Vydalić"
 
-#: widgets/kacleditwidget.cpp:227
+#: widgets/kacleditwidget.cpp:226
 #, kde-format
 msgctxt "Unix permissions"
 msgid "Owner"
 msgstr "Ulasnik"
 
-#: widgets/kacleditwidget.cpp:231
+#: widgets/kacleditwidget.cpp:230
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Owning Group"
 msgstr "Ulasnik hrupy"
 
-#: widgets/kacleditwidget.cpp:235 widgets/kacleditwidget.cpp:247
+#: widgets/kacleditwidget.cpp:234 widgets/kacleditwidget.cpp:246
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Others"
 msgstr "Inšaje"
 
-#: widgets/kacleditwidget.cpp:239
+#: widgets/kacleditwidget.cpp:238
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Mask"
 msgstr "Maska"
 
-#: widgets/kacleditwidget.cpp:243
+#: widgets/kacleditwidget.cpp:242
 #, kde-format
 msgctxt "UNIX permissions"
 msgid "Named User"
 msgstr "Karystaĺnik z imiem"
 
-#: widgets/kacleditwidget.cpp:254
+#: widgets/kacleditwidget.cpp:253
 #, kde-format
 msgid "Owner (Default)"
 msgstr "Ulasnik (pradvyznačana)"
 
-#: widgets/kacleditwidget.cpp:384
+#: widgets/kacleditwidget.cpp:383
 #, kde-format
 msgid "Edit ACL Entry"
 msgstr "Redahavać zapis ACL"
 
-#: widgets/kacleditwidget.cpp:387
+#: widgets/kacleditwidget.cpp:386
 #, kde-format
 msgid "Entry Type"
 msgstr "Typ zapisu"
 
-#: widgets/kacleditwidget.cpp:394
+#: widgets/kacleditwidget.cpp:393
 #, kde-format
 msgid "Default for new files in this folder"
 msgstr "Pradvyznačana dlia novych fajlaŭ u hetym katalozie"
 
-#: widgets/kacleditwidget.cpp:401
+#: widgets/kacleditwidget.cpp:400
 #, kde-format
 msgid "Owner"
 msgstr "Ulasnik"
 
-#: widgets/kacleditwidget.cpp:406
+#: widgets/kacleditwidget.cpp:405
 #, kde-format
 msgid "Owning Group"
 msgstr "Hrupa valodannia"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1496
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1496
 #, kde-format
 msgid "Others"
 msgstr "Inšyja"
 
-#: widgets/kacleditwidget.cpp:416
+#: widgets/kacleditwidget.cpp:415
 #, kde-format
 msgid "Mask"
 msgstr "Maska"
 
-#: widgets/kacleditwidget.cpp:421
+#: widgets/kacleditwidget.cpp:420
 #, kde-format
 msgid "Named user"
 msgstr "Karystaĺnik z imiem"
 
-#: widgets/kacleditwidget.cpp:426
+#: widgets/kacleditwidget.cpp:425
 #, kde-format
 msgid "Named group"
 msgstr "Hrupa z nazvaj"
 
-#: widgets/kacleditwidget.cpp:444
+#: widgets/kacleditwidget.cpp:443
 #, kde-format
 msgid "User: "
 msgstr "Karystaĺnik: "
 
-#: widgets/kacleditwidget.cpp:458
+#: widgets/kacleditwidget.cpp:457
 #, kde-format
 msgid "Group: "
 msgstr "Hrupa: "
 
-#: widgets/kacleditwidget.cpp:596
+#: widgets/kacleditwidget.cpp:595
 #, kde-format
 msgid "Type"
 msgstr "Typ"
 
-#: widgets/kacleditwidget.cpp:597
+#: widgets/kacleditwidget.cpp:596
 #, kde-format
 msgid "Name"
 msgstr "Nazva"
 
-#: widgets/kacleditwidget.cpp:598
+#: widgets/kacleditwidget.cpp:597
 #, kde-format
 msgctxt "read permission"
 msgid "r"
 msgstr "r"
 
-#: widgets/kacleditwidget.cpp:599
+#: widgets/kacleditwidget.cpp:598
 #, kde-format
 msgctxt "write permission"
 msgid "w"
 msgstr "w"
 
-#: widgets/kacleditwidget.cpp:600
+#: widgets/kacleditwidget.cpp:599
 #, kde-format
 msgctxt "execute permission"
 msgid "x"
 msgstr "x"
 
-#: widgets/kacleditwidget.cpp:601
+#: widgets/kacleditwidget.cpp:600
 #, kde-format
 msgid "Effective"
 msgstr "Efiektyŭny"
@@ -5533,43 +5533,43 @@ msgstr "Abnaŭliennie kanfihuracyi sistemy"
 msgid "Updating system configuration…"
 msgstr "Abnaŭliennie kanfihuracyi sistemy."
 
-#: widgets/kdirmodel.cpp:1306
+#: widgets/kdirmodel.cpp:1304
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "Nazva"
 
-#: widgets/kdirmodel.cpp:1308
+#: widgets/kdirmodel.cpp:1306
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "Pamier"
 
-#: widgets/kdirmodel.cpp:1310
+#: widgets/kdirmodel.cpp:1308
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "Data"
 
-#: widgets/kdirmodel.cpp:1312
+#: widgets/kdirmodel.cpp:1310
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "Pravy dostupu"
 
-#: widgets/kdirmodel.cpp:1314
+#: widgets/kdirmodel.cpp:1312
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "Ulasnik"
 
-#: widgets/kdirmodel.cpp:1316
+#: widgets/kdirmodel.cpp:1314
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "Hrupa"
 
-#: widgets/kdirmodel.cpp:1318
+#: widgets/kdirmodel.cpp:1316
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"

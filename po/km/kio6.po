@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-15 01:02+0000\n"
+"POT-Creation-Date: 2026-11-18 01:06+0000\n"
 "PO-Revision-Date: 2012-07-09 10:34+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -4724,26 +4724,26 @@ msgstr ""
 msgid "The trash is full. Empty it or remove items manually."
 msgstr ""
 
-#: kpasswdserver/kpasswdserver.cpp:617
+#: kpasswdserver/kpasswdserver.cpp:614
 #, fuzzy, kde-format
 #| msgid "Do you really want to delete this item?"
 #| msgid_plural "Do you really want to delete these %1 items?"
 msgid "Do you want to retry?"
 msgstr "តើអ្នក​ពិត​ជា​ចង់​លុប​ធាតុ %1 ឬ ?"
 
-#: kpasswdserver/kpasswdserver.cpp:621
+#: kpasswdserver/kpasswdserver.cpp:618
 #, fuzzy, kde-format
 #| msgid "Server Authentication"
 msgid "Retry Authentication"
 msgstr "ការផ្ទៀង​ផ្ទាត់​ភាព​ត្រឹមត្រូវ​ម៉ាស៊ីន​បម្រើ"
 
-#: kpasswdserver/kpasswdserver.cpp:624
+#: kpasswdserver/kpasswdserver.cpp:621
 #, kde-format
 msgctxt "@action:button filter-continue"
 msgid "Retry"
 msgstr ""
 
-#: kpasswdserver/kpasswdserver.cpp:904
+#: kpasswdserver/kpasswdserver.cpp:901
 #, fuzzy, kde-format
 #| msgid "Authorization Dialog"
 msgid "Authentication Dialog"
@@ -4760,12 +4760,12 @@ msgstr "ការ​ចូល​ដំណើរការ​ត្រូវ​ប
 msgid "You do not have permission to access the %1 protocol."
 msgstr "អ្នក​មិន​មាន​សិទ្ធិ​ចូល​ដំណើរការពិធីការ %1 ឡើយ ។"
 
-#: urifilters/ikws/kuriikwsfilter.cpp:81
+#: urifilters/ikws/kuriikwsfilter.cpp:80
 #, kde-format
 msgid "No preferred search providers were found."
 msgstr ""
 
-#: urifilters/ikws/kuriikwsfilter.cpp:96
+#: urifilters/ikws/kuriikwsfilter.cpp:95
 #, kde-format
 msgid "No search providers were found."
 msgstr ""
@@ -5271,131 +5271,131 @@ msgctxt "@action:button"
 msgid "Delete"
 msgstr "លុប"
 
-#: widgets/kacleditwidget.cpp:227
+#: widgets/kacleditwidget.cpp:226
 #, fuzzy, kde-format
 #| msgid "Owner"
 msgctxt "Unix permissions"
 msgid "Owner"
 msgstr "ម្ចាស់"
 
-#: widgets/kacleditwidget.cpp:231
+#: widgets/kacleditwidget.cpp:230
 #, fuzzy, kde-format
 #| msgid "Owning Group"
 msgctxt "UNIX permissions"
 msgid "Owning Group"
 msgstr "ក្រុមកាន់កាប់"
 
-#: widgets/kacleditwidget.cpp:235 widgets/kacleditwidget.cpp:247
+#: widgets/kacleditwidget.cpp:234 widgets/kacleditwidget.cpp:246
 #, fuzzy, kde-format
 #| msgid "Others"
 msgctxt "UNIX permissions"
 msgid "Others"
 msgstr "ផ្សេងទៀត"
 
-#: widgets/kacleditwidget.cpp:239
+#: widgets/kacleditwidget.cpp:238
 #, fuzzy, kde-format
 #| msgid "Mask"
 msgctxt "UNIX permissions"
 msgid "Mask"
 msgstr "របាំង"
 
-#: widgets/kacleditwidget.cpp:243
+#: widgets/kacleditwidget.cpp:242
 #, fuzzy, kde-format
 #| msgid "Named User"
 msgctxt "UNIX permissions"
 msgid "Named User"
 msgstr "​អ្នក​ប្រើ​ដែលមាន​ឈ្មោះ"
 
-#: widgets/kacleditwidget.cpp:254
+#: widgets/kacleditwidget.cpp:253
 #, fuzzy, kde-format
 #| msgid " (Default)"
 msgid "Owner (Default)"
 msgstr " (លំនាំដើម)"
 
-#: widgets/kacleditwidget.cpp:384
+#: widgets/kacleditwidget.cpp:383
 #, kde-format
 msgid "Edit ACL Entry"
 msgstr "កែសម្រួល​ធាតុ ACL"
 
-#: widgets/kacleditwidget.cpp:387
+#: widgets/kacleditwidget.cpp:386
 #, kde-format
 msgid "Entry Type"
 msgstr "ប្រភេទធាតុ"
 
-#: widgets/kacleditwidget.cpp:394
+#: widgets/kacleditwidget.cpp:393
 #, kde-format
 msgid "Default for new files in this folder"
 msgstr "លំនាំដើម​សម្រាប់​ឯកសារ​ថ្មី​ក្នុង​ថត​នេះ"
 
-#: widgets/kacleditwidget.cpp:401
+#: widgets/kacleditwidget.cpp:400
 #, kde-format
 msgid "Owner"
 msgstr "ម្ចាស់"
 
-#: widgets/kacleditwidget.cpp:406
+#: widgets/kacleditwidget.cpp:405
 #, kde-format
 msgid "Owning Group"
 msgstr "ក្រុមកាន់កាប់"
 
-#: widgets/kacleditwidget.cpp:411 widgets/kpropertiesdialogbuiltin_p.cpp:1496
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1496
 #, kde-format
 msgid "Others"
 msgstr "ផ្សេងទៀត"
 
-#: widgets/kacleditwidget.cpp:416
+#: widgets/kacleditwidget.cpp:415
 #, kde-format
 msgid "Mask"
 msgstr "របាំង"
 
-#: widgets/kacleditwidget.cpp:421
+#: widgets/kacleditwidget.cpp:420
 #, kde-format
 msgid "Named user"
 msgstr "​អ្នក​ប្រើ​ដែលមាន​ឈ្មោះ"
 
-#: widgets/kacleditwidget.cpp:426
+#: widgets/kacleditwidget.cpp:425
 #, kde-format
 msgid "Named group"
 msgstr "ក្រុម​ដែល​មាន​ឈ្មោះ"
 
-#: widgets/kacleditwidget.cpp:444
+#: widgets/kacleditwidget.cpp:443
 #, kde-format
 msgid "User: "
 msgstr "អ្នកប្រើ ៖ "
 
-#: widgets/kacleditwidget.cpp:458
+#: widgets/kacleditwidget.cpp:457
 #, kde-format
 msgid "Group: "
 msgstr "ក្រុម ៖ "
 
-#: widgets/kacleditwidget.cpp:596
+#: widgets/kacleditwidget.cpp:595
 #, kde-format
 msgid "Type"
 msgstr "ប្រភេទ"
 
-#: widgets/kacleditwidget.cpp:597
+#: widgets/kacleditwidget.cpp:596
 #, kde-format
 msgid "Name"
 msgstr "ឈ្មោះ"
 
-#: widgets/kacleditwidget.cpp:598
+#: widgets/kacleditwidget.cpp:597
 #, kde-format
 msgctxt "read permission"
 msgid "r"
 msgstr "r"
 
-#: widgets/kacleditwidget.cpp:599
+#: widgets/kacleditwidget.cpp:598
 #, kde-format
 msgctxt "write permission"
 msgid "w"
 msgstr "w"
 
-#: widgets/kacleditwidget.cpp:600
+#: widgets/kacleditwidget.cpp:599
 #, kde-format
 msgctxt "execute permission"
 msgid "x"
 msgstr "x"
 
-#: widgets/kacleditwidget.cpp:601
+#: widgets/kacleditwidget.cpp:600
 #, kde-format
 msgid "Effective"
 msgstr "ប្រសិទ្ធិភាព"
@@ -5411,43 +5411,43 @@ msgstr "ធ្វើ​បច្ចុប្បន្នភាព​​ការ
 msgid "Updating system configuration…"
 msgstr "ធ្វើ​បច្ចុប្បន្នភាព​​ការ​កំណត់​រចនាសម្ព័ន្ធ​របស់​ប្រព័ន្ធ ។"
 
-#: widgets/kdirmodel.cpp:1306
+#: widgets/kdirmodel.cpp:1304
 #, kde-format
 msgctxt "@title:column"
 msgid "Name"
 msgstr "ឈ្មោះ"
 
-#: widgets/kdirmodel.cpp:1308
+#: widgets/kdirmodel.cpp:1306
 #, kde-format
 msgctxt "@title:column"
 msgid "Size"
 msgstr "ទំហំ"
 
-#: widgets/kdirmodel.cpp:1310
+#: widgets/kdirmodel.cpp:1308
 #, kde-format
 msgctxt "@title:column"
 msgid "Date"
 msgstr "កាលបរិច្ឆេទ"
 
-#: widgets/kdirmodel.cpp:1312
+#: widgets/kdirmodel.cpp:1310
 #, kde-format
 msgctxt "@title:column"
 msgid "Permissions"
 msgstr "សិទ្ធិ"
 
-#: widgets/kdirmodel.cpp:1314
+#: widgets/kdirmodel.cpp:1312
 #, kde-format
 msgctxt "@title:column"
 msgid "Owner"
 msgstr "ម្ចាស់"
 
-#: widgets/kdirmodel.cpp:1316
+#: widgets/kdirmodel.cpp:1314
 #, kde-format
 msgctxt "@title:column"
 msgid "Group"
 msgstr "ក្រុម"
 
-#: widgets/kdirmodel.cpp:1318
+#: widgets/kdirmodel.cpp:1316
 #, kde-format
 msgctxt "@title:column"
 msgid "Type"
