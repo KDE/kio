@@ -154,6 +154,26 @@ private Q_SLOTS:
         QVERIFY(!created.error.isEmpty());
     }
 
+    void commandWithoutProgram_data()
+    {
+        QTest::addColumn<QString>("command");
+        QTest::newRow("empty") << QString();
+        QTest::newRow("unbalanced quote") << u"'kate"_s;
+        QTest::newRow("shell pipe") << u"kate | cat"_s;
+        QTest::newRow("only a variable") << u"FOO=1"_s;
+        QTest::newRow("folder") << u"/usr/bin/"_s;
+    }
+
+    void commandWithoutProgram()
+    {
+        // The error shows the command as typed, so the user sees what could not be read.
+        QFETCH(QString, command);
+        KService::Ptr service;
+        const KIO::OpenWith::AcceptResult result = KIO::OpenWith::accept(service, command, false, QString(), false, false, false);
+        QVERIFY(!result.accept);
+        QVERIFY2(result.error.contains(u"'"_s + command + u"'"_s), qPrintable(result.error));
+    }
+
     void rememberCheckboxNamesTheExtension()
     {
         // A file of no known type: the association can only be remembered for its extension.

@@ -146,7 +146,7 @@ OpenWith::AcceptResult OpenWith::accept(KService::Ptr &service,
         // Find out the name of the service from the command line, removing args and paths
         serviceName = KIO::DesktopExecParser::executableName(typedExec);
         if (serviceName.isEmpty()) {
-            return {.accept = false, .error = i18n("Could not extract executable name from '%1', please type a valid program name.", serviceName)};
+            return {.accept = false, .error = i18n("Could not extract executable name from '%1', please type a valid program name.", typedExec)};
         }
         initialServiceName = serviceName;
         // Also remember the executableName with a path, if any, for the
