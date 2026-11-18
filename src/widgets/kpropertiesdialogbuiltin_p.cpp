@@ -16,6 +16,7 @@
 
 #include <gpudetection_p.h>
 #include <kbuildsycocaprogressdialog.h>
+#include <kcoreaddons_version.h>
 #include <kdirnotify.h>
 #include <kfileitemlistproperties.h>
 #include <kio/chmodjob.h>
@@ -38,6 +39,7 @@
 #include <KConfigGroup>
 #include <KDesktopFile>
 #include <KDialogJobUiDelegate>
+#include <KFormat>
 #include <KIO/ApplicationLauncherJob>
 #include <KIO/FileSystemFreeSpaceJob>
 #include <KIO/OpenFileManagerWindowJob>
@@ -151,13 +153,19 @@ public:
 
     /**
      * A size the way this dialog writes it: rounded so it can be read at a glance, then exactly,
-     * as in "4.0 KiB (4,096 bytes)".
+     * as in "4.1 KiB (4,200 bytes)". A whole number of the unit has no fraction, as in
+     * "4 KiB (4,096 bytes)", which is what a size on disk usually is.
      */
     static QString formatSize(KIO::filesize_t size)
     {
+#if KCOREADDONS_VERSION >= QT_VERSION_CHECK(6, 33, 0)
+        const QString rounded = KFormat().formatByteSize(size, 1, KFormat::DefaultBinaryDialect, KFormat::DefaultBinaryUnits, KFormat::OmitZeroFraction);
+#else
+        const QString rounded = KIO::convertSize(size);
+#endif
         return i18nc("@label the size of a file or folder, first rounded and then to the byte",
                      "%1 (%2)",
-                     KIO::convertSize(size),
+                     rounded,
                      i18ncp("@item the exact size of a file or folder", "%1 byte", "%1 bytes", size));
     }
 
