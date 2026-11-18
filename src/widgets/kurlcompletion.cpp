@@ -426,6 +426,17 @@ public:
     {
         return m_kurl.adjusted(QUrl::RemoveFilename).path();
     }
+
+    // QUrl::path() is a URL path, which on Windows is "/C:/foo" whereas
+    // the file system wants "C:/foo".
+    QString localDir() const
+    {
+        if (m_kurl.isLocalFile()) {
+            return m_kurl.adjusted(QUrl::RemoveFilename).toLocalFile();
+        }
+        return dir();
+    }
+
     QString file() const
     {
         return m_kurl.fileName();
@@ -837,7 +848,7 @@ bool KUrlCompletionPrivate::exeCompletion(const KUrlCompletionPrivate::MyURL &ur
         return false;
     }
 
-    QString directory = unescape(url.dir()); // remove escapes
+    QString directory = unescape(url.localDir()); // remove escapes
 
     // Find directories to search for completions, either
     //
@@ -895,7 +906,7 @@ bool KUrlCompletionPrivate::fileCompletion(const KUrlCompletionPrivate::MyURL &u
         return false;
     }
 
-    QString directory = unescape(url.dir());
+    QString directory = unescape(url.localDir());
 
     if (url.url() == QLatin1String("..")) {
         *pMatch = QStringLiteral("..");
@@ -1342,7 +1353,7 @@ QString KUrlCompletion::replacedPath(const QString &text, bool replaceHome, bool
     }
 
     url.filter(replaceHome, replaceEnv);
-    return url.dir() + url.file();
+    return url.localDir() + url.file();
 }
 
 QString KUrlCompletion::replacedPath(const QString &text) const

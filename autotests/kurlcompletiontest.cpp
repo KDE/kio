@@ -137,7 +137,12 @@ void KUrlCompletionTest::testLocalRelativePath()
     QCOMPARE(comp1all.count(), 4);
     QVERIFY(comp1all.contains(QLatin1String("file1")));
     QVERIFY(comp1all.contains(QLatin1String("file#a")));
+#ifdef Q_OS_WINDOWS
+    // Windows strips trailing dots from filenames, so "file." is stored as "file".
+    QVERIFY(comp1all.contains(QLatin1String("file")));
+#else
     QVERIFY(comp1all.contains(QLatin1String("file.")));
+#endif
     QVERIFY(comp1all.contains(QLatin1String("file_subdir/")));
     QString comp1 = m_completion->replacedPath(QStringLiteral("file1")); // like KUrlRequester does
     QCOMPARE(comp1, QStringLiteral("file1"));
@@ -174,12 +179,14 @@ void KUrlCompletionTest::testLocalRelativePath()
     QCOMPARE(compHiddenStartingWith2.count(), 1);
     QVERIFY(compHiddenStartingWith2.contains(QLatin1String(".2_hidden_file_subdir/")));
 
+#ifndef Q_OS_WINDOWS
     // Completion with 'file.', should only find one file
     m_completion->makeCompletion(QStringLiteral("file."));
     waitForCompletion(m_completion);
     const auto compFileEndingWithDot = m_completion->allMatches();
     QCOMPARE(compFileEndingWithDot.count(), 1);
     QVERIFY(compFileEndingWithDot.contains(QLatin1String("file.")));
+#endif
 
     // Completion with 'source' should only find the C++ file
     m_completionWithMimeFilter->makeCompletion(QStringLiteral("source"));
@@ -225,12 +232,14 @@ void KUrlCompletionTest::testLocalAbsolutePath()
     QCOMPARE(compHiddenStartingWith2.count(), 1);
     QVERIFY(compHiddenStartingWith2.contains(m_dir + ".2_hidden_file_subdir/"));
 
+#ifndef Q_OS_WINDOWS
     // Completion with 'file.', should only find one file
     m_completion->makeCompletion(m_dir + "file.");
     waitForCompletion(m_completion);
     const auto compFileEndingWithDot = m_completion->allMatches();
     QCOMPARE(compFileEndingWithDot.count(), 1);
     QVERIFY(compFileEndingWithDot.contains(m_dir + "file."));
+#endif
 
     // Completion with 'source' should only find the C++ file
     m_completionWithMimeFilter->makeCompletion(m_dir + "source");
@@ -259,8 +268,13 @@ void KUrlCompletionTest::testLocalURL()
     QCOMPARE(comp1all.count(), 4);
     qDebug() << "Looking for" << m_dirURL.toString() + "file1";
     QVERIFY(comp1all.contains(m_dirURL.toString() + "file1"));
+#ifdef Q_OS_WINDOWS
+    qDebug() << "Looking for" << m_dirURL.toString() + "file";
+    QVERIFY(comp1all.contains(m_dirURL.toString() + "file"));
+#else
     qDebug() << "Looking for" << m_dirURL.toString() + "file.";
     QVERIFY(comp1all.contains(m_dirURL.toString() + "file."));
+#endif
     QVERIFY(comp1all.contains(m_dirURL.toString() + "file_subdir/"));
     QString filehash = m_dirURL.toString() + "file%23a";
     qDebug() << "Looking for" << filehash;
@@ -303,6 +317,7 @@ void KUrlCompletionTest::testLocalURL()
     QCOMPARE(compHiddenStartingWith2.count(), 1);
     QVERIFY(compHiddenStartingWith2.contains(m_dirURL.toString() + QStringLiteral(".2_hidden_file_subdir/")));
 
+#ifndef Q_OS_WINDOWS
     // Completion with 'file.', should only find one file
     url = QUrl::fromLocalFile(m_dirURL.toLocalFile() + QStringLiteral("file."));
     qDebug() << "makeCompletion(" << url << ")";
@@ -311,6 +326,7 @@ void KUrlCompletionTest::testLocalURL()
     const auto compFileEndingWithDot = m_completion->allMatches();
     QCOMPARE(compFileEndingWithDot.count(), 1);
     QVERIFY(compFileEndingWithDot.contains(m_dirURL.toString() + QStringLiteral("file.")));
+#endif
 
     // Completion with 'source' should only find the C++ file
     m_completionWithMimeFilter->makeCompletion(m_dirURL.toString() + QStringLiteral("source"));

@@ -181,6 +181,7 @@ ecm_add_tests(
  pastetest.cpp
  renamefiledialogtest.cpp
  kurifiltersearchprovideractionstest.cpp
+ kurlcompletiontest.cpp
  openwithtest.cpp
  ENVIRONMENT QT_QPA_PLATFORM=offscreen
  LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB}
@@ -195,7 +196,6 @@ if (NOT WIN32)
     fileundomanagertest.cpp
     kdirmodeltest.cpp
     kdynamicjobtrackernowidgetstest.cpp
-    kurlcompletiontest.cpp
     ENVIRONMENT QT_QPA_PLATFORM=offscreen
     LINK_LIBRARIES KF6::KIOCore KF6::KIOWidgets Qt6::Test ${DBUS_LIB}
   )
