@@ -323,7 +323,7 @@ RenameDialog::RenameDialog(QWidget *parent,
                 i18n("Destination files which have older modification times will be overwritten by the source, skipped otherwise."));
             connect(d->bOverwriteWhenOlder, &QAction::triggered, this, &RenameDialog::overwriteWhenOlderPressed);
 
-            auto *overwriteMenu = new QMenu();
+            auto *overwriteMenu = new QMenu(d->bOverwrite);
             overwriteMenu->addAction(d->bOverwriteWhenOlder);
             d->bOverwrite->setMenu(overwriteMenu);
             d->bOverwrite->setPopupMode(QToolButton::MenuButtonPopup);
