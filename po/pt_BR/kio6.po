@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:06+0000\n"
+"POT-Creation-Date: 2026-11-19 01:03+0000\n"
 "PO-Revision-Date: 2026-11-12 18:43-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@kde.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -103,7 +103,7 @@ msgid "Folder Already Exists"
 msgstr "A pasta já existe"
 
 #: core/copyjob.cpp:1867 core/copyjob.cpp:2821 core/filecopyjob.cpp:394
-#: core/job_error.cpp:577 widgets/paste.cpp:49
+#: core/job_error.cpp:577 widgets/paste.cpp:50
 #, kde-format
 msgid "File Already Exists"
 msgstr "O arquivo já existe"
@@ -123,39 +123,39 @@ msgstr "Lixeira"
 msgid "%1 changed after it was copied, so it was not deleted."
 msgstr "%1 foi alterado após ter sido copiado, por isso não foi excluído."
 
-#: core/desktopexecparser.cpp:335
+#: core/desktopexecparser.cpp:336
 #, kde-format
 msgid "No Exec field in %1"
 msgstr "Nenhum campo Exec em %1"
 
-#: core/desktopexecparser.cpp:360
+#: core/desktopexecparser.cpp:361
 #, kde-format
 msgid "Could not find the program '%1'"
 msgstr "Não foi possível encontrar o programa '%1'"
 
-#: core/desktopexecparser.cpp:363
+#: core/desktopexecparser.cpp:364
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr ""
 "O programa '%1' foi encontrado em '%2' mas falta as permissões de execução."
 
-#: core/desktopexecparser.cpp:365
+#: core/desktopexecparser.cpp:366
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
 msgstr "O programa '%1' está sem as permissões de execução."
 
-#: core/desktopexecparser.cpp:379
+#: core/desktopexecparser.cpp:380
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
 msgstr "Erro de sintaxe no comando %1 vindo de %2"
 
-#: core/desktopexecparser.cpp:509
+#: core/desktopexecparser.cpp:513
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
 msgstr "Terminal %1 não encontrado ao tentar executar %2"
 
-#: core/desktopexecparser.cpp:526
+#: core/desktopexecparser.cpp:530
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "Erro de sintaxe no comando %1 ao tentar executar %2"
@@ -6916,19 +6916,19 @@ msgstr "Configurar os atalhos da Web…"
 msgid "Open file dialog"
 msgstr "Abrir diálogo de seleção de arquivo"
 
-#: widgets/paste.cpp:69
+#: widgets/paste.cpp:70
 #, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "arquivo colado"
 
-#: widgets/paste.cpp:79 widgets/paste.cpp:113
+#: widgets/paste.cpp:80 widgets/paste.cpp:114
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "Colar conteúdo da área de transferência"
 
-#: widgets/paste.cpp:122
+#: widgets/paste.cpp:123
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6938,19 +6938,19 @@ msgstr ""
 "escolhido para os dados não é mais aplicável. Por favor, copie novamente o "
 "que você deseja colar."
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Colar uma pasta"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Colar um arquivo"
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:256
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6958,13 +6958,13 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Colar um item"
 msgstr[1] "Colar %1 itens"
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:258
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Colar da área de transferência…"
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
@@ -6981,12 +6981,18 @@ msgstr "Formato de dados:"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:89
+#: widgets/pastejob.cpp:117
+#, kde-format
+msgctxt "@info Error when copy paste from Ark failed"
+msgid "Cannot paste, Ark does not appear to be running."
+msgstr ""
+
+#: widgets/pastejob.cpp:169
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Nome do arquivo para o conteúdo da área de transferência:"
 
-#: widgets/pastejob.cpp:89
+#: widgets/pastejob.cpp:169
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Nome do arquivo para o conteúdo liberado:"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:06+0000\n"
+"POT-Creation-Date: 2026-11-19 01:03+0000\n"
 "PO-Revision-Date: 2025-09-10 15:28+0630\n"
 "Last-Translator: zayar lwin <lw1nzayar@yandex.com>\n"
 "Language-Team: Burmese <kde-i18n-doc@kde.org>\n"
@@ -85,7 +85,7 @@ msgid "Folder Already Exists"
 msgstr "ဖိုင်တွဲရှိနှင့်ပြီးဖြစ်ပါသည်"
 
 #: core/copyjob.cpp:1867 core/copyjob.cpp:2821 core/filecopyjob.cpp:394
-#: core/job_error.cpp:577 widgets/paste.cpp:49
+#: core/job_error.cpp:577 widgets/paste.cpp:50
 #, kde-format
 msgid "File Already Exists"
 msgstr "ဖိုင်ရှိနှင့်ပြီးဖြစ်ပါသည်"
@@ -105,38 +105,38 @@ msgstr "အမှိုက်ပုံး"
 msgid "%1 changed after it was copied, so it was not deleted."
 msgstr ""
 
-#: core/desktopexecparser.cpp:335
+#: core/desktopexecparser.cpp:336
 #, kde-format
 msgid "No Exec field in %1"
 msgstr "%1တွင် ဆောင်ရွက်-ကွက်လပ်မရှိပါ"
 
-#: core/desktopexecparser.cpp:360
+#: core/desktopexecparser.cpp:361
 #, kde-format
 msgid "Could not find the program '%1'"
 msgstr "'%1'ပရိုဂရမ်ကို ရှာမတွေ့ပါ"
 
-#: core/desktopexecparser.cpp:363
+#: core/desktopexecparser.cpp:364
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr "ပရိုဂရမ် '%1' ကို '%2' ၌ တွေ့သော်လည်း ၎င်းတွင် မောင်းနှင်ရန် ခွင့်ပြုချက် ပျောက်နေသည်။"
 
-#: core/desktopexecparser.cpp:365
+#: core/desktopexecparser.cpp:366
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
 msgstr "ပရိုဂရမ် '%1' တွင် မောင်းနှင်ရန် ခွင့်ပြုချက် ပျောက်နေသည်။"
 
-#: core/desktopexecparser.cpp:379
+#: core/desktopexecparser.cpp:380
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
 msgstr "%2 မှလာသော အမိန့် %1 တွင် သဒ္ဒါဆိုင်ရာအမှား"
 
-#: core/desktopexecparser.cpp:509
+#: core/desktopexecparser.cpp:513
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
 msgstr "%2 လုပ်ဆောင်ရန်ကြိုးစားနေစဥ် တာမီနယ် %1 မတွေ့ပါ"
 
-#: core/desktopexecparser.cpp:526
+#: core/desktopexecparser.cpp:530
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "%2 လုပ်ဆောင်ရန် ကြိုးစားနေစဥ် အမိန့် %1 တွင် သဒ္ဒါဆိုင်ရာအမှား"
@@ -6701,13 +6701,13 @@ msgstr "ဝက်ဘ်ဖြတ်လမ်းများ ပြင်ဆင�
 msgid "Open file dialog"
 msgstr "ဖိုင် အပြော-ဝင်းဒိုး ဖွင့်မည်"
 
-#: widgets/paste.cpp:69
+#: widgets/paste.cpp:70
 #, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "ကူးထည့်ထားသောဖိုင်"
 
-#: widgets/paste.cpp:79 widgets/paste.cpp:113
+#: widgets/paste.cpp:80 widgets/paste.cpp:114
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Paste Clipboard Contents…"
@@ -6715,7 +6715,7 @@ msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "ကလစ်ဘုတ်ဒေတာများ ပွားထည့်မည်"
 
-#: widgets/paste.cpp:122
+#: widgets/paste.cpp:123
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6724,32 +6724,32 @@ msgstr ""
 "သင် 'ပွားမည်' အသုံးပြုပြီးကတည်းက ကလစ်ဘုတ်သည် ပြောင်းလဲသွားခဲ့သည်။ ရွေးချယ်ထားသော ဒေတာစီစဥ်ဖွဲ့စည်းမှုပုံစုံကို "
 "သုံးမရတော့ပါ။ သင်ပွားချင်သည့် အရာကို ပြန်သွားကူးယူပါ။"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "ဖိုင်တွဲတစ်ခုပွား"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "ဖိုင်တစ်ခုပွား"
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:256
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
 msgstr[0] "အိုင်တမ် %1ခုပွား"
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:258
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "ကလစ်ဘုတ်ဒေတာများ ပွားထည့်မည်"
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
@@ -6767,12 +6767,18 @@ msgstr "ရက်စွဲဖော်ပြပုံစံ -"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:89
+#: widgets/pastejob.cpp:117
+#, kde-format
+msgctxt "@info Error when copy paste from Ark failed"
+msgid "Cannot paste, Ark does not appear to be running."
+msgstr ""
+
+#: widgets/pastejob.cpp:169
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "ကလစ်ဘုတ်ပါဝင်ဒေတာအတွက် ဖိုင်အမည် -"
 
-#: widgets/pastejob.cpp:89
+#: widgets/pastejob.cpp:169
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "ပြစ်ချခဲ့သော ဒေတာများအတွက် ဖိုင်အမည် -"

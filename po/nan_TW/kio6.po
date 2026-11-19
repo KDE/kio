@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:06+0000\n"
+"POT-Creation-Date: 2026-11-19 01:03+0000\n"
 "PO-Revision-Date: 2026-10-07 20:35+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Min Nan Chinese <zh-l10n@lists.slat.org>\n"
@@ -83,7 +83,7 @@ msgid "Folder Already Exists"
 msgstr "資料鋏仔已經有--ah"
 
 #: core/copyjob.cpp:1867 core/copyjob.cpp:2821 core/filecopyjob.cpp:394
-#: core/job_error.cpp:577 widgets/paste.cpp:49
+#: core/job_error.cpp:577 widgets/paste.cpp:50
 #, kde-format
 msgid "File Already Exists"
 msgstr "檔案已經有--ah"
@@ -103,38 +103,38 @@ msgstr "糞埽桶"
 msgid "%1 changed after it was copied, so it was not deleted."
 msgstr ""
 
-#: core/desktopexecparser.cpp:335
+#: core/desktopexecparser.cpp:336
 #, kde-format
 msgid "No Exec field in %1"
 msgstr "%1 內底無 Exec 欄位"
 
-#: core/desktopexecparser.cpp:360
+#: core/desktopexecparser.cpp:361
 #, kde-format
 msgid "Could not find the program '%1'"
 msgstr "揣無程式「%1」"
 
-#: core/desktopexecparser.cpp:363
+#: core/desktopexecparser.cpp:364
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr "程式「%1」佇「%2」有揣著，毋過伊無執行權限。"
 
-#: core/desktopexecparser.cpp:365
+#: core/desktopexecparser.cpp:366
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
 msgstr "程式「%1」無執行權限。"
 
-#: core/desktopexecparser.cpp:379
+#: core/desktopexecparser.cpp:380
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
 msgstr "%2 ê 指令 %1 內底有語法錯誤"
 
-#: core/desktopexecparser.cpp:509
+#: core/desktopexecparser.cpp:513
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
 msgstr "愛執行 %2 ê 時陣揣無終端機 %1"
 
-#: core/desktopexecparser.cpp:526
+#: core/desktopexecparser.cpp:530
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "Tī-leh 執行 %2 ê 時陣佇指令 %1 內底有語法錯誤"
@@ -6474,19 +6474,19 @@ msgstr ""
 msgid "Open file dialog"
 msgstr ""
 
-#: widgets/paste.cpp:69
+#: widgets/paste.cpp:70
 #, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "貼起去 ê 檔案"
 
-#: widgets/paste.cpp:79 widgets/paste.cpp:113
+#: widgets/paste.cpp:80 widgets/paste.cpp:114
 #, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "Kā 剪貼簿的內容貼起去"
 
-#: widgets/paste.cpp:122
+#: widgets/paste.cpp:123
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6495,32 +6495,32 @@ msgstr ""
 "你用「貼起去」以來，剪貼簿內容已經有改變--ah：選的資料格式不再是適合 ê。請重"
 "新 khóo-pih 你原本想欲貼 ê 物件。"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Tah 一个資料鋏仔"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Tah 一个檔案"
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:256
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
 msgstr[0] "Tah %1 个項目"
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:258
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Kā 剪貼簿的內容貼起去…"
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
@@ -6537,12 +6537,18 @@ msgstr ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:89
+#: widgets/pastejob.cpp:117
+#, kde-format
+msgctxt "@info Error when copy paste from Ark failed"
+msgid "Cannot paste, Ark does not appear to be running."
+msgstr ""
+
+#: widgets/pastejob.cpp:169
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "剪貼簿內容 ê 檔名："
 
-#: widgets/pastejob.cpp:89
+#: widgets/pastejob.cpp:169
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr ""

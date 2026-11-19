@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ante-toki-pi-ilo-kde\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:06+0000\n"
+"POT-Creation-Date: 2026-11-19 01:03+0000\n"
 "PO-Revision-Date: 2026-10-07 18:49-0500\n"
 "Last-Translator: Mizufuwa <mizuf@tutamail.com>\n"
 "Language-Team: English <kde-i18n-doc@kde.org>\n"
@@ -83,7 +83,7 @@ msgid "Folder Already Exists"
 msgstr "poki li lon awen"
 
 #: core/copyjob.cpp:1867 core/copyjob.cpp:2821 core/filecopyjob.cpp:394
-#: core/job_error.cpp:577 widgets/paste.cpp:49
+#: core/job_error.cpp:577 widgets/paste.cpp:50
 #, kde-format
 msgid "File Already Exists"
 msgstr "ijo li lon awen"
@@ -103,38 +103,38 @@ msgstr "ilo wile ala"
 msgid "%1 changed after it was copied, so it was not deleted."
 msgstr ""
 
-#: core/desktopexecparser.cpp:335
+#: core/desktopexecparser.cpp:336
 #, kde-format
 msgid "No Exec field in %1"
 msgstr "lipu %1 li jo ala e poki \"Exec\""
 
-#: core/desktopexecparser.cpp:360
+#: core/desktopexecparser.cpp:361
 #, kde-format
 msgid "Could not find the program '%1'"
 msgstr "mi ken ala alasa e ilo '%1'"
 
-#: core/desktopexecparser.cpp:363
+#: core/desktopexecparser.cpp:364
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr "ilo '%1' li lon '%2'. taso ona li ken ala kepeken."
 
-#: core/desktopexecparser.cpp:365
+#: core/desktopexecparser.cpp:366
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
 msgstr "ilo '%1' li ken ala kepeken."
 
-#: core/desktopexecparser.cpp:379
+#: core/desktopexecparser.cpp:380
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
 msgstr "pakala sitelen lon %1 tan %2"
 
-#: core/desktopexecparser.cpp:509
+#: core/desktopexecparser.cpp:513
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
 msgstr "mi wile kepeken %2 la mi ken ala alasa e ilo %1"
 
-#: core/desktopexecparser.cpp:526
+#: core/desktopexecparser.cpp:530
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "ilo %1 li wile kepeken e ilo %2, taso toki li ike lon ilo %1"
@@ -6691,7 +6691,7 @@ msgstr "o ante e nasin lili linluwi..."
 msgid "Open file dialog"
 msgstr "o open e ilo pi open lipu"
 
-#: widgets/paste.cpp:69
+#: widgets/paste.cpp:70
 #, fuzzy, kde-format
 #| msgid "&Paste File"
 #| msgid_plural "&Paste %1 Files"
@@ -6699,14 +6699,14 @@ msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "&o lon e lipu %1"
 
-#: widgets/paste.cpp:79 widgets/paste.cpp:113
+#: widgets/paste.cpp:80 widgets/paste.cpp:114
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "o &lon e insa supa pali"
 
-#: widgets/paste.cpp:122
+#: widgets/paste.cpp:123
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6715,19 +6715,19 @@ msgstr ""
 "supa pali li ante. kule wile li ante li kama lon ala. o lon sin e ijo pi "
 "wile sina lon supa pali."
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "o lon e poki wan"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "o lon e lipu wan"
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:256
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6737,14 +6737,14 @@ msgstr[1] "o lon e ijo luka %1"
 msgstr[2] "o lon e ijo mute %1"
 msgstr[3] "o lon e ijo %1"
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:258
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "o &lon e insa supa pali"
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
@@ -6762,12 +6762,18 @@ msgstr "kule sona:"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:89
+#: widgets/pastejob.cpp:117
+#, kde-format
+msgctxt "@info Error when copy paste from Ark failed"
+msgid "Cannot paste, Ark does not appear to be running."
+msgstr ""
+
+#: widgets/pastejob.cpp:169
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "nimi pi ijo tan supa pali:"
 
-#: widgets/pastejob.cpp:89
+#: widgets/pastejob.cpp:169
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "nimi lipu pi ijo pana:"

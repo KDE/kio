@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:06+0000\n"
+"POT-Creation-Date: 2026-11-19 01:03+0000\n"
 "PO-Revision-Date: 2025-09-13 12:21+0200\n"
 "Last-Translator: Martin Hansen <mh306602@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@nuug.no>\n"
@@ -102,7 +102,7 @@ msgid "Folder Already Exists"
 msgstr "Mappa finnes fra før"
 
 #: core/copyjob.cpp:1867 core/copyjob.cpp:2821 core/filecopyjob.cpp:394
-#: core/job_error.cpp:577 widgets/paste.cpp:49
+#: core/job_error.cpp:577 widgets/paste.cpp:50
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fila finnes fra før"
@@ -122,38 +122,38 @@ msgstr "Papirkurv"
 msgid "%1 changed after it was copied, so it was not deleted."
 msgstr ""
 
-#: core/desktopexecparser.cpp:335
+#: core/desktopexecparser.cpp:336
 #, kde-format
 msgid "No Exec field in %1"
 msgstr "Mangler Exec-felt i %1"
 
-#: core/desktopexecparser.cpp:360
+#: core/desktopexecparser.cpp:361
 #, kde-format
 msgid "Could not find the program '%1'"
 msgstr "Fant ikke programmet «%1»"
 
-#: core/desktopexecparser.cpp:363
+#: core/desktopexecparser.cpp:364
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr "Fant programmet «%1» i «%2», men det mangler «kjørbar»-tillatelsen."
 
-#: core/desktopexecparser.cpp:365
+#: core/desktopexecparser.cpp:366
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
 msgstr "Programmet «%1» mangler «kjørbar»-tillatelsen."
 
-#: core/desktopexecparser.cpp:379
+#: core/desktopexecparser.cpp:380
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
 msgstr "Syntaksfeil i kommandoen %1 fra %2"
 
-#: core/desktopexecparser.cpp:509
+#: core/desktopexecparser.cpp:513
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
 msgstr "Fant ikke terminalen %1 ved forsøk på å kjøre %2"
 
-#: core/desktopexecparser.cpp:526
+#: core/desktopexecparser.cpp:530
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "Syntaksfeil i kommandoen %1 ved forsøk på å kjøre %2"
@@ -6865,19 +6865,19 @@ msgstr "Sett opp nettsnarveier …"
 msgid "Open file dialog"
 msgstr "Filåpningsdialog"
 
-#: widgets/paste.cpp:69
+#: widgets/paste.cpp:70
 #, fuzzy, kde-format
 msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "Lim inn én fil"
 
-#: widgets/paste.cpp:79 widgets/paste.cpp:113
+#: widgets/paste.cpp:80 widgets/paste.cpp:114
 #, fuzzy, kde-format
 msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "Lim inn fra utklippstavla …"
 
-#: widgets/paste.cpp:122
+#: widgets/paste.cpp:123
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6886,19 +6886,19 @@ msgstr ""
 "Utklippstavla har blitt endret fordi du brukte «lim inn»: det valgte "
 "dataformatet gjelder ikke lenger. Kopier det du ville lime inn på nytt."
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Lim inn én mappe"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Lim inn én fil"
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:256
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6906,13 +6906,13 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Lim inn ett element"
 msgstr[1] "Lim inn %1 elementer"
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:258
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Lim inn fra utklippstavla …"
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
@@ -6929,12 +6929,18 @@ msgstr "Dataformat:"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:89
+#: widgets/pastejob.cpp:117
+#, kde-format
+msgctxt "@info Error when copy paste from Ark failed"
+msgid "Cannot paste, Ark does not appear to be running."
+msgstr ""
+
+#: widgets/pastejob.cpp:169
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "Filnavn for utklippstavleinnhold:"
 
-#: widgets/pastejob.cpp:89
+#: widgets/pastejob.cpp:169
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "Filnavn for sluppne innhold:"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-18 01:06+0000\n"
+"POT-Creation-Date: 2026-11-19 01:03+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -88,7 +88,7 @@ msgid "Folder Already Exists"
 msgstr "पुटं पूर्वमेव विद्यते"
 
 #: core/copyjob.cpp:1867 core/copyjob.cpp:2821 core/filecopyjob.cpp:394
-#: core/job_error.cpp:577 widgets/paste.cpp:49
+#: core/job_error.cpp:577 widgets/paste.cpp:50
 #, kde-format
 msgid "File Already Exists"
 msgstr "सञ्चिका पूर्वमेव विद्यते"
@@ -108,39 +108,39 @@ msgstr "पुनःप्रयोगस्य कूपः"
 msgid "%1 changed after it was copied, so it was not deleted."
 msgstr ""
 
-#: core/desktopexecparser.cpp:335
+#: core/desktopexecparser.cpp:336
 #, kde-format
 msgid "No Exec field in %1"
 msgstr "%1 इत्यस्मिन् Exec क्षेत्रं नास्ति"
 
-#: core/desktopexecparser.cpp:360
+#: core/desktopexecparser.cpp:361
 #, kde-format
 msgid "Could not find the program '%1'"
 msgstr "'%1' इति कार्यक्रमं न लब्धम् ।"
 
-#: core/desktopexecparser.cpp:363
+#: core/desktopexecparser.cpp:364
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr ""
 "'%1' इति कार्यक्रमः '%2' इत्यत्र प्राप्तः परन्तु तस्मिन् कार्यान्वयनीय-अनुमतयः गम्यन्ते ।."
 
-#: core/desktopexecparser.cpp:365
+#: core/desktopexecparser.cpp:366
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
 msgstr "'%1' इति कार्यक्रमे कार्यान्वयनीय-अनुमतिः गम्यते ।."
 
-#: core/desktopexecparser.cpp:379
+#: core/desktopexecparser.cpp:380
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
 msgstr "%2 तः आगच्छन् %1 आदेशे वाक्यविन्यासदोषः"
 
-#: core/desktopexecparser.cpp:509
+#: core/desktopexecparser.cpp:513
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
 msgstr "%2 चालयितुं प्रयतमाने %1 टर्मिनल् न प्राप्तम्"
 
-#: core/desktopexecparser.cpp:526
+#: core/desktopexecparser.cpp:530
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "%2 चालयितुं प्रयतमानोऽपि %1 आदेशे वाक्यविन्यासदोषः"
@@ -6838,7 +6838,7 @@ msgstr "जालसंक्षिप्तमार्गः विन्य�
 msgid "Open file dialog"
 msgstr "सञ्चिकासंवादं उद्घाटयतु"
 
-#: widgets/paste.cpp:69
+#: widgets/paste.cpp:70
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Paste One File"
@@ -6846,7 +6846,7 @@ msgctxt "A default file name excluding extension for some pasted content"
 msgid "pasted file"
 msgstr "एकं सञ्चिकां संस्थापयतु"
 
-#: widgets/paste.cpp:79 widgets/paste.cpp:113
+#: widgets/paste.cpp:80 widgets/paste.cpp:114
 #, fuzzy, kde-format
 #| msgctxt "@action:inmenu"
 #| msgid "Paste Clipboard Contents…"
@@ -6854,7 +6854,7 @@ msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "अंशफलकम् सामग्रीं संस्थापयन्तु…"
 
-#: widgets/paste.cpp:122
+#: widgets/paste.cpp:123
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6863,19 +6863,19 @@ msgstr ""
 "भवता 'संस्थापयतु' इत्यस्य उपयोगः कृतः ततः परं अंशफलकम् परिवर्तितम् अस्ति: चयनितं "
 "दत्तांशस्वरूपं पुनः प्रयोज्यम् नास्ति । कृपया यत् चिनोतु इच्छसि तत् पुनः प्रतिलिख्यताम् ।."
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "एकं पुटं चिनोतु संस्थापयतु"
 
-#: widgets/paste.cpp:253
+#: widgets/paste.cpp:254
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "एकं सञ्चिकां संस्थापयतु"
 
-#: widgets/paste.cpp:255
+#: widgets/paste.cpp:256
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6883,13 +6883,13 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "एकं द्रव्यं संस्थापयतु"
 msgstr[1] "%1 द्रव्यं संस्थापयन्तु"
 
-#: widgets/paste.cpp:257
+#: widgets/paste.cpp:258
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "अंशफलकम् सामग्रीं संस्थापयन्तु…"
 
-#: widgets/paste.cpp:261
+#: widgets/paste.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
@@ -6907,12 +6907,18 @@ msgstr "तिथि प्रारूपम्:"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/pastejob.cpp:89
+#: widgets/pastejob.cpp:117
+#, kde-format
+msgctxt "@info Error when copy paste from Ark failed"
+msgid "Cannot paste, Ark does not appear to be running."
+msgstr ""
+
+#: widgets/pastejob.cpp:169
 #, kde-format
 msgid "Filename for clipboard content:"
 msgstr "अंशफलकसामग्रीणां कृते सञ्चिकानाम:"
 
-#: widgets/pastejob.cpp:89
+#: widgets/pastejob.cpp:169
 #, kde-format
 msgid "Filename for dropped contents:"
 msgstr "पातितसामग्रीणां कृते सञ्चिकानाम:"
