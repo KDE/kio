@@ -73,12 +73,12 @@ int TrashImpl::testDir(const QString &_name) const
     if (!dp) {
         QString name = Utils::trailingSlashRemoved(_name);
 
-        bool ok = QDir().mkdir(name);
+        bool ok = QDir().mkdir(name, QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner);
         if (!ok && QFile::exists(name)) {
             QString new_name = name;
             name.append(QStringLiteral(".orig"));
             if (QFile::rename(name, new_name)) {
-                ok = QDir().mkdir(name);
+                ok = QDir().mkdir(name, QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner);
             } else { // foo.orig existed already. How likely is that?
                 ok = false;
             }
