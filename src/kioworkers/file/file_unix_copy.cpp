@@ -1114,6 +1114,8 @@ WorkerResult FileProtocol::flushRemovableFolder(const QString &folder)
         const int err = errno;
         return WorkerResult::fail((err == ENOSPC || err == EDQUOT) ? KIO::ERR_DISK_FULL : KIO::ERR_CANNOT_WRITE, folder);
     }
+    // Clear message once done to avoid "finished: writing copied data" notification.
+    infoMessage(QString());
 #endif
     return WorkerResult::pass();
 }
