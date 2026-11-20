@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-19 01:03+0000\n"
+"POT-Creation-Date: 2026-11-20 01:05+0000\n"
 "PO-Revision-Date: 2024-12-25 19:37+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -3743,46 +3743,46 @@ msgstr "एकं चिह्नं चिनोतु:"
 msgid "You can change the icon later in folder properties."
 msgstr ""
 
-#: filewidgets/kurlnavigator.cpp:624
+#: filewidgets/kurlnavigator.cpp:627
 #, fuzzy, kde-format
 #| msgid "Location:"
 msgid "Copy Location"
 msgstr "स्थानम्:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:628 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:631 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "स्थापितु"
 
-#: filewidgets/kurlnavigator.cpp:648
+#: filewidgets/kurlnavigator.cpp:651
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "नूतने टैब् मध्ये \"%1\" उद्घाटयन्तु"
 
-#: filewidgets/kurlnavigator.cpp:656
+#: filewidgets/kurlnavigator.cpp:659
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "नूतनगवाक्ष मध्ये \"%1\" उद्घाटयन्तु"
 
-#: filewidgets/kurlnavigator.cpp:665
+#: filewidgets/kurlnavigator.cpp:668
 #, kde-format
 msgid "Edit"
 msgstr "सम्पादयतु"
 
-#: filewidgets/kurlnavigator.cpp:668
+#: filewidgets/kurlnavigator.cpp:671
 #, kde-format
 msgid "Navigate"
 msgstr "निग्राह्यते"
 
-#: filewidgets/kurlnavigator.cpp:683
+#: filewidgets/kurlnavigator.cpp:686
 #, kde-format
 msgid "Show Full Path"
 msgstr "पूर्णमार्गं दर्शयतु"
 
-#: filewidgets/kurlnavigator.cpp:857
+#: filewidgets/kurlnavigator.cpp:863
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -6854,7 +6854,7 @@ msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "अंशफलकम् सामग्रीं संस्थापयन्तु…"
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:134
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6863,19 +6863,19 @@ msgstr ""
 "भवता 'संस्थापयतु' इत्यस्य उपयोगः कृतः ततः परं अंशफलकम् परिवर्तितम् अस्ति: चयनितं "
 "दत्तांशस्वरूपं पुनः प्रयोज्यम् नास्ति । कृपया यत् चिनोतु इच्छसि तत् पुनः प्रतिलिख्यताम् ।."
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "एकं पुटं चिनोतु संस्थापयतु"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "एकं सञ्चिकां संस्थापयतु"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:259
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6883,13 +6883,13 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "एकं द्रव्यं संस्थापयतु"
 msgstr[1] "%1 द्रव्यं संस्थापयन्तु"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:261
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "अंशफलकम् सामग्रीं संस्थापयन्तु…"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:265
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"

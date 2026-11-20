@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-19 01:03+0000\n"
+"POT-Creation-Date: 2026-11-20 01:05+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3622,46 +3622,46 @@ msgstr "选择其他图标…"
 msgid "You can change the icon later in folder properties."
 msgstr "您可以稍后在文件夹属性中更改图标。"
 
-#: filewidgets/kurlnavigator.cpp:624
+#: filewidgets/kurlnavigator.cpp:627
 #, fuzzy, kde-format
 #| msgid "Location:"
 msgid "Copy Location"
 msgstr "位置："
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:628 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:631 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "粘贴"
 
-#: filewidgets/kurlnavigator.cpp:648
+#: filewidgets/kurlnavigator.cpp:651
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "在新标签中打开“%1”"
 
-#: filewidgets/kurlnavigator.cpp:656
+#: filewidgets/kurlnavigator.cpp:659
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "在新窗口中打开“%1”"
 
-#: filewidgets/kurlnavigator.cpp:665
+#: filewidgets/kurlnavigator.cpp:668
 #, kde-format
 msgid "Edit"
 msgstr "编辑模式"
 
-#: filewidgets/kurlnavigator.cpp:668
+#: filewidgets/kurlnavigator.cpp:671
 #, kde-format
 msgid "Navigate"
 msgstr "导航模式"
 
-#: filewidgets/kurlnavigator.cpp:683
+#: filewidgets/kurlnavigator.cpp:686
 #, kde-format
 msgid "Show Full Path"
 msgstr "显示完整路径"
 
-#: filewidgets/kurlnavigator.cpp:857
+#: filewidgets/kurlnavigator.cpp:863
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -6624,7 +6624,7 @@ msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "粘贴剪贴板内容"
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:134
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6633,32 +6633,32 @@ msgstr ""
 "剪贴板中的内容在上次“粘贴”之后已经改变：所选的数据格式不再适用。请重新复制您"
 "想要粘贴的内容。"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "粘贴 1 个文件夹"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "粘贴 1 个文件"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:259
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
 msgid_plural "Paste %1 Items"
 msgstr[0] "粘贴 %1 个项目"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:261
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "粘贴剪贴板内容…"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:265
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"

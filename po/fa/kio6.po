@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-19 01:03+0000\n"
+"POT-Creation-Date: 2026-11-20 01:05+0000\n"
 "PO-Revision-Date: 2023-06-08 11:57+0330\n"
 "Last-Translator: MohammadSaleh Kamyab <mskf1383@envs.net>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -3842,46 +3842,46 @@ msgstr "انتخاب یک &نقشک:"
 msgid "You can change the icon later in folder properties."
 msgstr ""
 
-#: filewidgets/kurlnavigator.cpp:624
+#: filewidgets/kurlnavigator.cpp:627
 #, fuzzy, kde-format
 #| msgid "Location:"
 msgid "Copy Location"
 msgstr "محل:"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:628 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:631 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "جایگذاری"
 
-#: filewidgets/kurlnavigator.cpp:648
+#: filewidgets/kurlnavigator.cpp:651
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "گشودن «%1» در زبانهٔ جدید"
 
-#: filewidgets/kurlnavigator.cpp:656
+#: filewidgets/kurlnavigator.cpp:659
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "گشودن «%1» در پنجرهٔ جدید"
 
-#: filewidgets/kurlnavigator.cpp:665
+#: filewidgets/kurlnavigator.cpp:668
 #, kde-format
 msgid "Edit"
 msgstr "ویرایش"
 
-#: filewidgets/kurlnavigator.cpp:668
+#: filewidgets/kurlnavigator.cpp:671
 #, kde-format
 msgid "Navigate"
 msgstr "ناوش"
 
-#: filewidgets/kurlnavigator.cpp:683
+#: filewidgets/kurlnavigator.cpp:686
 #, kde-format
 msgid "Show Full Path"
 msgstr "نمایش مسیر کامل"
 
-#: filewidgets/kurlnavigator.cpp:857
+#: filewidgets/kurlnavigator.cpp:863
 #, fuzzy, kde-kuit-format
 #| msgctxt "@info"
 #| msgid "Cannot transfer <filename>%1</filename>"
@@ -6986,7 +6986,7 @@ msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "&جایگذاری محتویات تخته یادداشت‌"
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:134
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6996,19 +6996,19 @@ msgstr ""
 "برگزیده، بیشتر از این قابل کاربرد نیست. لطفاً آنچه که می‌خواستید بچسبانید را "
 "دوباره رونوشت کنید."
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "جایگذاری یک پوشه"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "جایگذاری یک پرونده"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:259
 #, fuzzy, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -7016,14 +7016,14 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "جایگذاری %1 مورد"
 msgstr[1] "جایگذاری یک مورد"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:261
 #, fuzzy, kde-format
 #| msgid "&Paste Clipboard Contents"
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "&جایگذاری محتویات تخته یادداشت‌"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:265
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"

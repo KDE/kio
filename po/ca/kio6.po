@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-19 01:03+0000\n"
-"PO-Revision-Date: 2026-11-05 08:47+0100\n"
+"POT-Creation-Date: 2026-11-20 01:05+0000\n"
+"PO-Revision-Date: 2026-11-19 18:02+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1046,7 +1046,7 @@ msgstr ""
 "L'<strong>U</strong>niform <strong>R</strong>esource <strong>L</"
 "strong>ocator (URL) que heu introduït no té un format correcte. El format "
 "d'un URL generalment és així:<blockquote><strong>protocol://usuari:"
-"contrasenya@www.example.org:port/carpeta/nomfitxer.extensio?query=valor</"
+"contrasenya@www.example.org:port/carpeta/nomfitxer.extensió?query=valor</"
 "strong></blockquote>"
 
 #: core/job_error.cpp:498
@@ -2488,7 +2488,7 @@ msgid ""
 msgstr ""
 "La seguretat del procés de treball KIO per al protocol «%1», que sol·licita "
 "permisos elevats, no es pot garantir perquè els usuaris que no siguin "
-"administrador tenen permís per modificar-lo a %2."
+"administradors tenen permís per modificar-lo a %2."
 
 #: core/worker.cpp:440
 #, kde-format
@@ -3835,45 +3835,45 @@ msgstr "Trieu una altra icona…"
 msgid "You can change the icon later in folder properties."
 msgstr "Després podreu canviar la icona a les propietats de la carpeta."
 
-#: filewidgets/kurlnavigator.cpp:624
+#: filewidgets/kurlnavigator.cpp:627
 #, kde-format
 msgid "Copy Location"
 msgstr "Copia la ubicació"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:628 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:631 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Enganxa"
 
-#: filewidgets/kurlnavigator.cpp:648
+#: filewidgets/kurlnavigator.cpp:651
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Obre «%1» en una pestanya nova"
 
-#: filewidgets/kurlnavigator.cpp:656
+#: filewidgets/kurlnavigator.cpp:659
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Obre «%1» en una finestra nova"
 
-#: filewidgets/kurlnavigator.cpp:665
+#: filewidgets/kurlnavigator.cpp:668
 #, kde-format
 msgid "Edit"
 msgstr "Edita"
 
-#: filewidgets/kurlnavigator.cpp:668
+#: filewidgets/kurlnavigator.cpp:671
 #, kde-format
 msgid "Navigate"
 msgstr "Navega"
 
-#: filewidgets/kurlnavigator.cpp:683
+#: filewidgets/kurlnavigator.cpp:686
 #, kde-format
 msgid "Show Full Path"
 msgstr "Mostra el camí sencer"
 
-#: filewidgets/kurlnavigator.cpp:857
+#: filewidgets/kurlnavigator.cpp:863
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -5442,7 +5442,7 @@ msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
 msgstr[0] "&Obre la carpeta amb…"
-msgstr[1] "&Obre les carpeta amb…"
+msgstr[1] "&Obre les carpetes amb…"
 
 #: widgets/kfileitemactions.cpp:777
 #, kde-format
@@ -6932,7 +6932,7 @@ msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "Enganxa el contingut del porta-retalls"
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:134
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6941,19 +6941,19 @@ msgstr ""
 "El porta-retalls ha canviat d'ençà que heu usat «enganxa»: ja no s'aplica el "
 "format triat per a les dades. Torneu a copiar allò que volíeu enganxar."
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Enganxa una carpeta"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Enganxa un fitxer"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:259
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6961,13 +6961,13 @@ msgid_plural "Paste %1 Items"
 msgstr[0] "Enganxa un element"
 msgstr[1] "Enganxa %1 elements"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:261
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Enganxa el contingut del porta-retalls…"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:265
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
@@ -6988,7 +6988,7 @@ msgstr "%1 (%2)"
 #, kde-format
 msgctxt "@info Error when copy paste from Ark failed"
 msgid "Cannot paste, Ark does not appear to be running."
-msgstr ""
+msgstr "No s'ha pogut enganxar. Sembla que l'Ark no està en execució."
 
 #: widgets/pastejob.cpp:169
 #, kde-format

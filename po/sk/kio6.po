@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-19 01:03+0000\n"
+"POT-Creation-Date: 2026-11-20 01:05+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -3626,11 +3626,7 @@ msgstr ""
 "použitie operačným systémom."
 
 #: filewidgets/knewfilemenu.cpp:1152
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The name <filename>%1</filename> cannot be used because it is reserved "
-#| "for use by the operating system."
+#, kde-kuit-format
 msgctxt ""
 "@info %2 is a file system name such as FAT or NTFS, %3 is a list of "
 "characters"
@@ -3638,8 +3634,8 @@ msgid ""
 "The name <filename>%1</filename> cannot be used because the file system of "
 "this folder (%2) does not allow these characters in names: %3"
 msgstr ""
-"Názov <filename>%1</filename> nie je možné použiť, pretože je vyhradený na "
-"použitie operačným systémom."
+"Názov <filename>%1</filename> nie je možné použiť, pretože systém súborov "
+"tohto priečinka (%2) nepovoľuje v názvoch tieto znaky: %3"
 
 #: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
@@ -3781,45 +3777,45 @@ msgstr "Vybrať inú ikonu…"
 msgid "You can change the icon later in folder properties."
 msgstr "You can change the icon later in folder properties."
 
-#: filewidgets/kurlnavigator.cpp:624
+#: filewidgets/kurlnavigator.cpp:627
 #, kde-format
 msgid "Copy Location"
 msgstr "Kopírovať umiestnenie"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:628 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:631 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Vložiť"
 
-#: filewidgets/kurlnavigator.cpp:648
+#: filewidgets/kurlnavigator.cpp:651
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Otvoriť \"%1\" v novej karte"
 
-#: filewidgets/kurlnavigator.cpp:656
+#: filewidgets/kurlnavigator.cpp:659
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Otvoriť \"%1\" v novom okne"
 
-#: filewidgets/kurlnavigator.cpp:665
+#: filewidgets/kurlnavigator.cpp:668
 #, kde-format
 msgid "Edit"
 msgstr "Upraviť"
 
-#: filewidgets/kurlnavigator.cpp:668
+#: filewidgets/kurlnavigator.cpp:671
 #, kde-format
 msgid "Navigate"
 msgstr "Prejsť"
 
-#: filewidgets/kurlnavigator.cpp:683
+#: filewidgets/kurlnavigator.cpp:686
 #, kde-format
 msgid "Show Full Path"
 msgstr "Zobraziť celú cestu"
 
-#: filewidgets/kurlnavigator.cpp:857
+#: filewidgets/kurlnavigator.cpp:863
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -6869,7 +6865,7 @@ msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "Vložiť obsah schránky"
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:134
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6878,19 +6874,19 @@ msgstr ""
 "Schránka sa zmenila od poslednej operácie 'vložiť': vybraný formát dát sa už "
 "nedá použiť. Skopírujte znovu to, čo ste chceli vložiť."
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Vložiť jeden priečinok"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Vložiť jeden súbor"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:259
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6899,13 +6895,13 @@ msgstr[0] "Vložiť jednu položku"
 msgstr[1] "Vložiť %1 položky"
 msgstr[2] "Vložiť %1 položiek"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:261
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Vložiť obsah schránky..."
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:265
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
@@ -6926,7 +6922,7 @@ msgstr "%1 (%2)"
 #, kde-format
 msgctxt "@info Error when copy paste from Ark failed"
 msgid "Cannot paste, Ark does not appear to be running."
-msgstr ""
+msgstr "Nedá sa vložiť, Ark zrejme nebeží."
 
 #: widgets/pastejob.cpp:169
 #, kde-format

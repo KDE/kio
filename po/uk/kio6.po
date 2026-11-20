@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-19 01:03+0000\n"
-"PO-Revision-Date: 2026-11-05 18:07+0200\n"
+"POT-Creation-Date: 2026-11-20 01:05+0000\n"
+"PO-Revision-Date: 2026-11-19 13:03+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -3821,45 +3821,45 @@ msgstr "Вибрати іншу піктограму…"
 msgid "You can change the icon later in folder properties."
 msgstr "Піктограму можна пізніше змінити у властивостях теки."
 
-#: filewidgets/kurlnavigator.cpp:624
+#: filewidgets/kurlnavigator.cpp:627
 #, kde-format
 msgid "Copy Location"
 msgstr "Копіювати адресу"
 
 #. i18n: ectx: property (text), widget (QPushButton, pasteButton)
-#: filewidgets/kurlnavigator.cpp:628 widgets/checksumswidget.ui:42
+#: filewidgets/kurlnavigator.cpp:631 widgets/checksumswidget.ui:42
 #, kde-format
 msgid "Paste"
 msgstr "Вставити"
 
-#: filewidgets/kurlnavigator.cpp:648
+#: filewidgets/kurlnavigator.cpp:651
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Tab"
 msgstr "Відкрити «%1» у новій вкладці"
 
-#: filewidgets/kurlnavigator.cpp:656
+#: filewidgets/kurlnavigator.cpp:659
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Open \"%1\" in New Window"
 msgstr "Відкрити «%1» у новому вікні"
 
-#: filewidgets/kurlnavigator.cpp:665
+#: filewidgets/kurlnavigator.cpp:668
 #, kde-format
 msgid "Edit"
 msgstr "Редагування"
 
-#: filewidgets/kurlnavigator.cpp:668
+#: filewidgets/kurlnavigator.cpp:671
 #, kde-format
 msgid "Navigate"
 msgstr "Навігація"
 
-#: filewidgets/kurlnavigator.cpp:683
+#: filewidgets/kurlnavigator.cpp:686
 #, kde-format
 msgid "Show Full Path"
 msgstr "Показати повний шлях"
 
-#: filewidgets/kurlnavigator.cpp:857
+#: filewidgets/kurlnavigator.cpp:863
 #, kde-kuit-format
 msgctxt "@info:tooltip for button. 1 is path"
 msgid "Go to any location on the path <filename>%1</filename>"
@@ -6949,7 +6949,7 @@ msgctxt "@title:dialog"
 msgid "Paste Clipboard Content"
 msgstr "Вставити вміст буфера обміну даними"
 
-#: widgets/paste.cpp:123
+#: widgets/paste.cpp:134
 #, kde-format
 msgid ""
 "The clipboard has changed since you used 'paste': the chosen data format is "
@@ -6959,19 +6959,19 @@ msgstr ""
 "«вставити»: вибраний формат даних вже не підходить. Будь ласка, скопіюйте "
 "знов те, що ви хотіли вставити."
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Folder"
 msgstr "Вставити одну теку"
 
-#: widgets/paste.cpp:254
+#: widgets/paste.cpp:257
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One File"
 msgstr "Вставити один файл"
 
-#: widgets/paste.cpp:256
+#: widgets/paste.cpp:259
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste One Item"
@@ -6981,13 +6981,13 @@ msgstr[1] "Вставити %1 об'єкти"
 msgstr[2] "Вставити %1 об'єктів"
 msgstr[3] "Вставити один об'єкт"
 
-#: widgets/paste.cpp:258
+#: widgets/paste.cpp:261
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste Clipboard Contents…"
 msgstr "Вставити вміст кишені…"
 
-#: widgets/paste.cpp:262
+#: widgets/paste.cpp:265
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Paste"
@@ -7008,7 +7008,7 @@ msgstr "%1 (%2)"
 #, kde-format
 msgctxt "@info Error when copy paste from Ark failed"
 msgid "Cannot paste, Ark does not appear to be running."
-msgstr ""
+msgstr "Не вдалося вставити — здається, Ark не запущено."
 
 #: widgets/pastejob.cpp:169
 #, kde-format
