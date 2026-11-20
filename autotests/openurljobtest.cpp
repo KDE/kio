@@ -30,7 +30,7 @@
 #include <QTemporaryFile>
 #include <QTest>
 
-QTEST_GUILESS_MAIN(OpenUrlJobTest)
+QTEST_MAIN(OpenUrlJobTest)
 
 extern KSERVICE_EXPORT int ksycoca_ms_between_checks;
 
