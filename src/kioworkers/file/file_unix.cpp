@@ -73,7 +73,13 @@ static bool same_inode(const QT_STATBUF &src, const QT_STATBUF &dest)
 #if HAVE_POSIX_ACL
 bool FileProtocol::isExtendedACL(acl_t acl)
 {
+#ifdef Q_OS_FREEBSD
+    // acl_equiv_mode_np() reports a plain access ACL as not equivalent to a mode.
+    int trivial = 0;
+    return acl_is_trivial_np(acl, &trivial) == 0 && !trivial;
+#else
     return (ACLPortability::acl_equiv_mode(acl, nullptr) != 0);
+#endif
 }
 #endif
 

@@ -172,7 +172,8 @@ bool FileProtocol::copyXattrs(const int src_fd, const int dest_fd, XattrNamespac
 #endif
         QByteArray key(keyPtr, keyLen);
 #if HAVE_SYS_XATTR_H && !defined(Q_OS_MAC)
-        if (namespaces == XattrNamespaces::User && !key.startsWith("user.")) {
+        if ((namespaces == XattrNamespaces::User && !key.startsWith("user."))
+            || (namespaces == XattrNamespaces::ExcludeAcl && key.startsWith("system.posix_acl_"))) {
             next_key();
             continue;
         }
@@ -722,7 +723,8 @@ PreserveFn makePreserveFn(FileProtocol *worker, uid_t euid)
     return [worker, euid](int sourceFd, int destFd, const struct stat &st, const CopyRequest &request, bool destFreshlyCreated, DestDirGroup destDirGroup) {
         preserveAttrs(sourceFd, destFd, st, request, destFreshlyCreated, euid, destDirGroup);
 #if HAVE_SYS_XATTR_H || HAVE_SYS_EXTATTR_H
-        worker->copyXattrs(sourceFd, destFd);
+        const auto namespaces = request.preserveAcl ? FileProtocol::XattrNamespaces::All : FileProtocol::XattrNamespaces::ExcludeAcl;
+        worker->copyXattrs(sourceFd, destFd, namespaces);
 #else
         Q_UNUSED(worker)
 #endif
@@ -1215,11 +1217,8 @@ WorkerResult FileProtocol::copy(const QUrl &_srcUrl, const QUrl &_destUrl, int _
     request.permissions = defaultPermissions ? NewFilePermissions::SystemDefault : NewFilePermissions::Explicit;
     request.explicitMode = mode_t(_mode);
     request.preserveOwner = !defaultPermissions;
-    // The literal -1, not the mode_t-width test above: on FreeBSD the sentinel arrives as 65535,
-    // and acl_equiv_mode_np() there does not report a plain access ACL as mode-equivalent, so a
-    // copy asking for the system default would take its mode from the ACL of a source that has no
-    // extended ACL at all.
-    request.preserveAcl = (_mode == -1);
+    // The ACL goes with the source's permissions, and an explicit mode of its own drops it.
+    request.preserveAcl = defaultPermissions || (mode_t(_mode) & 07777) == (buffSrc.st_mode & 07777);
     request.tryReflink = !slowTestMode; // sharing the data is instant, and a slow copy is the point of the test mode
     const WritebackPolicy writeback = writebackPolicyFor(dfd, QFile::decodeName(_destDir.isEmpty() ? QByteArray(".") : _destDir));
     request.writebackWindow = writeback.window;

@@ -89,10 +89,12 @@ public:
     KIO::WorkerResult truncate(KIO::filesize_t length) override;
     /*!
      * \value All Every attribute the source lists, ACLs included.
+     * \value ExcludeAcl Every attribute except the POSIX ACLs, for a copy given its own mode.
      * \value User Only the user namespace on Linux. Other systems list their user attributes only.
      */
     enum class XattrNamespaces {
         All,
+        ExcludeAcl,
         User,
     };
     bool copyXattrs(const int src_fd, const int dest_fd, XattrNamespaces namespaces = XattrNamespaces::All);

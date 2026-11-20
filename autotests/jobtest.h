@@ -69,6 +69,7 @@ private Q_SLOTS:
     void copyFileToSetgidDirectory_data();
     void copyFileToSetgidDirectory();
     void copyFilePreservesAcl();
+    void copyFileWithItsOwnModeDropsAcl();
     void testCopyFilePermissionsToSamePartition();
     void testMkdirPermissionsAndOwnership();
     void copyDirectoryToSamePartition();

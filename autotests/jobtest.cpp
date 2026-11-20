@@ -14,6 +14,8 @@
 #if HAVE_POSIX_ACL
 #include <cstring>
 #include <sys/acl.h>
+
+#include "../src/aclhelpers_p.h"
 #endif
 
 #include "kio/job.h"
@@ -1592,6 +1594,22 @@ void JobTest::copyFileToSetgidDirectory()
 #endif
 }
 
+#if HAVE_POSIX_ACL
+// A named-user entry makes the ACL extended. It names the current user, the one uid a user
+// namespace always maps. The full-rights mask keeps "#effective" notes out of acl_to_text(), so
+// the texts compare as strings.
+static bool setExtendedAcl(const QByteArray &path)
+{
+    const QByteArray text = "u::rw-,u:" + QByteArray::number(::getuid()) + ":rwx,g::r--,m::rwx,o::r--";
+    acl_t want = acl_from_text(text.constData());
+    const bool set = want && acl_valid(want) == 0 && acl_set_file(path.constData(), ACL_TYPE_ACCESS, want) == 0;
+    if (want) {
+        acl_free(want);
+    }
+    return set;
+}
+#endif
+
 void JobTest::copyFilePreservesAcl()
 {
 #if !HAVE_POSIX_ACL
@@ -1614,16 +1632,9 @@ void JobTest::copyFilePreservesAcl()
     const QByteArray srcEnc = QFile::encodeName(src);
     const QByteArray destEnc = QFile::encodeName(dest);
 
-    // A named-user entry makes this an *extended* ACL (stored as the system.posix_acl_access
-    // xattr); a full-rights mask avoids acl_to_text "#effective" annotations so a plain string
-    // comparison suffices.
-    acl_t want = acl_from_text("u::rw-,u:0:rwx,g::r--,m::rwx,o::r--");
-    QVERIFY(want);
-    if (acl_valid(want) != 0 || acl_set_file(srcEnc.constData(), ACL_TYPE_ACCESS, want) != 0) {
-        acl_free(want);
+    if (!setExtendedAcl(srcEnc)) {
         QSKIP("Filesystem under the test home does not support POSIX ACLs");
     }
-    acl_free(want);
 
     auto aclText = [](const QByteArray &path) {
         acl_t acl = acl_get_file(path.constData(), ACL_TYPE_ACCESS);
@@ -1656,6 +1667,34 @@ void JobTest::copyFilePreservesAcl()
     copyJob->setUiDelegateExtension(nullptr);
     QVERIFY2(copyJob->exec(), qPrintable(copyJob->errorString()));
     QCOMPARE(aclText(destEnc), srcAcl);
+#endif
+}
+
+void JobTest::copyFileWithItsOwnModeDropsAcl()
+{
+#if !HAVE_POSIX_ACL
+    QSKIP("POSIX ACL support not compiled in");
+#else
+    const QString src = homeTmpDir() + "fileWithAclOwnMode";
+    const QString dest = homeTmpDir() + "fileWithAclOwnMode_copied";
+    createTestFile(src);
+    // listRecursive() compares homeTmpDir() with a fixed list, which these files are not part of.
+    auto cleanup = qScopeGuard([&] {
+        QFile::remove(src);
+        QFile::remove(dest);
+    });
+    if (!setExtendedAcl(QFile::encodeName(src))) {
+        QSKIP("Filesystem under the test home does not support POSIX ACLs");
+    }
+
+    auto *job = KIO::file_copy(QUrl::fromLocalFile(src), QUrl::fromLocalFile(dest), 0600, KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QCOMPARE(KIO::ACLPortability::acl_extended_file(QFile::encodeName(dest).constData()), 0);
+    QT_STATBUF destStat;
+    QCOMPARE(QT_STAT(QFile::encodeName(dest).constData(), &destStat), 0);
+    QCOMPARE(destStat.st_mode & 07777, mode_t(0600));
 #endif
 }
 
