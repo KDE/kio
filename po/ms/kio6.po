@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-20 01:05+0000\n"
+"POT-Creation-Date: 2026-11-21 01:06+0000\n"
 "PO-Revision-Date: 2021-02-09 09:02+0800\n"
 "Last-Translator: ye-yu <rafolwen98@gmail.com>\n"
 "Language-Team: Malay <kde-i18n-doc@kde.org>\n"
@@ -46,7 +46,7 @@ msgstr ""
 "<qt>Tidak dapat ubah keempunyaan fail <b>%1</b>. Anda tidak mempunyai "
 "capaian yang cukup kepada fail untuk melakukan perubahan.</qt>"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:691
+#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:697
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -3179,7 +3179,7 @@ msgid "%1: %2"
 msgstr "%1: %2"
 
 #: filewidgets/kfileplacesview.cpp:350
-#: widgets/kpropertiesdialogbuiltin_p.cpp:722
+#: widgets/kpropertiesdialogbuiltin_p.cpp:730
 #, fuzzy, kde-format
 msgctxt "Available space out of total partition size (percent used)"
 msgid "%1 free of %2 (%3% used)"
@@ -3751,7 +3751,7 @@ msgstr ""
 "Cipta folder baru dalam:\n"
 "%1"
 
-#: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:405
 #, fuzzy, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter folder name"
@@ -4228,22 +4228,22 @@ msgstr "Tidak dapat jumpa program \"mount\""
 msgid "Could not find program \"umount\""
 msgstr "Tidak dapat jumpa program \"umount\""
 
-#: kioworkers/file/file_unix.cpp:419
+#: kioworkers/file/file_unix.cpp:425
 #, kde-format
 msgid "No media in device for %1"
 msgstr "Tiada media di dalam peranti untuk %1"
 
-#: kioworkers/file/file_unix.cpp:876
+#: kioworkers/file/file_unix.cpp:882
 #, fuzzy, kde-format
 msgid "Could not get user id for given user name %1"
 msgstr "Tidak dapat memasuki folder %1."
 
-#: kioworkers/file/file_unix.cpp:887
+#: kioworkers/file/file_unix.cpp:893
 #, kde-format
 msgid "Could not get group id for given group name %1"
 msgstr ""
 
-#: kioworkers/file/file_unix_copy.cpp:1112
+#: kioworkers/file/file_unix_copy.cpp:1114
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr ""
@@ -5218,7 +5218,7 @@ msgstr "Pemilik"
 msgid "Owning Group"
 msgstr "Kumpulan Hilang"
 
-#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1496
+#: widgets/kacleditwidget.cpp:410 widgets/kpropertiesdialogbuiltin_p.cpp:1504
 #, kde-format
 msgid "Others"
 msgstr "Lain-lain"
@@ -6088,7 +6088,7 @@ msgctxt "@title:tab"
 msgid "Share"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:112
+#: widgets/kpropertiesdialogbuiltin_p.cpp:114
 #, fuzzy, kde-kuit-format
 #| msgid ""
 #| "<qt>Could not save properties. You do not have sufficient access to write "
@@ -6101,7 +6101,7 @@ msgstr ""
 "<qt>Tidak dapat simpan ciri. Anda tidak mempunyai akses yang cukup untuk "
 "menulis dalam <b>%1</b>.</qt>"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:159
+#: widgets/kpropertiesdialogbuiltin_p.cpp:167
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt ""
@@ -6109,7 +6109,7 @@ msgctxt ""
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:161
+#: widgets/kpropertiesdialogbuiltin_p.cpp:169
 #, kde-format
 msgctxt "@item the exact size of a file or folder"
 msgid "%1 byte"
@@ -6117,55 +6117,55 @@ msgid_plural "%1 bytes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:263
+#: widgets/kpropertiesdialogbuiltin_p.cpp:271
 #, fuzzy, kde-format
 msgctxt "@title:tab File properties"
 msgid "&General"
 msgstr "U&mum"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:397
+#: widgets/kpropertiesdialogbuiltin_p.cpp:405
 #, fuzzy, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter file name"
 msgstr "&Laksanakan sebagai pengguna lain"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:474
+#: widgets/kpropertiesdialogbuiltin_p.cpp:482
 #, kde-format
 msgctxt "@action:button"
 msgid "Explore in %1"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:485
-#: widgets/kpropertiesdialogbuiltin_p.cpp:762
+#: widgets/kpropertiesdialogbuiltin_p.cpp:493
+#: widgets/kpropertiesdialogbuiltin_p.cpp:770
 #, kde-format
 msgid "Refresh"
 msgstr "Muat Semula"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:494
+#: widgets/kpropertiesdialogbuiltin_p.cpp:502
 #, kde-format
 msgctxt "@info:placeholder"
 msgid "Enter target location"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:498
-#: widgets/kpropertiesdialogbuiltin_p.cpp:501
+#: widgets/kpropertiesdialogbuiltin_p.cpp:506
+#: widgets/kpropertiesdialogbuiltin_p.cpp:509
 #, fuzzy, kde-kuit-format
 msgctxt "@info:tooltip Go to path %1"
 msgid "Show <filename>%1</filename>"
 msgstr "_n: Anda benar-benar ingin hapuskan item ini?"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:607
+#: widgets/kpropertiesdialogbuiltin_p.cpp:615
 #, fuzzy, kde-format
 msgid "%1:"
 msgstr "%1 (%2)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:729
+#: widgets/kpropertiesdialogbuiltin_p.cpp:737
 #, fuzzy, kde-format
 msgctxt "@info:status"
 msgid "Unknown size"
 msgstr "Hos Tidak Diketahui"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:739
+#: widgets/kpropertiesdialogbuiltin_p.cpp:747
 #, fuzzy, kde-format
 #| msgid ""
 #| "Calculating... %1 (%2)\n"
@@ -6177,153 +6177,153 @@ msgstr ""
 "Mengira... %1 (%2)\n"
 "%3, %4"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:741
-#: widgets/kpropertiesdialogbuiltin_p.cpp:756
+#: widgets/kpropertiesdialogbuiltin_p.cpp:749
+#: widgets/kpropertiesdialogbuiltin_p.cpp:764
 #, fuzzy, kde-format
 msgid "1 file"
 msgid_plural "%1 files"
 msgstr[0] "Fail Log"
 msgstr[1] ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:742
-#: widgets/kpropertiesdialogbuiltin_p.cpp:757
+#: widgets/kpropertiesdialogbuiltin_p.cpp:750
+#: widgets/kpropertiesdialogbuiltin_p.cpp:765
 #, fuzzy, kde-format
 msgid "1 sub-folder"
 msgid_plural "%1 sub-folders"
 msgstr[0] "Alatan Mengurus Folder Terenkrip"
 msgstr[1] ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:771
+#: widgets/kpropertiesdialogbuiltin_p.cpp:779
 #, fuzzy, kde-format
 #| msgid "Calculating..."
 msgid "Calculating...\n"
 msgstr "Mengira..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:794
+#: widgets/kpropertiesdialogbuiltin_p.cpp:802
 #, fuzzy, kde-format
 msgid "At least %1\n"
 msgstr " Fail: %1 "
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:840
+#: widgets/kpropertiesdialogbuiltin_p.cpp:848
 #, kde-format
 msgid "The new file name is empty."
 msgstr "Nama fail baru kosong."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1038
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1046
 #, fuzzy, kde-format
 #| msgid "&Supported file types:"
 msgid "No registered file type"
 msgstr "&Jenis fail yang disokong:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1040
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1048
 #, fuzzy, kde-format
 #| msgid "Choose Application"
 msgid "No associated application"
 msgstr "Pilih Aplikasi"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1046
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1054
 #, fuzzy, kde-format
 #| msgid "Created:"
 msgctxt "@action:button Create new file type"
 msgid "Create…"
 msgstr "Dicipta:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1050
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1058
 #, fuzzy, kde-format
 #| msgid "C&hange..."
 msgctxt "@action:button"
 msgid "Change…"
 msgstr "&Ubah"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1052
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1060
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change the default application for opening files of type “%1”."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1122
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1123
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1125
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1130
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1131
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1133
 #, fuzzy
 msgid "No Access"
 msgstr "Diakses:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1122
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1130
 msgid "Can Only View"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1122
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1130
 #, fuzzy
 msgid "Can View & Modify"
 msgstr "Boleh papar & Ubah Suai Kandungan"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1123
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1131
 #, fuzzy
 msgid "Can Only View Content"
 msgstr "Boleh Papar Kandungan"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1123
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1131
 msgid "Can View & Modify Content"
 msgstr "Boleh papar & Ubah Suai Kandungan"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1125
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1133
 #, fuzzy
 msgid "Can Only View/Read Content"
 msgstr "Boleh Papar Kandungan"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1125
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1133
 msgid "Can View/Read & Modify/Write"
 msgstr "Boleh Papar/Baca & Ubah Suai/Tulis"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1224
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1232
 #, kde-format
 msgid "&Permissions"
 msgstr "&Keizinan"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1235
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1423
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1243
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1431
 #, kde-format
 msgid "Access Permissions"
 msgstr "Keizinan Akses"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1245
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1253
 #, fuzzy, kde-format
 msgid "This file is a link and does not have permissions."
 msgid_plural "All files are links and do not have permissions."
 msgstr[0] "_n: Fail ini adalah pautan dan tidak mempunyai keizinan."
 msgstr[1] "Semua fail adalah pautan dan tidak mempunyai keizinan."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1247
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1255
 #, kde-format
 msgid "Only the owner can change permissions."
 msgstr "Hanya pemilik boleh mengubah keizinan."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1254
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1262
 #, kde-format
 msgid "O&wner:"
 msgstr "Pem&ilik:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1256
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1264
 #, kde-format
 msgid "Specifies the actions that the owner is allowed to do."
 msgstr "Nyatakan tindakan yang pemilik dibenar melakukannya."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1259
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1267
 #, kde-format
 msgid "Gro&up:"
 msgstr "&Kumpulan:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1261
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1269
 #, kde-format
 msgid "Specifies the actions that the members of the group are allowed to do."
 msgstr "Nyatakan tindakan yang ahli dalam kumpulan dibenar melakukannya."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1264
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1272
 #, kde-format
 msgid "O&thers:"
 msgstr "Lai&n-lain:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1267
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1275
 #, kde-format
 msgid ""
 "Specifies the actions that all users, who are neither owner nor in the "
@@ -6332,31 +6332,31 @@ msgstr ""
 "Nyatakan tindakan yang semua pengguna, yang bukan pemilik dan bukan dalam "
 "kumpulan, dibenarkan untuk melakukannya."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1271
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1279
 #, fuzzy, kde-format
 #| msgid "Only own&er can rename and delete folder content"
 msgid "Only own&er can delete or rename contents"
 msgstr "Hanya pemilik boleh menamakan semula dan menghapuskan kandungan folder"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1271
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1279
 #, fuzzy, kde-format
 #| msgid "Enable this flag to allow executing the file as a program."
 msgid "Allow &executing file as program"
 msgstr ""
 "Aktifkan bendera ini untuk membolehkan pelaksanaan fail sebagai program."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1273
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1281
 #, fuzzy, kde-format
 #| msgid "Default user name:"
 msgid "Delete or rename:"
 msgstr "Nama pengguna piawai:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1273
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1281
 #, fuzzy, kde-format
 msgid "Execute:"
 msgstr "Jalankan"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1274
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1282
 #, kde-format
 msgid ""
 "Enable this option to allow only the folder's owner to delete or rename the "
@@ -6367,7 +6367,7 @@ msgstr ""
 "menamakan semula fail yang terkandung dan folder. Pengguna lain hanya boleh "
 "tambah fail baru, yang memerlukan keizinan 'Ubah Suai Kandungan'."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1278
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1286
 #, kde-format
 msgid ""
 "Enable this option to mark the file as executable. This only makes sense for "
@@ -6377,42 +6377,42 @@ msgstr ""
 "memunasabahkan program dan skrip. Ia diperlukan apabila anda ingin "
 "melaksanakannya."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1282
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1290
 #, kde-format
 msgid "A&dvanced Permissions"
 msgstr "Keizinan &Lanjutan"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1290
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1298
 #, kde-format
 msgid "Ownership"
 msgstr "Pemilikan"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1298
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1306
 #, kde-format
 msgid "User:"
 msgstr "Pengguna:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1336
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1344
 #, kde-format
 msgid "Group:"
 msgstr "Kumpulan:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1370
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1378
 #, kde-format
 msgid "Apply changes to all subfolders and their contents"
 msgstr "Laksanakan perubahan kepada semua subfolder dan kandungannya"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1413
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1421
 #, kde-format
 msgid "Advanced Permissions"
 msgstr "Keizinan Lanjutan"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1433
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1441
 #, kde-format
 msgid "Class"
 msgstr "Kelas"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1440
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1448
 #, kde-format
 msgid ""
 "Show\n"
@@ -6421,22 +6421,22 @@ msgstr ""
 "Papar\n"
 "Entri"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1441
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1449
 #, kde-format
 msgid "This flag allows viewing the content of the folder."
 msgstr "Bendera ini membolehkan pemaparan kandungan folder."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1443
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1451
 #, kde-format
 msgid "Read"
 msgstr "Baca"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1444
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1452
 #, kde-format
 msgid "The Read flag allows viewing the content of the file."
 msgstr "Bendera Baca membolehkan pemaparan kandungan fail."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1450
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1458
 #, kde-format
 msgid ""
 "Write\n"
@@ -6445,7 +6445,7 @@ msgstr ""
 "Tulis\n"
 "Entri"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1452
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1460
 #, kde-format
 msgid ""
 "This flag allows adding, renaming and deleting of files. Note that deleting "
@@ -6455,44 +6455,44 @@ msgstr ""
 "perhatian bahawa penghapusan dan penamaan semula boleh dihadkan menggunakan "
 "bendera Melekit"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1455
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1463
 #, kde-format
 msgid "Write"
 msgstr "Tulis"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1456
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1464
 #, kde-format
 msgid "The Write flag allows modifying the content of the file."
 msgstr "Bendera Tulis membolehkan pengubahsuaian kandungan fail."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1462
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1470
 #, kde-format
 msgctxt "Enter folder"
 msgid "Enter"
 msgstr "Masuk"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1463
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1471
 #, kde-format
 msgid "Enable this flag to allow entering the folder."
 msgstr "Aktifkan bendera ini untuk membolehkan pemasukan folder."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1465
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1473
 #, kde-format
 msgid "Exec"
 msgstr "Jalankan"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1466
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1474
 #, kde-format
 msgid "Enable this flag to allow executing the file as a program."
 msgstr ""
 "Aktifkan bendera ini untuk membolehkan pelaksanaan fail sebagai program."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1474
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1482
 #, kde-format
 msgid "Special"
 msgstr "Khas"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1479
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1487
 #, kde-format
 msgid ""
 "Special flag. Valid for the whole folder, the exact meaning of the flag can "
@@ -6501,7 +6501,7 @@ msgstr ""
 "Bendera khas. Sah untuk seluruh folder, makna sebenar bendera dapat dilihat "
 "dalam lajur sebelah kanan."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1483
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1491
 #, kde-format
 msgid ""
 "Special flag. The exact meaning of the flag can be seen in the right hand "
@@ -6509,17 +6509,17 @@ msgid ""
 msgstr ""
 "Bendera khas. Makna sebenar bendera dapat dilihat dalam lajur sebelah kanan."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1488
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1496
 #, kde-format
 msgid "User"
 msgstr "Pengguna"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1492
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1500
 #, kde-format
 msgid "Group"
 msgstr "Kumpulan"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1503
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1511
 #, kde-format
 msgid ""
 "If this flag is set, the owner of this folder will be the owner of all new "
@@ -6527,7 +6527,7 @@ msgid ""
 msgstr ""
 "Jika bendera ini diset, pemilik folder ini adalah pemilik semua fail baru."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1507
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1515
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6536,14 +6536,14 @@ msgstr ""
 "Jika fail ini fail boleh laksana dan bendera diset, ia akan dilaksanakan "
 "dengan keizinan pemilik."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1514
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1522
 #, kde-format
 msgid ""
 "If this flag is set, the group of this folder will be set for all new files."
 msgstr ""
 "Jika bendera ini diset, kumpulan folder ini akan diset untuk semua fail baru."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1518
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1526
 #, kde-format
 msgid ""
 "If this file is an executable and the flag is set, it will be executed with "
@@ -6552,7 +6552,7 @@ msgstr ""
 "Jika fail ini boleh laksana dan bendera diset, ia akan dilaksanakan dengan "
 "keizinan kumpulan."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1525
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1533
 #, kde-format
 msgid ""
 "If the Sticky flag is set on a folder, only the owner and root can delete or "
@@ -6562,7 +6562,7 @@ msgstr ""
 "menghapuskan atau menamakan semula fail. Jika tidak, sesiapa yang ada "
 "keizinan tulis boleh melakukannya."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1530
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1538
 #, kde-format
 msgid ""
 "The Sticky flag on a file is ignored on Linux, but may be used on some "
@@ -6571,100 +6571,100 @@ msgstr ""
 "Bendera melekit dalam fail diabaikan dalam Linux, tetapi boleh digunakan "
 "dalam sesetengah sistem"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1591
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1599
 #, kde-format
 msgid "Set UID"
 msgstr "Set UID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1595
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1603
 #, kde-format
 msgid "Set GID"
 msgstr "Set GID"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1599
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1607
 #, kde-format
 msgctxt "File permission"
 msgid "Sticky"
 msgstr "Melekit"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1725
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1733
 #, kde-format
 msgid "Link"
 msgstr "Pautan"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1745
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1753
 #, kde-format
 msgid "Varying (No Change)"
 msgstr "Berubah-ubah (Tiada Perubahan)"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1856
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1864
 #, fuzzy, kde-format
 msgid "This file uses advanced permissions"
 msgid_plural "These files use advanced permissions."
 msgstr[0] "Fail ini menggunakan keizinan lanjutan."
 msgstr[1] ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1878
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1886
 #, fuzzy, kde-format
 msgid "This folder uses advanced permissions."
 msgid_plural "These folders use advanced permissions."
 msgstr[0] "Folder ini menggunakan keizinan lanjutan."
 msgstr[1] ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:1892
+#: widgets/kpropertiesdialogbuiltin_p.cpp:1900
 #, kde-format
 msgid "These files use advanced permissions."
 msgstr "Fail ini menggunakan keizinan lanjutan."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2141
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2149
 #, kde-format
 msgctxt "@title:tab"
 msgid "C&hecksums"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2306
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2314
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum… (%1%)"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2414
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2636
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2422
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2644
 #, fuzzy, kde-format
 msgctxt "@info:progress Calculating hash for multiple files"
 msgid "Calculating… (%1/%2)"
 msgstr "Mengira..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2431
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2638
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2439
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2646
 #, fuzzy, kde-format
 msgctxt "@info:progress Calculating hash"
 msgid "Calculating… (%1%)"
 msgstr "Mengira..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2501
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2509
 #, kde-format
 msgid "Invalid checksum."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2504
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2512
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The given input is not a valid MD5, SHA1 or SHA256 checksum."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2515
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2523
 #, kde-format
 msgid "Checksums match."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2518
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2526
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum match."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2530
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2538
 #, kde-format
 msgid ""
 "<p>Checksums do not match.</p>This may be due to a faulty download. Try re-"
@@ -6672,72 +6672,72 @@ msgid ""
 "source of the file."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2536
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2544
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "The computed checksum and the expected checksum differ."
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2544
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2552
 #, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum…"
 msgstr ""
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2612
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2620
 #, fuzzy, kde-format
 msgid "The checksums of all files are identical."
 msgstr "Nama fail baru kosong."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2617
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2625
 #, fuzzy, kde-format
 msgid "The selected files have different checksums."
 msgstr "Nama fail baru kosong."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2623
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2631
 #, fuzzy, kde-format
 msgctxt "@info:progress"
 msgid "Calculating…"
 msgstr "Mengira..."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2754
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2762
 #, kde-format
 msgid "U&RL"
 msgstr "U&RL"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2760
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2768
 #, kde-format
 msgid "URL:"
 msgstr "URL:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2829
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3100
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2837
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3108
 #, fuzzy, kde-format
 msgid ""
 "Could not save properties. Only entries on local file systems are supported."
 msgstr "Hanya boleh laksana dalam sistem fail setempat adalah disokong."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:2900
+#: widgets/kpropertiesdialogbuiltin_p.cpp:2908
 #, kde-format
 msgid "&Application"
 msgstr "&Aplikasi"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3040
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3048
 #, kde-format
 msgid "Add File Type for %1"
 msgstr "Tambah Jenis Fail untuk %1"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3041
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3049
 #, kde-format
 msgid "Select one or more file types to add:"
 msgstr "Pilih satu atau lebih jenis fail untk tambah:"
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3179
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3187
 #, kde-format
 msgid "Only executables on local file systems are supported."
 msgstr "Hanya boleh laksana dalam sistem fail setempat adalah disokong."
 
-#: widgets/kpropertiesdialogbuiltin_p.cpp:3194
+#: widgets/kpropertiesdialogbuiltin_p.cpp:3202
 #, kde-format
 msgid "Advanced Options for %1"
 msgstr "Opsyen Lanjutan untuk %1"
