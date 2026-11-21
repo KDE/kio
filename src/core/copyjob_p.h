@@ -10,7 +10,10 @@
 
 #ifdef BUILD_TESTING
 
+#include <KFileSystemType>
+
 #include <chrono>
+#include <optional>
 
 namespace KIO
 {
@@ -28,6 +31,11 @@ public:
      * The number of batch copy commands that every CopyJob of the process has sent to a worker.
      */
     KIOCORE_EXPORT static int batchCopyCommandsSent();
+
+    /*!
+     * The filesystem type that CopyJob gives every local destination, or nothing for the real one.
+     */
+    KIOCORE_EXPORT static void setDestinationFileSystemType(std::optional<KFileSystemType::Type> type);
 };
 }
 #endif

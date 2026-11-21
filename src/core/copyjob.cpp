@@ -204,6 +204,8 @@ static QString invalidCharsSupportMsg(const QString &path, const QString &fsName
 #ifdef BUILD_TESTING
 // The number of batch copy commands sent by every CopyJob of the process.
 static int s_batchCopyCommandsSent = 0;
+// The filesystem type of every local destination, in place of the real one.
+static std::optional<KFileSystemType::Type> s_destinationFileSystemType;
 
 void KIO::TestPrivate::setReportTimeout(std::chrono::milliseconds timeout)
 {
@@ -213,6 +215,11 @@ void KIO::TestPrivate::setReportTimeout(std::chrono::milliseconds timeout)
 int KIO::TestPrivate::batchCopyCommandsSent()
 {
     return s_batchCopyCommandsSent;
+}
+
+void KIO::TestPrivate::setDestinationFileSystemType(std::optional<KFileSystemType::Type> type)
+{
+    s_destinationFileSystemType = type;
 }
 #endif
 
@@ -362,6 +369,8 @@ public:
     };
     BatchDestEligibility m_batchDestEligibility = BatchDestEligibility::Unknown;
     qint32 m_batchDestFlags = 0; // BatchCopyFlagReflink when the destination filesystem can reflink
+    bool m_batchDestDisallowsMsdosChars = false; // FAT, exFAT or NTFS
+    bool m_batchDestIsFat32 = false;
 
     enum SkipType {
         // No skip dialog is involved
@@ -420,6 +429,11 @@ public:
     {
         if (!m_globalDestFsType) {
             m_globalDestFsType = m_globalDest.isLocalFile() ? KFileSystemType::fileSystemType(m_globalDest.toLocalFile()) : KFileSystemType::Unknown;
+#ifdef BUILD_TESTING
+            if (s_destinationFileSystemType && m_globalDest.isLocalFile()) {
+                m_globalDestFsType = *s_destinationFileSystemType;
+            }
+#endif
         }
         return *m_globalDestFsType;
     }
@@ -2185,8 +2199,8 @@ bool CopyJobPrivate::handleMsdosFsQuirks(QList<CopyInfo>::Iterator it, KFileSyst
 }
 
 // A mount on local storage, judged on the folder the destination resolves to. The worker defers
-// the files of a network or FUSE mount below it. FAT, exFAT and NTFS take no batch, because a batch
-// skips the per-file handling of their file names and the FAT32 size limit.
+// the files of a network or FUSE mount below it, and a file that it cannot create or write, such as
+// a name that FAT refuses.
 bool CopyJobPrivate::batchDestinationEligible()
 {
     if (m_batchDestEligibility == BatchDestEligibility::Unknown) {
@@ -2195,10 +2209,11 @@ bool CopyJobPrivate::batchDestinationEligible()
             const QString destPath = m_globalDest.toLocalFile();
             const QString resolvedDest = QFileInfo(destPath).canonicalFilePath();
             const KMountPoint::Ptr destMp = KMountPoint::currentMountPointForPath(resolvedDest.isEmpty() ? destPath : resolvedDest);
-            const bool msdosQuirks = KIOPrivate::destinationDisallowsMsdosChars(m_globalDest, globalDestFsType());
-            if (destMp && !destMp->isOnRemoteStorage() && !msdosQuirks) {
+            if (destMp && !destMp->isOnRemoteStorage()) {
                 m_batchDestEligibility = BatchDestEligibility::Eligible;
                 m_batchDestFlags = destMp->testFileSystemFlag(KMountPoint::SupportsFileCloning) ? KIO::BatchCopyFlagReflink : 0;
+                m_batchDestDisallowsMsdosChars = KIOPrivate::destinationDisallowsMsdosChars(m_globalDest, globalDestFsType());
+                m_batchDestIsFat32 = globalDestFsType() == KFileSystemType::Fat;
             }
         }
     }
@@ -2207,9 +2222,13 @@ bool CopyJobPrivate::batchDestinationEligible()
 
 CopyJobPrivate::BatchRun CopyJobPrivate::nextBatchRun() const
 {
-    // Symlinks, special files, files a batch deferred and files to skip are copied one by one.
+    // Symlinks, special files, files a batch deferred and files to skip are copied one by one. So are
+    // a name with a character that FAT and NTFS disallow, which the user is asked about, and a file
+    // too large for FAT32, which fails the job.
     const auto batchable = [this](const CopyInfo &ci) {
-        return ci.linkDest.isEmpty() && ci.isRegularFile && ci.uSource.isLocalFile() && ci.uDest.isLocalFile() && !ci.deferred && !shouldSkip(ci.uDest.path());
+        return ci.linkDest.isEmpty() && ci.isRegularFile && ci.uSource.isLocalFile() && ci.uDest.isLocalFile() && !ci.deferred && !shouldSkip(ci.uDest.path())
+            && !(m_batchDestDisallowsMsdosChars && KIOPrivate::hasMsdosInvalidChars(ci.uDest.fileName()))
+            && !(m_batchDestIsFat32 && ci.size != KIO::invalidFilesize && ci.size > 0xFFFFFFFF);
     };
     BatchRun run;
     for (const CopyInfo &ci : std::as_const(filesToCopy) | std::views::take(KIO::BatchCopyMaxFiles) | std::views::take_while(batchable)) {

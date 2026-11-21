@@ -14,6 +14,7 @@
 #include <kio/job.h>
 #include <kio/simplejob.h>
 
+#include <KFileSystemType>
 #include <KJobUiDelegate>
 
 #include <QDataStream>
@@ -55,6 +56,9 @@ private Q_SLOTS:
     void killingABatchToARemovableDeviceKeepsItsFlush();
     void copyLargeFilesBatched();
     void copyManyFilesBatchedToSetgidDirectory();
+    void copyManyFilesBatchedToMsdosFileSystem_data();
+    void copyManyFilesBatchedToMsdosFileSystem();
+    void copyManyFilesBatchedStopsBeforeAFileTooLargeForFat32();
 };
 
 void CopyJobTest::initTestCase()
@@ -728,6 +732,93 @@ void CopyJobTest::copyManyFilesBatchedToSetgidDirectory()
 #else
     QSKIP("Setgid folders are a UNIX matter");
 #endif
+}
+
+void CopyJobTest::copyManyFilesBatchedToMsdosFileSystem_data()
+{
+    QTest::addColumn<KFileSystemType::Type>("fileSystemType");
+    QTest::newRow("fat") << KFileSystemType::Fat;
+    QTest::newRow("exfat") << KFileSystemType::Exfat;
+    QTest::newRow("ntfs") << KFileSystemType::Ntfs;
+}
+
+void CopyJobTest::copyManyFilesBatchedToMsdosFileSystem()
+{
+    // The files go in batches, and the name that these filesystems disallow is asked about.
+    QFETCH(KFileSystemType::Type, fileSystemType);
+    KIO::TestPrivate::setDestinationFileSystemType(fileSystemType);
+    const QString src = homeTmpDir() + "msdosbatch_src/";
+    const QString dst = homeTmpDir() + "msdosbatch_dst/";
+    QDir(src).removeRecursively();
+    QDir(dst).removeRecursively();
+    QDir().mkpath(src);
+    QDir().mkpath(dst);
+    auto cleaner = qScopeGuard([&] {
+        KIO::TestPrivate::setDestinationFileSystemType(std::nullopt);
+        QDir(src).removeRecursively();
+        QDir(dst).removeRecursively();
+    });
+
+    const QStringList names{"a0", "a1", "a2", "b:3", "c4", "c5", "c6"};
+    QList<QUrl> sources;
+    for (const QString &name : names) {
+        createTestFile(src + name, true, name.toUtf8());
+        sources << QUrl::fromLocalFile(src + name);
+    }
+
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
+    KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
+    job->setUiDelegate(new KJobUiDelegate);
+    auto *askUserHandler = new MockAskUserInterface(job->uiDelegate());
+    askUserHandler->m_skipResult = KIO::Result_Skip;
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+    QCOMPARE(KIO::TestPrivate::batchCopyCommandsSent() - batchesBefore, 2);
+    QCOMPARE(askUserHandler->m_askUserSkipCalled, 1);
+    for (const QString &name : names) {
+        QCOMPARE(QFile::exists(dst + name), name != QLatin1String("b:3"));
+    }
+}
+
+void CopyJobTest::copyManyFilesBatchedStopsBeforeAFileTooLargeForFat32()
+{
+    // The files before the large one are copied in a batch, and the large one fails the job before
+    // any of its data is written.
+    KIO::TestPrivate::setDestinationFileSystemType(KFileSystemType::Fat);
+    const QString src = homeTmpDir() + "fat32batch_src/";
+    const QString dst = homeTmpDir() + "fat32batch_dst/";
+    QDir(src).removeRecursively();
+    QDir(dst).removeRecursively();
+    QDir().mkpath(src);
+    QDir().mkpath(dst);
+    auto cleaner = qScopeGuard([&] {
+        KIO::TestPrivate::setDestinationFileSystemType(std::nullopt);
+        QDir(src).removeRecursively();
+        QDir(dst).removeRecursively();
+    });
+
+    createTestFile(src + "a0", true, "a0");
+    createTestFile(src + "a1", true, "a1");
+    QFile large(src + "large");
+    QVERIFY(large.open(QIODevice::WriteOnly));
+    QVERIFY(large.resize(qint64(5) * 1024 * 1024 * 1024)); // sparse
+    large.close();
+    createTestFile(src + "a3", true, "a3");
+    const QList<QUrl> sources{QUrl::fromLocalFile(src + "a0"),
+                              QUrl::fromLocalFile(src + "a1"),
+                              QUrl::fromLocalFile(src + "large"),
+                              QUrl::fromLocalFile(src + "a3")};
+
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
+    KIO::CopyJob *job = KIO::copy(sources, QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+    QVERIFY(!job->exec());
+
+    QCOMPARE(job->error(), KIO::ERR_FILE_TOO_LARGE_FOR_FAT32);
+    QCOMPARE(KIO::TestPrivate::batchCopyCommandsSent() - batchesBefore, 1);
+    QVERIFY(QFile::exists(dst + "a0"));
+    QVERIFY(QFile::exists(dst + "a1"));
+    QVERIFY(!QFile::exists(dst + "large"));
 }
 
 QTEST_MAIN(CopyJobTest)
