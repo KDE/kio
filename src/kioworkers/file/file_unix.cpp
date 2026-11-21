@@ -926,14 +926,12 @@ WorkerResult FileProtocol::batchStat(QDataStream &stream)
     const KIO::StatDetails details = getStatDetails();
 
     UDSEntryList entries;
-    entries.reserve(count);
+    entries.resize(count);
     for (qint32 i = 0; i < count; ++i) {
         QString path;
         stream >> path;
-        UDSEntry entry;
         const QByteArray _path = QFile::encodeName(path);
-        createUDSEntry(QFileInfo(path).fileName(), AT_FDCWD, _path.constData(), _path, entry, details, path);
-        entries.append(entry);
+        createUDSEntry(QFileInfo(path).fileName(), AT_FDCWD, _path.constData(), _path, entries[i], details, path);
     }
     listEntries(entries);
     return WorkerResult::pass();

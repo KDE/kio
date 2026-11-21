@@ -369,7 +369,7 @@ public:
     // for the rest of the job.
     bool m_useBatchStat = true;
     QList<QUrl> m_batchStatUrls; // the sources of the command in flight
-    QHash<QUrl, UDSEntry> m_batchStatResults;
+    QHash<qsizetype, UDSEntry> m_batchStatResults; // by the index of the source in m_srcList
     // The sources of the next command, sized toward 200 ms, since a command cannot be killed.
     int m_batchStatChunk = 128;
     qsizetype m_batchStatedTo = 0; // the sources before this index in m_srcList were sent
@@ -1273,11 +1273,12 @@ void CopyJobPrivate::slotResultStatingBatch(KJob *job)
 
     // A source that the worker could not stat comes back empty, and its own stat reports the error.
     const UDSEntryList entries = static_cast<BatchStatJob *>(job)->entries();
+    const qsizetype runStart = m_batchStatedTo - m_batchStatUrls.size();
     int cached = 0;
     for (int i = 0; i < entries.size() && i < m_batchStatUrls.size(); ++i) {
         const UDSEntry &entry = entries.at(i);
         if (entry.count() > 0) {
-            m_batchStatResults.insert(m_batchStatUrls.at(i), entry);
+            m_batchStatResults.insert(runStart + i, entry);
             ++cached;
         }
     }
@@ -1351,7 +1352,7 @@ void CopyJobPrivate::statCurrentSrc()
 
         // The entry from a batch, or a batch for the run of local sources that starts here.
         if (entry.count() == 0 && m_useBatchStat && m_mode != CopyJob::Link) {
-            const auto cached = m_batchStatResults.constFind(m_currentSrcURL);
+            const auto cached = m_batchStatResults.constFind(m_currentStatSrc - m_srcList.constBegin());
             if (cached != m_batchStatResults.constEnd()) {
                 entry = *cached;
             } else if (tryBatchStatSources()) {
