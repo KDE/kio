@@ -565,8 +565,7 @@ void CopyJobPrivate::slotStart()
             if (m_dest.scheme() == url.scheme() && m_dest.host() == url.host()) {
                 const QString srcPath = Utils::slashAppended(url.path());
                 if (m_dest.path().startsWith(srcPath)) {
-                    q->setError(KIO::ERR_CANNOT_MOVE_INTO_ITSELF);
-                    q->emitResult();
+                    q->emitErrorResult(KIO::ERR_CANNOT_MOVE_INTO_ITSELF);
                     return;
                 }
             }
@@ -577,10 +576,8 @@ void CopyJobPrivate::slotStart()
         const QString destPath = m_globalDest.toLocalFile();
         const auto destFs = KFileSystemType::fileSystemType(destPath);
         if (isFatFs(destFs)) {
-            q->setError(ERR_SYMLINKS_NOT_SUPPORTED);
             const QString errText = destPath + QLatin1String(" [") + KFileSystemType::fileSystemName(destFs) + QLatin1Char(']');
-            q->setErrorText(errText);
-            q->emitResult();
+            q->emitErrorResult(ERR_SYMLINKS_NOT_SUPPORTED, errText);
             return;
         }
     }
@@ -665,9 +662,7 @@ void CopyJobPrivate::slotResultStating(KJob *job)
                 const bool isWritable = (permissions & S_IWUSR);
                 if (!isWritable) {
                     const QUrl dest = m_asMethod ? m_dest.adjusted(QUrl::RemoveFilename) : m_dest;
-                    q->setError(ERR_WRITE_ACCESS_DENIED);
-                    q->setErrorText(dest.toDisplayString(QUrl::PreferLocalFile));
-                    q->emitResult();
+                    q->emitErrorResult(ERR_WRITE_ACCESS_DENIED, dest.toDisplayString(QUrl::PreferLocalFile));
                     return;
                 }
             }
@@ -1254,9 +1249,7 @@ void CopyJobPrivate::statCurrentSrc()
         qCDebug(KIO_COPYJOB_DEBUG) << "Stating finished. To copy:" << m_totalSize << ", available:" << m_freeSpace;
 
         if (m_totalSize > m_freeSpace && m_freeSpace != static_cast<KIO::filesize_t>(-1)) {
-            q->setError(ERR_DISK_FULL);
-            q->setErrorText(m_currentSrcURL.toDisplayString());
-            q->emitResult();
+            q->emitErrorResult(ERR_DISK_FULL, m_currentSrcURL.toDisplayString());
             return;
         }
 
@@ -1558,8 +1551,7 @@ void CopyJobPrivate::slotResultConflictCreatingDirs(KJob *job)
 
         switch (result) {
         case Result_Cancel:
-            q->setError(ERR_USER_CANCELED);
-            q->emitResult();
+            q->emitErrorResult(ERR_USER_CANCELED);
             return;
         case Result_AutoRename:
             m_bAutoRenameDirs = true;
@@ -1699,8 +1691,7 @@ void CopyJobPrivate::processCreateNextDir(const QList<CopyInfo>::Iterator &it, i
 
     switch (result) {
     case Result_Cancel:
-        q->setError(ERR_USER_CANCELED);
-        q->emitResult();
+        q->emitErrorResult(ERR_USER_CANCELED);
         return;
     case KIO::Result_ReplaceAllInvalidChars:
         m_autoReplaceInvalidChars = true;
@@ -2010,8 +2001,7 @@ void CopyJobPrivate::processFileRenameDialogResult(const QList<CopyInfo>::Iterat
 
     switch (result) {
     case Result_Cancel:
-        q->setError(ERR_USER_CANCELED);
-        q->emitResult();
+        q->emitErrorResult(ERR_USER_CANCELED);
         return;
     case Result_AutoRename:
         m_bAutoRenameFiles = true;
@@ -2110,16 +2100,12 @@ KIO::Job *CopyJobPrivate::linkNextFile(const QUrl &uSource, const QUrl &uDest, J
                 return nullptr;
             } else {
                 qCDebug(KIO_COPYJOB_DEBUG) << "ERR_CANNOT_OPEN_FOR_WRITING";
-                q->setError(ERR_CANNOT_OPEN_FOR_WRITING);
-                q->setErrorText(uDest.toLocalFile());
-                q->emitResult();
+                q->emitErrorResult(ERR_CANNOT_OPEN_FOR_WRITING, uDest.toLocalFile());
                 return nullptr;
             }
         } else {
             // Todo: not show "link" on remote dirs if the src urls are not from the same protocol+host+...
-            q->setError(ERR_CANNOT_SYMLINK);
-            q->setErrorText(uDest.toDisplayString());
-            q->emitResult();
+            q->emitErrorResult(ERR_CANNOT_SYMLINK, uDest.toDisplayString());
             return nullptr;
         }
     }
@@ -2443,9 +2429,7 @@ void CopyJobPrivate::copyNextFile()
         if (it != filesToCopy.end() && isDestLocal && (*it).size > 0xFFFFFFFF) { // 4GB-1
             const auto destFileSystem = globalDestFsType();
             if (destFileSystem == KFileSystemType::Fat) {
-                q->setError(ERR_FILE_TOO_LARGE_FOR_FAT32);
-                q->setErrorText((*it).uDest.toDisplayString());
-                q->emitResult();
+                q->emitErrorResult(ERR_FILE_TOO_LARGE_FOR_FAT32, (*it).uDest.toDisplayString());
                 return;
             }
         }
@@ -2485,8 +2469,7 @@ void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, in
 
     switch (result) {
     case Result_Cancel:
-        q->setError(ERR_USER_CANCELED);
-        q->emitResult();
+        q->emitErrorResult(ERR_USER_CANCELED);
         return;
     case KIO::Result_ReplaceAllInvalidChars:
         m_autoReplaceInvalidChars = true;
@@ -2520,8 +2503,7 @@ void CopyJobPrivate::processCopyNextFile(const QList<CopyInfo>::Iterator &it, in
 
     qCDebug(KIO_COPYJOB_DEBUG) << "preparing to copy" << (*it).uSource << (*it).size << m_freeSpace;
     if (!mayFit((*it).size)) {
-        q->setError(ERR_DISK_FULL);
-        q->emitResult();
+        q->emitErrorResult(ERR_DISK_FULL);
         return;
     }
 
@@ -2753,9 +2735,7 @@ void CopyJobPrivate::finishWithError(KJob *job)
 {
     Q_Q(CopyJob);
     q->removeSubjob(job);
-    q->setError(job->error());
-    q->setErrorText(job->errorText());
-    q->emitResult();
+    q->emitErrorResult(job->error(), job->errorText());
 }
 
 void CopyJobPrivate::slotResultFlushing(KJob *job)
@@ -2855,6 +2835,13 @@ void CopyJobPrivate::slotResultDeletingSources(KJob *job)
     KIO::SimpleJob *deleteJob = KIO::file_delete(info.uSource, KIO::HideProgressInfo);
     deleteJob->setParentJob(q);
     q->addSubjob(deleteJob);
+}
+
+void CopyJob::emitErrorResult(int errorCode, const QString &errorText)
+{
+    setError(errorCode);
+    setErrorText(errorText);
+    emitResult();
 }
 
 void CopyJob::emitResult()
@@ -3141,16 +3128,12 @@ void CopyJobPrivate::slotResultRenaming(KJob *job)
                 }
             } else if (err != KIO::ERR_UNSUPPORTED_ACTION) {
                 // Dest already exists, and job is not interactive -> abort with error
-                q->setError(err);
-                q->setErrorText(errText);
-                q->emitResult();
+                q->emitErrorResult(err, errText);
                 return;
             }
         } else if (err != KIO::ERR_UNSUPPORTED_ACTION) {
             qCDebug(KIO_COPYJOB_DEBUG) << "Couldn't rename" << m_currentSrcURL << "to" << dest << ", aborting";
-            q->setError(err);
-            q->setErrorText(errText);
-            q->emitResult();
+            q->emitErrorResult(err, errText);
             return;
         }
 
@@ -3196,8 +3179,7 @@ void CopyJobPrivate::processDirectRenamingConflictResult(RenameDialog_Result res
 
     switch (result) {
     case Result_Cancel: {
-        q->setError(ERR_USER_CANCELED);
-        q->emitResult();
+        q->emitErrorResult(ERR_USER_CANCELED);
         return;
     }
     case Result_AutoRename:

@@ -249,6 +249,14 @@ protected:
     KIOCORE_NO_EXPORT explicit CopyJob(CopyJobPrivate &dd);
     void emitResult();
 
+    /*!
+     * Ends the job with the error code \a errorCode and the error text \a errorText, through the
+     * emitResult() of CopyJob.
+     *
+     * \since 6.33
+     */
+    void emitErrorResult(int errorCode, const QString &errorText = QString());
+
 private:
     Q_DECLARE_PRIVATE(CopyJob)
 };
