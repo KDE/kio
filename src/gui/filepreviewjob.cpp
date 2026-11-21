@@ -171,8 +171,7 @@ void FilePreviewJob::start()
 {
     QUrl targetUrl = m_fileItem.targetUrl();
     if (!targetUrl.isValid()) {
-        setError(ERR_INTERNAL);
-        emitResult();
+        emitErrorResult(ERR_INTERNAL);
         return;
     }
     // We need to first check the device id's so we can find out if the images can be cached
@@ -284,9 +283,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
 {
     if (job->error()) {
         qCDebug(KIO_GUI) << "Job stat failed" << job->errorString();
-        setError(job->error());
-        setErrorText(job->errorText());
-        emitResult();
+        emitErrorResult(job->error(), job->errorText());
         return;
     }
     bool isLocal;
@@ -346,8 +343,7 @@ void FilePreviewJob::slotStatFile(KJob *job)
     }
 
     if (!preparePluginForMimetype(m_fileItem.mimetype())) {
-        setError(KIO::ERR_INTERNAL);
-        emitResult();
+        emitErrorResult(KIO::ERR_INTERNAL);
         return;
     }
 
@@ -834,9 +830,7 @@ void FilePreviewJob::slotTimeout()
         m_standardThumbnailJob->kill();
     }
 
-    setError(KIO::ERR_INTERNAL);
-    setErrorText(u"Timeout"_s);
-    emitResult();
+    emitErrorResult(KIO::ERR_INTERNAL, u"Timeout"_s);
 }
 
 std::unique_ptr<SHM> SHM::create(int size)

@@ -128,8 +128,7 @@ void OpenFileManagerWindowJob::setStartupId(const QByteArray &startupId)
 void OpenFileManagerWindowJob::start()
 {
     if (d->highlightUrls.isEmpty()) {
-        setError(NoValidUrlsError);
-        emitResult();
+        emitErrorResult(NoValidUrlsError);
         return;
     }
 

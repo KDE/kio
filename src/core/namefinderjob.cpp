@@ -62,8 +62,7 @@ void KIO::NameFinderJob::start()
 {
     if (!d->m_baseUrl.isValid() || d->m_baseUrl.scheme().isEmpty()) {
         qCDebug(KIO_CORE) << "Malformed URL" << d->m_baseUrl;
-        setError(KIO::ERR_MALFORMED_URL);
-        emitResult();
+        emitErrorResult(KIO::ERR_MALFORMED_URL);
         return;
     }
 

@@ -426,8 +426,7 @@ void FileCopyJobPrivate::processCanResumeResult(KIO::Job *job, RenameDialog_Resu
             q->removeSubjob(m_copyJob);
             m_copyJob = nullptr;
         }
-        q->setError(ERR_USER_CANCELED);
-        q->emitResult();
+        q->emitErrorResult(ERR_USER_CANCELED);
         return;
     }
 
@@ -569,9 +568,7 @@ void FileCopyJob::slotResult(KJob *job)
                 removeSubjob(d->m_chmodJob);
             }
         }
-        setError(job->error());
-        setErrorText(job->errorText());
-        emitResult();
+        emitErrorResult(job->error(), job->errorText());
         return;
     }
 

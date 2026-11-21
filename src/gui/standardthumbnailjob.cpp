@@ -122,9 +122,7 @@ void KIO::StandardThumbnailJob::StandardThumbnailJob::start()
     // Prepare the command
     d->m_tempFile = new QTemporaryFile(QStringLiteral("%1/XXXXXX.png").arg(d->m_outputFolder), this);
     if (!d->m_tempFile->open()) {
-        setErrorText(QStringLiteral("Standard Thumbnail Job had an error: could not open temporary file"));
-        setError(KIO::ERR_CANNOT_OPEN_FOR_WRITING);
-        emitResult();
+        emitErrorResult(KIO::ERR_CANNOT_OPEN_FOR_WRITING, QStringLiteral("Standard Thumbnail Job had an error: could not open temporary file"));
     }
     d->m_tempFile->setAutoRemove(false);
 
@@ -134,9 +132,7 @@ void KIO::StandardThumbnailJob::StandardThumbnailJob::start()
     connect(d->m_proc, &QProcess::finished, this, [=, this](const int exitCode, const QProcess::ExitStatus /* exitStatus */) {
         d->m_proc->deleteLater();
         if (exitCode != 0) {
-            setErrorText(QStringLiteral("Standard Thumbnail Job failed with exit code: %1 ").arg(exitCode));
-            setError(KIO::ERR_CANNOT_LAUNCH_PROCESS);
-            emitResult();
+            emitErrorResult(KIO::ERR_CANNOT_LAUNCH_PROCESS, QStringLiteral("Standard Thumbnail Job failed with exit code: %1 ").arg(exitCode));
 
             // clean temp file
             d->m_tempFile->remove();
@@ -152,9 +148,7 @@ void KIO::StandardThumbnailJob::StandardThumbnailJob::start()
     });
     connect(d->m_proc, &QProcess::errorOccurred, this, [=, this](const QProcess::ProcessError error) {
         d->m_proc->deleteLater();
-        setErrorText(QStringLiteral("Standard Thumbnail Job had an error: %1").arg(error));
-        setError(KIO::ERR_CANNOT_LAUNCH_PROCESS);
-        emitResult();
+        emitErrorResult(KIO::ERR_CANNOT_LAUNCH_PROCESS, QStringLiteral("Standard Thumbnail Job had an error: %1").arg(error));
 
         // clean temp file
         d->m_tempFile->remove();

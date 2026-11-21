@@ -220,8 +220,7 @@ void ChmodJobPrivate::chmodNextFile()
                             return;
                         case Result_Cancel:
                         default:
-                            q->setError(ERR_USER_CANCELED);
-                            q->emitResult();
+                            q->emitErrorResult(ERR_USER_CANCELED);
                             return;
                         }
                     });
@@ -259,9 +258,7 @@ void ChmodJob::slotResult(KJob *job)
     Q_D(ChmodJob);
     removeSubjob(job);
     if (job->error()) {
-        setError(job->error());
-        setErrorText(job->errorText());
-        emitResult();
+        emitErrorResult(job->error(), job->errorText());
         return;
     }
     // qDebug() << "d->m_lstItems:" << d->m_lstItems.count();

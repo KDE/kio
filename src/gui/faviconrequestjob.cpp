@@ -104,9 +104,7 @@ void FavIconRequestJob::doStart()
 
         if (cache->isFailedDownload(iconUrl)) {
             qCDebug(FAVICONS_LOG) << iconUrl << "already in failedDownloads, emitting error";
-            setError(KIO::ERR_DOES_NOT_EXIST);
-            setErrorText(i18n("No favicon found for %1", d->m_hostUrl.host()));
-            emitResult();
+            emitErrorResult(KIO::ERR_DOES_NOT_EXIST, i18n("No favicon found for %1", d->m_hostUrl.host()));
             return;
         }
     }

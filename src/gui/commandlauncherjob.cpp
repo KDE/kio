@@ -102,9 +102,7 @@ void KIO::CommandLauncherJob::start()
     }
 
     if (d->m_executable.isEmpty()) {
-        setError(KJob::UserDefinedError);
-        setErrorText(i18nc("An error message", "Empty command provided"));
-        emitResult();
+        emitErrorResult(KJob::UserDefinedError, i18nc("An error message", "Empty command provided"));
         return;
     }
 
@@ -120,9 +118,7 @@ void KIO::CommandLauncherJob::start()
             KProcessRunner::fromExecutable(d->m_executable, d->m_arguments, d->m_desktopName, d->m_startupId, d->m_workingDirectory, d->m_environment);
 
         if (!d->m_processRunner) {
-            setError(KIO::ERR_DOES_NOT_EXIST);
-            setErrorText(d->m_executable);
-            emitResult();
+            emitErrorResult(KIO::ERR_DOES_NOT_EXIST, d->m_executable);
             return;
         }
     } else {
@@ -130,9 +126,7 @@ void KIO::CommandLauncherJob::start()
             KProcessRunner::fromCommand(d->m_command, d->m_desktopName, d->m_executable, d->m_startupId, d->m_workingDirectory, d->m_environment);
     }
     connect(d->m_processRunner, &KProcessRunner::error, this, [this](const QString &errorText) {
-        setError(KJob::UserDefinedError);
-        setErrorText(errorText);
-        emitResult();
+        emitErrorResult(KJob::UserDefinedError, errorText);
     });
     connect(d->m_processRunner, &KProcessRunner::processStarted, this, [this](qint64 pid) {
         d->m_pid = pid;

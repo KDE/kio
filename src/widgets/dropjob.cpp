@@ -296,8 +296,7 @@ void DropJobPrivate::slotStart()
                 handleDropToExecutable();
             } else {
                 // should not happen, if KDirModel::flags is correct
-                q->setError(KIO::ERR_ACCESS_DENIED);
-                q->emitResult();
+                q->emitErrorResult(KIO::ERR_ACCESS_DENIED);
             }
         }
     } else if (m_mimeData) {
@@ -409,8 +408,7 @@ void DropJobPrivate::slotTriggered(QAction *action)
     }
     const QVariant data = action->data();
     if (!data.canConvert<Qt::DropAction>()) {
-        q->setError(KIO::ERR_USER_CANCELED);
-        q->emitResult();
+        q->emitErrorResult(KIO::ERR_USER_CANCELED);
         return;
     }
     m_dropAction = data.value<Qt::DropAction>();
@@ -425,8 +423,7 @@ void DropJobPrivate::slotAboutToHide()
     // If it does, the cleanup will be done by slotTriggered.
     QTimer::singleShot(0, q, [=, this]() {
         if (!m_triggered) {
-            q->setError(KIO::ERR_USER_CANCELED);
-            q->emitResult();
+            q->emitErrorResult(KIO::ERR_USER_CANCELED);
         }
     });
 }
@@ -689,8 +686,7 @@ void DropJobPrivate::slotDropActionDetermined(int error)
             m_menus.remove(menu);
         });
     } else {
-        q->setError(error);
-        q->emitResult();
+        q->emitErrorResult(error);
     }
 }
 
@@ -716,8 +712,7 @@ void DropJobPrivate::doCopyToDirectory()
         break;
     default:
         qCWarning(KIO_WIDGETS) << "Unknown drop action" << int(m_dropAction);
-        q->setError(KIO::ERR_UNSUPPORTED_ACTION);
-        q->emitResult();
+        q->emitErrorResult(KIO::ERR_UNSUPPORTED_ACTION);
         return;
     }
     Q_ASSERT(job);
@@ -767,8 +762,7 @@ void DropJobPrivate::handleDropToDesktopFile()
             // for now, fallback
         }
         // Some other kind of .desktop file (service, servicetype...)
-        q->setError(KIO::ERR_UNSUPPORTED_ACTION);
-        q->emitResult();
+        q->emitErrorResult(KIO::ERR_UNSUPPORTED_ACTION);
     }
 }
 

@@ -53,9 +53,7 @@ void KIO::MimeTypeFinderJob::start()
 {
     if (!d->m_url.isValid() || d->m_url.scheme().isEmpty()) {
         const QString error = !d->m_url.isValid() ? d->m_url.errorString() : d->m_url.toDisplayString();
-        setError(KIO::ERR_MALFORMED_URL);
-        setErrorText(i18n("Malformed URL\n%1", error));
-        emitResult();
+        emitErrorResult(KIO::ERR_MALFORMED_URL, i18n("Malformed URL\n%1", error));
         return;
     }
 
@@ -220,9 +218,7 @@ void KIO::MimeTypeFinderJobPrivate::scanFileWithGet()
         // if the job succeeded, we certainly hope it emitted mimeTypeFound()...
         if (m_mimeTypeName.isEmpty()) {
             qCWarning(KIO_CORE) << "KIO::get didn't emit a mimetype! Please fix the KIO worker for URL" << m_url;
-            q->setError(KIO::ERR_INTERNAL);
-            q->setErrorText(i18n("Unable to determine the type of file for %1", m_url.toDisplayString()));
-            q->emitResult();
+            q->emitErrorResult(KIO::ERR_INTERNAL, i18n("Unable to determine the type of file for %1", m_url.toDisplayString()));
         }
     });
     QObject::connect(job, &KIO::TransferJob::mimeTypeFound, q, [=, this](KIO::Job *, const QString &mimetype) {

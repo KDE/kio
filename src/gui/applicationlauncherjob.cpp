@@ -121,9 +121,7 @@ void KIO::ApplicationLauncherJob::setStartupId(const QByteArray &startupId)
 
 void KIO::ApplicationLauncherJob::emitUnauthorizedError()
 {
-    setError(KJob::UserDefinedError);
-    setErrorText(i18n("You are not authorized to execute this file."));
-    emitResult();
+    emitErrorResult(KJob::UserDefinedError, i18n("You are not authorized to execute this file."));
 }
 
 void KIO::ApplicationLauncherJob::setKnownMimeType(const QString &mimeType)
@@ -174,13 +172,11 @@ void KIO::ApplicationLauncherJob::start()
                     if (serviceName.isEmpty()) {
                         serviceName = d->m_service->genericName();
                     }
-                    setError(KJob::UserDefinedError);
-                    setErrorText(i18n("Unable to make the service %1 executable, aborting execution.\n%2.", serviceName, errorString));
-                    emitResult();
+                    emitErrorResult(KJob::UserDefinedError,
+                                    i18n("Unable to make the service %1 executable, aborting execution.\n%2.", serviceName, errorString));
                 }
             } else {
-                setError(KIO::ERR_USER_CANCELED);
-                emitResult();
+                emitErrorResult(KIO::ERR_USER_CANCELED);
             }
         });
         untrustedProgramHandler->showUntrustedProgramWarning(this, d->m_service->name());
@@ -225,9 +221,7 @@ void KIO::ApplicationLauncherJob::proceedAfterSecurityChecks()
                                                           d->m_urls.size() == 1 ? d->m_mimeTypeName : QString());
     d->m_processRunners.push_back(processRunner);
     connect(processRunner, &KProcessRunner::error, this, [this](const QString &errorText) {
-        setError(KJob::UserDefinedError);
-        setErrorText(errorText);
-        emitResult();
+        emitErrorResult(KJob::UserDefinedError, errorText);
     });
     connect(processRunner, &KProcessRunner::processStarted, this, [this](qint64 pid) {
         d->slotStarted(pid);
@@ -298,23 +292,18 @@ void KIO::ApplicationLauncherJobPrivate::showOpenWithDialogForMimeType()
 void KIO::ApplicationLauncherJobPrivate::showOpenWithDialog()
 {
     if (!KAuthorized::authorizeAction(QStringLiteral("openwith"))) {
-        q->setError(KJob::UserDefinedError);
-        q->setErrorText(i18n("You are not authorized to select an application to open this file."));
-        q->emitResult();
+        q->emitErrorResult(KJob::UserDefinedError, i18n("You are not authorized to select an application to open this file."));
         return;
     }
 
     auto *openWithHandler = KIO::delegateExtension<KIO::OpenWithHandlerInterface *>(q);
     if (!openWithHandler) {
-        q->setError(KJob::UserDefinedError);
-        q->setErrorText(i18n("Internal error: could not prompt the user for which application to start"));
-        q->emitResult();
+        q->emitErrorResult(KJob::UserDefinedError, i18n("Internal error: could not prompt the user for which application to start"));
         return;
     }
 
     QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::canceled, q, [this]() {
-        q->setError(KIO::ERR_USER_CANCELED);
-        q->emitResult();
+        q->emitErrorResult(KIO::ERR_USER_CANCELED);
     });
 
     QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::serviceSelected, q, [this](const KService::Ptr &service) {

@@ -81,8 +81,7 @@ void PasteJobPrivate::slotStart()
 {
     Q_Q(PasteJob);
     if (!m_mimeData) {
-        q->setError(KIO::ERR_NO_CONTENT);
-        q->emitResult();
+        q->emitErrorResult(KIO::ERR_NO_CONTENT);
         return;
     }
     if (!KIO::canPasteMimeData(m_mimeData)) {
@@ -170,8 +169,7 @@ void PasteJobPrivate::slotStart()
         auto [resultJob, error] = pasteMimeDataImpl(m_mimeData, m_destDir, dialogText, KJobWidgets::window(q), m_clipboard);
 
         if (error) {
-            q->setError(error);
-            q->emitResult();
+            q->emitErrorResult(error);
             return;
         }
 
@@ -187,8 +185,7 @@ void PasteJobPrivate::slotStart()
             Q_EMIT q->copyJobStarted(copyJob);
         }
     } else {
-        q->setError(KIO::ERR_NO_CONTENT);
-        q->emitResult();
+        q->emitErrorResult(KIO::ERR_NO_CONTENT);
     }
 }
 

@@ -167,9 +167,7 @@ void KIO::OpenUrlJob::start()
 {
     if (!d->m_url.isValid() || d->m_url.scheme().isEmpty()) {
         const QString error = !d->m_url.isValid() ? d->m_url.errorString() : d->m_url.toDisplayString();
-        setError(KIO::ERR_MALFORMED_URL);
-        setErrorText(i18n("Malformed URL\n%1", error));
-        emitResult();
+        emitErrorResult(KIO::ERR_MALFORMED_URL, i18n("Malformed URL\n%1", error));
         return;
     }
     if (!KUrlAuthorized::authorizeUrlAction(QStringLiteral("open"), QUrl(), d->m_url)) {
@@ -227,9 +225,7 @@ void KIO::OpenUrlJob::start()
     connect(job, &KJob::result, this, [job, this]() {
         const int errCode = job->error();
         if (errCode) {
-            setError(errCode);
-            setErrorText(job->errorText());
-            emitResult();
+            emitErrorResult(errCode, job->errorText());
         } else {
             d->m_suggestedFileName = job->suggestedFileName();
             d->m_mimeTypeName = job->mimeType();
@@ -317,9 +313,7 @@ void KIO::OpenUrlJobPrivate::startService(const KService::Ptr &service, const QL
 void KIO::OpenUrlJobPrivate::runLink(const QString &filePath, const QString &urlStr, const QString &optionalServiceName)
 {
     if (urlStr.isEmpty()) {
-        q->setError(KJob::UserDefinedError);
-        q->setErrorText(i18n("The desktop entry file\n%1\nis of type Link but has no URL=... entry.", filePath));
-        q->emitResult();
+        q->emitErrorResult(KJob::UserDefinedError, i18n("The desktop entry file\n%1\nis of type Link but has no URL=... entry.", filePath));
         return;
     }
 
@@ -339,9 +333,7 @@ void KIO::OpenUrlJobPrivate::runLink(const QString &filePath, const QString &url
 
 void KIO::OpenUrlJobPrivate::emitAccessDenied()
 {
-    q->setError(KIO::ERR_ACCESS_DENIED);
-    q->setErrorText(KIO::buildErrorString(KIO::ERR_ACCESS_DENIED, m_url.toDisplayString()));
-    q->emitResult();
+    q->emitErrorResult(KIO::ERR_ACCESS_DENIED, KIO::buildErrorString(KIO::ERR_ACCESS_DENIED, m_url.toDisplayString()));
 }
 
 // was: KRun::isExecutable (minus application/x-desktop MIME type).
@@ -510,9 +502,7 @@ void KIO::OpenUrlJobPrivate::handleBinaries(const QMimeType &mimeType)
 void KIO::OpenUrlJobPrivate::handleBinariesHelper(const QString &localPath, bool isNativeBinary)
 {
     if (!m_runExecutables) {
-        q->setError(KJob::UserDefinedError);
-        q->setErrorText(i18n("For security reasons, launching executables is not allowed in this context."));
-        q->emitResult();
+        q->emitErrorResult(KJob::UserDefinedError, i18n("For security reasons, launching executables is not allowed in this context."));
         return;
     }
 
@@ -540,9 +530,7 @@ void KIO::OpenUrlJobPrivate::showUntrustedProgramWarningDialog(const QString &fi
     auto *untrustedProgramHandler = KIO::delegateExtension<KIO::UntrustedProgramHandlerInterface *>(q);
     if (!untrustedProgramHandler) {
         // No way to ask the user to make it executable
-        q->setError(KJob::UserDefinedError);
-        q->setErrorText(i18n("The program \"%1\" needs to have executable permission before it can be launched.", filePath));
-        q->emitResult();
+        q->emitErrorResult(KJob::UserDefinedError, i18n("The program \"%1\" needs to have executable permission before it can be launched.", filePath));
         return;
     }
     QObject::connect(untrustedProgramHandler, &KIO::UntrustedProgramHandlerInterface::result, q, [=, this](bool result) {
@@ -551,13 +539,10 @@ void KIO::OpenUrlJobPrivate::showUntrustedProgramWarningDialog(const QString &fi
             if (untrustedProgramHandler->setExecuteBit(filePath, errorString)) {
                 executeCommand();
             } else {
-                q->setError(KJob::UserDefinedError);
-                q->setErrorText(i18n("Unable to make file \"%1\" executable.\n%2.", filePath, errorString));
-                q->emitResult();
+                q->emitErrorResult(KJob::UserDefinedError, i18n("Unable to make file \"%1\" executable.\n%2.", filePath, errorString));
             }
         } else {
-            q->setError(KIO::ERR_USER_CANCELED);
-            q->emitResult();
+            q->emitErrorResult(KIO::ERR_USER_CANCELED);
         }
     });
     untrustedProgramHandler->showUntrustedProgramWarning(q, m_url.fileName());
@@ -637,9 +622,7 @@ void KIO::OpenUrlJobPrivate::handleDesktopFiles()
     KDesktopFile cfg(filePath);
     KConfigGroup cfgGroup = cfg.desktopGroup();
     if (!cfgGroup.hasKey("Type")) {
-        q->setError(KJob::UserDefinedError);
-        q->setErrorText(i18n("The desktop entry file %1 has no Type=... entry.", filePath));
-        q->emitResult();
+        q->emitErrorResult(KJob::UserDefinedError, i18n("The desktop entry file %1 has no Type=... entry.", filePath));
         return;
     }
 
@@ -753,9 +736,7 @@ void KIO::OpenUrlJobPrivate::openInPreferredApp()
 void KIO::OpenUrlJobPrivate::showOpenWithDialog()
 {
     if (!KAuthorized::authorizeAction(QStringLiteral("openwith"))) {
-        q->setError(KJob::UserDefinedError);
-        q->setErrorText(i18n("You are not authorized to select an application to open this file."));
-        q->emitResult();
+        q->emitErrorResult(KJob::UserDefinedError, i18n("You are not authorized to select an application to open this file."));
         return;
     }
 
@@ -773,8 +754,7 @@ void KIO::OpenUrlJobPrivate::showOpenWithDialog()
     }
 
     QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::canceled, q, [this]() {
-        q->setError(KIO::ERR_USER_CANCELED);
-        q->emitResult();
+        q->emitErrorResult(KIO::ERR_USER_CANCELED);
     });
 
     QObject::connect(openWithHandler, &KIO::OpenWithHandlerInterface::serviceSelected, q, [this](const KService::Ptr &service) {
@@ -799,16 +779,13 @@ void KIO::OpenUrlJobPrivate::showOpenOrExecuteFileDialog(std::function<void(bool
         if (isTextScript(mimeType) || mimeType.inherits(QStringLiteral("application/x-desktop"))) { // Open text-based ones in the default app
             openInPreferredApp();
         } else {
-            q->setError(KJob::UserDefinedError);
-            q->setErrorText(i18n("The program \"%1\" could not be launched.", m_url.toDisplayString(QUrl::PreferLocalFile)));
-            q->emitResult();
+            q->emitErrorResult(KJob::UserDefinedError, i18n("The program \"%1\" could not be launched.", m_url.toDisplayString(QUrl::PreferLocalFile)));
         }
         return;
     }
 
     QObject::connect(openOrExecuteFileHandler, &KIO::OpenOrExecuteFileInterface::canceled, q, [this]() {
-        q->setError(KIO::ERR_USER_CANCELED);
-        q->emitResult();
+        q->emitErrorResult(KIO::ERR_USER_CANCELED);
     });
 
     QObject::connect(openOrExecuteFileHandler, &KIO::OpenOrExecuteFileInterface::executeFile, q, [this, dialogFinished](bool shouldExecute) {
