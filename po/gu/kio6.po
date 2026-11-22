@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio-gu\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-21 01:06+0000\n"
+"POT-Creation-Date: 2026-11-22 01:00+0000\n"
 "PO-Revision-Date: 2026-03-31 23:12+0530\n"
 "Last-Translator: CrazyCourt651 <CrazyCourt651@gmail.com>\n"
 "Language-Team: Gujarati\n"
@@ -43,7 +43,7 @@ msgstr ""
 "ઇલ <filename>%1</filename> ની માલિકી સુધારી શકાતી નથી. ફેરફાર કરવા માટે તમારી "
 "પાસે ફાઇલ પર અપૂરતો પ્રવેશ (access) છે.\t\t\t\t"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:697
+#: core/copyjob.cpp:173 kioworkers/file/file_unix.cpp:697
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -55,7 +55,7 @@ msgstr ""
 "સીમલિંક (symlink) \"%1\" બનાવી શકાયું નથી.\n"
 "ડેસ્ટિનેશન ફાઇલસિસ્ટમ (%2) સીમલિંક્સને સપોર્ટ કરતું નથી."
 
-#: core/copyjob.cpp:178
+#: core/copyjob.cpp:185
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -68,7 +68,7 @@ msgstr ""
 "લક્ષ્ય ફાઇલસિસ્ટમ (%2) ફોલ્ડરના નામોમાં નીચેના અક્ષરોની મંજૂરી આપતું નથી: %3\n"
 "બદલો પસંદ કરવાથી અમાન્ય અક્ષરો અંડરસ્કોર \"_\" થી બદલાઈ જશે."
 
-#: core/copyjob.cpp:186
+#: core/copyjob.cpp:193
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -81,28 +81,28 @@ msgstr ""
 "લક્ષ્ય ફાઇલસિસ્ટમ (%2) ફાઇલના નામોમાં નીચેના અક્ષરોની મંજૂરી આપતું નથી: %3\n"
 "'બદલો' પસંદ કરવાથી અમાન્ય અક્ષરો અંડરસ્કોર \"_\" થી બદલાઈ જશે."
 
-#: core/copyjob.cpp:1528 core/job_error.cpp:588
+#: core/copyjob.cpp:1604 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "ફોલ્ડર પહેલેથી હાજર છે"
 
-#: core/copyjob.cpp:1867 core/copyjob.cpp:2821 core/filecopyjob.cpp:394
+#: core/copyjob.cpp:1943 core/copyjob.cpp:3130 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:50
 #, kde-format
 msgid "File Already Exists"
 msgstr "ફાઇલ પહેલેથી હાજર છે"
 
-#: core/copyjob.cpp:1867 core/copyjob.cpp:2821
+#: core/copyjob.cpp:1943 core/copyjob.cpp:3130
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "ફોલ્ડર તરીકે પહેલેથી હાજર છે"
 
-#: core/copyjob.cpp:2025 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:2101 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "કચરાપેટી"
 
-#: core/copyjob.cpp:2541
+#: core/copyjob.cpp:2850
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
 msgstr ""
@@ -4174,7 +4174,7 @@ msgstr "ચલાવવા માટેનો આદેશ"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'command' માટે વપરાયેલ URL(s) અથવા સ્થાનિક ફાઇલ(ઓ)"
 
-#: kioworkers/file/file.cpp:760 kioworkers/file/file.cpp:826
+#: kioworkers/file/file.cpp:763 kioworkers/file/file.cpp:829
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4182,7 +4182,7 @@ msgid ""
 "%1"
 msgstr "%1 માટે પરવાનગીઓ બદલી શક્યા નથી"
 
-#: kioworkers/file/file.cpp:817
+#: kioworkers/file/file.cpp:820
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4191,17 +4191,17 @@ msgstr ""
 "આના માટે પરવાનગીઓ બદલી શકાતી નથી\n"
 "%1"
 
-#: kioworkers/file/file.cpp:919 kioworkers/file/file.cpp:1011
+#: kioworkers/file/file.cpp:924 kioworkers/file/file.cpp:1016
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "કામચલાઉ ફાઇલ ખોલી શકાઈ નથી"
 
-#: kioworkers/file/file.cpp:943
+#: kioworkers/file/file.cpp:948
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "કાર્યક્રમ \"mount\" શોધી શકાતો નથી"
 
-#: kioworkers/file/file.cpp:1020
+#: kioworkers/file/file.cpp:1025
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "કાર્યક્રમ \"umount\" શોધી શકાતો નથી"
@@ -4221,9 +4221,14 @@ msgstr "આપેલ વપરાશકર્તા નામ %1 માટે �
 msgid "Could not get group id for given group name %1"
 msgstr "આપેલ સમૂહ નામ %1 માટે સમૂહ ઓળ મેળવી શકાતી નથી"
 
-#: kioworkers/file/file_unix_copy.cpp:1114
+#: kioworkers/file/file_unix_copy.cpp:1150
 #, kde-format
 msgid "Writing the copied data to the device..."
+msgstr ""
+
+#: kioworkers/file/file_unix_copy.cpp:1448
+#, kde-format
+msgid "Malformed batch copy request"
 msgstr ""
 
 #: kioworkers/ftp/ftp.cpp:361

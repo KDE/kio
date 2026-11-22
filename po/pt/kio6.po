@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-21 01:06+0000\n"
+"POT-Creation-Date: 2026-11-22 01:00+0000\n"
 "PO-Revision-Date: 2026-01-27 20:13+0000\n"
 "Last-Translator: César A. P. Cláudio <cesarapclaudio@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
@@ -115,7 +115,7 @@ msgstr ""
 "filename>. Não tem as permissões de acesso necessárias para fazer esta "
 "alteração."
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:697
+#: core/copyjob.cpp:173 kioworkers/file/file_unix.cpp:697
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -127,7 +127,7 @@ msgstr ""
 "Não foi possível criar a ligação simbólica \"%1\".\n"
 "O sistema de ficheiros de destino (%2) não suporta ligações simbólicas."
 
-#: core/copyjob.cpp:178
+#: core/copyjob.cpp:185
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -142,7 +142,7 @@ msgstr ""
 "Se seleccionar Substituir, substituirá todos os caracteres inválidos (no "
 "nome da pasta de destino) por um sublinhado \"_\"."
 
-#: core/copyjob.cpp:186
+#: core/copyjob.cpp:193
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -157,28 +157,28 @@ msgstr ""
 "Se seleccionar Substituir, substituirá todos os caracteres inválidos (no "
 "nome do ficheiro de destino) por um sublinhado \"_\"."
 
-#: core/copyjob.cpp:1528 core/job_error.cpp:588
+#: core/copyjob.cpp:1604 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "A Pasta Já Existe"
 
-#: core/copyjob.cpp:1867 core/copyjob.cpp:2821 core/filecopyjob.cpp:394
+#: core/copyjob.cpp:1943 core/copyjob.cpp:3130 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:50
 #, kde-format
 msgid "File Already Exists"
 msgstr "O Ficheiro Já Existe"
 
-#: core/copyjob.cpp:1867 core/copyjob.cpp:2821
+#: core/copyjob.cpp:1943 core/copyjob.cpp:3130
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Já Existe como Pasta"
 
-#: core/copyjob.cpp:2025 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:2101 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "Lixo"
 
-#: core/copyjob.cpp:2541
+#: core/copyjob.cpp:2850
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
 msgstr ""
@@ -4321,7 +4321,7 @@ msgstr "Comando a executar"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "URL(s) ou ficheiro(s) local(is) utilizados no 'comando'"
 
-#: kioworkers/file/file.cpp:760 kioworkers/file/file.cpp:826
+#: kioworkers/file/file.cpp:763 kioworkers/file/file.cpp:829
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4331,7 +4331,7 @@ msgstr ""
 "Não foi possível alterar o proprietário e o grupo de\n"
 "%1"
 
-#: kioworkers/file/file.cpp:817
+#: kioworkers/file/file.cpp:820
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4340,17 +4340,17 @@ msgstr ""
 "Não foi possível alterar as permissões de\n"
 "%1"
 
-#: kioworkers/file/file.cpp:919 kioworkers/file/file.cpp:1011
+#: kioworkers/file/file.cpp:924 kioworkers/file/file.cpp:1016
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "Não foi possível abrir o ficheiro temporário."
 
-#: kioworkers/file/file.cpp:943
+#: kioworkers/file/file.cpp:948
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "Não foi possível encontrar o programa \"mount\""
 
-#: kioworkers/file/file.cpp:1020
+#: kioworkers/file/file.cpp:1025
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "Não foi possível encontrar o programa \"umount\""
@@ -4370,9 +4370,14 @@ msgstr "Não foi possível obter o ID do utilizador %1"
 msgid "Could not get group id for given group name %1"
 msgstr "Não foi possível obter o ID do grupo %1"
 
-#: kioworkers/file/file_unix_copy.cpp:1114
+#: kioworkers/file/file_unix_copy.cpp:1150
 #, kde-format
 msgid "Writing the copied data to the device..."
+msgstr ""
+
+#: kioworkers/file/file_unix_copy.cpp:1448
+#, kde-format
+msgid "Malformed batch copy request"
 msgstr ""
 
 #: kioworkers/ftp/ftp.cpp:361

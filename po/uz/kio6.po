@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-21 01:06+0000\n"
+"POT-Creation-Date: 2026-11-22 01:00+0000\n"
 "PO-Revision-Date: 2005-10-13 21:27+0200\n"
 "Last-Translator: Mashrab Kuvatov <kmashrab@uni-bremen.de>\n"
 "Language-Team: Uzbek <floss-uz-l10n@googlegroups.com>\n"
@@ -45,7 +45,7 @@ msgstr ""
 "<qt><b>%1</b> faylning egasini oʻzgartirib boʻlmadi. Bu amalni bajarish "
 "uchun siz yetarli huquqga ega emassiz.</qt>"
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:697
+#: core/copyjob.cpp:173 kioworkers/file/file_unix.cpp:697
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not create symlink %1.\n"
@@ -60,7 +60,7 @@ msgstr ""
 "Ramziy bogʻni (%1) yaratib boʻlmadi.\n"
 "Iltimos huquqlarni tekshiring."
 
-#: core/copyjob.cpp:178
+#: core/copyjob.cpp:185
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -70,7 +70,7 @@ msgid ""
 "folder name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:186
+#: core/copyjob.cpp:193
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -80,29 +80,29 @@ msgid ""
 "file name) with an underscore \"_\"."
 msgstr ""
 
-#: core/copyjob.cpp:1528 core/job_error.cpp:588
+#: core/copyjob.cpp:1604 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "Jild allaqachon mavjud"
 
-#: core/copyjob.cpp:1867 core/copyjob.cpp:2821 core/filecopyjob.cpp:394
+#: core/copyjob.cpp:1943 core/copyjob.cpp:3130 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:50
 #, kde-format
 msgid "File Already Exists"
 msgstr "Fayl allaqachon mavjud"
 
-#: core/copyjob.cpp:1867 core/copyjob.cpp:2821
+#: core/copyjob.cpp:1943 core/copyjob.cpp:3130
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "Jild sifatida allaqachon mavjud"
 
-#: core/copyjob.cpp:2025 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:2101 kioworkers/trash/kio_trash.cpp:294
 #, fuzzy, kde-format
 #| msgid "Trash"
 msgid "Trash"
 msgstr "Chiqindilar qutisi"
 
-#: core/copyjob.cpp:2541
+#: core/copyjob.cpp:2850
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
 msgstr ""
@@ -4119,7 +4119,7 @@ msgstr "Bajarish uchun buyruq"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr ""
 
-#: kioworkers/file/file.cpp:760 kioworkers/file/file.cpp:826
+#: kioworkers/file/file.cpp:763 kioworkers/file/file.cpp:829
 #, fuzzy, kde-format
 #| msgid "Could not change permissions for %1."
 msgctxt "@info"
@@ -4128,7 +4128,7 @@ msgid ""
 "%1"
 msgstr "%1 uchun huquqlarni oʻzgartirib boʻlmadi."
 
-#: kioworkers/file/file.cpp:817
+#: kioworkers/file/file.cpp:820
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4137,18 +4137,18 @@ msgstr ""
 "%1\n"
 "uchun huquqlarni oʻzgartirib boʻlmadi"
 
-#: kioworkers/file/file.cpp:919 kioworkers/file/file.cpp:1011
+#: kioworkers/file/file.cpp:924 kioworkers/file/file.cpp:1016
 #, fuzzy, kde-format
 #| msgid "Could Not Rename Temporary File"
 msgid "Could not open temporary file"
 msgstr "Vaqtinchalik faylning nomini oʻzgartirib boʻlmadi"
 
-#: kioworkers/file/file.cpp:943
+#: kioworkers/file/file.cpp:948
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "'mount' dasturini topib boʻlmadi."
 
-#: kioworkers/file/file.cpp:1020
+#: kioworkers/file/file.cpp:1025
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "'umount' dasturini topib boʻlmadi."
@@ -4169,9 +4169,14 @@ msgstr "%1 jildiga oʻtib boʻlmadi."
 msgid "Could not get group id for given group name %1"
 msgstr ""
 
-#: kioworkers/file/file_unix_copy.cpp:1114
+#: kioworkers/file/file_unix_copy.cpp:1150
 #, kde-format
 msgid "Writing the copied data to the device..."
+msgstr ""
+
+#: kioworkers/file/file_unix_copy.cpp:1448
+#, kde-format
+msgid "Malformed batch copy request"
 msgstr ""
 
 #: kioworkers/ftp/ftp.cpp:361

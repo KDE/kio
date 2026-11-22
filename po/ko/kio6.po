@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-21 01:06+0000\n"
-"PO-Revision-Date: 2026-10-03 22:34+0200\n"
+"POT-Creation-Date: 2026-11-22 01:00+0000\n"
+"PO-Revision-Date: 2026-11-22 00:16+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -43,7 +43,7 @@ msgstr ""
 "<filename>%1</filename> 파일의 소유권을 바꿀 수 없습니다. 변경 사항을 적용할 "
 "권한이 없습니다."
 
-#: core/copyjob.cpp:166 kioworkers/file/file_unix.cpp:697
+#: core/copyjob.cpp:173 kioworkers/file/file_unix.cpp:697
 #, kde-format
 msgctxt ""
 "The first arg is the path to the symlink that couldn't be created, the "
@@ -55,7 +55,7 @@ msgstr ""
 "심볼릭 링크 \"%1\"을(를) 만들 수 없습니다.\n"
 "대상 파일 시스템(%2)에서 심볼릭 링크를 지원하지 않습니다."
 
-#: core/copyjob.cpp:178
+#: core/copyjob.cpp:185
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -69,7 +69,7 @@ msgstr ""
 "바꾸기를 선택하면 (대상 폴더 이름에) 사용할 수 없는 글자를 밑줄(\"_\")로 대체"
 "합니다."
 
-#: core/copyjob.cpp:186
+#: core/copyjob.cpp:193
 #, kde-format
 msgid ""
 "Could not create \"%1\".\n"
@@ -83,31 +83,31 @@ msgstr ""
 "바꾸기를 선택하면 (대상 파일 이름에) 사용할 수 없는 글자를 밑줄(\"_\")로 대체"
 "합니다."
 
-#: core/copyjob.cpp:1528 core/job_error.cpp:588
+#: core/copyjob.cpp:1604 core/job_error.cpp:588
 #, kde-format
 msgid "Folder Already Exists"
 msgstr "폴더가 이미 존재함"
 
-#: core/copyjob.cpp:1867 core/copyjob.cpp:2821 core/filecopyjob.cpp:394
+#: core/copyjob.cpp:1943 core/copyjob.cpp:3130 core/filecopyjob.cpp:394
 #: core/job_error.cpp:577 widgets/paste.cpp:50
 #, kde-format
 msgid "File Already Exists"
 msgstr "파일이 이미 존재함"
 
-#: core/copyjob.cpp:1867 core/copyjob.cpp:2821
+#: core/copyjob.cpp:1943 core/copyjob.cpp:3130
 #, kde-format
 msgid "Already Exists as Folder"
 msgstr "이미 폴더로 존재함"
 
-#: core/copyjob.cpp:2025 kioworkers/trash/kio_trash.cpp:294
+#: core/copyjob.cpp:2101 kioworkers/trash/kio_trash.cpp:294
 #, kde-format
 msgid "Trash"
 msgstr "휴지통"
 
-#: core/copyjob.cpp:2541
+#: core/copyjob.cpp:2850
 #, kde-format
 msgid "%1 changed after it was copied, so it was not deleted."
-msgstr ""
+msgstr "%1이(가) 복사된 후 변경되었기 때문에 삭제되지 않았습니다."
 
 #: core/desktopexecparser.cpp:336
 #, kde-format
@@ -2241,27 +2241,25 @@ msgstr "%1의 파일 형식을 결정할 수 없음"
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "No file type can be defined for the extension \"%1\"."
-msgstr ""
+msgstr "\"%1\" 확장자의 파일 형식을 정의할 수 없습니다."
 
 #: core/openwith.cpp:96
-#, fuzzy, kde-format
-#| msgid "Could not enter folder %1."
+#, kde-format
 msgctxt "@info %1 is a folder path"
 msgid "Could not create the folder %1."
-msgstr "폴더 %1에 들어갈 수 없습니다."
+msgstr "%1 폴더를 만들 수 없습니다."
 
 #: core/openwith.cpp:100 core/openwith.cpp:113
-#, fuzzy, kde-format
-#| msgid "Could not write to file %1."
+#, kde-format
 msgctxt "@info %1 is a file path, %2 the error"
 msgid "Could not write the file type definition %1: %2"
-msgstr "%1 파일에 쓸 수 없습니다."
+msgstr "%1 파일 형식 정의를 기록할 수 없음: %2"
 
 #: core/openwith.cpp:120
 #, kde-format
 msgctxt "@info %1 is a file name extension"
 msgid "Could not update the file type database with the extension \"%1\"."
-msgstr ""
+msgstr "파일 형식 데이터베이스에 \"%1\" 확장자를 업데이트할 수 없습니다."
 
 #: core/openwith.cpp:149
 #, kde-format
@@ -3559,11 +3557,7 @@ msgstr ""
 "입니다."
 
 #: filewidgets/knewfilemenu.cpp:1152
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid ""
-#| "The name <filename>%1</filename> cannot be used because it is reserved "
-#| "for use by the operating system."
+#, kde-kuit-format
 msgctxt ""
 "@info %2 is a file system name such as FAT or NTFS, %3 is a list of "
 "characters"
@@ -3571,8 +3565,8 @@ msgid ""
 "The name <filename>%1</filename> cannot be used because the file system of "
 "this folder (%2) does not allow these characters in names: %3"
 msgstr ""
-"<filename>%1</filename> 이름을 사용할 수 없습니다. 운영 체제에서 예약된 이름"
-"입니다."
+"<filename>%1</filename> 이름을 사용할 수 없습니다. 이 폴더(%2)의 파일 시스템"
+"에서 다음 문자를 이름에 허용하지 않습니다: %3"
 
 #: filewidgets/knewfilemenu.cpp:1164
 #, kde-kuit-format
@@ -3663,12 +3657,10 @@ msgid "Create New Folder"
 msgstr "새 폴더 만들기"
 
 #: filewidgets/knewfilemenu.cpp:1525
-#, fuzzy, kde-kuit-format
-#| msgctxt "@info"
-#| msgid "Cannot transfer <filename>%1</filename>"
+#, kde-kuit-format
 msgctxt "@label"
 msgid "Create new folder in <filename>%1</filename>:"
-msgstr "<filename>%1</filename>을(를) 전송할 수 없음"
+msgstr "<filename>%1</filename>에 새 폴더 만들기:"
 
 #: filewidgets/knewfilemenu.cpp:1529 widgets/kpropertiesdialogbuiltin_p.cpp:405
 #, kde-format
@@ -3869,11 +3861,10 @@ msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
 msgstr "FilePreviewJob: 빈 파일을 건너뜀, 깨진 심볼릭 링크일 수도 있음: %1"
 
 #: gui/kemailclientlauncherjob.cpp:119
-#, fuzzy, kde-format
-#| msgid "Failed to open the file."
+#, kde-format
 msgctxt "@info"
 msgid "Failed to open email client"
-msgstr "파일을 열 수 없습니다."
+msgstr "이메일 클라이언트를 열 수 없음"
 
 #: gui/kemailclientlauncherjob.cpp:127
 #, kde-format
@@ -4128,7 +4119,7 @@ msgstr "실행할 명령"
 msgid "URL(s) or local file(s) used for 'command'"
 msgstr "'command'에 사용할 URL이나 로컬 파일"
 
-#: kioworkers/file/file.cpp:760 kioworkers/file/file.cpp:826
+#: kioworkers/file/file.cpp:763 kioworkers/file/file.cpp:829
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -4138,7 +4129,7 @@ msgstr ""
 "%1\n"
 "의 소유자와 그룹을 변경할 수 없습니다"
 
-#: kioworkers/file/file.cpp:817
+#: kioworkers/file/file.cpp:820
 #, kde-format
 msgid ""
 "Could not change permissions for\n"
@@ -4147,17 +4138,17 @@ msgstr ""
 "%1\n"
 "의 권한을 바꿀 수 없습니다"
 
-#: kioworkers/file/file.cpp:919 kioworkers/file/file.cpp:1011
+#: kioworkers/file/file.cpp:924 kioworkers/file/file.cpp:1016
 #, kde-format
 msgid "Could not open temporary file"
 msgstr "임시 파일을 열 수 없음"
 
-#: kioworkers/file/file.cpp:943
+#: kioworkers/file/file.cpp:948
 #, kde-format
 msgid "Could not find program \"mount\""
 msgstr "\"mount\" 프로그램을 찾을 수 없음"
 
-#: kioworkers/file/file.cpp:1020
+#: kioworkers/file/file.cpp:1025
 #, kde-format
 msgid "Could not find program \"umount\""
 msgstr "\"umount\" 프로그램을 찾을 수 없음"
@@ -4177,9 +4168,14 @@ msgstr "주어진 사용자 이름 %1의 사용자 ID를 가져올 수 없습니
 msgid "Could not get group id for given group name %1"
 msgstr "주어진 그룹 이름 %1의 그룹 ID를 가져올 수 없습니다"
 
-#: kioworkers/file/file_unix_copy.cpp:1114
+#: kioworkers/file/file_unix_copy.cpp:1150
 #, kde-format
 msgid "Writing the copied data to the device..."
+msgstr "복사된 데이터를 장치에 기록하는 중..."
+
+#: kioworkers/file/file_unix_copy.cpp:1448
+#, kde-format
+msgid "Malformed batch copy request"
 msgstr ""
 
 #: kioworkers/ftp/ftp.cpp:361
@@ -4543,16 +4539,14 @@ msgstr "이 파일은 이미 휴지통에 버려졌습니다."
 
 #: kioworkers/trash/kio_trash_win.cpp:216
 #: kioworkers/trash/kio_trash_win.cpp:231
-#, fuzzy, kde-format
-#| msgid "The resource cannot be deleted."
+#, kde-format
 msgid "The trash item %1 cannot be restored."
-msgstr "리소스를 삭제할 수 없습니다."
+msgstr "휴지통에 있는 %1 항목을 복원할 수 없습니다."
 
 #: kioworkers/trash/kio_trash_win.cpp:255
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in rename, should never happen"
-msgstr "복사 또는 이동의 내부 오류, 절대 발생해서는 안 됨"
+msgstr "이름 바꾸기 내부 오류, 절대 발생해서는 안 됨"
 
 #: kioworkers/trash/kio_trash_win.cpp:268
 #, kde-format
@@ -4560,15 +4554,14 @@ msgid "not supported"
 msgstr "지원되지 않음"
 
 #: kioworkers/trash/kio_trash_win.cpp:276
-#, fuzzy, kde-format
-#| msgid "Internal error in copyOrMove, should never happen"
+#, kde-format
 msgid "Internal error in copy, should never happen"
-msgstr "복사 또는 이동의 내부 오류, 절대 발생해서는 안 됨"
+msgstr "복사 내부 오류, 절대 발생해서는 안 됨"
 
 #: kioworkers/trash/kio_trash_win.cpp:512
 #, kde-format
 msgid "Trash operation failed with error code 0x%1."
-msgstr ""
+msgstr "휴지통에 버리기 작업이 오류 코드 0x%1을(를) 반환했습니다."
 
 #: kioworkers/trash/ktrash.cpp:28
 #, kde-format
@@ -5294,9 +5287,7 @@ msgid "%1"
 msgstr "%1"
 
 #: widgets/kfileitemactions.cpp:777
-#, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "&Open Folder With…"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open Folder With…"
 msgid_plural "&Open Folders With…"
@@ -5315,12 +5306,11 @@ msgid "&Run Executable"
 msgstr "파일 실행(&R)"
 
 #: widgets/kfileitemactions.cpp:857
-#, fuzzy, kde-format
-#| msgid "&Open folder with %1"
+#, kde-format
 msgctxt "@action:inmenu"
 msgid "&Open folder with %2"
 msgid_plural "&Open folders with %2"
-msgstr[0] "%1(으)로 폴더 열기(&O)|/|%1$[으 %1]로 폴더 열기(&O)"
+msgstr[0] "%2(으)로 폴더 열기(&O)|/|%2$[으 %2]로 폴더 열기(&O)"
 
 #: widgets/kfileitemactions.cpp:858
 #, kde-format
@@ -5328,9 +5318,7 @@ msgid "&Open with %1"
 msgstr "%1(으)로 열기(&O)|/|%1$[으 %1]로 열기(&O)"
 
 #: widgets/kfileitemactions.cpp:891
-#, fuzzy, kde-format
-#| msgctxt "@title:menu"
-#| msgid "&Open Folder With"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Open Folder With"
 msgid_plural "&Open Folders With"
@@ -5609,15 +5597,10 @@ msgstr ""
 "\"%1\""
 
 #: widgets/kopenwithdialog.cpp:773
-#, fuzzy, kde-format
-#| msgid ""
-#| "&Remember application association for all files of type\n"
-#| "\"%1\""
+#, kde-format
 msgctxt "@option:check %1 is a file name extension"
 msgid "&Remember application association for all \"*.%1\" files"
-msgstr ""
-"다음 형식의 모든 파일에 대한 앱 연결 기억(&R):\n"
-"\"%1\""
+msgstr "모든 \"*.%1\" 파일에 대한 앱 연결 기억(&R)"
 
 #: widgets/kopenwithdialog.cpp:781
 #, kde-format
@@ -6519,30 +6502,24 @@ msgid "C&hecksums"
 msgstr "체크섬(&H)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2314
-#, fuzzy, kde-format
-#| msgctxt "@info:progress computation in the background"
-#| msgid "Verifying checksum…"
+#, kde-format
 msgctxt "@info:progress computation in the background"
 msgid "Verifying checksum… (%1%)"
-msgstr "체크섬 검사 중…"
+msgstr "체크섬 검사 중…(%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2422
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2644
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash for multiple files"
 msgid "Calculating… (%1/%2)"
-msgstr "계산 중…"
+msgstr "계산 중…(%1/%2)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2439
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2646
-#, fuzzy, kde-format
-#| msgctxt "@info:progress"
-#| msgid "Calculating…"
+#, kde-format
 msgctxt "@info:progress Calculating hash"
 msgid "Calculating… (%1%)"
-msgstr "계산 중…"
+msgstr "계산 중…(%1%)"
 
 #: widgets/kpropertiesdialogbuiltin_p.cpp:2509
 #, kde-format
@@ -6814,7 +6791,7 @@ msgstr "%1(%2)"
 #, kde-format
 msgctxt "@info Error when copy paste from Ark failed"
 msgid "Cannot paste, Ark does not appear to be running."
-msgstr ""
+msgstr "붙여넣을 수 없습니다. Ark가 실행 중이 아닌 것 같습니다."
 
 #: widgets/pastejob.cpp:169
 #, kde-format
@@ -7039,39 +7016,25 @@ msgid "<filename>%1</filename> is not a valid file name."
 msgstr "<filename>%1</filename>은(는) 올바른 파일 이름이 아닙니다."
 
 #: widgets/renamefiledialog.cpp:235
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this folder's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this folder's name will hide it from view."
-msgstr ""
-"폴더 이름 맨 처음에 마침표를 추가하면 더 이상 표시되지 않습니다.\n"
-"그래도 이름을 변경하시겠습니까?"
+msgstr "폴더 이름 맨 처음에 마침표를 추가하면 보기에서 숨겨집니다."
 
 #: widgets/renamefiledialog.cpp:236
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "Adding a dot to the beginning of this file's name will hide it from "
-#| "view.\n"
-#| "Do you still want to rename it?"
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Adding a dot to the beginning of this file's name will hide it from view."
-msgstr ""
-"파일 이름 맨 처음에 마침표를 추가하면 더 이상 표시되지 않습니다.\n"
-"그래도 이름을 변경하시겠습니까?"
+msgstr "파일 이름 맨 처음에 마침표를 추가하면 보기에서 숨겨집니다."
 
 #: widgets/renamefiledialog.cpp:244
 #, kde-format
 msgctxt "@info"
 msgid ""
 "The file's type may change, which could prevent it from opening correctly."
-msgstr ""
+msgstr "파일 형식이 변경될 수 있으며 올바르게 열리지 않을 수도 있습니다."
 
 #: widgets/renamefiledialog.cpp:265
 #, kde-format
