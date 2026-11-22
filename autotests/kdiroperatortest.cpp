@@ -275,6 +275,22 @@ private Q_SLOTS:
         QCOMPARE(urlEnteredSpy.size(), 1);
         QCOMPARE(urlEnteredSpy.takeFirst().at(0).toUrl().adjusted(QUrl::StripTrailingSlash), fileUrl.adjusted(QUrl::StripTrailingSlash));
     }
+
+    void testRedirectedUrlPathAdjustment()
+    {
+        KDirOperator dirOp;
+        QSignalSpy urlEnteredSpy(&dirOp, &KDirOperator::urlEntered);
+
+        const QUrl oldUrl(QStringLiteral("sftp://dev/"));
+        const QUrl redirectedUrl(QStringLiteral("sftp://dev/home/ian"));
+        const QUrl expectedUrl(QStringLiteral("sftp://dev/home/ian/"));
+
+        Q_EMIT dirOp.dirLister()->redirection(oldUrl, redirectedUrl);
+
+        QCOMPARE(dirOp.url(), expectedUrl);
+        QCOMPARE(urlEnteredSpy.size(), 1);
+        QCOMPARE(urlEnteredSpy.takeFirst().at(0).toUrl(), expectedUrl);
+    }
 };
 
 QTEST_MAIN(KDirOperatorTest)

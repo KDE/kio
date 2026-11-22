@@ -91,6 +91,7 @@ private Q_SLOTS:
 
     void testSaveDirectoryCurrentDirSelectable();
     void testSaveDirectoryCurrentDirSelectableSubDir();
+    void testSelectFileAfterRedirectWithoutTrailingSlash();
 };
 
 void KFileWidgetTest::initTestCase()
@@ -1073,6 +1074,40 @@ void KFileWidgetTest::testSaveDirectoryCurrentDirSelectableSubDir()
     // THEN
     QCOMPARE(acceptedSpy.count(), 1);
     QCOMPARE(fw.selectedUrl(), subDirUrl);
+}
+
+void KFileWidgetTest::testSelectFileAfterRedirectWithoutTrailingSlash()
+{
+    QTemporaryDir tempDir;
+    QVERIFY(tempDir.isValid());
+    const QUrl baseUrl = QUrl::fromLocalFile(tempDir.path());
+    const QString subDirPath = tempDir.filePath(QStringLiteral("subdir"));
+    QVERIFY(QDir().mkdir(subDirPath));
+    const QString filePath = subDirPath + QStringLiteral("/README.md");
+    QFile file(filePath);
+    QVERIFY(file.open(QIODevice::WriteOnly));
+    file.close();
+
+    const QUrl subDirUrlNoSlash = QUrl::fromLocalFile(subDirPath);
+    QVERIFY(!subDirUrlNoSlash.path().endsWith(QLatin1Char('/')));
+    const QUrl expectedFileUrl = QUrl::fromLocalFile(filePath);
+
+    KFileWidget fw(baseUrl);
+    fw.setOperationMode(KFileWidget::Opening);
+    fw.setMode(KFile::Files);
+
+    // Simulate a KIO worker redirection (e.g. sftp://host/ -> sftp://host/home/user)
+    // whose target URL has no trailing slash.
+    Q_EMIT fw.dirOperator()->dirLister()->redirection(baseUrl, subDirUrlNoSlash);
+
+    QSignalSpy acceptedSpy(&fw, &KFileWidget::accepted);
+    connect(&fw, &KFileWidget::accepted, &fw, &KFileWidget::accept);
+
+    fw.locationEdit()->setEditText(QStringLiteral("README.md"));
+    fw.slotOk();
+
+    QCOMPARE(acceptedSpy.count(), 1);
+    QCOMPARE(fw.selectedUrls(), QList<QUrl>{expectedFileUrl});
 }
 
 QTEST_MAIN(KFileWidgetTest)

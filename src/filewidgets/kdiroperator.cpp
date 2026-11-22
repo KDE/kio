@@ -1067,11 +1067,12 @@ void KDirOperator::pathChanged()
 void KDirOperatorPrivate::slotRedirected(const QUrl &newURL)
 {
     m_currUrl = newURL;
+    Utils::appendSlashToPath(m_currUrl);
     m_pendingMimeTypes.clear();
     m_completion.clear();
     m_dirCompletion.clear();
     m_completeListDirty = true;
-    Q_EMIT q->urlEntered(newURL);
+    Q_EMIT q->urlEntered(m_currUrl);
 }
 
 // Code pinched from kfm then hacked
