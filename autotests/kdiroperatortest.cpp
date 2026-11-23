@@ -10,6 +10,8 @@
 #include <KSharedConfig>
 #include <QDir>
 #include <QSignalSpy>
+#include <QStandardPaths>
+#include <QTemporaryDir>
 #include <QTest>
 #include <QTreeView>
 #include <kdiroperator.h>
@@ -23,10 +25,23 @@ class KDirOperatorTest : public QObject
 private Q_SLOTS:
     void initTestCase()
     {
+        QStandardPaths::setTestModeEnabled(true);
+        // The workers read the remote places from the test data folder as well.
+        qputenv("KIOWORKER_ENABLE_TESTMODE", "1");
+
+        // remote:/place redirects to m_remotePlaceTarget.
+        QVERIFY(m_remotePlaceTarget.isValid());
+        const QString remoteViewPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/remoteview");
+        QVERIFY(QDir().mkpath(remoteViewPath));
+        m_remotePlaceFile = remoteViewPath + QStringLiteral("/place.desktop");
+        QFile placeFile(m_remotePlaceFile);
+        QVERIFY(placeFile.open(QIODevice::WriteOnly));
+        placeFile.write("[Desktop Entry]\nType=Link\nName=place\nURL=" + QUrl::fromLocalFile(m_remotePlaceTarget.path()).toEncoded() + "\n");
     }
 
     void cleanupTestCase()
     {
+        QFile::remove(m_remotePlaceFile);
     }
 
     void testNoViewConfig()
@@ -276,21 +291,44 @@ private Q_SLOTS:
         QCOMPARE(urlEnteredSpy.takeFirst().at(0).toUrl().adjusted(QUrl::StripTrailingSlash), fileUrl.adjusted(QUrl::StripTrailingSlash));
     }
 
-    void testRedirectedUrlPathAdjustment()
+    void testRedirectionOfCurrentFolderMovesToTarget()
     {
         KDirOperator dirOp;
         QSignalSpy urlEnteredSpy(&dirOp, &KDirOperator::urlEntered);
+        QSignalSpy redirectionSpy(dirOp.dirLister(), &KCoreDirLister::redirection);
 
-        const QUrl oldUrl(QStringLiteral("sftp://dev/"));
-        const QUrl redirectedUrl(QStringLiteral("sftp://dev/home/ian"));
-        const QUrl expectedUrl(QStringLiteral("sftp://dev/home/ian/"));
+        dirOp.setUrl(QUrl(QStringLiteral("remote:/place")), true);
+        QTRY_COMPARE(redirectionSpy.size(), 1);
 
-        Q_EMIT dirOp.dirLister()->redirection(oldUrl, redirectedUrl);
-
-        QCOMPARE(dirOp.url(), expectedUrl);
-        QCOMPARE(urlEnteredSpy.size(), 1);
-        QCOMPARE(urlEnteredSpy.takeFirst().at(0).toUrl(), expectedUrl);
+        QCOMPARE(QDir::cleanPath(dirOp.url().toLocalFile()), m_remotePlaceTarget.path());
+        // The redirected folder gets a trailing slash, in the url and in urlEntered.
+        QVERIFY(dirOp.url().path().endsWith(QLatin1Char('/')));
+        QCOMPARE(urlEnteredSpy.size(), 2);
+        QCOMPARE(urlEnteredSpy.at(1).at(0).toUrl(), dirOp.url());
     }
+
+    void testRedirectionOfSubfolderKeepsCurrentFolder()
+    {
+        const QUrl remoteRootUrl(QStringLiteral("remote:/"));
+        KDirOperator dirOp;
+        QSignalSpy completedSpy(dirOp.dirLister(), qOverload<>(&KCoreDirLister::completed));
+        dirOp.setUrl(remoteRootUrl, true);
+        QVERIFY(completedSpy.wait());
+
+        QSignalSpy urlEnteredSpy(&dirOp, &KDirOperator::urlEntered);
+        QSignalSpy redirectionSpy(dirOp.dirLister(), &KCoreDirLister::redirection);
+
+        // The tree view lists an expanded subfolder with the same lister, keeping the current folder.
+        dirOp.dirLister()->openUrl(QUrl(QStringLiteral("remote:/place")), KDirLister::Keep);
+        QTRY_COMPARE(redirectionSpy.size(), 1);
+
+        QCOMPARE(dirOp.url(), remoteRootUrl);
+        QCOMPARE(urlEnteredSpy.size(), 0);
+    }
+
+private:
+    QTemporaryDir m_remotePlaceTarget;
+    QString m_remotePlaceFile;
 };
 
 QTEST_MAIN(KDirOperatorTest)

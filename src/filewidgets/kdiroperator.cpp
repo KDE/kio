@@ -1865,7 +1865,12 @@ void KDirOperator::setDirLister(KDirLister *lister)
         d->slotIOFinished();
     });
     connect(d->m_dirLister, &KCoreDirLister::redirection, this, [this](const QUrl &, const QUrl &newUrl) {
-        d->slotRedirected(newUrl);
+        // The lister also follows the redirection of a subfolder that the tree view expanded,
+        // and moves its top level url only when the current folder itself is redirected.
+        const bool currentFolderRedirected = d->m_dirLister->url() == newUrl;
+        if (currentFolderRedirected) {
+            d->slotRedirected(newUrl);
+        }
     });
     connect(d->m_dirLister, &KCoreDirLister::newItems, this, [this]() {
         d->slotItemsChanged();
