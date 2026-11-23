@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-22 01:00+0000\n"
-"PO-Revision-Date: 2026-11-19 18:02+0100\n"
+"POT-Creation-Date: 2026-11-23 00:58+0000\n"
+"PO-Revision-Date: 2026-11-22 09:27+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -2306,17 +2306,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Error sense documentar"
 
-#: core/kfileitem.cpp:1542
+#: core/kfileitem.cpp:1563
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Enllaç simbòlic a %1)"
 
-#: core/kfileitem.cpp:1544
+#: core/kfileitem.cpp:1565
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, enllaç a %2)"
 
-#: core/kfileitem.cpp:1547
+#: core/kfileitem.cpp:1568
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Apunta a %1)"
@@ -4315,7 +4315,7 @@ msgstr "S'estan escrivint les dades copiades al dispositiu..."
 #: kioworkers/file/file_unix_copy.cpp:1448
 #, kde-format
 msgid "Malformed batch copy request"
-msgstr ""
+msgstr "Sol·licitud de còpia per lots mal formada"
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format

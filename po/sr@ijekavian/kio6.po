@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-22 01:00+0000\n"
+"POT-Creation-Date: 2026-11-23 00:58+0000\n"
 "PO-Revision-Date: 2026-11-19 17:02+0100\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -2277,17 +2277,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Недокументована грешка"
 
-#: core/kfileitem.cpp:1542
+#: core/kfileitem.cpp:1563
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(симболичка веза ка %1)"
 
-#: core/kfileitem.cpp:1544
+#: core/kfileitem.cpp:1565
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, веза ка %2)"
 
-#: core/kfileitem.cpp:1547
+#: core/kfileitem.cpp:1568
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (показује на %1)"

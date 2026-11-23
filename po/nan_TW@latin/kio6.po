@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-22 01:00+0000\n"
+"POT-Creation-Date: 2026-11-23 00:58+0000\n"
 "PO-Revision-Date: 2026-10-16 20:09+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Min Nan Chinese Latin <zh-l10n@lists.slat.org>\n"
@@ -2244,17 +2244,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Bô siá--ji̍p-khì bûn-kiānn lâi ê tshò-gōo"
 
-#: core/kfileitem.cpp:1542
+#: core/kfileitem.cpp:1563
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Kàu %1 ê Hû-hō Liân-kiat)"
 
-#: core/kfileitem.cpp:1544
+#: core/kfileitem.cpp:1565
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, kàu %2 ê liân-kiat)"
 
-#: core/kfileitem.cpp:1547
+#: core/kfileitem.cpp:1568
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (liân-kiat bo̍k-piau: %1)"

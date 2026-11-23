@@ -24,8 +24,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-22 01:00+0000\n"
-"PO-Revision-Date: 2026-11-19 10:24+0200\n"
+"POT-Creation-Date: 2026-11-23 00:58+0000\n"
+"PO-Revision-Date: 2026-11-22 07:35+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -2291,17 +2291,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Недокументированная ошибка"
 
-#: core/kfileitem.cpp:1542
+#: core/kfileitem.cpp:1563
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(символическая ссылка на %1)"
 
-#: core/kfileitem.cpp:1544
+#: core/kfileitem.cpp:1565
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, ссылка на %2)"
 
-#: core/kfileitem.cpp:1547
+#: core/kfileitem.cpp:1568
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (указывает на %1)"
@@ -4306,7 +4306,7 @@ msgstr "Запись скопированных данных на устройс
 #: kioworkers/file/file_unix_copy.cpp:1448
 #, kde-format
 msgid "Malformed batch copy request"
-msgstr ""
+msgstr "Некорректный запрос пакетного копирования"
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format
