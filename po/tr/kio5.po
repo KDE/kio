@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-08 04:37+0000\n"
-"PO-Revision-Date: 2026-11-18 18:15+0300\n"
+"PO-Revision-Date: 2026-11-22 19:50+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -3700,7 +3700,7 @@ msgid ""
 "The name <filename>%1</filename> starts with a dot, so it will be hidden by "
 "default."
 msgstr ""
-"<filename>%1</filename> adı bir nokta ile başlıyor; dolayısıyla öntanımlı "
+"<filename>%1</filename> adı bir nokta ile başlıyor; dolayısıyla varsayılan "
 "olarak gizlenecektir."
 
 #: filewidgets/knewfilemenu.cpp:1171
@@ -4430,7 +4430,7 @@ msgstr ""
 "için kullanılırlar. Bazı siteler çerez destekleyen bir tarayıcı kullanmanızı "
 "zorunlu tutabilirler.</p><p>Çoğu kullanıcı gizlilik ile çerezlerin yararları "
 "arasında bir denge kurmak istediklerinden HTTP KIO işçisi çerezleri "
-"yönetebilme yeteneğini sunar. Yani öntanımlı politikayı bir sunucu çerez "
+"yönetebilme yeteneğini sunar. Yani varsayılan politikayı bir sunucu çerez "
 "oluşturmak istediğinde size sorulması şeklinde ayarlayabilirsiniz. "
 "Güvendiğiniz özel alışveriş siteleri için çerezleri kabul ederek her çerez "
 "alışında size sormasının önüne geçebilirsiniz.</p>"
@@ -4649,7 +4649,7 @@ msgstr ""
 "için kullanılırlar. Bazı siteler çerez destekleyen bir tarayıcı kullanmanızı "
 "zorunlu tutabilirler.</p><p>Çoğu kullanıcı gizlilik ile çerezlerin yararları "
 "arasında bir denge kurmak istediklerinden HTTP kioslave çerezleri "
-"yönetebilme yeteneğini sunar. Yani öntanımlı politikayı bir sunucu çerez "
+"yönetebilme yeteneğini sunar. Yani varsayılan politikayı bir sunucu çerez "
 "oluşturmak istediğinde size sorulması şeklinde ayarlayabilirsiniz. "
 "Güvendiğiniz özel alış veriş siteleri için çerezleri kabul ederek her çerez "
 "alışında size sormasının önüne geçebilirsiniz.</p>"
@@ -4723,7 +4723,7 @@ msgstr ""
 "edin. Bu tür çerezler, bilgisayarınızın sabit sürücüsünde veya depolama "
 "aygıtında depolanmayacaktır. Bunun yerine, onları kullanan tüm uygulamaları "
 "(örn. tarayıcınız) kapattığınızda silinirler.</p><p><u>NOT</u> Bu seçeneğin "
-"işaretlenmesi, oturum çerezleri için öntanımlı ve siteye özel çerez "
+"işaretlenmesi, oturum çerezleri için varsayılan ve siteye özel çerez "
 "politikalarını geçersiz kılar.</p>"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbAutoAcceptSessionCookies)
@@ -4764,14 +4764,14 @@ msgstr ""
 "<li><b>Reddet</b> KDE'nin aldığı tüm çerezleri reddetmesini sağlar.</li>\n"
 "</ul><p>\n"
 "<u>NOT:</u> Aşağıdan ayarlanabilir olan alan adına özel ayarlar her zaman "
-"öntanımlı ayarlardan önceliklidir.</p>\n"
+"varsayılan ayarlardan önceliklidir.</p>\n"
 "</qt>"
 
 #. i18n: ectx: property (title), widget (QGroupBox, bgDefault)
 #: kcms/cookies/kcookiespolicies.ui:71
 #, kde-format
 msgid "Default Policy"
-msgstr "Öntanımlı Politika"
+msgstr "Varsayılan Politika"
 
 #. i18n: ectx: property (text), widget (QRadioButton, rbPolicyAccept)
 #: kcms/cookies/kcookiespolicies.ui:77
@@ -4847,7 +4847,7 @@ msgid ""
 msgstr ""
 "<qt>\n"
 "Özel çerez politikaları belirlediğiniz sitelerin listesi. Özel politikalar "
-"bu siteler için öntanımlı ayarları geçersiz kılar.\n"
+"bu siteler için varsayılan ayarları geçersiz kılar.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QTreeWidget, policyTreeWidget)
@@ -5636,12 +5636,12 @@ msgstr "Bu ayarlar yalnızca ağ taramasına uygulanır."
 #: kcms/smb/smbrodlg.cpp:31
 #, kde-format
 msgid "Default user name:"
-msgstr "Öntanımlı kullanıcı adı:"
+msgstr "Varsayılan kullanıcı adı:"
 
 #: kcms/smb/smbrodlg.cpp:39
 #, kde-format
 msgid "Default password:"
-msgstr "Öntanımlı parola:"
+msgstr "Varsayılan parola:"
 
 #: kcms/smb/smbrodlg.cpp:122
 #, kde-format
@@ -6560,7 +6560,7 @@ msgstr ""
 "arama yapmanızı ya da sözcüklere bakmanızı sağlar. Örneğin, Google "
 "kullanarak KDE projesi hakkında bilgi edinmek için basit bir şekilde "
 "<emphasis>gg:KDE</emphasis> veya <emphasis>google:KDE</emphasis> yazın.</"
-"para><para>Eğer bir öntanımlı arama motoru seçerseniz Konqueror gibi "
+"para><para>Eğer bir varsayılan arama motoru seçerseniz Konqueror gibi "
 "uygulamalar içinde normal sözcükler ve ifadeler yazıldığında, bu ögeler bir "
 "bütünleşik iç özellik desteği ile belirlenen arama motorunda aranır.</para>"
 
@@ -6579,8 +6579,8 @@ msgstr ""
 "<html><head/><body><p>Web arama anahtar sözcüklerini etkinleştir veya devre "
 "dışı bırak.</p><p>Web anahtar arama sözcükleri, çevrim içi veya sabit "
 "diskinizde yer alan bilgileri hızlıca aramanızı veya onlara hızlıca "
-"erişmenizi sağlar.</p><p>KDE, öntanımlı birçok Web arama anahtar sözcüğü ile "
-"gelir. Bu anahtar sözcüklerinden biri Google (TM) arama kısayoludur. "
+"erişmenizi sağlar.</p><p>KDE, varsayılan birçok Web arama anahtar sözcüğü "
+"ile gelir. Bu anahtar sözcüklerinden biri Google (TM) arama kısayoludur. "
 "Kullanabilmek için yalnızca 'gg' yazıp ardından aranacak ifadeyi ekleyin, "
 "örn. <span style=\" font-weight:600;\">gg:KDE</span>.</p></body></html>"
 
@@ -6646,7 +6646,7 @@ msgstr ""
 #: urifilters/ikws/ikwsopts_ui.ui:141
 #, kde-format
 msgid "Default Web &search keyword:"
-msgstr "Öntanımlı Web arama anahtar &sözcüğü:"
+msgstr "Varsayılan Web arama anahtar &sözcüğü:"
 
 #. i18n: ectx: property (whatsThis), widget (QComboBox, cmbDefaultEngine)
 #: urifilters/ikws/ikwsopts_ui.ui:166
@@ -6658,7 +6658,7 @@ msgid ""
 "p><p>To disable this functionality select <span style=\" font-weight:600;"
 "\">None</span> from the list. </p></body></html>"
 msgstr ""
-"<html><head/><body><p>Öntanımlı bir web arama anahtar sözcüğü seçin.</"
+"<html><head/><body><p>Varsayılan bir web arama anahtar sözcüğü seçin.</"
 "p><p>Bu, uygulamaların yazılan sözcük veya ifadeleri geçerli bir URL olarak "
 "süzemediklerinde, otomatik olarak web arama anahtar sözcük sorgularına "
 "dönüştürmelerini sağlar. </p><p>Bu işlevi kapatmak için listeden <span style="
@@ -6713,7 +6713,7 @@ msgstr "Bir arama hizmeti sağlayıcısı bulunamadı."
 #, kde-format
 msgctxt "@item:inlistbox The default character set"
 msgid "Default"
-msgstr "Öntanımlı"
+msgstr "Varsayılan"
 
 #: urifilters/ikws/searchproviderdlg.cpp:52
 #, kde-format
@@ -6809,7 +6809,7 @@ msgstr ""
 "name2,...,\"karakter dizisi\"}) yapılabilir.<br/>İlk eşleşen değer (soldan) "
 "sonuç URI'de yerine konulacak değer olarak kullanılacaktır.<br/>Eğer kaynak "
 "listesinin solundaki hiçbir şey eşleşmezse tırnak içine alınmış karakter "
-"dizisi öntanımlı değer olarak kullanılabilir.\n"
+"dizisi varsayılan değer olarak kullanılabilir.\n"
 "</qt>"
 
 #. i18n: ectx: property (text), widget (QLabel, lbQuery)
@@ -7315,7 +7315,7 @@ msgstr "Adlandırılmış Kullanıcı"
 #: widgets/kacleditwidget.cpp:254
 #, kde-format
 msgid "Owner (Default)"
-msgstr "Sahibi (Öntanımlı)"
+msgstr "Sahibi (Varsayılan)"
 
 #: widgets/kacleditwidget.cpp:384
 #, kde-format
@@ -7330,7 +7330,7 @@ msgstr "Girdi Türü"
 #: widgets/kacleditwidget.cpp:393
 #, kde-format
 msgid "Default for new files in this folder"
-msgstr "Bu klasördeki yeni dosyalar için öntanımlı"
+msgstr "Bu klasördeki yeni dosyalar için varsayılan"
 
 #: widgets/kacleditwidget.cpp:400
 #, kde-format
