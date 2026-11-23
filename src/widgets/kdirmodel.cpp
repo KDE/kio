@@ -795,10 +795,19 @@ void KDirModelPrivate::_k_slotRedirection(const QUrl &oldUrl, const QUrl &newUrl
     // Ensure the node's URL is updated. In case of a listjob redirection
     // we won't get a refreshItem, and in case of renaming a directory
     // we'll get it too late (so the hash won't find the old url anymore).
-    KFileItem item = node->item();
+    const KFileItem item = node->item();
     if (!item.isNull()) { // null if root item, #180156
-        item.setUrl(newUrl);
-        node->setItem(item);
+        // The parent folder listed the item under its name, which stays the one shown:
+        // KFileItem::setUrl() would rename it after the last segment of the target.
+        // A renamed directory gets its new name from the refreshItem.
+        KIO::UDSEntry entry = item.entry();
+        if (entry.contains(KIO::UDSEntry::UDS_URL)) {
+            entry.replace(KIO::UDSEntry::UDS_URL, newUrl.toString());
+        }
+        node->setItem(KFileItem(entry, newUrl, m_dirLister->delayedMimeTypes()));
+
+        const QModelIndex index = indexForNode(node);
+        Q_EMIT q->dataChanged(index, index.siblingAtColumn(KDirModel::ColumnCount - 1));
     }
 
     // The items inside the renamed directory have been handled before,

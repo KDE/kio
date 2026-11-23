@@ -26,6 +26,7 @@
 #include <QMimeData>
 #include <QScopeGuard>
 #include <QSignalSpy>
+#include <QStandardPaths>
 #include <QTemporaryDir>
 #include <QUrl>
 
@@ -813,6 +814,51 @@ void KDirModelTest::testRenameDirectory() // #172945, #174703, (and #180156)
 
     delete m_dirModelForExpand;
     m_dirModelForExpand = nullptr;
+}
+
+void KDirModelTest::testRedirectedSubfolderKeepsItsName()
+{
+    // ensure the KIO workers call QStandardPaths::setTestModeEnabled too
+    qputenv("KIOWORKER_ENABLE_TESTMODE", "1");
+
+    // remote:/place redirects to the folder target.
+    QTemporaryDir target;
+    QVERIFY(target.isValid());
+    QVERIFY(QFile(target.filePath(QStringLiteral("inside.txt"))).open(QIODevice::WriteOnly));
+    const QString remoteViewPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + QStringLiteral("/remoteview");
+    QVERIFY(QDir().mkpath(remoteViewPath));
+    const QString placeFilePath = remoteViewPath + QStringLiteral("/place.desktop");
+    const auto removePlaceFile = qScopeGuard([&placeFilePath] {
+        QFile::remove(placeFilePath);
+    });
+    QFile placeFile(placeFilePath);
+    QVERIFY(placeFile.open(QIODevice::WriteOnly));
+    placeFile.write("[Desktop Entry]\nType=Link\nName=My place\nURL=" + QUrl::fromLocalFile(target.path()).toEncoded() + "\n");
+    placeFile.close();
+
+    KDirModel model;
+    QSignalSpy completedSpy(model.dirLister(), qOverload<>(&KCoreDirLister::completed));
+    model.openUrl(QUrl(QStringLiteral("remote:/")));
+    QVERIFY(completedSpy.wait());
+    const QModelIndex placeIndex = model.indexForUrl(QUrl(QStringLiteral("remote:/place")));
+    QVERIFY(placeIndex.isValid());
+    QCOMPARE(placeIndex.data().toString(), QStringLiteral("My place"));
+
+    QSignalSpy dataChangedSpy(&model, &QAbstractItemModel::dataChanged);
+    QSignalSpy redirectionSpy(model.dirLister(), &KCoreDirLister::redirection);
+    // As a tree view does when the folder is expanded.
+    model.fetchMore(placeIndex);
+    QTRY_COMPARE(redirectionSpy.size(), 1);
+    QTRY_COMPARE(model.rowCount(placeIndex), 1);
+
+    const KFileItem placeItem = model.itemForIndex(placeIndex);
+    QCOMPARE(QDir::cleanPath(placeItem.url().toLocalFile()), target.path());
+    QCOMPARE(placeIndex.data().toString(), QStringLiteral("My place"));
+    QCOMPARE(model.index(0, KDirModel::Name, placeIndex).data().toString(), QStringLiteral("inside.txt"));
+
+    // The views repaint the row, which has a new url.
+    QCOMPARE(dataChangedSpy.size(), 1);
+    QCOMPARE(dataChangedSpy.at(0).at(0).toModelIndex(), placeIndex);
 }
 
 void KDirModelTest::testRenameDirectoryInCache() // #188807

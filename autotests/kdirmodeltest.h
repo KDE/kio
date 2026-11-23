@@ -45,6 +45,7 @@ private Q_SLOTS:
     void testMoveDirectory();
     void testRenameDirectory();
     void testRenameDirectoryInCache();
+    void testRedirectedSubfolderKeepsItsName();
     void testChmodDirectory();
     void testExpandToUrl_data();
     void testExpandToUrl();
