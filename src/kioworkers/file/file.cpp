@@ -341,6 +341,13 @@ WorkerResult FileProtocol::redirect(const QUrl &url)
     return WorkerResult::pass();
 }
 
+// The type from the name and the first 16 KiB, all that QMimeDatabase reads. The read happens
+// outside its process-wide lock, which mimeTypeForFile() holds while it reads.
+static QMimeType mimeTypeForOpenFile(QFile &file)
+{
+    return QMimeDatabase().mimeTypeForFileNameAndData(file.fileName(), file.peek(16384));
+}
+
 WorkerResult FileProtocol::get(const QUrl &_url)
 {
     if (!isLocalFileSameHost(_url)) {
@@ -377,12 +384,7 @@ WorkerResult FileProtocol::get(const QUrl &_url)
 
     // Determine the MIME type of the file to be retrieved, and emit it.
     // This is mandatory in all workers (for KRun/BrowserRun to work)
-    // In real "remote" workers, this is usually done using mimeTypeForFileNameAndData
-    // after receiving some data. But we don't know how much data the mimemagic rules
-    // need, so for local files, better use mimeTypeForFile.
-    QMimeDatabase db;
-    QMimeType mt = db.mimeTypeForFile(url.toLocalFile());
-    mimeType(mt.name());
+    mimeType(mimeTypeForOpenFile(f).name());
     // Emit total size AFTER the MIME type
     totalSize(buff.st_size);
 
@@ -483,9 +485,7 @@ WorkerResult FileProtocol::open(const QUrl &_url, QIODevice::OpenMode mode)
     // If we're not opening the file ReadOnly or ReadWrite, don't attempt to
     // read the file and send the MIME type.
     if (mode & QIODevice::ReadOnly) {
-        QMimeDatabase db;
-        QMimeType mt = db.mimeTypeForFile(url.toLocalFile());
-        mimeType(mt.name());
+        mimeType(mimeTypeForOpenFile(*mFile).name());
     }
 
     totalSize(buff.st_size);

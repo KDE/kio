@@ -138,6 +138,8 @@ private Q_SLOTS:
 #endif
     void chmodFileError();
     void mimeType();
+    void mimeTypeOfLocalFile_data();
+    void mimeTypeOfLocalFile();
     void mimeTypeError();
     void calculateRemainingSeconds();
     void moveFileDestAlreadyExists_data();

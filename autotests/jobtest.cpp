@@ -3502,6 +3502,45 @@ void JobTest::mimeType()
 #endif
 }
 
+void JobTest::mimeTypeOfLocalFile_data()
+{
+    QTest::addColumn<QString>("fileName");
+    QTest::addColumn<QByteArray>("content");
+    QTest::addColumn<QString>("expectedMimeType");
+
+    QTest::newRow("content without extension") << "noExtension" << QByteArray("%PDF-1.4\n") << "application/pdf";
+    QTest::newRow("unique extension") << "picture.png" << QByteArray("plain text") << "image/png";
+    QTest::newRow("empty file") << "empty" << QByteArray() << "application/x-zerosize";
+}
+
+void JobTest::mimeTypeOfLocalFile()
+{
+    // The type a local file reports through mimetype() and get() comes from its name and content, and
+    // get() still sends the whole file.
+    QFETCH(QString, fileName);
+    QFETCH(QByteArray, content);
+    QFETCH(QString, expectedMimeType);
+
+    QTemporaryDir dir(homeTmpDir() + "mimetypeXXXXXX");
+    QVERIFY(dir.isValid());
+    const QString filePath = dir.filePath(fileName);
+    {
+        QFile file(filePath);
+        QVERIFY(file.open(QIODevice::WriteOnly));
+        QCOMPARE(file.write(content), content.size());
+    }
+    const QUrl url = QUrl::fromLocalFile(filePath);
+
+    KIO::MimetypeJob *mimetypeJob = KIO::mimetype(url, KIO::HideProgressInfo);
+    QVERIFY2(mimetypeJob->exec(), qPrintable(mimetypeJob->errorString()));
+    QCOMPARE(mimetypeJob->mimetype(), expectedMimeType);
+
+    KIO::StoredTransferJob *getJob = KIO::storedGet(url, KIO::NoReload, KIO::HideProgressInfo);
+    QVERIFY2(getJob->exec(), qPrintable(getJob->errorString()));
+    QCOMPARE(getJob->mimetype(), expectedMimeType);
+    QCOMPARE(getJob->data(), content);
+}
+
 void JobTest::mimeTypeError()
 {
     // KIO::mimetype() on a file that doesn't exist
