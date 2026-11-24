@@ -571,6 +571,13 @@ public:
     QMimeType determineMimeType() const;
 
     /*!
+     * Sets the MIME type found for the file item, for example by content in another thread. The MIME
+     * type and the icon are then final, as after determineMimeType(). An invalid type is ignored.
+     * \since 6.33
+     */
+    void setDeterminedMimeType(const QMimeType &mimeType);
+
+    /*!
      * Returns the currently known MIME type of the file item.
      * This will not try to determine the MIME type if unknown.
      */

@@ -1111,6 +1111,18 @@ QMimeType KFileItem::determineMimeType() const
     return d->m_mimeType;
 }
 
+void KFileItem::setDeterminedMimeType(const QMimeType &mimeType)
+{
+    if (!d || !mimeType.isValid()) {
+        return;
+    }
+    d->m_mimeType = sharedMimeType(mimeType.name());
+    d->m_bMimeTypeKnown = true;
+    d->m_useIconNameCache = false;
+    // The type is known now, so this only ends the delayed icon determination.
+    (void)determineMimeType();
+}
+
 bool KFileItem::isMimeTypeKnown() const
 {
     if (!d) {

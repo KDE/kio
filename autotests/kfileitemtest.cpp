@@ -441,6 +441,30 @@ void KFileItemTest::testMimeTypeOnDemand()
     }
 }
 
+void KFileItemTest::testSetDeterminedMimeType()
+{
+    // A type found elsewhere is final, and the item does not read the file again: its content is a PDF.
+    QTemporaryFile file;
+    QVERIFY(file.open());
+    file.write(QByteArray("%PDF-"));
+    file.close();
+
+    KFileItem fileItem(QUrl::fromLocalFile(file.fileName()));
+    fileItem.setDelayedMimeTypes(true);
+    QVERIFY(!fileItem.isMimeTypeKnown());
+    fileItem.setDeterminedMimeType(QMimeDatabase().mimeTypeForName(QStringLiteral("image/png")));
+    QVERIFY(fileItem.isMimeTypeKnown());
+    QVERIFY(fileItem.isFinalIconKnown());
+    QCOMPARE(fileItem.mimetype(), QStringLiteral("image/png"));
+    QCOMPARE(fileItem.iconName(), QStringLiteral("image-png"));
+
+    KFileItem unchanged(QUrl::fromLocalFile(file.fileName()));
+    unchanged.setDelayedMimeTypes(true);
+    unchanged.setDeterminedMimeType(QMimeType());
+    QVERIFY(!unchanged.isMimeTypeKnown());
+    QCOMPARE(unchanged.mimetype(), QStringLiteral("application/pdf"));
+}
+
 void KFileItemTest::testCmp()
 {
     QTemporaryFile file;

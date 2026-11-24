@@ -27,6 +27,7 @@ private Q_SLOTS:
     void testRootDirectory();
     void testHiddenFile();
     void testMimeTypeOnDemand();
+    void testSetDeterminedMimeType();
     void testCmp();
     void testCmpAndInit();
     void testCmpByUrl();
