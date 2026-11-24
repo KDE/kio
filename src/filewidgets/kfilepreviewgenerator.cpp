@@ -96,6 +96,11 @@ public:
     void pauseIconUpdates();
 
     /*
+     * Updates the icons as needed on the views color palette change.
+     */
+    void updateIconsToPaletteChange();
+
+    /*
      * Resumes the icons updates that have been paused after moving the
      * scrollbar. The previews for the current visible area are
      * generated first.
@@ -227,11 +232,6 @@ public:
      * The value is reset by resumeIconUpdates().
      */
     bool m_iconUpdatesPaused = false;
-
-    /*
-     * True if the app is watched for palette changes, not some widget
-     */
-    bool m_appPaletteWatched = false;
 
     /*
      * If the value is 0, the slot
@@ -463,6 +463,7 @@ KFilePreviewGeneratorPrivate::KFilePreviewGeneratorPrivate(KFilePreviewGenerator
     });
     m_viewAdapter->connect(KAbstractViewAdapter::IconSizeChanged, q, SLOT(updateIcons()));
     m_viewAdapter->connect(KAbstractViewAdapter::ScrollBarValueChanged, q, SLOT(pauseIconUpdates()));
+    m_viewAdapter->connect(KAbstractViewAdapter::PaletteChanged, q, SLOT(updateIconsToPaletteChange()));
 
     m_changedItemsTimer = new QTimer(q);
     m_changedItemsTimer->setSingleShot(true);
@@ -773,6 +774,17 @@ void KFilePreviewGeneratorPrivate::pauseIconUpdates()
         job->suspend();
     }
     m_scrollAreaTimer->start();
+}
+
+void KFilePreviewGeneratorPrivate::updateIconsToPaletteChange()
+{
+    if (m_previewShown) {
+        // Only folder thumbnails might need to be reset here,
+        // given the icon used as background can be rendered based on app color palette.
+        // For simple code and as a app color palette changes do not often happen,
+        // the whole cache is discarded here.
+        q->updateIcons();
+    }
 }
 
 void KFilePreviewGeneratorPrivate::resumeIconUpdates()
@@ -1157,37 +1169,15 @@ KFilePreviewGenerator::KFilePreviewGenerator(QAbstractItemView *parent)
     , d(new KFilePreviewGeneratorPrivate(this, new KIO::DefaultViewAdapter(parent, this), parent->model()))
 {
     d->m_itemView = parent;
-    d->m_appPaletteWatched = false;
-    parent->installEventFilter(this);
 }
 
 KFilePreviewGenerator::KFilePreviewGenerator(KAbstractViewAdapter *parent, QAbstractProxyModel *model)
     : QObject(parent)
     , d(new KFilePreviewGeneratorPrivate(this, parent, model))
 {
-    d->m_appPaletteWatched = true;
-    qApp->installEventFilter(this);
 }
 
 KFilePreviewGenerator::~KFilePreviewGenerator() = default;
-
-// TODO: add instead a signal paletteChanged to KAbstractViewAdapter and have the adapter watch out for changes
-// avoids the expensive filtering on the app instance (gets all the events of all UI tree objects)
-bool KFilePreviewGenerator::eventFilter(QObject *watched, QEvent *event)
-{
-    if (d->m_appPaletteWatched ? ((watched == qApp) && (event->type() == QEvent::ApplicationPaletteChange))
-                               : ((watched == d->m_itemView) && (event->type() == QEvent::PaletteChange))) {
-        if (d->m_previewShown) {
-            // Only folder thumbnails might need to be reset here,
-            // given the icon used as background can be rendered based on app color palette.
-            // For simple code and as a app color palette changes do not often happen,
-            // the whole cache is discarded here.
-            updateIcons();
-        }
-    }
-
-    return QObject::eventFilter(watched, event);
-}
 
 void KFilePreviewGenerator::setPreviewShown(bool show)
 {

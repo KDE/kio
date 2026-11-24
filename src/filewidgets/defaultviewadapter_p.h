@@ -32,6 +32,12 @@ public:
     QRect visualRect(const QModelIndex &index) const override;
     void connect(Signal signal, QObject *receiver, const char *slot) override;
 
+Q_SIGNALS:
+    void paletteChanged();
+
+protected:
+    bool eventFilter(QObject *watched, QEvent *event) override;
+
 private:
     QAbstractItemView *m_view;
 };

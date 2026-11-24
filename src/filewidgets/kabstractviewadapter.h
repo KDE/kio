@@ -64,10 +64,12 @@ public:
     /*!
      * \value ScrollBarValueChanged
      * \value IconSizeChanged
+     * \value[since 6.33] PaletteChanged
      */
     enum Signal {
         ScrollBarValueChanged,
-        IconSizeChanged
+        IconSizeChanged,
+        PaletteChanged,
     };
 
     /*!

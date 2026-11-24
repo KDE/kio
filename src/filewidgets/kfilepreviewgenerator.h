@@ -108,9 +108,6 @@ public Q_SLOTS:
     /*! Cancels all pending previews. */
     void cancelPreviews();
 
-protected:
-    bool eventFilter(QObject *watched, QEvent *event) override;
-
 private:
     friend class KFilePreviewGeneratorPrivate;
     std::unique_ptr<KFilePreviewGeneratorPrivate> const d;
@@ -118,6 +115,7 @@ private:
     Q_DISABLE_COPY(KFilePreviewGenerator)
 
     Q_PRIVATE_SLOT(d, void pauseIconUpdates())
+    Q_PRIVATE_SLOT(d, void updateIconsToPaletteChange())
 };
 
 #endif
