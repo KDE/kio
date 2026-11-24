@@ -418,7 +418,13 @@ void KUrlNavigatorPrivate::applyUncommittedUrl(ApplyUrlMethod method)
     }
 
     const QUrl textUrl(text);
-    auto applyText = [this, text, textUrl, applyUrl]() {
+    const bool isAbsolutePath = text.startsWith(QLatin1Char('/'));
+
+    // "resolvedUrl" is the URL the typed text resolves to, i.e. the current location
+    // with a relative text appended. It is used as fallback when that URL does not
+    // exist so that "foo" typed in /path/to/dir stays in /path/to/dir instead of
+    // being opened as file:///foo.
+    auto applyTextUrl = [this, text, textUrl, isAbsolutePath, applyUrl](const QUrl &resolvedUrl) {
         // Check if text matches a URI filter
         if (const auto filteredUrl = checkFilters(text); filteredUrl) {
             applyUrl(*filteredUrl);
@@ -426,17 +432,19 @@ void KUrlNavigatorPrivate::applyUncommittedUrl(ApplyUrlMethod method)
         }
 
         if (textUrl.scheme().isEmpty()) {
-            applyUrl(QUrl::fromLocalFile(text));
+            if (!isAbsolutePath && !resolvedUrl.scheme().isEmpty()) {
+                applyUrl(resolvedUrl);
+            } else {
+                applyUrl(QUrl::fromLocalFile(text));
+            }
         } else {
             applyUrl(textUrl);
         }
     };
 
-    const bool isAbsolutePath = text.startsWith(QLatin1Char('/'));
-
     // A full URL such as "smb://server" is not a path below the current url
     if (!isAbsolutePath && !textUrl.isRelative()) {
-        applyText();
+        applyTextUrl(url);
         return;
     }
 
@@ -451,7 +459,7 @@ void KUrlNavigatorPrivate::applyUncommittedUrl(ApplyUrlMethod method)
     // Dirs and symlinks to dirs
     constexpr auto details = KIO::StatBasic | KIO::StatResolveSymlink;
     auto *job = KIO::stat(url, KIO::StatJob::DestinationSide, details, KIO::HideProgressInfo);
-    q->connect(job, &KJob::result, q, [job, applyUrl, applyText]() {
+    q->connect(job, &KJob::result, q, [job, applyUrl, applyTextUrl]() {
         // If there is a dir matching "text" relative to the current url, use that, e.g.:
         // - typing "bar" while at "/path/to/foo" ---> "/path/to/foo/bar/"
         // - typing ".config" while at "/home/foo" ---> "/home/foo/.config"
@@ -460,7 +468,7 @@ void KUrlNavigatorPrivate::applyUncommittedUrl(ApplyUrlMethod method)
             return;
         }
 
-        applyText();
+        applyTextUrl(job->url());
     });
 }
 

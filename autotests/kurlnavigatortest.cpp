@@ -229,6 +229,7 @@ void KUrlNavigatorTest::testRelativePaths()
     QTemporaryDir tempDir;
     const QString tempDirPath = tempDir.path();
     const QString dirA = tempDirPath + QLatin1String("/a");
+    const QString dirAFoo = tempDirPath + QLatin1String("/a/foo"); // does not exist.
     const QString dirB = tempDirPath + QLatin1String("/a/b");
     const QString dirC = tempDirPath + QLatin1String("/.c");
     const QString link = tempDirPath + QLatin1String("/l");
@@ -311,10 +312,18 @@ void KUrlNavigatorTest::testRelativePaths()
     // Go to trash:
     m_navigator->setLocationUrl(trashUrl);
     m_navigator->setUrlEditable(true);
-    // Replace all the text with "a"
+    // Replace all the text with "/a" (absolute path)
     m_navigator->editor()->setCurrentText(QStringLiteral("/a"));
     QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
     QTRY_COMPARE(m_navigator->locationUrl(), QUrl::fromLocalFile("/a"));
+
+    // Typing "foo", which does not exist in dirA, must resolve relative to the
+    // current directory instead of being applied as file:///foo
+    m_navigator->setLocationUrl(dirAUrl);
+    m_navigator->setUrlEditable(true);
+    m_navigator->editor()->setCurrentText(QStringLiteral("foo"));
+    QTest::keyClick(m_navigator->editor(), Qt::Key_Enter);
+    QTRY_COMPARE(m_navigator->locationUrl(), QUrl::fromLocalFile(dirAFoo));
 }
 
 void KUrlNavigatorTest::testCompletionUsesCurrentDirectory_data()
