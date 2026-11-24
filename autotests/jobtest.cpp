@@ -70,6 +70,9 @@
 #include <sys/stat.h>
 #include <unistd.h> // for readlink
 #endif
+#ifdef Q_OS_LINUX
+#include <sys/mman.h>
+#endif
 
 using namespace Qt::StringLiterals;
 
@@ -1477,6 +1480,82 @@ void JobTest::copyLargeFileWithWritebackWindow()
     QVERIFY(copy.open(QIODevice::ReadOnly));
     QCOMPARE(copy.size(), size);
     QVERIFY(source.readAll() == copy.readAll());
+}
+
+#ifdef Q_OS_LINUX
+// Whether each page of the file from offset to offset + length is in the page cache.
+static std::vector<bool> pagesInCache(const QString &path, qint64 offset, qint64 length)
+{
+    const int fd = ::open(QFile::encodeName(path).constData(), O_RDONLY | O_CLOEXEC);
+    if (fd < 0) {
+        return {};
+    }
+    const long pageSize = ::sysconf(_SC_PAGESIZE);
+    void *map = ::mmap(nullptr, length, PROT_READ, MAP_SHARED, fd, offset);
+    ::close(fd);
+    if (map == MAP_FAILED) {
+        return {};
+    }
+    std::vector<unsigned char> resident((length + pageSize - 1) / pageSize);
+    const bool ok = ::mincore(map, length, resident.data()) == 0;
+    ::munmap(map, length);
+    if (!ok) {
+        return {};
+    }
+    std::vector<bool> cached;
+    for (unsigned char page : resident) {
+        cached.push_back(page & 1);
+    }
+    return cached;
+}
+#endif
+
+void JobTest::writebackWindowKeepsFileStartCached()
+{
+#ifndef Q_OS_LINUX
+    QSKIP("The writeback window and mincore are Linux only");
+#else
+    // After a put to a removable device, the start of the file stays in memory, the rest does not.
+    // A put writes through the page cache, where a copy can share the extents of its source.
+    qputenv("KIO_FILE_FORCE_REMOVABLE", "1");
+    const auto unsetRemovable = qScopeGuard([] {
+        qunsetenv("KIO_FILE_FORCE_REMOVABLE");
+    });
+
+    QTemporaryDir sandbox(homeTmpDir() + "writebackXXXXXX");
+    QVERIFY(sandbox.isValid());
+
+    // Several windows, so the early ones are written back during the put.
+    constexpr qint64 mib = 1024 * 1024;
+    constexpr int blocks = 32;
+    // Memory pressure can still evict the kept pages, so three files get the chance to keep them.
+    bool startCached = false;
+    for (int attempt = 0; attempt < 3 && !startCached; ++attempt) {
+        const QString dest = sandbox.filePath(QStringLiteral("large_put%1").arg(attempt));
+        KIO::TransferJob *job = KIO::put(QUrl::fromLocalFile(dest), -1, KIO::HideProgressInfo);
+        job->setUiDelegate(nullptr);
+        int sent = 0;
+        connect(job, &KIO::TransferJob::dataReq, this, [&sent](KIO::Job *, QByteArray &data) {
+            if (sent < blocks) {
+                data = QByteArray(mib, char(sent));
+                ++sent;
+            }
+        });
+        QVERIFY2(job->exec(), qPrintable(job->errorString()));
+
+        // The second MiB is in an early window, written back and dropped.
+        const std::vector<bool> dropped = pagesInCache(dest, mib, mib);
+        QVERIFY(!dropped.empty());
+        if (std::ranges::all_of(dropped, std::identity())) {
+            QSKIP("This filesystem keeps written-back pages in the page cache");
+        }
+
+        const std::vector<bool> start = pagesInCache(dest, 0, 16 * 1024);
+        QVERIFY(!start.empty());
+        startCached = std::ranges::all_of(start, std::identity());
+    }
+    QVERIFY(startCached);
+#endif
 }
 
 void JobTest::putLargeFileWithWritebackWindow_data()

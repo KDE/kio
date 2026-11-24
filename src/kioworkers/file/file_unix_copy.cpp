@@ -373,6 +373,10 @@ struct AdaptiveChunk {
 static constexpr off_t s_minWindow = 1024 * 1024;
 static constexpr std::chrono::milliseconds s_windowWriteback = 200ms;
 
+// The start of the file stays in the page cache after its writeback, so the 16 KiB that
+// QMimeDatabase reads to find its type by content come from memory while the device is busy.
+[[maybe_unused]] static constexpr off_t s_cachedHead = 16 * 1024;
+
 // How often a copy that waits for a window checks whether it was cancelled.
 static constexpr std::chrono::milliseconds s_cancelCheck = 100ms;
 
@@ -505,9 +509,10 @@ private:
             constexpr unsigned writeAndWait = SYNC_FILE_RANGE_WAIT_BEFORE | SYNC_FILE_RANGE_WRITE | SYNC_FILE_RANGE_WAIT_AFTER;
             const int failure = ::sync_file_range(helperFd, range.start, range.end - range.start, writeAndWait) == 0 ? 0 : errno;
 #if HAVE_FADVISE
-            if (failure == 0) {
-                // Written back and not read again: the pages can go.
-                ::posix_fadvise(helperFd, range.start, range.end - range.start, POSIX_FADV_DONTNEED);
+            // The written-back pages leave the page cache, except those of the start of the file.
+            const off_t dropStart = qMax(range.start, s_cachedHead);
+            if (failure == 0 && dropStart < range.end) {
+                ::posix_fadvise(helperFd, dropStart, range.end - dropStart, POSIX_FADV_DONTNEED);
             }
 #endif
             const qint64 elapsedNs = qMax<qint64>(timer.nsecsElapsed(), 1);
