@@ -7,7 +7,7 @@
 # 林耕宇 <s9321028@ncnu.edu.tw>, 2003.
 # Frank Weng (a.k.a. Franklin) <franklin@mail.everfocus.com.tw>, 2007.
 # Franklin Weng <franklin@goodhorse.idv.tw>, 2010, 2011, 2012, 2015, 2017.
-# Jeff Huang <s8321414@gmail.com>, 2016, 2017, 2018.
+# SPDX-FileCopyrightText: 2016-2018, 2026 Jeff Huang <s8321414@gmail.com>
 # pan93412 <pan93412@gmail.com>, 2018, 2019, 2020.
 # Franklin Weng <franklin at goodhorse dot idv dot tw>, 2007.
 # Frank Weng (a.k.a. Franklin) <franklin at goodhorse dot idv dot tw>, 2008, 2009, 2010.
@@ -17,14 +17,14 @@ msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-24 00:59+0000\n"
-"PO-Revision-Date: 2026-11-19 22:44+0900\n"
-"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
+"PO-Revision-Date: 2026-11-24 20:48+0800\n"
+"Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
+"Language-Team: Traditional Chinese\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 27.03.70\n"
+"X-Generator: Lokalize 26.08.3\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -2215,7 +2215,7 @@ msgstr "無法為 \"%1\" 更新檔案類型資料庫。"
 msgid ""
 "Could not extract executable name from '%1', please type a valid program "
 "name."
-msgstr "無法從 %1 解開執行檔名撐，請輸入合法的程式名稱"
+msgstr "無法從 %1 解開執行檔名稱，請輸入合法的程式名稱。"
 
 #: core/openwith.cpp:201
 #, kde-kuit-format

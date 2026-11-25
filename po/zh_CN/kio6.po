@@ -4083,7 +4083,7 @@ msgstr "正在写入复制的数据到设备..."
 #: kioworkers/file/file_unix_copy.cpp:1448
 #, kde-format
 msgid "Malformed batch copy request"
-msgstr ""
+msgstr "格式错误的批量复制请求"
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format

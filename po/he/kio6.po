@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-11-24 00:59+0000\n"
-"PO-Revision-Date: 2026-11-05 12:58+0200\n"
+"PO-Revision-Date: 2026-11-24 08:49+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <kde-l10n-he@kde.org>\n"
 "Language: he\n"
@@ -4171,7 +4171,7 @@ msgstr "הנתונים המועתקים נכתבים למכשיר…"
 #: kioworkers/file/file_unix_copy.cpp:1448
 #, kde-format
 msgid "Malformed batch copy request"
-msgstr ""
+msgstr "בקשה שגויה להעתקה במרוכז"
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format
