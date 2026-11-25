@@ -133,13 +133,13 @@ bool KCoreDirListerCache::listDir(KCoreDirLister *lister, const QUrl &dirUrl, bo
         // Resolve symlinks (#213799)
         const QString local = _url.toLocalFile();
         resolved = QFileInfo(local).canonicalFilePath();
-        if (local != resolved) {
-            canonicalUrls[QUrl::fromLocalFile(resolved)].append(_url);
+        if (!resolved.isEmpty() && local != resolved) {
+            auto &aliases = canonicalUrls[QUrl::fromLocalFile(resolved)];
+            if (!aliases.contains(_url)) {
+                aliases.append(_url);
+            }
         }
-        // TODO: remove entry from canonicalUrls again in forgetDirs
-        // Note: this is why we use a QStringList value in there rather than a std::set:
-        // we can just remove one entry and not have to worry about other dirlisters
-        // (the non-unicity of the stringlist gives us the refcounting, basically).
+        // Keep aliases for cached directories as well as active listers.
     }
 
     qCDebug(KIO_CORE_DIRLISTER) << lister << "url=" << _url << "keep=" << _keep << "reload=" << _reload;
@@ -1089,11 +1089,8 @@ std::set<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem 
 QList<QUrl> KCoreDirListerCache::directoriesForCanonicalPath(const QUrl &dir) const
 {
     QList<QUrl> urlList = canonicalUrls.value(dir);
-    // make unique
     if (urlList.size() > 1) {
         std::sort(urlList.begin(), urlList.end());
-        auto end_unique = std::unique(urlList.begin(), urlList.end());
-        urlList.erase(end_unique, urlList.end());
     }
 
     QList<QUrl> dirs({dir});
