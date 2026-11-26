@@ -202,6 +202,10 @@ public:
     KCoreDirListerCache(); // only called by QThreadStorage internally
     ~KCoreDirListerCache() override;
 
+#ifdef BUILD_TESTING
+    KIOCORE_EXPORT static qsizetype registeredAliasCount(const QUrl &canonicalUrl);
+#endif
+
     void updateDirectory(const QUrl &dir);
 
     KFileItem itemForUrl(const QUrl &url) const;

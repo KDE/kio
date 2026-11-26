@@ -1086,6 +1086,13 @@ std::set<KCoreDirLister *> KCoreDirListerCache::emitRefreshItem(const KFileItem 
     return listers;
 }
 
+#ifdef BUILD_TESTING
+qsizetype KCoreDirListerCache::registeredAliasCount(const QUrl &canonicalUrl)
+{
+    return s_kDirListerCache.localData().canonicalUrls.value(canonicalUrl).size();
+}
+#endif
+
 QList<QUrl> KCoreDirListerCache::directoriesForCanonicalPath(const QUrl &dir) const
 {
     QList<QUrl> urlList = canonicalUrls.value(dir);

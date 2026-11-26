@@ -115,6 +115,7 @@ private Q_SLOTS:
     void testBug386763();
     void testCacheEviction();
     void testCacheExpiry();
+    void testRepeatedSymlinkListing();
     void testUnreadableParentDirectory();
     void testPathWithSquareBrackets();
     void testSFTPRedirect();

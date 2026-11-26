@@ -9,6 +9,7 @@
 #include "kdirlistertest.h"
 
 #include "jobuidelegatefactory.h"
+#include "kcoredirlister_p.h"
 #include "kiotesthelper.h"
 #include "worker_p.h"
 #include "workerbase.h"
@@ -1874,6 +1875,25 @@ void KDirListerTest::testCacheExpiry()
     QVERIFY(KDirWatch::self()->contains(cachedDirPath));
 
     QTRY_VERIFY_WITH_TIMEOUT(!KDirWatch::self()->contains(cachedDirPath), 5000);
+}
+
+void KDirListerTest::testRepeatedSymlinkListing()
+{
+    QTemporaryDir fixture(homeTmpDir());
+    QVERIFY(fixture.isValid());
+    const QString targetPath = fixture.filePath(u"target"_s);
+    const QString linkPath = fixture.filePath(u"link"_s);
+    QVERIFY(QDir().mkdir(targetPath));
+    QVERIFY(KIOPrivate::createSymlink(targetPath, linkPath));
+
+    const QUrl canonicalUrl = QUrl::fromLocalFile(QFileInfo(targetPath).canonicalFilePath());
+    const QUrl linkUrl = QUrl::fromLocalFile(linkPath);
+    for (int visit = 0; visit < 2; ++visit) {
+        MyDirLister lister;
+        QVERIFY(lister.openUrl(linkUrl));
+        QTRY_COMPARE(lister.spyCompleted.size(), 1);
+        QCOMPARE(KCoreDirListerCache::registeredAliasCount(canonicalUrl), 1);
+    }
 }
 
 void KDirListerTest::testUnreadableParentDirectory()
