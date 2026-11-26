@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-24 00:59+0000\n"
+"POT-Creation-Date: 2026-11-26 00:59+0000\n"
 "PO-Revision-Date: 2025-10-31 23:33+0100\n"
 "Last-Translator: Rasmus Rosendahl-Kaa <rasmus@rosendahl-kaa.name>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -113,42 +113,58 @@ msgstr "Papirkurv"
 msgid "%1 changed after it was copied, so it was not deleted."
 msgstr ""
 
-#: core/desktopexecparser.cpp:336
+#: core/desktopexecparser.cpp:335
 #, kde-format
 msgid "No Exec field in %1"
 msgstr "Intet Exec-felt i %1"
 
-#: core/desktopexecparser.cpp:361
+#: core/desktopexecparser.cpp:360
 #, kde-format
 msgid "Could not find the program '%1'"
 msgstr "Kunne ikke finde programmet \"%1\""
 
-#: core/desktopexecparser.cpp:364
+#: core/desktopexecparser.cpp:363
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
 msgstr ""
 "Programmet \"%1\" blev fundet i \"%2\", men det mangler kørselsrettigheder."
 
-#: core/desktopexecparser.cpp:366
+#: core/desktopexecparser.cpp:365
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
 msgstr "Programmet \"%1\" mangler kørselsrettigheder."
 
-#: core/desktopexecparser.cpp:380
+#: core/desktopexecparser.cpp:379
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
 msgstr "Syntaksfejl i kommandoen %1 som kommer fra %2"
 
-#: core/desktopexecparser.cpp:513
+#: core/desktopexecparser.cpp:450
+#, kde-format
+msgid "Mounting the network location was interrupted."
+msgstr ""
+
+#: core/desktopexecparser.cpp:524
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
 msgstr "Terminalen %1 blev ikke fundet under forsøg på at køre %2"
 
-#: core/desktopexecparser.cpp:530
+#: core/desktopexecparser.cpp:541
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "Syntaksfejl i kommandoen %1 under forsøg på at køre %2"
+
+#: core/fusemountjob.cpp:131
+#, kde-format
+msgid "Accessing %1 through a local path is not supported on this system."
+msgstr ""
+
+#: core/fusemountjob.cpp:153
+#, kde-format
+msgid ""
+"Accessing %1 through a local path requires kio-fuse, which is not available."
+msgstr ""
 
 #: core/global.cpp:79
 #, kde-format
@@ -3988,7 +4004,7 @@ msgstr "Fejl under gemning af billede til %1"
 msgid "Icon file too big, download aborted"
 msgstr "Ikonfilen er for stor, download afbrudt"
 
-#: gui/filepreviewjob.cpp:325
+#: gui/filepreviewjob.cpp:319
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"

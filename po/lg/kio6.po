@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-24 00:59+0000\n"
+"POT-Creation-Date: 2026-11-26 00:59+0000\n"
 "PO-Revision-Date: 2024-12-21 00:27+0000\n"
 "Last-Translator: Kizito Birabwa <kbirabwa@yahoo.co.uk>\n"
 "Language-Team: Luganda\n"
@@ -109,17 +109,17 @@ msgstr "Bisuulidwa"
 msgid "%1 changed after it was copied, so it was not deleted."
 msgstr ""
 
-#: core/desktopexecparser.cpp:336
+#: core/desktopexecparser.cpp:335
 #, kde-format
 msgid "No Exec field in %1"
 msgstr "%1 tekuli lukusa olugikkiriza okutandikibwa"
 
-#: core/desktopexecparser.cpp:361
+#: core/desktopexecparser.cpp:360
 #, kde-format
 msgid "Could not find the program '%1'"
 msgstr "Puloguramu '%1' embuze"
 
-#: core/desktopexecparser.cpp:364
+#: core/desktopexecparser.cpp:363
 #, kde-format
 msgid ""
 "The program '%1' was found at '%2' but it is missing executable permissions."
@@ -127,25 +127,41 @@ msgstr ""
 "Puloguramu '%1' ku '%2' kweri naye ebulako ndukusa ezigikkiriza "
 "okutandikibwa."
 
-#: core/desktopexecparser.cpp:366
+#: core/desktopexecparser.cpp:365
 #, kde-format
 msgid "The program '%1' is missing executable permissions."
 msgstr "Puloguramu '%1' ebulako ndukusa ezigikkiriza okutandikibwa."
 
-#: core/desktopexecparser.cpp:380
+#: core/desktopexecparser.cpp:379
 #, kde-format
 msgid "Syntax error in command %1 coming from %2"
 msgstr "Ekiragiro %1 ekivudde ku %2 kirimu ensobi ey'empandika"
 
-#: core/desktopexecparser.cpp:513
+#: core/desktopexecparser.cpp:450
+#, kde-format
+msgid "Mounting the network location was interrupted."
+msgstr ""
+
+#: core/desktopexecparser.cpp:524
 #, kde-format
 msgid "Terminal %1 not found while trying to run %2"
 msgstr "Mbulidwa ekiwandikiro %1 nga ngeza okutandika %2"
 
-#: core/desktopexecparser.cpp:530
+#: core/desktopexecparser.cpp:541
 #, kde-format
 msgid "Syntax error in command %1 while trying to run %2"
 msgstr "Nsanze ensobi ey'empandika mu kiragiro %1 nga ngeza okutandika %2"
+
+#: core/fusemountjob.cpp:131
+#, kde-format
+msgid "Accessing %1 through a local path is not supported on this system."
+msgstr ""
+
+#: core/fusemountjob.cpp:153
+#, kde-format
+msgid ""
+"Accessing %1 through a local path requires kio-fuse, which is not available."
+msgstr ""
 
 #: core/global.cpp:79
 #, kde-format
@@ -4014,7 +4030,7 @@ msgstr "Ogw'okukazza ekifaananyi mu %1 guzzeemu kiremya"
 msgid "Icon file too big, download aborted"
 msgstr "Fayiro ey'akafaananyi eyitiridde obunene, okuwanula kusazzidwamu"
 
-#: gui/filepreviewjob.cpp:325
+#: gui/filepreviewjob.cpp:319
 #, kde-format
 msgctxt "%1 is a file url"
 msgid "FilePreviewJob: skipping an empty file, might be a broken symlink: %1"
