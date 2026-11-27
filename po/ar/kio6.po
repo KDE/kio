@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-26 00:59+0000\n"
+"POT-Creation-Date: 2026-11-27 01:00+0000\n"
 "PO-Revision-Date: 2026-11-19 16:10+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -4213,12 +4213,12 @@ msgstr "تعذّر جلب معرّف المستخدم لاسم المستخدم 
 msgid "Could not get group id for given group name %1"
 msgstr "تعذّر جلب معرّف المجموعة لاسم المجموعة %1 المعطى"
 
-#: kioworkers/file/file_unix_copy.cpp:1150
+#: kioworkers/file/file_unix_copy.cpp:1155
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr "تكتب البيانات المنسوخة إلى الجهاز..."
 
-#: kioworkers/file/file_unix_copy.cpp:1448
+#: kioworkers/file/file_unix_copy.cpp:1453
 #, kde-format
 msgid "Malformed batch copy request"
 msgstr ""

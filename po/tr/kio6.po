@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-26 00:59+0000\n"
-"PO-Revision-Date: 2026-11-23 18:14+0300\n"
+"POT-Creation-Date: 2026-11-27 01:00+0000\n"
+"PO-Revision-Date: 2026-11-26 16:58+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -154,7 +154,7 @@ msgstr "%2 konumundan gelen %1 komutunda sözdizim hatası"
 #: core/desktopexecparser.cpp:450
 #, kde-format
 msgid "Mounting the network location was interrupted."
-msgstr ""
+msgstr "Ağ konumunu bağlama yarıda kesildi."
 
 #: core/desktopexecparser.cpp:524
 #, kde-format
@@ -170,12 +170,15 @@ msgstr "%2 çalıştırılmaya çalışılırken %1 komutunda sözdizim hatası"
 #, kde-format
 msgid "Accessing %1 through a local path is not supported on this system."
 msgstr ""
+"%1 ögesine yerel bir yol aracılığıyla ulaşmak, bu sistemde desteklenmiyor."
 
 #: core/fusemountjob.cpp:153
 #, kde-format
 msgid ""
 "Accessing %1 through a local path requires kio-fuse, which is not available."
 msgstr ""
+"%1 ögesine yerel bir yol aracılığıyla ulaşmak, bu sistemde kullanılabilir "
+"olmayan kio-fuse programını gerektiriyor."
 
 #: core/global.cpp:79
 #, kde-format
@@ -4248,12 +4251,12 @@ msgstr "Verilen %1 kullanıcı adı için kullanıcı kimliği alınamadı"
 msgid "Could not get group id for given group name %1"
 msgstr "Verilen %1 grup adı için grup kimliği alınamadı"
 
-#: kioworkers/file/file_unix_copy.cpp:1150
+#: kioworkers/file/file_unix_copy.cpp:1155
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr "Kopyalanan veri aygıta yazılıyor…"
 
-#: kioworkers/file/file_unix_copy.cpp:1448
+#: kioworkers/file/file_unix_copy.cpp:1453
 #, kde-format
 msgid "Malformed batch copy request"
 msgstr "Hatalı oluşturulmuş toplu kopyalama isteği"

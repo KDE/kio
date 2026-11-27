@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-26 00:59+0000\n"
-"PO-Revision-Date: 2026-11-05 05:33+0100\n"
+"POT-Creation-Date: 2026-11-27 01:00+0000\n"
+"PO-Revision-Date: 2026-11-26 06:27+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -139,7 +139,7 @@ msgstr "სინტაქსური შეცდომა %1-ში მოდ
 #: core/desktopexecparser.cpp:450
 #, kde-format
 msgid "Mounting the network location was interrupted."
-msgstr ""
+msgstr "ქსელური მდებარეობის მიმაგრება ჩავარდა."
 
 #: core/desktopexecparser.cpp:524
 #, kde-format
@@ -154,13 +154,15 @@ msgstr "სინტაქსური შეცდომა %1-ში %2-ის
 #: core/fusemountjob.cpp:131
 #, kde-format
 msgid "Accessing %1 through a local path is not supported on this system."
-msgstr ""
+msgstr "%1-სთან წვდომა ლოკალური ბილიკის გავლით ამ სისტემაზე მხარდაჭერილი არაა."
 
 #: core/fusemountjob.cpp:153
 #, kde-format
 msgid ""
 "Accessing %1 through a local path requires kio-fuse, which is not available."
 msgstr ""
+"%1-სთან წვდომას ლოკალური ბილიკის გავლით kio-fuse სჭირდება, რომელიც "
+"ხელმისაწვდომი არაა."
 
 #: core/global.cpp:79
 #, kde-format
@@ -4257,15 +4259,15 @@ msgstr "მომხმარებლის, %1, uid-ის მოძებნ�
 msgid "Could not get group id for given group name %1"
 msgstr "ჯგუფის, %1, gid-ის მოძებნის შეცდომა"
 
-#: kioworkers/file/file_unix_copy.cpp:1150
+#: kioworkers/file/file_unix_copy.cpp:1155
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr "დაკოპირებული მონაცემების ჩაწერა მოწყობილობაზე..."
 
-#: kioworkers/file/file_unix_copy.cpp:1448
+#: kioworkers/file/file_unix_copy.cpp:1453
 #, kde-format
 msgid "Malformed batch copy request"
-msgstr ""
+msgstr "არასწორად ჩამოყალიბებული პაკეტური კოპირების მოთხოვნა"
 
 #: kioworkers/ftp/ftp.cpp:361
 #, kde-format
@@ -6930,7 +6932,7 @@ msgstr "%1 (%2)"
 #, kde-format
 msgctxt "@info Error when copy paste from Ark failed"
 msgid "Cannot paste, Ark does not appear to be running."
-msgstr ""
+msgstr "ჩასმა შეუძლებელია. როგორც ჩანს, Ark გაშვებული არაა."
 
 #: widgets/pastejob.cpp:169
 #, kde-format

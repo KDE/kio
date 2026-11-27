@@ -19,16 +19,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-26 00:59+0000\n"
-"PO-Revision-Date: 2026-11-23 05:33-0300\n"
-"Last-Translator: Marcus Gama <marcus.gama@kde.org>\n"
+"POT-Creation-Date: 2026-11-27 01:00+0000\n"
+"PO-Revision-Date: 2026-11-26 05:17-0300\n"
+"Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.08.2\n"
+"X-Generator: Lokalize 26.08.3\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -153,7 +153,7 @@ msgstr "Erro de sintaxe no comando %1 vindo de %2"
 #: core/desktopexecparser.cpp:450
 #, kde-format
 msgid "Mounting the network location was interrupted."
-msgstr ""
+msgstr "A montagem do local de rede foi interrompida."
 
 #: core/desktopexecparser.cpp:524
 #, kde-format
@@ -169,12 +169,15 @@ msgstr "Erro de sintaxe no comando %1 ao tentar executar %2"
 #, kde-format
 msgid "Accessing %1 through a local path is not supported on this system."
 msgstr ""
+"O acesso a %1 por meio de um caminho local não é suportado neste sistema."
 
 #: core/fusemountjob.cpp:153
 #, kde-format
 msgid ""
 "Accessing %1 through a local path requires kio-fuse, which is not available."
 msgstr ""
+"O acesso a %1 por meio de um caminho local requer o kio-fuse, que não está "
+"disponível."
 
 #: core/global.cpp:79
 #, kde-format
@@ -4315,12 +4318,12 @@ msgstr ""
 msgid "Could not get group id for given group name %1"
 msgstr "Não foi possível obter o ID de grupo para o nome de grupo %1 fornecido"
 
-#: kioworkers/file/file_unix_copy.cpp:1150
+#: kioworkers/file/file_unix_copy.cpp:1155
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr "Gravando os dados copiados no dispositivo..."
 
-#: kioworkers/file/file_unix_copy.cpp:1448
+#: kioworkers/file/file_unix_copy.cpp:1453
 #, kde-format
 msgid "Malformed batch copy request"
 msgstr "Solicitação de cópia em lote malformada"

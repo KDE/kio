@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-26 00:59+0000\n"
+"POT-Creation-Date: 2026-11-27 01:00+0000\n"
 "PO-Revision-Date: 2026-11-02 15:39+0300\n"
 "Last-Translator: Abenezer Wesenseged <wseged@proton.me>\n"
 "Language-Team: Amharic <kde-l10n-am@kde.org>\n"
@@ -4142,12 +4142,12 @@ msgstr "ለተጠቀሰው የተጠቃሚ ስም %1 የተጠቃሚ ID ማግ�
 msgid "Could not get group id for given group name %1"
 msgstr "ለቡድን ስም %1 የቡድን ID ማግኘት አልተቻለም"
 
-#: kioworkers/file/file_unix_copy.cpp:1150
+#: kioworkers/file/file_unix_copy.cpp:1155
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr "የተገለበጠውን መረጃ ወደ መሳሪያው በመጻፍ ላይ..."
 
-#: kioworkers/file/file_unix_copy.cpp:1448
+#: kioworkers/file/file_unix_copy.cpp:1453
 #, kde-format
 msgid "Malformed batch copy request"
 msgstr ""

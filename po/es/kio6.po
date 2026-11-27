@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-26 00:59+0000\n"
-"PO-Revision-Date: 2026-11-23 18:05+0100\n"
+"POT-Creation-Date: 2026-11-27 01:00+0000\n"
+"PO-Revision-Date: 2026-11-27 00:00+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -149,7 +149,7 @@ msgstr "Error de sintaxis en la orden %1 que viene de %2"
 #: core/desktopexecparser.cpp:450
 #, kde-format
 msgid "Mounting the network location was interrupted."
-msgstr ""
+msgstr "Se ha interrumpido el montaje de la ubicación de red."
 
 #: core/desktopexecparser.cpp:524
 #, kde-format
@@ -165,12 +165,15 @@ msgstr "Error de sintaxis en la orden %1 al intentar ejecutar %2"
 #, kde-format
 msgid "Accessing %1 through a local path is not supported on this system."
 msgstr ""
+"El acceso a %1 mediante una ruta local no se ha implementado en este sistema."
 
 #: core/fusemountjob.cpp:153
 #, kde-format
 msgid ""
 "Accessing %1 through a local path requires kio-fuse, which is not available."
 msgstr ""
+"El acceso a %1 mediante una ruta local requiere kio-fuse, que no está "
+"disponible."
 
 #: core/global.cpp:79
 #, kde-format
@@ -4343,12 +4346,12 @@ msgstr "Imposible obtener el id del usuario para el usuario %1"
 msgid "Could not get group id for given group name %1"
 msgstr "Imposible obtener el id del grupo para el grupo %1"
 
-#: kioworkers/file/file_unix_copy.cpp:1150
+#: kioworkers/file/file_unix_copy.cpp:1155
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr "Escribiendo los datos copiados en el dispositivo…"
 
-#: kioworkers/file/file_unix_copy.cpp:1448
+#: kioworkers/file/file_unix_copy.cpp:1453
 #, kde-format
 msgid "Malformed batch copy request"
 msgstr "Solicitud de copia por lotes mal formada"

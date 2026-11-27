@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-26 00:59+0000\n"
+"POT-Creation-Date: 2026-11-27 01:00+0000\n"
 "PO-Revision-Date: 2026-11-24 20:48+0800\n"
 "Last-Translator: Jeff Huang <s8321414@gmail.com>\n"
 "Language-Team: Traditional Chinese\n"
@@ -4108,12 +4108,12 @@ msgstr "無法取得使用者 %1 的代碼。"
 msgid "Could not get group id for given group name %1"
 msgstr "無法取得群組 %1 的代碼。"
 
-#: kioworkers/file/file_unix_copy.cpp:1150
+#: kioworkers/file/file_unix_copy.cpp:1155
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr "正在將已複製的資料寫入裝置…"
 
-#: kioworkers/file/file_unix_copy.cpp:1448
+#: kioworkers/file/file_unix_copy.cpp:1453
 #, kde-format
 msgid "Malformed batch copy request"
 msgstr ""

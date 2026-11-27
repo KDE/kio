@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio stable\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-26 00:59+0000\n"
+"POT-Creation-Date: 2026-11-27 01:00+0000\n"
 "PO-Revision-Date: 2026-10-07 15:22+0200\n"
 "Last-Translator: Stéfan Driaan Turvey <stefanturvey1912@gmail.com>\n"
 "Language-Team: Afrikaans <kde-i18n-doc@kde.org>\n"
@@ -4305,12 +4305,12 @@ msgstr "Kon nie gebruiker-id vir die gegewe gebruikernaam %1 kry nie"
 msgid "Could not get group id for given group name %1"
 msgstr "Kon nie groep-id vir die gegewe groepnaam %1 kry nie"
 
-#: kioworkers/file/file_unix_copy.cpp:1150
+#: kioworkers/file/file_unix_copy.cpp:1155
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr ""
 
-#: kioworkers/file/file_unix_copy.cpp:1448
+#: kioworkers/file/file_unix_copy.cpp:1453
 #, kde-format
 msgid "Malformed batch copy request"
 msgstr ""

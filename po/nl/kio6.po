@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-26 00:59+0000\n"
-"PO-Revision-Date: 2026-11-22 23:55+0100\n"
-"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"POT-Creation-Date: 2026-11-27 01:00+0000\n"
+"PO-Revision-Date: 2026-11-26 14:31+0100\n"
+"Last-Translator: freek <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.3\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -141,7 +141,7 @@ msgstr "Syntaxisfout in commando %1 komend van %2"
 #: core/desktopexecparser.cpp:450
 #, kde-format
 msgid "Mounting the network location was interrupted."
-msgstr ""
+msgstr "Het koppelen van de netwerklocatie is onderbroken."
 
 #: core/desktopexecparser.cpp:524
 #, kde-format
@@ -157,12 +157,15 @@ msgstr "Syntaxisfout in commando %1 bij proberen %2 uit te voeren"
 #, kde-format
 msgid "Accessing %1 through a local path is not supported on this system."
 msgstr ""
+"Toegang tot %1 via een lokaal pad wordt op dit systeem niet ondersteund."
 
 #: core/fusemountjob.cpp:153
 #, kde-format
 msgid ""
 "Accessing %1 through a local path requires kio-fuse, which is not available."
 msgstr ""
+"Voor toegang tot %1 via een lokaal pad is kio-fuse vereist, maar die is niet "
+"beschikbaar."
 
 #: core/global.cpp:79
 #, kde-format
@@ -4347,12 +4350,12 @@ msgstr "Kon gebruikers-id voor de opgegeven gebruikersnaam %1 niet verkrijgen"
 msgid "Could not get group id for given group name %1"
 msgstr "Kon de groeps-id voor opgegeven groepsnaam %1 niet verkrijgen"
 
-#: kioworkers/file/file_unix_copy.cpp:1150
+#: kioworkers/file/file_unix_copy.cpp:1155
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr "De gekopieerde gegevens worden naar het apparaat geschreven"
 
-#: kioworkers/file/file_unix_copy.cpp:1448
+#: kioworkers/file/file_unix_copy.cpp:1453
 #, kde-format
 msgid "Malformed batch copy request"
 msgstr "Onjuist geformuleerd verzoek tot batchkopie"

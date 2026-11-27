@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio6\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-26 00:59+0000\n"
-"PO-Revision-Date: 2026-11-24 08:49+0200\n"
+"POT-Creation-Date: 2026-11-27 01:00+0000\n"
+"PO-Revision-Date: 2026-11-26 08:27+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <kde-l10n-he@kde.org>\n"
 "Language: he\n"
@@ -148,7 +148,7 @@ msgstr "שגיאת תחביר בפקודה %1 נובעת מתוך %2"
 #: core/desktopexecparser.cpp:450
 #, kde-format
 msgid "Mounting the network location was interrupted."
-msgstr ""
+msgstr "עיגון נקודת הרשת נקטע."
 
 #: core/desktopexecparser.cpp:524
 #, kde-format
@@ -163,13 +163,13 @@ msgstr "שגיאת תחביר בפקודה %1 תוך ניסיון להריץ א�
 #: core/fusemountjob.cpp:131
 #, kde-format
 msgid "Accessing %1 through a local path is not supported on this system."
-msgstr ""
+msgstr "גישה ל־%1 דרך נתיב מקומי לא נתמכת במערכת הזאת."
 
 #: core/fusemountjob.cpp:153
 #, kde-format
 msgid ""
 "Accessing %1 through a local path requires kio-fuse, which is not available."
-msgstr ""
+msgstr "גישה ל־%1 דרך נתיב מקומי דורשת את kio-fuse, שאינו זמין."
 
 #: core/global.cpp:79
 #, kde-format
@@ -4179,12 +4179,12 @@ msgstr "אי אפשר לאתר את מזהה המשתמש של שם המשתמש
 msgid "Could not get group id for given group name %1"
 msgstr "אי אפשר לאתר את מזהה הקבוצה של שם הקבוצה שסופק %1"
 
-#: kioworkers/file/file_unix_copy.cpp:1150
+#: kioworkers/file/file_unix_copy.cpp:1155
 #, kde-format
 msgid "Writing the copied data to the device..."
 msgstr "הנתונים המועתקים נכתבים למכשיר…"
 
-#: kioworkers/file/file_unix_copy.cpp:1448
+#: kioworkers/file/file_unix_copy.cpp:1453
 #, kde-format
 msgid "Malformed batch copy request"
 msgstr "בקשה שגויה להעתקה במרוכז"
