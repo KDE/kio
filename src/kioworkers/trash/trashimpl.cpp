@@ -246,7 +246,14 @@ bool TrashImpl::createInfo(const QString &origPath, quint64 &trashId, QString &f
         }
         return false;
     }
-    if (::faccessat(AT_FDCWD, origPath_c.constData(), W_OK, AT_SYMLINK_NOFOLLOW) == -1) {
+    const QString parentDir = QFileInfo(origPath).path();
+    const QByteArray parentDir_c = QFile::encodeName(parentDir);
+    QT_STATBUF buff_parent;
+    if (QT_STAT(parentDir_c.constData(), &buff_parent) == -1 || ::access(parentDir_c.constData(), W_OK | X_OK) == -1) {
+        error(KIO::ERR_ACCESS_DENIED, origPath);
+        return false;
+    }
+    if ((buff_parent.st_mode & S_ISVTX) && buff_src.st_uid != geteuid() && buff_parent.st_uid != geteuid() && geteuid() != 0) {
         error(KIO::ERR_ACCESS_DENIED, origPath);
         return false;
     }

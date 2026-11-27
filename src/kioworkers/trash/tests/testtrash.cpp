@@ -392,6 +392,31 @@ void TestTrash::trashFileFromHome()
     trashFile(homeTmpDir() + fileName, fileName + QLatin1String(" (1)"));
 }
 
+void TestTrash::trashReadOnlyFileFromHome()
+{
+    const QString fileName = QStringLiteral("readOnlyFileFromHome");
+    const QString filePath = homeTmpDir() + fileName;
+    createTestFile(filePath);
+    const auto permissions = QFile::ReadOwner | QFile::ReadUser;
+    QVERIFY(QFile(filePath).setPermissions(permissions));
+
+    QUrl u = QUrl::fromLocalFile(filePath);
+    KIO::Job *job = KIO::move(u, QUrl(QStringLiteral("trash:/")), KIO::HideProgressInfo);
+    job->setUiDelegate(nullptr);
+
+    QVERIFY(job->exec());
+    QCOMPARE(job->error(), KJob::NoError);
+
+    QVERIFY(!QFile::exists(filePath));
+
+    const QString trashFilePath = m_trashDir + QLatin1String("/files/") + fileName;
+    QVERIFY(QFile::exists(trashFilePath));
+    QCOMPARE(QFileInfo(trashFilePath).permissions(), permissions);
+
+    const QString infoPath = m_trashDir + QLatin1String("/info/") + fileName + QLatin1String(".trashinfo");
+    QVERIFY(QFile::exists(infoPath));
+}
+
 void TestTrash::trashPercentFileFromHome()
 {
     const QString fileName = QStringLiteral("file%2f");

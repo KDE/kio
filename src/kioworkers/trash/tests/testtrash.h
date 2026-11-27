@@ -34,6 +34,7 @@ private Q_SLOTS:
     void urlTestLargeId();
 
     void trashFileFromHome();
+    void trashReadOnlyFileFromHome();
     void trashPercentFileFromHome();
     void trashUtf8FileFromHome();
     void trashUmlautFileFromHome();
