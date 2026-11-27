@@ -32,6 +32,7 @@ private Q_SLOTS:
     void testCmpByUrl();
     void testRename();
     void testRefresh();
+    void testRefreshWithLocalHostname();
     void testExists();
     void testDotDirectory();
     void testMimetypeForRemoteFolder();

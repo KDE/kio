@@ -283,7 +283,8 @@ void KFileItemPrivate::init() const
 #else
         QT_STATBUF buff;
 #endif
-        const QString path = m_url.adjusted(QUrl::StripTrailingSlash).path();
+        QUrl localUrl = m_url.adjusted(QUrl::StripTrailingSlash | QUrl::RemoveAuthority);
+        const QString path = localUrl.toLocalFile();
         const QByteArray pathBA = QFile::encodeName(path);
         if (LSTAT(pathBA.constData(), &buff, KIO::StatDefaultDetails) == 0) {
             m_entry.reserveStrings(2);

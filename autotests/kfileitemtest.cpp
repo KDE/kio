@@ -617,6 +617,17 @@ void KFileItemTest::testRefresh()
     QVERIFY(symlinkToDirItem.isLink());
 }
 
+void KFileItemTest::testRefreshWithLocalHostname()
+{
+    QTemporaryDir tempDir;
+    QUrl url = QUrl::fromLocalFile(tempDir.path());
+    url.setHost(QSysInfo::machineHostName());
+    KFileItem dirItem(url);
+    dirItem.refresh();
+    QVERIFY(dirItem.exists());
+    QVERIFY(dirItem.isDir());
+}
+
 void KFileItemTest::testExists()
 {
     QTest::failOnWarning(QRegularExpression(".?"));
