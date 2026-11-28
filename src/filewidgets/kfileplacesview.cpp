@@ -50,6 +50,7 @@
 #include <solid/storagedrive.h>
 #include <solid/storagevolume.h>
 
+#include <algorithm>
 #include <chrono>
 #include <cmath>
 #include <set>
@@ -1891,8 +1892,16 @@ void KFilePlacesViewPrivate::adaptItemSize()
     } else if (size > maxSize) {
         size = maxSize;
     } else {
-        // Make it a multiple of 16
-        size &= ~0xf;
+        // Round down to a standard size, so the 22 px of a panel with a fixed size remains a step.
+        static constexpr int standardSizes[] = {KIconLoader::SizeHuge,
+                                                KIconLoader::SizeLarge,
+                                                KIconLoader::SizeMedium,
+                                                KIconLoader::SizeSmallMedium,
+                                                KIconLoader::SizeSmall};
+        const auto standardSize = std::ranges::find_if(standardSizes, [size](int standard) {
+            return standard <= size;
+        });
+        size = standardSize != std::end(standardSizes) ? *standardSize : minSize;
     }
 
     relayoutIconSize(size);

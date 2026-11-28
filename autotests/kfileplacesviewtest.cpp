@@ -19,10 +19,25 @@
 #include <QApplication>
 #include <QHelpEvent>
 #include <QPixmap>
+#include <QProxyStyle>
+#include <QSet>
 #include <QSignalSpy>
 #include <QStyle>
 #include <QTest>
 #include <QToolTip>
+
+// Applies a new icon size at once instead of animating it.
+class NoAnimationStyle : public QProxyStyle
+{
+public:
+    int styleHint(StyleHint hint, const QStyleOption *option, const QWidget *widget, QStyleHintReturn *returnData) const override
+    {
+        if (hint == QStyle::SH_Widget_Animation_Duration) {
+            return 0;
+        }
+        return QProxyStyle::styleHint(hint, option, widget, returnData);
+    }
+};
 
 static QString bookmarksFile()
 {
@@ -43,6 +58,7 @@ private Q_SLOTS:
     void testSetUrl();
     void testElidedNameGetsATooltip();
     void testDefaultWidthFitsLargeIcons();
+    void testAutomaticIconSizeSteps();
 
 private:
     QTemporaryDir m_tmpHome;
@@ -208,6 +224,36 @@ void KFilePlacesViewTest::testDefaultWidthFitsLargeIcons()
     QHelpEvent event(QEvent::ToolTip, pos, view.viewport()->mapToGlobal(pos));
     QApplication::sendEvent(view.viewport(), &event);
     QVERIFY(!QToolTip::text().contains(widest.data(Qt::DisplayRole).toString()));
+}
+
+void KFilePlacesViewTest::testAutomaticIconSizeSteps()
+{
+    NoAnimationStyle style;
+    KFilePlacesModel model;
+    KFilePlacesView view;
+    view.setStyle(&style);
+    view.setModel(&model);
+    view.resize(600, 2000);
+    view.show();
+    QVERIFY(QTest::qWaitForWindowExposed(&view));
+
+    // Wide enough that only the height limits the size, from the largest step to the smallest.
+    const QModelIndex index = model.index(1, 0);
+    QVERIFY(index.isValid());
+    QSet<int> rowHeights;
+    for (int height = 2000; height >= 100; height -= 5) {
+        view.resize(600, height);
+        view.doItemsLayout();
+        rowHeights.insert(view.visualRect(index).height());
+    }
+
+    // A row is taller than its icon by a fixed amount, which the smallest size gives.
+    const int overhead = *std::min_element(rowHeights.cbegin(), rowHeights.cend()) - view.style()->pixelMetric(QStyle::PM_SmallIconSize);
+    QSet<int> iconSizes;
+    for (int rowHeight : std::as_const(rowHeights)) {
+        iconSizes.insert(rowHeight - overhead);
+    }
+    QCOMPARE(iconSizes, QSet<int>({16, 22, 32, 48, 64}));
 }
 
 QTEST_MAIN(KFilePlacesViewTest)
