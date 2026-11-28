@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-27 01:00+0000\n"
+"POT-Creation-Date: 2026-11-28 01:05+0000\n"
 "PO-Revision-Date: 2012-06-03 01:00+0200\n"
 "Last-Translator: Børre Gaup <boerre@skolelinux.no>\n"
 "Language-Team: Northern Sami <l10n-no@nuug.no>\n"
@@ -2183,17 +2183,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Ii-dokumenterejuvvon meattáhus"
 
-#: core/kfileitem.cpp:1563
+#: core/kfileitem.cpp:1564
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Symbolalaš liŋka %1:ii)"
 
-#: core/kfileitem.cpp:1565
+#: core/kfileitem.cpp:1566
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, liŋka %2:ii)"
 
-#: core/kfileitem.cpp:1568
+#: core/kfileitem.cpp:1569
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Čujuha dása: %1)"
@@ -2221,14 +2221,12 @@ msgstr ""
 
 #: core/openwith.cpp:96
 #, fuzzy, kde-format
-#| msgid "Could not enter folder %1."
 msgctxt "@info %1 is a folder path"
 msgid "Could not create the folder %1."
 msgstr "Ii sáhttán rahpat máhpa %1."
 
 #: core/openwith.cpp:100 core/openwith.cpp:113
 #, fuzzy, kde-format
-#| msgid "Could not write to file %1."
 msgctxt "@info %1 is a file path, %2 the error"
 msgid "Could not write the file type definition %1: %2"
 msgstr "Ii sáhttán čállit fiilii, %1"
@@ -3662,7 +3660,6 @@ msgstr ""
 
 #: filewidgets/kurlnavigator.cpp:627
 #, fuzzy, kde-format
-#| msgid "Location:"
 msgid "Copy Location"
 msgstr "Čujuhus:"
 
@@ -4477,15 +4474,11 @@ msgstr "Fiila lea juo ruskalihtis."
 #: kioworkers/trash/kio_trash_win.cpp:216
 #: kioworkers/trash/kio_trash_win.cpp:231
 #, fuzzy, kde-format
-#| msgid "The resource cannot be deleted."
 msgid "The trash item %1 cannot be restored."
 msgstr "Ii sáhtán sihkkut resurssa."
 
 #: kioworkers/trash/kio_trash_win.cpp:255
 #, fuzzy, kde-format
-#| msgid ""
-#| "Internal error in server\n"
-#| "%1"
 msgid "Internal error in rename, should never happen"
 msgstr ""
 "Siskkildas meattáhus bálvvás\n"
@@ -4498,9 +4491,6 @@ msgstr ""
 
 #: kioworkers/trash/kio_trash_win.cpp:276
 #, fuzzy, kde-format
-#| msgid ""
-#| "Internal error in server\n"
-#| "%1"
 msgid "Internal error in copy, should never happen"
 msgstr ""
 "Siskkildas meattáhus bálvvás\n"

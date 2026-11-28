@@ -24,8 +24,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kcmkio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-27 01:00+0000\n"
-"PO-Revision-Date: 2026-11-22 07:35+0200\n"
+"POT-Creation-Date: 2026-11-28 01:05+0000\n"
+"PO-Revision-Date: 2026-11-27 07:57+0200\n"
 "Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
 "Language-Team: Basealt Translation Team\n"
 "Language: ru\n"
@@ -166,7 +166,7 @@ msgstr "Синтаксическая ошибка в команде «%1», по
 #: core/desktopexecparser.cpp:450
 #, kde-format
 msgid "Mounting the network location was interrupted."
-msgstr ""
+msgstr "Подключение сетевого расположения прервано."
 
 #: core/desktopexecparser.cpp:524
 #, kde-format
@@ -181,13 +181,14 @@ msgstr "Синтаксическая ошибка в команде «%1» пр�
 #: core/fusemountjob.cpp:131
 #, kde-format
 msgid "Accessing %1 through a local path is not supported on this system."
-msgstr ""
+msgstr "Доступ к %1 через локальный путь в этой системе не поддерживается."
 
 #: core/fusemountjob.cpp:153
 #, kde-format
 msgid ""
 "Accessing %1 through a local path requires kio-fuse, which is not available."
 msgstr ""
+"Для доступа к %1 через локальный путь требуется kio-fuse, но он недоступен."
 
 #: core/global.cpp:79
 #, kde-format
@@ -2307,17 +2308,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Недокументированная ошибка"
 
-#: core/kfileitem.cpp:1563
+#: core/kfileitem.cpp:1564
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(символическая ссылка на %1)"
 
-#: core/kfileitem.cpp:1565
+#: core/kfileitem.cpp:1566
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, ссылка на %2)"
 
-#: core/kfileitem.cpp:1568
+#: core/kfileitem.cpp:1569
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (указывает на %1)"

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio_trash\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-27 01:00+0000\n"
+"POT-Creation-Date: 2026-11-28 01:05+0000\n"
 "PO-Revision-Date: 2024-10-03 20:40+0700\n"
 "Last-Translator: Wantoyèk <wantoyek@gmail.com>\n"
 "Language-Team: https://t.me/Localizations_KDE_Indonesia\n"
@@ -2309,17 +2309,17 @@ msgstr ""
 msgid "Undocumented Error"
 msgstr "Error Tak Terdokumen"
 
-#: core/kfileitem.cpp:1563
+#: core/kfileitem.cpp:1564
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(Tautan Simbolis ke %1)"
 
-#: core/kfileitem.cpp:1565
+#: core/kfileitem.cpp:1566
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1, Taut ke %2)"
 
-#: core/kfileitem.cpp:1568
+#: core/kfileitem.cpp:1569
 #, kde-format
 msgid " (Points to %1)"
 msgstr " (Titik ke %1)"

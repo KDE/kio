@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kio\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-27 01:00+0000\n"
+"POT-Creation-Date: 2026-11-28 01:05+0000\n"
 "PO-Revision-Date: 2026-11-02 15:39+0300\n"
 "Last-Translator: Abenezer Wesenseged <wseged@proton.me>\n"
 "Language-Team: Amharic <kde-l10n-am@kde.org>\n"
@@ -2192,17 +2192,17 @@ msgstr "ትላልቅ ፋይሎችን የሚደግፍ የፋይል ስርዓት �
 msgid "Undocumented Error"
 msgstr "ሰነድ አልባ ስህተት"
 
-#: core/kfileitem.cpp:1563
+#: core/kfileitem.cpp:1564
 #, kde-format
 msgid "(Symbolic Link to %1)"
 msgstr "(ተምሳሌታዊ አገናኝ ወደ %1)"
 
-#: core/kfileitem.cpp:1565
+#: core/kfileitem.cpp:1566
 #, kde-format
 msgid "(%1, Link to %2)"
 msgstr "(%1፣ አገናኝ ወደ %2)"
 
-#: core/kfileitem.cpp:1568
+#: core/kfileitem.cpp:1569
 #, kde-format
 msgid " (Points to %1)"
 msgstr "(ወደ %1 ይጠቁማል)"
