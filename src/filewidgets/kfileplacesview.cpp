@@ -1749,6 +1749,8 @@ void KFilePlacesView::rowsInserted(const QModelIndex &parent, int start, int end
 
     d->triggerItemAppearingAnimation();
 
+    // The model lists devices after the window is laid out, and their names can be the longest.
+    updateGeometry();
     d->adaptItemSize();
 }
 

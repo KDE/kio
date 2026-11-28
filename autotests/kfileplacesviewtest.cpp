@@ -17,7 +17,10 @@
 #include <kfileplacesview.h>
 
 #include <QApplication>
+#include <QDir>
+#include <QDockWidget>
 #include <QHelpEvent>
+#include <QMainWindow>
 #include <QPixmap>
 #include <QProxyStyle>
 #include <QSet>
@@ -59,6 +62,8 @@ private Q_SLOTS:
     void testElidedNameGetsATooltip();
     void testDefaultWidthFitsLargeIcons();
     void testAutomaticIconSizeSteps();
+    void testDockGrowsForPlaceAddedLater();
+    void testDockKeepsRestoredWidth();
 
 private:
     QTemporaryDir m_tmpHome;
@@ -254,6 +259,77 @@ void KFilePlacesViewTest::testAutomaticIconSizeSteps()
         iconSizes.insert(rowHeight - overhead);
     }
     QCOMPARE(iconSizes, QSet<int>({16, 22, 32, 48, 64}));
+}
+
+void KFilePlacesViewTest::testDockGrowsForPlaceAddedLater()
+{
+    KFilePlacesModel model;
+    QMainWindow window;
+    window.setCentralWidget(new QWidget(&window));
+    auto dock = new QDockWidget(&window);
+    dock->setObjectName(QStringLiteral("placesDock"));
+    auto view = new KFilePlacesView(dock);
+    view->setModel(&model);
+    dock->setWidget(view);
+    window.addDockWidget(Qt::LeftDockWidgetArea, dock);
+    window.resize(1000, 700);
+    window.show();
+    QVERIFY(QTest::qWaitForWindowExposed(&window));
+    const int widthBefore = view->width();
+
+    // Devices are listed after the window is laid out, and one of them can have the longest name.
+    const QString longName = QStringLiteral("A place with a much longer name than the default places have");
+    model.addPlace(longName, QUrl::fromLocalFile(QDir::tempPath()));
+    QTRY_VERIFY(view->width() > widthBefore);
+    QCOMPARE(view->width(), view->sizeHint().width());
+}
+
+void KFilePlacesViewTest::testDockKeepsRestoredWidth()
+{
+    KFilePlacesModel model;
+    QByteArray state;
+    int savedWidth = 0;
+    {
+        QMainWindow window;
+        window.setCentralWidget(new QWidget(&window));
+        auto dock = new QDockWidget(&window);
+        dock->setObjectName(QStringLiteral("placesDock"));
+        auto view = new KFilePlacesView(dock);
+        view->setModel(&model);
+        dock->setWidget(view);
+        window.addDockWidget(Qt::LeftDockWidgetArea, dock);
+        window.resize(1000, 700);
+        window.show();
+        QVERIFY(QTest::qWaitForWindowExposed(&window));
+        window.resizeDocks({dock}, {view->width() + 50}, Qt::Horizontal);
+        QTRY_VERIFY(view->width() > view->sizeHint().width());
+        savedWidth = dock->width();
+
+        // Nor does a width that the user set in this session change for a new device.
+        model.addPlace(QStringLiteral("A device with a much longer name than the default places have"), QUrl::fromLocalFile(QDir::rootPath()));
+        QTest::qWait(200);
+        QCOMPARE(dock->width(), savedWidth);
+        state = window.saveState();
+    }
+
+    QMainWindow window;
+    window.setCentralWidget(new QWidget(&window));
+    auto dock = new QDockWidget(&window);
+    dock->setObjectName(QStringLiteral("placesDock"));
+    auto view = new KFilePlacesView(dock);
+    view->setModel(&model);
+    dock->setWidget(view);
+    window.addDockWidget(Qt::LeftDockWidgetArea, dock);
+    window.resize(1000, 700);
+    QVERIFY(window.restoreState(state));
+    window.show();
+    QVERIFY(QTest::qWaitForWindowExposed(&window));
+    QCOMPARE(dock->width(), savedWidth);
+
+    // A width that the user chose stays, whatever place is added.
+    model.addPlace(QStringLiteral("Another place with a much longer name than the default places have"), QUrl::fromLocalFile(QDir::homePath()));
+    QTest::qWait(200);
+    QCOMPARE(dock->width(), savedWidth);
 }
 
 QTEST_MAIN(KFilePlacesViewTest)
