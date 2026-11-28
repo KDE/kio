@@ -20,6 +20,7 @@
 #include <QHelpEvent>
 #include <QPixmap>
 #include <QSignalSpy>
+#include <QStyle>
 #include <QTest>
 #include <QToolTip>
 
@@ -41,6 +42,7 @@ private Q_SLOTS:
     void testSetUrl_data();
     void testSetUrl();
     void testElidedNameGetsATooltip();
+    void testDefaultWidthFitsLargeIcons();
 
 private:
     QTemporaryDir m_tmpHome;
@@ -168,6 +170,44 @@ void KFilePlacesViewTest::testElidedNameGetsATooltip()
     QApplication::sendEvent(view.viewport(), &event);
 
     QTRY_VERIFY(QToolTip::text().contains(name));
+}
+
+void KFilePlacesViewTest::testDefaultWidthFitsLargeIcons()
+{
+    KFilePlacesModel model;
+    KFilePlacesView view;
+    view.setModel(&model);
+    QVERIFY(view.isAutoResizeItemsEnabled());
+
+    // Tall enough for every row to hold a large icon, so only the width can limit the size.
+    view.resize(view.sizeHint().width(), 2000);
+    view.show();
+    QVERIFY(QTest::qWaitForWindowExposed(&view));
+
+    const int largeIconSize = view.style()->pixelMetric(QStyle::PM_LargeIconSize);
+    const QModelIndex index = model.index(1, 0);
+    QVERIFY(index.isValid());
+    QTRY_VERIFY(view.visualRect(index).height() >= largeIconSize);
+
+    // The widest name still fits beside the large icon: an elided name would get a tooltip.
+    QModelIndex widest;
+    int widestWidth = 0;
+    for (int row = 0; row < model.rowCount(); ++row) {
+        const QModelIndex candidate = model.index(row, 0);
+        const int width = view.fontMetrics().horizontalAdvance(candidate.data(Qt::DisplayRole).toString());
+        if (!model.isHidden(candidate) && width > widestWidth) {
+            widest = candidate;
+            widestWidth = width;
+        }
+    }
+    QVERIFY(widest.isValid());
+    QPixmap target(view.viewport()->size());
+    view.viewport()->render(&target);
+    QToolTip::hideText();
+    const QPoint pos = view.visualRect(widest).center();
+    QHelpEvent event(QEvent::ToolTip, pos, view.viewport()->mapToGlobal(pos));
+    QApplication::sendEvent(view.viewport(), &event);
+    QVERIFY(!QToolTip::text().contains(widest.data(Qt::DisplayRole).toString()));
 }
 
 QTEST_MAIN(KFilePlacesViewTest)

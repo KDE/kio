@@ -1768,7 +1768,10 @@ QSize KFilePlacesView::sizeHint() const
         }
     }
 
-    const int iconSize = style()->pixelMetric(QStyle::PM_SmallIconSize) + 3 * s_lateralMargin;
+    // With automatic sizing, leave room for large icons beside the names, so a new panel does
+    // not start at the smallest size whatever its height.
+    const QStyle::PixelMetric iconMetric = d->m_autoResizeItems ? QStyle::PM_LargeIconSize : QStyle::PM_SmallIconSize;
+    const int iconSize = style()->pixelMetric(iconMetric) + 3 * s_lateralMargin;
     return QSize(iconSize + textWidth + fm.height() / 2, height);
 }
 
