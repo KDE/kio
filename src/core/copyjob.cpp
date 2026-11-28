@@ -2236,7 +2236,7 @@ bool CopyJobPrivate::tryBatchCopyFiles()
         return false;
     }
     // These modes decide file by file.
-    if (m_bOverwriteWhenOlder || !m_overwriteList.isEmpty() || m_bAutoSkipFiles || m_bAutoRenameFiles) {
+    if (m_bOverwriteWhenOlder || m_bAutoSkipFiles || m_bAutoRenameFiles) {
         return false;
     }
     // Unless every file may be overwritten, the worker defers an existing destination. It gives

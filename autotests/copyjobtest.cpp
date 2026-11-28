@@ -52,6 +52,7 @@ private Q_SLOTS:
     void copyManyFilesBatchedOverwriteOntoFolder();
     void copyManyFilesBatchedOverwriteThroughFolderSymlink();
     void copyManyFilesBatchedOverwriteOntoFifo();
+    void copyFolderBatchedWriteIntoThenOverwriteAll();
     void copyManyFilesBatchedWithUnreadableSource();
     void copyManyFilesBatchedCancelled();
     void copyManyFilesKeepsBatchingAfterADeferredFile();
@@ -578,6 +579,46 @@ void CopyJobTest::copyManyFilesBatchedOverwriteOntoFifo()
     QCOMPARE(QT_LSTAT(fifo.constData(), &st), 0);
     QVERIFY(S_ISFIFO(st.st_mode));
     QVERIFY(!QFileInfo::exists(dst + "f2.part"));
+}
+
+void CopyJobTest::copyFolderBatchedWriteIntoThenOverwriteAll()
+{
+    const QString src = homeTmpDir() + "batchwriteinto_src/dir/";
+    const QString dst = homeTmpDir() + "batchwriteinto_dst/";
+    QDir(homeTmpDir() + "batchwriteinto_src").removeRecursively();
+    QDir(dst).removeRecursively();
+    QDir().mkpath(src);
+    QDir().mkpath(dst + "dir");
+    auto cleaner = qScopeGuard([&] {
+        QDir(homeTmpDir() + "batchwriteinto_src").removeRecursively();
+        QDir(dst).removeRecursively();
+    });
+
+    // An older copy of the folder already holds some of the files.
+    const int n = 10;
+    for (int i = 0; i < n; ++i) {
+        createTestFile(src + QStringLiteral("f%1").arg(i), true, QByteArray("new-") + QByteArray::number(i));
+    }
+    for (int i : {2, 5, 8}) {
+        createTestFile(dst + QStringLiteral("dir/f%1").arg(i), true, "OLD");
+    }
+
+    const int batchesBefore = KIO::TestPrivate::batchCopyCommandsSent();
+    KIO::CopyJob *job = KIO::copy(QUrl::fromLocalFile(homeTmpDir() + "batchwriteinto_src/dir"), QUrl::fromLocalFile(dst), KIO::HideProgressInfo);
+    job->setUiDelegate(new KJobUiDelegate);
+    auto *askUserHandler = new MockAskUserInterface(job->uiDelegate());
+    // "Write Into" for the folder, then "Overwrite All" for the first file that exists.
+    askUserHandler->m_renameResults = {KIO::Result_Overwrite, KIO::Result_OverwriteAll};
+    QVERIFY2(job->exec(), qPrintable(job->errorString()));
+    QCOMPARE(askUserHandler->m_askUserRenameCalled, 2);
+
+    // The folder in the overwrite list leaves the new files to the batch.
+    QVERIFY(KIO::TestPrivate::batchCopyCommandsSent() > batchesBefore);
+    for (int i = 0; i < n; ++i) {
+        QFile out(dst + QStringLiteral("dir/f%1").arg(i));
+        QVERIFY2(out.open(QIODevice::ReadOnly), qPrintable(out.fileName()));
+        QCOMPARE(out.readAll(), QByteArray("new-") + QByteArray::number(i));
+    }
 }
 
 void CopyJobTest::copyManyFilesBatchedWithUnreadableSource()
